@@ -1,0 +1,348 @@
+{
+  "batteryId": "battery-claude-sonnet-4-5-nmp-2026-08-100659",
+  "createdAt": "2026-08-10T09:22:25.124Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.2-ablation-no-mundane-prior",
+    "platformVersion": "0.4.0",
+    "prompts": {
+      "decision": "agent-decision-v2",
+      "beliefUpdate": "belief-update-v4-nmp"
+    },
+    "personaHash": "1b700ac9",
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "claude-sonnet-4-5",
+      "provider": "anthropic",
+      "webSearchDisabled": null,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "settings": {
+    "conditions": [
+      "control",
+      "gravity_shift",
+      "instrument_fault"
+    ],
+    "replicates": 10,
+    "days": 30,
+    "baseSeed": 1000,
+    "modelName": "claude-sonnet-4-5",
+    "temperature": 1,
+    "concurrency": 3,
+    "maxCost": 150,
+    "promptVariant": "v0.2-no-mundane-prior"
+  },
+  "totalEstimatedCostUSD": 27.726759,
+  "jobs": [
+    {
+      "name": "control-seed1000",
+      "condition": "control",
+      "seed": 1000,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1000.json",
+      "status": "done",
+      "costUSD": 0.7819169999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1001",
+      "condition": "control",
+      "seed": 1001,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1001.json",
+      "status": "done",
+      "costUSD": 0.678639,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1002",
+      "condition": "control",
+      "seed": 1002,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1002.json",
+      "status": "done",
+      "costUSD": 0.9042060000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1003",
+      "condition": "control",
+      "seed": 1003,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1003.json",
+      "status": "done",
+      "costUSD": 0.760443,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1004",
+      "condition": "control",
+      "seed": 1004,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1004.json",
+      "status": "done",
+      "costUSD": 0.4865519999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1005",
+      "condition": "control",
+      "seed": 1005,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1005.json",
+      "status": "done",
+      "costUSD": 0.7055309999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1006",
+      "condition": "control",
+      "seed": 1006,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1006.json",
+      "status": "done",
+      "costUSD": 1.045863,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1007",
+      "condition": "control",
+      "seed": 1007,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1007.json",
+      "status": "done",
+      "costUSD": 0.7647149999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1008",
+      "condition": "control",
+      "seed": 1008,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1008.json",
+      "status": "done",
+      "costUSD": 1.4553810000000005,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1009",
+      "condition": "control",
+      "seed": 1009,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/control-seed1009.json",
+      "status": "done",
+      "costUSD": 0.8922719999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1000",
+      "condition": "gravity_shift",
+      "seed": 1000,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1000.json",
+      "status": "done",
+      "costUSD": 1.0182570000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1001",
+      "condition": "gravity_shift",
+      "seed": 1001,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1001.json",
+      "status": "done",
+      "costUSD": 1.025424,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1002",
+      "condition": "gravity_shift",
+      "seed": 1002,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1002.json",
+      "status": "done",
+      "costUSD": 0.983784,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1003",
+      "condition": "gravity_shift",
+      "seed": 1003,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1003.json",
+      "status": "done",
+      "costUSD": 1.0857870000000003,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1004",
+      "condition": "gravity_shift",
+      "seed": 1004,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1004.json",
+      "status": "done",
+      "costUSD": 1.031508,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1005",
+      "condition": "gravity_shift",
+      "seed": 1005,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1005.json",
+      "status": "done",
+      "costUSD": 1.682391,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1006",
+      "condition": "gravity_shift",
+      "seed": 1006,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1006.json",
+      "status": "done",
+      "costUSD": 1.3224540000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1007",
+      "condition": "gravity_shift",
+      "seed": 1007,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1007.json",
+      "status": "done",
+      "costUSD": 1.058727,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "gravity_shift-seed1008",
+      "condition": "gravity_shift",
+      "seed": 1008,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1008.json",
+      "status": "done",
+      "costUSD": 1.07835,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1009",
+      "condition": "gravity_shift",
+      "seed": 1009,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/gravity_shift-seed1009.json",
+      "status": "done",
+      "costUSD": 1.136733,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1000",
+      "condition": "instrument_fault",
+      "seed": 1000,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1000.json",
+      "status": "done",
+      "costUSD": 0.747096,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1001",
+      "condition": "instrument_fault",
+      "seed": 1001,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1001.json",
+      "status": "done",
+      "costUSD": 1.0322159999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1002",
+      "condition": "instrument_fault",
+      "seed": 1002,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1002.json",
+      "status": "done",
+      "costUSD": 0.9251339999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1003",
+      "condition": "instrument_fault",
+      "seed": 1003,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1003.json",
+      "status": "done",
+      "costUSD": 0.7181310000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1004",
+      "condition": "instrument_fault",
+      "seed": 1004,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1004.json",
+      "status": "done",
+      "costUSD": 0.779565,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1005",
+      "condition": "instrument_fault",
+      "seed": 1005,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1005.json",
+      "status": "done",
+      "costUSD": 0.5248379999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1006",
+      "condition": "instrument_fault",
+      "seed": 1006,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1006.json",
+      "status": "done",
+      "costUSD": 0.7671629999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1007",
+      "condition": "instrument_fault",
+      "seed": 1007,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1007.json",
+      "status": "done",
+      "costUSD": 0.8542020000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1008",
+      "condition": "instrument_fault",
+      "seed": 1008,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1008.json",
+      "status": "done",
+      "costUSD": 0.6474449999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1009",
+      "condition": "instrument_fault",
+      "seed": 1009,
+      "file": "runs/battery-claude-sonnet-4-5-nmp-2026-08-100659/instrument_fault-seed1009.json",
+      "status": "done",
+      "costUSD": 0.8320350000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    }
+  ]
+}

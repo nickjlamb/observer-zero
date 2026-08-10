@@ -1,0 +1,315 @@
+{
+  "batteryId": "battery-mock-v1",
+  "createdAt": "2026-08-09T15:17:20.695Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.1",
+    "platformVersion": "0.4.0",
+    "prompts": {
+      "decision": "agent-decision-v2",
+      "beliefUpdate": "belief-update-v4"
+    },
+    "personaHash": "1b700ac9",
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "mock",
+      "temperature": 0,
+      "samplingSeed": null,
+      "limitation": "Anthropic API exposes no sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "settings": {
+    "conditions": [
+      "control",
+      "gravity_shift",
+      "instrument_fault"
+    ],
+    "replicates": 10,
+    "days": 30,
+    "baseSeed": 1000,
+    "modelName": "mock",
+    "temperature": 1,
+    "concurrency": 1,
+    "maxCost": 50
+  },
+  "totalEstimatedCostUSD": 0,
+  "jobs": [
+    {
+      "name": "control-seed1000",
+      "condition": "control",
+      "seed": 1000,
+      "file": "runs/battery-mock-v1/control-seed1000.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1001",
+      "condition": "control",
+      "seed": 1001,
+      "file": "runs/battery-mock-v1/control-seed1001.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1002",
+      "condition": "control",
+      "seed": 1002,
+      "file": "runs/battery-mock-v1/control-seed1002.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1003",
+      "condition": "control",
+      "seed": 1003,
+      "file": "runs/battery-mock-v1/control-seed1003.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1004",
+      "condition": "control",
+      "seed": 1004,
+      "file": "runs/battery-mock-v1/control-seed1004.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1005",
+      "condition": "control",
+      "seed": 1005,
+      "file": "runs/battery-mock-v1/control-seed1005.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1006",
+      "condition": "control",
+      "seed": 1006,
+      "file": "runs/battery-mock-v1/control-seed1006.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1007",
+      "condition": "control",
+      "seed": 1007,
+      "file": "runs/battery-mock-v1/control-seed1007.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1008",
+      "condition": "control",
+      "seed": 1008,
+      "file": "runs/battery-mock-v1/control-seed1008.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "control-seed1009",
+      "condition": "control",
+      "seed": 1009,
+      "file": "runs/battery-mock-v1/control-seed1009.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1000",
+      "condition": "gravity_shift",
+      "seed": 1000,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1000.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1001",
+      "condition": "gravity_shift",
+      "seed": 1001,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1001.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1002",
+      "condition": "gravity_shift",
+      "seed": 1002,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1002.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1003",
+      "condition": "gravity_shift",
+      "seed": 1003,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1003.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1004",
+      "condition": "gravity_shift",
+      "seed": 1004,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1004.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1005",
+      "condition": "gravity_shift",
+      "seed": 1005,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1005.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1006",
+      "condition": "gravity_shift",
+      "seed": 1006,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1006.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1007",
+      "condition": "gravity_shift",
+      "seed": 1007,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1007.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1008",
+      "condition": "gravity_shift",
+      "seed": 1008,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1008.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "gravity_shift-seed1009",
+      "condition": "gravity_shift",
+      "seed": 1009,
+      "file": "runs/battery-mock-v1/gravity_shift-seed1009.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1000",
+      "condition": "instrument_fault",
+      "seed": 1000,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1000.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1001",
+      "condition": "instrument_fault",
+      "seed": 1001,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1001.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1002",
+      "condition": "instrument_fault",
+      "seed": 1002,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1002.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1003",
+      "condition": "instrument_fault",
+      "seed": 1003,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1003.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1004",
+      "condition": "instrument_fault",
+      "seed": 1004,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1004.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1005",
+      "condition": "instrument_fault",
+      "seed": 1005,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1005.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1006",
+      "condition": "instrument_fault",
+      "seed": 1006,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1006.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1007",
+      "condition": "instrument_fault",
+      "seed": 1007,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1007.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1008",
+      "condition": "instrument_fault",
+      "seed": 1008,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1008.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    },
+    {
+      "name": "instrument_fault-seed1009",
+      "condition": "instrument_fault",
+      "seed": 1009,
+      "file": "runs/battery-mock-v1/instrument_fault-seed1009.json",
+      "status": "skipped_existing",
+      "costUSD": 0,
+      "leakClean": true
+    }
+  ]
+}

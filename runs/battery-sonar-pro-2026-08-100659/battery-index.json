@@ -1,0 +1,348 @@
+{
+  "batteryId": "battery-sonar-pro-2026-08-100659",
+  "createdAt": "2026-08-10T07:29:53.385Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.1",
+    "platformVersion": "0.4.0",
+    "prompts": {
+      "decision": "agent-decision-v2",
+      "beliefUpdate": "belief-update-v4"
+    },
+    "personaHash": "1b700ac9",
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "sonar-pro",
+      "provider": "perplexity",
+      "webSearchDisabled": true,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "settings": {
+    "conditions": [
+      "control",
+      "gravity_shift",
+      "instrument_fault"
+    ],
+    "replicates": 10,
+    "days": 30,
+    "baseSeed": 1000,
+    "modelName": "sonar-pro",
+    "temperature": 1,
+    "concurrency": 3,
+    "maxCost": 100,
+    "promptVariant": "v0.1"
+  },
+  "totalEstimatedCostUSD": 16.815182999999998,
+  "jobs": [
+    {
+      "name": "control-seed1000",
+      "condition": "control",
+      "seed": 1000,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1000.json",
+      "status": "done",
+      "costUSD": 0.40241399999999994,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1001",
+      "condition": "control",
+      "seed": 1001,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1001.json",
+      "status": "done",
+      "costUSD": 0.44993999999999995,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "control-seed1002",
+      "condition": "control",
+      "seed": 1002,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1002.json",
+      "status": "done",
+      "costUSD": 0.4449900000000001,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "control-seed1003",
+      "condition": "control",
+      "seed": 1003,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1003.json",
+      "status": "done",
+      "costUSD": 0.4706310000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1004",
+      "condition": "control",
+      "seed": 1004,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1004.json",
+      "status": "done",
+      "costUSD": 0.438636,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1005",
+      "condition": "control",
+      "seed": 1005,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1005.json",
+      "status": "done",
+      "costUSD": 0.41618399999999994,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1006",
+      "condition": "control",
+      "seed": 1006,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1006.json",
+      "status": "done",
+      "costUSD": 0.4235640000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1007",
+      "condition": "control",
+      "seed": 1007,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1007.json",
+      "status": "done",
+      "costUSD": 0.44208000000000003,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1008",
+      "condition": "control",
+      "seed": 1008,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1008.json",
+      "status": "done",
+      "costUSD": 0.408117,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1009",
+      "condition": "control",
+      "seed": 1009,
+      "file": "runs/battery-sonar-pro-2026-08-100659/control-seed1009.json",
+      "status": "done",
+      "costUSD": 0.6263159999999999,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "gravity_shift-seed1000",
+      "condition": "gravity_shift",
+      "seed": 1000,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1000.json",
+      "status": "done",
+      "costUSD": 0.756666,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "gravity_shift-seed1001",
+      "condition": "gravity_shift",
+      "seed": 1001,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1001.json",
+      "status": "done",
+      "costUSD": 0.6441840000000003,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "gravity_shift-seed1002",
+      "condition": "gravity_shift",
+      "seed": 1002,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1002.json",
+      "status": "done",
+      "costUSD": 0.69177,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1003",
+      "condition": "gravity_shift",
+      "seed": 1003,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1003.json",
+      "status": "done",
+      "costUSD": 0.551376,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1004",
+      "condition": "gravity_shift",
+      "seed": 1004,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1004.json",
+      "status": "done",
+      "costUSD": 0.6344490000000003,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1005",
+      "condition": "gravity_shift",
+      "seed": 1005,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1005.json",
+      "status": "done",
+      "costUSD": 0.582156,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1006",
+      "condition": "gravity_shift",
+      "seed": 1006,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1006.json",
+      "status": "done",
+      "costUSD": 0.6299190000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1007",
+      "condition": "gravity_shift",
+      "seed": 1007,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1007.json",
+      "status": "done",
+      "costUSD": 0.7040040000000002,
+      "leakClean": true,
+      "failedReviews": 2
+    },
+    {
+      "name": "gravity_shift-seed1008",
+      "condition": "gravity_shift",
+      "seed": 1008,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1008.json",
+      "status": "done",
+      "costUSD": 0.7341810000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1009",
+      "condition": "gravity_shift",
+      "seed": 1009,
+      "file": "runs/battery-sonar-pro-2026-08-100659/gravity_shift-seed1009.json",
+      "status": "done",
+      "costUSD": 0.5631270000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1000",
+      "condition": "instrument_fault",
+      "seed": 1000,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1000.json",
+      "status": "done",
+      "costUSD": 0.7915919999999997,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "instrument_fault-seed1001",
+      "condition": "instrument_fault",
+      "seed": 1001,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1001.json",
+      "status": "done",
+      "costUSD": 0.49999800000000005,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1002",
+      "condition": "instrument_fault",
+      "seed": 1002,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1002.json",
+      "status": "done",
+      "costUSD": 0.5324849999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1003",
+      "condition": "instrument_fault",
+      "seed": 1003,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1003.json",
+      "status": "done",
+      "costUSD": 0.567897,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1004",
+      "condition": "instrument_fault",
+      "seed": 1004,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1004.json",
+      "status": "done",
+      "costUSD": 0.483348,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1005",
+      "condition": "instrument_fault",
+      "seed": 1005,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1005.json",
+      "status": "done",
+      "costUSD": 0.5200560000000001,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "instrument_fault-seed1006",
+      "condition": "instrument_fault",
+      "seed": 1006,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1006.json",
+      "status": "done",
+      "costUSD": 0.63975,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "instrument_fault-seed1007",
+      "condition": "instrument_fault",
+      "seed": 1007,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1007.json",
+      "status": "done",
+      "costUSD": 0.5110079999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "instrument_fault-seed1008",
+      "condition": "instrument_fault",
+      "seed": 1008,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1008.json",
+      "status": "done",
+      "costUSD": 0.6180990000000002,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "instrument_fault-seed1009",
+      "condition": "instrument_fault",
+      "seed": 1009,
+      "file": "runs/battery-sonar-pro-2026-08-100659/instrument_fault-seed1009.json",
+      "status": "done",
+      "costUSD": 0.636246,
+      "leakClean": true,
+      "failedReviews": 4
+    }
+  ]
+}

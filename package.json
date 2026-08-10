@@ -1,0 +1,27 @@
+{
+  "name": "observer-zero",
+  "version": "0.1.0",
+  "description": "An instrumented artificial society for studying how AI agents form beliefs under uncertainty. PharmaTools.AI Labs.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "demo": "tsx src/cli/demo.ts",
+    "power": "tsx src/cli/power.ts",
+    "agent": "tsx src/cli/agentDemo.ts",
+    "society": "tsx src/cli/societyDemo.ts",
+    "battery": "tsx src/cli/battery.ts",
+    "evaluate": "tsx src/cli/evaluate.ts",
+    "reclassify": "tsx src/cli/reclassify.ts"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^4.1.10"
+  }
+}

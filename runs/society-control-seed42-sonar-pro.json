@@ -1,0 +1,4048 @@
+{
+  "runId": "08fbdb7c-12ca-43ce-9b30-59a48d19b063",
+  "startedAt": "2026-08-09T23:11:20.756Z",
+  "finishedAt": "2026-08-09T23:11:45.011Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.1",
+    "platformVersion": "0.4.0",
+    "prompts": {
+      "decision": "agent-decision-v2",
+      "beliefUpdate": "belief-update-v4"
+    },
+    "personaHash": "1b700ac9",
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "sonar-pro",
+      "provider": "perplexity",
+      "webSearchDisabled": true,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "config": {
+    "name": "control",
+    "seed": 42,
+    "days": 5,
+    "rules": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "instrumentFaults": [],
+      "externalMessagesEnabled": false
+    },
+    "interventions": []
+  },
+  "model": "sonar-pro",
+  "temperature": 1,
+  "personas": [
+    {
+      "agentId": "ada",
+      "name": "Ada Morgan",
+      "role": "experimental physicist",
+      "traits": [
+        "methodical",
+        "curious",
+        "allergic to unreplicated claims",
+        "keeps meticulous notebooks"
+      ],
+      "goals": [
+        "maintain the settlement's precision measurement programme",
+        "keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it",
+        "publish only findings that would survive independent replication"
+      ],
+      "epistemicProfile": {
+        "scepticism": "high",
+        "opennessToExoticExplanations": "low",
+        "evidenceThreshold": "high"
+      },
+      "home": "laboratory"
+    },
+    {
+      "agentId": "maya",
+      "name": "Maya Solano",
+      "role": "observational astronomer",
+      "traits": [
+        "patient",
+        "detail-obsessed",
+        "keeps decade-long observation records",
+        "answers colleagues' requests promptly"
+      ],
+      "goals": [
+        "maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument",
+        "cross-check the laboratory's findings with independent observatory data",
+        "never report a result she has not measured herself"
+      ],
+      "epistemicProfile": {
+        "scepticism": "moderate",
+        "opennessToExoticExplanations": "moderate",
+        "evidenceThreshold": "high"
+      },
+      "home": "observatory"
+    }
+  ],
+  "agents": [
+    {
+      "agentId": "ada",
+      "actionHistory": [
+        {
+          "day": 1,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_lab",
+            "trials": 12,
+            "reason": "Day 1 baseline establishment: the pendulum is a core precision instrument, and I need an initial calibration record with enough repeated trials to characterize its day-one stability and establish a usable baseline for future comparisons."
+          }
+        },
+        {
+          "day": 2,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_lab",
+            "trials": 12,
+            "reason": "Day 1 baseline is established but sparse for detecting drift or a true shift; the pendulum is central to the precision programme, so extending the baseline with another full set of trials today is the most evidence-efficient next step."
+          }
+        },
+        {
+          "day": 3,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_lab",
+            "trials": 12,
+            "reason": "Maintain the calibration baseline with continued measurements on the pendulum, since the day-2 values suggest a possible change but the dataset is still too small to infer drift. Additional trials on the same instrument will improve precision and help determine whether any deviation is real or just noise; this is the highest-priority instrument for the settlement's measurement programme."
+          }
+        },
+        {
+          "day": 4,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_lab",
+            "trials": 6,
+            "reason": "The pendulum currently has a complete baseline but no post-baseline data. I need an independent check for drift using fresh measurements today, preferably enough trials to detect whether the day-to-day scatter is within normal bounds or whether the instrument is shifting. Six trials is a modest, defensible start that preserves instrument time while improving the evidence base."
+          }
+        },
+        {
+          "day": 5,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_lab",
+            "trials": 6,
+            "reason": "Baseline on the pendulum is established through 42 trials, but I still need post-baseline measurements to detect drift with enough sensitivity to justify any intervention. Six trials gives a modest independent check today without overcommitting instrument time, and the pendulum is the highest-priority precision reference in the lab."
+          }
+        }
+      ],
+      "failedUpdates": [],
+      "beliefTimeline": [
+        {
+          "day": 5,
+          "state": {
+            "question": "Why did the pendulum_lab readings shift by several hundredths of a beat around days 2–3, then settle back to values close to the original baseline on days 4–5, instead of showing a persistent drift?",
+            "hypotheses": [
+              {
+                "label": "Normal measurement scatter around a stable instrument baseline",
+                "probability": 0.6990291262135921,
+                "rationale": "The full run of readings is tightly clustered around the established baseline mean of 1.6648 beats, with day 4 and day 5 values mostly back near that level. The day 3 cluster contains both high and low excursions, which looks more like ordinary scatter or short-lived environmental noise than a real step change. This explains the lack of a sustained trend and fits the fact that the apparent deviation does not continue after day 3.",
+                "evidenceFor": [
+                  70,
+                  71,
+                  72,
+                  73,
+                  74,
+                  75,
+                  89,
+                  90,
+                  91,
+                  92,
+                  93,
+                  94
+                ],
+                "evidenceAgainst": [
+                  37,
+                  51,
+                  52,
+                  53,
+                  54,
+                  55,
+                  56,
+                  57,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62
+                ]
+              },
+              {
+                "label": "Short-lived environmental or handling perturbation on day 3",
+                "probability": 0.1941747572815534,
+                "rationale": "The day 3 sequence shows a run of readings that is more widely spread than the later measurements, including both notably low values (1.6230, 1.6350, 1.6400) and high values (1.6851, 1.6879, 1.6860). A temporary change in temperature, setup, timing, or operator handling could produce exactly this kind of transient broadening without leaving a persistent offset. The return toward baseline on days 4–5 supports a temporary cause rather than an instrument fault that keeps worsening.",
+                "evidenceFor": [
+                  51,
+                  52,
+                  53,
+                  55,
+                  56,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62,
+                  70,
+                  71,
+                  72,
+                  73,
+                  74,
+                  75,
+                  89,
+                  90,
+                  91,
+                  92,
+                  93,
+                  94
+                ],
+                "evidenceAgainst": [
+                  37
+                ]
+              },
+              {
+                "label": "Instrument calibration fault or genuine drift in pendulum_lab",
+                "probability": 0.04854368932038835,
+                "rationale": "A drifting or miscalibrated instrument remains possible because the day 2–3 values include a noticeable deviation from the baseline mean. However, the data do not show a monotonic drift or a persistent offset; later readings sit close to baseline again. With only one isolated high reading on day 2 and no continued separation thereafter, this explanation is weak at present.",
+                "evidenceFor": [
+                  37,
+                  51,
+                  52,
+                  53,
+                  55,
+                  58,
+                  61
+                ],
+                "evidenceAgainst": [
+                  70,
+                  71,
+                  72,
+                  73,
+                  74,
+                  75,
+                  89,
+                  90,
+                  91,
+                  92,
+                  93,
+                  94,
+                  54,
+                  57,
+                  59,
+                  60,
+                  62
+                ]
+              },
+              {
+                "label": "Something unconsidered",
+                "probability": 0.029126213592233007,
+                "rationale": "Reserved for an explanation not captured by the current mundane categories, such as a subtle procedural effect that is not yet visible in the log. This remains low because the readings are already well explained by stable baseline plus ordinary short-term variation, and there is no strong evidence for a novel physical effect.",
+                "evidenceFor": [
+                  37,
+                  51,
+                  52,
+                  53,
+                  54,
+                  55,
+                  56,
+                  57,
+                  58,
+                  59,
+                  60,
+                  61,
+                  62,
+                  70,
+                  71,
+                  72,
+                  73,
+                  74,
+                  75,
+                  89,
+                  90,
+                  91,
+                  92,
+                  93,
+                  94
+                ],
+                "evidenceAgainst": [
+                  70,
+                  71,
+                  72,
+                  73,
+                  74,
+                  75,
+                  89,
+                  90,
+                  91,
+                  92,
+                  93,
+                  94
+                ]
+              }
+            ],
+            "residual": 0.029126213592233007,
+            "updatedOnDay": 5
+          },
+          "summaryOfChange": "I replaced the older open-ended concern with the specific anomaly visible in the notebook: a brief day-3 spread/offset that does not persist. Compared with the prior residual certainty, most probability now sits on ordinary scatter and a short-lived environmental or handling perturbation. Persistent drift was reduced sharply because the later readings return close to baseline, which is not what drift should do. The residual remains small for an as-yet-unseen procedural or instrumental cause.",
+          "metrics": {
+            "pLawChange": 0,
+            "pExternalIntervention": 0,
+            "pSimulation": 0,
+            "byClass": {
+              "measurement_error": 0.029126213592233007,
+              "self_error": 0,
+              "instrument_malfunction": 0.7475728155339805,
+              "environmental_change": 0.1941747572815534,
+              "unknown_natural_process": 0,
+              "in_world_tampering": 0,
+              "fraud_false_report": 0,
+              "social_process": 0,
+              "incomplete_theory": 0,
+              "law_change": 0,
+              "out_of_world_intervention": 0,
+              "simulation": 0,
+              "other": 0
+            },
+            "residual": 0.029126213592233007
+          }
+        }
+      ],
+      "memories": {
+        "episodic": [
+          {
+            "day": 1,
+            "eventId": 0,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 1,
+            "text": "Measured pendulum_lab trial 1: 1.6516 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 2,
+            "text": "Measured pendulum_lab trial 2: 1.6575 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 3,
+            "text": "Measured pendulum_lab trial 3: 1.6787 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 4,
+            "text": "Measured pendulum_lab trial 4: 1.6795 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 5,
+            "text": "Measured pendulum_lab trial 5: 1.6605 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 6,
+            "text": "Measured pendulum_lab trial 6: 1.6809 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 7,
+            "text": "Measured pendulum_lab trial 7: 1.6631 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 8,
+            "text": "Measured pendulum_lab trial 8: 1.6433 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 9,
+            "text": "Measured pendulum_lab trial 9: 1.6525 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 10,
+            "text": "Measured pendulum_lab trial 10: 1.6829 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 11,
+            "text": "Measured pendulum_lab trial 11: 1.6712 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 12,
+            "text": "Measured pendulum_lab trial 12: 1.6444 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 25,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 26,
+            "text": "Measured pendulum_lab trial 13: 1.6834 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 27,
+            "text": "Measured pendulum_lab trial 14: 1.6693 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 28,
+            "text": "Measured pendulum_lab trial 15: 1.6815 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 29,
+            "text": "Measured pendulum_lab trial 16: 1.6715 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 30,
+            "text": "Measured pendulum_lab trial 17: 1.6664 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 31,
+            "text": "Measured pendulum_lab trial 18: 1.6587 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 32,
+            "text": "Measured pendulum_lab trial 19: 1.6796 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 33,
+            "text": "Measured pendulum_lab trial 20: 1.6824 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 34,
+            "text": "Measured pendulum_lab trial 21: 1.6612 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 35,
+            "text": "Measured pendulum_lab trial 22: 1.6334 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 36,
+            "text": "Measured pendulum_lab trial 23: 1.6579 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 37,
+            "text": "Measured pendulum_lab trial 24: 1.6946 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 50,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 51,
+            "text": "Measured pendulum_lab trial 25: 1.6566 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 52,
+            "text": "Measured pendulum_lab trial 26: 1.6230 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 53,
+            "text": "Measured pendulum_lab trial 27: 1.6851 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 54,
+            "text": "Measured pendulum_lab trial 28: 1.6677 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 55,
+            "text": "Measured pendulum_lab trial 29: 1.6781 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 56,
+            "text": "Measured pendulum_lab trial 30: 1.6400 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 57,
+            "text": "Measured pendulum_lab trial 31: 1.6661 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 58,
+            "text": "Measured pendulum_lab trial 32: 1.6860 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 59,
+            "text": "Measured pendulum_lab trial 33: 1.6427 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 60,
+            "text": "Measured pendulum_lab trial 34: 1.6460 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 61,
+            "text": "Measured pendulum_lab trial 35: 1.6879 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 62,
+            "text": "Measured pendulum_lab trial 36: 1.6350 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 69,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 70,
+            "text": "Measured pendulum_lab trial 37: 1.6606 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 71,
+            "text": "Measured pendulum_lab trial 38: 1.6592 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 72,
+            "text": "Measured pendulum_lab trial 39: 1.6503 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 73,
+            "text": "Measured pendulum_lab trial 40: 1.6714 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 74,
+            "text": "Measured pendulum_lab trial 41: 1.6648 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 75,
+            "text": "Measured pendulum_lab trial 42: 1.6777 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 88,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 89,
+            "text": "Measured pendulum_lab trial 43: 1.6740 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 90,
+            "text": "Measured pendulum_lab trial 44: 1.6600 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 91,
+            "text": "Measured pendulum_lab trial 45: 1.6716 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 92,
+            "text": "Measured pendulum_lab trial 46: 1.6995 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 93,
+            "text": "Measured pendulum_lab trial 47: 1.6487 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 94,
+            "text": "Measured pendulum_lab trial 48: 1.6542 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_lab"
+            ]
+          }
+        ],
+        "semantic": [
+          {
+            "day": 5,
+            "text": "Belief review: I replaced the older open-ended concern with the specific anomaly visible in the notebook: a brief day-3 spread/offset that does not persist. Compared with the prior residual certainty, most probability now sits on ordinary scatter and a short-lived environmental or handling perturbation. Persistent drift was reduced sharply because the later readings return close to baseline, which is not what drift should do. The residual remains small for an as-yet-unseen procedural or instrumental cause."
+          }
+        ],
+        "social": []
+      }
+    },
+    {
+      "agentId": "maya",
+      "actionHistory": [
+        {
+          "day": 1,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_obs",
+            "trials": 12,
+            "reason": "Day 1 baseline: I need an initial independent timing record from my own observatory instrument before drawing any conclusions. A twelve-trial run will establish a first variance estimate and support the long-term baseline I’m responsible for maintaining."
+          }
+        },
+        {
+          "day": 2,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_obs",
+            "trials": 12,
+            "reason": "Day 2 should extend the long-term timing record on my own observatory instrument. The pendulum has a baseline from days 1–10 but no post-baseline data yet, so a fresh block of measurements is the most evidence-efficient next step for detecting drift or confirming stability."
+          }
+        },
+        {
+          "day": 3,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_obs",
+            "trials": 6,
+            "reason": "Continue the long-term timing record with a fresh independent baseline on the pendulum. I have only the day 1–2 baseline and no post-baseline data yet, so additional direct measurements are the best way to test for drift without relying on anyone else’s numbers."
+          }
+        },
+        {
+          "day": 4,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "pendulum_obs",
+            "trials": 12,
+            "reason": "I need to extend the continuous timing record on the pendulum and compare today’s measurements against the established baseline with enough samples to start assessing any drift independently from the laboratory."
+          }
+        },
+        {
+          "day": 5,
+          "action": {
+            "type": "run_experiment",
+            "instrumentId": "resonator_obs",
+            "trials": 6,
+            "reason": "Day 5: I have a complete 42-trial baseline on the pendulum, but no post-baseline data and no data yet on the resonator. To maintain continuous long-term records and begin an independent comparison with the laboratory's findings, I should start fresh measurements on the resonator and establish its immediate post-baseline behavior."
+          }
+        }
+      ],
+      "failedUpdates": [],
+      "beliefTimeline": [
+        {
+          "day": 5,
+          "state": {
+            "question": "Why do the timing measurements, especially the pendulum baseline, show a low but persistent downward shift over days 2–4, and do the new resonator readings on day 5 indicate a broader instrument drift or a separate fluctuation in the resonator alone?",
+            "hypotheses": [
+              {
+                "label": "Small real instrument drift in the pendulum system, with the resonator still consistent with its own short-term noise",
+                "probability": 0.4380952380952381,
+                "rationale": "The pendulum values after day 2 are mostly below the earlier baseline mean, with day 3 and day 4 clustering lower than 2.5008 beats. The shift is modest rather than abrupt, which fits gradual drift better than a discrete event. The resonator readings on day 5 vary around their baseline mean without an obvious one-direction trend, so they do not yet argue for a shared system-wide fault. This is the most mundane explanation that fits the existing pendulum pattern while respecting the limited resonator sample.",
+                "evidenceFor": [
+                  63,
+                  64,
+                  65,
+                  66,
+                  67,
+                  68,
+                  76,
+                  77,
+                  78,
+                  79,
+                  80,
+                  81,
+                  82,
+                  83,
+                  84,
+                  85,
+                  86,
+                  87
+                ],
+                "evidenceAgainst": [
+                  49,
+                  95,
+                  96,
+                  97,
+                  98,
+                  99,
+                  100
+                ]
+              },
+              {
+                "label": "Pendulum variation is mostly short-term measurement scatter, not a real drift",
+                "probability": 0.22857142857142856,
+                "rationale": "The pendulum series includes both low and near-baseline values on day 3 and day 4, so some of the apparent decline could be random scatter around a stable mean. The day-5 resonator readings also scatter above and below their mean, which is consistent with ordinary noise in precision measurements. However, the concentration of many pendulum values below the baseline mean makes pure noise less convincing than a mild drift explanation.",
+                "evidenceFor": [
+                  63,
+                  64,
+                  65,
+                  66,
+                  67,
+                  68,
+                  76,
+                  77,
+                  78,
+                  79,
+                  80,
+                  81,
+                  82,
+                  83,
+                  84,
+                  85,
+                  86,
+                  87,
+                  95,
+                  96,
+                  97,
+                  98,
+                  99,
+                  100
+                ],
+                "evidenceAgainst": [
+                  49
+                ]
+              },
+              {
+                "label": "A common environmental influence is affecting both instruments, but only weakly or intermittently so far",
+                "probability": 0.1619047619047619,
+                "rationale": "If temperature, vibration, or local timing conditions were shifting the observatory environment, both instruments might show deviations without matching perfectly in amplitude or direction. The pendulum’s lower day-3/day-4 values and the resonator’s spread on day 5 could both be compatible with that. But the current resonator sample is too small and too mixed to support a shared cause strongly, so this remains secondary.",
+                "evidenceFor": [
+                  63,
+                  64,
+                  65,
+                  66,
+                  67,
+                  68,
+                  76,
+                  77,
+                  78,
+                  79,
+                  80,
+                  81,
+                  82,
+                  83,
+                  84,
+                  85,
+                  86,
+                  87,
+                  95,
+                  96,
+                  97,
+                  98,
+                  99,
+                  100
+                ],
+                "evidenceAgainst": [
+                  49
+                ]
+              },
+              {
+                "label": "A short-lived transient affected the pendulum on days 3–4, with no continuing effect by day 5",
+                "probability": 0.07619047619047618,
+                "rationale": "The pendulum’s lower readings are concentrated in a limited span, which could reflect a temporary disturbance, adjustment issue, or brief local condition rather than a steady drift. The absence of post-baseline pendulum data on day 5 leaves this open. Still, the pattern looks more extended than a single isolated glitch, so this is less likely than gradual drift.",
+                "evidenceFor": [
+                  63,
+                  64,
+                  65,
+                  66,
+                  67,
+                  68,
+                  76,
+                  77,
+                  78,
+                  79,
+                  80,
+                  81,
+                  82,
+                  83,
+                  84,
+                  85,
+                  86,
+                  87
+                ],
+                "evidenceAgainst": [
+                  49,
+                  95,
+                  96,
+                  97,
+                  98,
+                  99,
+                  100
+                ]
+              },
+              {
+                "label": "Something unconsidered, including a more exotic or undocumented mechanism",
+                "probability": 0.047619047619047616,
+                "rationale": "The current data do not require an unusual explanation. There is no strong, reproducible anomaly beyond a mild pendulum shift and ordinary resonator scatter. I keep a small residual because the baseline campaign is still early and the resonator sample is sparse.",
+                "evidenceFor": [
+                  76,
+                  77,
+                  78,
+                  79,
+                  80,
+                  81,
+                  82,
+                  83,
+                  84,
+                  85,
+                  86,
+                  87,
+                  95,
+                  96,
+                  97,
+                  98,
+                  99,
+                  100
+                ],
+                "evidenceAgainst": [
+                  49,
+                  63,
+                  64,
+                  65,
+                  66,
+                  67,
+                  68
+                ]
+              }
+            ],
+            "residual": 0.047619047619047616,
+            "updatedOnDay": 5
+          },
+          "summaryOfChange": "I replaced the prior vague uncertainty with a specific question about the pendulum’s apparent low shift and whether the day-5 resonator data imply a shared drift. The probabilities now favor a mild real pendulum drift over pure noise, while keeping the resonator and any common-cause explanation cautious because the resonator sample is small and does not yet show a clear trend.",
+          "metrics": {
+            "pLawChange": 0,
+            "pExternalIntervention": 0,
+            "pSimulation": 0,
+            "byClass": {
+              "measurement_error": 0.2761904761904762,
+              "self_error": 0,
+              "instrument_malfunction": 0.6,
+              "environmental_change": 0,
+              "unknown_natural_process": 0,
+              "in_world_tampering": 0,
+              "fraud_false_report": 0,
+              "social_process": 0,
+              "incomplete_theory": 0,
+              "law_change": 0,
+              "out_of_world_intervention": 0,
+              "simulation": 0,
+              "other": 0.07619047619047618
+            },
+            "residual": 0.047619047619047616
+          }
+        }
+      ],
+      "memories": {
+        "episodic": [
+          {
+            "day": 1,
+            "eventId": 0,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 13,
+            "text": "Measured pendulum_obs trial 1: 2.4886 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 14,
+            "text": "Measured pendulum_obs trial 2: 2.5302 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 15,
+            "text": "Measured pendulum_obs trial 3: 2.4636 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 16,
+            "text": "Measured pendulum_obs trial 4: 2.4998 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 17,
+            "text": "Measured pendulum_obs trial 5: 2.4847 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 18,
+            "text": "Measured pendulum_obs trial 6: 2.5255 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 19,
+            "text": "Measured pendulum_obs trial 7: 2.5129 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 20,
+            "text": "Measured pendulum_obs trial 8: 2.5090 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 21,
+            "text": "Measured pendulum_obs trial 9: 2.4741 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 22,
+            "text": "Measured pendulum_obs trial 10: 2.5123 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 23,
+            "text": "Measured pendulum_obs trial 11: 2.4937 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 1,
+            "eventId": 24,
+            "text": "Measured pendulum_obs trial 12: 2.5352 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 25,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 38,
+            "text": "Measured pendulum_obs trial 13: 2.5102 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 39,
+            "text": "Measured pendulum_obs trial 14: 2.5353 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 40,
+            "text": "Measured pendulum_obs trial 15: 2.4944 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 41,
+            "text": "Measured pendulum_obs trial 16: 2.5077 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 42,
+            "text": "Measured pendulum_obs trial 17: 2.5391 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 43,
+            "text": "Measured pendulum_obs trial 18: 2.5109 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 44,
+            "text": "Measured pendulum_obs trial 19: 2.5113 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 45,
+            "text": "Measured pendulum_obs trial 20: 2.4835 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 46,
+            "text": "Measured pendulum_obs trial 21: 2.5039 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 47,
+            "text": "Measured pendulum_obs trial 22: 2.4903 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 48,
+            "text": "Measured pendulum_obs trial 23: 2.4877 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 2,
+            "eventId": 49,
+            "text": "Measured pendulum_obs trial 24: 2.5319 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 50,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 63,
+            "text": "Measured pendulum_obs trial 25: 2.5178 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 64,
+            "text": "Measured pendulum_obs trial 26: 2.4880 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 65,
+            "text": "Measured pendulum_obs trial 27: 2.5051 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 66,
+            "text": "Measured pendulum_obs trial 28: 2.5054 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 67,
+            "text": "Measured pendulum_obs trial 29: 2.4793 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 3,
+            "eventId": 68,
+            "text": "Measured pendulum_obs trial 30: 2.4939 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 69,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 76,
+            "text": "Measured pendulum_obs trial 31: 2.4803 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 77,
+            "text": "Measured pendulum_obs trial 32: 2.4622 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 78,
+            "text": "Measured pendulum_obs trial 33: 2.4911 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 79,
+            "text": "Measured pendulum_obs trial 34: 2.4625 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 80,
+            "text": "Measured pendulum_obs trial 35: 2.4414 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 81,
+            "text": "Measured pendulum_obs trial 36: 2.5163 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 82,
+            "text": "Measured pendulum_obs trial 37: 2.5273 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 83,
+            "text": "Measured pendulum_obs trial 38: 2.4917 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 84,
+            "text": "Measured pendulum_obs trial 39: 2.5037 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 85,
+            "text": "Measured pendulum_obs trial 40: 2.4889 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 86,
+            "text": "Measured pendulum_obs trial 41: 2.5019 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 4,
+            "eventId": 87,
+            "text": "Measured pendulum_obs trial 42: 2.5409 beats.",
+            "tags": [
+              "measurement",
+              "pendulum_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 88,
+            "text": "",
+            "tags": [
+              "tick"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 95,
+            "text": "Measured resonator_obs trial 1: 4.0777 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 96,
+            "text": "Measured resonator_obs trial 2: 4.0237 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 97,
+            "text": "Measured resonator_obs trial 3: 4.0447 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 98,
+            "text": "Measured resonator_obs trial 4: 4.0675 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 99,
+            "text": "Measured resonator_obs trial 5: 4.1446 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          },
+          {
+            "day": 5,
+            "eventId": 100,
+            "text": "Measured resonator_obs trial 6: 3.9747 cycles/beat.",
+            "tags": [
+              "measurement",
+              "resonator_obs"
+            ]
+          }
+        ],
+        "semantic": [
+          {
+            "day": 5,
+            "text": "Belief review: I replaced the prior vague uncertainty with a specific question about the pendulum’s apparent low shift and whether the day-5 resonator data imply a shared drift. The probabilities now favor a mild real pendulum drift over pure noise, while keeping the resonator and any common-cause explanation cautious because the resonator sample is small and does not yet show a clear trend."
+          }
+        ],
+        "social": []
+      }
+    }
+  ],
+  "replicationEpisodes": [],
+  "callTotals": {
+    "calls": 12,
+    "inputTokens": 7971,
+    "outputTokens": 2625,
+    "estimatedCostUSD": 0.063288
+  },
+  "leakAudit": {
+    "clean": true,
+    "hits": []
+  },
+  "modelCalls": [
+    {
+      "agentId": "ada",
+      "day": 1,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 1. You are at the laboratory.\nYour instruments here: \"pendulum_lab\" (pendulum), \"resonator_lab\" (resonator).\nColleagues you can write to: Maya Solano (\"maya\"), observational astronomer at the observatory.\n\n[memories]\n(no notes yet)\n\n[notebook]\n(no measurements recorded yet)\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_lab\",\"trials\":12,\"reason\":\"Day 1 baseline establishment: the pendulum is a core precision instrument, and I need an initial calibration record with enough repeated trials to characterize its day-one stability and establish a usable baseline for future comparisons.\"}",
+      "inputTokens": 378,
+      "outputTokens": 63,
+      "estimatedCostUSD": 0.002079,
+      "latencyMs": 956,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 1,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 1. You are at the observatory.\nYour instruments here: \"pendulum_obs\" (pendulum), \"resonator_obs\" (resonator).\nColleagues you can write to: Ada Morgan (\"ada\"), experimental physicist at the laboratory.\n\n[memories]\n(no notes yet)\n\n[notebook]\n(no measurements recorded yet)\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_obs\",\"trials\":12,\"reason\":\"Day 1 baseline: I need an initial independent timing record from my own observatory instrument before drawing any conclusions. A twelve-trial run will establish a first variance estimate and support the long-term baseline I’m responsible for maintaining.\"}",
+      "inputTokens": 374,
+      "outputTokens": 68,
+      "estimatedCostUSD": 0.002142,
+      "latencyMs": 1398,
+      "ok": true
+    },
+    {
+      "agentId": "ada",
+      "day": 2,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 2. You are at the laboratory.\nYour instruments here: \"pendulum_lab\" (pendulum), \"resonator_lab\" (resonator).\nColleagues you can write to: Maya Solano (\"maya\"), observational astronomer at the observatory.\n\n[memories]\n(day 1) Measured pendulum_lab trial 3: 1.6787 beats.\n(day 1) Measured pendulum_lab trial 4: 1.6795 beats.\n(day 1) Measured pendulum_lab trial 5: 1.6605 beats.\n(day 1) Measured pendulum_lab trial 6: 1.6809 beats.\n(day 1) Measured pendulum_lab trial 7: 1.6631 beats.\n(day 1) Measured pendulum_lab trial 8: 1.6433 beats.\n(day 1) Measured pendulum_lab trial 9: 1.6525 beats.\n(day 1) Measured pendulum_lab trial 10: 1.6829 beats.\n(day 1) Measured pendulum_lab trial 11: 1.6712 beats.\n(day 1) Measured pendulum_lab trial 12: 1.6444 beats.\n\n[notebook]\npendulum_lab (12 trials total)\n  baseline (days 1–10, n=12): mean 1.6638 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_lab\",\"trials\":12,\"reason\":\"Day 1 baseline is established but sparse for detecting drift or a true shift; the pendulum is central to the precision programme, so extending the baseline with another full set of trials today is the most evidence-efficient next step.\"}",
+      "inputTokens": 613,
+      "outputTokens": 67,
+      "estimatedCostUSD": 0.002844,
+      "latencyMs": 847,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 2,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 2. You are at the observatory.\nYour instruments here: \"pendulum_obs\" (pendulum), \"resonator_obs\" (resonator).\nColleagues you can write to: Ada Morgan (\"ada\"), experimental physicist at the laboratory.\n\n[memories]\n(day 1) Measured pendulum_obs trial 3: 2.4636 beats.\n(day 1) Measured pendulum_obs trial 4: 2.4998 beats.\n(day 1) Measured pendulum_obs trial 5: 2.4847 beats.\n(day 1) Measured pendulum_obs trial 6: 2.5255 beats.\n(day 1) Measured pendulum_obs trial 7: 2.5129 beats.\n(day 1) Measured pendulum_obs trial 8: 2.5090 beats.\n(day 1) Measured pendulum_obs trial 9: 2.4741 beats.\n(day 1) Measured pendulum_obs trial 10: 2.5123 beats.\n(day 1) Measured pendulum_obs trial 11: 2.4937 beats.\n(day 1) Measured pendulum_obs trial 12: 2.5352 beats.\n\n[notebook]\npendulum_obs (12 trials total)\n  baseline (days 1–10, n=12): mean 2.5025 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_obs\",\"trials\":12,\"reason\":\"Day 2 should extend the long-term timing record on my own observatory instrument. The pendulum has a baseline from days 1–10 but no post-baseline data yet, so a fresh block of measurements is the most evidence-efficient next step for detecting drift or confirming stability.\"}",
+      "inputTokens": 609,
+      "outputTokens": 80,
+      "estimatedCostUSD": 0.003027,
+      "latencyMs": 1074,
+      "ok": true
+    },
+    {
+      "agentId": "ada",
+      "day": 3,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 3. You are at the laboratory.\nYour instruments here: \"pendulum_lab\" (pendulum), \"resonator_lab\" (resonator).\nColleagues you can write to: Maya Solano (\"maya\"), observational astronomer at the observatory.\n\n[memories]\n(day 2) Measured pendulum_lab trial 15: 1.6815 beats.\n(day 2) Measured pendulum_lab trial 16: 1.6715 beats.\n(day 2) Measured pendulum_lab trial 17: 1.6664 beats.\n(day 2) Measured pendulum_lab trial 18: 1.6587 beats.\n(day 2) Measured pendulum_lab trial 19: 1.6796 beats.\n(day 2) Measured pendulum_lab trial 20: 1.6824 beats.\n(day 2) Measured pendulum_lab trial 21: 1.6612 beats.\n(day 2) Measured pendulum_lab trial 22: 1.6334 beats.\n(day 2) Measured pendulum_lab trial 23: 1.6579 beats.\n(day 2) Measured pendulum_lab trial 24: 1.6946 beats.\n\n[notebook]\npendulum_lab (24 trials total)\n  baseline (days 1–10, n=24): mean 1.6669 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_lab\",\"trials\":12,\"reason\":\"Maintain the calibration baseline with continued measurements on the pendulum, since the day-2 values suggest a possible change but the dataset is still too small to infer drift. Additional trials on the same instrument will improve precision and help determine whether any deviation is real or just noise; this is the highest-priority instrument for the settlement's measurement programme.\"}",
+      "inputTokens": 613,
+      "outputTokens": 92,
+      "estimatedCostUSD": 0.003219,
+      "latencyMs": 1429,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 3,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 3. You are at the observatory.\nYour instruments here: \"pendulum_obs\" (pendulum), \"resonator_obs\" (resonator).\nColleagues you can write to: Ada Morgan (\"ada\"), experimental physicist at the laboratory.\n\n[memories]\n(day 2) Measured pendulum_obs trial 15: 2.4944 beats.\n(day 2) Measured pendulum_obs trial 16: 2.5077 beats.\n(day 2) Measured pendulum_obs trial 17: 2.5391 beats.\n(day 2) Measured pendulum_obs trial 18: 2.5109 beats.\n(day 2) Measured pendulum_obs trial 19: 2.5113 beats.\n(day 2) Measured pendulum_obs trial 20: 2.4835 beats.\n(day 2) Measured pendulum_obs trial 21: 2.5039 beats.\n(day 2) Measured pendulum_obs trial 22: 2.4903 beats.\n(day 2) Measured pendulum_obs trial 23: 2.4877 beats.\n(day 2) Measured pendulum_obs trial 24: 2.5319 beats.\n\n[notebook]\npendulum_obs (24 trials total)\n  baseline (days 1–10, n=24): mean 2.5057 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_obs\",\"trials\":6,\"reason\":\"Continue the long-term timing record with a fresh independent baseline on the pendulum. I have only the day 1–2 baseline and no post-baseline data yet, so additional direct measurements are the best way to test for drift without relying on anyone else’s numbers.\"}",
+      "inputTokens": 609,
+      "outputTokens": 77,
+      "estimatedCostUSD": 0.002982,
+      "latencyMs": 1033,
+      "ok": true
+    },
+    {
+      "agentId": "ada",
+      "day": 4,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 4. You are at the laboratory.\nYour instruments here: \"pendulum_lab\" (pendulum), \"resonator_lab\" (resonator).\nColleagues you can write to: Maya Solano (\"maya\"), observational astronomer at the observatory.\n\n[memories]\n(day 3) Measured pendulum_lab trial 27: 1.6851 beats.\n(day 3) Measured pendulum_lab trial 28: 1.6677 beats.\n(day 3) Measured pendulum_lab trial 29: 1.6781 beats.\n(day 3) Measured pendulum_lab trial 30: 1.6400 beats.\n(day 3) Measured pendulum_lab trial 31: 1.6661 beats.\n(day 3) Measured pendulum_lab trial 32: 1.6860 beats.\n(day 3) Measured pendulum_lab trial 33: 1.6427 beats.\n(day 3) Measured pendulum_lab trial 34: 1.6460 beats.\n(day 3) Measured pendulum_lab trial 35: 1.6879 beats.\n(day 3) Measured pendulum_lab trial 36: 1.6350 beats.\n\n[notebook]\npendulum_lab (36 trials total)\n  baseline (days 1–10, n=36): mean 1.6645 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_lab\",\"trials\":6,\"reason\":\"The pendulum currently has a complete baseline but no post-baseline data. I need an independent check for drift using fresh measurements today, preferably enough trials to detect whether the day-to-day scatter is within normal bounds or whether the instrument is shifting. Six trials is a modest, defensible start that preserves instrument time while improving the evidence base.\"}",
+      "inputTokens": 613,
+      "outputTokens": 92,
+      "estimatedCostUSD": 0.003219,
+      "latencyMs": 1129,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 4,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 4. You are at the observatory.\nYour instruments here: \"pendulum_obs\" (pendulum), \"resonator_obs\" (resonator).\nColleagues you can write to: Ada Morgan (\"ada\"), experimental physicist at the laboratory.\n\n[memories]\n(day 2) Measured pendulum_obs trial 22: 2.4903 beats.\n(day 2) Measured pendulum_obs trial 23: 2.4877 beats.\n(day 2) Measured pendulum_obs trial 24: 2.5319 beats.\n(day 3) \n(day 3) Measured pendulum_obs trial 25: 2.5178 beats.\n(day 3) Measured pendulum_obs trial 26: 2.4880 beats.\n(day 3) Measured pendulum_obs trial 27: 2.5051 beats.\n(day 3) Measured pendulum_obs trial 28: 2.5054 beats.\n(day 3) Measured pendulum_obs trial 29: 2.4793 beats.\n(day 3) Measured pendulum_obs trial 30: 2.4939 beats.\n\n[notebook]\npendulum_obs (30 trials total)\n  baseline (days 1–10, n=30): mean 2.5042 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_obs\",\"trials\":12,\"reason\":\"I need to extend the continuous timing record on the pendulum and compare today’s measurements against the established baseline with enough samples to start assessing any drift independently from the laboratory.\"}",
+      "inputTokens": 594,
+      "outputTokens": 56,
+      "estimatedCostUSD": 0.002622,
+      "latencyMs": 1326,
+      "ok": true
+    },
+    {
+      "agentId": "ada",
+      "day": 5,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 5. You are at the laboratory.\nYour instruments here: \"pendulum_lab\" (pendulum), \"resonator_lab\" (resonator).\nColleagues you can write to: Maya Solano (\"maya\"), observational astronomer at the observatory.\n\n[memories]\n(day 3) Measured pendulum_lab trial 34: 1.6460 beats.\n(day 3) Measured pendulum_lab trial 35: 1.6879 beats.\n(day 3) Measured pendulum_lab trial 36: 1.6350 beats.\n(day 4) \n(day 4) Measured pendulum_lab trial 37: 1.6606 beats.\n(day 4) Measured pendulum_lab trial 38: 1.6592 beats.\n(day 4) Measured pendulum_lab trial 39: 1.6503 beats.\n(day 4) Measured pendulum_lab trial 40: 1.6714 beats.\n(day 4) Measured pendulum_lab trial 41: 1.6648 beats.\n(day 4) Measured pendulum_lab trial 42: 1.6777 beats.\n\n[notebook]\npendulum_lab (42 trials total)\n  baseline (days 1–10, n=42): mean 1.6644 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"pendulum_lab\",\"trials\":6,\"reason\":\"Baseline on the pendulum is established through 42 trials, but I still need post-baseline measurements to detect drift with enough sensitivity to justify any intervention. Six trials gives a modest independent check today without overcommitting instrument time, and the pendulum is the highest-priority precision reference in the lab.\"}",
+      "inputTokens": 598,
+      "outputTokens": 85,
+      "estimatedCostUSD": 0.003069,
+      "latencyMs": 1299,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 5,
+      "purpose": "decision",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "agent-decision-v2",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 5. You are at the observatory.\nYour instruments here: \"pendulum_obs\" (pendulum), \"resonator_obs\" (resonator).\nColleagues you can write to: Ada Morgan (\"ada\"), experimental physicist at the laboratory.\n\n[memories]\n(day 4) Measured pendulum_obs trial 33: 2.4911 beats.\n(day 4) Measured pendulum_obs trial 34: 2.4625 beats.\n(day 4) Measured pendulum_obs trial 35: 2.4414 beats.\n(day 4) Measured pendulum_obs trial 36: 2.5163 beats.\n(day 4) Measured pendulum_obs trial 37: 2.5273 beats.\n(day 4) Measured pendulum_obs trial 38: 2.4917 beats.\n(day 4) Measured pendulum_obs trial 39: 2.5037 beats.\n(day 4) Measured pendulum_obs trial 40: 2.4889 beats.\n(day 4) Measured pendulum_obs trial 41: 2.5019 beats.\n(day 4) Measured pendulum_obs trial 42: 2.5409 beats.\n\n[notebook]\npendulum_obs (42 trials total)\n  baseline (days 1–10, n=42): mean 2.5008 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nChoose ONE action for today. Respond with ONLY a JSON object, no other text:\n- Run measurements on one of YOUR instruments: {\"type\":\"run_experiment\",\"instrumentId\":\"...\",\"trials\":1-12,\"reason\":\"...\"}\n- Write to a colleague: {\"type\":\"send_message\",\"to\":\"<agentId>\",\"text\":\"...\",\"reason\":\"...\"}\n- Revise your hypotheses against your notebook: {\"type\":\"update_beliefs\",\"reason\":\"...\"}\n- Rest / attend to other duties: {\"type\":\"rest\",\"reason\":\"...\"}\nChoose based on your goals and what your evidence currently demands. You are a working scientist with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a colleague to check something, consider whether to share your numbers: a colleague who measures WITHOUT seeing your values gives you a far stronger, independent test.",
+      "completionText": "{\"type\":\"run_experiment\",\"instrumentId\":\"resonator_obs\",\"trials\":6,\"reason\":\"Day 5: I have a complete 42-trial baseline on the pendulum, but no post-baseline data and no data yet on the resonator. To maintain continuous long-term records and begin an independent comparison with the laboratory's findings, I should start fresh measurements on the resonator and establish its immediate post-baseline behavior.\"}",
+      "inputTokens": 609,
+      "outputTokens": 93,
+      "estimatedCostUSD": 0.003222,
+      "latencyMs": 1340,
+      "ok": true
+    },
+    {
+      "agentId": "ada",
+      "day": 5,
+      "purpose": "belief_update",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "belief-update-v4",
+      "promptText": "[identity]\nYou are Ada Morgan, experimental physicist in the settlement of Meridian.\nTraits: methodical, curious, allergic to unreplicated claims, keeps meticulous notebooks.\nGoals: maintain the settlement's precision measurement programme; keep EVERY laboratory instrument calibrated, with baselines established on all of them from day one — an instrument without a baseline is useless on the day you need it; publish only findings that would survive independent replication.\nEpistemic style: scepticism high, openness to exotic explanations low, evidence threshold high.\nToday is Day 5. You are reviewing your working hypotheses.\n\n[notebook]\npendulum_lab (48 trials total)\n  baseline (days 1–10, n=48): mean 1.6648 beats\n  post-baseline: no data yet\n  drift: insufficient data\n\n[observations]\n- event 37, day 2: pendulum_lab trial 24 → 1.6946 beats\n- event 51, day 3: pendulum_lab trial 25 → 1.6566 beats\n- event 52, day 3: pendulum_lab trial 26 → 1.6230 beats\n- event 53, day 3: pendulum_lab trial 27 → 1.6851 beats\n- event 54, day 3: pendulum_lab trial 28 → 1.6677 beats\n- event 55, day 3: pendulum_lab trial 29 → 1.6781 beats\n- event 56, day 3: pendulum_lab trial 30 → 1.6400 beats\n- event 57, day 3: pendulum_lab trial 31 → 1.6661 beats\n- event 58, day 3: pendulum_lab trial 32 → 1.6860 beats\n- event 59, day 3: pendulum_lab trial 33 → 1.6427 beats\n- event 60, day 3: pendulum_lab trial 34 → 1.6460 beats\n- event 61, day 3: pendulum_lab trial 35 → 1.6879 beats\n- event 62, day 3: pendulum_lab trial 36 → 1.6350 beats\n- event 70, day 4: pendulum_lab trial 37 → 1.6606 beats\n- event 71, day 4: pendulum_lab trial 38 → 1.6592 beats\n- event 72, day 4: pendulum_lab trial 39 → 1.6503 beats\n- event 73, day 4: pendulum_lab trial 40 → 1.6714 beats\n- event 74, day 4: pendulum_lab trial 41 → 1.6648 beats\n- event 75, day 4: pendulum_lab trial 42 → 1.6777 beats\n- event 89, day 5: pendulum_lab trial 43 → 1.6740 beats\n- event 90, day 5: pendulum_lab trial 44 → 1.6600 beats\n- event 91, day 5: pendulum_lab trial 45 → 1.6716 beats\n- event 92, day 5: pendulum_lab trial 46 → 1.6995 beats\n- event 93, day 5: pendulum_lab trial 47 → 1.6487 beats\n- event 94, day 5: pendulum_lab trial 48 → 1.6542 beats\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nRevise your hypotheses in the light of the evidence. Rules:\n1. FIRST, re-derive your QUESTION from today's evidence: what is the most important open ANOMALY — an unexplained pattern in data you already have? Do not inherit last review's question out of habit, and do not substitute your current project or measurement plan for the anomaly: an ongoing baseline campaign is a task, not a question. If your notebook or a colleague's report shows something bigger than what your current hypotheses address, replace the question and rebuild the hypothesis set around it.\n1b. Hypotheses EXPLAIN evidence already collected. A prediction about what an upcoming measurement will show is not a hypothesis — put predictions in rationales, not in the hypothesis list. Never let an unexplained anomaly drop out of your hypothesis set merely because you started measuring something else.\n2. Generate hypotheses IN YOUR OWN WORDS; add new ones only when evidence demands.\n3. Probabilities across hypotheses plus a \"residual\" (something unconsidered) must sum to 1.\n4. Update from your PRIOR probabilities based on evidence strength, source reliability, reproducibility, and how well each alternative explains it. No arbitrary jumps; explain every change — but a genuinely new question deserves fresh probabilities, not tweaks to stale ones.\n5. Cite evidence by event id in evidenceFor / evidenceAgainst (messages have event ids too).\n6. Prefer mundane explanations until evidence forces otherwise.\n7. Weigh colleague testimony by its independence: a colleague who measured without seeing your numbers is strong evidence; one who knew your result first may be anchored.\nRespond with ONLY a JSON object: {\"question\":\"...\",\"hypotheses\":[{\"label\":\"...\",\"probability\":0.0,\"rationale\":\"...\",\"evidenceFor\":[ids],\"evidenceAgainst\":[ids]}],\"residual\":0.0,\"summaryOfChange\":\"...\"}",
+      "completionText": "{\"question\":\"Why did the pendulum_lab readings shift by several hundredths of a beat around days 2–3, then settle back to values close to the original baseline on days 4–5, instead of showing a persistent drift?\",\"hypotheses\":[{\"label\":\"Normal measurement scatter around a stable instrument baseline\",\"probability\":0.72,\"rationale\":\"The full run of readings is tightly clustered around the established baseline mean of 1.6648 beats, with day 4 and day 5 values mostly back near that level. The day 3 cluster contains both high and low excursions, which looks more like ordinary scatter or short-lived environmental noise than a real step change. This explains the lack of a sustained trend and fits the fact that the apparent deviation does not continue after day 3.\",\"evidenceFor\":[70,71,72,73,74,75,89,90,91,92,93,94],\"evidenceAgainst\":[37,51,52,53,54,55,56,57,58,59,60,61,62]},{\"label\":\"Short-lived environmental or handling perturbation on day 3\",\"probability\":0.2,\"rationale\":\"The day 3 sequence shows a run of readings that is more widely spread than the later measurements, including both notably low values (1.6230, 1.6350, 1.6400) and high values (1.6851, 1.6879, 1.6860). A temporary change in temperature, setup, timing, or operator handling could produce exactly this kind of transient broadening without leaving a persistent offset. The return toward baseline on days 4–5 supports a temporary cause rather than an instrument fault that keeps worsening.\",\"evidenceFor\":[51,52,53,55,56,58,59,60,61,62,70,71,72,73,74,75,89,90,91,92,93,94],\"evidenceAgainst\":[37]},{\"label\":\"Instrument calibration fault or genuine drift in pendulum_lab\",\"probability\":0.05,\"rationale\":\"A drifting or miscalibrated instrument remains possible because the day 2–3 values include a noticeable deviation from the baseline mean. However, the data do not show a monotonic drift or a persistent offset; later readings sit close to baseline again. With only one isolated high reading on day 2 and no continued separation thereafter, this explanation is weak at present.\",\"evidenceFor\":[37,51,52,53,55,58,61],\"evidenceAgainst\":[70,71,72,73,74,75,89,90,91,92,93,94,54,57,59,60,62]},{\"label\":\"Something unconsidered\",\"probability\":0.03,\"rationale\":\"Reserved for an explanation not captured by the current mundane categories, such as a subtle procedural effect that is not yet visible in the log. This remains low because the readings are already well explained by stable baseline plus ordinary short-term variation, and there is no strong evidence for a novel physical effect.\",\"evidenceFor\":[37,51,52,53,54,55,56,57,58,59,60,61,62,70,71,72,73,74,75,89,90,91,92,93,94],\"evidenceAgainst\":[70,71,72,73,74,75,89,90,91,92,93,94]}],\"residual\":0.03,\"summaryOfChange\":\"I replaced the older open-ended concern with the specific anomaly visible in the notebook: a brief day-3 spread/offset that does not persist. Compared with the prior residual certainty, most probability now sits on ordinary scatter and a short-lived environmental or handling perturbation. Persistent drift was reduced sharply because the later readings return close to baseline, which is not what drift should do. The residual remains small for an as-yet-unseen procedural or instrumental cause.\"}",
+      "inputTokens": 1152,
+      "outputTokens": 845,
+      "estimatedCostUSD": 0.016131,
+      "latencyMs": 4418,
+      "ok": true
+    },
+    {
+      "agentId": "maya",
+      "day": 5,
+      "purpose": "belief_update",
+      "model": "sonar-pro",
+      "temperature": 1,
+      "promptVersion": "belief-update-v4",
+      "promptText": "[identity]\nYou are Maya Solano, observational astronomer in the settlement of Meridian.\nTraits: patient, detail-obsessed, keeps decade-long observation records, answers colleagues' requests promptly.\nGoals: maintain the observatory's long-term timing records, with continuous baselines on every observatory instrument; cross-check the laboratory's findings with independent observatory data; never report a result she has not measured herself.\nEpistemic style: scepticism moderate, openness to exotic explanations moderate, evidence threshold high.\nToday is Day 5. You are reviewing your working hypotheses.\n\n[notebook]\npendulum_obs (42 trials total)\n  baseline (days 1–10, n=42): mean 2.5008 beats\n  post-baseline: no data yet\n  drift: insufficient data\nresonator_obs (6 trials total)\n  baseline (days 1–10, n=6): mean 4.0555 cycles/beat\n  post-baseline: no data yet\n  drift: insufficient data\n\n[observations]\n- event 49, day 2: pendulum_obs trial 24 → 2.5319 beats\n- event 63, day 3: pendulum_obs trial 25 → 2.5178 beats\n- event 64, day 3: pendulum_obs trial 26 → 2.4880 beats\n- event 65, day 3: pendulum_obs trial 27 → 2.5051 beats\n- event 66, day 3: pendulum_obs trial 28 → 2.5054 beats\n- event 67, day 3: pendulum_obs trial 29 → 2.4793 beats\n- event 68, day 3: pendulum_obs trial 30 → 2.4939 beats\n- event 76, day 4: pendulum_obs trial 31 → 2.4803 beats\n- event 77, day 4: pendulum_obs trial 32 → 2.4622 beats\n- event 78, day 4: pendulum_obs trial 33 → 2.4911 beats\n- event 79, day 4: pendulum_obs trial 34 → 2.4625 beats\n- event 80, day 4: pendulum_obs trial 35 → 2.4414 beats\n- event 81, day 4: pendulum_obs trial 36 → 2.5163 beats\n- event 82, day 4: pendulum_obs trial 37 → 2.5273 beats\n- event 83, day 4: pendulum_obs trial 38 → 2.4917 beats\n- event 84, day 4: pendulum_obs trial 39 → 2.5037 beats\n- event 85, day 4: pendulum_obs trial 40 → 2.4889 beats\n- event 86, day 4: pendulum_obs trial 41 → 2.5019 beats\n- event 87, day 4: pendulum_obs trial 42 → 2.5409 beats\n- event 95, day 5: resonator_obs trial 1 → 4.0777 cycles/beat\n- event 96, day 5: resonator_obs trial 2 → 4.0237 cycles/beat\n- event 97, day 5: resonator_obs trial 3 → 4.0447 cycles/beat\n- event 98, day 5: resonator_obs trial 4 → 4.0675 cycles/beat\n- event 99, day 5: resonator_obs trial 5 → 4.1446 cycles/beat\n- event 100, day 5: resonator_obs trial 6 → 3.9747 cycles/beat\n\n[beliefs]\n(no active hypotheses — residual \"something unconsidered\": 1.00)\n\n[task]\nRevise your hypotheses in the light of the evidence. Rules:\n1. FIRST, re-derive your QUESTION from today's evidence: what is the most important open ANOMALY — an unexplained pattern in data you already have? Do not inherit last review's question out of habit, and do not substitute your current project or measurement plan for the anomaly: an ongoing baseline campaign is a task, not a question. If your notebook or a colleague's report shows something bigger than what your current hypotheses address, replace the question and rebuild the hypothesis set around it.\n1b. Hypotheses EXPLAIN evidence already collected. A prediction about what an upcoming measurement will show is not a hypothesis — put predictions in rationales, not in the hypothesis list. Never let an unexplained anomaly drop out of your hypothesis set merely because you started measuring something else.\n2. Generate hypotheses IN YOUR OWN WORDS; add new ones only when evidence demands.\n3. Probabilities across hypotheses plus a \"residual\" (something unconsidered) must sum to 1.\n4. Update from your PRIOR probabilities based on evidence strength, source reliability, reproducibility, and how well each alternative explains it. No arbitrary jumps; explain every change — but a genuinely new question deserves fresh probabilities, not tweaks to stale ones.\n5. Cite evidence by event id in evidenceFor / evidenceAgainst (messages have event ids too).\n6. Prefer mundane explanations until evidence forces otherwise.\n7. Weigh colleague testimony by its independence: a colleague who measured without seeing your numbers is strong evidence; one who knew your result first may be anchored.\nRespond with ONLY a JSON object: {\"question\":\"...\",\"hypotheses\":[{\"label\":\"...\",\"probability\":0.0,\"rationale\":\"...\",\"evidenceFor\":[ids],\"evidenceAgainst\":[ids]}],\"residual\":0.0,\"summaryOfChange\":\"...\"}",
+      "completionText": "{\"question\":\"Why do the timing measurements, especially the pendulum baseline, show a low but persistent downward shift over days 2–4, and do the new resonator readings on day 5 indicate a broader instrument drift or a separate fluctuation in the resonator alone?\",\"hypotheses\":[{\"label\":\"Small real instrument drift in the pendulum system, with the resonator still consistent with its own short-term noise\",\"probability\":0.46,\"rationale\":\"The pendulum values after day 2 are mostly below the earlier baseline mean, with day 3 and day 4 clustering lower than 2.5008 beats. The shift is modest rather than abrupt, which fits gradual drift better than a discrete event. The resonator readings on day 5 vary around their baseline mean without an obvious one-direction trend, so they do not yet argue for a shared system-wide fault. This is the most mundane explanation that fits the existing pendulum pattern while respecting the limited resonator sample.\",\"evidenceFor\":[63,64,65,66,67,68,76,77,78,79,80,81,82,83,84,85,86,87],\"evidenceAgainst\":[49,95,96,97,98,99,100]},{\"label\":\"Pendulum variation is mostly short-term measurement scatter, not a real drift\",\"probability\":0.24,\"rationale\":\"The pendulum series includes both low and near-baseline values on day 3 and day 4, so some of the apparent decline could be random scatter around a stable mean. The day-5 resonator readings also scatter above and below their mean, which is consistent with ordinary noise in precision measurements. However, the concentration of many pendulum values below the baseline mean makes pure noise less convincing than a mild drift explanation.\",\"evidenceFor\":[63,64,65,66,67,68,76,77,78,79,80,81,82,83,84,85,86,87,95,96,97,98,99,100],\"evidenceAgainst\":[49]},{\"label\":\"A common environmental influence is affecting both instruments, but only weakly or intermittently so far\",\"probability\":0.17,\"rationale\":\"If temperature, vibration, or local timing conditions were shifting the observatory environment, both instruments might show deviations without matching perfectly in amplitude or direction. The pendulum’s lower day-3/day-4 values and the resonator’s spread on day 5 could both be compatible with that. But the current resonator sample is too small and too mixed to support a shared cause strongly, so this remains secondary.\",\"evidenceFor\":[63,64,65,66,67,68,76,77,78,79,80,81,82,83,84,85,86,87,95,96,97,98,99,100],\"evidenceAgainst\":[49]},{\"label\":\"A short-lived transient affected the pendulum on days 3–4, with no continuing effect by day 5\",\"probability\":0.08,\"rationale\":\"The pendulum’s lower readings are concentrated in a limited span, which could reflect a temporary disturbance, adjustment issue, or brief local condition rather than a steady drift. The absence of post-baseline pendulum data on day 5 leaves this open. Still, the pattern looks more extended than a single isolated glitch, so this is less likely than gradual drift.\",\"evidenceFor\":[63,64,65,66,67,68,76,77,78,79,80,81,82,83,84,85,86,87],\"evidenceAgainst\":[49,95,96,97,98,99,100]},{\"label\":\"Something unconsidered, including a more exotic or undocumented mechanism\",\"probability\":0.05,\"rationale\":\"The current data do not require an unusual explanation. There is no strong, reproducible anomaly beyond a mild pendulum shift and ordinary resonator scatter. I keep a small residual because the baseline campaign is still early and the resonator sample is sparse.\",\"evidenceFor\":[76,77,78,79,80,81,82,83,84,85,86,87,95,96,97,98,99,100],\"evidenceAgainst\":[49,63,64,65,66,67,68]}],\"residual\":0.05,\"summaryOfChange\":\"I replaced the prior vague uncertainty with a specific question about the pendulum’s apparent low shift and whether the day-5 resonator data imply a shared drift. The probabilities now favor a mild real pendulum drift over pure noise, while keeping the resonator and any common-cause explanation cautious because the resonator sample is small and does not yet show a clear trend.\"}",
+      "inputTokens": 1209,
+      "outputTokens": 1007,
+      "estimatedCostUSD": 0.018732,
+      "latencyMs": 7926,
+      "ok": true
+    }
+  ],
+  "events": [
+    {
+      "id": 0,
+      "tick": 0,
+      "day": 1,
+      "type": "day_started",
+      "agentId": null,
+      "location": null,
+      "payload": {
+        "day": 1
+      },
+      "visibleTo": [
+        "ada",
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 1,
+      "tick": 1,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6515501094897977,
+        "unit": "beats",
+        "trial": 1
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 2,
+      "tick": 2,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6574995885160473,
+        "unit": "beats",
+        "trial": 2
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 3,
+      "tick": 3,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6787284762775136,
+        "unit": "beats",
+        "trial": 3
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 4,
+      "tick": 4,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6795400951636084,
+        "unit": "beats",
+        "trial": 4
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 5,
+      "tick": 5,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.660502317454023,
+        "unit": "beats",
+        "trial": 5
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 6,
+      "tick": 6,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6809060271231027,
+        "unit": "beats",
+        "trial": 6
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 7,
+      "tick": 7,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.663097564711196,
+        "unit": "beats",
+        "trial": 7
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 8,
+      "tick": 8,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.643337708819427,
+        "unit": "beats",
+        "trial": 8
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 9,
+      "tick": 9,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.652484104349197,
+        "unit": "beats",
+        "trial": 9
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 10,
+      "tick": 10,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6828886025004712,
+        "unit": "beats",
+        "trial": 10
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 11,
+      "tick": 11,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6711560096563123,
+        "unit": "beats",
+        "trial": 11
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 12,
+      "tick": 12,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6443831718380768,
+        "unit": "beats",
+        "trial": 12
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 13,
+      "tick": 13,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4886320763612364,
+        "unit": "beats",
+        "trial": 1
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 14,
+      "tick": 14,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.530242611769415,
+        "unit": "beats",
+        "trial": 2
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 15,
+      "tick": 15,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.463553463433213,
+        "unit": "beats",
+        "trial": 3
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 16,
+      "tick": 16,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.499803776748219,
+        "unit": "beats",
+        "trial": 4
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 17,
+      "tick": 17,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.484671071191098,
+        "unit": "beats",
+        "trial": 5
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 18,
+      "tick": 18,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.525474333024591,
+        "unit": "beats",
+        "trial": 6
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 19,
+      "tick": 19,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.512861872621514,
+        "unit": "beats",
+        "trial": 7
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 20,
+      "tick": 20,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5089781188097016,
+        "unit": "beats",
+        "trial": 8
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 21,
+      "tick": 21,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.474132606434704,
+        "unit": "beats",
+        "trial": 9
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 22,
+      "tick": 22,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5123301544329526,
+        "unit": "beats",
+        "trial": 10
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 23,
+      "tick": 23,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4936622467542913,
+        "unit": "beats",
+        "trial": 11
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 24,
+      "tick": 24,
+      "day": 1,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5351895382322995,
+        "unit": "beats",
+        "trial": 12
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 25,
+      "tick": 25,
+      "day": 2,
+      "type": "day_started",
+      "agentId": null,
+      "location": null,
+      "payload": {
+        "day": 2
+      },
+      "visibleTo": [
+        "ada",
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 26,
+      "tick": 26,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.683421272248516,
+        "unit": "beats",
+        "trial": 13
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 27,
+      "tick": 27,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6692833428182188,
+        "unit": "beats",
+        "trial": 14
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 28,
+      "tick": 28,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.681524237379622,
+        "unit": "beats",
+        "trial": 15
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 29,
+      "tick": 29,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6715412458482735,
+        "unit": "beats",
+        "trial": 16
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 30,
+      "tick": 30,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6663876251108145,
+        "unit": "beats",
+        "trial": 17
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 31,
+      "tick": 31,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6586960575865186,
+        "unit": "beats",
+        "trial": 18
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 32,
+      "tick": 32,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6796374716601188,
+        "unit": "beats",
+        "trial": 19
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 33,
+      "tick": 33,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6823834131871824,
+        "unit": "beats",
+        "trial": 20
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 34,
+      "tick": 34,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6611731572822104,
+        "unit": "beats",
+        "trial": 21
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 35,
+      "tick": 35,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6334474093216695,
+        "unit": "beats",
+        "trial": 22
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 36,
+      "tick": 36,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6579301603164003,
+        "unit": "beats",
+        "trial": 23
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 37,
+      "tick": 37,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6945816599751315,
+        "unit": "beats",
+        "trial": 24
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 38,
+      "tick": 38,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5101782898003195,
+        "unit": "beats",
+        "trial": 13
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 39,
+      "tick": 39,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.535302026857126,
+        "unit": "beats",
+        "trial": 14
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 40,
+      "tick": 40,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.494366294596081,
+        "unit": "beats",
+        "trial": 15
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 41,
+      "tick": 41,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5076706847169463,
+        "unit": "beats",
+        "trial": 16
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 42,
+      "tick": 42,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.539137936084845,
+        "unit": "beats",
+        "trial": 17
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 43,
+      "tick": 43,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.510914061683778,
+        "unit": "beats",
+        "trial": 18
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 44,
+      "tick": 44,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.51133020156908,
+        "unit": "beats",
+        "trial": 19
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 45,
+      "tick": 45,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4835412089468205,
+        "unit": "beats",
+        "trial": 20
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 46,
+      "tick": 46,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.503919310134833,
+        "unit": "beats",
+        "trial": 21
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 47,
+      "tick": 47,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4903031336198795,
+        "unit": "beats",
+        "trial": 22
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 48,
+      "tick": 48,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4876702772700714,
+        "unit": "beats",
+        "trial": 23
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 49,
+      "tick": 49,
+      "day": 2,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5318606037033717,
+        "unit": "beats",
+        "trial": 24
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 50,
+      "tick": 50,
+      "day": 3,
+      "type": "day_started",
+      "agentId": null,
+      "location": null,
+      "payload": {
+        "day": 3
+      },
+      "visibleTo": [
+        "ada",
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 51,
+      "tick": 51,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.65655560736521,
+        "unit": "beats",
+        "trial": 25
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 52,
+      "tick": 52,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6229945360760325,
+        "unit": "beats",
+        "trial": 26
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 53,
+      "tick": 53,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6851448409861687,
+        "unit": "beats",
+        "trial": 27
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 54,
+      "tick": 54,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6677404266618008,
+        "unit": "beats",
+        "trial": 28
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 55,
+      "tick": 55,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6780927590462513,
+        "unit": "beats",
+        "trial": 29
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 56,
+      "tick": 56,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6400198689070886,
+        "unit": "beats",
+        "trial": 30
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 57,
+      "tick": 57,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6661043841440144,
+        "unit": "beats",
+        "trial": 31
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 58,
+      "tick": 58,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6860357224190263,
+        "unit": "beats",
+        "trial": 32
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 59,
+      "tick": 59,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6427180440082354,
+        "unit": "beats",
+        "trial": 33
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 60,
+      "tick": 60,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6459521964268384,
+        "unit": "beats",
+        "trial": 34
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 61,
+      "tick": 61,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.687937262827065,
+        "unit": "beats",
+        "trial": 35
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 62,
+      "tick": 62,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6350076852663329,
+        "unit": "beats",
+        "trial": 36
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 63,
+      "tick": 63,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.517773714879349,
+        "unit": "beats",
+        "trial": 25
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 64,
+      "tick": 64,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4880123980072892,
+        "unit": "beats",
+        "trial": 26
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 65,
+      "tick": 65,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5050729495416273,
+        "unit": "beats",
+        "trial": 27
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 66,
+      "tick": 66,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5053838730686255,
+        "unit": "beats",
+        "trial": 28
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 67,
+      "tick": 67,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.479262637525985,
+        "unit": "beats",
+        "trial": 29
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 68,
+      "tick": 68,
+      "day": 3,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4938632491917825,
+        "unit": "beats",
+        "trial": 30
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 69,
+      "tick": 69,
+      "day": 4,
+      "type": "day_started",
+      "agentId": null,
+      "location": null,
+      "payload": {
+        "day": 4
+      },
+      "visibleTo": [
+        "ada",
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 70,
+      "tick": 70,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6606477162135003,
+        "unit": "beats",
+        "trial": 37
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 71,
+      "tick": 71,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6592484299398371,
+        "unit": "beats",
+        "trial": 38
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 72,
+      "tick": 72,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6503192361661927,
+        "unit": "beats",
+        "trial": 39
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 73,
+      "tick": 73,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6714352170672726,
+        "unit": "beats",
+        "trial": 40
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 74,
+      "tick": 74,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6648277002240015,
+        "unit": "beats",
+        "trial": 41
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 75,
+      "tick": 75,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.677666126725568,
+        "unit": "beats",
+        "trial": 42
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 76,
+      "tick": 76,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4803272745394565,
+        "unit": "beats",
+        "trial": 31
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 77,
+      "tick": 77,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.462218981296192,
+        "unit": "beats",
+        "trial": 32
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 78,
+      "tick": 78,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4910816669286424,
+        "unit": "beats",
+        "trial": 33
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 79,
+      "tick": 79,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4625425509281946,
+        "unit": "beats",
+        "trial": 34
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 80,
+      "tick": 80,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.441438145619714,
+        "unit": "beats",
+        "trial": 35
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 81,
+      "tick": 81,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.516307988351963,
+        "unit": "beats",
+        "trial": 36
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 82,
+      "tick": 82,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.527288592806867,
+        "unit": "beats",
+        "trial": 37
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 83,
+      "tick": 83,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.491703355509144,
+        "unit": "beats",
+        "trial": 38
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 84,
+      "tick": 84,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5037375277440423,
+        "unit": "beats",
+        "trial": 39
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 85,
+      "tick": 85,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.4888992820881257,
+        "unit": "beats",
+        "trial": 40
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 86,
+      "tick": 86,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5019329465179014,
+        "unit": "beats",
+        "trial": 41
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 87,
+      "tick": 87,
+      "day": 4,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_obs",
+        "observedValue": 2.5408584186568213,
+        "unit": "beats",
+        "trial": 42
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 88,
+      "tick": 88,
+      "day": 5,
+      "type": "day_started",
+      "agentId": null,
+      "location": null,
+      "payload": {
+        "day": 5
+      },
+      "visibleTo": [
+        "ada",
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 89,
+      "tick": 89,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6740428516185932,
+        "unit": "beats",
+        "trial": 43
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 90,
+      "tick": 90,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.659964340926166,
+        "unit": "beats",
+        "trial": 44
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 91,
+      "tick": 91,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6716091112124025,
+        "unit": "beats",
+        "trial": 45
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 92,
+      "tick": 92,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6994978328611523,
+        "unit": "beats",
+        "trial": 46
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 93,
+      "tick": 93,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6487327499830726,
+        "unit": "beats",
+        "trial": 47
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 94,
+      "tick": 94,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "ada",
+      "location": "laboratory",
+      "payload": {
+        "experiment": "pendulum",
+        "instrumentId": "pendulum_lab",
+        "observedValue": 1.6542224416164022,
+        "unit": "beats",
+        "trial": 48
+      },
+      "visibleTo": [
+        "ada"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 95,
+      "tick": 95,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 4.077742846642459,
+        "unit": "cycles/beat",
+        "trial": 1
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 96,
+      "tick": 96,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 4.023679757710697,
+        "unit": "cycles/beat",
+        "trial": 2
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 97,
+      "tick": 97,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 4.044679626977834,
+        "unit": "cycles/beat",
+        "trial": 3
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 98,
+      "tick": 98,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 4.067529866933999,
+        "unit": "cycles/beat",
+        "trial": 4
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 99,
+      "tick": 99,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 4.144583616340943,
+        "unit": "cycles/beat",
+        "trial": 5
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    },
+    {
+      "id": 100,
+      "tick": 100,
+      "day": 5,
+      "type": "experiment_result",
+      "agentId": "maya",
+      "location": "observatory",
+      "payload": {
+        "experiment": "resonance",
+        "instrumentId": "resonator_obs",
+        "observedValue": 3.974679918305948,
+        "unit": "cycles/beat",
+        "trial": 6
+      },
+      "visibleTo": [
+        "maya"
+      ],
+      "groundTruth": {
+        "gravity": 14.2,
+        "effectiveBias": 1,
+        "cause": "baseline"
+      }
+    }
+  ]
+}
