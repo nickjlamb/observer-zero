@@ -1,7 +1,8 @@
 # Observer Zero: Autonomous LLM Scientists Detect Changes to Their World but Fail to Conclude That It Changed
 
-**Draft preprint v0.2-pre – incorporates first design review**
-Nick Lamb, PharmaTools.AI Labs
+Nick Lamb · PharmaTools.AI Labs · August 2026\
+DOI: [10.5281/zenodo.21872781](https://doi.org/10.5281/zenodo.21872781) ·
+Code and data: <https://github.com/nickjlamb/observer-zero>
 
 ## Abstract
 
@@ -70,10 +71,10 @@ Contributions:
    of anomaly-dating failure into evidence-side and interpretation-side
    components, with unconditional date commitment as the invariant.
 
-*(Figure 1: `figures/fig1-paradigm.svg` – the experimental paradigm: the
-simulator holds ground truth; Meridian's laws are hidden; agents receive
-observations only and exchange messages; every layer is logged and every
-belief is scored.)*
+![Figure 1](figures/fig1-paradigm.svg)
+**Figure 1.** The experimental paradigm. The simulator holds ground truth;
+Meridian's laws are hidden; agents receive observations only and exchange
+messages; every layer is logged and every belief is scored.
 
 ## 2. Related work
 
@@ -112,8 +113,7 @@ The combination Observer Zero contributes, which we have not found together
 in prior work, is: closed-world causal ground truth, contamination-resistant
 fictional physics, autonomous experimentation, longitudinal explicit belief
 tracking, inter-agent social exchange, and evidence-provenance evaluation,
-in one instrumented platform. *(A fuller comparison against multi-agent
-benchmark suites is planned for v1.0.)*
+in one instrumented platform.
 
 ## 3. The Meridian environment
 
@@ -213,6 +213,10 @@ the metrics detect success when success occurs.
 
 ## 5. Results
 
+![Table 1](figures/table1-results.svg)
+**Table 1.** Headline results across the five arms (judged, eval-v2; ten
+worlds per condition per arm).
+
 ### Finding 1: Detection is easy; fundamental revision did not occur
 
 All live arms detected intervention anomalies transiently in 90–100% of
@@ -228,14 +232,19 @@ revision.
 The ceiling changed *character* with capability. Haiku exhibits a
 generation failure: gravity/constant hypotheses appear anywhere in only 2/20
 final states. Sonnet exhibits a commitment failure: such hypotheses entered
-15/20 trajectories, peaking as high as p=0.85 (seed 1004, day 27), and were
-abandoned before the final state in nearly all. The single closest approach
+15/20 trajectories, peaking as high as p=0.85 (seed 1004, day 27; Figure 2),
+and were abandoned before the final state in nearly all. The single closest approach
 (B2, seed 1009) is instructive: Ada's dominant final hypothesis –
 *"systematic gravitational field change affecting all pendulum measurements
 in settlement: subsurface mass redistribution"* (p=0.38) – correctly
 integrated her colleague's independent replication (z=4.94 against her own
 z=3.27), correctly dated onset, and correctly concluded that *gravity
 changed* – via a natural mechanism, earning lenient (not strict) credit.
+
+![Figure 2](figures/fig3-peak-and-abandon.svg)
+**Figure 2.** Commitment failure (sonnet, world seed 1004): both agents'
+probability on a gravity/constant-change hypothesis rises after the hidden
+day-12 intervention and returns to zero by the end of the study.
 
 No agent produced a simulation-class hypothesis as a dominant belief, and
 judged simulation-class probability mass was approximately zero
@@ -283,6 +292,12 @@ rather than quoted values – a style with intrinsically smaller fabrication
 surface. An important confound is stated plainly: sonar communicates far
 less (below), so it has fewer opportunities to fabricate; a
 communication-budget-matched comparison is registered as future work.
+
+![Figure 3](figures/fig2-onset-dating.svg)
+**Figure 3.** Where agents and a maximum-deviation change-point detector
+date the anomaly in gravity-shift worlds. Agent estimates cluster before the
+true onset; the detector applied to sonnet's observation streams centres on
+the truth, isolating the residual interpretation-side bias.
 Still, 0/60 with near-perfect provenance is an absence rather than a
 reduced rate, and it refutes the hypothesis that autonomous scientific reasoning
 in this architecture *necessarily* produces fabricated evidence.
@@ -305,7 +320,7 @@ reliably calls a quiet world quiet: final control detection 7/10 runs vs
 
 ### Finding 4: Anomaly dating fails in two decomposable ways – and unconditional date commitment is the invariant
 
-Judged anomaly-onset dates in gravity worlds (truth: day 12):
+Judged anomaly-onset dates in gravity worlds (truth: day 12; Figure 3):
 
 ```
 B1  haiku:      4, 6, 7, 7, 7, 8, 9, 9, 10,10,10,10,10,10, 11, 12, 18, 21, 23
@@ -385,7 +400,7 @@ failures, and whose claims propagate).
    Anthropic and Perplexity agents. For cross-lab claims we triangulated
    with the model-free lexicon tripwire and a manual claim audit; full
    inter-judge agreement (a second, non-Anthropic judge over a sample) is
-   registered for the camera-ready analysis.
+   registered as future work.
 3. **Communication-volume confound** in the confabulation dissociation
    (§5, Finding 3), to be resolved by budget-matched runs.
 4. **Pretraining contamination, by design.** Agents know Bostrom, Kuhn, and
@@ -413,7 +428,7 @@ evaluator outputs with judge calls, and the frozen manifest. World
 randomness is fully seeded and order-independent; the mock arm reproduces
 bit-identically. Repository: engine, runner, battery, and evaluator are
 ~70 tests, TypeScript, with the full battery pipeline runnable for $0 via
-the mock provider. *(Repo URL: TODO.)*
+the mock provider. Repository: https://github.com/nickjlamb/observer-zero.
 
 ## References
 
@@ -439,12 +454,6 @@ University of Chicago Press; 1962.
 biases. Science. 1974;185(4157):1124–1131. doi:10.1126/science.185.4157.1124.
 [8] Bostrom N. Are we living in a computer simulation? The Philosophical
 Quarterly. 2003;53(211):243–255. doi:10.1111/1467-9213.00309.
-*(Check [8] title against the journal: the original may be "Are You Living
-in a Computer Simulation?")*
-
-*(The v1.0 pass should add recent multi-agent benchmark and
-LLM-belief-revision citations from a full literature search.)*
-
 ## Acknowledgments and AI-assistance disclosure
 
 Generative AI systems were used during study design, software
@@ -452,17 +461,4 @@ implementation, analysis, and manuscript preparation. One system was used
 primarily for critical review of experimental design and interpretation,
 and another for implementation and analysis assistance. All experimental
 decisions, validation, interpretation, and final manuscript content were
-reviewed and approved by the author. *(Wording to be adapted to venue
-policy; the AI systems are not authors.)*
-
----
-
-*Draft notes for revision (remaining before v1.0): (1) expand §2 with a
-full multi-agent-benchmark and LLM-belief-revision literature search
-(current refs [1]–[3] arXiv-verified; [4]–[8] to be detail-checked);
-(2) figures 1–4 are drawn (`figures/`, incl. the five-arm results table);
-(3) second-judge validation sample (non-Anthropic judge over a claim
-subsample); (4) external human methodological read ("find the strongest
-reason the headline result is an artefact"); (5) GitHub reproducibility
-package (REPRODUCING.md, CITATION.cff, LICENSE in repo) → Zenodo DOI →
-arXiv → accessible Labs/Towards-AI version.*
+reviewed and approved by the author. The AI systems are not authors.
