@@ -1,6 +1,6 @@
 # Observer Zero — current status and handover
 
-**Updated:** 2026-08-11 (final adversarial pass closed; amendments A2–A5 recorded)
+**Updated:** 2026-08-11 — **DESIGN FROZEN** (commit `85bcdfb`, tag `study2-freeze`)
 **Purpose:** one page that lets a fresh session (or a returning human) pick up
 without rereading the whole programme. Point-in-time; supersede freely.
 
@@ -12,10 +12,11 @@ without rereading the whole programme. Point-in-time; supersede freely.
 …21872780), repo `github.com/nickjlamb/observer-zero`, Medium article live at
 AI Advances. Complete; no open work.
 
-**Study 2: designed, piloted, review closed, not yet frozen.** Working title
-*Who Starts the Conversation?* Design v0.6 **plus amendments A2–A5** is the
-frozen specification; the only remaining acts are one live smoke test of arm E
-and the `DESIGN_FROZEN` flip.
+**Study 2: FROZEN, confirmatory phase not started.** Working title *Who Starts
+the Conversation?* The frozen specification is design v0.6 **plus amendments
+A2–A5**; A2 is the canonical experiment specification and supersedes v0.6
+§§2–4 and v0.5 §3. `DESIGN_FROZEN = true` as of `85bcdfb`, tagged
+`study2-freeze`. Nothing about the design changes from here.
 
 ## The one-paragraph version of Study 2
 
@@ -68,30 +69,43 @@ What this establishes:
 - Identical results across two seeds and three re-runs: the judge is
   **deterministic at temperature 0**.
 
-## Then, to freeze
+## How the freeze happened (all done)
 
-1. ~~Final adversarial pass on v0.6.~~ **Done.** Verdict: the P1-D correction
-   was *not* used as cover — nothing was relaxed, and v0.5 was never edited
-   after the correction. The failure found was the opposite, selective
-   application: the correction proved 0 of 3 P1-D runs met the active-network
-   bar, and H5 depended on an arm-level version of that bar which does not
-   exist. Closed by A3.
-2. Amendments **A2–A5** recorded at the end of v0.6: canonical experiment
+1. **Final adversarial pass on v0.6** (`v0.6-final-adversarial-pass.md`).
+   Verdict: the P1-D correction was *not* used as cover — nothing was
+   relaxed, and v0.5 was never edited after the correction. The failure found
+   was the opposite, selective application: the correction proved 0 of 3
+   P1-D runs met the active-network bar, and H5 depended on an arm-level
+   version of that bar which does not exist. Five design failures, four
+   recorded DoF notes.
+2. **Amendments A2–A5** at the end of v0.6 (`5685de3`): canonical experiment
    specification (arm F removed from Study 2, C's five runs named), H5
-   evaluability, the reach-denominator correction, and four interpretive
-   safeguards. Code follows: `STUDY_2_ARMS` guard in the battery, the A4
-   comment in `activation.ts`, 167 tests.
-3. **One live single-run smoke test of arm E** on a pilot seed — the only
-   live model/slot combination P1 never exercised.
-4. Flip `DESIGN_FROZEN` in `src/freeze.ts` in a dedicated commit on top of
-   `0f7275c` (also update `FREEZE_TAG`).
-5. Confirmatory batteries on seeds 1000–1009: A → B → C(5) → D → E.
+   evaluability, the reach-denominator correction, four interpretive
+   safeguards. Code follows the design rather than remembering it:
+   `STUDY_2_ARMS` guard in the battery, the A4 comment in `activation.ts`.
+3. **Arm E live smoke test** (`f8b6989`): 3 days, seed 9000, $0.20, 0 failed
+   reviews; sonnet in the Theo slot first-party, seven sonar on Perplexity.
+   The only live model/slot combination P1 never exercised.
+4. **Freeze** (`85bcdfb`, tag `study2-freeze`). The seed-hygiene test flipped
+   in the same commit — it asserts the flag's value by design, and now
+   asserts `FREEZE_TAG` too, because run manifests carry it.
+
+## Next: the confirmatory phase
+
+Order: **A → B → C(5) → D → E**, then the judged evaluation pass per arm
+(`npm run society-eval -- --dir runs/s2-armX --judge`). Every battery needs
+`--confirmatory`; the runner refuses seeds 1000–1009 without it even now.
+C runs exactly five named cells (A2): 1000-gravity, 1000-control,
+1001-gravity, 1001-control, 1002-control — two invocations, since the runner
+takes a conditions × replicates cross product. B, D and E are multi-day at
+concurrency 3.
 
 ## Hard rules that must not be broken
 
-- **Seeds 1000–1009 are quarantined** until `DESIGN_FROZEN` is true. The
-  battery runner refuses live runs on them; this is enforced in code, not by
-  discipline. Pilot/mock work uses 9000–9004.
+- **Seeds 1000–1009 are now open, but only via `--confirmatory`.** The
+  quarantine lifted at the freeze; the explicit flag is still required, and
+  the runner still refuses any non-Study-2 arm on them. Pilot/mock work
+  continues to use 9000–9004.
 - **The judge does not move.** `FROZEN_JUDGE_MODEL = claude-haiku-4-5`,
   temperature 0, first-party Anthropic API. It is measurement apparatus;
   changing it silently re-baselines every judged result since Study 1.
@@ -126,15 +140,15 @@ probes both endpoints and names the failure mode.
 
 ## Repository state
 
-Pre-freeze baseline is commit **`0f7275c`** on `main`, pushed to
-`github.com/nickjlamb/observer-zero` (2026-08-11). Everything described in
-this document is in that commit — code, tests, all six design versions, all
-P1 and mock run directories — and the working tree was clean afterwards. If
-you need to know what the design looked like *before* the freeze, that is the
-commit to check out.
+The freeze is commit **`85bcdfb`** on `main`, tagged **`study2-freeze`**,
+pushed to `github.com/nickjlamb/observer-zero`. Lineage: `0f7275c` (M4
+baseline) → `5685de3` (amendments A2–A5) → `f8b6989` (arm E smoke test) →
+`85bcdfb` (freeze). To see the design as it stood *before* the freeze, check
+out `5685de3` — it carries `DESIGN_FROZEN = false`.
 
-`DESIGN_FROZEN` is still `false` in `0f7275c`, which is deliberate: the freeze
-gets its own commit so the diff is one boolean.
+Provenance note: the `study2-freeze` tag was first created against `5685de3`
+by a failed command sequence and pushed; it was deleted and re-created
+against `85bcdfb`. Recorded rather than quietly fixed.
 
 ## Infrastructure state
 
