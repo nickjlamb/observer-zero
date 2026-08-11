@@ -110,14 +110,49 @@ their `-DRAFT` stamps, which is historically correct;
 `POLICY_VERSION_SOCIETY_DRAFT` survives as an alias so those stay readable by
 name. Label only — no prompt text, no agent behaviour, no endpoint changed.
 
-## Arm A: complete, QC clean
+## Confirmatory progress — QC only, endpoints deliberately not computed
 
-20/20 runs · 0 stale finals · 1 failed review in 40 agent-runs (2.5%, matching
-P1's n=2 rate) · 0 leak findings · $10.78 of a $15 cap ·
-`seedSet=confirmatory`, `designFrozen=true`. Outcomes deliberately not
-inspected: nothing in them can change a decision, since run counts are fixed
-and C's extension is the design's only conditional. QC per arm is the only
-look taken until every arm is in.
+**Inspection discipline (author decision, 2026-08-11).** No activation
+endpoint, credence or rate is computed until every arm is complete. Between
+arms the only look taken is the QC pass — completion, failed-review rate,
+stale-final rate, leak findings, cost, and the manifest's seed/freeze stamps —
+because an infrastructure failure is the one thing that would justify a re-run
+under §6.4 and is time-sensitive. Nothing in the substantive results can change
+a decision: run counts are fixed and C's extension was the design's only
+conditional. B, C, D and E are inspected together once E finishes. The point is
+the provenance claim that the remaining runs were completed without anyone
+having seen the endpoints.
+
+| Arm | Runs | Reviews | Failed | Stale finals | Leaks | Cost |
+|---|---|---|---|---|---|---|
+| A (2 × sonar, letters) | 20/20 | 224 | 1 (0.45%) | 0 | 0 | $10.78 |
+| B (8 × sonar, letters) | 20/20 | 916 | 2 (0.22%) | 0 | 0 | $44.23 |
+| C (8 × sonar, bulletin) | 5/5 | 256 | 1 (0.39%) | 0 | 0 | $12.12 |
+
+Stale-final rate is **0.0% in every arm so far**, against §6.4's 10% flag. For
+comparison, P1-C ran at 7.28% failed reviews with six day-30 failures; the
+post-P1 repair path has held at n=8, and the failure rate no longer scales with
+headcount (A 0.45% → B 0.22%). No re-runs performed; none warranted.
+
+**C is CLOSED at five runs.** Zero bulletin posts across all five named cells,
+so the pre-registered extension trigger did not fire. C must not be extended —
+the rule permits no other extension anywhere, for any arm. C's two invocations
+each rewrote `battery-index.json`, so the per-invocation indices are preserved
+as `battery-index-1000-1001.json` and `battery-index-1002.json`; reconcile
+those five cells when reporting C.
+
+Two observations forced by evaluating C's trigger, recorded because they were
+seen and should not later appear as if discovered post hoc:
+
+- **Arm C produced six letters** (gravity_shift-seed1001: Elena → Samuel days
+  19, 20, 27; Samuel → Elena days 28, 29, 30). All eight agents verified
+  `sonar-pro` in the manifest before this was believed. P1 saw zero letters in
+  nine pure-sonar runs, so "sonar never initiates" is falsified at n=8.
+  Procedurally nothing follows: §9's row covers letters in a pure-sonar arm,
+  and H3 remains a contrast.
+- **All 34 bulletin reads are Elena's**, the journalist — the same
+  role-contingent institution use as P1-C, replicating at confirmatory seeds,
+  and still with zero posts to read.
 
 ## Next: the confirmatory phase
 
