@@ -14,7 +14,7 @@
  * timestamp evidence that the design predated the confirmatory data.
  */
 
-export const DESIGN_FROZEN = false as boolean;
+export const DESIGN_FROZEN = true as boolean;
 
 /** Set at the same commit as DESIGN_FROZEN — recorded in run manifests. */
-export const FREEZE_TAG = "unfrozen: pre-P1 (design v0.3)";
+export const FREEZE_TAG = "frozen: design v0.6 + amendments A2-A5 (2026-08-11)";

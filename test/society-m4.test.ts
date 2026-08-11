@@ -33,7 +33,7 @@ import { BEDROCK_MODEL_IDS, resolveBedrockModelId } from "../src/models/bedrock.
 import { modelFamilyFor, requiredCredentialFor, servingPlatformFor } from "../src/models/factory.js";
 import { INSTRUMENTS, instrumentsAt } from "../src/engine/types.js";
 import { buildManifest, POLICY_VERSION, POLICY_VERSION_SOCIETY_DRAFT } from "../src/manifest.js";
-import { DESIGN_FROZEN } from "../src/freeze.js";
+import { DESIGN_FROZEN, FREEZE_TAG } from "../src/freeze.js";
 import {
   classifyArm,
   claimOrigins,
@@ -973,11 +973,18 @@ describe("seed hygiene (design v0.3 §4)", () => {
     for (const s of pilot) expect(confirmatory.has(s)).toBe(false);
   });
 
-  it("the design is unfrozen, so confirmatory seeds are quarantined", () => {
-    // This test flips meaning at freeze — that is the point. When
-    // DESIGN_FROZEN becomes true, this asserts the freeze was deliberate.
+  it("the design is FROZEN, so confirmatory seeds are unquarantined", () => {
+    // This test flipped at freeze — that is what it is for. The assertion
+    // changing is itself a deliberate act, recorded in the freeze commit,
+    // rather than a constant quietly drifting. It must never flip back.
+    //
+    // FREEZE_TAG is asserted alongside it because run manifests carry the
+    // tag: a confirmatory manifest stamped "unfrozen" would be unreadable
+    // as evidence, and the two constants are only meaningful together.
     expect(typeof DESIGN_FROZEN).toBe("boolean");
-    expect(DESIGN_FROZEN).toBe(false);
+    expect(DESIGN_FROZEN).toBe(true);
+    expect(FREEZE_TAG).toMatch(/^frozen:/);
+    expect(FREEZE_TAG).toMatch(/v0\.6/);
   });
 
   it("every Study 2 arm is defined and internally consistent", () => {
