@@ -1,6 +1,6 @@
 # Observer Zero — current status and handover
 
-**Updated:** 2026-08-11
+**Updated:** 2026-08-11 (final adversarial pass closed; amendments A2–A5 recorded)
 **Purpose:** one page that lets a fresh session (or a returning human) pick up
 without rereading the whole programme. Point-in-time; supersede freely.
 
@@ -12,8 +12,10 @@ without rereading the whole programme. Point-in-time; supersede freely.
 …21872780), repo `github.com/nickjlamb/observer-zero`, Medium article live at
 AI Advances. Complete; no open work.
 
-**Study 2: designed, piloted, not frozen.** Working title *Who Starts the
-Conversation?* Design v0.6 is the freeze candidate.
+**Study 2: designed, piloted, review closed, not yet frozen.** Working title
+*Who Starts the Conversation?* Design v0.6 **plus amendments A2–A5** is the
+frozen specification; the only remaining acts are one live smoke test of arm E
+and the `DESIGN_FROZEN` flip.
 
 ## The one-paragraph version of Study 2
 
@@ -28,7 +30,8 @@ and what happens to evidence once it flows.
 
 | Document | What it is |
 |---|---|
-| `observer-zero-study-2-design-v0.6.md` | **The freeze candidate.** Read §0 for changes, §9 for the decision table, §6 for the stopping rule |
+| `observer-zero-study-2-design-v0.6.md` | **The frozen design.** Read the A2–A5 amendment block at the end FIRST: A2 is the canonical experiment specification and supersedes §§2–4 |
+| `v0.6-final-adversarial-pass.md` | The final pass (researcher degrees of freedom). Five design failures, four recorded DoF notes; A2–A5 close them |
 | `observer-zero-study-2-design-v0.5.md` | Full design; v0.6 amends only the arm table and platform threat |
 | `p1-findings.md` | Pilot results, five findings |
 | `p1-findings-correction.md` | **Corrects Finding 2 of the above.** Read both |
@@ -67,11 +70,22 @@ What this establishes:
 
 ## Then, to freeze
 
-1. Final adversarial pass on v0.6 — scope is **researcher degrees of freedom
-   only**, not the science. Check specifically that the P1-D correction was
-   not used as cover for a change a null result would have made convenient.
-2. Flip `DESIGN_FROZEN` in `src/freeze.ts` in a dedicated commit.
-3. Confirmatory batteries on seeds 1000–1009: A → B → C(5) → D → E.
+1. ~~Final adversarial pass on v0.6.~~ **Done.** Verdict: the P1-D correction
+   was *not* used as cover — nothing was relaxed, and v0.5 was never edited
+   after the correction. The failure found was the opposite, selective
+   application: the correction proved 0 of 3 P1-D runs met the active-network
+   bar, and H5 depended on an arm-level version of that bar which does not
+   exist. Closed by A3.
+2. Amendments **A2–A5** recorded at the end of v0.6: canonical experiment
+   specification (arm F removed from Study 2, C's five runs named), H5
+   evaluability, the reach-denominator correction, and four interpretive
+   safeguards. Code follows: `STUDY_2_ARMS` guard in the battery, the A4
+   comment in `activation.ts`, 167 tests.
+3. **One live single-run smoke test of arm E** on a pilot seed — the only
+   live model/slot combination P1 never exercised.
+4. Flip `DESIGN_FROZEN` in `src/freeze.ts` in a dedicated commit on top of
+   `0f7275c` (also update `FREEZE_TAG`).
+5. Confirmatory batteries on seeds 1000–1009: A → B → C(5) → D → E.
 
 ## Hard rules that must not be broken
 
@@ -83,31 +97,48 @@ What this establishes:
   changing it silently re-baselines every judged result since Study 1.
 - **No live arm contains scripted communication.** The mock's planted claim
   is mock-only.
-- **After the final review pass: design-failure fixes only** (v0.6 §6). Not a
-  better threshold, a cleaner definition, an extra metric, or an extra arm.
+- **Review is closed** (v0.6 §6). A2–A5 were the permitted design-failure
+  fixes. After the freeze commit, nothing.
+- **Arm F is not a Study 2 arm** (A2). 8 × haiku is a Study 3 candidate,
+  pre-registered separately; its results are never merged into Study 2's
+  analysis. The battery refuses it on confirmatory seeds — in code.
 
 ## Budget and platform
 
 | Source | Available | Study 2 use |
 |---|---|---|
 | Perplexity | ~$5,011 | ~$195 (all sonar agents) |
-| Anthropic first-party | ~$134 | ~$105 (D ~$10, E ~$30, judge ~$65) |
+| Anthropic first-party | ~$134 | ~$65 (D ~$10, E ~$30, judge ~$25 — measured at ~$0.011/call, not estimated) |
 | AWS Bedrock | ~$1,100 | **$0 — account blocked** |
 
 Bedrock returns `Error 002: Access to Bedrock models is not allowed for this
 account` on both endpoints; the API key authenticates fine, so it is an
 account-level entitlement block, not credentials and not the First Time Use
 form. Amendment A1 in v0.6 reverted all Claude agents to first-party. Arms D
-and E survive as core; **arm F is contingent** on the block clearing.
+and E survive as core; **arm F was removed from Study 2 altogether** by A2 —
+not on cost grounds (at the measured judge rate it would have fitted) but
+because it had no pre-registered trigger and no pre-registered analysis.
 
 If Bedrock is unblocked: switch the overrides in `src/runner/arms.ts` back to
 the `bedrock-mantle:` prefix. Provider, routing, credential pre-flight and
 `resolvedModel` provenance are all built and tested. `npm run bedrock-check`
 probes both endpoints and names the failure mode.
 
+## Repository state
+
+Pre-freeze baseline is commit **`0f7275c`** on `main`, pushed to
+`github.com/nickjlamb/observer-zero` (2026-08-11). Everything described in
+this document is in that commit — code, tests, all six design versions, all
+P1 and mock run directories — and the working tree was clean afterwards. If
+you need to know what the design looked like *before* the freeze, that is the
+commit to check out.
+
+`DESIGN_FROZEN` is still `false` in `0f7275c`, which is deliberate: the freeze
+gets its own commit so the diff is one boolean.
+
 ## Infrastructure state
 
-Platform 0.5.0, **164 tests passing**. Built and validated: N-agent runner,
+Platform 0.5.0, **167 tests passing**. Built and validated: N-agent runner,
 8-persona roster, bulletin, deterministic digests, eval-v3 (flow metrics,
 activation endpoints, CPF on letters, IESC, belief aggregation), three-level
 detector benchmark, paired-seed statistics, repair path, stance judge, arm
@@ -137,3 +168,11 @@ Commands: `battery`, `society`, `society-eval [--judge]`, `benchmark`, `p1`,
 - **When stubbing a judge in tests, key on text unique to the message**, never
   on a phrase the prompt itself uses as an example. That mistake once made a
   correct implementation look broken.
+- **Cascade reach excludes the seed and divides by n−1** (A4). v0.5's gloss
+  "≥3 of 8 agents" is withdrawn: reading it that way would flip P1-D seed
+  9001 to an active network and the correction's headline from 0 of 3 to
+  1 of 3. Two tests pin the boundary.
+- **H5 is now H5a (D and E vs B, paired by seed) and H5b (active vs
+  non-active runs, descriptive)** (A3). H5b selects on an OUTCOME, so no
+  causal claim comes from it; if no confirmatory run meets the bar, H5b is
+  *not evaluable*, which is not the same as a null.

@@ -220,3 +220,38 @@ describe("activation: per-scenario reporting", () => {
     expect(isNearZero(0.05)).toBe(false);
   });
 });
+
+describe("activation: the reach denominator (design v0.6 amendment A4)", () => {
+  // A4 exists because v0.5's prose gloss ("≥3 of 8 agents at n=8") and the
+  // implementation disagree at exactly the value P1-D produced most often.
+  // Reach EXCLUDES the seed and divides by n-1, so 2 reached others is 2/7 =
+  // 0.286 and FAILS. Under the withdrawn gloss it would have been 3/8 =
+  // 0.375 and passed, flipping P1-D seed 9001 to an active network. These
+  // two tests pin the operative definition so the prose can never win.
+  it("fails the active-network bar at 2 reached others, second-order or not", () => {
+    nextId = 0;
+    const m = activationMetrics(
+      build(SONAR8, [letter(1, "theo", "ada"), letter(4, "ada", "maya")]) as never,
+    );
+    expect(m.cascadeReach).toBeCloseTo(2 / 7, 6);
+    expect(m.cascadeReach).not.toBeCloseTo(0.375, 6); // the withdrawn gloss
+    expect(m.cascadeReach).toBeLessThan(ACTIVE_NETWORK_MIN_REACH);
+    expect(m.secondOrderActivations).toBe(1);
+    expect(m.activeNetwork).toBe(false);
+  });
+
+  it("passes at 3 reached others (3/7 = 0.429), the first passing value at n=8", () => {
+    nextId = 0;
+    const m = activationMetrics(
+      build(SONAR8, [
+        letter(1, "theo", "ada"),
+        letter(4, "ada", "maya"),
+        letter(7, "maya", "samuel"),
+      ]) as never,
+    );
+    expect(m.cascadeReach).toBeCloseTo(3 / 7, 6);
+    expect(m.cascadeReach).toBeGreaterThanOrEqual(ACTIVE_NETWORK_MIN_REACH);
+    expect(m.activeNetwork).toBe(true);
+    expect(m.cascadeDepth).toBe(3);
+  });
+});

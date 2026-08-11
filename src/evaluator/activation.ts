@@ -31,10 +31,19 @@ import type { SocietyArtifactShape } from "./society.js";
 export const NEAR_ZERO_PER_AGENT_RUN = 0.05;
 
 /**
- * "Active network": cascade reach ≥ 3/8 of agents AND at least one
- * second-order activation. The reach floor is expressed as a fraction so it
- * carries across society sizes; at n=2 it reduces to "the other agent was
- * reached".
+ * "Active network": cascade reach ≥ 0.375 AND at least one second-order
+ * activation.
+ *
+ * Reach is |agents reachable from the seed, EXCLUDING the seed| / (n-1) —
+ * see bfs() below, which deletes the start node before measuring. At n=8 the
+ * first passing value is therefore 3 of the other 7 agents (0.429); 2 of 7
+ * (0.286) fails. At n=2 it reduces to "the other agent was reached" (1.0).
+ *
+ * Design v0.6 amendment A4: v0.5 §4.1's gloss "≥3 of 8 agents at n=8" is
+ * WITHDRAWN. It reads as counting the seed inside the numerator, under which
+ * 2 reached others would be 3/8 = 0.375 and would PASS — flipping P1-D seed
+ * 9001 to an active network and the correction's headline from 0 of 3 to
+ * 1 of 3. This comment, not that gloss, describes the code.
  */
 export const ACTIVE_NETWORK_MIN_REACH = 0.375;
 export const ACTIVE_NETWORK_MIN_SECOND_ORDER = 1;

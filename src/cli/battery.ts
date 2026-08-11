@@ -37,6 +37,8 @@ import {
   armRequiredCredentials,
   armRequiredProviders,
   armSociety,
+  isStudy2Arm,
+  STUDY_2_ARMS,
   CONFIRMATORY_BASE_SEED,
   CONFIRMATORY_REPLICATES,
   PILOT_BASE_SEED,
@@ -96,6 +98,20 @@ const touchesConfirmatory = seedsTouched.some(
   (s) => s >= CONFIRMATORY_BASE_SEED && s < CONFIRMATORY_BASE_SEED + CONFIRMATORY_REPLICATES,
 );
 const isLive = modelName !== "mock" || (arm ? Object.values(armModels(arm, modelName)).some((m) => m !== "mock") : false);
+
+// Design v0.6 amendment A2: only the five Study 2 arms may touch the
+// confirmatory seeds, frozen or not. F is a Study 3 candidate.
+if (arm && touchesConfirmatory && !isStudy2Arm(arm.id)) {
+  console.error(
+    `REFUSED: arm ${arm.id} is not part of Study 2's confirmatory design ` +
+      `(v0.6 amendment A2).\n` +
+      `  Study 2 arms: ${STUDY_2_ARMS.join(", ")}.\n` +
+      `  Arm F (8 x haiku) is a STUDY 3 candidate: it must be pre-registered separately, ` +
+      `and its results are never merged into Study 2's analysis.\n` +
+      `  Pilot seeds remain available:  --base-seed ${PILOT_BASE_SEED}`,
+  );
+  process.exit(1);
+}
 
 if (arm && touchesConfirmatory && isLive && !DESIGN_FROZEN) {
   console.error(

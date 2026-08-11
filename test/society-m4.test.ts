@@ -20,6 +20,8 @@ import { BeliefUpdateSchema, countDroppedEvidenceIds } from "../src/agents/belie
 import { runSociety, turnOrder, DEFAULT_SOCIETY } from "../src/runner/runSociety.js";
 import {
   ARMS,
+  STUDY_2_ARMS,
+  isStudy2Arm,
   armModels,
   armRequiredCredentials,
   armRequiredProviders,
@@ -344,8 +346,8 @@ describe("M4: N-agent society runs", () => {
     // fabrication-prone agent among seven grounded ones.
     expect(live.members.filter((m) => m.modelName !== undefined)).toHaveLength(1);
     expect(live.members.find((m) => m.modelName)?.personaId).toBe("theo");
-    // Claude agents are served via Bedrock (the AWS credits); the prefix is
-    // explicit so the serving platform is legible in every artifact.
+    // Claude agents run first-party (v0.6 amendment A1 — the AWS account is
+    // blocked), which is also where Study 1's ran.
     expect(armModels(ARMS["D"]!, "sonar-pro")["theo"]).toBe("claude-haiku-4-5");
     expect(armModels(ARMS["D"]!, "sonar-pro")["ada"]).toBe("sonar-pro");
     expect(armRequiredProviders(ARMS["D"]!, "sonar-pro").sort()).toEqual([
@@ -356,6 +358,18 @@ describe("M4: N-agent society runs", () => {
       "ANTHROPIC_API_KEY",
       "PERPLEXITY_API_KEY",
     ]);
+  });
+
+  it("keeps arm F out of Study 2's confirmatory design (v0.6 A2)", () => {
+    // F sat in no hypothesis and had no decision-table row, so a late
+    // decision to run it would have chosen its analysis after seeing D and
+    // E. It stays defined for Study 3 and stays out of the confirmatory set.
+    expect(STUDY_2_ARMS).toEqual(["A", "B", "C", "D", "E"]);
+    expect(isStudy2Arm("D")).toBe(true);
+    expect(isStudy2Arm("F")).toBe(false);
+    expect(isStudy2Arm("A-prime")).toBe(false);
+    expect(ARMS["F"]).toBeDefined();
+    expect(ARMS["F"]!.contrast).toMatch(/STUDY 3/);
   });
 
   it("keeps the minority persona slot identical across D and E", () => {

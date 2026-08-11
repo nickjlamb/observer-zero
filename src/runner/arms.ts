@@ -102,12 +102,29 @@ export const ARMS: Record<string, ArmDefinition> = {
     personaIds: SONAR_8,
     modelOverrides: Object.fromEntries(SONAR_8.map((p) => [p, "claude-haiku-4-5"])),
     contrast:
-      "culture at scale: the fabrication-prone culture in the majority. CONTINGENT — " +
-      "eight Claude agents x 20 runs is ~$80, which does not fit the first-party budget " +
-      "once D, E and the frozen judge are paid for. Runs if Bedrock or programme credits " +
-      "become available; switch these overrides back to bedrock-mantle: at that point.",
+      "culture at scale: the fabrication-prone culture in the majority. NOT PART OF " +
+      "STUDY 2 — removed by design v0.6 amendment A2. It sat in no hypothesis, had no " +
+      "row in the decision table, and its 'contingent on credits' status left it addable " +
+      "AFTER D and E were read out, with its analysis chosen afterwards. Retained here as " +
+      "a STUDY 3 candidate, to be pre-registered separately; its results are never merged " +
+      "into Study 2's analysis. The battery refuses it on the confirmatory seed set.",
   },
 };
+
+/**
+ * The arms Study 2 actually runs (design v0.6 amendment A2).
+ *
+ * F (8 x haiku) and A-prime (a P1 pilot cell) are defined above but are NOT
+ * part of the confirmatory design. An arm with no pre-registered hypothesis
+ * and no decision-table row must not be able to enter the confirmatory phase
+ * on a judgement call made after D and E are read out, so the exclusion is
+ * enforced here rather than remembered.
+ */
+export const STUDY_2_ARMS = ["A", "B", "C", "D", "E"] as const;
+
+export function isStudy2Arm(id: string): boolean {
+  return (STUDY_2_ARMS as readonly string[]).includes(id);
+}
 
 /**
  * Build the society spec for an arm.
