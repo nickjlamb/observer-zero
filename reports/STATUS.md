@@ -90,6 +90,35 @@ What this establishes:
    in the same commit — it asserts the flag's value by design, and now
    asserts `FREEZE_TAG` too, because run manifests carry it.
 
+## Post-freeze note 1 — the policy-version stamp (2026-08-11, after arm A)
+
+Arm A's manifests say `observer-zero-epistemic-policy-v0.1`; arms B–E say
+`...v0.2`. **This is not a policy-version confound**, which design v0.3's
+author decisions explicitly eliminated. The string tracks the *rendered
+prompt surface*: `isDefaultSociety()` matches Ada+Maya+letters, and at n=2
+with letters the v0.2 surface is byte-identical to Study 1's, because there
+is no bulletin and no extra peers for v0.2 to add. Two tests assert it. Arm A
+was not re-run: the data are valid and §6.4 permits re-runs only for
+documented infrastructure failures.
+
+The `-DRAFT` suffix was removed from the society policy constant here, which
+design v0.3 §11 step 5 scheduled for the freeze and the freeze commit missed.
+Executed *after* `85bcdfb` and *before* arm B, so no confirmatory manifest
+carries a draft stamp inside a manifest whose `FREEZE_TAG` says frozen. Arm
+A is unaffected (it takes the v0.1 branch). P1, mock and smoke artifacts keep
+their `-DRAFT` stamps, which is historically correct;
+`POLICY_VERSION_SOCIETY_DRAFT` survives as an alias so those stay readable by
+name. Label only — no prompt text, no agent behaviour, no endpoint changed.
+
+## Arm A: complete, QC clean
+
+20/20 runs · 0 stale finals · 1 failed review in 40 agent-runs (2.5%, matching
+P1's n=2 rate) · 0 leak findings · $10.78 of a $15 cap ·
+`seedSet=confirmatory`, `designFrozen=true`. Outcomes deliberately not
+inspected: nothing in them can change a decision, since run counts are fixed
+and C's extension is the design's only conditional. QC per arm is the only
+look taken until every arm is in.
+
 ## Next: the confirmatory phase
 
 Order: **A → B → C(5) → D → E**, then the judged evaluation pass per arm

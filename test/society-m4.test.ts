@@ -32,7 +32,7 @@ import {
 import { BEDROCK_MODEL_IDS, resolveBedrockModelId } from "../src/models/bedrock.js";
 import { modelFamilyFor, requiredCredentialFor, servingPlatformFor } from "../src/models/factory.js";
 import { INSTRUMENTS, instrumentsAt } from "../src/engine/types.js";
-import { buildManifest, POLICY_VERSION, POLICY_VERSION_SOCIETY_DRAFT } from "../src/manifest.js";
+import { buildManifest, POLICY_VERSION, POLICY_VERSION_SOCIETY } from "../src/manifest.js";
 import { DESIGN_FROZEN, FREEZE_TAG } from "../src/freeze.js";
 import {
   classifyArm,
@@ -109,12 +109,30 @@ describe("M4 invariant: the Study 1 prompt surface is unchanged", () => {
     expect(m.society.institution).toBe("letters");
   });
 
-  it("any society run reports the v0.2 draft policy", () => {
-    for (const armId of ["A-prime", "B", "C", "D"]) {
+  it("any society run reports policy v0.2, with no draft suffix post-freeze", () => {
+    // The "-DRAFT" suffix came off at the freeze (design v0.3 §11 step 5),
+    // executed before arm B so that no confirmatory manifest carries a draft
+    // stamp inside a manifest whose FREEZE_TAG says frozen. Like the
+    // DESIGN_FROZEN assertion, this one must never flip back.
+    for (const armId of ["A-prime", "B", "C", "D", "E"]) {
       const arm = ARMS[armId]!;
       const m = buildManifest("sonar-pro", 1.0, "v0.1", armSociety(arm, "sonar-pro"), ROSTER_8);
-      expect(m.policyVersion).toBe(POLICY_VERSION_SOCIETY_DRAFT);
+      expect(m.policyVersion).toBe(POLICY_VERSION_SOCIETY);
+      expect(m.policyVersion).not.toMatch(/DRAFT/);
     }
+  });
+
+  it("stamps arm A as policy v0.1, which is the surface and not a confound", () => {
+    // Arm A matches isDefaultSociety, so its manifest says v0.1. That is the
+    // label tracking the rendered prompt surface: at n=2 with letters there
+    // is no bulletin and there are no extra peers, so the v0.2 surface IS
+    // v0.1's. Recorded as a test because a reader comparing arm stamps would
+    // otherwise see a policy-version confound that does not exist.
+    const a = buildManifest("sonar-pro", 1.0, "v0.1", armSociety(ARMS["A"]!, "sonar-pro"), [
+      PERSONAS["ada"]!,
+      PERSONAS["maya"]!,
+    ]);
+    expect(a.policyVersion).toBe(POLICY_VERSION);
   });
 
   it("Study 1 instruments keep their ids and parameters", () => {
