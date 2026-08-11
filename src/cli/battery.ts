@@ -1,13 +1,25 @@
 /**
- * Seeded batch experiment runner (batch plan Phase 1).
+ * Seeded batch experiment runner (batch plan Phase 1; M4 society support).
  *
  *   npm run battery -- --model mock
  *   npm run battery -- --model claude-haiku-4-5 --concurrency 3 --max-cost 50
  *   npm run battery -- --conditions gravity_shift --replicates 5 --base-seed 2000
  *
+ * Study 2 arms (design v0.3 §5) — society composition and institution come
+ * from the arm definition, so a battery cannot silently run the wrong shape:
+ *
+ *   npm run battery -- --arm C --model sonar-pro
+ *   npm run battery -- --arm D --model sonar-pro     (theo → haiku, per arms.ts)
+ *   npm run battery -- --arm C --model mock          (free pipeline validation)
+ *
  * Defaults: conditions control,gravity_shift,instrument_fault × 10 replicates,
- * 30 days, base seed 1000 (worldSeed = base + replicate index, shared across
- * conditions so condition contrasts are paired by world randomness).
+ * 30 days. With --arm, conditions default to control,gravity_shift (Study 2
+ * drops instrument_fault) and the seed base defaults to the PILOT set.
+ *
+ * SEED HYGIENE (design v0.3 §4): seeds 1000-1009 are the confirmatory set and
+ * are quarantined until the design freezes. Any battery that would touch them
+ * must pass --confirmatory, and that flag is refused unless the freeze flag
+ * is also set. Pilot/mock/validation runs use 9000-9004.
  *
  * Properties: concurrent (--concurrency), resumable (completed run files are
  * skipped), rate-limit tolerant (provider backoff), cost-capped (--max-cost:
@@ -18,8 +30,19 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { control, gravityShift, instrumentFault } from "../scenarios/scenarios.js";
 import type { ScenarioConfig } from "../engine/types.js";
-import { runSociety } from "../runner/runSociety.js";
+import { runSociety, type SocietySpec } from "../runner/runSociety.js";
+import {
+  ARMS,
+  armModels,
+  armRequiredCredentials,
+  armRequiredProviders,
+  armSociety,
+  CONFIRMATORY_BASE_SEED,
+  CONFIRMATORY_REPLICATES,
+  PILOT_BASE_SEED,
+} from "../runner/arms.js";
 import { buildManifest } from "../manifest.js";
+import { DESIGN_FROZEN } from "../freeze.js";
 
 try {
   process.loadEnvFile();
@@ -35,8 +58,23 @@ function argNum(name: string, fallback: number): number {
   return Number(argStr(name, String(fallback)));
 }
 
-const conditions = argStr("conditions", "control,gravity_shift,instrument_fault").split(",");
-const replicates = argNum("replicates", 10);
+function argFlag(name: string): boolean {
+  return process.argv.includes(`--${name}`);
+}
+
+// --- Study 2 arm selection (design v0.3 §5) -------------------------------
+const armId = argStr("arm", "");
+const arm = armId ? ARMS[armId] : undefined;
+if (armId && !arm) {
+  console.error(`Unknown arm "${armId}". Options: ${Object.keys(ARMS).join(", ")}`);
+  process.exit(1);
+}
+
+const conditions = argStr(
+  "conditions",
+  arm ? "control,gravity_shift" : "control,gravity_shift,instrument_fault",
+).split(",");
+const replicates = argNum("replicates", arm ? CONFIRMATORY_REPLICATES : 10);
 const modelName = argStr("model", "mock");
 const temperature = argNum("temperature", 1.0);
 const variantArg = argStr("variant", "v0.1");
@@ -46,14 +84,61 @@ if (variantArg !== "v0.1" && variantArg !== "v0.2-no-mundane-prior") {
 }
 const promptVariant = variantArg as "v0.1" | "v0.2-no-mundane-prior";
 const concurrency = modelName === "mock" ? Math.max(1, argNum("concurrency", 1)) : argNum("concurrency", 3);
-const baseSeed = argNum("base-seed", 1000);
+
+// --- Seed hygiene (design v0.3 §4) ----------------------------------------
+// Study 2 batteries default to the PILOT seed set. Reaching the confirmatory
+// worlds is an explicit, gated act.
+const wantsConfirmatory = argFlag("confirmatory");
+const defaultBase = arm ? (wantsConfirmatory ? CONFIRMATORY_BASE_SEED : PILOT_BASE_SEED) : 1000;
+const baseSeed = argNum("base-seed", defaultBase);
+const seedsTouched = Array.from({ length: replicates }, (_, r) => baseSeed + r);
+const touchesConfirmatory = seedsTouched.some(
+  (s) => s >= CONFIRMATORY_BASE_SEED && s < CONFIRMATORY_BASE_SEED + CONFIRMATORY_REPLICATES,
+);
+const isLive = modelName !== "mock" || (arm ? Object.values(armModels(arm, modelName)).some((m) => m !== "mock") : false);
+
+if (arm && touchesConfirmatory && isLive && !DESIGN_FROZEN) {
+  console.error(
+    `REFUSED: this battery would run live agents on confirmatory seeds ` +
+      `${CONFIRMATORY_BASE_SEED}-${CONFIRMATORY_BASE_SEED + CONFIRMATORY_REPLICATES - 1}, ` +
+      `but the design is not frozen (see src/freeze.ts).\n` +
+      `Study 2's seed-hygiene rule (design v0.3 §4) keeps the confirmatory worlds unseen ` +
+      `under policy v0.2 until the design, prompts, evaluator and hypotheses are frozen.\n` +
+      `Use the pilot seeds instead:  --base-seed ${PILOT_BASE_SEED}\n` +
+      `To freeze: complete P1, then set DESIGN_FROZEN = true in a dedicated commit.`,
+  );
+  process.exit(1);
+}
+if (touchesConfirmatory && isLive && arm && DESIGN_FROZEN && !wantsConfirmatory) {
+  console.error(
+    `REFUSED: confirmatory seeds require an explicit --confirmatory flag, even post-freeze.`,
+  );
+  process.exit(1);
+}
+
+// Fail before spending: a mixed arm needs BOTH provider keys, and finding
+// that out on run 1 of 9 wastes the runs that already completed.
+if (arm) {
+  const missing = armRequiredCredentials(arm, modelName).filter((c) => !process.env[c]);
+  if (missing.length > 0) {
+    console.error(
+      `REFUSED: arm ${arm.id} needs ${missing.join(" + ")} but they are not set.\n` +
+        `  models in this arm: ${Object.entries(armModels(arm, modelName)).map(([p, m]) => `${p}=${m}`).join(", ")}\n` +
+        `  providers: ${armRequiredProviders(arm, modelName).join(", ")}\n` +
+        `  set the missing variable(s) in .env, or use --model mock to validate this arm's shape for free.`,
+    );
+    process.exit(1);
+  }
+}
+
 const days = argNum("days", 30);
 const maxCost = argNum("max-cost", 50);
 const batteryId = argStr(
   "id",
-  `battery-${modelName}${promptVariant === "v0.1" ? "" : "-nmp"}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "")}`,
+  `battery-${arm ? `arm${arm.id}-` : ""}${modelName}${promptVariant === "v0.1" ? "" : "-nmp"}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "")}`,
 );
 const outDir = argStr("out", `runs/${batteryId}`);
+const society: SocietySpec | undefined = arm ? armSociety(arm, modelName) : undefined;
 
 const scenarioFactories: Record<string, (s: number, d: number) => ScenarioConfig> = {
   control: (s, d) => control(s, d),
@@ -99,7 +184,29 @@ function writeIndex(): void {
       {
         batteryId,
         createdAt: new Date().toISOString(),
-        manifest: buildManifest(modelName, modelName === "mock" ? 0 : temperature, promptVariant),
+        manifest: buildManifest(
+          modelName,
+          modelName === "mock" ? 0 : temperature,
+          promptVariant,
+          society,
+          undefined,
+        ),
+        arm: arm
+          ? {
+              id: arm.id,
+              label: arm.label,
+              n: arm.n,
+              institution: arm.institution,
+              contrast: arm.contrast,
+              models: armModels(arm, modelName),
+            }
+          : null,
+        seedHygiene: {
+          baseSeed,
+          seeds: seedsTouched,
+          seedSet: touchesConfirmatory ? "confirmatory" : baseSeed >= PILOT_BASE_SEED ? "pilot" : "other",
+          designFrozen: DESIGN_FROZEN,
+        },
         settings: { conditions, replicates, days, baseSeed, modelName, temperature, concurrency, maxCost, promptVariant },
         totalEstimatedCostUSD: totalCost,
         jobs,
@@ -130,6 +237,15 @@ for (const job of jobs) {
 
 console.log(
   `OBSERVER ZERO battery: ${batteryId}\n` +
+    (arm
+      ? `arm ${arm.id} — ${arm.label} (n=${arm.n}, ${arm.institution})\n` +
+        `  ${arm.contrast}\n` +
+        (arm.modelOverrides
+          ? `  model overrides: ${Object.entries(arm.modelOverrides).map(([p, m]) => `${p}=${m}`).join(", ")}\n`
+          : "")
+      : "") +
+    `seeds ${seedsTouched[0]}-${seedsTouched.at(-1)} (${touchesConfirmatory ? "CONFIRMATORY" : baseSeed >= PILOT_BASE_SEED ? "pilot" : "legacy"} set) · ` +
+    `design ${DESIGN_FROZEN ? "FROZEN" : "unfrozen"}\n` +
     `${conditions.join(", ")} × ${replicates} · model ${modelName} · concurrency ${concurrency} · ` +
     `out ${outDir}\n` +
     `${jobs.filter((j) => j.status === "skipped_existing").length} already complete (resume) · ` +
@@ -152,7 +268,13 @@ async function worker(): Promise<void> {
     const started = Date.now();
     try {
       const config = scenarioFactories[job.condition]!(job.seed, days);
-      const { artifact } = await runSociety({ config, modelName, temperature, promptVariant });
+      const { artifact } = await runSociety({
+        config,
+        modelName,
+        temperature,
+        promptVariant,
+        ...(society ? { society } : {}),
+      });
       writeFileSync(job.file, JSON.stringify(artifact, null, 2));
       job.status = "done";
       job.costUSD = artifact.callTotals.estimatedCostUSD;

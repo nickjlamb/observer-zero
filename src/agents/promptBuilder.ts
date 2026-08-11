@@ -12,10 +12,28 @@
 import { formatBeliefs } from "./beliefs.js";
 import { personaBlock } from "./persona.js";
 import { formatNotebook } from "./notebook.js";
-import type { BeliefUpdateInput, DecisionInput } from "../models/provider.js";
+import { BULLETIN_POST_MAX_CHARS } from "./actions.js";
+import type { BeliefUpdateInput, BulletinItem, DecisionInput } from "../models/provider.js";
 
-export const DECISION_PROMPT_VERSION = "agent-decision-v2";
-export const BELIEF_PROMPT_VERSION = "belief-update-v4";
+/**
+ * M4: v3 prompts. INVARIANT: for a letters-only run (no bulletin input) the
+ * rendered text is byte-identical to v2 — the bulletin sections and action
+ * options only appear when the institution is on, so the Study 1 surface is
+ * unchanged wherever it is shared (design v0.3 §5). A test asserts this.
+ */
+export const DECISION_PROMPT_VERSION = "agent-decision-v3";
+export const BELIEF_PROMPT_VERSION = "belief-update-v5";
+
+/**
+ * M4: deterministic digest budgets, identical for every agent regardless of
+ * society size (context-length mitigation, design v0.3 §10). A digest is an
+ * editorial act and is part of the frozen condition — hence the version tag.
+ */
+export const DIGEST_VERSION = "digest-v1";
+const DIGEST_INBOX_ITEMS = 6;
+const DIGEST_OUTBOX_ITEMS = 6;
+const DIGEST_BULLETIN_ITEMS = 12;
+const DIGEST_BULLETIN_CHARS = 2400;
 
 /**
  * Battery 3b: the epistemic-prior ablation. "v0.1" is the frozen baseline;
@@ -57,12 +75,38 @@ export function renderSections(s: PromptSections): string {
 
 function formatMail(inbox: { eventId: number; day: number; from: string; text: string }[], outbox: { day: number; to: string; text: string }[]): string {
   const lines: string[] = [];
-  for (const m of inbox.slice(-6)) {
+  for (const m of inbox.slice(-DIGEST_INBOX_ITEMS)) {
     lines.push(`- received (event ${m.eventId}, day ${m.day}) from ${m.from}: "${m.text}"`);
   }
-  for (const m of outbox.slice(-6)) {
+  for (const m of outbox.slice(-DIGEST_OUTBOX_ITEMS)) {
     lines.push(`- sent (day ${m.day}) to ${m.to}: "${m.text}"`);
   }
+  return lines.join("\n");
+}
+
+/**
+ * Deterministic bulletin digest (digest-v1): newest-first inclusion under a
+ * fixed item and character budget, rendered oldest-first; anything older is
+ * summarized as a count. Same budget for every agent at every n.
+ */
+function formatBulletinFeed(feed: BulletinItem[]): string {
+  if (feed.length === 0) return "";
+  const newestFirst = [...feed].sort((a, b) => b.eventId - a.eventId);
+  const included: BulletinItem[] = [];
+  let chars = 0;
+  for (const item of newestFirst) {
+    if (included.length >= DIGEST_BULLETIN_ITEMS) break;
+    if (chars + item.text.length > DIGEST_BULLETIN_CHARS && included.length > 0) break;
+    included.push(item);
+    chars += item.text.length;
+  }
+  included.reverse();
+  const omitted = feed.length - included.length;
+  const lines = included.map(
+    (b) =>
+      `- notice (event ${b.eventId}, posted day ${b.postDay} by ${b.mine ? "me" : b.author}): "${b.text}"`,
+  );
+  if (omitted > 0) lines.unshift(`(+${omitted} earlier notices not shown)`);
   return lines.join("\n");
 }
 
@@ -73,22 +117,39 @@ export function buildDecisionPrompt(input: DecisionInput): string {
   const colleagues = input.colleagues
     .map((c) => `${c.name} ("${c.agentId}"), ${c.role} at the ${c.location.replace("_", " ")}`)
     .join("; ");
+  const bulletin = input.bulletin;
+  const bulletinIdentity = bulletin
+    ? `\nA public bulletin board hangs outside the town hall: any resident may pin a signed, dated ` +
+      `notice, and notices stay up permanently. It currently holds ${bulletin.totalPosts} notice${bulletin.totalPosts === 1 ? "" : "s"} ` +
+      `(you have seen ${bulletin.seenPosts}).`
+    : "";
+  const bulletinFeedText = input.bulletinFeed?.length
+    ? formatBulletinFeed(input.bulletinFeed)
+    : "";
+  const bulletinActions = bulletin
+    ? `- Pin a signed notice to the public bulletin (max ${BULLETIN_POST_MAX_CHARS} characters): {"type":"post_bulletin","text":"...","reason":"..."}\n` +
+      `- Read the bulletin board (you receive every notice you have not yet seen): {"type":"read_bulletin","reason":"..."}\n`
+    : "";
   return renderSections({
     identity:
       `You are ${input.persona.name}, ${input.persona.role} in the settlement of Meridian.\n` +
       personaBlock(input.persona) +
       `\nToday is Day ${input.day}. You are at the ${input.location.replace("_", " ")}.\n` +
       `Your instruments here: ${instruments}.` +
-      (colleagues ? `\nColleagues you can write to: ${colleagues}.` : ""),
+      (colleagues ? `\nColleagues you can write to: ${colleagues}.` : "") +
+      bulletinIdentity,
     memories: input.memories,
     notebook: formatNotebook(input.notebook),
     observations: "",
-    messages: formatMail(input.inbox, input.outbox),
+    messages:
+      formatMail(input.inbox, input.outbox) +
+      (bulletinFeedText ? `${input.inbox.length || input.outbox.length ? "\n" : ""}${bulletinFeedText}` : ""),
     beliefs: formatBeliefs(input.beliefs),
     task:
       `Choose ONE action for today. Respond with ONLY a JSON object, no other text:\n` +
       `- Run measurements on one of YOUR instruments: {"type":"run_experiment","instrumentId":"...","trials":1-12,"reason":"..."}\n` +
       `- Write to a colleague: {"type":"send_message","to":"<agentId>","text":"...","reason":"..."}\n` +
+      bulletinActions +
       `- Revise your hypotheses against your notebook: {"type":"update_beliefs","reason":"..."}\n` +
       `- Rest / attend to other duties: {"type":"rest","reason":"..."}\n` +
       `Choose based on your goals and what your evidence currently demands. You are a working scientist ` +
@@ -112,6 +173,9 @@ export function buildBeliefUpdatePrompt(
     )
     .join("\n");
 
+  const bulletinFeedText = input.bulletinFeed?.length
+    ? formatBulletinFeed(input.bulletinFeed)
+    : "";
   return renderSections({
     identity:
       `You are ${input.persona.name}, ${input.persona.role} in the settlement of Meridian.\n` +
@@ -120,7 +184,9 @@ export function buildBeliefUpdatePrompt(
     memories: "",
     notebook: formatNotebook(input.notebook),
     observations: obsLines || "(none)",
-    messages: formatMail(input.inbox, input.outbox),
+    messages:
+      formatMail(input.inbox, input.outbox) +
+      (bulletinFeedText ? `${input.inbox.length || input.outbox.length ? "\n" : ""}${bulletinFeedText}` : ""),
     beliefs: formatBeliefs(input.beliefs),
     task:
       `Revise your hypotheses in the light of the evidence. Rules:\n` +
@@ -139,7 +205,9 @@ export function buildBeliefUpdatePrompt(
       `4. Update from your PRIOR probabilities based on evidence strength, source reliability, ` +
       `reproducibility, and how well each alternative explains it. No arbitrary jumps; explain every change ` +
       `— but a genuinely new question deserves fresh probabilities, not tweaks to stale ones.\n` +
-      `5. Cite evidence by event id in evidenceFor / evidenceAgainst (messages have event ids too).\n` +
+      `5. Cite evidence by event id in evidenceFor / evidenceAgainst (messages have event ids too` +
+      (input.bulletinFeed?.length ? `, and so do bulletin notices` : ``) +
+      `).\n` +
       (variant === "v0.1"
         ? `6. Prefer mundane explanations until evidence forces otherwise.\n` +
           `7. Weigh colleague testimony by its independence: a colleague who measured without seeing ` +

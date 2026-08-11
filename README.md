@@ -167,6 +167,7 @@ npm run reclassify   # re-run hypothesis classification over stored artifacts
 | Document | Contents |
 |---|---|
 | [Technical report](reports/observer-zero-study-1.md) | Study 1: methods, findings, limitations ([PDF](reports/observer-zero-study-1.pdf)) |
+| [AI Advances article](https://ai.gopubby.com/what-150-simulated-universes-revealed-about-how-ai-agents-do-science-89aa2a8ed63c) | the accessible version of the Study 1 story |
 | [Research design](observer-zero-spec.md) | the full research spec (v0.3) |
 | [REPRODUCING.md](REPRODUCING.md) | exact commands, seeds, and costs for all five batteries |
 | [Battery reports](reports/) | per-battery findings as the study unfolded |

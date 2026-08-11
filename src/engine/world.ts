@@ -33,6 +33,28 @@ export interface MessagePlan {
   text: string;
 }
 
+/** A signed notice queued for posting on the public bulletin this day. */
+export interface BulletinPostPlan {
+  agentId: string;
+  text: string;
+}
+
+/** An agent's decision to read the bulletin today. */
+export interface BulletinReadPlan {
+  agentId: string;
+}
+
+/**
+ * M4: bulletin day-plan. Passing this object (even with empty arrays) marks
+ * the run as a bulletin-institution run: day_started events then carry the
+ * public post count. Omit it entirely for letters-only runs so the Study 1
+ * event surface is unchanged.
+ */
+export interface BulletinPlan {
+  posts: readonly BulletinPostPlan[];
+  reads: readonly BulletinReadPlan[];
+}
+
 export class Simulator {
   readonly config: ScenarioConfig;
   readonly log = new EventLog();
@@ -51,6 +73,16 @@ export class Simulator {
    * ill-defined.)
    */
   private instrumentTrialIndex = new Map<string, number>();
+  /**
+   * M4 bulletin state. Posts are ordinary events (append-only, no editing or
+   * deletion — the log itself is the board). A post becomes readable the day
+   * AFTER it is posted, so within-day ordering can never affect what a
+   * reader sees (order-independence, the same discipline as per-trial
+   * noise). Per reader we track which posts have already been delivered so
+   * a read delivers exactly the unseen backlog.
+   */
+  private bulletinPostEventIds: number[] = [];
+  private bulletinDeliveredCount = new Map<string, number>();
 
   constructor(config: ScenarioConfig) {
     this.config = ScenarioConfigSchema.parse(config);
@@ -122,6 +154,7 @@ export class Simulator {
     plan: readonly MeasurementPlan[],
     messages: readonly MessagePlan[] = [],
     participants?: readonly string[],
+    bulletin?: BulletinPlan,
   ): void {
     this.day += 1;
 
@@ -129,16 +162,69 @@ export class Simulator {
       if (iv.day === this.day) this.applyIntervention(iv);
     }
 
+    // Readable universe = posts made on PREVIOUS days. Computed before any
+    // of today's posts are appended.
+    const readableCount = this.bulletinPostEventIds.length;
+
     this.log.append({
       tick: this.tick++,
       day: this.day,
       type: "day_started",
       agentId: null,
       location: null,
-      payload: { day: this.day },
+      payload: bulletin
+        ? { day: this.day, bulletinPostCount: readableCount }
+        : { day: this.day },
       visibleTo: [...(participants ?? plan.map((p) => p.agentId))],
       groundTruth: this.groundTruth(null),
     });
+
+    // Bulletin reads FIRST: they deliver only posts from previous days, so
+    // processing them before today's posts makes the invariant structural.
+    for (const read of bulletin?.reads ?? []) {
+      const delivered = this.bulletinDeliveredCount.get(read.agentId) ?? 0;
+      // Own posts are excluded from delivery: the author already witnessed
+      // them (visibleTo), and self-exposure must not inflate CPF exposure.
+      const backlog = this.bulletinPostEventIds
+        .slice(delivered, readableCount)
+        .filter((id) => String(this.log.all()[id]!.payload["author"]) !== read.agentId);
+      if (backlog.length === 0) {
+        this.log.append({
+          tick: this.tick++,
+          day: this.day,
+          type: "bulletin_read",
+          agentId: read.agentId,
+          location: "town_hall",
+          payload: { reader: read.agentId, noNewPosts: true },
+          visibleTo: [read.agentId],
+          groundTruth: this.groundTruth(null),
+        });
+      } else {
+        // One delivery event PER POST: the delivery event id is what the
+        // reader can cite as evidence, and each delivery is one exposure
+        // record (the claim-propagation denominator, design v0.3 §8).
+        for (const postEventId of backlog) {
+          const post = this.log.all()[postEventId]!;
+          this.log.append({
+            tick: this.tick++,
+            day: this.day,
+            type: "bulletin_read",
+            agentId: read.agentId,
+            location: "town_hall",
+            payload: {
+              reader: read.agentId,
+              postEventId,
+              postDay: post.day,
+              author: String(post.payload["author"]),
+              text: String(post.payload["text"]),
+            },
+            visibleTo: [read.agentId],
+            groundTruth: this.groundTruth(null),
+          });
+        }
+      }
+      this.bulletinDeliveredCount.set(read.agentId, readableCount);
+    }
 
     for (const entry of plan) {
       const inst = instrumentById(entry.instrumentId);
@@ -187,6 +273,27 @@ export class Simulator {
         visibleTo: [msg.from, msg.to],
         groundTruth: this.groundTruth(null),
       });
+    }
+
+    // Bulletin posts LAST: appended today, readable from tomorrow. Visible
+    // only to the author until someone chooses to read the board — attention
+    // to public testimony is a logged, chooseable act (design v0.3 §4).
+    for (const post of bulletin?.posts ?? []) {
+      const ev = this.log.append({
+        tick: this.tick++,
+        day: this.day,
+        type: "bulletin_posted",
+        agentId: post.agentId,
+        location: "town_hall",
+        payload: {
+          author: post.agentId,
+          text: post.text,
+          postNumber: this.bulletinPostEventIds.length + 1,
+        },
+        visibleTo: [post.agentId],
+        groundTruth: this.groundTruth(null),
+      });
+      this.bulletinPostEventIds.push(ev.id);
     }
   }
 

@@ -1,29 +1,66 @@
 /**
- * The canonical two-agent society run, extracted so the interactive CLI
- * (societyDemo) and the batch runner (battery) execute EXACTLY the same code.
+ * The canonical society run, generalised for M4 (design v0.3 §7.1) from the
+ * Study 1 Ada/Maya pair to N agents, mixed model assignment, and the
+ * bulletin institution — while executing EXACTLY the Study 1 code path for
+ * the default 2-agent letters configuration.
  *
- * Returns a complete, self-contained run artifact (batch plan item 14): full
- * event log with ground truth, every model call with prompts and completions,
- * belief timelines, memories, replication episodes, leak audit, manifest.
+ * M4 additions:
+ *  - SocietySpec: any subset of the persona roster, per-agent model
+ *    assignment (mixed societies, arm D), institution letters | bulletin.
+ *  - Seeded turn order, rotated by day: shuffle keyed by (worldSeed, day).
+ *    Decisions are made against the previous evening's log and executed
+ *    together, so order carries no informational advantage — the rotation is
+ *    pre-registered anyway (design v0.3 §10).
+ *  - Per-agent cost attribution.
+ *
+ * Returns a complete, self-contained run artifact: full event log with
+ * ground truth, every model call with prompts and completions, belief
+ * timelines, memories, replication episodes, leak audit, manifest.
  */
 
 import { randomUUID } from "node:crypto";
-import { Simulator, type MeasurementPlan, type MessagePlan } from "../engine/world.js";
+import {
+  Simulator,
+  type BulletinPostPlan,
+  type BulletinReadPlan,
+  type MeasurementPlan,
+  type MessagePlan,
+} from "../engine/world.js";
 import { buildAgentView } from "../engine/agentView.js";
 import { ObserverAgent } from "../agents/agent.js";
-import { ADA, MAYA, type Persona } from "../agents/persona.js";
+import { PERSONAS, ROSTER_PAIR, type Persona } from "../agents/persona.js";
 import { instrumentsAt, type ScenarioConfig } from "../engine/types.js";
+import { Rng } from "../engine/rng.js";
 import {
   CallLog,
   FORBIDDEN_PROMPT_TOKENS,
   type ColleagueInfo,
   type ModelProvider,
 } from "../models/provider.js";
-import { createProvider } from "../models/factory.js";
+import { createProvider, providerKindFor } from "../models/factory.js";
 import { deriveBeliefMetrics } from "../evaluator/classify.js";
 import { analyzeReplication } from "../evaluator/replication.js";
 import { buildManifest } from "../manifest.js";
 import type { PromptVariant } from "../agents/promptBuilder.js";
+
+export type Institution = "letters" | "bulletin";
+
+export interface SocietyMember {
+  personaId: string;
+  /** Overrides the run-level model — mixed societies (arm D). */
+  modelName?: string;
+}
+
+export interface SocietySpec {
+  members: SocietyMember[];
+  institution: Institution;
+}
+
+/** The Study 1 configuration: Ada + Maya, letters only. */
+export const DEFAULT_SOCIETY: SocietySpec = {
+  members: [{ personaId: "ada" }, { personaId: "maya" }],
+  institution: "letters",
+};
 
 export interface RunSocietyOptions {
   config: ScenarioConfig;
@@ -31,29 +68,54 @@ export interface RunSocietyOptions {
   temperature?: number;
   /** Battery 3b: "v0.2-no-mundane-prior" removes one belief-prompt line. */
   promptVariant?: PromptVariant;
+  /** M4: society composition and institution. Defaults to the Study 1 pair. */
+  society?: SocietySpec;
   /** Optional live progress hook (the CLI prints; the battery stays quiet). */
   log?: (line: string) => void;
+}
+
+/** Seeded Fisher–Yates keyed by (worldSeed, day): the daily turn order. */
+export function turnOrder<T>(items: readonly T[], seed: number, day: number): T[] {
+  const rng = Rng.forKey(seed, `turn-order:${day}`);
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = rng.int(i + 1);
+    [out[i], out[j]] = [out[j]!, out[i]!];
+  }
+  return out;
 }
 
 export async function runSociety(opts: RunSocietyOptions) {
   const { config, modelName } = opts;
   const log = opts.log ?? (() => {});
-  const temperature = modelName === "mock" ? 0 : (opts.temperature ?? 1.0);
+  const society = opts.society ?? DEFAULT_SOCIETY;
+  const bulletinOn = society.institution === "bulletin";
 
   const promptVariant = opts.promptVariant ?? "v0.1";
   const callLog = new CallLog();
-  const provider: ModelProvider = createProvider(modelName, temperature, callLog, promptVariant);
 
-  const personas: Persona[] = [ADA, MAYA];
+  const personas: Persona[] = society.members.map((m) => {
+    const p = PERSONAS[m.personaId];
+    if (!p) throw new Error(`Unknown persona "${m.personaId}"`);
+    return p;
+  });
+  const memberModels = society.members.map((m) => m.modelName ?? modelName);
+  const anyReal = memberModels.some((m) => m !== "mock");
+  const temperature = anyReal ? (opts.temperature ?? 1.0) : 0;
+
   const directory: ColleagueInfo[] = personas.map((p) => ({
     agentId: p.agentId,
     name: p.name,
     role: p.role,
     location: p.home,
   }));
-  const agents = personas.map(
-    (p) => new ObserverAgent(p, provider, directory.filter((c) => c.agentId !== p.agentId)),
-  );
+  const providers = new Map<string, ModelProvider>();
+  const agents = personas.map((p, i) => {
+    const m = memberModels[i]!;
+    const provider = createProvider(m, m === "mock" ? 0 : temperature, callLog, promptVariant);
+    providers.set(p.agentId, provider);
+    return new ObserverAgent(p, provider, directory.filter((c) => c.agentId !== p.agentId));
+  });
   const agentIds = personas.map((p) => p.agentId);
   const sim = new Simulator(config);
   const startedAt = new Date().toISOString();
@@ -61,10 +123,12 @@ export async function runSociety(opts: RunSocietyOptions) {
   for (let d = 1; d <= config.days; d++) {
     const plans: MeasurementPlan[] = [];
     const messages: MessagePlan[] = [];
+    const posts: BulletinPostPlan[] = [];
+    const reads: BulletinReadPlan[] = [];
     const dayLines: string[] = [];
     const wantsReview = new Set<string>();
 
-    for (const agent of agents) {
+    for (const agent of turnOrder(agents, config.seed, d)) {
       const view = buildAgentView({
         agentId: agent.persona.agentId,
         day: d,
@@ -90,6 +154,20 @@ export async function runSociety(opts: RunSocietyOptions) {
         } else {
           dayLines.push(`${who}: message to unknown recipient "${action.to}" — dropped`);
         }
+      } else if (action.type === "post_bulletin") {
+        if (bulletinOn) {
+          posts.push({ agentId: who, text: action.text });
+          dayLines.push(`${who} posts: "${action.text.slice(0, 90)}${action.text.length > 90 ? "…" : ""}"`);
+        } else {
+          dayLines.push(`${who}: tried to post (no bulletin in this world) — rested`);
+        }
+      } else if (action.type === "read_bulletin") {
+        if (bulletinOn) {
+          reads.push({ agentId: who });
+          dayLines.push(`${who}: reads the bulletin`);
+        } else {
+          dayLines.push(`${who}: tried to read the bulletin (none exists) — rested`);
+        }
       } else if (action.type === "update_beliefs") {
         wantsReview.add(who);
         dayLines.push(`${who}: belief review`);
@@ -98,7 +176,7 @@ export async function runSociety(opts: RunSocietyOptions) {
       }
     }
 
-    sim.runDay(plans, messages, agentIds);
+    sim.runDay(plans, messages, agentIds, bulletinOn ? { posts, reads } : undefined);
 
     for (const agent of agents) {
       const view = buildAgentView({
@@ -132,7 +210,10 @@ export async function runSociety(opts: RunSocietyOptions) {
         events: sim.log.all(),
       });
       agent.perceive(view);
-      await agent.updateBeliefs(view);
+      // isFinalReview: this review has no later review to correct it, so a
+      // parse failure here permanently stales the agent's final belief
+      // state — where the primary endpoint is measured (design v0.5 §6).
+      await agent.updateBeliefs(view, true);
       log(`End-of-study review: ${agent.persona.agentId}`);
     }
   }
@@ -140,18 +221,30 @@ export async function runSociety(opts: RunSocietyOptions) {
   const episodes = analyzeReplication(sim.log.all());
   const audit = callLog.leakAudit(FORBIDDEN_PROMPT_TOKENS);
   const totals = callLog.totals();
+  const totalsByAgent = callLog.totalsByAgent();
 
   const artifact = {
     runId: randomUUID(),
     startedAt,
     finishedAt: new Date().toISOString(),
-    manifest: buildManifest(provider.name, modelName === "mock" ? 0 : temperature, promptVariant),
+    manifest: buildManifest(modelName, anyReal ? temperature : 0, promptVariant, society, personas),
     config,
-    model: provider.name,
-    temperature,
+    model: modelName === "mock" ? "mock-scientist-v2" : modelName,
+    temperature: anyReal ? temperature : 0,
+    society: {
+      n: personas.length,
+      institution: society.institution,
+      members: society.members.map((m, i) => ({
+        personaId: m.personaId,
+        modelName: memberModels[i]!,
+        provider: providerKindFor(memberModels[i]!),
+      })),
+    },
     personas,
     agents: agents.map((a) => ({
       agentId: a.persona.agentId,
+      modelName: memberModels[agentIds.indexOf(a.persona.agentId)]!,
+      costUSD: totalsByAgent[a.persona.agentId]?.estimatedCostUSD ?? 0,
       actionHistory: a.actionHistory,
       failedUpdates: a.failedUpdates,
       beliefTimeline: a.beliefTimeline.map((s) => ({
@@ -166,6 +259,7 @@ export async function runSociety(opts: RunSocietyOptions) {
     })),
     replicationEpisodes: episodes,
     callTotals: totals,
+    callTotalsByAgent: totalsByAgent,
     leakAudit: audit,
     modelCalls: callLog.all(),
     events: sim.log.toJSON(),

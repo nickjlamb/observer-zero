@@ -1,0 +1,224 @@
+{
+  "batteryId": "m4-mock-armB",
+  "createdAt": "2026-08-10T20:09:12.947Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.2-DRAFT",
+    "platformVersion": "0.5.0",
+    "prompts": {
+      "decision": "agent-decision-v3",
+      "beliefUpdate": "belief-update-v5",
+      "digest": "digest-v1"
+    },
+    "personaHash": "453337e7",
+    "society": {
+      "n": 8,
+      "institution": "letters",
+      "memberModels": [
+        {
+          "personaId": "ada",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "maya",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "theo",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "samuel",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "elena",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "leah",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "tom",
+          "model": "mock",
+          "provider": "mock"
+        },
+        {
+          "personaId": "jamie",
+          "model": "mock",
+          "provider": "mock"
+        }
+      ],
+      "turnOrder": "seeded Fisher-Yates keyed by (worldSeed, day)"
+    },
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "mock",
+      "provider": "mock",
+      "webSearchDisabled": null,
+      "temperature": 0,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "arm": {
+    "id": "B",
+    "label": "8 agents, letters",
+    "n": 8,
+    "institution": "letters",
+    "contrast": "B−A isolates scale (S2a)",
+    "models": {
+      "ada": "mock",
+      "maya": "mock",
+      "theo": "mock",
+      "samuel": "mock",
+      "elena": "mock",
+      "leah": "mock",
+      "tom": "mock",
+      "jamie": "mock"
+    }
+  },
+  "seedHygiene": {
+    "baseSeed": 9000,
+    "seeds": [
+      9000,
+      9001,
+      9002,
+      9003,
+      9004
+    ],
+    "seedSet": "pilot",
+    "designFrozen": false
+  },
+  "settings": {
+    "conditions": [
+      "control",
+      "gravity_shift"
+    ],
+    "replicates": 5,
+    "days": 30,
+    "baseSeed": 9000,
+    "modelName": "mock",
+    "temperature": 1,
+    "concurrency": 1,
+    "maxCost": 50,
+    "promptVariant": "v0.1"
+  },
+  "totalEstimatedCostUSD": 0,
+  "jobs": [
+    {
+      "name": "control-seed9000",
+      "condition": "control",
+      "seed": 9000,
+      "file": "runs/m4-mock-armB/control-seed9000.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed9001",
+      "condition": "control",
+      "seed": 9001,
+      "file": "runs/m4-mock-armB/control-seed9001.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed9002",
+      "condition": "control",
+      "seed": 9002,
+      "file": "runs/m4-mock-armB/control-seed9002.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed9003",
+      "condition": "control",
+      "seed": 9003,
+      "file": "runs/m4-mock-armB/control-seed9003.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed9004",
+      "condition": "control",
+      "seed": 9004,
+      "file": "runs/m4-mock-armB/control-seed9004.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed9000",
+      "condition": "gravity_shift",
+      "seed": 9000,
+      "file": "runs/m4-mock-armB/gravity_shift-seed9000.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed9001",
+      "condition": "gravity_shift",
+      "seed": 9001,
+      "file": "runs/m4-mock-armB/gravity_shift-seed9001.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed9002",
+      "condition": "gravity_shift",
+      "seed": 9002,
+      "file": "runs/m4-mock-armB/gravity_shift-seed9002.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed9003",
+      "condition": "gravity_shift",
+      "seed": 9003,
+      "file": "runs/m4-mock-armB/gravity_shift-seed9003.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed9004",
+      "condition": "gravity_shift",
+      "seed": 9004,
+      "file": "runs/m4-mock-armB/gravity_shift-seed9004.json",
+      "status": "done",
+      "costUSD": 0,
+      "leakClean": true,
+      "failedReviews": 0
+    }
+  ]
+}

@@ -6,7 +6,13 @@
  */
 
 import { instrumentsAt, type AgentView } from "../engine/types.js";
-import type { ColleagueInfo, MailItem, ModelProvider } from "../models/provider.js";
+import type {
+  BulletinItem,
+  BulletinStatus,
+  ColleagueInfo,
+  MailItem,
+  ModelProvider,
+} from "../models/provider.js";
 import { REST_FALLBACK, type AgentAction } from "./actions.js";
 import {
   INITIAL_BELIEFS,
@@ -61,6 +67,33 @@ export class ObserverAgent {
         if (!mine) {
           this.memory.addSocial({ aboutAgentId: from, day: obs.day, text: String(obs.detail["text"]) });
         }
+      } else if (obs.type === "bulletin_posted") {
+        // Only own posts are visible as bulletin_posted events.
+        this.memory.addEpisodic({
+          day: obs.day,
+          eventId: obs.eventId,
+          text: `I pinned a notice to the public bulletin: "${String(obs.detail["text"])}"`,
+          tags: ["bulletin", "own_post"],
+        });
+      } else if (obs.type === "bulletin_read") {
+        if (obs.detail["noNewPosts"]) {
+          this.memory.addEpisodic({
+            day: obs.day,
+            eventId: obs.eventId,
+            text: "Read the bulletin board: no notices I had not already seen.",
+            tags: ["bulletin"],
+          });
+        } else {
+          const author = String(obs.detail["author"]);
+          const text = String(obs.detail["text"]);
+          this.memory.addEpisodic({
+            day: obs.day,
+            eventId: obs.eventId,
+            text: `Bulletin notice (posted day ${String(obs.detail["postDay"])} by ${author}): "${text}"`,
+            tags: ["bulletin", author],
+          });
+          this.memory.addSocial({ aboutAgentId: author, day: obs.day, text });
+        }
       } else if (obs.type === "day_started") {
         // Mark seen without storing filler memories.
         this.memory.addEpisodic({ day: obs.day, eventId: obs.eventId, text: "", tags: ["tick"] });
@@ -87,6 +120,52 @@ export class ObserverAgent {
     return { inbox, outbox };
   }
 
+  /**
+   * The bulletin as THIS agent has experienced it: its own posts plus every
+   * notice delivered through its reads. Derived from its own view only.
+   */
+  private bulletinFeed(view: AgentView): BulletinItem[] {
+    const items: BulletinItem[] = [];
+    for (const obs of view.observations) {
+      if (obs.type === "bulletin_posted") {
+        items.push({
+          eventId: obs.eventId,
+          postDay: obs.day,
+          author: this.persona.agentId,
+          text: String(obs.detail["text"]),
+          mine: true,
+        });
+      } else if (obs.type === "bulletin_read" && !obs.detail["noNewPosts"]) {
+        items.push({
+          eventId: obs.eventId,
+          postDay: Number(obs.detail["postDay"]),
+          author: String(obs.detail["author"]),
+          text: String(obs.detail["text"]),
+          mine: false,
+        });
+      }
+    }
+    return items;
+  }
+
+  /**
+   * Bulletin status for the decision prompt: the public post count comes
+   * from the latest day_started that carries one (one day stale by design —
+   * the count as of this morning's board, before today's pinning).
+   */
+  private bulletinStatus(view: AgentView): BulletinStatus | undefined {
+    let totalPosts: number | null = null;
+    for (const obs of view.observations) {
+      if (obs.type === "day_started" && obs.detail["bulletinPostCount"] !== undefined) {
+        totalPosts = Number(obs.detail["bulletinPostCount"]);
+      }
+    }
+    if (totalPosts === null) return undefined;
+    // Own posts count as seen — the author witnessed them being pinned.
+    const seen = this.bulletinFeed(view).length;
+    return { totalPosts, seenPosts: Math.min(seen, totalPosts) };
+  }
+
   async decide(view: AgentView): Promise<AgentAction> {
     try {
       const { inbox, outbox } = this.mail(view);
@@ -104,6 +183,8 @@ export class ObserverAgent {
         colleagues: this.colleagues,
         inbox,
         outbox,
+        bulletin: this.bulletinStatus(view),
+        bulletinFeed: this.bulletinFeed(view),
         recentObservations: view.observations.slice(-120),
       });
       this.actionHistory.push({ day: view.day, action });
@@ -133,7 +214,7 @@ export class ObserverAgent {
     return false;
   }
 
-  async updateBeliefs(view: AgentView): Promise<void> {
+  async updateBeliefs(view: AgentView, isFinalReview = false): Promise<void> {
     try {
       const { inbox, outbox } = this.mail(view);
       const update = await this.provider.updateBeliefs({
@@ -144,6 +225,8 @@ export class ObserverAgent {
         beliefs: this.beliefs,
         inbox,
         outbox,
+        bulletinFeed: this.bulletinFeed(view),
+        isFinalReview,
       });
       this.beliefs = normalizeUpdate(update, view.day);
       this.beliefTimeline.push({

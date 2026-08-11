@@ -13,9 +13,15 @@
     "society": "tsx src/cli/societyDemo.ts",
     "battery": "tsx src/cli/battery.ts",
     "evaluate": "tsx src/cli/evaluate.ts",
-    "reclassify": "tsx src/cli/reclassify.ts"
+    "society-eval": "tsx src/cli/societyEval.ts",
+    "benchmark": "tsx src/cli/benchmark.ts",
+    "p1": "tsx src/cli/p1Report.ts",
+    "audit-evidence": "tsx src/cli/auditEvidence.ts",
+    "reclassify": "tsx src/cli/reclassify.ts",
+    "bedrock-check": "tsx src/cli/bedrockCheck.ts"
   },
   "dependencies": {
+    "@anthropic-ai/bedrock-sdk": "^0.32.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {

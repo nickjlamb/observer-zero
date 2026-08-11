@@ -16,6 +16,7 @@ import {
   DECISION_PROMPT_VERSION,
   type PromptVariant,
 } from "../agents/promptBuilder.js";
+import { runStructuredWithRepair } from "./repair.js";
 import type {
   BeliefUpdateInput,
   CallLog,
@@ -142,17 +143,16 @@ export class AnthropicProvider implements ModelProvider {
     purpose: "decision" | "belief_update",
     prompt: string,
     parse: (raw: unknown) => T,
+    isFinalReview = false,
   ): Promise<T> {
-    const first = await this.call(agentId, day, purpose, prompt);
-    try {
-      return parse(extractJson(first));
-    } catch (e) {
-      const repair =
-        `${prompt}\n\n[repair]\nYour previous reply was invalid: ${String(e).slice(0, 300)}\n` +
-        `Previous reply:\n${first.slice(0, 1000)}\n\nRespond again with ONLY the corrected JSON object.`;
-      const second = await this.call(agentId, day, purpose, repair);
-      return parse(extractJson(second));
-    }
+    return runStructuredWithRepair({
+      purpose,
+      prompt,
+      parse,
+      isFinalReview,
+      extract: extractJson,
+      call: (text) => this.call(agentId, day, purpose, text),
+    });
   }
 
   async decide(input: DecisionInput): Promise<AgentAction> {
@@ -176,6 +176,7 @@ export class AnthropicProvider implements ModelProvider {
       "belief_update",
       buildBeliefUpdatePrompt(input, this.variant),
       (raw) => BeliefUpdateSchema.parse(raw),
+      input.isFinalReview ?? false,
     );
   }
 }

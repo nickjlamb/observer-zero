@@ -1,0 +1,455 @@
+{
+  "armA": "runs/m4-mock-armA",
+  "armB": "runs/m4-mock-armB",
+  "label": "B-A scale",
+  "results": {
+    "PRIMARY mean credence on correct class": {
+      "n": 10,
+      "meanA": 0.5558947368421052,
+      "meanB": 0.638217105263158,
+      "meanDifference": 0.08232236842105264,
+      "ci95": [
+        -0.062124999999999965,
+        0.24268421052631578
+      ],
+      "effectSizeDz": 0.3123158607215147,
+      "permutationP": 0.35506449355064496,
+      "bWins": 5,
+      "ties": 0,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": 0.24374999999999997
+        },
+        {
+          "key": "control:9001",
+          "difference": -0.14374999999999993
+        },
+        {
+          "key": "control:9002",
+          "difference": -0.14374999999999993
+        },
+        {
+          "key": "control:9003",
+          "difference": 1.1102230246251565e-16
+        },
+        {
+          "key": "control:9004",
+          "difference": 0.13124999999999998
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 0.43611842105263154
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 0.5771052631578947
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": -0.22322368421052624
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": -0.010526315789473717
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": -0.043749999999999956
+        }
+      ]
+    },
+    "belief dispersion (final)": {
+      "n": 10,
+      "meanA": 0.16792105263157894,
+      "meanB": 0.16217293233082705,
+      "meanDifference": -0.005748120300751917,
+      "ci95": [
+        -0.1424812030075188,
+        0.1303674812030075
+      ],
+      "effectSizeDz": -0.024447001569757387,
+      "permutationP": 0.966003399660034,
+      "bWins": 5,
+      "ties": 1,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": -0.07732142857142876
+        },
+        {
+          "key": "control:9001",
+          "difference": 0.24928571428571428
+        },
+        {
+          "key": "control:9002",
+          "difference": 0.24928571428571425
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": -0.24374999999999997
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": -0.1738815789473686
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": -0.4308364661654136
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": 0.2971804511278196
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": 0.009774436090225564
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": 0.06278195488721805
+        }
+      ]
+    },
+    "convergence (early − final dispersion)": {
+      "n": 10,
+      "meanA": -0.16792105263157894,
+      "meanB": -0.16217293233082705,
+      "meanDifference": 0.005748120300751917,
+      "ci95": [
+        -0.1303674812030075,
+        0.1424812030075188
+      ],
+      "effectSizeDz": 0.024447001569757387,
+      "permutationP": 0.966003399660034,
+      "bWins": 4,
+      "ties": 1,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": 0.07732142857142876
+        },
+        {
+          "key": "control:9001",
+          "difference": -0.24928571428571428
+        },
+        {
+          "key": "control:9002",
+          "difference": -0.24928571428571425
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": 0.24374999999999997
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 0.1738815789473686
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 0.4308364661654136
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": -0.2971804511278196
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": -0.009774436090225564
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": -0.06278195488721805
+        }
+      ]
+    },
+    "fraction of agents with correct dominant belief": {
+      "n": 10,
+      "meanA": 0.75,
+      "meanB": 0.8625,
+      "meanDifference": 0.1125,
+      "ci95": [
+        -0.125,
+        0.3875
+      ],
+      "effectSizeDz": 0.2518858376245526,
+      "permutationP": 0.49035096490350966,
+      "bWins": 3,
+      "ties": 3,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": 0.25
+        },
+        {
+          "key": "control:9001",
+          "difference": -0.125
+        },
+        {
+          "key": "control:9002",
+          "difference": -0.125
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 0.75
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 1
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": -0.5
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": -0.125
+        }
+      ]
+    },
+    "testimony productions per agent": {
+      "n": 10,
+      "meanA": 1.2,
+      "meanB": 1.0375,
+      "meanDifference": -0.1625,
+      "ci95": [
+        -0.4875,
+        0.125
+      ],
+      "effectSizeDz": -0.3063184103803419,
+      "permutationP": 0.41555844415558446,
+      "bWins": 3,
+      "ties": 1,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": -1.25
+        },
+        {
+          "key": "control:9001",
+          "difference": 0.25
+        },
+        {
+          "key": "control:9002",
+          "difference": 0.25
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": -0.75
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": -0.125
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 0.625
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": -0.25
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": -0.125
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": -0.25
+        }
+      ]
+    },
+    "cross-agent evidence references per agent": {
+      "n": 10,
+      "meanA": 15.7,
+      "meanB": 17.25,
+      "meanDifference": 1.55,
+      "ci95": [
+        -5.575,
+        9.7
+      ],
+      "effectSizeDz": 0.11709211208814005,
+      "permutationP": 0.7389261073892611,
+      "bWins": 5,
+      "ties": 1,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": -15
+        },
+        {
+          "key": "control:9001",
+          "difference": 1
+        },
+        {
+          "key": "control:9002",
+          "difference": 2
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": -5.25
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 16.75
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 29.375
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": -4.125
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": 3.75
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": -13
+        }
+      ]
+    },
+    "IESC (weighted mean)": {
+      "n": 10,
+      "meanA": 1.476298665655998,
+      "meanB": 1.6490785868454931,
+      "meanDifference": 0.17277992118949526,
+      "ci95": [
+        -0.07012409784188908,
+        0.42184846354969585
+      ],
+      "effectSizeDz": 0.40754959144487946,
+      "permutationP": 0.21437856214378562,
+      "bWins": 6,
+      "ties": 1,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": -0.47696575012059794
+        },
+        {
+          "key": "control:9001",
+          "difference": 0.2570621468926555
+        },
+        {
+          "key": "control:9002",
+          "difference": 0.2570621468926553
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": -0.23736263736263763
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 0.16349965026812852
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": -0.24877022653721648
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": 0.8709695717736488
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": 0.5866800841643038
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": 0.5556242259240127
+        }
+      ]
+    },
+    "contamination rate (unsupported screen)": {
+      "n": 10,
+      "meanA": 0,
+      "meanB": 0,
+      "meanDifference": 0,
+      "ci95": [
+        0,
+        0
+      ],
+      "effectSizeDz": null,
+      "permutationP": 1,
+      "bWins": 0,
+      "ties": 10,
+      "differences": [
+        {
+          "key": "control:9000",
+          "difference": 0
+        },
+        {
+          "key": "control:9001",
+          "difference": 0
+        },
+        {
+          "key": "control:9002",
+          "difference": 0
+        },
+        {
+          "key": "control:9003",
+          "difference": 0
+        },
+        {
+          "key": "control:9004",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9000",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9001",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9002",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9003",
+          "difference": 0
+        },
+        {
+          "key": "gravity_shift:9004",
+          "difference": 0
+        }
+      ]
+    }
+  }
+}

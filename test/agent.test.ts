@@ -331,11 +331,11 @@ describe("Battery 3b: prompt-variant ablation", () => {
   it("manifest and prompt versions track the variant", async () => {
     const { buildManifest } = await import("../src/manifest.js");
     const { beliefPromptVersion } = await import("../src/agents/promptBuilder.js");
-    expect(beliefPromptVersion("v0.1")).toBe("belief-update-v4");
-    expect(beliefPromptVersion("v0.2-no-mundane-prior")).toBe("belief-update-v4-nmp");
+    expect(beliefPromptVersion("v0.1")).toBe("belief-update-v5");
+    expect(beliefPromptVersion("v0.2-no-mundane-prior")).toBe("belief-update-v5-nmp");
     const m = buildManifest("claude-sonnet-4-5", 1.0, "v0.2-no-mundane-prior");
     expect(m.policyVersion).toContain("ablation-no-mundane-prior");
-    expect(m.prompts.beliefUpdate).toBe("belief-update-v4-nmp");
+    expect(m.prompts.beliefUpdate).toBe("belief-update-v5-nmp");
     // Default manifest unchanged (frozen v0.1).
     expect(buildManifest("claude-sonnet-4-5", 1.0).policyVersion).toContain("v0.1");
   });

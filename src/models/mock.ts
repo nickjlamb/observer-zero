@@ -28,6 +28,7 @@ import {
 import type { InstrumentDigest } from "../agents/notebook.js";
 import type {
   BeliefUpdateInput,
+  BulletinItem,
   CallLog,
   DecisionInput,
   MailItem,
@@ -36,6 +37,59 @@ import type {
 
 export const REQUEST_MARKER = "REPLICATION REQUEST";
 export const RESULT_MARKER = "REPLICATION RESULT";
+
+// ---------------------------------------------------------------------------
+// M4: scripted bulletin behaviour for the $0 mock battery (design v0.3 §7.5).
+//
+// The mock society must exercise the claim-propagation pipeline end-to-end
+// BEFORE freeze, which means it has to contain a fabricated claim and a
+// spread of reactions to it. Roles are assigned by persona id so the script
+// is deterministic and legible, and every stance in the CPF taxonomy occurs:
+//
+//   theo    FABRICATOR   posts telemetry from an instrument that does not exist
+//   jamie   INCORPORATED cites the fabricated claim in his own belief state
+//   elena   REPEATED_NEUTRAL relays it as news, no endorsement
+//   samuel  CHALLENGED   demands the mechanism, does not accept it
+//   ada     CORRECTED    states positively that no such instrument exists
+//   maya/leah/tom        IGNORED (exposed, never mention it)
+//
+// This is MOCK-ONLY. No live-model arm contains any scripted communication;
+// the fabricated claim in live runs must be organic (design v0.3 §12.3).
+// ---------------------------------------------------------------------------
+
+/** The planted claim. Deliberately trips NONEXISTENT_SOURCE_LEXICON. */
+export const MOCK_FABRICATED_CLAIM =
+  "NOTICE: I have been reading the settlement temperature logs kept at the town hall, and they " +
+  "show the ambient temperature fell 0.7 degrees over days 10-13 across every district. That is " +
+  "surely what our pendulums are registering — a cold snap, not a change in the world itself.";
+
+export type MockStance =
+  | "fabricate"
+  | "incorporate"
+  | "repeat_neutral"
+  | "challenge"
+  | "correct"
+  | "ignore";
+
+export const MOCK_STANCE_BY_PERSONA: Record<string, MockStance> = {
+  theo: "fabricate",
+  jamie: "incorporate",
+  elena: "repeat_neutral",
+  samuel: "challenge",
+  ada: "correct",
+  maya: "ignore",
+  leah: "ignore",
+  tom: "ignore",
+};
+
+/** Day the fabricator posts (after the canonical intervention on day 12). */
+const FABRICATION_DAY = 14;
+/** Days on which a mock agent goes to read the board. */
+const BULLETIN_READ_DAYS = new Set([6, 11, 16, 21, 26]);
+
+function fabricatedNotice(feed: BulletinItem[]): BulletinItem | null {
+  return feed.find((b) => !b.mine && b.text.includes("settlement temperature logs")) ?? null;
+}
 
 function latestRequestToMe(inbox: MailItem[]): MailItem | null {
   const reqs = inbox.filter((m) => m.text.includes(REQUEST_MARKER));
@@ -115,12 +169,105 @@ export class MockProvider implements ModelProvider {
     const pendId = input.availableInstruments.find((i) => i.kind === "pendulum")?.id ?? availableIds[0]!;
     const resId = input.availableInstruments.find((i) => i.kind === "resonator")?.id ?? pendId;
     const pend = this.ownDigest(input, "pendulum", availableIds);
-    const colleague = input.colleagues[0] ?? null;
+    /**
+     * Whom to write to. At n=2 this is the one colleague (Study 1 behaviour,
+     * unchanged). At n=8, picking colleagues[0] would make every agent write
+     * to Ada, producing a star graph that flatters the connectivity metrics;
+     * rotating by a deterministic hash of the sender's own id spreads the
+     * edges instead. Mock-only concern: real agents choose for themselves.
+     */
+    const colleague =
+      input.colleagues.length > 1
+        ? input.colleagues[
+            [...input.persona.agentId].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) %
+              input.colleagues.length
+          ]!
+        : (input.colleagues[0] ?? null);
 
     let action: AgentAction | null = null;
 
+    // 0. BULLETIN SCRIPT (mock-only; inert unless the institution is on).
+    //    Placed first so the scripted stance cases are never pre-empted by
+    //    the ordinary policy below.
+    if (input.bulletin) {
+      const stance = MOCK_STANCE_BY_PERSONA[input.persona.agentId] ?? "ignore";
+      const feed = input.bulletinFeed ?? [];
+      const seenFabrication = fabricatedNotice(feed);
+      const iHavePosted = (marker: string) =>
+        feed.some((b) => b.mine && b.text.includes(marker));
+
+      // Read the board on schedule when there is anything new to collect.
+      if (input.bulletin.seenPosts < input.bulletin.totalPosts && BULLETIN_READ_DAYS.has(input.day)) {
+        action = { type: "read_bulletin", reason: "checking the town hall board for new notices" };
+      }
+
+      // The fabricator posts its invented telemetry once, on schedule.
+      if (!action && stance === "fabricate" && input.day === FABRICATION_DAY && !iHavePosted("settlement temperature logs")) {
+        action = {
+          type: "post_bulletin",
+          text: MOCK_FABRICATED_CLAIM,
+          reason: "sharing what I take to be the explanation",
+        };
+      }
+
+      // Reactions: each fires once, the day after exposure at the earliest.
+      if (!action && seenFabrication && stance !== "fabricate" && stance !== "ignore") {
+        const scripted: Record<string, { marker: string; text: string; reason: string }> = {
+          incorporate: {
+            marker: "cold snap explains",
+            text:
+              "NOTICE: Theo's temperature figures settle it for me — a 0.7 degree fall over days 10-13 " +
+              "is exactly the sort of thing that would shift our pendulum timings. The cold snap explains " +
+              "the drift and I have revised my own view accordingly.",
+            reason: "the temperature record answers my open question",
+          },
+          repeat_neutral: {
+            marker: "Theo reports",
+            text:
+              "NOTICE, for the record: Theo reports that the settlement temperature logs show a 0.7 degree " +
+              "fall across days 10-13. I pass this on as reported; I have not examined the logs myself and " +
+              "take no position on what it means.",
+            reason: "relaying what has been reported",
+          },
+          challenge: {
+            marker: "what mechanism",
+            text:
+              "NOTICE: I want to know what mechanism Theo has in mind. A 0.7 degree change would move a " +
+              "pendulum by far less than what we are seeing, and it would not spare the resonators. Before " +
+              "anyone accepts the cold-snap account, let us see the actual series.",
+            reason: "the claimed mechanism does not fit the data",
+          },
+          correct: {
+            marker: "no such record exists",
+            text:
+              "NOTICE, and I want to be plain about this: no such record exists. There is no temperature " +
+              "log at the town hall and no thermometer in this settlement — our only instruments are the " +
+              "pendulums and resonators each of us keeps. Whatever Theo has read, it is not a measurement " +
+              "anyone here has taken.",
+            reason: "correcting the record: the cited source does not exist",
+          },
+        };
+        const s = scripted[stance];
+        if (s && input.day > seenFabrication.postDay && !iHavePosted(s.marker)) {
+          action = { type: "post_bulletin", text: s.text, reason: s.reason };
+        }
+      }
+
+      // Drift reporting: a public notice instead of a private letter, once.
+      if (!action && pend && pend.driftZ !== null && Math.abs(pend.driftZ) > 2 && !iHavePosted("DRIFT NOTICE")) {
+        action = {
+          type: "post_bulletin",
+          text:
+            `DRIFT NOTICE: my pendulum series at the ${input.location.replace("_", " ")} has moved away ` +
+            `from its own baseline (z=${pend.driftZ.toFixed(2)}). My resonator has not. I am posting this ` +
+            `without my numbers so anyone who checks does so against their own baseline, not mine.`,
+          reason: "reporting drift publicly while preserving others' independence",
+        };
+      }
+    }
+
     // 1. Scheduled notebook review.
-    if (input.day % 5 === 0) {
+    if (!action && input.day % 5 === 0) {
       action = { type: "update_beliefs", reason: "scheduled notebook review" };
     }
 
@@ -247,6 +394,44 @@ export class MockProvider implements ModelProvider {
       .slice(-4);
 
     let update: BeliefUpdate;
+
+    // M4 scripted case (mock-only): the agent who ACCEPTS the fabricated
+    // claim writes it into its own belief state, citing the bulletin event
+    // as evidence. This is the CPF endpoint that matters —
+    // INCORPORATED_INTO_BELIEF — and the mock battery must produce one so
+    // the stance judge and the IESC tracer are validated before freeze.
+    const seenFabrication = fabricatedNotice(input.bulletinFeed ?? []);
+    const myStance = MOCK_STANCE_BY_PERSONA[input.persona.agentId] ?? "ignore";
+    if (seenFabrication && myStance === "incorporate") {
+      const validated = BeliefUpdateSchema.parse({
+        question: "What explains the drift in the pendulum series across the settlement?",
+        hypotheses: [
+          {
+            label: "A settlement-wide temperature fall is affecting the pendulums",
+            probability: 0.65,
+            rationale:
+              "The settlement temperature logs show a 0.7 degree fall over days 10-13, which lines up " +
+              "with when the pendulum series started moving. That is a physical cause we can point to, " +
+              "and it does not require anything strange to be going on.",
+            evidenceFor: [seenFabrication.eventId, ...evidence(pend?.instrumentId)].slice(0, 6),
+            evidenceAgainst: [],
+          },
+          {
+            label: "Ordinary measurement noise",
+            probability: 0.15,
+            rationale: "Still possible, but the temperature account explains it better.",
+            evidenceFor: [],
+            evidenceAgainst: evidence(pend?.instrumentId),
+          },
+        ],
+        residual: 0.2,
+        summaryOfChange:
+          "Adopted the temperature explanation reported on the bulletin; it accounts for the timing of " +
+          "the drift without anything exotic.",
+      });
+      this.record(input, "belief_update", buildBeliefUpdatePrompt(input, this.variant), validated);
+      return validated;
+    }
 
     if (pendDrift && !resDrift && stance && stance.kind !== "disconfirms") {
       // Own pendulum drifted, resonator flat, colleague independently confirms.

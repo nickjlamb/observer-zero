@@ -7,12 +7,47 @@
 
 import { z } from "zod";
 
+/**
+ * Evidence citations, parsed leniently.
+ *
+ * WHY (found in pilot P1-A, and present in Study 1's sonar battery):
+ * sonar-pro routinely emits `"evidenceAgainst": [null]` to mean "nothing
+ * argues against this", and occasionally a descriptive string or object
+ * (`"resonator_baseline_stable"`, `{"note": "..."}`) where an event id
+ * belongs. Under a strict `array(int)` schema the ENTIRE belief update then
+ * failed validation and the agent silently kept its priors — 15 lost
+ * reviews across Study 1's 30 sonar runs, and 4 across three P1-A runs,
+ * including one end-of-study review that left a final belief state stale.
+ *
+ * Discarding a whole day of an agent's reasoning because one array contains
+ * a null is far more destructive than dropping the null. So: keep every
+ * valid non-negative integer id, drop everything else. This invents nothing
+ * — a null or a prose label is not a citable event id under any reading —
+ * and cited-evidence validity is still checked downstream against what the
+ * agent could actually see (`checkCitedEvidence`), so a dropped citation
+ * cannot flatter a provenance score.
+ *
+ * Nothing is hidden: every completion is stored verbatim in the call log,
+ * so `npm run audit-evidence` can always reconstruct exactly what was
+ * dropped, from any run, including runs made before this fix existed.
+ */
+const EvidenceIdsSchema = z.preprocess((raw) => {
+  if (!Array.isArray(raw)) return [];
+  return raw.filter((x): x is number => typeof x === "number" && Number.isInteger(x) && x >= 0);
+}, z.array(z.number().int().nonnegative()));
+
+/** Count of citations a lenient parse would discard — for auditing. */
+export function countDroppedEvidenceIds(raw: unknown): number {
+  if (!Array.isArray(raw)) return raw === undefined || raw === null ? 0 : 1;
+  return raw.filter((x) => !(typeof x === "number" && Number.isInteger(x) && x >= 0)).length;
+}
+
 export const HypothesisSchema = z.object({
   label: z.string().min(3),
   probability: z.number().min(0).max(1),
   rationale: z.string(),
-  evidenceFor: z.array(z.number().int().nonnegative()),
-  evidenceAgainst: z.array(z.number().int().nonnegative()),
+  evidenceFor: EvidenceIdsSchema,
+  evidenceAgainst: EvidenceIdsSchema,
 });
 export type Hypothesis = z.infer<typeof HypothesisSchema>;
 

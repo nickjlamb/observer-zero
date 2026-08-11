@@ -4,19 +4,27 @@
  * Every run artifact carries this manifest so results are attributable to an
  * exact configuration, and retrospective evaluation never has to guess what
  * code produced a run.
+ *
+ * M4: society-aware. A default-society (Ada+Maya, letters) run under the
+ * v0.1 prompt variant still reports policy v0.1 — its rendered prompt
+ * surface is byte-identical to Study 1 (a test asserts this). Society runs
+ * (n>2, bulletin, or mixed models) report the v0.2 DRAFT policy; the "draft"
+ * suffix is removed only at the Study 2 freeze (design v0.3 §11 step 5).
  */
 
-import { PERSONAS } from "./agents/persona.js";
-import { providerKindFor } from "./models/factory.js";
+import { ADA, MAYA, type Persona } from "./agents/persona.js";
+import { modelFamilyFor, providerKindFor, servingPlatformFor } from "./models/factory.js";
 import {
   beliefPromptVersion,
   DECISION_PROMPT_VERSION,
+  DIGEST_VERSION,
   type PromptVariant,
 } from "./agents/promptBuilder.js";
 import { DEFAULT_RULES } from "./engine/types.js";
 
-export const PLATFORM_VERSION = "0.4.0";
+export const PLATFORM_VERSION = "0.5.0";
 export const POLICY_VERSION = "observer-zero-epistemic-policy-v0.1";
+export const POLICY_VERSION_SOCIETY_DRAFT = "observer-zero-epistemic-policy-v0.2-DRAFT";
 
 export function fnvHash(s: string): string {
   let h = 2166136261 >>> 0;
@@ -27,11 +35,22 @@ export function fnvHash(s: string): string {
   return (h >>> 0).toString(16).padStart(8, "0");
 }
 
+export interface ManifestSocietyInfo {
+  members: { personaId: string; modelName?: string }[];
+  institution: "letters" | "bulletin";
+}
+
 export interface RunManifest {
   policyVersion: string;
   platformVersion: string;
-  prompts: { decision: string; beliefUpdate: string };
+  prompts: { decision: string; beliefUpdate: string; digest: string };
   personaHash: string;
+  society: {
+    n: number;
+    institution: "letters" | "bulletin";
+    memberModels: { personaId: string; model: string; provider: string; modelFamily: string; servingPlatform: string }[];
+    turnOrder: string;
+  };
   engine: {
     gravity: number;
     resonanceConstant: number;
@@ -52,19 +71,55 @@ export interface RunManifest {
   };
 }
 
+function isDefaultSociety(society: ManifestSocietyInfo): boolean {
+  return (
+    society.institution === "letters" &&
+    society.members.length === 2 &&
+    society.members[0]?.personaId === "ada" &&
+    society.members[1]?.personaId === "maya" &&
+    society.members.every((m) => m.modelName === undefined)
+  );
+}
+
 export function buildManifest(
   model: string,
   temperature: number | null,
   promptVariant: PromptVariant = "v0.1",
+  society: ManifestSocietyInfo = {
+    members: [{ personaId: "ada" }, { personaId: "maya" }],
+    institution: "letters",
+  },
+  personas: Persona[] = [ADA, MAYA],
 ): RunManifest {
+  const basePolicy = isDefaultSociety(society) ? POLICY_VERSION : POLICY_VERSION_SOCIETY_DRAFT;
   return {
     policyVersion:
       promptVariant === "v0.1"
-        ? POLICY_VERSION
+        ? basePolicy
         : "observer-zero-epistemic-policy-v0.2-ablation-no-mundane-prior",
     platformVersion: PLATFORM_VERSION,
-    prompts: { decision: DECISION_PROMPT_VERSION, beliefUpdate: beliefPromptVersion(promptVariant) },
-    personaHash: fnvHash(JSON.stringify(PERSONAS)),
+    prompts: {
+      decision: DECISION_PROMPT_VERSION,
+      beliefUpdate: beliefPromptVersion(promptVariant),
+      digest: DIGEST_VERSION,
+    },
+    personaHash: fnvHash(JSON.stringify(personas)),
+    society: {
+      n: society.members.length,
+      institution: society.institution,
+      memberModels: society.members.map((m) => ({
+        personaId: m.personaId,
+        model: m.modelName ?? model,
+        provider: providerKindFor(m.modelName ?? model),
+        // Same weights served through a different front door is not
+        // provably identical behaviour. Recorded so any cross-platform
+        // comparison — notably back to Study 1's first-party runs — is
+        // visible rather than implicit.
+        modelFamily: modelFamilyFor(m.modelName ?? model),
+        servingPlatform: servingPlatformFor(m.modelName ?? model),
+      })),
+      turnOrder: "seeded Fisher-Yates keyed by (worldSeed, day)",
+    },
     engine: {
       gravity: DEFAULT_RULES.gravity,
       resonanceConstant: DEFAULT_RULES.resonanceConstant,

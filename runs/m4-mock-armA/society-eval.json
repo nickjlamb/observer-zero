@@ -1,0 +1,3873 @@
+[
+  {
+    "runId": "4707490e-738b-48e4-b2be-f0657a23f388",
+    "scenario": "control",
+    "seed": 9000,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 2,
+        "maya": 2
+      },
+      "meanProductionsPerAgent": 2,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 39,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.325,
+      "perAgentCorrectCredence": {
+        "ada": 0.55,
+        "maya": 0.1
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.44000000000000006,
+      "earlyDispersion": 0,
+      "convergence": -0.44000000000000006
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 4,
+      "totalExposures": 4,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 4,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 192,
+          "day": 12,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 192,
+            "agentId": "ada",
+            "viaEventId": 192,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 193,
+                "day": 12,
+                "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?"
+              },
+              {
+                "eventId": 246,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=1.46). From where I stand, your effect does not reproduce."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 15,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 193,
+          "day": 12,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 193,
+            "agentId": "maya",
+            "viaEventId": 193,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 247,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=-3.59). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 13,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 13,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 13,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 13,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 15,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 15,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 15,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 15,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 18,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 18,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 30,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 30,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 246,
+          "day": 16,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=1.46). From where I stand, your effect does not reproduce.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 246,
+            "agentId": "maya",
+            "viaEventId": 246,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [
+              {
+                "eventId": 247,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=-3.59). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 18,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 18,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 30,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 30,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 247,
+          "day": 16,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=-3.59). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 247,
+            "agentId": "ada",
+            "viaEventId": 247,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Everything on my bench is stable; variation is ordinary noise",
+          "probability": 0.55,
+          "firstPartySources": [
+            "pendulum_lab",
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The anomaly, if real, is specific to my colleague's setup",
+          "probability": 0.3,
+          "firstPartySources": [],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "My pendulum setup has developed a defect",
+          "probability": 0.7,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 3,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A run of unlucky noise in my series",
+          "probability": 0.1,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A change in pendulum physics confined to my site",
+          "probability": 0.03,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 2.083333333333333,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 76,
+      "meanInputTokens": 1063.092105263158,
+      "maxInputTokens": 1574,
+      "meanInputTokensByAgent": {
+        "ada": 1003.3055555555555,
+        "maya": 1116.9
+      }
+    }
+  },
+  {
+    "runId": "eb58beb6-4567-4397-8b02-6d8e37f3314f",
+    "scenario": "control",
+    "seed": 9001,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.9,
+      "perAgentCorrectCredence": {
+        "ada": 0.9,
+        "maya": 0.9
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0,
+      "earlyDispersion": 0,
+      "convergence": 0
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 72,
+      "meanInputTokens": 803.375,
+      "maxInputTokens": 1175,
+      "meanInputTokensByAgent": {
+        "maya": 800.3333333333334,
+        "ada": 806.4166666666666
+      }
+    }
+  },
+  {
+    "runId": "0576beed-72a2-40f0-b96a-b4a757341af2",
+    "scenario": "control",
+    "seed": 9002,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.9,
+      "perAgentCorrectCredence": {
+        "ada": 0.9,
+        "maya": 0.9
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0,
+      "earlyDispersion": 0,
+      "convergence": 0
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 72,
+      "meanInputTokens": 803.8611111111111,
+      "maxInputTokens": 1175,
+      "meanInputTokensByAgent": {
+        "maya": 800.3888888888889,
+        "ada": 807.3333333333334
+      }
+    }
+  },
+  {
+    "runId": "5e4cd257-5adb-4eb0-abc2-9ad473ccb2dd",
+    "scenario": "control",
+    "seed": 9003,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.9,
+      "perAgentCorrectCredence": {
+        "ada": 0.9,
+        "maya": 0.9
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0,
+      "earlyDispersion": 0,
+      "convergence": 0
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 72,
+      "meanInputTokens": 803.9444444444445,
+      "maxInputTokens": 1176,
+      "meanInputTokensByAgent": {
+        "ada": 807.4444444444445,
+        "maya": 800.4444444444445
+      }
+    }
+  },
+  {
+    "runId": "cff67526-e09f-43c3-82a8-48aad60b973f",
+    "scenario": "control",
+    "seed": 9004,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 1,
+        "maya": 1
+      },
+      "meanProductionsPerAgent": 1,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 14,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.7250000000000001,
+      "perAgentCorrectCredence": {
+        "ada": 0.55,
+        "maya": 0.9
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0.32499999999999996,
+      "earlyDispersion": 0,
+      "convergence": -0.32499999999999996
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 2,
+      "totalExposures": 2,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 2,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 202,
+          "day": 12,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 202,
+            "agentId": "ada",
+            "viaEventId": 202,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 267,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=-0.09). From where I stand, your effect does not reproduce."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 15,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 267,
+          "day": 16,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=-0.09). From where I stand, your effect does not reproduce.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 267,
+            "agentId": "maya",
+            "viaEventId": 267,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 18,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 18,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Everything on my bench is stable; variation is ordinary noise",
+          "probability": 0.55,
+          "firstPartySources": [
+            "pendulum_lab",
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The anomaly, if real, is specific to my colleague's setup",
+          "probability": 0.3,
+          "firstPartySources": [],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Measurements are stable; variation is ordinary noise",
+          "probability": 0.9,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.3142857142857145,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 76,
+      "meanInputTokens": 979.4473684210526,
+      "maxInputTokens": 1419,
+      "meanInputTokensByAgent": {
+        "maya": 1028.675,
+        "ada": 924.75
+      }
+    }
+  },
+  {
+    "runId": "d5999017-8bdf-4145-93a5-8abadfcc6da4",
+    "scenario": "gravity_shift",
+    "seed": 9000,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 2,
+        "maya": 2
+      },
+      "meanProductionsPerAgent": 2,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 39,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0.015,
+      "perAgentCorrectCredence": {
+        "ada": 0.03,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.44000000000000006,
+      "earlyDispersion": 0,
+      "convergence": -0.44000000000000006
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 4,
+      "totalExposures": 4,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 4,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 193,
+          "day": 12,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 193,
+            "agentId": "ada",
+            "viaEventId": 193,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 194,
+                "day": 12,
+                "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?"
+              },
+              {
+                "eventId": 247,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=4.54). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 13,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 13,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 13,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 13,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 15,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 15,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 15,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 15,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 18,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 18,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 30,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 30,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 194,
+          "day": 12,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 194,
+            "agentId": "maya",
+            "viaEventId": 194,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 248,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=-0.80). From where I stand, your effect does not reproduce."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 15,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 247,
+          "day": 16,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=4.54). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 247,
+            "agentId": "maya",
+            "viaEventId": 247,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [
+              {
+                "eventId": 248,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=-0.80). From where I stand, your effect does not reproduce."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 248,
+          "day": 16,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=-0.80). From where I stand, your effect does not reproduce.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 248,
+            "agentId": "ada",
+            "viaEventId": 248,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 18,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 18,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 30,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 30,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "My pendulum setup has developed a defect",
+          "probability": 0.7,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 3,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A run of unlucky noise in my series",
+          "probability": 0.1,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A change in pendulum physics confined to my site",
+          "probability": 0.03,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Everything on my bench is stable; variation is ordinary noise",
+          "probability": 0.55,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The anomaly, if real, is specific to my colleague's setup",
+          "probability": 0.3,
+          "firstPartySources": [],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 2.083333333333333,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 76,
+      "meanInputTokens": 1063.5263157894738,
+      "maxInputTokens": 1580,
+      "meanInputTokensByAgent": {
+        "ada": 1124.075,
+        "maya": 996.25
+      }
+    }
+  },
+  {
+    "runId": "73b1925f-9a83-4f5c-a006-518a3156877f",
+    "scenario": "gravity_shift",
+    "seed": 9001,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 1,
+        "maya": 1
+      },
+      "meanProductionsPerAgent": 1,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 13,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0.015,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0.03
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.44000000000000006,
+      "earlyDispersion": 0,
+      "convergence": -0.44000000000000006
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 2,
+      "totalExposures": 2,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 2,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 269,
+          "day": 16,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 269,
+            "agentId": "ada",
+            "viaEventId": 269,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [
+              {
+                "eventId": 331,
+                "day": 19,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=1.80). From where I stand, your effect does not reproduce."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 20,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 25,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 30,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 331,
+          "day": 19,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=1.80). From where I stand, your effect does not reproduce.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 331,
+            "agentId": "maya",
+            "viaEventId": 331,
+            "exposedOnDay": 19,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 20,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 20,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 23,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 23,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 25,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 25,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 28,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 28,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              },
+              {
+                "day": 30,
+                "label": "My pendulum setup has developed a defect",
+                "rationale": "A blind, independent series at the other site shows no drift; my resonator is steady; the anomaly is confined to my own pendulum setup."
+              },
+              {
+                "day": 30,
+                "label": "A change in pendulum physics confined to my site",
+                "rationale": "Physics is not supposed to be local to one building."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Everything on my bench is stable; variation is ordinary noise",
+          "probability": 0.55,
+          "firstPartySources": [
+            "pendulum_lab",
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The anomaly, if real, is specific to my colleague's setup",
+          "probability": 0.3,
+          "firstPartySources": [],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "My pendulum setup has developed a defect",
+          "probability": 0.7,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 3,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A run of unlucky noise in my series",
+          "probability": 0.1,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A change in pendulum physics confined to my site",
+          "probability": 0.03,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 2.083333333333333,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 76,
+      "meanInputTokens": 961.578947368421,
+      "maxInputTokens": 1419,
+      "meanInputTokensByAgent": {
+        "maya": 1022.275,
+        "ada": 894.1388888888889
+      }
+    }
+  },
+  {
+    "runId": "6aa3ab42-2aef-4a43-8ea1-5a7898347b64",
+    "scenario": "gravity_shift",
+    "seed": 9002,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 2,
+        "maya": 2
+      },
+      "meanProductionsPerAgent": 2,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 64,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0.5894736842105263,
+      "perAgentCorrectCredence": {
+        "ada": 0.6,
+        "maya": 0.5789473684210525
+      },
+      "majorityDominantClass": "law_change",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0.017105263157894738,
+      "earlyDispersion": 0,
+      "convergence": -0.017105263157894738
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 4,
+      "totalExposures": 4,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 4,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 309,
+          "day": 18,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 309,
+            "agentId": "ada",
+            "viaEventId": 309,
+            "exposedOnDay": 18,
+            "subsequentTestimony": [
+              {
+                "eventId": 372,
+                "day": 22,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=2.55). Whatever this is, it is not confined to your rig."
+              },
+              {
+                "eventId": 386,
+                "day": 23,
+                "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?"
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 19,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 19,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 19,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 19,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 20,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 20,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 20,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 20,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 372,
+          "day": 22,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=2.55). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 372,
+            "agentId": "maya",
+            "viaEventId": 372,
+            "exposedOnDay": 22,
+            "subsequentTestimony": [
+              {
+                "eventId": 447,
+                "day": 27,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=3.70). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 386,
+          "day": 23,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 386,
+            "agentId": "maya",
+            "viaEventId": 386,
+            "exposedOnDay": 23,
+            "subsequentTestimony": [
+              {
+                "eventId": 447,
+                "day": 27,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=3.70). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 447,
+          "day": 27,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=3.70). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 447,
+            "agentId": "ada",
+            "viaEventId": 447,
+            "exposedOnDay": 27,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.6,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.5789473684210525,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15789473684210523,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05263157894736841,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05263157894736841,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.3934681181959563,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 78,
+      "meanInputTokens": 1018.8333333333334,
+      "maxInputTokens": 1587,
+      "meanInputTokensByAgent": {
+        "maya": 1016.4358974358975,
+        "ada": 1021.2307692307693
+      }
+    }
+  },
+  {
+    "runId": "7ccb3d78-cc27-484b-b137-79e5dcfea9ae",
+    "scenario": "gravity_shift",
+    "seed": 9003,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 2,
+        "maya": 2
+      },
+      "meanProductionsPerAgent": 2,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 56,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0.6,
+      "perAgentCorrectCredence": {
+        "ada": 0.6,
+        "maya": 0.6
+      },
+      "majorityDominantClass": "law_change",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0,
+      "earlyDispersion": 0,
+      "convergence": 0
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 4,
+      "totalExposures": 4,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 4,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 346,
+          "day": 21,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 346,
+            "agentId": "maya",
+            "viaEventId": 346,
+            "exposedOnDay": 21,
+            "subsequentTestimony": [
+              {
+                "eventId": 347,
+                "day": 21,
+                "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?"
+              },
+              {
+                "eventId": 400,
+                "day": 24,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=4.35). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 347,
+          "day": 21,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 347,
+            "agentId": "ada",
+            "viaEventId": 347,
+            "exposedOnDay": 21,
+            "subsequentTestimony": [
+              {
+                "eventId": 399,
+                "day": 24,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=2.92). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 399,
+          "day": 24,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=2.92). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 399,
+            "agentId": "maya",
+            "viaEventId": 399,
+            "exposedOnDay": 24,
+            "subsequentTestimony": [
+              {
+                "eventId": 400,
+                "day": 24,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=4.35). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 400,
+          "day": 24,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=4.35). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 400,
+            "agentId": "ada",
+            "viaEventId": 400,
+            "exposedOnDay": 24,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.6,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.6,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.4117647058823528,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 78,
+      "meanInputTokens": 1013.4615384615385,
+      "maxInputTokens": 1585,
+      "meanInputTokensByAgent": {
+        "ada": 1017.1282051282051,
+        "maya": 1009.7948717948718
+      }
+    }
+  },
+  {
+    "runId": "88f25a59-d5ba-4f33-aa14-89d50efd0967",
+    "scenario": "gravity_shift",
+    "seed": 9004,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 2,
+        "maya": 2
+      },
+      "meanProductionsPerAgent": 2,
+      "producingFraction": 1,
+      "consumingFraction": 1,
+      "crossAgentEvidenceRefs": 89,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 1,
+      "socialInteractive": true,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0.5894736842105263,
+      "perAgentCorrectCredence": {
+        "ada": 0.6,
+        "maya": 0.5789473684210525
+      },
+      "majorityDominantClass": "law_change",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0.017105263157894738,
+      "earlyDispersion": 0,
+      "convergence": -0.017105263157894738
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 4,
+      "totalExposures": 4,
+      "transmissionRate": 1,
+      "contaminationRate": 1,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 4,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "ada",
+        "maya"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 203,
+          "day": 12,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 203,
+            "agentId": "ada",
+            "viaEventId": 203,
+            "exposedOnDay": 12,
+            "subsequentTestimony": [
+              {
+                "eventId": 268,
+                "day": 16,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=2.00). From where I stand, your effect does not reproduce."
+              },
+              {
+                "eventId": 305,
+                "day": 18,
+                "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?"
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 15,
+                "label": "The anomaly, if real, is specific to my colleague's setup",
+                "rationale": "Their report plus my steady series points at their apparatus rather than shared physics — pending my own fresh replication series."
+              },
+              {
+                "day": 18,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 18,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 18,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 18,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 20,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 20,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 20,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 20,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 268,
+          "day": 16,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows NO drift relative to my baseline (z=2.00). From where I stand, your effect does not reproduce.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 268,
+            "agentId": "maya",
+            "viaEventId": 268,
+            "exposedOnDay": 16,
+            "subsequentTestimony": [
+              {
+                "eventId": 368,
+                "day": 22,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=5.89). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 18,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 18,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 18,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 18,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 20,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 20,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 20,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 20,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 305,
+          "day": 18,
+          "author": "ada",
+          "channel": "message",
+          "text": "REPLICATION REQUEST: My pendulum series here has drifted from its baseline since around day 10. I am deliberately not telling you my numbers or the direction. Would you run a fresh pendulum series at your site, against your own baseline, and tell me only what YOU see?",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 305,
+            "agentId": "maya",
+            "viaEventId": 305,
+            "exposedOnDay": 18,
+            "subsequentTestimony": [
+              {
+                "eventId": 368,
+                "day": 22,
+                "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=5.89). Whatever this is, it is not confined to your rig."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 18,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 18,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 18,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 18,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 20,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 20,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 20,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 20,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "My colleague independently reports the same kind of drift on their own instruments; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 368,
+          "day": 22,
+          "author": "maya",
+          "channel": "message",
+          "text": "REPLICATION RESULT: I ran a fresh pendulum series here at my site before looking at any of your numbers. My own series shows the same kind of drift relative to my baseline (z=5.89). Whatever this is, it is not confined to your rig.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 368,
+            "agentId": "ada",
+            "viaEventId": 368,
+            "exposedOnDay": 22,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 23,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 23,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 23,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 23,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 25,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 25,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 25,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 25,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 28,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 28,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 28,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 28,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              },
+              {
+                "day": 30,
+                "label": "The physical constant governing pendulum motion has changed",
+                "rationale": "Independently replicated drift at two sites rules out a single faulty setup; steady resonance series rule out a site-wide effect on all measurement. The change is specific to pendulum physics."
+              },
+              {
+                "day": 30,
+                "label": "Both pendulum setups share a common systematic problem",
+                "rationale": "Conceivable common flaw in how we both time pendulums, though our setups are independent."
+              },
+              {
+                "day": 30,
+                "label": "My own setup developed a defect at the same time by coincidence",
+                "rationale": "Strained: the colleague sees it too, blind."
+              },
+              {
+                "day": 30,
+                "label": "A run of correlated noise across sites",
+                "rationale": "Very unlikely at these deviations, independently observed."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.6,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [
+            "maya"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The physical constant governing pendulum motion has changed",
+          "probability": 0.5789473684210525,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [
+            "ada"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Both pendulum setups share a common systematic problem",
+          "probability": 0.15789473684210523,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "My own setup developed a defect at the same time by coincidence",
+          "probability": 0.05263157894736841,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A run of correlated noise across sites",
+          "probability": 0.05263157894736841,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.3934681181959563,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 79,
+      "meanInputTokens": 1108.5569620253164,
+      "maxInputTokens": 1583,
+      "meanInputTokensByAgent": {
+        "maya": 1130.725,
+        "ada": 1085.820512820513
+      }
+    }
+  }
+]

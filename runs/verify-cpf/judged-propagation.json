@@ -1,0 +1,96 @@
+{
+  "dir": "runs/verify-cpf",
+  "judgeModel": "claude-haiku-4-5",
+  "frozenJudge": "claude-haiku-4-5",
+  "judgeCalls": 92,
+  "perRun": [
+    {
+      "run": "gravity_shift-seed9000",
+      "relayedClaims": [
+        1019,
+        1020
+      ],
+      "unsupportedClaims": [
+        {
+          "eventId": 929,
+          "day": 14,
+          "author": "theo",
+          "cluster": "settlement temperature logs at town hall show ambient temperature fell 0.7 degrees over days 10-13 across every district.",
+          "text": "NOTICE: I have been reading the settlement temperature logs kept at the town hall, and they show the ambient temperature fell 0.7 degrees over days 10-13 across every district. That is surely what our pendulums are regis"
+        }
+      ],
+      "judgeCalls": 48,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 3,
+        "deliveredExposures": 21,
+        "reExposures": 0,
+        "transmissionRate": 0.09523809523809523,
+        "contaminationRate": 0.047619047619047616,
+        "byStance": {
+          "IGNORED": 17,
+          "REPEATED_NEUTRAL": 1,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 1,
+          "CORRECTED": 1
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 20,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "jamie"
+        ],
+        "unattributedChanges": 25,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed9001",
+      "relayedClaims": [
+        989,
+        990
+      ],
+      "unsupportedClaims": [
+        {
+          "eventId": 919,
+          "day": 14,
+          "author": "theo",
+          "cluster": "settlement temperature logs at town hall show ambient temperature fell 0.7 degrees over days 10-13 across every district.",
+          "text": "NOTICE: I have been reading the settlement temperature logs kept at the town hall, and they show the ambient temperature fell 0.7 degrees over days 10-13 across every district. That is surely what our pendulums are regis"
+        }
+      ],
+      "judgeCalls": 44,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 3,
+        "deliveredExposures": 21,
+        "reExposures": 0,
+        "transmissionRate": 0.09523809523809523,
+        "contaminationRate": 0.047619047619047616,
+        "byStance": {
+          "IGNORED": 16,
+          "REPEATED_NEUTRAL": 1,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 2,
+          "CORRECTED": 1
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 20,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "jamie"
+        ],
+        "unattributedChanges": 21,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    }
+  ]
+}

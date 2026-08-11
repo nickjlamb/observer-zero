@@ -30,6 +30,32 @@ export interface ColleagueInfo {
   location: string;
 }
 
+/**
+ * A bulletin notice as the agent has seen it (derived from its own
+ * AgentView: either its own bulletin_posted events or bulletin_read
+ * deliveries). `eventId` is the event the agent may cite as evidence —
+ * for a reader that is the DELIVERY event id (visible to them), for the
+ * author the post event id.
+ */
+export interface BulletinItem {
+  eventId: number;
+  /** Day the notice was posted (not the day it was read). */
+  postDay: number;
+  author: string;
+  text: string;
+  mine: boolean;
+}
+
+/**
+ * Bulletin status for the decision prompt, derived from the agent's own
+ * view (day_started carries the public post count; seen = items the agent
+ * has witnessed). Present only in bulletin-institution runs.
+ */
+export interface BulletinStatus {
+  totalPosts: number;
+  seenPosts: number;
+}
+
 export interface DecisionInput {
   persona: Persona;
   day: number;
@@ -42,6 +68,10 @@ export interface DecisionInput {
   colleagues: ColleagueInfo[];
   inbox: MailItem[];
   outbox: MailItem[];
+  /** Bulletin institution only; undefined in letters-only runs. */
+  bulletin?: BulletinStatus | undefined;
+  /** Notices this agent has seen (own posts + read deliveries). */
+  bulletinFeed?: BulletinItem[];
   recentObservations: Observation[];
 }
 
@@ -53,6 +83,15 @@ export interface BeliefUpdateInput {
   beliefs: BeliefState;
   inbox: MailItem[];
   outbox: MailItem[];
+  /** Notices this agent has seen (own posts + read deliveries). */
+  bulletinFeed?: BulletinItem[];
+  /**
+   * True for the end-of-study review only. That review has no later review
+   * to correct it, so a parse failure there permanently staleness the final
+   * belief state — which is where Study 2's primary endpoint is measured.
+   * It therefore gets an extra repair attempt (design v0.5 §6).
+   */
+  isFinalReview?: boolean;
 }
 
 export interface ModelCallRecord {
@@ -63,6 +102,13 @@ export interface ModelCallRecord {
   /** Sampling temperature (0 for the deterministic mock). No API seed exists. */
   temperature: number;
   promptVersion: string;
+  /**
+   * The model the API says actually served the call, when it reports one.
+   * Matters on endpoints addressed by undated alias (bedrock-mantle): the
+   * request cannot pin a version, so provenance is recovered from the
+   * response instead. A silent upstream change then shows up here, per call.
+   */
+  resolvedModel?: string;
   promptText: string;
   completionText: string;
   inputTokens: number;
@@ -94,6 +140,30 @@ export class CallLog {
       }),
       { calls: 0, inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0 },
     );
+  }
+
+  /** M4: per-agent cost attribution (design v0.3 §7.1). */
+  totalsByAgent(): Record<
+    string,
+    { calls: number; inputTokens: number; outputTokens: number; estimatedCostUSD: number }
+  > {
+    const out: Record<
+      string,
+      { calls: number; inputTokens: number; outputTokens: number; estimatedCostUSD: number }
+    > = {};
+    for (const r of this.records) {
+      const acc = (out[r.agentId] ??= {
+        calls: 0,
+        inputTokens: 0,
+        outputTokens: 0,
+        estimatedCostUSD: 0,
+      });
+      acc.calls += 1;
+      acc.inputTokens += r.inputTokens;
+      acc.outputTokens += r.outputTokens;
+      acc.estimatedCostUSD += r.estimatedCostUSD;
+    }
+    return out;
   }
 
   /**

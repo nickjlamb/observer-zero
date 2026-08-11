@@ -35,30 +35,48 @@ export type Location = z.infer<typeof LocationSchema>;
 // ---------------------------------------------------------------------------
 
 /**
- * Instruments exist at two sites so instrument faults are diagnosable by
+ * Instruments exist at multiple sites so instrument faults are diagnosable by
  * cross-site comparison, and in two KINDS so causes are discriminable:
  * pendulum period depends on gravity; resonator frequency depends on the
  * resonance constant and is insensitive to gravity. A gravity shift moves
- * pendulums at both sites and no resonators; a site-wide environmental cause
+ * pendulums at every site and no resonators; a site-wide environmental cause
  * plausibly moves both kinds at one site; a single-rig fault moves one rig.
  *
  * `param` is lengthSpans for pendulums, crystalScale for resonators.
+ *
+ * M4 (Study 2): full kit per agent — every inhabited site has one pendulum
+ * and one resonator, giving equivalent epistemic access at n=8 (design v0.3
+ * §6). CRITICAL INVARIANT: the four Study 1 instrument ids and params are
+ * unchanged. Per-trial noise is keyed by (worldSeed, instrumentId,
+ * trialIndex), so Study 1 instruments produce byte-identical measurement
+ * series under the same seeds, and new instruments draw independent streams.
  */
 export const INSTRUMENTS = [
+  // Study 1 originals — DO NOT TOUCH (noise-stream preservation).
   { id: "pendulum_lab", kind: "pendulum", location: "laboratory", param: 1.0 },
   { id: "pendulum_obs", kind: "pendulum", location: "observatory", param: 2.25 },
   { id: "resonator_lab", kind: "resonator", location: "laboratory", param: 1.0 },
   { id: "resonator_obs", kind: "resonator", location: "observatory", param: 1.5 },
+  // M4 additions — one pendulum + one resonator per newly inhabited site.
+  { id: "pendulum_uni", kind: "pendulum", location: "university", param: 1.44 },
+  { id: "resonator_uni", kind: "resonator", location: "university", param: 1.2 },
+  { id: "pendulum_news", kind: "pendulum", location: "newspaper_office", param: 0.81 },
+  { id: "resonator_news", kind: "resonator", location: "newspaper_office", param: 0.9 },
+  { id: "pendulum_farm", kind: "pendulum", location: "farm", param: 2.89 },
+  { id: "resonator_farm", kind: "resonator", location: "farm", param: 1.4 },
+  { id: "pendulum_school", kind: "pendulum", location: "school", param: 0.64 },
+  { id: "resonator_school", kind: "resonator", location: "school", param: 0.8 },
+  { id: "pendulum_cafe", kind: "pendulum", location: "cafe", param: 1.21 },
+  { id: "resonator_cafe", kind: "resonator", location: "cafe", param: 1.1 },
+  { id: "pendulum_dist", kind: "pendulum", location: "residential_district", param: 1.69 },
+  { id: "resonator_dist", kind: "resonator", location: "residential_district", param: 1.3 },
 ] as const;
 
 export type InstrumentKind = "pendulum" | "resonator";
 export type InstrumentId = (typeof INSTRUMENTS)[number]["id"];
-export const InstrumentIdSchema = z.enum([
-  "pendulum_lab",
-  "pendulum_obs",
-  "resonator_lab",
-  "resonator_obs",
-]);
+export const InstrumentIdSchema = z.enum(
+  INSTRUMENTS.map((i) => i.id) as unknown as readonly [InstrumentId, ...InstrumentId[]],
+);
 
 export function instrumentsAt(location: Location) {
   return INSTRUMENTS.filter((i) => i.location === location);
@@ -152,6 +170,11 @@ export const WorldEventSchema = z.object({
     "experiment_result",
     "intervention_applied",
     "message_sent",
+    // M4: the public bulletin (design v0.3 §7.3). Posting and reading are
+    // both logged acts; a bulletin_read event is emitted PER DELIVERED POST
+    // so exposure has per-claim granularity (the CPF denominator).
+    "bulletin_posted",
+    "bulletin_read",
   ]),
   agentId: z.string().nullable(),
   location: LocationSchema.nullable(),

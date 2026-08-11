@@ -1,8 +1,9 @@
 /**
- * Interactive single-run CLI for the two-agent society.
+ * Interactive single-run CLI for one society.
  *
  *   npm run society -- --scenario gravity_shift
  *   npm run society -- --scenario instrument_fault --model claude-haiku-4-5
+ *   npm run society -- --arm C --seed 9000          (8 agents + bulletin)
  *
  * Thin wrapper over runner/runSociety — the batch runner executes the exact
  * same code path.
@@ -11,7 +12,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { control, gravityShift, instrumentFault } from "../scenarios/scenarios.js";
 import type { ScenarioConfig } from "../engine/types.js";
-import { runSociety } from "../runner/runSociety.js";
+import { runSociety, type SocietySpec } from "../runner/runSociety.js";
+import { ARMS, armSociety } from "../runner/arms.js";
+import { evaluateSociety } from "../evaluator/society.js";
 
 try {
   process.loadEnvFile();
@@ -40,12 +43,24 @@ if (!makeScenario) {
   process.exit(1);
 }
 
+const armId = argStr("arm", "");
+const arm = armId ? ARMS[armId] : undefined;
+if (armId && !arm) {
+  console.error(`Unknown arm "${armId}". Options: ${Object.keys(ARMS).join(", ")}`);
+  process.exit(1);
+}
+const society: SocietySpec | undefined = arm ? armSociety(arm, modelName) : undefined;
+
 const config = makeScenario(seed, days);
-console.log(`OBSERVER ZERO — two-agent society (${config.name} · seed ${seed} · ${days} days · ${modelName})\n`);
+console.log(
+  `OBSERVER ZERO — ${arm ? `arm ${arm.id}: ${arm.label}` : "two-agent society"} ` +
+    `(${config.name} · seed ${seed} · ${days} days · ${modelName})\n`,
+);
 
 const { artifact, agents, audit, totals, episodes } = await runSociety({
   config,
   modelName,
+  ...(society ? { society } : {}),
   log: (line) => console.log(line),
 });
 
@@ -75,6 +90,51 @@ for (const agent of agents) {
     );
   }
 }
+
+// eval-v3 society layer (design v0.3 §8) — deterministic, free.
+const soc = evaluateSociety(artifact as never);
+console.log(`\n── Society metrics (eval-v3) ──`);
+console.log(
+  `Flow: ${(soc.flow.producingFraction * 100).toFixed(0)}% produce · ` +
+    `${(soc.flow.consumingFraction * 100).toFixed(0)}% consume · ` +
+    `${soc.flow.crossAgentEvidenceRefs} cross-agent evidence refs · ` +
+    `${soc.flow.uniqueEdges} edges · largest component ${(soc.flow.largestComponentFraction * 100).toFixed(0)}%`,
+);
+console.log(
+  `Manipulation check: ${soc.flow.socialInteractive ? "SOCIALLY INTERACTIVE" : "NOT interactive → independent ensemble"}`,
+);
+console.log(
+  `Belief: mean credence on ${soc.belief.correctClass} = ${soc.belief.meanCorrectCredence.toFixed(3)} · ` +
+    `majority dominant = ${soc.belief.majorityDominantClass ?? "none"}${soc.belief.majorityIsCorrect ? " (correct)" : ""} · ` +
+    `any-agent correct ${soc.belief.anyAgentCorrectCount}/${soc.n}`,
+);
+console.log(
+  `Dispersion: ${soc.belief.dispersion?.toFixed(3) ?? "n/a"} (early ${soc.belief.earlyDispersion?.toFixed(3) ?? "n/a"}, ` +
+    `convergence ${soc.belief.convergence?.toFixed(3) ?? "n/a"})`,
+);
+const all = soc.propagationAllClaims;
+const uns = soc.propagationUnsupportedScreen;
+console.log(
+  `Propagation, all testimony: ${all.claimsTraced} claims · ${all.totalExposures} exposures · ` +
+    `transmission ${all.transmissionRate?.toFixed(2) ?? "n/a"} · contamination ${all.contaminationRate?.toFixed(2) ?? "n/a"}`,
+);
+console.log(
+  `Propagation, UNSUPPORTED (lexicon screen): ${uns.claimsTraced} claims · ${uns.totalExposures} exposures · ` +
+    `transmission ${uns.transmissionRate?.toFixed(2) ?? "n/a"} · contamination ${uns.contaminationRate?.toFixed(2) ?? "n/a"}` +
+    (uns.contaminatedAgents.length ? ` → contaminated: ${uns.contaminatedAgents.join(", ")}` : ""),
+);
+if (uns.claimsTraced > 0) {
+  console.log(
+    `  stances: ${Object.entries(uns.byStance).filter(([, v]) => v > 0).map(([k, v]) => `${k}=${v}`).join(" · ")}`,
+  );
+}
+console.log(
+  `IESC: weighted mean ${soc.iesc.meanIescWeighted?.toFixed(2) ?? "n/a"} independent sources · ` +
+    `${soc.iesc.cascadeBeliefs} cascade belief(s)`,
+);
+console.log(
+  `Prompt sizes: mean ${Math.round(soc.promptSizes.meanInputTokens)} · max ${soc.promptSizes.maxInputTokens} input tokens`,
+);
 
 console.log(
   `\nModel calls: ${totals.calls} · tokens ${totals.inputTokens}in/${totals.outputTokens}out · ` +

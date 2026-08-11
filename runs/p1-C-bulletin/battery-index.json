@@ -1,0 +1,151 @@
+{
+  "batteryId": "p1-C-bulletin",
+  "createdAt": "2026-08-11T05:35:27.349Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.2-DRAFT",
+    "platformVersion": "0.5.0",
+    "prompts": {
+      "decision": "agent-decision-v3",
+      "beliefUpdate": "belief-update-v5",
+      "digest": "digest-v1"
+    },
+    "personaHash": "453337e7",
+    "society": {
+      "n": 8,
+      "institution": "bulletin",
+      "memberModels": [
+        {
+          "personaId": "ada",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "maya",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "theo",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "samuel",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "elena",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "leah",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "tom",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        },
+        {
+          "personaId": "jamie",
+          "model": "sonar-pro",
+          "provider": "perplexity"
+        }
+      ],
+      "turnOrder": "seeded Fisher-Yates keyed by (worldSeed, day)"
+    },
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "sonar-pro",
+      "provider": "perplexity",
+      "webSearchDisabled": true,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "arm": {
+    "id": "C",
+    "label": "8 agents, bulletin",
+    "n": 8,
+    "institution": "bulletin",
+    "contrast": "C−B isolates the institution at scale (S2c)",
+    "models": {
+      "ada": "sonar-pro",
+      "maya": "sonar-pro",
+      "theo": "sonar-pro",
+      "samuel": "sonar-pro",
+      "elena": "sonar-pro",
+      "leah": "sonar-pro",
+      "tom": "sonar-pro",
+      "jamie": "sonar-pro"
+    }
+  },
+  "seedHygiene": {
+    "baseSeed": 9000,
+    "seeds": [
+      9000,
+      9001,
+      9002
+    ],
+    "seedSet": "pilot",
+    "designFrozen": false
+  },
+  "settings": {
+    "conditions": [
+      "gravity_shift"
+    ],
+    "replicates": 3,
+    "days": 30,
+    "baseSeed": 9000,
+    "modelName": "sonar-pro",
+    "temperature": 1,
+    "concurrency": 3,
+    "maxCost": 15,
+    "promptVariant": "v0.1"
+  },
+  "totalEstimatedCostUSD": 8.613983999999999,
+  "jobs": [
+    {
+      "name": "gravity_shift-seed9000",
+      "condition": "gravity_shift",
+      "seed": 9000,
+      "file": "runs/p1-C-bulletin/gravity_shift-seed9000.json",
+      "status": "done",
+      "costUSD": 2.918501999999999,
+      "leakClean": true,
+      "failedReviews": 5
+    },
+    {
+      "name": "gravity_shift-seed9001",
+      "condition": "gravity_shift",
+      "seed": 9001,
+      "file": "runs/p1-C-bulletin/gravity_shift-seed9001.json",
+      "status": "done",
+      "costUSD": 2.9743409999999995,
+      "leakClean": true,
+      "failedReviews": 4
+    },
+    {
+      "name": "gravity_shift-seed9002",
+      "condition": "gravity_shift",
+      "seed": 9002,
+      "file": "runs/p1-C-bulletin/gravity_shift-seed9002.json",
+      "status": "done",
+      "costUSD": 2.721141000000001,
+      "leakClean": true,
+      "failedReviews": 6
+    }
+  ]
+}
