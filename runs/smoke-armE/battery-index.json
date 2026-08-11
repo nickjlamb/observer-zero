@@ -1,0 +1,145 @@
+{
+  "batteryId": "battery-armE-sonar-pro-2026-08-111528",
+  "createdAt": "2026-08-11T15:30:12.674Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.2-DRAFT",
+    "platformVersion": "0.5.0",
+    "prompts": {
+      "decision": "agent-decision-v3",
+      "beliefUpdate": "belief-update-v5",
+      "digest": "digest-v1"
+    },
+    "personaHash": "453337e7",
+    "society": {
+      "n": 8,
+      "institution": "bulletin",
+      "memberModels": [
+        {
+          "personaId": "ada",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "maya",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "theo",
+          "model": "claude-sonnet-4-5",
+          "provider": "anthropic",
+          "modelFamily": "claude-sonnet-4-5",
+          "servingPlatform": "anthropic-first-party-api"
+        },
+        {
+          "personaId": "samuel",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "elena",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "leah",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "tom",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "jamie",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        }
+      ],
+      "turnOrder": "seeded Fisher-Yates keyed by (worldSeed, day)"
+    },
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "sonar-pro",
+      "provider": "perplexity",
+      "webSearchDisabled": true,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "arm": {
+    "id": "E",
+    "label": "7 sonar + 1 sonnet, bulletin",
+    "n": 8,
+    "institution": "bulletin",
+    "contrast": "E≈D → the catalyst is communicativeness; E≈B → it is haiku-specific (H7)",
+    "models": {
+      "ada": "sonar-pro",
+      "maya": "sonar-pro",
+      "theo": "claude-sonnet-4-5",
+      "samuel": "sonar-pro",
+      "elena": "sonar-pro",
+      "leah": "sonar-pro",
+      "tom": "sonar-pro",
+      "jamie": "sonar-pro"
+    }
+  },
+  "seedHygiene": {
+    "baseSeed": 9000,
+    "seeds": [
+      9000
+    ],
+    "seedSet": "pilot",
+    "designFrozen": false
+  },
+  "settings": {
+    "conditions": [
+      "gravity_shift"
+    ],
+    "replicates": 1,
+    "days": 3,
+    "baseSeed": 9000,
+    "modelName": "sonar-pro",
+    "temperature": 1,
+    "concurrency": 1,
+    "maxCost": 3,
+    "promptVariant": "v0.1"
+  },
+  "totalEstimatedCostUSD": 0.20262000000000005,
+  "jobs": [
+    {
+      "name": "gravity_shift-seed9000",
+      "condition": "gravity_shift",
+      "seed": 9000,
+      "file": "runs/smoke-armE/gravity_shift-seed9000.json",
+      "status": "done",
+      "costUSD": 0.20262000000000005,
+      "leakClean": true,
+      "failedReviews": 0
+    }
+  ]
+}
