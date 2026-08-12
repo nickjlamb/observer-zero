@@ -39,25 +39,37 @@ later.
 
 ## Contents
 
-```
-s2-armA/   2 × sonar-pro, letters,  20 runs   n=2 baseline
-s2-armB/   8 × sonar-pro, letters,  20 runs   pure-sonar counterfactual
-s2-armC/   8 × sonar-pro, bulletin,  5 runs   institution non-use check
-s2-armD/   7 × sonar-pro + 1 × claude-haiku-4-5, bulletin, 20 runs
-s2-armE/   7 × sonar-pro + 1 × claude-sonnet-4-5, bulletin, 20 runs
-smoke-armE/  single 3-day pre-freeze smoke test, pilot seed 9000
-```
+Uploaded as twelve files. The run artifacts are split by arm and scenario so a
+reader who wants one condition does not download all of it; the derived
+analysis outputs are separate again because they are also in the repository.
+Unzip all of them into a single `runs/` directory to restore the layout the
+code expects.
 
-Per arm:
+| File | Runs | What it is |
+|---|---|---|
+| `s2-armA-{control,gravity_shift}.zip` | 10 + 10 | 2 x sonar-pro, letters — the n=2 baseline |
+| `s2-armB-{control,gravity_shift}.zip` | 10 + 10 | 8 x sonar-pro, letters — pure-sonar counterfactual |
+| `s2-armC-{control,gravity_shift}.zip` | 3 + 2 | 8 x sonar-pro, bulletin — institution non-use check |
+| `s2-armD-{control,gravity_shift}.zip` | 10 + 10 | 7 x sonar-pro + 1 x claude-haiku-4-5, bulletin |
+| `s2-armE-{control,gravity_shift}.zip` | 10 + 10 | 7 x sonar-pro + 1 x claude-sonnet-4-5, bulletin |
+| `analysis-outputs.zip` | — | the derived files for all five arms (28 files) |
+
+85 run artifacts and 28 derived files, 113 in total.
+
+Each `{scenario}-seed{n}.json` is one full run: config, manifest, per-agent
+action history, belief timeline, failed reviews, cost, and the complete event
+stream.
+
+`analysis-outputs.zip` contains, per arm:
 
 | File | What it is |
 |---|---|
-| `{scenario}-seed{n}.json` | one full run: config, manifest, per-agent action history, belief timeline, failed reviews, cost, and the complete event stream |
 | `battery-index.json` | run manifest for the battery — models, serving platforms, seed hygiene, freeze flag, settings, per-job cost and QC |
 | `society-eval.json` | derived: flow metrics, belief aggregation, claim propagation (deterministic screen), IESC, prompt sizes, per run |
 | `activation.json` | derived: activation endpoints per run and per scenario |
 | `judged-propagation.json` | derived: LLM stance-judge output (arms D and E only) |
 | `benchmark.json` | derived: three-level detector benchmark (arms A, B, D, E) |
+| `dating.json` | derived: H4 onset-dating judge output, run 2026-08-12 |
 
 Arm C carries `battery-index-1000-1001.json` and `battery-index-1002.json` as
 well: its five pre-registered cells needed two runner invocations, each of
