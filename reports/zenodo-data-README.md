@@ -8,7 +8,10 @@ in the Observer Zero programme. 85 runs across five arms on quarantined seeds
 **Design frozen at:** commit `85bcdfbb331627988fbfe8b271e3304520493e3b`,
 tag `study2-freeze`, 2026-08-11 16:42:51 +0100.
 **Analysis performed at:** commit `587aaf3a3339023ed0fe420246b675c2331ba0b5`.
-**Related:** Study 1 — DOI 10.5281/zenodo.21872781 (concept 10.5281/zenodo.21872780)
+**Related:** Study 1 — concept DOI 10.5281/zenodo.21872780, which resolves to the
+current version. The version this study's figures are taken from is
+10.5281/zenodo.21906936 (2026-08-12), which carries an erratum to one sample-scope
+figure in the original release; no result or conclusion is affected.
 
 ---
 
