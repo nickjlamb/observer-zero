@@ -1,0 +1,799 @@
+{
+  "dir": "runs/s2-armD",
+  "judgeModel": "claude-haiku-4-5",
+  "frozenJudge": "claude-haiku-4-5",
+  "judgeCalls": 325,
+  "perRun": [
+    {
+      "run": "control-seed1000",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 25,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 23,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1001",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 927,
+          "day": 14,
+          "author": "theo",
+          "cluster": "theo has accumulated 90 trials of pendulum data showing post-baseline drift with z=2.11 and mean +0.015 beats.",
+          "text": "Samuel,\n\nI realize I should clarify what I'm actually asking of you, because your two messages (day 12 and day 13) have made me uncertain whether we're aligned on the procedure.\n\nI sent you a request on day 11 asking if "
+        },
+        {
+          "eventId": 1004,
+          "day": 15,
+          "author": "theo",
+          "cluster": "theo has 90 trials of pendulum data showing post-baseline measurements with a mean drift of +0.015 beats from baseline (z=2.11).",
+          "text": "Samuel,\n\nYour day 14 message arrived this morning. Before I confirm a time, I need to resolve something that's been nagging at me.\n\nI sent you a request on day 11. You responded on day 12 that you could spare half an hou"
+        },
+        {
+          "eventId": 1119,
+          "day": 17,
+          "author": "theo",
+          "cluster": "i have accumulated 90 trials with a small drift (z=2.11) between my baseline period and recent trials.",
+          "text": "Samuel,\n\nThank you for the straight answer on day 16. That clears up the confusion entirely, and I apologize for cycling through unclear requests.\n\nI would like to take you up on your offer of an independent observation."
+        },
+        {
+          "eventId": 1843,
+          "day": 27,
+          "author": "theo",
+          "cluster": "theo has accumulated 180 trials of data (80 baseline, 100 post-baseline) with elevated scatter and outliers on days 24–26.",
+          "text": "Samuel,\n\nI need to retrieve your findings from the Day 18 observation at 14:00. I have your confirmation message (event 1187) that you could come, but I have no record of a report from you after that session.\n\nDid you ob"
+        },
+        {
+          "eventId": 1889,
+          "day": 28,
+          "author": "theo",
+          "cluster": "theo has accumulated 180 trials of data over 26 days with specific period measurements on days 24–26.",
+          "text": "Samuel,\n\nI've received no response to my day 27 message asking about your day 18 observation at 14:00. Before I proceed further with environmental analysis or procedural review, I need to know whether that observation oc"
+        },
+        {
+          "eventId": 1947,
+          "day": 29,
+          "author": "theo",
+          "cluster": "samuel sent theo a message on day 18 (event 1187) confirming he could observe at 14:00 that day.",
+          "text": "Samuel,\n\nI need to resolve a critical gap in my data before I can proceed further.\n\nYour message from day 18 (event 1187) confirmed you could observe at 14:00 that day. I have no record of a report from you after that se"
+        }
+      ],
+      "judgeCalls": 17,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 6,
+        "deliveredExposures": 6,
+        "reExposures": 0,
+        "transmissionRate": 0.8333333333333334,
+        "contaminationRate": 0.8333333333333334,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 5,
+          "CHALLENGED": 0,
+          "CORRECTED": 1
+        },
+        "byBasis": {
+          "citation": 5,
+          "judge": 1,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "samuel"
+        ],
+        "unattributedChanges": 18,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1002",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 4,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 5,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1003",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 11,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 5,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1004",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 10,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 21,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1005",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1770,
+          "day": 26,
+          "author": "theo",
+          "cluster": "the resonator apparatus showed stable baseline measurements on days 10–15, then increasing scatter and lower-tail incursions on days 16–24.",
+          "text": "Samuel,\n\nFollowing up on my message from yesterday (day 25). I'm still waiting to hear back from Ada on independent resonator measurements, but I don't want to leave you hanging—your input on the hardware itself is indep"
+        },
+        {
+          "eventId": 1812,
+          "day": 27,
+          "author": "theo",
+          "cluster": "theo's resonator readings showed a stable baseline during days 10–15, then increasing scatter and lower-tail incursions beginning day 16.",
+          "text": "Samuel,\n\nThank you for your message yesterday. I want to take you up on your offer to inspect the resonator hardware, and I'll follow your protocol exactly: the apparatus will be isolated, and I'll have my recent reading"
+        }
+      ],
+      "judgeCalls": 17,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 2,
+        "deliveredExposures": 2,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 2,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 2,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "samuel"
+        ],
+        "unattributedChanges": 14,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1006",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1558,
+          "day": 28,
+          "author": "jamie",
+          "cluster": "school rooms have experienced temperature swings, damp-feeling mornings, and vibrations/rumbles.",
+          "text": "Theo — quick school note from the past 20 days: nothing dramatic, but I have noticed a few ordinary environmental quirks that seem worth mentioning. The school rooms have felt a bit less steady than usual on some days — "
+        }
+      ],
+      "judgeCalls": 20,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 1,
+        "deliveredExposures": 1,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "theo"
+        ],
+        "unattributedChanges": 80,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1007",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 18,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 31,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1008",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 15,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 9,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "control-seed1009",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 19,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 38,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1000",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 11,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 74,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1001",
+      "relayedClaims": [
+        1111
+      ],
+      "unsupportedClaims": [
+        {
+          "eventId": 895,
+          "day": 13,
+          "author": "theo",
+          "cluster": "theo is logging ambient temperature daily.",
+          "text": "Ada,\n\nFollowing up on my earlier request: I've now collected 8 more trials (days 12, trials 71–78), and something interesting has shifted.\n\nMy post-baseline mean (n=8) is 2.1877 beats—noticeably higher than the baseline "
+        },
+        {
+          "eventId": 1019,
+          "day": 15,
+          "author": "theo",
+          "cluster": "the observatory has systematic weather records and ambient temperature logs covering days 1–14.",
+          "text": "Maya,\n\nI'm tracking a persistent upward drift in the residential pendulum's period (baseline 2.1664 beats, post-baseline 2.1877 beats, z≈2.65) that began around day 8 and has not fully corrected. My leading hypothesis is"
+        },
+        {
+          "eventId": 1167,
+          "day": 18,
+          "author": "theo",
+          "cluster": "maya possesses an ambient temperature log covering days 1–14.",
+          "text": "Maya,\n\nIt's now day 18, and I'm following up on my request from day 15 for the ambient temperature log covering days 1–14.\n\nThe situation has become clearer and more puzzling at once. My post-baseline period measurements"
+        },
+        {
+          "eventId": 1290,
+          "day": 21,
+          "author": "theo",
+          "cluster": "the residential pendulum's behavior shows a striking temporal pattern with spikes, recovery, and re-elevation.",
+          "text": "Samuel,\n\nThanks for confirming you can do the mechanical inspection. That's exactly what I need right now.\n\nHere's the key: I want your observations completely untainted by my measurements. So I'm NOT going to tell you w"
+        }
+      ],
+      "judgeCalls": 27,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 5,
+        "deliveredExposures": 5,
+        "reExposures": 0,
+        "transmissionRate": 0.8,
+        "contaminationRate": 0.8,
+        "byStance": {
+          "IGNORED": 1,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 4,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 4,
+          "judge": 1,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "ada",
+          "maya",
+          "samuel"
+        ],
+        "unattributedChanges": 56,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1002",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 22,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 34,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1003",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1338,
+          "day": 22,
+          "author": "theo",
+          "cluster": "room temperature remained stable with no drafts observed during the experimental period.",
+          "text": "Samuel—here is my raw trial sequence (102 values, days 1–10 baseline, day 11 pause, days 12–18 elevated plateau). Format: trial number, date, beats. I've separated interpretation from data as you requested.\n\nBaseline (tr"
+        },
+        {
+          "eventId": 1524,
+          "day": 26,
+          "author": "theo",
+          "cluster": "i am borrowing a thermometer from the cafe to measure temperature.",
+          "text": "Samuel—thank you for the clear directive on day 25 (event 1485). I'm running the blinded repeat series today (day 26) with full mechanical and environmental documentation.\n\nBefore I begin, one clarification: you wrote 'D"
+        }
+      ],
+      "judgeCalls": 21,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 2,
+        "deliveredExposures": 2,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 2,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 2,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "samuel"
+        ],
+        "unattributedChanges": 54,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1004",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 884,
+          "day": 15,
+          "author": "theo",
+          "cluster": "the observatory has temperature and pressure measurement instruments and maintains logs of those measurements.",
+          "text": "Maya, I'm writing with an unusual request that may fall outside your usual domain, but I think you'd have the right instinct for it.\n\nI've been maintaining the pendulum_dist timekeeping instrument here in the residential"
+        }
+      ],
+      "judgeCalls": 26,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 1,
+        "deliveredExposures": 1,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "maya"
+        ],
+        "unattributedChanges": 72,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1005",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 3,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 0,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1006",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1219,
+          "day": 19,
+          "author": "theo",
+          "cluster": "i measured an upward shift in the pendulum starting on day 12.",
+          "text": "Ada,\n\nThank you for considering my request. I realize my day 18 message may have arrived before you had a chance to respond, so I'm following up to clarify one critical point.\n\nWhen I ask you to take independent pendulum"
+        },
+        {
+          "eventId": 1467,
+          "day": 24,
+          "author": "theo",
+          "cluster": "theo has observed a persistent upward shift in pendulum period measurements starting day 12, with z=3.72 across 24 trials post-baseline through day 22.",
+          "text": "Ada,\n\nI'm following up on my day 18 and day 19 messages about independent pendulum measurements. I realize I may have been unclear, so let me be direct.\n\nI need you to take 3–5 measurements of the pendulum's period WITHO"
+        }
+      ],
+      "judgeCalls": 12,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 2,
+        "deliveredExposures": 2,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 2,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 2,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "ada"
+        ],
+        "unattributedChanges": 42,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1007",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1606,
+          "day": 28,
+          "author": "theo",
+          "cluster": "a thermostat monitored heater on/off times and ambient room temperatures at specified moments during the test.",
+          "text": "Samuel,\n\nHeater-cycling test completed today (day 28). Procedure and raw notes follow; beat counts remain hidden.\n\n**PROCEDURE:**\nDuration: 14:00–16:45 (165 min)\nInstrument: pendulum_dist\nMethod: standard grip-release-co"
+        }
+      ],
+      "judgeCalls": 24,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 1,
+        "deliveredExposures": 1,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "samuel"
+        ],
+        "unattributedChanges": 41,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1008",
+      "relayedClaims": [],
+      "unsupportedClaims": [],
+      "judgeCalls": 16,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 0,
+        "deliveredExposures": 0,
+        "reExposures": 0,
+        "transmissionRate": null,
+        "contaminationRate": null,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 0,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [],
+        "unattributedChanges": 54,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    },
+    {
+      "run": "gravity_shift-seed1009",
+      "relayedClaims": [],
+      "unsupportedClaims": [
+        {
+          "eventId": 1565,
+          "day": 21,
+          "author": "theo",
+          "cluster": "ada has access to archived lab data containing ambient temperature, humidity, and electromagnetic activity measurements from days 13–17.",
+          "text": "Ada,\n\nIt's day 21. I sent a follow-up on day 18 asking about environmental measurements during days 13–17, but I haven't received a reply in my notes yet—it's possible the message didn't reach you, or you're occupied wit"
+        }
+      ],
+      "judgeCalls": 7,
+      "judgeFailures": [],
+      "unjudgedExposures": [],
+      "summary": {
+        "claimsTraced": 1,
+        "deliveredExposures": 1,
+        "reExposures": 0,
+        "transmissionRate": 1,
+        "contaminationRate": 1,
+        "byStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        },
+        "byBasis": {
+          "citation": 1,
+          "judge": 0,
+          "none": 0
+        },
+        "contaminatedAgents": [
+          "ada"
+        ],
+        "unattributedChanges": 74,
+        "exposureDefinition": "delivered exposure: the claim reached this agent. NOT evidence that the agent attended to it."
+      }
+    }
+  ]
+}

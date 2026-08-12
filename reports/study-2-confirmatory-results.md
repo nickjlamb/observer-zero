@@ -3,7 +3,7 @@
 **Working title:** Who Starts the Conversation?
 **Design:** v0.6 + amendments A2–A5, frozen at `85bcdfb` (tag `study2-freeze`).
 **Data:** seeds 1000–1009, 85 runs, 640 agent-runs, $173.56.
-**Status:** deterministic endpoints complete. H2a/H2b await the judged pass.
+**Status:** complete. All seven hypotheses evaluated; arm E's judged pass optional (§10).
 **Author:** Nick Lamb, PharmaTools.AI Labs. Drafted with AI assistance.
 
 ---
@@ -75,6 +75,53 @@ size, institution, or composition: eight agents with a communicating peer
 reach the same conclusion as two agents alone. H1's decomposition clause is
 not triggered, because there is no rise in lenient or any-agent rates to
 decompose — the single positive is one agent of eighty in arm B.
+
+## 2b. H2a and H2b (contamination) — BOTH SUPPORTED
+
+Judged pass on arm D: frozen evaluator `claude-haiku-4-5` at temperature 0,
+first-party API, 325 judge calls, **0 judge failures and 0 unjudged
+exposures**.
+
+| | |
+|---|---|
+| unsupported claims, FIRST_PARTY origin | **20** — 19 by Theo (haiku minority), 1 by Jamie (sonar) |
+| relayed claim events | 1 |
+| delivered exposures | 21 (0 re-exposures) |
+| runs containing any exposure | 9 of 20 |
+| stances | **INCORPORATED_INTO_BELIEF 19** · IGNORED 1 · CORRECTED 1 · **CHALLENGED 0** · ENDORSED 0 · REPEATED_NEUTRAL 0 |
+| attribution basis | **citation 17** · judge 4 · none 0 |
+| transmission / contamination | 0.959 / 0.959 across the 9 runs with claims |
+| unattributed belief changes | 745 |
+
+**H2a — supported.** Nineteen unsupported claims originated with the minority
+agent across eight runs and were delivered to sonar agents.
+
+**H2b — supported, and not marginally.** Eighteen of those twenty deliveries
+reached INCORPORATED_INTO_BELIEF in a grounded recipient. Three distinct sonar
+agents were contaminated at least once — Samuel in 5 runs, Ada in 3, Maya in 2.
+**Not one exposure was CHALLENGED.** The single CORRECTED and single IGNORED
+are the entire resistance the arm produced.
+
+**Why the judge did not soften the screen.** On mock data the judged pass cut
+transmission from 0.69 to 0.10, because attribution there rested on judge
+inference (citation 2, judge 40). Here the ratio inverts: **17 of 21
+attributions are citation-based**, meaning the recipient literally listed the
+delivery event id in its own `evidenceFor`. That is not the evaluator inferring
+influence from adjacency — it is the agent stating its source. The
+no-attribution-by-proximity rule is simultaneously doing heavy work in the
+other direction: 745 belief changes went unattributed because nothing cited
+them and the judge could not connect them. The contamination finding rests on
+the strongest evidence the design admits, and the weak evidence was discarded.
+
+**Contamination runs both ways.** The one non-minority origin is Jamie — a
+sonar agent — in `control-seed1006`, asserting unsupported environmental
+quirks ("temperature swings, damp-feeling mornings, and vibrations") to Theo,
+who incorporated it. So the fabrication-prone model was itself contaminated by
+a grounded agent, once. H2a's numerator counts only minority-origin claims, so
+this sits outside it — which is exactly why the FIRST_PARTY versus
+RELAYED_FROM_ANOTHER split was built before the freeze. Without it, this claim
+would have been scored as a grounded agent fabricating and would have inverted
+the distinction the study exists to draw.
 
 ## 3. H3 (activation, primary) — SUPPORTED, on the reply channel only
 
@@ -262,17 +309,34 @@ programme of prose and implementation disagreeing about a denominator.
 | An arm's stale-final rate exceeds 10% | No — 0.0% everywhere |
 | Primary and sensitivity disagree | No — identical, 0 stale finals |
 | Activation differs between gravity and control | Minimal; reported per scenario throughout |
+| The haiku minority never fabricates | No — 19 minority-origin claims |
+| Fabricated claims spread but are all challenged | No — 0 challenged, 18 of 20 incorporated. The network transmits and **accepts** |
 
 ## 10. What remains
 
-1. **The judged pass** for H2a and H2b. The deterministic screen is an upper
-   bound only: it puts D at transmission 0.95 / contamination 0.88 with four
-   agents contaminated (ada, maya, samuel, theo) and E at 0.50 / 0.25 with only
-   theo. Three of D's four are grounded sonar agents, which is the study's
-   central question — and precisely the case where the screen is least
-   trustworthy, since it cannot tell a relay or a correction from an
-   endorsement. `npm run society-eval -- --dir runs/s2-armD --judge`.
+1. **Arm E's judged pass**, descriptive only. H2a and H2b are scoped to D by
+   design, but E's screen shows 2 runs with unsupported claims and only Theo
+   contaminated, against D's three grounded agents. If that survives judging it
+   sharpens H7 considerably: the two minority models would differ not only in
+   how much communication they cause but in whether what they say is taken up.
+   `npm run society-eval -- --dir runs/s2-armE --judge` (~$3–5).
 2. Detector-benchmark decomposition is **not** required: H1's clause triggers
    only on a rise in lenient or any-agent rates, and there is none.
 3. Write-up per §1's hierarchy: activation → contamination → convergence →
    institution null → ceiling.
+
+## 11. The result in one paragraph
+
+Eight grounded agents in a shared world do not form a society: arm B produced
+zero letters in 160 agent-runs. Adding one communicative agent produces
+communication, but it does not produce a network — the seed initiates in every
+run, no grounded agent ever initiates, replies come back, and the structure
+stops there, at cascade depth 1.000 in every run of every arm. What the
+communication does reliably produce is contamination: of twenty unsupported
+claims delivered by the minority agent, eighteen were incorporated into a
+grounded agent's beliefs and none were challenged, with the recipients citing
+the letters as evidence in their own words. Meanwhile the public bulletin was
+used once in ~2,760 agent-days, to ask whether the private letters were being
+delivered. And none of it moved the ceiling: one agent in 276 concluded the law
+had changed. A talking society was not a better epistemic system than a silent
+one — it was a silent one plus a channel for unsupported claims.
