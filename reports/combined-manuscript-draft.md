@@ -1560,20 +1560,7 @@ three authors.
 
 [39] Rosenstock S, Bruner J, O'Connor C. In epistemic networks, is less really more? Philosophy of Science. 2017;84(2):234–252. doi:10.1086/690717.
 
-[40] Lamb N. Observer Zero: Autonomous LLM scientists detect changes to their world but fail to conclude that it changed. Zenodo. 2026. doi:10.5281/zenodo.21872780. *Concept DOI — resolves to the current version. The corrected version used here is doi:10.5281/zenodo.21906936.*
-
-**Carried from Study 1 and cited in §§3–5:** Ji Z, Lee N, Frieske R, et al. Survey of
-hallucination in natural language generation. ACM Computing Surveys. 2023;55(12):1–38 ·
-Kadavath S, Conerly T, Askell A, et al. Language models (mostly) know what they know.
-arXiv:2207.05221. 2022 · Kuhn TS. The Structure of Scientific Revolutions. Chicago:
-University of Chicago Press; 1962 · Tversky A, Kahneman D. Judgment under uncertainty:
-Heuristics and biases. Science. 1974;185(4157):1124–1131 · Bostrom N. Are we living in a
-computer simulation? The Philosophical Quarterly. 2003;53(211):243–255 · Lu C, Lu C,
-Lange RT, et al. The AI Scientist: Towards fully automated open-ended scientific
-discovery. arXiv:2408.06292. 2024.
-
-*Reference verification: every entry was checked against its arXiv abstract page or
-publisher record, and independently re-checked; the audit log is in the repository.*
+[40] Lamb N. Observer Zero: Autonomous LLM scientists detect changes to their world but fail to conclude that it changed. Zenodo. 2026. doi:10.5281/zenodo.21872780.
 
 ---
 
