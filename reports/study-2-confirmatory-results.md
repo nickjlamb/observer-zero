@@ -3,7 +3,7 @@
 **Working title:** Who Starts the Conversation?
 **Design:** v0.6 + amendments A2–A5, frozen at `85bcdfb` (tag `study2-freeze`).
 **Data:** seeds 1000–1009, 85 runs, 640 agent-runs, $173.56.
-**Status:** complete. All seven hypotheses evaluated; arm E's judged pass optional (§10).
+**Status:** complete. All seven hypotheses evaluated; both judged passes run.
 **Author:** Nick Lamb, PharmaTools.AI Labs. Drafted with AI assistance.
 
 ---
@@ -76,6 +76,48 @@ reach the same conclusion as two agents alone. H1's decomposition clause is
 not triggered, because there is no rise in lenient or any-agent rates to
 decompose — the single positive is one agent of eighty in arm B.
 
+### The evidence was there: three-level detector benchmark
+
+The obvious challenge to this result is that the shift might simply be too
+small to detect — the scenario is a 0.53% change, where "the expected z barely
+reached 2 by day 30". If so, declining to conclude *law change* would be
+correct Bayesian behaviour rather than a failure, and the ceiling would be a
+statement about the scenario, not the agents. The benchmark settles it.
+
+Mean over 10 gravity_shift runs per arm, max |z| of a non-LLM change-point
+detector:
+
+| Arm | L1 potential (ideal schedule) | L2 as-produced (their own measurements) | policy gap | L2d at n=2 budget | runs flagged |
+|---|---|---|---|---|---|
+| A (n=2) | 6.33 | 5.77 | +0.56 | 100% of draws | **10/10** |
+| B (n=8) | 6.33 | **7.28** | −0.95 | 99% | **10/10** |
+| D (n=8) | 6.33 | **7.42** | −1.09 | 99% | **10/10** |
+| E (n=8) | 6.33 | **7.52** | −1.19 | 100% | **10/10** |
+
+**The shift was detectable in 40 of 40 gravity_shift runs**, at z ≈ 6–7.5,
+typically from day 12 of 30 — using nothing but the measurements the agents
+themselves chose to take. It remains detectable in 99–100% of draws even when
+downsampled to a two-agent observation budget, so this is not a benefit of
+scale.
+
+**And their measurement policy was not the problem either.** At n=8 the
+policy gap is *negative* in every arm: the societies' actual measurement
+choices supported a **stronger** signal than an ideal fixed reference schedule
+of every instrument six times daily. They measured well. The evidence in their
+own notebooks reached z ≈ 7. One agent in 276 concluded the law had changed.
+
+The decomposition therefore isolates the failure precisely. L1 → L2
+(measurement-policy quality): fine, better than reference. **L2 → L3
+(interpretation quality): total.** The ceiling is not a power artefact and not
+a data-collection artefact. These agents gathered sufficient evidence and did
+not draw the conclusion.
+
+*Honest caveat on the detector:* in control worlds it flags 1–4 runs of 10
+across the arms (mean |z| 1.5–1.8, resonator false-alarm rate 0.03–0.06), so
+it is not a perfect instrument. But the separation is not marginal — control
+z ≈ 1.6 against gravity z ≈ 7.4 — and no interpretation here rests on a
+borderline call.
+
 ## 2b. H2a and H2b (contamination) — BOTH SUPPORTED
 
 Judged pass on arm D: frozen evaluator `claude-haiku-4-5` at temperature 0,
@@ -122,6 +164,37 @@ this sits outside it — which is exactly why the FIRST_PARTY versus
 RELAYED_FROM_ANOTHER split was built before the freeze. Without it, this claim
 would have been scored as a grounded agent fabricating and would have inverted
 the distinction the study exists to draw.
+
+### Arm E judged (descriptive; H2 is scoped to D)
+
+60 judge calls, 0 failures, 0 unjudged exposures.
+
+| | arm D (haiku) | arm E (sonnet) |
+|---|---|---|
+| unsupported claims by the minority | 19 | **1** |
+| delivered exposures | 20 | 1 |
+| runs with any exposure | 8 of 20 | 1 of 20 |
+| stances | 18 INCORPORATED · 1 IGNORED · 1 CORRECTED | **1 CHALLENGED** |
+| contaminated agents | Samuel, Ada, Maya | **none** |
+| transmission / contamination | 0.959 / 0.959 | 0.000 / 0.000 |
+| unattributed belief changes | 745 | 407 |
+
+**The difference is production, not scepticism.** Sonnet in the same slot,
+with identical persona text, in the same worlds on the same seeds, produced one
+unsupported claim where haiku produced nineteen. Normalising for volume, since
+haiku also writes far more: **0.086 unsupported claims per letter against
+0.020**, still a factor of four. Because D and E vary the model and nothing
+else — enforced by a test — this is the cleanest fabrication-propensity
+comparison the programme has, better controlled than H2's descriptive
+comparison with Study 1, which carries a peer-environment confound.
+
+**What it cannot show.** E's contamination rate of 0.000 rests on a single
+exposure. The recipients are the same seven sonar personas in both arms, so a
+genuine difference in *how grounded agents treat* a foreign agent's claims
+would be a major finding — and one exposure cannot support it. The honest
+statement is that sonnet gave the network almost nothing to be contaminated by.
+Worth noting descriptively: that single exposure produced **the only CHALLENGED
+stance in the entire study**, against 21 exposures in D that produced none.
 
 ## 3. H3 (activation, primary) — SUPPORTED, on the reply channel only
 
@@ -242,12 +315,37 @@ haiku-specific). The result is neither, and the split is informative:
 
 **The seed behaves identically; the network's response does not.** Both
 minority models initiate in every single run, so "will a foreign model start
-talking?" is answered the same way by haiku and sonnet. But haiku draws
-replies at four times sonnet's rate, produces the only second-order
-activation, and yields the only active networks. Whatever recruits sonar
-agents is a property of *how* the seed writes, not merely *that* it writes.
-Both readings the design prepared for are wrong, and the finding is sharper
-than either.
+talking?" is answered the same way by haiku and sonnet. But haiku draws replies
+at four times sonnet's rate, produces the only second-order activation, and
+yields the only active networks. Both readings the design prepared for are
+wrong.
+
+**But the mechanism is probably dosage, not eloquence.** Haiku does not merely
+get answered more — it asks far more. Theo addresses 45 distinct recipients in
+D against 27 in E, sending a mean of **4.93 letters per recipient against
+1.81** (medians 4 and 2, maxima 13 and 5). Reply rate rises monotonically with
+dosage in both arms:
+
+| letters sent to that recipient | D (haiku) | E (sonnet) |
+|---|---|---|
+| 1 | 3/12 (0.25) | 1/12 (0.08) |
+| 2 | 2/5 (0.40) | 0/11 (0.00) |
+| 3–4 | 4/7 (0.57) | 3/3 (1.00) |
+| 5+ | 17/21 (0.81) | 1/1 (1.00) |
+
+A constant per-letter reply probability reproduces most of the gap: 0.161 for
+haiku against 0.110 for sonnet. So the headline 3× difference decomposes into
+roughly 1.5× in per-letter effectiveness and the rest in sheer volume, and
+above two letters E's cells hold one to three recipients — no weight at all.
+This is P1's Theo, who sent near-daily follow-ups and ended by apologising for
+having written four times in three days.
+
+**Persistence, not eloquence, is therefore the live hypothesis**, and it is a
+much weaker claim than "something about haiku's writing elicits engagement".
+Study 3 can separate them directly by holding letter volume fixed across
+minority models. Until then the defensible sentence is: *haiku and sonnet are
+equally likely to initiate, and haiku is more likely to be answered, largely
+because it asks more times.*
 
 ## 7. Observations, not endpoints
 
@@ -260,6 +358,11 @@ Recorded because they were seen; explicitly not promoted.
   believed. It sits awkwardly beside zero initiations in 320 agent-runs of D
   and E, and one available reading is that a chatty peer *suppresses* sonar
   initiation rather than enabling it. Untested; a Study 3 candidate.
+- **A three-way dissociation across the two minority models.** Initiation is
+  identical (both seeds initiate in 20/20 runs); recruitment differs (reply
+  0.58 vs 0.19 per addressed recipient, second-order 0.037/0.025 vs 0.000);
+  fabrication differs most of all (19 claims vs 1). The three properties come
+  apart, so "communicativeness" is not one trait.
 - **Cascade beliefs concentrate in D**: 17, against 0 in A, B and C, and 1 in
   E. D also has the lowest independent-source count (1.00). Consensus with no
   measurement behind it is a property of the arm with the most traffic.
@@ -314,14 +417,11 @@ programme of prose and implementation disagreeing about a denominator.
 
 ## 10. What remains
 
-1. **Arm E's judged pass**, descriptive only. H2a and H2b are scoped to D by
-   design, but E's screen shows 2 runs with unsupported claims and only Theo
-   contaminated, against D's three grounded agents. If that survives judging it
-   sharpens H7 considerably: the two minority models would differ not only in
-   how much communication they cause but in whether what they say is taken up.
-   `npm run society-eval -- --dir runs/s2-armE --judge` (~$3–5).
-2. Detector-benchmark decomposition is **not** required: H1's clause triggers
-   only on a rise in lenient or any-agent rates, and there is none.
+1. ~~The detector benchmark.~~ **Done** — see §2. It does not weaken the
+   ceiling claim, it strengthens it: the signal was present at z ≈ 7 in every
+   gravity_shift run, in the agents' own measurements, and their measurement
+   policy beat the ideal reference schedule. §9's "undetectable world" rule
+   never fires; no world needs separate reporting.
 3. Write-up per §1's hierarchy: activation → contamination → convergence →
    institution null → ceiling.
 
@@ -337,6 +437,9 @@ claims delivered by the minority agent, eighteen were incorporated into a
 grounded agent's beliefs and none were challenged, with the recipients citing
 the letters as evidence in their own words. Meanwhile the public bulletin was
 used once in ~2,760 agent-days, to ask whether the private letters were being
-delivered. And none of it moved the ceiling: one agent in 276 concluded the law
-had changed. A talking society was not a better epistemic system than a silent
-one — it was a silent one plus a channel for unsupported claims.
+delivered. And none of it moved the ceiling: one agent in 276 concluded the law had
+changed, in worlds where a simple change-point detector, fed only the
+measurements those same agents chose to take, found the shift in 40 runs out
+of 40 at z ≈ 7 from day 12. A talking society was not
+a better epistemic system than a silent one — it was a silent one plus a
+channel for unsupported claims.

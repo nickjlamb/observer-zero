@@ -113,7 +113,11 @@ name. Label only — no prompt text, no agent behaviour, no endpoint changed.
 ## Confirmatory phase — COMPLETE
 
 **Results:** `reports/study-2-confirmatory-results.md`. All seven hypotheses
-evaluated. 85 runs, 640 agent-runs, $173.56.
+evaluated. 85 runs, 640 agent-runs, $173.56 — plus $6 for the H4 dating pass
+run on 2026-08-12 (`reports/h4-results.md`, `npm run dating`), which the
+original evaluation path never called. Six of seven were evaluated in the
+confirmatory phase itself; H4 was completed afterwards against the same frozen
+judge and prompt, so the pre-registration is now closed rather than extended.
 
 **Inspection discipline (author decision, honoured).** No activation endpoint,
 credence or rate was computed until every arm was complete; between arms the
@@ -183,105 +187,84 @@ reproducible. The raw artifacts go to Zenodo with their own DOI, as Study 1's
 data did. Until that deposit exists **the raw confirmatory data lives on one
 machine only** — that is the standing risk to close next.
 
-## Next
+## Next — the plan from here
 
-## Next: the confirmatory phase
+**Gate 1 (done).** Detector benchmark: `runs/s2-arm{A,B,D,E}/benchmark.json`.
+The shift was detectable in 40 of 40 gravity_shift runs at z ≈ 6–7.5 from
+~day 12, from the agents' own measurements, and still detected in 99–100% of
+n=2-equivalent downsamples. At n=8 the measurement-policy gap is NEGATIVE in
+every arm — their measurement choices beat an ideal fixed reference schedule.
+So the ceiling is **an interpretation failure, not a power or data-collection
+artefact**, and §9's "undetectable world" rule never fires.
 
-Order: **A → B → C(5) → D → E**, then the judged evaluation pass per arm
-(`npm run society-eval -- --dir runs/s2-armX --judge`). Every battery needs
-`--confirmatory`; the runner refuses seeds 1000–1009 without it even now.
-C runs exactly five named cells (A2): 1000-gravity, 1000-control,
-1001-gravity, 1001-control, 1002-control — two invocations, since the runner
-takes a conditions × replicates cross product. B, D and E are multi-day at
-concurrency 3.
+**Gate 2 (open, and the standing risk).** Zenodo deposit of the 308MB of raw
+confirmatory artifacts. They exist on one machine. The paper needs the DOI for
+its data-availability statement regardless. Derived artifacts (4.2MB) are in
+the repo; every number in the results report is reproducible from them.
 
-## Hard rules that must not be broken
+**Then, in order.**
 
-- **Seeds 1000–1009 are now open, but only via `--confirmatory`.** The
-  quarantine lifted at the freeze; the explicit flag is still required, and
-  the runner still refuses any non-Study-2 arm on them. Pilot/mock work
-  continues to use 9000–9004.
-- **The judge does not move.** `FROZEN_JUDGE_MODEL = claude-haiku-4-5`,
-  temperature 0, first-party Anthropic API. It is measurement apparatus;
-  changing it silently re-baselines every judged result since Study 1.
-- **No live arm contains scripted communication.** The mock's planted claim
-  is mock-only.
-- **Review is closed** (v0.6 §6). A2–A5 were the permitted design-failure
-  fixes. After the freeze commit, nothing.
-- **Arm F is not a Study 2 arm** (A2). 8 × haiku is a Study 3 candidate,
-  pre-registered separately; its results are never merged into Study 2's
-  analysis. The battery refuses it on confirmatory seeds — in code.
+1. **Literature check** — LLM-agent social epistemics, information cascades in
+   agent networks, multi-agent misinformation propagation, agent-based
+   social-simulation venues (JASSS and similar). This is a prerequisite for
+   the journal question, not an afterthought: novelty cannot be asserted from
+   memory, and the framing should be stress-tested against prior work before
+   it goes public rather than after.
+2. **Combined Study 1 + Study 2 manuscript** (author's route decision pending;
+   the alternative is Study 1's pattern of Zenodo preprint + Medium first).
+3. **Derivatives from the finished paper:** Medium article at AI Advances,
+   LinkedIn post, and `observer-zero.html` on the website
+   (`~/Desktop/website/observer-zero.html`, plus `publications.html`).
+   Deriving them from the paper rather than writing them first keeps the
+   popular framing identical to the defensible one.
+4. **Study 3 design.** Three concrete candidates, in order of how directly
+   they follow from Study 2:
+   - **Persistence vs eloquence.** Haiku's higher reply rate is mostly dosage:
+     4.93 letters per recipient against sonnet's 1.81, with a per-letter reply
+     probability of 0.161 vs 0.110. Hold letter volume fixed across minority
+     models and the two explanations separate.
+   - **Composition dose-response** (2/8, 4/8), ladder-ready by design, budget
+     already reserved.
+   - **Does a chatty peer suppress initiation?** Arm C's one spontaneous sonar
+     initiator (Elena) sits against zero in 320 agent-runs of D and E.
 
-## Budget and platform
+## The two headline findings, as they now stand
 
-| Source | Available | Study 2 use |
-|---|---|---|
-| Perplexity | ~$5,011 | ~$195 (all sonar agents) |
-| Anthropic first-party | ~$134 | ~$65 (D ~$10, E ~$30, judge ~$25 — measured at ~$0.011/call, not estimated) |
-| AWS Bedrock | ~$1,100 | **$0 — account blocked** |
+1. **The ceiling is an interpretation failure.** Agents measured well — better
+   than an ideal reference schedule — accumulated z ≈ 7 evidence of a physical
+   law change, and 1 of 276 concluded that a law had changed. Neither scale,
+   institution, nor a communicating peer moves it.
+2. **Communication transmits unsupported claims and little else.** 18 of 20
+   minority-origin unsupported claims were incorporated into grounded agents'
+   beliefs, none challenged, mostly on the recipients' own citations. Meanwhile
+   no grounded agent ever initiated, cascade depth was 1.000 everywhere, the
+   public bulletin was used once in ~2,760 agent-days (to ask whether letters
+   were being delivered), and dispersion fell *slower* in the talking arms.
 
-Bedrock returns `Error 002: Access to Bedrock models is not allowed for this
-account` on both endpoints; the API key authenticates fine, so it is an
-account-level entitlement block, not credentials and not the First Time Use
-form. Amendment A1 in v0.6 reverted all Claude agents to first-party. Arms D
-and E survive as core; **arm F was removed from Study 2 altogether** by A2 —
-not on cost grounds (at the measured judge rate it would have fitted) but
-because it had no pre-registered trigger and no pre-registered analysis.
-
-If Bedrock is unblocked: switch the overrides in `src/runner/arms.ts` back to
-the `bedrock-mantle:` prefix. Provider, routing, credential pre-flight and
-`resolvedModel` provenance are all built and tested. `npm run bedrock-check`
-probes both endpoints and names the failure mode.
-
-## Repository state
-
-The freeze is commit **`85bcdfb`** on `main`, tagged **`study2-freeze`**,
-pushed to `github.com/nickjlamb/observer-zero`. Lineage: `0f7275c` (M4
-baseline) → `5685de3` (amendments A2–A5) → `f8b6989` (arm E smoke test) →
-`85bcdfb` (freeze). To see the design as it stood *before* the freeze, check
-out `5685de3` — it carries `DESIGN_FROZEN = false`.
-
-Provenance note: the `study2-freeze` tag was first created against `5685de3`
-by a failed command sequence and pushed; it was deleted and re-created
-against `85bcdfb`. Recorded rather than quietly fixed.
-
-## Infrastructure state
-
-Platform 0.5.0, **167 tests passing**. Built and validated: N-agent runner,
-8-persona roster, bulletin, deterministic digests, eval-v3 (flow metrics,
-activation endpoints, CPF on letters, IESC, belief aggregation), three-level
-detector benchmark, paired-seed statistics, repair path, stance judge, arm
-definitions, Bedrock provider (idle).
-
-Commands: `battery`, `society`, `society-eval [--judge]`, `benchmark`, `p1`,
-`audit-evidence`, `bedrock-check`, `evaluate`, `reclassify`.
+The programme's own summary sentence: *a talking society was not a better
+epistemic system than a silent one — it was a silent one plus a channel for
+unsupported claims.*
 
 ## Things that would be easy to get wrong
 
-- **P1's catalysis result is weaker than `p1-findings.md` says.** All ten
-  sonar→sonar letters are one relationship in one of three runs. Read the
-  correction. Do not quote the original Finding 2.
-- **Arm D is the principal interactive arm because it is the only arm with
-  letters**, not because P1 showed it produced a society. No P1-D run met the
-  pre-registered active-network bar.
-- **`consumingFraction` is degenerate when production is zero** — v0.5 §4.5
-  defines consumption conditional on availability.
-- **Never compare raw counts across arms of different n.** Rates only. A
-  count metric once showed a +5.4 "effect" that was pure headcount.
-- **Two bugs of the same class have already been fixed** (strict schemas
-  discarding good responses over cosmetic fields: evidence citations, then
-  judge annotations). If a third appears, suspect the pattern early.
-- **Relaying a claim is not producing one.** Pass 1 separates `FIRST_PARTY`
-  from `RELAYED_FROM_ANOTHER`; only the former counts as a claim origin.
-  Collapsing them makes grounded agents look like fabricators and breaks H2a.
-- **When stubbing a judge in tests, key on text unique to the message**, never
-  on a phrase the prompt itself uses as an example. That mistake once made a
-  correct implementation look broken.
-- **Cascade reach excludes the seed and divides by n−1** (A4). v0.5's gloss
-  "≥3 of 8 agents" is withdrawn: reading it that way would flip P1-D seed
-  9001 to an active network and the correction's headline from 0 of 3 to
-  1 of 3. Two tests pin the boundary.
-- **H5 is now H5a (D and E vs B, paired by seed) and H5b (active vs
-  non-active runs, descriptive)** (A3). H5b selects on an OUTCOME, so no
-  causal claim comes from it; if no confirmatory run meets the bar, H5b is
-  *not evaluable*, which is not the same as a null.
+- **P1's catalysis result is weaker than `p1-findings.md` says.** Read
+  `p1-findings-correction.md`. Do not quote the original Finding 2.
+- **Never compare raw counts across arms of different n.** Rates only.
+- **Spontaneous initiation is AGENT-level** (v0.5 §4.1 measure 1); measure 2 is
+  edge-level. Counting letters instead of agents inflated D's headline H3
+  number fourfold before it was caught.
+- **Cascade reach excludes the seed and divides by n−1** (A4). v0.5's "≥3 of 8"
+  gloss is withdrawn.
+- **Relaying a claim is not producing one.** Only FIRST_PARTY counts as origin;
+  collapsing them makes grounded agents look like fabricators and breaks H2a.
+- **E's contamination rate of 0.000 rests on ONE exposure.** It shows sonnet
+  produced almost nothing to be contaminated by — NOT that grounded agents
+  treat sonnet's claims more sceptically. n=1 cannot support that.
+- **A module can be fully tested and never called.** `activation.ts` had 14
+  passing tests and no call sites through the entire freeze. Two source-level
+  assertions now pin the CLI's wiring; extend them if a new endpoint module
+  appears.
+- **git from the Cowork sandbox leaves undeletable `.git/*.lock` files.** Do
+  git work locally; `find .git -name '*.lock' -delete` if it jams. An editor
+  with a stale buffer also once overwrote this file after it was committed —
+  recover with `git show HEAD:reports/STATUS.md > reports/STATUS.md`.

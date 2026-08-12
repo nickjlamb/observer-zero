@@ -1,0 +1,5587 @@
+{
+  "dir": "runs/s2-armB",
+  "draws": 200,
+  "referenceTrials": 6,
+  "rows": [
+    {
+      "run": "control-seed1000",
+      "scenario": "control",
+      "seed": 1000,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 0,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.160351341932033,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.8836450674475833,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4678258044450139,
+            "finalRelativeShift": -0.0007812902131377295
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0133387799974554,
+            "finalRelativeShift": 0.0016248611209243766
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.41816408893084833,
+            "finalRelativeShift": 0.0006406309329344158
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.17308309795009025,
+            "finalRelativeShift": 0.0002592854405686153
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4766405691356801,
+            "finalRelativeShift": 0.0006706094973902806
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.011235067749488,
+            "finalRelativeShift": -0.0015146597087063681
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.52225805489346,
+            "finalRelativeShift": -0.0007147630189828218
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4532218922290427,
+            "finalRelativeShift": 0.002732955230557182
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2496555552684974,
+            "finalRelativeShift": -0.00037408592652029226
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8836450674475833,
+            "finalRelativeShift": -0.0030643928615656586
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2551346246461277,
+            "finalRelativeShift": -0.0003730771099065011
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3655305744948019,
+            "finalRelativeShift": 0.001972871279223646
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.906462731853404,
+            "finalRelativeShift": -0.0013764429735149835
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2210020425923336,
+            "finalRelativeShift": 0.0018876755425494792
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.160351341932033,
+            "finalRelativeShift": -0.001980057777154507
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8010051733459537,
+            "finalRelativeShift": 0.0012707050175901587
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 1,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 18,
+        "maxPendulumAbsZ": 2.1089574488152976,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 0.8440387993715394,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 232,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.004889452625590267,
+            "finalRelativeShift": 0.000006383393793510443
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 45,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.1089574488152976,
+            "finalRelativeShift": 0.006998925178874225
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 220,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5184582994499286,
+            "finalRelativeShift": -0.0007332011419873035
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 286,
+            "detectedOnDay": 18,
+            "finalAbsZ": 2.102059501588539,
+            "finalRelativeShift": -0.0024696247705554494
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 178,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9347790130773629,
+            "finalRelativeShift": -0.0013906553000335837
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 264,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5219508666784041,
+            "finalRelativeShift": 0.0006180831997938081
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 194,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.391746317196516,
+            "finalRelativeShift": -0.002402831144224785
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 202,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.31322138216066103,
+            "finalRelativeShift": -0.0004460324821209883
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.352826996659244,
+            "finalRelativeShift": 0.0009464724969508262
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 23,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5337244265017635,
+            "finalRelativeShift": -0.0023866030932304778
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 16,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8440387993715394,
+            "finalRelativeShift": -0.003236078533297906
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 18,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3092288498757114,
+            "finalRelativeShift": -0.001405147054955909
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 73,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 18,
+        "maxPendulumAbsZ": 1.5549088655264933,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.365
+      }
+    },
+    {
+      "run": "control-seed1001",
+      "scenario": "control",
+      "seed": 1001,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 5,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.6397030046363723,
+        "resonatorsFlagged": 5,
+        "resonatorFalseAlarmRate": 0.625,
+        "maxResonatorAbsZ": 1.6569799980856519,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2843709804807641,
+            "finalRelativeShift": -0.0019107088776540559
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.048440679954959244,
+            "finalRelativeShift": -0.00007931740649775683
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2320264051859754,
+            "finalRelativeShift": 0.00036125136068874513
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 1.5619228178261146,
+            "finalRelativeShift": -0.002130320853384097
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.25627267501484374,
+            "finalRelativeShift": 0.00044727624621942216
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 1.157503557007686,
+            "finalRelativeShift": 0.001465486892577882
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6397030046363723,
+            "finalRelativeShift": 0.0023484155566315065
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6569799980856519,
+            "finalRelativeShift": -0.0026267799231888185
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.08347808064551399,
+            "finalRelativeShift": -0.00013454698439383878
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 1.0543932710938988,
+            "finalRelativeShift": -0.001555367032621947
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5360460052233875,
+            "finalRelativeShift": -0.0007521500288867578
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 0.963645768782433,
+            "finalRelativeShift": 0.0015304833954848979
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.12122489129321458,
+            "finalRelativeShift": -0.00021909770273792871
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.8376614637843195,
+            "finalRelativeShift": -0.0015622940139203398
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.38715068022124466,
+            "finalRelativeShift": 0.0006414012731794975
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3252290342012054,
+            "finalRelativeShift": -0.00045821383015215493
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 0,
+        "totalInstruments": 13,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.1512093187570274,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.2994823219686393,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 150,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1512093187570274,
+            "finalRelativeShift": 0.002101996555678215
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 78,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8655180607388866,
+            "finalRelativeShift": 0.002106935836882312
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 228,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2909013338871011,
+            "finalRelativeShift": -0.0005001023397058988
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 182,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6680725129584275,
+            "finalRelativeShift": -0.0009348375862147389
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 162,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8978117316818499,
+            "finalRelativeShift": -0.001454546157899054
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 172,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4406683852733621,
+            "finalRelativeShift": 0.0007824256429358001
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 330,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0587438814746581,
+            "finalRelativeShift": -0.0012828436004657235
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 252,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4828991061539713,
+            "finalRelativeShift": -0.0006019855809255912
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 60,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1973591735012674,
+            "finalRelativeShift": -0.003167059759519051
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2994823219686393,
+            "finalRelativeShift": -0.0034908081390721117
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 52,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 112,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 118,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 0.9092298627512426,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1002",
+      "scenario": "control",
+      "seed": 1002,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 1,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 1.992546073091239,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.832704396544966,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8480083989401269,
+            "finalRelativeShift": -0.0013796173558630386
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8986106027285333,
+            "finalRelativeShift": -0.0014376851573649756
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.04097655590514299,
+            "finalRelativeShift": -0.00005146799425345907
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.832704396544966,
+            "finalRelativeShift": -0.0027609781589030846
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.3669354382965229,
+            "finalRelativeShift": -0.0006076780915690136
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4759631041141555,
+            "finalRelativeShift": 0.0008335181435565189
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.992546073091239,
+            "finalRelativeShift": -0.003394642135745532
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3634415103459774,
+            "finalRelativeShift": 0.002190267647621942
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3638942332442758,
+            "finalRelativeShift": 0.002277210905485503
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.051263119772996225,
+            "finalRelativeShift": 0.00008275382880412399
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3889888588909038,
+            "finalRelativeShift": 0.0005936361421110221
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5766575663843515,
+            "finalRelativeShift": 0.0009880612621089105
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3900953400733674,
+            "finalRelativeShift": -0.0006062867987055036
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9628753937567975,
+            "finalRelativeShift": 0.0014623488686271047
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0216855165993415,
+            "finalRelativeShift": 0.0017241199417444629
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.145518364304918,
+            "finalRelativeShift": 0.0019238974339693758
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 0,
+        "totalInstruments": 14,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.7855481996020846,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.2134701262051846,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 254,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.23007667469345314,
+            "finalRelativeShift": 0.0003120448615903256
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 170,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6705609037685747,
+            "finalRelativeShift": -0.0011287015710503522
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 268,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0913059364438804,
+            "finalRelativeShift": 0.0014078501159521892
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 217,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6839446127396331,
+            "finalRelativeShift": -0.0010032467603495851
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 206,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6957087982517064,
+            "finalRelativeShift": 0.0011793799458579676
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 86,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3532477193447753,
+            "finalRelativeShift": -0.0011296630622060317
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 104,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.19480110347086532,
+            "finalRelativeShift": 0.00041411830506248953
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 102,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7855481996020846,
+            "finalRelativeShift": -0.0038706777376896016
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6469933262266947,
+            "finalRelativeShift": 0.0025458176519014986
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1928265949417454,
+            "finalRelativeShift": 0.008050738331859033
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 38,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.19246217075217986,
+            "finalRelativeShift": 0.0007925706951128088
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 144,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2134701262051846,
+            "finalRelativeShift": -0.004267898819947985
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 84,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 108,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.000346173824936,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1003",
+      "scenario": "control",
+      "seed": 1003,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 1,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.2981861061088587,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 1.1699925150002886,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9907414347532317,
+            "finalRelativeShift": 0.0014686456650393144
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2981861061088587,
+            "finalRelativeShift": -0.002383377059641097
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.1782963962199239,
+            "finalRelativeShift": -0.00027787869901959705
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.47917801047594,
+            "finalRelativeShift": 0.0007600405310744624
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2409687435214853,
+            "finalRelativeShift": 0.00201828491802426
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8654792817957506,
+            "finalRelativeShift": -0.0013887254546852878
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.022576802739223075,
+            "finalRelativeShift": -0.00003306918277014474
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3247449292804127,
+            "finalRelativeShift": 0.00052013116707504
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5307795497331509,
+            "finalRelativeShift": -0.0008837476473888427
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8623342206298091,
+            "finalRelativeShift": -0.0013367478884766632
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.596564482539389,
+            "finalRelativeShift": -0.0011389725130068664
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.08503783038577495,
+            "finalRelativeShift": 0.00012627070341565368
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.12548659892482117,
+            "finalRelativeShift": 0.0001987485291892569
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1699925150002886,
+            "finalRelativeShift": 0.0017875600179597842
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5320945922095583,
+            "finalRelativeShift": -0.0008257213968330994
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.29562162290185207,
+            "finalRelativeShift": -0.0004063598292664872
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 0,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.0207860825550186,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 0.8456458671245136,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 140,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.261588228851771,
+            "finalRelativeShift": 0.0004475052831410306
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 214,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6205836798634358,
+            "finalRelativeShift": -0.0011403997068388874
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 220,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.11478644971974372,
+            "finalRelativeShift": -0.00016208111304949954
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 102,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6379552424841425,
+            "finalRelativeShift": 0.0027285275042646415
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 262,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.05318060867712959,
+            "finalRelativeShift": -0.00007049762412401741
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 320,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0207860825550186,
+            "finalRelativeShift": 0.0012925557297722421
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 270,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.10632399467529854,
+            "finalRelativeShift": -0.00014703941153863605
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 114,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.21309355675158648,
+            "finalRelativeShift": 0.0003747459394972763
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.49786923094417673,
+            "finalRelativeShift": -0.0021339091629583922
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 30,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6678328503469323,
+            "finalRelativeShift": 0.0022178300141628858
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 110,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8456458671245136,
+            "finalRelativeShift": -0.002032004109005928
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 14,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.15914318649481846,
+            "finalRelativeShift": 0.0008776035974228352
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 20,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5127170571836548,
+            "finalRelativeShift": 0.002734924068928468
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 60,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 0.5070945503522566,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1004",
+      "scenario": "control",
+      "seed": 1004,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 1,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.1022528203917568,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 2.693176329450144,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.06898779917364498,
+            "finalRelativeShift": 0.00010487808797575917
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3977576397540078,
+            "finalRelativeShift": -0.0007586055952394382
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.010562742849627,
+            "finalRelativeShift": 0.0015366605986859329
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.10041875612122725,
+            "finalRelativeShift": -0.00014447380956410553
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1022528203917568,
+            "finalRelativeShift": 0.0017375309493077983
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2565328802919902,
+            "finalRelativeShift": -0.001956059731001873
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0931746911562168,
+            "finalRelativeShift": 0.0018881400961550262
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2207584680955503,
+            "finalRelativeShift": 0.002181370582316676
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3923533508292272,
+            "finalRelativeShift": -0.0006300876864215831
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7231480329771375,
+            "finalRelativeShift": 0.0012118852970515097
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.22176508777133302,
+            "finalRelativeShift": 0.00032755251644241937
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.839734719897821,
+            "finalRelativeShift": 0.0031481564591547715
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.11513529820843874,
+            "finalRelativeShift": 0.00016431500968132906
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 2.693176329450144,
+            "finalRelativeShift": -0.003984469047703151
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9208659781584139,
+            "finalRelativeShift": -0.0015090273695814258
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7585299578127612,
+            "finalRelativeShift": 0.0010654120300721411
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 0,
+        "totalInstruments": 13,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.6430909273807208,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.7914370115108091,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 356,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6430909273807208,
+            "finalRelativeShift": -0.0017901138559208811
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 222,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2702185555511896,
+            "finalRelativeShift": 0.0003814839599572026
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 216,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8370234025103576,
+            "finalRelativeShift": -0.0015337481759683629
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 162,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.1237899619081894,
+            "finalRelativeShift": -0.00017947991056455753
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 236,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2893207371796134,
+            "finalRelativeShift": 0.0019991394915719364
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 314,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2186821045845868,
+            "finalRelativeShift": -0.00025726507178787817
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 220,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9511667112543537,
+            "finalRelativeShift": -0.0014793853730903017
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 176,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.21120626979078777,
+            "finalRelativeShift": 0.000352557684706252
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 34,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.33314565942827906,
+            "finalRelativeShift": 0.0010195392224603907
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 42,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7914370115108091,
+            "finalRelativeShift": -0.004327482332981706
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.640215933760685,
+            "finalRelativeShift": -0.0021823196640923816
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2008625865172143,
+            "finalRelativeShift": 0.0006362756119055954
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 58,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2955302182355302,
+            "finalRelativeShift": -0.000997535381287935
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.1011933947158352,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1005",
+      "scenario": "control",
+      "seed": 1005,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 1,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 24,
+        "maxPendulumAbsZ": 1.6297046017242525,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.7911513881405141,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8698125032617886,
+            "finalRelativeShift": 0.001429363723530216
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.43040567680808056,
+            "finalRelativeShift": -0.0007303973675351161
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7911513881405141,
+            "finalRelativeShift": 0.0031696659955063734
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1562862132546956,
+            "finalRelativeShift": -0.0016937369575229018
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8822848741232558,
+            "finalRelativeShift": 0.0014075183930640743
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7720291184575837,
+            "finalRelativeShift": -0.0013848566540867815
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.14849934022624223,
+            "finalRelativeShift": -0.0002565662356012714
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.20836871808768923,
+            "finalRelativeShift": 0.0003269574560733627
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6176199698443967,
+            "finalRelativeShift": 0.0030611240131496495
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5658111258845073,
+            "finalRelativeShift": -0.0010149916550241049
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 24,
+            "finalAbsZ": 1.6297046017242525,
+            "finalRelativeShift": 0.0028301579501484302
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5666626206429181,
+            "finalRelativeShift": 0.0009103056196194303
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9087963052896113,
+            "finalRelativeShift": -0.0017031244839871827
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8006751418802994,
+            "finalRelativeShift": 0.00136979324481024
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0155943933633511,
+            "finalRelativeShift": -0.0015229346601693652
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9297689296922214,
+            "finalRelativeShift": -0.001360416113588003
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 1,
+        "totalInstruments": 14,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.47055155207943,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.16666666666666666,
+        "maxResonatorAbsZ": 2.1238993203557364,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 60,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7874936833865661,
+            "finalRelativeShift": 0.003976134100475979
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 176,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.202937139225309,
+            "finalRelativeShift": -0.002216546944170582
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 328,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.47055155207943,
+            "finalRelativeShift": 0.0017470812649911206
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 230,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.0024093828076156183,
+            "finalRelativeShift": -0.000004242633504628926
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 190,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9479184293974596,
+            "finalRelativeShift": -0.0017535182947590005
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 62,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.12619679192753863,
+            "finalRelativeShift": 0.0005315759883112933
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 270,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6586742844694629,
+            "finalRelativeShift": 0.0010021077550911228
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 232,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4681844238472206,
+            "finalRelativeShift": 0.0024177786258326012
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 15,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9033900525476977,
+            "finalRelativeShift": -0.006490975946400214
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 148,
+            "detectedOnDay": 12,
+            "finalAbsZ": 2.1238993203557364,
+            "finalRelativeShift": -0.009906478056597768
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7779021383388873,
+            "finalRelativeShift": 0.0026018286693899814
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 40,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.035573082707349,
+            "finalRelativeShift": 0.002980383127145522
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.24782676302827802,
+            "finalRelativeShift": 0.0014657079334655
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.39142392700363404,
+            "finalRelativeShift": 0.002587335290706681
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.1322188383084608,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1006",
+      "scenario": "control",
+      "seed": 1006,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 1,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 21,
+        "maxPendulumAbsZ": 2.720837093146108,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.8005210114358752,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.1048907344977823,
+            "finalRelativeShift": 0.002838961125330783
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8767182585156691,
+            "finalRelativeShift": 0.0015116433918836649
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.440953176870165,
+            "finalRelativeShift": -0.0007003565433773448
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.318741770113388,
+            "finalRelativeShift": 0.0021828143713228695
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.04200296658155695,
+            "finalRelativeShift": 0.00005953998090951359
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8005210114358752,
+            "finalRelativeShift": 0.002857294741422995
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3399513936371106,
+            "finalRelativeShift": -0.0005472286316365338
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.746591955867156,
+            "finalRelativeShift": -0.001258167518961326
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.728116493302236,
+            "finalRelativeShift": -0.0011526862576029266
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.402224964113756,
+            "finalRelativeShift": -0.0025504026011055328
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 21,
+            "finalAbsZ": 2.720837093146108,
+            "finalRelativeShift": -0.003973601263153584
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2303840162839473,
+            "finalRelativeShift": 0.00034847325136290783
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9064403533079258,
+            "finalRelativeShift": 0.0013569636017202653
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7311818509470627,
+            "finalRelativeShift": 0.0012175490510568283
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0767521881449595,
+            "finalRelativeShift": 0.0016153732164872322
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3198397745185826,
+            "finalRelativeShift": 0.0004654508905811773
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 2,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 2.7715729063287906,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 2.2408368730486803,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 72,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4526210926769779,
+            "finalRelativeShift": -0.0014571919740964806
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 162,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7109903239396316,
+            "finalRelativeShift": 0.00282883349864871
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 252,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.091730939999327,
+            "finalRelativeShift": 0.0024487760275037234
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 320,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8428701278080513,
+            "finalRelativeShift": -0.0020214299788909222
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 244,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9038412070210864,
+            "finalRelativeShift": -0.0013176404115628358
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 78,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.010097568964472788,
+            "finalRelativeShift": -0.00002203812438938882
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 158,
+            "detectedOnDay": 13,
+            "finalAbsZ": 1.9420558796977203,
+            "finalRelativeShift": 0.0043035606114262505
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 230,
+            "detectedOnDay": 17,
+            "finalAbsZ": 2.7715729063287906,
+            "finalRelativeShift": -0.003844163761495976
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 20,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3248062899927325,
+            "finalRelativeShift": 0.0010087548264342025
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 132,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.2408368730486803,
+            "finalRelativeShift": -0.011995035339023822
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 26,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.192783352865126,
+            "finalRelativeShift": -0.0053156540732655745
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 112,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.833919420596512,
+            "finalRelativeShift": 0.005967979787305667
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 6,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 102,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 15,
+        "maxPendulumAbsZ": 2.0759580847729784,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.51
+      }
+    },
+    {
+      "run": "control-seed1007",
+      "scenario": "control",
+      "seed": 1007,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 0,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 0.7734055379367515,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.9625796825770716,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.15430567786687674,
+            "finalRelativeShift": -0.00021400907638155457
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.20825098706910442,
+            "finalRelativeShift": -0.0003119357086765276
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2148403160623185,
+            "finalRelativeShift": -0.00030338257508119945
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4450831001280434,
+            "finalRelativeShift": 0.0007155196825272495
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.294578603378782,
+            "finalRelativeShift": -0.00044004209366399385
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.307901222976974,
+            "finalRelativeShift": 0.0023445814618473994
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.418400418881407,
+            "finalRelativeShift": 0.0006651822061806325
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7207953202899078,
+            "finalRelativeShift": 0.002069432796453817
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.702955316216053,
+            "finalRelativeShift": 0.001140266694917045
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.0010717426529698799,
+            "finalRelativeShift": 0.0000018003215476111756
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7734055379367515,
+            "finalRelativeShift": 0.0010482561604531766
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.9625796825770716,
+            "finalRelativeShift": 0.003812831655289362
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.21571654247066951,
+            "finalRelativeShift": -0.0003058914448565797
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4090595430020159,
+            "finalRelativeShift": 0.0022764390207859276
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3160512809742912,
+            "finalRelativeShift": 0.00048818082663693203
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7736399022946192,
+            "finalRelativeShift": 0.0014145488522274876
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 2,
+        "totalInstruments": 15,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 2.930133882717728,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.14285714285714285,
+        "maxResonatorAbsZ": 1.8883171970602728,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 258,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8997874181772533,
+            "finalRelativeShift": 0.0011904180057908163
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 156,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0705698596014517,
+            "finalRelativeShift": -0.00162893375651264
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 48,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 308,
+            "detectedOnDay": 12,
+            "finalAbsZ": 2.930133882717728,
+            "finalRelativeShift": 0.003105511203810004
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 190,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6638078602154978,
+            "finalRelativeShift": 0.0009009556795372931
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 174,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.19343520261978242,
+            "finalRelativeShift": -0.00026695972095332155
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 132,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.5258079852435704,
+            "finalRelativeShift": 0.0026817820762225085
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 228,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5322453282540851,
+            "finalRelativeShift": -0.0007107757708580825
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 210,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8857421353666843,
+            "finalRelativeShift": 0.0051494302886546
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 42,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8883171970602728,
+            "finalRelativeShift": 0.006861284405346881
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8837768232875904,
+            "finalRelativeShift": -0.004503598523588326
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9901120072141557,
+            "finalRelativeShift": -0.004305901810052375
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 92,
+            "detectedOnDay": 15,
+            "finalAbsZ": 1.5931832141509488,
+            "finalRelativeShift": -0.004608237856155559
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 60,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 51,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 1.4890486299144425,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.255
+      }
+    },
+    {
+      "run": "control-seed1008",
+      "scenario": "control",
+      "seed": 1008,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 0,
+        "totalInstruments": 16,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.5891369094595336,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.3443936359474327,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6849631276769169,
+            "finalRelativeShift": -0.001074311194304198
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4852109073631954,
+            "finalRelativeShift": -0.0021544241808278825
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3838541454914646,
+            "finalRelativeShift": 0.0006430373228678347
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3465813764305354,
+            "finalRelativeShift": -0.0005850766576091806
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.45080506313012986,
+            "finalRelativeShift": -0.0007499371767506759
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.16227653114515056,
+            "finalRelativeShift": -0.0002914356037977917
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.06144374214900474,
+            "finalRelativeShift": -0.00009951237442676943
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6496337129735266,
+            "finalRelativeShift": -0.0009564867230575096
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5202627082780843,
+            "finalRelativeShift": -0.0007871065550486158
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3443936359474327,
+            "finalRelativeShift": 0.002109489596910599
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.5891369094595336,
+            "finalRelativeShift": -0.0027324547682237594
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7256936506975208,
+            "finalRelativeShift": -0.0012451590422058148
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5353361643784567,
+            "finalRelativeShift": -0.0008792221067868166
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6866925953065534,
+            "finalRelativeShift": -0.001118513471573016
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2935859729988464,
+            "finalRelativeShift": -0.0005049014350334451
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.07658749425530402,
+            "finalRelativeShift": 0.00011927752298424196
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 0,
+        "totalInstruments": 15,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 1.3734482304607198,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 0.8102203743553951,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 150,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3734482304607198,
+            "finalRelativeShift": -0.0024468889356898944
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 182,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3499607581354819,
+            "finalRelativeShift": -0.0006252110588716898
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 162,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.07048314420137886,
+            "finalRelativeShift": 0.0001161615303316739
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 198,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.074157135134158,
+            "finalRelativeShift": -0.0016568595612016365
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 344,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.027902481026520903,
+            "finalRelativeShift": 0.000032942217960708155
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 144,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6546118300430552,
+            "finalRelativeShift": 0.0010709890029773261
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 216,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.372577349272558,
+            "finalRelativeShift": -0.0019129290367639728
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 204,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.05919993069903345,
+            "finalRelativeShift": -0.00008865129389980676
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4421552827814575,
+            "finalRelativeShift": -0.0030486430256727796
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.43444610809323964,
+            "finalRelativeShift": -0.0008238235145291804
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 16,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.0332610824458636,
+            "finalRelativeShift": -0.00011986776085775775
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 18,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.04219745645167436,
+            "finalRelativeShift": 0.00019605449879475125
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8102203743553951,
+            "finalRelativeShift": 0.0022530448370170386
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 6,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 92,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 0,
+        "totalInstruments": 200,
+        "earliestDetectionDay": null,
+        "maxPendulumAbsZ": 0.9144201666184683,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0
+      }
+    },
+    {
+      "run": "control-seed1009",
+      "scenario": "control",
+      "seed": 1009,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 2,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 1.4448759542954126,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 1.5522438749933039,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3293998556262978,
+            "finalRelativeShift": 0.002303546395200789
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3604367872783456,
+            "finalRelativeShift": 0.0020466747469328277
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3172849793655212,
+            "finalRelativeShift": -0.0018210637390548956
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9657968880511569,
+            "finalRelativeShift": -0.001659559010270412
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4448759542954126,
+            "finalRelativeShift": -0.0021672401064853153
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 1.3122256078999082,
+            "finalRelativeShift": -0.0016758688801090716
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3532204095268878,
+            "finalRelativeShift": -0.0022325049076734934
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5827275530441747,
+            "finalRelativeShift": 0.0009033575681757659
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6722980956102665,
+            "finalRelativeShift": 0.0010233019550183664
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.24547938974119232,
+            "finalRelativeShift": 0.00038432892124312104
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.49175195533676297,
+            "finalRelativeShift": -0.0007312252963774887
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.49286546888841404,
+            "finalRelativeShift": 0.0008374063395197058
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.07726485570550608,
+            "finalRelativeShift": -0.00010722701830283865
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.5522438749933039,
+            "finalRelativeShift": -0.002601802631158662
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.23029015743878098,
+            "finalRelativeShift": 0.00040137952167499264
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.06878753629082296,
+            "finalRelativeShift": 0.00011722171867622443
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 2,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 0.9895159489085557,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.2,
+        "maxResonatorAbsZ": 1.857802845959558,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 274,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.07489538756456811,
+            "finalRelativeShift": 0.00009286309727912496
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 92,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.256372472405625,
+            "finalRelativeShift": 0.0006980101341283652
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 94,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 54,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 62,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.189218047569953,
+            "finalRelativeShift": 0.0006362480852364459
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 198,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.7495421350455402,
+            "finalRelativeShift": -0.0010900554373854342
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 334,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9895159489085557,
+            "finalRelativeShift": -0.0011568459339736852
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 54,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 132,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1883256630142638,
+            "finalRelativeShift": 0.004517617752907291
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 132,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7969076954538663,
+            "finalRelativeShift": -0.005310307471057744
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 124,
+            "detectedOnDay": 20,
+            "finalAbsZ": 1.857802845959558,
+            "finalRelativeShift": -0.00461130210067019
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 172,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3495548201288559,
+            "finalRelativeShift": -0.0032599112976111795
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 136,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.740501168586001,
+            "finalRelativeShift": 0.0031130197754450336
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 51,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 0.4378148659075201,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.255
+      }
+    },
+    {
+      "run": "gravity_shift-seed1000",
+      "scenario": "gravity_shift",
+      "seed": 1000,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 6.015323684344407,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.8836450674475833,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.191643895778279,
+            "finalRelativeShift": 0.007000234535192233
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.879308199482969,
+            "finalRelativeShift": 0.009427310490669038
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.41816408893084833,
+            "finalRelativeShift": 0.0006406309329344158
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.17308309795009025,
+            "finalRelativeShift": 0.0002592854405686153
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.015323684344407,
+            "finalRelativeShift": 0.008463260271598405
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.011235067749488,
+            "finalRelativeShift": -0.0015146597087063681
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 17,
+            "finalAbsZ": 5.165267483147285,
+            "finalRelativeShift": 0.007069191457202717
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4532218922290427,
+            "finalRelativeShift": 0.002732955230557182
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 4.944878913867882,
+            "finalRelativeShift": 0.007409447020057318
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8836450674475833,
+            "finalRelativeShift": -0.0030643928615656586
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.067927427672153,
+            "finalRelativeShift": 0.00741070609508317
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3655305744948019,
+            "finalRelativeShift": 0.001972871279223646
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.215507761607749,
+            "finalRelativeShift": 0.006401152341253944
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2210020425923336,
+            "finalRelativeShift": 0.0018876755425494792
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 3.395949316429618,
+            "finalRelativeShift": 0.005794948143570865
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8010051733459537,
+            "finalRelativeShift": 0.0012707050175901587
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 6,
+        "totalInstruments": 14,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 8.205988650349292,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.296452249661333,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 54,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 132,
+            "detectedOnDay": 13,
+            "finalAbsZ": 3.7806375999251083,
+            "finalRelativeShift": 0.009828127674967872
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 72,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 256,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.6187556089917114,
+            "finalRelativeShift": 0.005620572685605557
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 212,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.539015059132363,
+            "finalRelativeShift": 0.006646154002953287
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 330,
+            "detectedOnDay": 13,
+            "finalAbsZ": 8.205988650349292,
+            "finalRelativeShift": 0.008960023252960731
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 210,
+            "detectedOnDay": 26,
+            "finalAbsZ": 3.00764617304676,
+            "finalRelativeShift": 0.005118001586245004
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.176607356964094,
+            "finalRelativeShift": 0.007928006743477782
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 32,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4699357252193702,
+            "finalRelativeShift": 0.00151405668687701
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6368600968810364,
+            "finalRelativeShift": 0.001972693427059097
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2035324574659556,
+            "finalRelativeShift": -0.005459728792444401
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 160,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.296452249661333,
+            "finalRelativeShift": 0.0033776170489159202
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 154,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6749590859983089,
+            "finalRelativeShift": -0.0019086889418598256
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 192,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 5.08203259215666,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.96
+      }
+    },
+    {
+      "run": "gravity_shift-seed1001",
+      "scenario": "gravity_shift",
+      "seed": 1001,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 13,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 7.090311047436631,
+        "resonatorsFlagged": 5,
+        "resonatorFalseAlarmRate": 0.625,
+        "maxResonatorAbsZ": 1.6569799980856519,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 3.9418017167966095,
+            "finalRelativeShift": 0.005864065483179982
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 4.707062413293886,
+            "finalRelativeShift": 0.007707405907445783
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2320264051859754,
+            "finalRelativeShift": 0.00036125136068874513
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 1.5619228178261146,
+            "finalRelativeShift": -0.002130320853384097
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.720796393209234,
+            "finalRelativeShift": 0.008239271275404261
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 1.157503557007686,
+            "finalRelativeShift": 0.001465486892577882
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 7.090311047436631,
+            "finalRelativeShift": 0.010154885804364928
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6569799980856519,
+            "finalRelativeShift": -0.0026267799231888185
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.747629996587087,
+            "finalRelativeShift": 0.00765206020693111
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 1.0543932710938988,
+            "finalRelativeShift": -0.001555367032621947
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 19,
+            "finalAbsZ": 5.009993449527482,
+            "finalRelativeShift": 0.007029744986559887
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 0.963645768782433,
+            "finalRelativeShift": 0.0015304833954848979
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 4.187114351536485,
+            "finalRelativeShift": 0.007567646592511365
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.8376614637843195,
+            "finalRelativeShift": -0.0015622940139203398
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.092073163943262,
+            "finalRelativeShift": 0.00843615258175423
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3252290342012054,
+            "finalRelativeShift": -0.00045821383015215493
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 12,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 6.223203770109869,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.6972851104710704,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 248,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.848338721476074,
+            "finalRelativeShift": 0.007679856954340508
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 158,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.223203770109869,
+            "finalRelativeShift": 0.009240461328059762
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 216,
+            "detectedOnDay": 18,
+            "finalAbsZ": 4.234440463226734,
+            "finalRelativeShift": 0.007352939599746921
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 223,
+            "detectedOnDay": 18,
+            "finalAbsZ": 5.36086464006755,
+            "finalRelativeShift": 0.007439107985936613
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 271,
+            "detectedOnDay": 24,
+            "finalAbsZ": 2.633777205052264,
+            "finalRelativeShift": 0.004396040552666587
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 174,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.0161778333537175,
+            "finalRelativeShift": 0.008697817344521297
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 326,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.293932380881575,
+            "finalRelativeShift": 0.006283268335321654
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 296,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.8932367405338475,
+            "finalRelativeShift": 0.007806404325627026
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 30,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4577665787036858,
+            "finalRelativeShift": -0.001941961956449514
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.6972851104710704,
+            "finalRelativeShift": 0.006744844358321407
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 56,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 5.6940640649774075,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1002",
+      "scenario": "gravity_shift",
+      "seed": 1002,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 6.040143969406231,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.832704396544966,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 3.93240906541705,
+            "finalRelativeShift": 0.006397601490484243
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 19,
+            "finalAbsZ": 3.961599004810158,
+            "finalRelativeShift": 0.006338153668956898
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.04097655590514299,
+            "finalRelativeShift": -0.00005146799425345907
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.832704396544966,
+            "finalRelativeShift": -0.0027609781589030846
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 4.335783223722339,
+            "finalRelativeShift": 0.007180447021089768
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4759631041141555,
+            "finalRelativeShift": 0.0008335181435565189
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 26,
+            "finalAbsZ": 2.5642286329134154,
+            "finalRelativeShift": 0.004368600897377822
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3634415103459774,
+            "finalRelativeShift": 0.002190267647621942
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.040143969406231,
+            "finalRelativeShift": 0.010084859501983741
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.051263119772996225,
+            "finalRelativeShift": 0.00008275382880412399
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.494686238453726,
+            "finalRelativeShift": 0.008385444123017964
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5766575663843515,
+            "finalRelativeShift": 0.0009880612621089105
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.6175551174894744,
+            "finalRelativeShift": 0.007176611516308755
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9628753937567975,
+            "finalRelativeShift": 0.0014623488686271047
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 5.643535910345112,
+            "finalRelativeShift": 0.009523608436149255
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.145518364304918,
+            "finalRelativeShift": 0.0019238974339693758
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 6,
+        "totalInstruments": 12,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 7.493748757683739,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.0993370297696685,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 206,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.594434939670545,
+            "finalRelativeShift": 0.008280393039648844
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 214,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.496800126875694,
+            "finalRelativeShift": 0.006726851351476277
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 304,
+            "detectedOnDay": 14,
+            "finalAbsZ": 7.493748757683739,
+            "finalRelativeShift": 0.009590738509735556
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 300,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.485336521586743,
+            "finalRelativeShift": 0.006556762001829858
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 154,
+            "detectedOnDay": 18,
+            "finalAbsZ": 3.9443144417287135,
+            "finalRelativeShift": 0.0075309716918461386
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 118,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.0385550730244764,
+            "finalRelativeShift": 0.008432128958193895
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 216,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.5527881074892855,
+            "finalRelativeShift": 0.009989386508492357
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.4848214997834464,
+            "finalRelativeShift": 0.004233317300354866
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8351600908497766,
+            "finalRelativeShift": 0.002690317855105791
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 46,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0993370297696685,
+            "finalRelativeShift": -0.004214451285306544
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 16,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0605452891904847,
+            "finalRelativeShift": -0.005564428015603933
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 193,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 5.868837578589376,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.965
+      }
+    },
+    {
+      "run": "gravity_shift-seed1003",
+      "scenario": "gravity_shift",
+      "seed": 1003,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 9,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 6.254322223422137,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 1.1699925150002886,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 6.254322223422137,
+            "finalRelativeShift": 0.009271221429712193
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 17,
+            "finalAbsZ": 2.933944608586593,
+            "finalRelativeShift": 0.0053865129517697945
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.1782963962199239,
+            "finalRelativeShift": -0.00027787869901959705
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.47917801047594,
+            "finalRelativeShift": 0.0007600405310744624
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.039656409048182,
+            "finalRelativeShift": 0.009822767498430116
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8654792817957506,
+            "finalRelativeShift": -0.0013887254546852878
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.293059493210176,
+            "finalRelativeShift": 0.007752964572353811
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3247449292804127,
+            "finalRelativeShift": 0.00052013116707504
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.143518903439846,
+            "finalRelativeShift": 0.006898956609513576
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8623342206298091,
+            "finalRelativeShift": -0.0013367478884766632
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 17,
+            "finalAbsZ": 3.478768350443112,
+            "finalRelativeShift": 0.006641732195331176
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.08503783038577495,
+            "finalRelativeShift": 0.00012627070341565368
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.044012529804752,
+            "finalRelativeShift": 0.00798882175547261
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1699925150002886,
+            "finalRelativeShift": 0.0017875600179597842
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.482590504475605,
+            "finalRelativeShift": 0.006956227232861351
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 0.29562162290185207,
+            "finalRelativeShift": -0.0004063598292664872
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 6.66111476887279,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.0880587491765206,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 170,
+            "detectedOnDay": 12,
+            "finalAbsZ": 5.350074691441055,
+            "finalRelativeShift": 0.00907898557730329
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 188,
+            "detectedOnDay": 16,
+            "finalAbsZ": 3.9740259590059615,
+            "finalRelativeShift": 0.007390983443212325
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 211,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.2754429104957214,
+            "finalRelativeShift": 0.007294034960360611
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 229,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.261748100030239,
+            "finalRelativeShift": 0.006480758196794105
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 224,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.807978991090982,
+            "finalRelativeShift": 0.007638940123617923
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 284,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.66111476887279,
+            "finalRelativeShift": 0.008552184562959555
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 154,
+            "detectedOnDay": 11,
+            "finalAbsZ": 5.431502497118384,
+            "finalRelativeShift": 0.009028985688647346
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 205,
+            "detectedOnDay": 14,
+            "finalAbsZ": 6.506766088121141,
+            "finalRelativeShift": 0.009572561460124978
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 56,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0880587491765206,
+            "finalRelativeShift": 0.0028291735329673993
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5172888787045558,
+            "finalRelativeShift": 0.0029944078784375668
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 22,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.14843600673611823,
+            "finalRelativeShift": 0.00043573531997477603
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2618698827775892,
+            "finalRelativeShift": 0.0012983141355543194
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 16,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 5.705942407265805,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1004",
+      "scenario": "gravity_shift",
+      "seed": 1004,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 9,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 6.0500171876790825,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 2.693176329450144,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.192394571800512,
+            "finalRelativeShift": 0.007893691656048463
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 19,
+            "finalAbsZ": 3.6841949883767504,
+            "finalRelativeShift": 0.007026517287924799
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.010562742849627,
+            "finalRelativeShift": 0.0015366605986859329
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.10041875612122725,
+            "finalRelativeShift": -0.00014447380956410553
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.0500171876790825,
+            "finalRelativeShift": 0.009536915590472593
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2565328802919902,
+            "finalRelativeShift": -0.001956059731001873
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.612383877353282,
+            "finalRelativeShift": 0.00969375445624035
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2207584680955503,
+            "finalRelativeShift": 0.002181370582316676
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.455412765631719,
+            "finalRelativeShift": 0.007155031849777579
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7231480329771375,
+            "finalRelativeShift": 0.0012118852970515097
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.497180712340196,
+            "finalRelativeShift": 0.008119471796761885
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.839734719897821,
+            "finalRelativeShift": 0.0031481564591547715
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.573169809232089,
+            "finalRelativeShift": 0.007953733263467086
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 2.693176329450144,
+            "finalRelativeShift": -0.003984469047703151
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 17,
+            "finalAbsZ": 3.82489848750994,
+            "finalRelativeShift": 0.006267878975251033
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7585299578127612,
+            "finalRelativeShift": 0.0010654120300721411
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 5.849054186090001,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.0702134677071682,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 320,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.8341269230094275,
+            "finalRelativeShift": 0.006966908136239811
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 218,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.849054186090001,
+            "finalRelativeShift": 0.008285667133968765
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 190,
+            "detectedOnDay": 17,
+            "finalAbsZ": 4.153082533862229,
+            "finalRelativeShift": 0.007539912073113138
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 164,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.947750748322941,
+            "finalRelativeShift": 0.007765576577545219
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 188,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.409848199918533,
+            "finalRelativeShift": 0.009246088280578149
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 276,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.749966259691535,
+            "finalRelativeShift": 0.007591588299736678
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 174,
+            "detectedOnDay": 20,
+            "finalAbsZ": 3.53981404112165,
+            "finalRelativeShift": 0.0062227789261881635
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 270,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.587841852967246,
+            "finalRelativeShift": 0.0066684274456107065
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8516741593270363,
+            "finalRelativeShift": -0.0022568808897424045
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 30,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5428823866685595,
+            "finalRelativeShift": 0.0020406083585574595
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 18,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.10296799743647805,
+            "finalRelativeShift": 0.0004576361820466611
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 18,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0702134677071682,
+            "finalRelativeShift": -0.004239511509416103
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7255954403242926,
+            "finalRelativeShift": 0.0026540563517443664
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 5.6243819182087,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1005",
+      "scenario": "gravity_shift",
+      "seed": 1005,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 6.127697893955977,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.7911513881405141,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.616009793834477,
+            "finalRelativeShift": 0.009228794297845835
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.156667840120684,
+            "finalRelativeShift": 0.007053855029648682
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7911513881405141,
+            "finalRelativeShift": 0.0031696659955063734
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.1562862132546956,
+            "finalRelativeShift": -0.0016937369575229018
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.77130723516434,
+            "finalRelativeShift": 0.009207027484846982
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7720291184575837,
+            "finalRelativeShift": -0.0013848566540867815
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 4.358057635341981,
+            "finalRelativeShift": 0.007529531379261164
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.20836871808768923,
+            "finalRelativeShift": 0.0003269574560733627
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 5.745544352973912,
+            "finalRelativeShift": 0.010872654959370108
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5658111258845073,
+            "finalRelativeShift": -0.0010149916550241049
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.127697893955977,
+            "finalRelativeShift": 0.010641408812577953
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5666626206429181,
+            "finalRelativeShift": 0.0009103056196194303
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 23,
+            "finalAbsZ": 3.241385532038251,
+            "finalRelativeShift": 0.006074499895658051
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.8006751418802994,
+            "finalRelativeShift": 0.00136979324481024
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 19,
+            "finalAbsZ": 4.170306724199523,
+            "finalRelativeShift": 0.006253583807988365
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9297689296922214,
+            "finalRelativeShift": -0.001360416113588003
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 15,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 7.482220554711546,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.2991681119387946,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 224,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.684958972999684,
+            "finalRelativeShift": 0.009504580052186974
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 188,
+            "detectedOnDay": 26,
+            "finalAbsZ": 3.127565919575412,
+            "finalRelativeShift": 0.005164728674124949
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 348,
+            "detectedOnDay": 13,
+            "finalAbsZ": 7.482220554711546,
+            "finalRelativeShift": 0.008808887877658192
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 192,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.232647902063458,
+            "finalRelativeShift": 0.007201204429334585
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 158,
+            "detectedOnDay": 27,
+            "finalAbsZ": 2.6281203874547554,
+            "finalRelativeShift": 0.005224670863682719
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 194,
+            "detectedOnDay": 17,
+            "finalAbsZ": 5.286072244276055,
+            "finalRelativeShift": 0.007655436187634601
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 258,
+            "detectedOnDay": 14,
+            "finalAbsZ": 6.043543098921014,
+            "finalRelativeShift": 0.008077654302706684
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 218,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.299451021048413,
+            "finalRelativeShift": 0.010492006707732775
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 18,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.2991681119387946,
+            "finalRelativeShift": 0.005321875511027329
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 12,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.24782676302827802,
+            "finalRelativeShift": 0.0014657079334655
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 42,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0071865577205106,
+            "finalRelativeShift": 0.0028438169118790487
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 48,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.10625905040404252,
+            "finalRelativeShift": 0.0003053892804890129
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 58,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.41435148638748903,
+            "finalRelativeShift": 0.0014729610568061447
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 5.96835205387541,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1006",
+      "scenario": "gravity_shift",
+      "seed": 1006,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 7.896833071609569,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.8005210114358752,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 7.896833071609569,
+            "finalRelativeShift": 0.01065081514023343
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.400508059726888,
+            "finalRelativeShift": 0.009311591542671993
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.440953176870165,
+            "finalRelativeShift": -0.0007003565433773448
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.318741770113388,
+            "finalRelativeShift": 0.0021828143713228695
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 5.534336820940432,
+            "finalRelativeShift": 0.007845024660955676
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.8005210114358752,
+            "finalRelativeShift": 0.002857294741422995
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.496160240612854,
+            "finalRelativeShift": 0.007237586496602525
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.746591955867156,
+            "finalRelativeShift": -0.001258167518961326
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.185458108893167,
+            "finalRelativeShift": 0.0066260276868790316
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.402224964113756,
+            "finalRelativeShift": -0.0025504026011055328
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 24,
+            "finalAbsZ": 2.590216619218206,
+            "finalRelativeShift": 0.003782838765280743
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2303840162839473,
+            "finalRelativeShift": 0.00034847325136290783
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.1154012394411055,
+            "finalRelativeShift": 0.009154906731096894
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7311818509470627,
+            "finalRelativeShift": 0.0012175490510568283
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 6.279318113490154,
+            "finalRelativeShift": 0.009420405558506794
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3198397745185826,
+            "finalRelativeShift": 0.0004654508905811773
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 12,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 7.927207311494375,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.4020608884776251,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 235,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.585793593448313,
+            "finalRelativeShift": 0.007799625410947726
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 146,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.775870486954888,
+            "finalRelativeShift": 0.01117314292587662
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 210,
+            "detectedOnDay": 13,
+            "finalAbsZ": 7.927207311494375,
+            "finalRelativeShift": 0.010263463481001078
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 296,
+            "detectedOnDay": 18,
+            "finalAbsZ": 4.90842533356466,
+            "finalRelativeShift": 0.005395318502137584
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 258,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.265476034711304,
+            "finalRelativeShift": 0.006981043573604986
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 174,
+            "detectedOnDay": 13,
+            "finalAbsZ": 6.075567457033205,
+            "finalRelativeShift": 0.009174710795432582
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 150,
+            "detectedOnDay": 16,
+            "finalAbsZ": 4.886822226812228,
+            "finalRelativeShift": 0.00888166900987941
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 206,
+            "detectedOnDay": 22,
+            "finalAbsZ": 2.6525269108537772,
+            "finalRelativeShift": 0.0037571029609452695
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4020608884776251,
+            "finalRelativeShift": -0.005726043931626365
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 68,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7025737199130623,
+            "finalRelativeShift": 0.0018501651409463568
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 78,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6646454580039949,
+            "finalRelativeShift": -0.0018218575403998246
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 44,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 14,
+        "maxPendulumAbsZ": 6.309244674681623,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1007",
+      "scenario": "gravity_shift",
+      "seed": 1007,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 6.525258783107082,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.9625796825770716,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 5.461001425070163,
+            "finalRelativeShift": 0.007573952477017003
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.990857526681598,
+            "finalRelativeShift": 0.007475722931255067
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.2148403160623185,
+            "finalRelativeShift": -0.00030338257508119945
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.4450831001280434,
+            "finalRelativeShift": 0.0007155196825272495
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 20,
+            "finalAbsZ": 4.9176927299371,
+            "finalRelativeShift": 0.007346059014663628
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.307901222976974,
+            "finalRelativeShift": 0.0023445814618473994
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 5.322888126828109,
+            "finalRelativeShift": 0.00846244484391829
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.7207953202899078,
+            "finalRelativeShift": 0.002069432796453817
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.509752130839081,
+            "finalRelativeShift": 0.00893739147726009
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.0010717426529698799,
+            "finalRelativeShift": 0.0000018003215476111756
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.525258783107082,
+            "finalRelativeShift": 0.008844186371086703
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.9625796825770716,
+            "finalRelativeShift": 0.003812831655289362
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.275919454438645,
+            "finalRelativeShift": 0.0074813855552344
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4090595430020159,
+            "finalRelativeShift": 0.0022764390207859276
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 5.359758338710216,
+            "finalRelativeShift": 0.008278818704039934
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7736399022946192,
+            "finalRelativeShift": 0.0014145488522274876
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 9,
+        "totalInstruments": 14,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 9.878345821724611,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.16666666666666666,
+        "maxResonatorAbsZ": 2.111941217003939,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 228,
+            "detectedOnDay": 14,
+            "finalAbsZ": 6.032351214668119,
+            "finalRelativeShift": 0.008565105586790038
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 96,
+            "detectedOnDay": 12,
+            "finalAbsZ": 4.40690685495277,
+            "finalRelativeShift": 0.00854937773498093
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 142,
+            "detectedOnDay": 16,
+            "finalAbsZ": 4.637402329388548,
+            "finalRelativeShift": 0.007923995220920948
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 330,
+            "detectedOnDay": 12,
+            "finalAbsZ": 9.878345821724611,
+            "finalRelativeShift": 0.01006470172423388
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 172,
+            "detectedOnDay": 15,
+            "finalAbsZ": 6.635712513587422,
+            "finalRelativeShift": 0.00894758946990206
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 186,
+            "detectedOnDay": 17,
+            "finalAbsZ": 5.365705044204102,
+            "finalRelativeShift": 0.0072999944163120835
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 236,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.868707813549234,
+            "finalRelativeShift": 0.008926709939575173
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 242,
+            "detectedOnDay": 12,
+            "finalAbsZ": 7.830742143108569,
+            "finalRelativeShift": 0.00872571115338739
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 74,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.111941217003939,
+            "finalRelativeShift": 0.006339011175651049
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 104,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.0374908953540105,
+            "finalRelativeShift": -0.002749064851243118
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 33,
+            "detectedOnDay": 20,
+            "finalAbsZ": 0.887400611644117,
+            "finalRelativeShift": -0.0024056752572584306
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.0437384108183276,
+            "finalRelativeShift": 0.009478428350732718
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 38,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.4870629599951632,
+            "finalRelativeShift": -0.004117018177766532
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 36,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6716581017392054,
+            "finalRelativeShift": -0.002624033777749932
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 7.335045678419209,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1008",
+      "scenario": "gravity_shift",
+      "seed": 1008,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 8,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 4.747533244134195,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 1.3443936359474327,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 4.275614863472838,
+            "finalRelativeShift": 0.00670596813866581
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 3.8725571599569695,
+            "finalRelativeShift": 0.005617472067897497
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3838541454914646,
+            "finalRelativeShift": 0.0006430373228678347
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.3465813764305354,
+            "finalRelativeShift": -0.0005850766576091806
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 4.228158945442017,
+            "finalRelativeShift": 0.00703375769646713
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.16227653114515056,
+            "finalRelativeShift": -0.0002914356037977917
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.747533244134195,
+            "finalRelativeShift": 0.007688957235842283
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6496337129735266,
+            "finalRelativeShift": -0.0009564867230575096
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 15,
+            "finalAbsZ": 4.624173247206932,
+            "finalRelativeShift": 0.0069959215155039785
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3443936359474327,
+            "finalRelativeShift": 0.002109489596910599
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 18,
+            "finalAbsZ": 2.927296448098792,
+            "finalRelativeShift": 0.005033364394218484
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.7256936506975208,
+            "finalRelativeShift": -0.0012451590422058148
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.201210647880551,
+            "finalRelativeShift": 0.0068999584236446405
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.6866925953065534,
+            "finalRelativeShift": -0.001118513471573016
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 12,
+            "finalAbsZ": 4.230201301066731,
+            "finalRelativeShift": 0.007274988943008292
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.07658749425530402,
+            "finalRelativeShift": 0.00011927752298424196
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 12,
+        "maxPendulumAbsZ": 6.780380912578162,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": 0,
+        "maxResonatorAbsZ": 2.1962477060363037,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 258,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.030609521993137,
+            "finalRelativeShift": 0.007183659271085414
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 159,
+            "detectedOnDay": 14,
+            "finalAbsZ": 3.8154710357458312,
+            "finalRelativeShift": 0.007121075121161664
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 199,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.396631273815803,
+            "finalRelativeShift": 0.008346576561432293
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 208,
+            "detectedOnDay": 14,
+            "finalAbsZ": 4.71115873064064,
+            "finalRelativeShift": 0.007422819263431056
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 348,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.780380912578162,
+            "finalRelativeShift": 0.008141781360853672
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 216,
+            "detectedOnDay": 12,
+            "finalAbsZ": 6.251161556965847,
+            "finalRelativeShift": 0.008513067666226634
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 182,
+            "detectedOnDay": 18,
+            "finalAbsZ": 4.249960551769432,
+            "finalRelativeShift": 0.005815515242383794
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 224,
+            "detectedOnDay": 19,
+            "finalAbsZ": 5.147508837457667,
+            "finalRelativeShift": 0.007562301484639431
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 42,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.09772017518713341,
+            "finalRelativeShift": -0.00017901973013003324
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 80,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.1962477060363037,
+            "finalRelativeShift": 0.004928734296390666
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 6,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 8,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 44,
+            "detectedOnDay": null,
+            "finalAbsZ": 0,
+            "finalRelativeShift": 0
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 200,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 5.751753500482943,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 1
+      }
+    },
+    {
+      "run": "gravity_shift-seed1009",
+      "scenario": "gravity_shift",
+      "seed": 1009,
+      "n": 8,
+      "potential": {
+        "level": "potential",
+        "detectedInstruments": 9,
+        "totalInstruments": 16,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 6.547859448675583,
+        "resonatorsFlagged": 1,
+        "resonatorFalseAlarmRate": 0.125,
+        "maxResonatorAbsZ": 1.5522438749933039,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.8337651695830495,
+            "finalRelativeShift": 0.010108582959421165
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 14,
+            "finalAbsZ": 6.547859448675583,
+            "finalRelativeShift": 0.009850761685796655
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.3172849793655212,
+            "finalRelativeShift": -0.0018210637390548956
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.9657968880511569,
+            "finalRelativeShift": -0.001659559010270412
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 3.7379597812716585,
+            "finalRelativeShift": 0.005606748683385392
+          },
+          {
+            "instrumentId": "resonator_uni",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 1.3122256078999082,
+            "finalRelativeShift": -0.0016758688801090716
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 16,
+            "finalAbsZ": 3.357354227583935,
+            "finalRelativeShift": 0.005538868418707927
+          },
+          {
+            "instrumentId": "resonator_news",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5827275530441747,
+            "finalRelativeShift": 0.0009033575681757659
+          },
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.79452368789512,
+            "finalRelativeShift": 0.008819818852589296
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.24547938974119232,
+            "finalRelativeShift": 0.00038432892124312104
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 11,
+            "finalAbsZ": 4.739085999157883,
+            "finalRelativeShift": 0.007046925846831633
+          },
+          {
+            "instrumentId": "resonator_school",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.49286546888841404,
+            "finalRelativeShift": 0.0008374063395197058
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.533106200625914,
+            "finalRelativeShift": 0.007678762542538277
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 1.5522438749933039,
+            "finalRelativeShift": -0.002601802631158662
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 180,
+            "detectedOnDay": 17,
+            "finalAbsZ": 4.70150555190356,
+            "finalRelativeShift": 0.008194392980416567
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 180,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.06878753629082296,
+            "finalRelativeShift": 0.00011722171867622443
+          }
+        ]
+      },
+      "asProduced": {
+        "level": "as_produced",
+        "detectedInstruments": 8,
+        "totalInstruments": 13,
+        "earliestDetectionDay": 11,
+        "maxPendulumAbsZ": 6.295950448888957,
+        "resonatorsFlagged": 2,
+        "resonatorFalseAlarmRate": 0.4,
+        "maxResonatorAbsZ": 2.702422022217901,
+        "verdicts": [
+          {
+            "instrumentId": "pendulum_farm",
+            "kind": "pendulum",
+            "trials": 72,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5035940386675707,
+            "finalRelativeShift": 0.0015330365136207603
+          },
+          {
+            "instrumentId": "pendulum_dist",
+            "kind": "pendulum",
+            "trials": 156,
+            "detectedOnDay": 20,
+            "finalAbsZ": 3.5199765025101017,
+            "finalRelativeShift": 0.006505745493491201
+          },
+          {
+            "instrumentId": "pendulum_obs",
+            "kind": "pendulum",
+            "trials": 21,
+            "detectedOnDay": null,
+            "finalAbsZ": 2.3579489918747623,
+            "finalRelativeShift": 0.008084415134425087
+          },
+          {
+            "instrumentId": "pendulum_lab",
+            "kind": "pendulum",
+            "trials": 264,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.294105447506772,
+            "finalRelativeShift": 0.007328110399108165
+          },
+          {
+            "instrumentId": "pendulum_cafe",
+            "kind": "pendulum",
+            "trials": 164,
+            "detectedOnDay": 13,
+            "finalAbsZ": 5.886178077668642,
+            "finalRelativeShift": 0.008760524471139829
+          },
+          {
+            "instrumentId": "pendulum_school",
+            "kind": "pendulum",
+            "trials": 204,
+            "detectedOnDay": 11,
+            "finalAbsZ": 4.589206377554226,
+            "finalRelativeShift": 0.006631792180097693
+          },
+          {
+            "instrumentId": "pendulum_uni",
+            "kind": "pendulum",
+            "trials": 298,
+            "detectedOnDay": 14,
+            "finalAbsZ": 6.295950448888957,
+            "finalRelativeShift": 0.007414621847991017
+          },
+          {
+            "instrumentId": "pendulum_news",
+            "kind": "pendulum",
+            "trials": 192,
+            "detectedOnDay": 15,
+            "finalAbsZ": 3.571569360630186,
+            "finalRelativeShift": 0.005802310837735168
+          },
+          {
+            "instrumentId": "resonator_obs",
+            "kind": "resonator",
+            "trials": 14,
+            "detectedOnDay": 24,
+            "finalAbsZ": 1.879601785493649,
+            "finalRelativeShift": 0.0033113572727556948
+          },
+          {
+            "instrumentId": "resonator_lab",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.5618040983990117,
+            "finalRelativeShift": -0.0022387080326292967
+          },
+          {
+            "instrumentId": "resonator_dist",
+            "kind": "resonator",
+            "trials": 24,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.1463843569894848,
+            "finalRelativeShift": -0.0007759913229504659
+          },
+          {
+            "instrumentId": "resonator_cafe",
+            "kind": "resonator",
+            "trials": 44,
+            "detectedOnDay": null,
+            "finalAbsZ": 0.18179827316217895,
+            "finalRelativeShift": -0.0004894890349858825
+          },
+          {
+            "instrumentId": "resonator_farm",
+            "kind": "resonator",
+            "trials": 120,
+            "detectedOnDay": 14,
+            "finalAbsZ": 2.702422022217901,
+            "finalRelativeShift": -0.009143647546792342
+          }
+        ]
+      },
+      "downsampled": {
+        "level": "downsampled",
+        "detectedInstruments": 190,
+        "totalInstruments": 200,
+        "earliestDetectionDay": 13,
+        "maxPendulumAbsZ": 5.152593233518089,
+        "resonatorsFlagged": 0,
+        "resonatorFalseAlarmRate": null,
+        "maxResonatorAbsZ": 0,
+        "verdicts": [],
+        "draws": 200,
+        "detectionFraction": 0.95
+      }
+    }
+  ]
+}
