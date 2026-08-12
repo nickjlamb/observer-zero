@@ -2,10 +2,10 @@
 
 ## Evidence from autonomous agents in an instrumented world
 
-Nick Lamb · PharmaTools.AI Labs · August 2026
+Nick Lamb · PharmaTools.AI Labs · August 2026 · Version 2, 12 August 2026
 
 Code: <https://github.com/nickjlamb/observer-zero> ·
-Data: [10.5281/zenodo.21906654](https://doi.org/10.5281/zenodo.21906654)
+Data: [10.5281/zenodo.21909255](https://doi.org/10.5281/zenodo.21909255)
 
 **Keywords:** LLM agents · social epistemics · multi-agent simulation · belief revision ·
 misinformation propagation
@@ -1423,8 +1423,8 @@ Full traces are in the repository.
 
 ### 8.3 Errata in prior artifacts
 
-Two arithmetic errors in previously released documents, found while tracing this paper's
-numbers to source and verified against the run artifacts. Neither changes a verdict.
+Errors in previously released documents, found while tracing this paper's numbers and
+identifiers to source and verified against the run artifacts. None changes a verdict.
 
 Study 1 reports "≈150 agent-final belief states" for its 0-of-40 strict result; the four
 live arms hold 240 across all scenarios and 80 in gravity_shift worlds. The
@@ -1433,6 +1433,14 @@ the error is conservative, since on 80 agent-states the bound would tighten to 3
 
 The pilot report gives "roughly 1,500 agent-days" across its nine pure-sonar runs; the
 figure computed from the artifacts is 1,080.
+
+One further error is in this paper's own first version. Version 1 (2026-08-12) gave the
+data DOI as 10.5281/zenodo.21906654 on the title page and in §8.4. That is the DOI of the
+paper itself; the raw run artifacts had not yet been deposited when it was released, and
+the identifier was carried into the text before the deposit existed. The correct data DOI
+is 10.5281/zenodo.21909255, and this version states it in both places. No result,
+threshold or verdict is affected. Version 1 remains permanently available at its own
+version DOI.
 
 ### 8.4 Data availability
 
@@ -1444,7 +1452,7 @@ detector benchmarks and the H4 dating pass — are in the repository at
 The complete raw run artifacts for Study 2, comprising every event log with ground truth
 and every model call with its prompt, completion, token counts, cost and prompt version,
 are deposited at Zenodo under DOI
-[10.5281/zenodo.21906654](https://doi.org/10.5281/zenodo.21906654). Study 1's manuscript, data and
+[10.5281/zenodo.21909255](https://doi.org/10.5281/zenodo.21909255). Study 1's manuscript, data and
 code are at concept DOI
 [10.5281/zenodo.21872780](https://doi.org/10.5281/zenodo.21872780), which resolves to the
 current version. This paper's Study 1 figures are those of the corrected version
