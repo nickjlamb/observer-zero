@@ -8,6 +8,7 @@
  */
 
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { Simulator } from "../src/engine/world.js";
 import { buildAgentView } from "../src/engine/agentView.js";
 import { control, gravityShift } from "../src/scenarios/scenarios.js";
@@ -981,6 +982,27 @@ describe("lenient evidence citations (found in P1-A; present in Study 1)", () =>
     const cited = parsed.hypotheses.flatMap((h) => [...h.evidenceFor, ...h.evidenceAgainst]);
     expect(cited.every((id) => Number.isInteger(id) && id >= 0)).toBe(true);
     expect(cited).not.toContain(null);
+  });
+});
+
+describe("the evaluation CLI wires in every endpoint module", () => {
+  // A module can be fully implemented, fully tested, and never called. That
+  // is exactly what happened to activation.ts: 14 passing tests, and the
+  // first confirmatory evaluation printed no activation block because the
+  // CLI never imported it — H3's primary endpoints computed by nobody.
+  // Unit tests cannot catch a missing call site, so this asserts the wiring.
+  it("societyEval imports the activation endpoints (H3, H5b, H7)", () => {
+    const src = readFileSync(new URL("../src/cli/societyEval.ts", import.meta.url), "utf8");
+    expect(src).toMatch(/from "\.\.\/evaluator\/activation\.js"/);
+    expect(src).toMatch(/activationMetrics\(/);
+    expect(src).toMatch(/summarizeActivation\(/);
+    expect(src).toMatch(/activation\.json/);
+  });
+
+  it("societyEval imports the propagation and stance-judge layers (H2a, H2b)", () => {
+    const src = readFileSync(new URL("../src/cli/societyEval.ts", import.meta.url), "utf8");
+    expect(src).toMatch(/runStanceJudge\(/);
+    expect(src).toMatch(/FROZEN_JUDGE_MODEL/);
   });
 });
 

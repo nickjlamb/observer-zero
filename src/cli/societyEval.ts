@@ -23,6 +23,11 @@ import {
   traceDeliveredClaims,
   type DeliveredCpfSummary,
 } from "../evaluator/propagation.js";
+import {
+  activationMetrics,
+  summarizeActivation,
+  type ActivationMetrics,
+} from "../evaluator/activation.js";
 import { runStanceJudge } from "../evaluator/stanceJudge.js";
 import { createJudgeClient, FROZEN_JUDGE_MODEL } from "../evaluator/judgeClient.js";
 
@@ -100,8 +105,66 @@ function loadArm(d: string): SocietyEvaluation[] {
   return evals;
 }
 
+/**
+ * Raw run artifacts, for the activation endpoints.
+ *
+ * evaluateSociety() returns a digested SocietyEvaluation; activationMetrics()
+ * needs the event stream itself, so it gets its own pass over the directory
+ * with the identical "is this a run artifact" filter.
+ */
+function loadArtifacts(d: string): unknown[] {
+  const out: unknown[] = [];
+  for (const f of readdirSync(d).filter((f) => f.endsWith(".json")).sort()) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(readFileSync(`${d}/${f}`, "utf8"));
+    } catch {
+      continue;
+    }
+    const a = parsed as { events?: unknown; agents?: unknown; config?: { name?: unknown } };
+    if (!Array.isArray(a.events) || !Array.isArray(a.agents) || typeof a.config?.name !== "string") {
+      continue;
+    }
+    out.push(parsed);
+  }
+  return out;
+}
+
 const mean = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 const pct = (x: number) => `${(x * 100).toFixed(0)}%`;
+const f3 = (x: number) => x.toFixed(3);
+
+/**
+ * Activation endpoints (design v0.5 §4.1, amendment A4).
+ *
+ * Reported PER SCENARIO and never pooled: a control world gives agents
+ * materially less to write about, so pooling would confound "nothing to say"
+ * with "won't say it". H3, H5b and H7 all read off this block.
+ */
+function reportActivation(runs: ActivationMetrics[]): void {
+  console.log(`\nACTIVATION (design v0.5 §4.1 — per scenario, NEVER pooled)`);
+  for (const s of summarizeActivation(runs)) {
+    const rs = runs.filter((r) => r.scenario === s.scenario);
+    console.log(`  ${s.scenario} (${s.runs} runs)`);
+    console.log(
+      `    spontaneous initiation ${f3(s.spontaneousInitiationRate)} (AGENT-level, the endpoint; ` +
+        `${f3(s.spontaneousLettersPerAgent)} letters/agent) · new-edge ${f3(s.newEdgeInitiationRate)} · ` +
+        `second-order ${f3(s.secondOrderActivationRate)}`,
+    );
+    console.log(
+      `    reply rate given addressed ${s.replyRateGivenAddressed === null ? "n/a (nobody addressed)" : f3(s.replyRateGivenAddressed)} · ` +
+        `seed expansions ${f3(mean(rs.map((r) => r.seedExpansions)))}/run`,
+    );
+    console.log(
+      `    cascade reach ${f3(s.cascadeReach)} · depth ${f3(s.cascadeDepth)} · ` +
+        `letters ${mean(rs.map((r) => r.uniqueDirectedEdges)).toFixed(1)} unique edges/run`,
+    );
+    console.log(
+      `    ACTIVE-NETWORK runs ${s.activeNetworkRuns}/${s.runs} · ` +
+        `near-zero activation (H3 prediction): ${s.nearZeroActivation ? "YES" : "no"}`,
+    );
+  }
+}
 
 function report(d: string, evals: SocietyEvaluation[]): void {
   const arm = classifyArm(evals.map((e) => e.flow));
@@ -354,6 +417,17 @@ async function judgedPropagation(d: string): Promise<void> {
 const armA = loadArm(dir);
 report(dir, armA);
 writeFileSync(`${dir}/society-eval.json`, JSON.stringify(armA, null, 2));
+
+// H3 is the primary hypothesis and these are its endpoints. They were
+// implemented and tested before the freeze but never wired into this CLI,
+// which is why the first confirmatory evaluation printed no activation block.
+const activation = loadArtifacts(dir).map((a) => activationMetrics(a as never));
+reportActivation(activation);
+writeFileSync(
+  `${dir}/activation.json`,
+  JSON.stringify({ perRun: activation, byScenario: summarizeActivation(activation) }, null, 2),
+);
+console.log(`\n  Written: ${dir}/activation.json`);
 
 if (useJudge) await judgedPropagation(dir);
 

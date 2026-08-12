@@ -83,8 +83,21 @@ export interface ActivationMetrics {
   minorityAgents: string[];
 
   /** (1) Sender had NEVER received a letter before sending. Agent-level. */
+  /** Letters sent by an agent that had never received one. EVENT-level. */
   spontaneousInitiations: number;
+  /**
+   * The PRE-REGISTERED endpoint (design v0.5 §4.1 measure 1, which says
+   * "Agent-level"): the fraction of agents that ever spontaneously initiated.
+   *
+   * This was event-level until the confirmatory evaluation, and the two differ
+   * by a factor of four in arm D: one agent writing four letters before anyone
+   * replies is ONE spontaneous initiator, not four. Measure 2 is explicitly
+   * "Edge-level" and measure 3 inherits that, so measure 1 is the only one
+   * where agent-level applies — and it is the headline number for H3.
+   */
   spontaneousInitiationRate: number;
+  /** Event-level rate, retained descriptively. NOT the endpoint. */
+  spontaneousLettersPerAgent: number;
   spontaneousInitiators: string[];
 
   /** (2) First letter on a directed pair (i→j). Edge-level. */
@@ -255,7 +268,8 @@ export function activationMetrics(artifact: SocietyArtifactShape): ActivationMet
     agents: agentIds.length,
     minorityAgents,
     spontaneousInitiations: spontaneous,
-    spontaneousInitiationRate: spontaneous / n,
+    spontaneousInitiationRate: spontaneousInitiators.size / n,
+    spontaneousLettersPerAgent: spontaneous / n,
     spontaneousInitiators: [...spontaneousInitiators].sort(),
     newEdgeInitiations: newEdge,
     newEdgeInitiationRate: newEdge / n,
@@ -282,7 +296,10 @@ export function activationMetrics(artifact: SocietyArtifactShape): ActivationMet
 export interface ActivationSummary {
   scenario: string;
   runs: number;
+  /** Agent-level — the pre-registered endpoint. */
   spontaneousInitiationRate: number;
+  /** Event-level, descriptive only. */
+  spontaneousLettersPerAgent: number;
   secondOrderActivationRate: number;
   newEdgeInitiationRate: number;
   replyRateGivenAddressed: number | null;
@@ -316,6 +333,7 @@ export function summarizeActivation(runs: ActivationMetrics[]): ActivationSummar
         scenario,
         runs: rs.length,
         spontaneousInitiationRate: spontaneous,
+        spontaneousLettersPerAgent: mean(rs.map((r) => r.spontaneousLettersPerAgent)),
         secondOrderActivationRate: secondOrder,
         newEdgeInitiationRate: mean(rs.map((r) => r.newEdgeInitiationRate)),
         replyRateGivenAddressed: replied.length ? mean(replied) : null,

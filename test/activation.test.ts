@@ -71,6 +71,7 @@ describe("activation: the three initiation measures are distinct", () => {
     const m = activationMetrics(build(SONAR8, [letter(11, "theo", "samuel")]) as never);
     expect(m.spontaneousInitiations).toBe(1);
     expect(m.spontaneousInitiators).toEqual(["theo"]);
+    expect(m.spontaneousInitiationRate).toBeCloseTo(1 / 8, 6);
     expect(m.secondOrderActivations).toBe(0);
     expect(m.newEdgeInitiations).toBe(1);
   });
@@ -253,5 +254,36 @@ describe("activation: the reach denominator (design v0.6 amendment A4)", () => {
     expect(m.cascadeReach).toBeGreaterThanOrEqual(ACTIVE_NETWORK_MIN_REACH);
     expect(m.activeNetwork).toBe(true);
     expect(m.cascadeDepth).toBe(3);
+  });
+});
+
+describe("activation: spontaneous initiation is AGENT-level (design v0.5 §4.1 measure 1)", () => {
+  // Measure 1 says "Agent-level"; measure 2 says "Edge-level". The code
+  // counted letters, so one agent writing four times before anyone replied
+  // scored 4 — which inflated arm D's headline H3 number fourfold. The
+  // endpoint is the fraction of agents that EVER initiated; the event-level
+  // rate survives, renamed, as description.
+  it("counts one initiator once, however many letters it sends unanswered", () => {
+    nextId = 0;
+    const m = activationMetrics(
+      build(SONAR8, [
+        letter(1, "theo", "ada"),
+        letter(2, "theo", "maya"),
+        letter(3, "theo", "samuel"),
+        letter(4, "theo", "elena"),
+      ]) as never,
+    );
+    expect(m.spontaneousInitiations).toBe(4); // four letters
+    expect(m.spontaneousInitiators).toEqual(["theo"]); // one agent
+    expect(m.spontaneousInitiationRate).toBeCloseTo(1 / 8, 6); // the endpoint
+    expect(m.spontaneousLettersPerAgent).toBeCloseTo(4 / 8, 6); // description
+  });
+
+  it("counts two independent initiators as two", () => {
+    nextId = 0;
+    const m = activationMetrics(
+      build(SONAR8, [letter(1, "theo", "ada"), letter(2, "elena", "maya")]) as never,
+    );
+    expect(m.spontaneousInitiationRate).toBeCloseTo(2 / 8, 6);
   });
 });
