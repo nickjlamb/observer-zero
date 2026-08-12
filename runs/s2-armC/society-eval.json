@@ -1,0 +1,3342 @@
+[
+  {
+    "runId": "9b5ff532-9786-470c-8d11-c368d653cfa5",
+    "scenario": "control",
+    "seed": 1000,
+    "n": 8,
+    "institution": "bulletin",
+    "flow": {
+      "agents": 8,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.40875,
+      "perAgentCorrectCredence": {
+        "ada": 0.8235294117647058,
+        "maya": 0.68,
+        "theo": 0.27,
+        "samuel": 0.09999999999999999,
+        "elena": 0.17647058823529413,
+        "leah": 0.14,
+        "tom": 0.75,
+        "jamie": 0.33
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 3,
+      "dispersion": 0.47790616246498596,
+      "earlyDispersion": 0.5651261707072672,
+      "convergence": 0.08722000824228127
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary trial-to-trial scatter around a stable pendulum baseline",
+          "probability": 0.8039215686274509,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small real but transient shift in pendulum calibration or local conditions",
+          "probability": 0.12745098039215685,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Recording or transcription artefact in some pendulum trials",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary measurement noise around a mostly stable pendulum mean",
+          "probability": 0.68,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A short-lived local disturbance or handling/environmental effect is adding scatter without producing a lasting shift",
+          "probability": 0.19,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small upward shift in the pendulum timing is emerging, but it is weak and inconsistent",
+          "probability": 0.09,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An untracked instrument or procedure effect is contributing to the scatter",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A small local calibration or setup disturbance affected the pendulum only",
+          "probability": 0.44,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A weak local environmental condition is nudging the pendulum but not the resonator in the same way",
+          "probability": 0.23,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "The apparent shift is ordinary sampling noise around a stable pendulum baseline",
+          "probability": 0.19,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A district-wide timing influence is present but is showing up first, or only, in the pendulum",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Something else not yet modeled is affecting the measurements",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Residual: something I haven't thought of",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Ordinary environmental and measurement noise around a stable pendulum setup",
+          "probability": 0.75,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Intermittent mechanical disturbance in the pendulum, suspension, or nearby support",
+          "probability": 0.13,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Procedural or observer variation that averages out over many trials",
+          "probability": 0.09,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A small unmodeled physical interaction or setup effect not yet isolated",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "The resonator is stable; the day-17 low value was a transient setup/calibration/environmental effect or outlier",
+          "probability": 0.696078431372549,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "There was a small genuine upward shift, but it is modest and hard to separate from noise",
+          "probability": 0.14705882352941177,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A subtle operational or environmental factor is nudging the readings within a narrow band around a stable mean",
+          "probability": 0.08823529411764705,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A more complex unmodeled mechanism is shaping the readings beyond a simple stable-mean picture",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Brief environmental disturbances in the café intermittently perturb the pendulum",
+          "probability": 0.49,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Small setup or release differences are producing occasional outliers without real drift",
+          "probability": 0.31,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "There is no real drift; the apparent excursions are ordinary random variation around a stable mean",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A weak recurring external condition is shaping some trials in a patterned way",
+          "probability": 0.05,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Something exotic or nonstandard is influencing the measurements",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Something not yet considered",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "The pendulum is fundamentally stable and the small shift is ordinary measurement noise from counting, timing, or handling",
+          "probability": 0.52,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "There is a weak real downward drift, but it is too small and irregular to separate clearly from noise",
+          "probability": 0.23,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Some readings are being nudged by operator or recording differences, adding isolated highs and lows on top of a steady instrument",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A small setup or calibration shift moved the measured band slightly while keeping the readings tightly grouped",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Something else in the farm environment or mechanism not yet captured is influencing the pendulum in a minor way",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Ordinary environmental variation in the clock room is causing small day-to-day scatter",
+          "probability": 0.47,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "The pendulum or escapement has a minor intermittent mechanical issue",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "The measurements are mostly sampling noise around a stable true value",
+          "probability": 0.27,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A repeatable Meridian-specific factor is affecting the school clock, but only weakly",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A hidden external influence is affecting both school instruments in a coupled way",
+          "probability": 0.02,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Something unconsidered is causing the pattern",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9925240122784434,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 285,
+      "meanInputTokens": 1317.2526315789473,
+      "maxInputTokens": 2333,
+      "meanInputTokensByAgent": {
+        "elena": 1323.5405405405406,
+        "maya": 1247.8484848484848,
+        "ada": 1200.3333333333333,
+        "tom": 1478.0975609756097,
+        "leah": 1356.6666666666667,
+        "samuel": 1201.4117647058824,
+        "theo": 1299.060606060606,
+        "jamie": 1381.5
+      }
+    }
+  },
+  {
+    "runId": "5c15ef5f-36b6-41e4-bf47-fd588b5ade18",
+    "scenario": "control",
+    "seed": 1001,
+    "n": 8,
+    "institution": "bulletin",
+    "flow": {
+      "agents": 8,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.5281442159805972,
+      "perAgentCorrectCredence": {
+        "ada": 0.8316831683168318,
+        "maya": 0.01,
+        "theo": 0.02,
+        "samuel": 0.7227722772277227,
+        "elena": 0.2912621359223301,
+        "leah": 0.798076923076923,
+        "tom": 0.6213592233009708,
+        "jamie": 0.9299999999999999
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 5,
+      "dispersion": 0.5440739159667594,
+      "earlyDispersion": 0.4336254889060428,
+      "convergence": -0.11044842706071656
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The resonator remains stable; the recent highs are ordinary trial-to-trial scatter around a fixed response",
+          "probability": 0.6336633663366337,
+          "firstPartySources": [
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small upward shift began around days 19–20, but it is weak and partly masked by scatter",
+          "probability": 0.19801980198019803,
+          "firstPartySources": [
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An intermittent environmental or procedural factor is nudging some resonator trials upward without producing a stable drift",
+          "probability": 0.10891089108910891,
+          "firstPartySources": [
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "There is a subtle instrument-specific fault or analysis issue that is affecting the resonator record, but it is not yet identifiable",
+          "probability": 0.039603960396039604,
+          "firstPartySources": [
+            "resonator_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "(something I have not yet thought of)",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary instrumental/observational scatter around a stable pendulum baseline",
+          "probability": 0.71,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small systematic shift in the pendulum instrument or its setup",
+          "probability": 0.17,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Transient environmental influence on some trials, without lasting instrument change",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Unmodeled measurement artifact specific to the observing process or timing readout",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unconsidered",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "ordinary instrument drift with a brief handling or calibration perturbation",
+          "probability": 0.49,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "intermittent environmental influence in the timing room",
+          "probability": 0.25,
+          "firstPartySources": [
+            "pendulum_dist",
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "measurement or recording bias during the later trials",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "a weak genuine disturbance affecting the district timing system",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_dist",
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "something unconsidered",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "The readings are dominated by ordinary measurement scatter and setup noise, with no real change in the pendulum",
+          "probability": 0.6336633663366337,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A weak physical or environmental influence is nudging the pendulum intermittently, but not enough to produce a stable trend",
+          "probability": 0.22772277227722773,
+          "firstPartySources": [
+            "resonator_uni",
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Some part of the timing or operating procedure is introducing small clustered bias",
+          "probability": 0.0891089108910891,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "An unmodeled disturbance or recording issue is affecting a small subset of trials",
+          "probability": 0.0297029702970297,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Residual: something not yet considered",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Both instruments remain stable; the recent fluctuations are ordinary scatter around fixed baselines.",
+          "probability": 0.4854368932038835,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "The resonator is beginning a genuine upward drift, while the pendulum is effectively stable.",
+          "probability": 0.2912621359223301,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A short-lived external influence is intermittently perturbing the resonator measurements without true instrument drift.",
+          "probability": 0.0970873786407767,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Something else is happening that the current baseline framing does not capture.",
+          "probability": 0.04854368932038835,
+          "firstPartySources": [
+            "resonator_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Residual: something not captured here.",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "(residual: something I haven't thought of)",
+          "probability": 0.019417475728155338,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The pendulum is effectively stable; the low day-25 reading and later scatter are ordinary variation around an unchanged mean.",
+          "probability": 0.6826923076923076,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A very small physical settling or recalibration occurred, but its size is too small to shift the mean detectably.",
+          "probability": 0.08653846153846154,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A mild environmental influence in the café intermittently tightens or loosens readings without changing the long-run mean.",
+          "probability": 0.07692307692307693,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A subtle change in timing or recording practice makes the later trials look differently scattered than they really are.",
+          "probability": 0.04807692307692308,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Some other specific but as yet unrecognized cause contributes to the late pattern.",
+          "probability": 0.028846153846153844,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Residual: something unconsidered.",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Normal measurement scatter around a stable mean",
+          "probability": 0.5145631067961165,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A small real upward shift from mundane conditions or setup changes",
+          "probability": 0.2815533980582524,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A brief disturbance or temporary adjustment affected some trials without changing the underlying baseline",
+          "probability": 0.0679611650485437,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Something else unrecognized is influencing the pendulum measurements",
+          "probability": 0.07766990291262135,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Residual: something I have not thought of",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "The pendulum/timing setup is genuinely stable and the scatter is mostly release and stopwatch noise",
+          "probability": 0.82,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A small fixed measurement bias is shifting the measured center slightly low without creating real drift",
+          "probability": 0.1,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Weak environmental variation is adding small day-to-day wobble",
+          "probability": 0.05,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "An occasional local disturbance is perturbing individual trials",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Some other unrecognized factor is affecting the measurements",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.0583816604441476,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 279,
+      "meanInputTokens": 1366.695340501792,
+      "maxInputTokens": 2345,
+      "meanInputTokensByAgent": {
+        "maya": 1313.878787878788,
+        "elena": 1479.6764705882354,
+        "leah": 1538.657894736842,
+        "jamie": 1475.875,
+        "ada": 1308.4848484848485,
+        "theo": 1318.0882352941176,
+        "samuel": 1272.2941176470588,
+        "tom": 1178.3030303030303
+      }
+    }
+  },
+  {
+    "runId": "7ff6cb53-4b53-4fba-b933-f113161d1806",
+    "scenario": "control",
+    "seed": 1002,
+    "n": 8,
+    "institution": "bulletin",
+    "flow": {
+      "agents": 8,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.3254549781077479,
+      "perAgentCorrectCredence": {
+        "ada": 0.14,
+        "maya": 0.14,
+        "theo": 0.13725490196078433,
+        "samuel": 0.7087378640776698,
+        "elena": 0.76,
+        "leah": 0.029411764705882353,
+        "tom": 0.6,
+        "jamie": 0.08823529411764705
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 3,
+      "dispersion": 0.5270482049836704,
+      "earlyDispersion": 0.4135461081850367,
+      "convergence": -0.11350209679863377
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "No real drift; both instruments are stable and the differences are ordinary scatter around fixed baselines",
+          "probability": 0.74,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small real pendulum drift exists, but it is subtle and still not cleanly separable from measurement scatter",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The resonator has a small isolated offset from baseline, but there is no basis yet for a sustained drift claim",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A shared environmental or procedural factor is nudging both instruments in a correlated way",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Some other unmodelled effect is present, but it is not yet identifiable from the present data",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary environmental or readout variation is nudging the pendulum upward and widening the scatter",
+          "probability": 0.49,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum instrument is beginning to drift upward relative to its earlier baseline",
+          "probability": 0.28,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The recent deviations are still just random scatter around an essentially unchanged pendulum baseline",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A coupled effect is present but remains unconfirmed because resonator_obs has not yet shown a matching post-baseline change",
+          "probability": 0.05,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: some other unconsidered cause explains the pendulum pattern",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "(residual: something I haven't thought of)",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Instrument-specific drift or intermittent calibration/setup error in the resonator",
+          "probability": 0.49019607843137253,
+          "firstPartySources": [
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A weak environmental influence is nudging the resonator more than the pendulum",
+          "probability": 0.1764705882352941,
+          "firstPartySources": [
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "The resonator’s low and high patches are mostly random clustering within normal variation",
+          "probability": 0.13725490196078433,
+          "firstPartySources": [
+            "resonator_dist",
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "An unrecorded procedural or handling difference affected only some resonator trials",
+          "probability": 0.10784313725490197,
+          "firstPartySources": [
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Some other unrecognized cause is producing the resonator pattern",
+          "probability": 0.049019607843137254,
+          "firstPartySources": [
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Ordinary measurement scatter from manual timing and small setup sensitivity",
+          "probability": 0.5728155339805825,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Intermittent physical disturbance to the pendulum system or its environment",
+          "probability": 0.1941747572815534,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A small procedural bias that varies with operator rhythm or trial handling",
+          "probability": 0.10679611650485436,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A real mechanical fault is causing occasional period changes without sustained drift",
+          "probability": 0.0679611650485437,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Residual: something unconsidered",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Ordinary measurement noise around a stable pendulum is the main explanation",
+          "probability": 0.76,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A brief local disturbance intermittently nudged the measurements",
+          "probability": 0.07,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A small intermittent timing-chain or office-clock bias affected some trials",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "An unmodeled environmental factor intermittently affected the pendulum measurements",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Something else not yet considered",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A small persistent calibration or setup shift in the pendulum café instrument",
+          "probability": 0.40196078431372545,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Ordinary environmental variation around an unchanged instrument",
+          "probability": 0.27450980392156865,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A real but small physical change in the pendulum or room conditions",
+          "probability": 0.13725490196078433,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A procedural bias in how the café measurements are taken or recorded",
+          "probability": 0.10784313725490197,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The resonator is sharing the same regime change, but its series is still too short to establish it",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "resonator_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A genuinely exotic or nonstandard influence on the pendulum",
+          "probability": 0.00980392156862745,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Something I have not yet considered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [
+            "pendulum_cafe",
+            "resonator_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Ordinary short-term scatter around a mildly shifted operating level",
+          "probability": 0.4727272727272727,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A small physical change in the pendulum setup or environment has nudged the period",
+          "probability": 0.20909090909090908,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A slight systematic measurement or counting bias has been introduced",
+          "probability": 0.09999999999999999,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A weak periodic influence is making the readings wobble around the baseline",
+          "probability": 0.03636363636363636,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Residual: something else unconsidered",
+          "probability": 0.09090909090909091,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "The resonator is a stable instrument and the spread is ordinary measurement noise",
+          "probability": 0.7745098039215687,
+          "firstPartySources": [
+            "resonator_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A fixed setup-dependent offset is making the resonator sit at a consistent but shifted level",
+          "probability": 0.09803921568627451,
+          "firstPartySources": [
+            "resonator_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "There is a very weak long-term drift in the resonator, but it is still too small to separate from noise",
+          "probability": 0.058823529411764705,
+          "firstPartySources": [
+            "resonator_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A shared systematic influence is biasing the school timing setup in a stable way",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "resonator_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [
+            "resonator_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.0111562878239724,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 272,
+      "meanInputTokens": 1330.1838235294117,
+      "maxInputTokens": 2441,
+      "meanInputTokensByAgent": {
+        "jamie": 1277.3235294117646,
+        "leah": 1410.6176470588234,
+        "samuel": 1285.6666666666667,
+        "ada": 1327.2424242424242,
+        "theo": 1377.6764705882354,
+        "maya": 1325.3636363636363,
+        "tom": 1250.1818181818182,
+        "elena": 1377.8947368421052
+      }
+    }
+  },
+  {
+    "runId": "66684219-8265-4c09-ac05-e89eec5c0e11",
+    "scenario": "gravity_shift",
+    "seed": 1000,
+    "n": 8,
+    "institution": "bulletin",
+    "flow": {
+      "agents": 8,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.6314871324983165,
+      "earlyDispersion": 0.44598332732432905,
+      "convergence": -0.1855038051739874
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The pendulum remains fundamentally stable; the post-baseline elevation is ordinary finite-sample scatter around the same underlying level",
+          "probability": 0.5673076923076923,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A transient local disturbance affected part of the later runs, lifting the post-baseline mean without creating a durable new baseline",
+          "probability": 0.22115384615384615,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small real upward shift in the pendulum has begun, but it is weak and not yet cleanly resolved",
+          "probability": 0.10576923076923077,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Some unmodeled factor is influencing the pendulum readings, but the signature is too indistinct to identify",
+          "probability": 0.028846153846153844,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A modest upward shift has begun, but it is still weak and partly masked by noise.",
+          "probability": 0.5384615384615383,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum remains centered on the established baseline; the recent high readings are ordinary scatter with occasional outliers.",
+          "probability": 0.16346153846153844,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Intermittent local perturbations are producing repeated excursions without a stable shift in the baseline.",
+          "probability": 0.17307692307692302,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unmodeled is affecting the pendulum data beyond the current explanations.",
+          "probability": 0.048076923076923066,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I have not considered.",
+          "probability": 0.03846153846153845,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Intermittent local conditions near the pendulum or its mounting are nudging its beat period upward",
+          "probability": 0.47115384615384615,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "The pendulum itself has developed a small mechanical bias or shift",
+          "probability": 0.22115384615384615,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A district-wide disturbance is present, but it couples more strongly to the pendulum than to the resonator",
+          "probability": 0.09615384615384616,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A procedural or reading-method offset has entered the campaign",
+          "probability": 0.06730769230769232,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "An exotic or not-yet-understood mechanism is affecting local timekeeping",
+          "probability": 0.028846153846153844,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Some other cause not yet considered",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Something I have not yet thought of",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Ordinary measurement scatter with a small constant bias in the timing/reading chain",
+          "probability": 0.5588235294117647,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A subtle workflow bias is nudging some readings high",
+          "probability": 0.11764705882352944,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A small intermittent mechanical disturbance in the pendulum or its support",
+          "probability": 0.17647058823529416,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A real but small physical period change masked by ordinary scatter",
+          "probability": 0.07843137254901962,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "An unmodeled interaction among pendulum, mount, and room conditions",
+          "probability": 0.02941176470588236,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Residual: something not yet considered",
+          "probability": 0.019607843137254905,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Ordinary mechanical drift in the office clock from wear, lubrication, tension, or minor maintenance changes is slowing the pendulum over time",
+          "probability": 0.5533980582524272,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Changing room conditions in Meridian, such as temperature, drafts, or vibration around print times, are intermittently affecting the pendulum",
+          "probability": 0.1941747572815534,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Small procedural differences in how the trials are timed, started, counted, or recorded are creating an apparent slow drift",
+          "probability": 0.10679611650485436,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "An as-yet-unidentified Meridian-specific influence is subtly interacting with the office clock",
+          "probability": 0.0679611650485437,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Residual: something not yet considered",
+          "probability": 0.019417475728155338,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Residual: something I haven't thought of",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The pendulum/café timing setup is broadly stable, with a slight upward shift in the center and ordinary scatter from counting, pacing, or handling",
+          "probability": 0.5663716814159293,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A weak intermittent environmental or mechanical influence is nudging some trials upward",
+          "probability": 0.09734513274336284,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The measuring process intermittently slips, producing occasional anomalous readings without changing the pendulum itself",
+          "probability": 0.07079646017699116,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Some limited but unidentified factor is affecting the readings",
+          "probability": 0.03539823008849558,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Residual: something not yet considered",
+          "probability": 0.11504424778761063,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "The instrument is basically stable; the later readings are ordinary scatter around nearly the same operating level",
+          "probability": 0.4095238095238095,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "There is a real but slight upward shift in the pendulum's operating level",
+          "probability": 0.29523809523809524,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A setup, handling, or environment change nudged the measurements upward without changing the pendulum itself",
+          "probability": 0.1619047619047619,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Something else not yet considered is driving the pattern",
+          "probability": 0.03809523809523809,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Residual: something I haven't thought of",
+          "probability": 0.047619047619047616,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Ordinary measurement scatter around a mostly stable true beat length",
+          "probability": 0.49,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A very gradual physical or environmental drift in the pendulum system",
+          "probability": 0.33,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Repeated procedural differences in how the trials are run",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Intermittent external disturbance affecting the pendulum setup",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Residual: some unconsidered factor",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 312,
+      "meanInputTokens": 1458.804487179487,
+      "maxInputTokens": 2380,
+      "meanInputTokensByAgent": {
+        "elena": 981,
+        "maya": 1470.1052631578948,
+        "ada": 1474.7105263157894,
+        "tom": 1501.3488372093022,
+        "leah": 1548.9767441860465,
+        "samuel": 1578.2,
+        "theo": 1584.3684210526317,
+        "jamie": 1445.4615384615386
+      }
+    }
+  },
+  {
+    "runId": "a35a8b77-30c8-4d53-9908-f812b6737171",
+    "scenario": "gravity_shift",
+    "seed": 1001,
+    "n": 8,
+    "institution": "bulletin",
+    "flow": {
+      "agents": 8,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 3,
+        "elena": 3,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "meanProductionsPerAgent": 0.75,
+      "producingFraction": 0.25,
+      "consumingFraction": 0.25,
+      "crossAgentEvidenceRefs": 39,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 2,
+      "largestComponentFraction": 0.25,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0,
+        "theo": 0,
+        "samuel": 0,
+        "elena": 0,
+        "leah": 0,
+        "tom": 0,
+        "jamie": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.5802503523729939,
+      "earlyDispersion": 0.5839295750662724,
+      "convergence": 0.003679222693278472
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 6,
+      "totalExposures": 6,
+      "transmissionRate": 0.8333333333333334,
+      "contaminationRate": 0.8333333333333334,
+      "byStance": {
+        "IGNORED": 1,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 5,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": [
+        "elena",
+        "samuel"
+      ]
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [
+      {
+        "claim": {
+          "eventId": 1336,
+          "day": 19,
+          "author": "elena",
+          "channel": "message",
+          "text": "Could you independently check the newspaper office clock setup today? I’m seeing an abrupt sustained step up in my pendulum readings starting day 13, and I want to know whether anything in the room, mounting, airflow, or handling changed around then. Please don’t look at my recent values before you measure if you can avoid it. If you find any change, tell me exactly what and when.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1336,
+            "agentId": "samuel",
+            "viaEventId": 1336,
+            "exposedOnDay": 19,
+            "subsequentTestimony": [
+              {
+                "eventId": 1835,
+                "day": 28,
+                "text": "I can do that. I will check the newspaper office clock setup independently and avoid your recent readings and notebook while I measure. If I find any alteration, I’ll report exactly what I observed and as closely as I can place it in time. If not, I’ll say so and describe the method and conditions. I’ll use a fresh direct timing check on the setup as it stands, with attention to room conditions, mounting, airflow, and handling, and I’ll keep your values out of the procedure."
+              },
+              {
+                "eventId": 1898,
+                "day": 29,
+                "text": "I have not yet found a distinct alteration in the setup that I can identify as a day-13 change. To avoid contaminating the check, I will measure the newspaper office clock setup independently from your readings and notebook. If I see anything physically changed, I’ll report the observed change and my estimate of when it occurred; if not, I’ll say so plainly along with the method and conditions. For my part, the main thing I can say now is that my own independent pendulum series shows a small post-baseline upward shift, but not a clean step, so I still want a direct physical inspection before I call anything changed."
+              },
+              {
+                "eventId": 1948,
+                "day": 30,
+                "text": "I have not yet found a distinct physical alteration in the newspaper office setup that I can identify as a day-13 change. I am going to continue checking it independently, without using your recent readings or notebook, so the test stays clean. If I find any alteration, I’ll report exactly what I observed and my best estimate of when it occurred; if not, I’ll say so plainly. So far, the only firm thing I can report is that my own pendulum series shows a small post-baseline upward shift, but not a clean step, so I still need a direct physical inspection before I attribute anything to the room or the clock setup."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 19,
+                "label": "Elena’s apparent step is mostly measurement scatter or ordinary observer noise around a mechanically stable clock",
+                "rationale": "This still best fits the record I have. My own 216-trial notebook shows a baseline mean of 2.0030 beats and a post-baseline mean of 2.0137 beats, which is a small change relative to the full spread of readings. The individual day 18–19 values continue to alternate above and below 2.00 without a durable run in one direction, which is what I expect from a stable apparatus plus normal scatter. Elena’s report of an abrupt sustained step is important, but it is still a report about a perceived pattern; by itself it does not outweigh the lack of a corresponding step in my measurements."
+              },
+              {
+                "day": 19,
+                "label": "A weak intermittent environmental or mechanical influence is nudging the pendulum sometimes, but not enough to create a persistent offset in my record",
+                "rationale": "This remains plausible because there are isolated higher readings, including several above 2.02 and 2.04 beats, which could come from airflow, nearby activity, temperature, or slight changes in friction or mounting. However, the effect is not sustained in my data and does not cleanly explain a sharp day-13 step in Elena’s account unless her setup is more sensitive than mine or the influence is location-specific. The evidence favors a small perturbation over a real long-term drift, but it is weaker than simple scatter because there are repeated excursions."
+              },
+              {
+                "day": 19,
+                "label": "A setup-specific change in Elena’s clock room, mounting, or handling created her apparent step, while my pendulum stayed unchanged",
+                "rationale": "Elena’s message specifically asks about room, mounting, airflow, or handling changes, which makes a procedural or local setup issue worth keeping in view. A genuine change in her environment could produce a sustained shift in her readings without affecting mine. But I do not have independent evidence of such a change yet, and my own record does not show the kind of persistent offset I would expect from a widespread mechanical change in the shared system."
+              },
+              {
+                "day": 19,
+                "label": "A fault or adjustment in Elena’s measurement process or interpretation is producing a false step change",
+                "rationale": "If Elena changed how she read, timed, or recorded the pendulum around day 13, that could create the appearance of a step without a physical change in the clock. Her request not to see her recent values before I measure is consistent with her trying to avoid bias, but it also means her own report may already be vulnerable to expectation effects. Still, I have no direct evidence of a procedural fault, so this stays a minor possibility."
+              },
+              {
+                "day": 19,
+                "label": "Something else not yet modeled is affecting either the pendulum or the measurements",
+                "rationale": "I keep a small residual because the data are not perfectly explained by simple scatter alone, and Elena’s independent report raises the possibility of a localized or unusual cause. But the current record does not force a novel mechanism."
+              },
+              {
+                "day": 22,
+                "label": "Elena’s step is mostly apparent: ordinary measurement scatter, recording bias, or small observer effects around a mechanically stable clock",
+                "rationale": "This remains the best fit for the data I actually hold. My record is long enough to show a stable center near 2.00 beats, with the post-baseline mean only modestly above baseline and no clean step change. The day 21–22 cluster includes highs and lows interleaved rather than a sustained new level, which looks like scatter superimposed on a stable apparatus. Elena’s report describes a pattern in her readings, but it is still a report of perceived trend rather than direct physical evidence of a changed mechanism."
+              },
+              {
+                "day": 22,
+                "label": "Elena’s setup changed locally around day 13: room conditions, mounting, handling, or maintenance altered her clock without affecting mine",
+                "rationale": "Her question specifically asks about room, mounting, airflow, and handling around day 13, which keeps a local setup change on the table. A genuine alteration in her environment could create a sustained shift in her readings while leaving my pendulum unchanged. I do not yet have direct physical evidence of such a change, so this stays secondary to the simpler scatter explanation."
+              },
+              {
+                "day": 22,
+                "label": "The step is primarily a measurement-process artifact in Elena’s observations, such as timing, reading, or recording method changing around day 13",
+                "rationale": "A change in how Elena measures or records could manufacture a step-like shift without any physical change in the clock. This is less likely than plain scatter because I have no direct sign of a procedural change, but it is compatible with a step appearing in one observer’s series while another independent record remains stable."
+              },
+              {
+                "day": 22,
+                "label": "Something else, not yet modeled, is affecting either the pendulum or the measurements",
+                "rationale": "I keep a small remainder because the data are not perfectly clean and Elena’s report could reflect a localized or unusual mechanism not yet identified. But the current evidence does not force a novel explanation, and I should not promote speculation over mechanisms I can actually test."
+              },
+              {
+                "day": 28,
+                "label": "The shift is produced by a local setup change in Elena's measurement environment rather than a change in pendulum_uni itself",
+                "rationale": "Elena explicitly asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local alteration in play. A change confined to her setup could generate a sustained step in her readings without requiring my independent instrument to move in lockstep. I still lack direct physical evidence of such a change, so this remains secondary, but it is more plausible now because her concern is specific and persistent."
+              },
+              {
+                "day": 28,
+                "label": "The apparent step is mainly a measurement-process artifact in how the pendulum timings are taken or recorded",
+                "rationale": "A change in timing practice, reading convention, or recording method can create a step-like shift without any physical change in the apparatus. That would explain why a persistent offset appears while the series still includes near-baseline values. But I do not yet have direct evidence of a procedural change, and the independent magnitude of the drift keeps a physical cause ahead of a pure artifact."
+              },
+              {
+                "day": 30,
+                "label": "A local setup change in Elena's measurement environment is biasing the readings without changing the pendulum itself",
+                "rationale": "Elena specifically asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local environmental shift plausible. A change confined to her setup could produce a sustained upward offset in the recorded beats while leaving the pendulum itself unchanged. I still do not have direct physical evidence of such a change, so this remains secondary, but it is supported by the fact that the suspected anomaly may be in the measurement environment rather than the instrument proper."
+              },
+              {
+                "day": 30,
+                "label": "The shift is mainly a measurement-process artifact in timing, reading, or recording practice",
+                "rationale": "A systematic change in how the pendulum is timed or logged can create an apparent step or offset without any physical movement in the apparatus. The mixture of near-baseline and higher values is compatible with a procedural effect that is not perfectly consistent. But there is no direct evidence yet for a changed method, and the independent statistical drift still looks too organized to dismiss as a mere clerical issue."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 1396,
+          "day": 20,
+          "author": "elena",
+          "channel": "message",
+          "text": "Thanks for checking. Please measure the newspaper office clock setup independently today, without looking at my recent pendulum readings if possible. I’m specifically trying to determine whether anything changed around day 13 in the room, mounting, airflow, or handling. If you find any alteration, tell me exactly what you observed and when. If nothing obvious changed, please say that too, along with your method and any conditions that might matter.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1396,
+            "agentId": "samuel",
+            "viaEventId": 1396,
+            "exposedOnDay": 20,
+            "subsequentTestimony": [
+              {
+                "eventId": 1835,
+                "day": 28,
+                "text": "I can do that. I will check the newspaper office clock setup independently and avoid your recent readings and notebook while I measure. If I find any alteration, I’ll report exactly what I observed and as closely as I can place it in time. If not, I’ll say so and describe the method and conditions. I’ll use a fresh direct timing check on the setup as it stands, with attention to room conditions, mounting, airflow, and handling, and I’ll keep your values out of the procedure."
+              },
+              {
+                "eventId": 1898,
+                "day": 29,
+                "text": "I have not yet found a distinct alteration in the setup that I can identify as a day-13 change. To avoid contaminating the check, I will measure the newspaper office clock setup independently from your readings and notebook. If I see anything physically changed, I’ll report the observed change and my estimate of when it occurred; if not, I’ll say so plainly along with the method and conditions. For my part, the main thing I can say now is that my own independent pendulum series shows a small post-baseline upward shift, but not a clean step, so I still want a direct physical inspection before I call anything changed."
+              },
+              {
+                "eventId": 1948,
+                "day": 30,
+                "text": "I have not yet found a distinct physical alteration in the newspaper office setup that I can identify as a day-13 change. I am going to continue checking it independently, without using your recent readings or notebook, so the test stays clean. If I find any alteration, I’ll report exactly what I observed and my best estimate of when it occurred; if not, I’ll say so plainly. So far, the only firm thing I can report is that my own pendulum series shows a small post-baseline upward shift, but not a clean step, so I still need a direct physical inspection before I attribute anything to the room or the clock setup."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 22,
+                "label": "Elena’s step is mostly apparent: ordinary measurement scatter, recording bias, or small observer effects around a mechanically stable clock",
+                "rationale": "This remains the best fit for the data I actually hold. My record is long enough to show a stable center near 2.00 beats, with the post-baseline mean only modestly above baseline and no clean step change. The day 21–22 cluster includes highs and lows interleaved rather than a sustained new level, which looks like scatter superimposed on a stable apparatus. Elena’s report describes a pattern in her readings, but it is still a report of perceived trend rather than direct physical evidence of a changed mechanism."
+              },
+              {
+                "day": 22,
+                "label": "A weak local influence exists, but it is intermittent or small enough that it does not create a durable offset in my record",
+                "rationale": "The repeated excursions above 2.02–2.05 beat suggest there may be some minor perturbation, such as airflow, temperature, nearby activity, or slight mounting/friction changes. However, the effect is not consistent enough to explain a true sustained step in my own series, so if real it is likely weak, variable, or location-specific rather than a broad system change."
+              },
+              {
+                "day": 22,
+                "label": "Elena’s setup changed locally around day 13: room conditions, mounting, handling, or maintenance altered her clock without affecting mine",
+                "rationale": "Her question specifically asks about room, mounting, airflow, and handling around day 13, which keeps a local setup change on the table. A genuine alteration in her environment could create a sustained shift in her readings while leaving my pendulum unchanged. I do not yet have direct physical evidence of such a change, so this stays secondary to the simpler scatter explanation."
+              },
+              {
+                "day": 22,
+                "label": "The step is primarily a measurement-process artifact in Elena’s observations, such as timing, reading, or recording method changing around day 13",
+                "rationale": "A change in how Elena measures or records could manufacture a step-like shift without any physical change in the clock. This is less likely than plain scatter because I have no direct sign of a procedural change, but it is compatible with a step appearing in one observer’s series while another independent record remains stable."
+              },
+              {
+                "day": 22,
+                "label": "Something else, not yet modeled, is affecting either the pendulum or the measurements",
+                "rationale": "I keep a small remainder because the data are not perfectly clean and Elena’s report could reflect a localized or unusual mechanism not yet identified. But the current evidence does not force a novel explanation, and I should not promote speculation over mechanisms I can actually test."
+              },
+              {
+                "day": 28,
+                "label": "The shift is produced by a local setup change in Elena's measurement environment rather than a change in pendulum_uni itself",
+                "rationale": "Elena explicitly asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local alteration in play. A change confined to her setup could generate a sustained step in her readings without requiring my independent instrument to move in lockstep. I still lack direct physical evidence of such a change, so this remains secondary, but it is more plausible now because her concern is specific and persistent."
+              },
+              {
+                "day": 28,
+                "label": "The apparent step is mainly a measurement-process artifact in how the pendulum timings are taken or recorded",
+                "rationale": "A change in timing practice, reading convention, or recording method can create a step-like shift without any physical change in the apparatus. That would explain why a persistent offset appears while the series still includes near-baseline values. But I do not yet have direct evidence of a procedural change, and the independent magnitude of the drift keeps a physical cause ahead of a pure artifact."
+              },
+              {
+                "day": 30,
+                "label": "A local setup change in Elena's measurement environment is biasing the readings without changing the pendulum itself",
+                "rationale": "Elena specifically asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local environmental shift plausible. A change confined to her setup could produce a sustained upward offset in the recorded beats while leaving the pendulum itself unchanged. I still do not have direct physical evidence of such a change, so this remains secondary, but it is supported by the fact that the suspected anomaly may be in the measurement environment rather than the instrument proper."
+              },
+              {
+                "day": 30,
+                "label": "The shift is mainly a measurement-process artifact in timing, reading, or recording practice",
+                "rationale": "A systematic change in how the pendulum is timed or logged can create an apparent step or offset without any physical movement in the apparatus. The mixture of near-baseline and higher values is compatible with a procedural effect that is not perfectly consistent. But there is no direct evidence yet for a changed method, and the independent statistical drift still looks too organized to dismiss as a mere clerical issue."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 1786,
+          "day": 27,
+          "author": "elena",
+          "channel": "message",
+          "text": "Could you give me your independent check of the newspaper office clock setup as it stands today? Please measure without looking at my pendulum readings or notebook if possible. I’m trying to determine whether anything changed around day 13 in the room, mounting, airflow, handling, or the clock setup itself. If you found any alteration, tell me exactly what you observed and when; if not, please say so and briefly describe your method and any conditions that might matter.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1786,
+            "agentId": "samuel",
+            "viaEventId": 1786,
+            "exposedOnDay": 27,
+            "subsequentTestimony": [
+              {
+                "eventId": 1835,
+                "day": 28,
+                "text": "I can do that. I will check the newspaper office clock setup independently and avoid your recent readings and notebook while I measure. If I find any alteration, I’ll report exactly what I observed and as closely as I can place it in time. If not, I’ll say so and describe the method and conditions. I’ll use a fresh direct timing check on the setup as it stands, with attention to room conditions, mounting, airflow, and handling, and I’ll keep your values out of the procedure."
+              },
+              {
+                "eventId": 1898,
+                "day": 29,
+                "text": "I have not yet found a distinct alteration in the setup that I can identify as a day-13 change. To avoid contaminating the check, I will measure the newspaper office clock setup independently from your readings and notebook. If I see anything physically changed, I’ll report the observed change and my estimate of when it occurred; if not, I’ll say so plainly along with the method and conditions. For my part, the main thing I can say now is that my own independent pendulum series shows a small post-baseline upward shift, but not a clean step, so I still want a direct physical inspection before I call anything changed."
+              },
+              {
+                "eventId": 1948,
+                "day": 30,
+                "text": "I have not yet found a distinct physical alteration in the newspaper office setup that I can identify as a day-13 change. I am going to continue checking it independently, without using your recent readings or notebook, so the test stays clean. If I find any alteration, I’ll report exactly what I observed and my best estimate of when it occurred; if not, I’ll say so plainly. So far, the only firm thing I can report is that my own pendulum series shows a small post-baseline upward shift, but not a clean step, so I still need a direct physical inspection before I attribute anything to the room or the clock setup."
+              }
+            ],
+            "citingHypotheses": [
+              {
+                "day": 28,
+                "label": "The shift is produced by a local setup change in Elena's measurement environment rather than a change in pendulum_uni itself",
+                "rationale": "Elena explicitly asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local alteration in play. A change confined to her setup could generate a sustained step in her readings without requiring my independent instrument to move in lockstep. I still lack direct physical evidence of such a change, so this remains secondary, but it is more plausible now because her concern is specific and persistent."
+              },
+              {
+                "day": 28,
+                "label": "The apparent step is mainly a measurement-process artifact in how the pendulum timings are taken or recorded",
+                "rationale": "A change in timing practice, reading convention, or recording method can create a step-like shift without any physical change in the apparatus. That would explain why a persistent offset appears while the series still includes near-baseline values. But I do not yet have direct evidence of a procedural change, and the independent magnitude of the drift keeps a physical cause ahead of a pure artifact."
+              },
+              {
+                "day": 30,
+                "label": "A local setup change in Elena's measurement environment is biasing the readings without changing the pendulum itself",
+                "rationale": "Elena specifically asked about room conditions, mounting, airflow, and handling around day 13, which keeps a local environmental shift plausible. A change confined to her setup could produce a sustained upward offset in the recorded beats while leaving the pendulum itself unchanged. I still do not have direct physical evidence of such a change, so this remains secondary, but it is supported by the fact that the suspected anomaly may be in the measurement environment rather than the instrument proper."
+              },
+              {
+                "day": 30,
+                "label": "The shift is mainly a measurement-process artifact in timing, reading, or recording practice",
+                "rationale": "A systematic change in how the pendulum is timed or logged can create an apparent step or offset without any physical movement in the apparatus. The mixture of near-baseline and higher values is compatible with a procedural effect that is not perfectly consistent. But there is no direct evidence yet for a changed method, and the independent statistical drift still looks too organized to dismiss as a mere clerical issue."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 1835,
+          "day": 28,
+          "author": "samuel",
+          "channel": "message",
+          "text": "I can do that. I will check the newspaper office clock setup independently and avoid your recent readings and notebook while I measure. If I find any alteration, I’ll report exactly what I observed and as closely as I can place it in time. If not, I’ll say so and describe the method and conditions. I’ll use a fresh direct timing check on the setup as it stands, with attention to room conditions, mounting, airflow, and handling, and I’ll keep your values out of the procedure.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1835,
+            "agentId": "elena",
+            "viaEventId": 1835,
+            "exposedOnDay": 28,
+            "subsequentTestimony": [],
+            "citingHypotheses": [],
+            "screenedStance": "IGNORED"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 1,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 0,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 1898,
+          "day": 29,
+          "author": "samuel",
+          "channel": "message",
+          "text": "I have not yet found a distinct alteration in the setup that I can identify as a day-13 change. To avoid contaminating the check, I will measure the newspaper office clock setup independently from your readings and notebook. If I see anything physically changed, I’ll report the observed change and my estimate of when it occurred; if not, I’ll say so plainly along with the method and conditions. For my part, the main thing I can say now is that my own independent pendulum series shows a small post-baseline upward shift, but not a clean step, so I still want a direct physical inspection before I call anything changed.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1898,
+            "agentId": "elena",
+            "viaEventId": 1898,
+            "exposedOnDay": 29,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 29,
+                "label": "A procedural or environmental change around day 13 altered the readings without changing the clock’s underlying rate",
+                "rationale": "This remains the best fit because the rise is abrupt, sustained, and fairly consistent across many post-day-13 trials, which is the shape I would expect from a setup or measurement change rather than from ordinary drift. The later day-15 values are a little lower, but they still mostly sit above baseline, which is compatible with a stable change plus scatter. Samuel’s latest reply is helpful but not decisive: he has not found a distinct physical alteration yet, and his current note is still cautious rather than confirmatory, so the observed pattern still points first to a procedural or environmental shift."
+              },
+              {
+                "day": 29,
+                "label": "The clock itself underwent a genuine upward rate change starting around day 13",
+                "rationale": "A real mechanical change is still plausible because the elevation persists across 36 post-baseline trials and is not just a one-off spike. However, the onset looks too sudden and too step-like for a typical internal mechanical progression, and nothing in Samuel’s report yet provides a clear physical change in the clock itself. His inability so far to identify a distinct alteration makes a direct intrinsic rate change somewhat less favored than a setup or procedure shift."
+              },
+              {
+                "day": 29,
+                "label": "Some other unrecognized factor is producing the pattern",
+                "rationale": "A hidden cause remains plausible, especially because Samuel has not yet produced a clean physical explanation and because the pattern could reflect a subtle room change, intermittent nearby activity, or an untracked interaction between conditions and handling. This category is broader than the main mundane explanations and therefore less informative, but it fits better than simple noise while leaving room for a factor neither of us has identified yet."
+              },
+              {
+                "day": 29,
+                "label": "Residual: something I haven't thought of",
+                "rationale": "There may be a combination of causes or a mechanism not yet captured in the current set, including simultaneous small setup and mechanical changes, or a subtler measurement artifact. This residual stays substantial because the independent inspection is still incomplete and the data show a pattern that is clear but not yet fully anatomized."
+              },
+              {
+                "day": 30,
+                "label": "A procedural or environmental change around day 13 altered the readings without changing the clock’s underlying rate",
+                "rationale": "This still best fits the shape of the data: the shift is abrupt, sustained, and broadly consistent across many post-day-13 trials, which is more characteristic of a setup or observation change than ordinary mechanical drift. The later day-15 values wobble a bit but remain mostly above baseline, which is compatible with a stable change plus noise. Samuel’s independent checks have so far failed to find a distinct physical alteration, which weakly favors a subtler procedural/environmental explanation over a clear mechanical one, though his report is not conclusive."
+              },
+              {
+                "day": 30,
+                "label": "The clock itself underwent a genuine upward rate change starting around day 13",
+                "rationale": "A real intrinsic change remains plausible because the elevation persists over 36 post-baseline trials and is not a single outlier. But the onset looks step-like rather than gradual, which is less typical for an internal mechanical change absent some identifiable adjustment or fault. Samuel has not yet identified a clear physical alteration in the clock setup, so this remains possible but less favored than a measurement-side shift."
+              },
+              {
+                "day": 30,
+                "label": "Some unrecognized factor is producing the pattern",
+                "rationale": "A hidden cause remains plausible because the data show a real pattern but neither a clean mechanical change nor a clear procedural change has been identified. This could include intermittent room conditions, nearby activity, handling effects, or another interaction not yet noticed. It explains why the shift is real-looking without cleanly mapping onto the current categories, though it is less specific than the leading explanations."
+              },
+              {
+                "day": 30,
+                "label": "Residual: something I haven't thought of",
+                "rationale": "A substantial residual remains because the pattern is clear but not yet fully anatomized, and Samuel’s independent inspection has not produced a definitive physical diagnosis. There could be a combined or subtler mechanism, such as small setup changes interacting with mechanical behavior, or another artifact not yet considered."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      },
+      {
+        "claim": {
+          "eventId": 1948,
+          "day": 30,
+          "author": "samuel",
+          "channel": "message",
+          "text": "I have not yet found a distinct physical alteration in the newspaper office setup that I can identify as a day-13 change. I am going to continue checking it independently, without using your recent readings or notebook, so the test stays clean. If I find any alteration, I’ll report exactly what I observed and my best estimate of when it occurred; if not, I’ll say so plainly. So far, the only firm thing I can report is that my own pendulum series shows a small post-baseline upward shift, but not a clean step, so I still need a direct physical inspection before I attribute anything to the room or the clock setup.",
+          "screenedUnsupported": false
+        },
+        "exposures": [
+          {
+            "claimEventId": 1948,
+            "agentId": "elena",
+            "viaEventId": 1948,
+            "exposedOnDay": 30,
+            "subsequentTestimony": [],
+            "citingHypotheses": [
+              {
+                "day": 30,
+                "label": "A procedural or environmental change around day 13 altered the readings without changing the clock’s underlying rate",
+                "rationale": "This still best fits the shape of the data: the shift is abrupt, sustained, and broadly consistent across many post-day-13 trials, which is more characteristic of a setup or observation change than ordinary mechanical drift. The later day-15 values wobble a bit but remain mostly above baseline, which is compatible with a stable change plus noise. Samuel’s independent checks have so far failed to find a distinct physical alteration, which weakly favors a subtler procedural/environmental explanation over a clear mechanical one, though his report is not conclusive."
+              },
+              {
+                "day": 30,
+                "label": "The clock itself underwent a genuine upward rate change starting around day 13",
+                "rationale": "A real intrinsic change remains plausible because the elevation persists over 36 post-baseline trials and is not a single outlier. But the onset looks step-like rather than gradual, which is less typical for an internal mechanical change absent some identifiable adjustment or fault. Samuel has not yet identified a clear physical alteration in the clock setup, so this remains possible but less favored than a measurement-side shift."
+              },
+              {
+                "day": 30,
+                "label": "Some unrecognized factor is producing the pattern",
+                "rationale": "A hidden cause remains plausible because the data show a real pattern but neither a clean mechanical change nor a clear procedural change has been identified. This could include intermittent room conditions, nearby activity, handling effects, or another interaction not yet noticed. It explains why the shift is real-looking without cleanly mapping onto the current categories, though it is less specific than the leading explanations."
+              },
+              {
+                "day": 30,
+                "label": "Residual: something I haven't thought of",
+                "rationale": "A substantial residual remains because the pattern is clear but not yet fully anatomized, and Samuel’s independent inspection has not produced a definitive physical diagnosis. There could be a combined or subtler mechanism, such as small setup changes interacting with mechanical behavior, or another artifact not yet considered."
+              }
+            ],
+            "screenedStance": "INCORPORATED_INTO_BELIEF"
+          }
+        ],
+        "exposedCount": 1,
+        "screenedByStance": {
+          "IGNORED": 0,
+          "REPEATED_NEUTRAL": 0,
+          "ENDORSED": 0,
+          "INCORPORATED_INTO_BELIEF": 1,
+          "CHALLENGED": 0,
+          "CORRECTED": 0
+        }
+      }
+    ],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A small pendulum-specific calibration or environmental offset began around days 9–10, producing a mild upward bias without a large runaway drift",
+          "probability": 0.36363636363636365,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Normal scatter around a stable pendulum baseline, with the apparent shift amplified by sampling noise",
+          "probability": 0.3,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Transient procedure or handling effects produced intermittent excursions, with repeated small operational variation lifting the pendulum average",
+          "probability": 0.09090909090909091,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A weak shared setup or environmental factor affected both labs, but only subtly and inconsistently",
+          "probability": 0.03636363636363636,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else unconsidered explains the pattern",
+          "probability": 0.027272727272727268,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "(residual: something I haven't thought of)",
+          "probability": 0.09090909090909091,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary scatter around a stable pendulum baseline, with a few elevated runs pulling the mean upward",
+          "probability": 0.6060606060606061,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A brief transient influence affected some pendulum sessions, then faded",
+          "probability": 0.14141414141414144,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small real drift in the pendulum began, but irregularly and weakly",
+          "probability": 0.10101010101010102,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A procedural or timing change introduced a small offset in some runs",
+          "probability": 0.06060606060606061,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Some unmodeled factor is contributing, but the available evidence is insufficient to identify it",
+          "probability": 0.030303030303030304,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something unconsidered",
+          "probability": 0.030303030303030304,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A small local bias is present in the pendulum setup or in my handling/reading of it, affecting that instrument alone.",
+          "probability": 0.4339622641509434,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "A modest environmental change is nudging the pendulum more than the resonator.",
+          "probability": 0.16981132075471697,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "The pendulum shift is mostly ordinary sampling variation around a stable mean.",
+          "probability": 0.056603773584905655,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Different influences are acting on the two instruments, so only the pendulum has shifted.",
+          "probability": 0.1320754716981132,
+          "firstPartySources": [
+            "pendulum_dist",
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "Some unrecognized mechanism is shaping the measurements, but I cannot yet sort it into a familiar category.",
+          "probability": 0.0660377358490566,
+          "firstPartySources": [
+            "pendulum_dist",
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "The pattern is caused by something I have not yet imagined at all.",
+          "probability": 0.028301886792452827,
+          "firstPartySources": [
+            "pendulum_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "theo",
+          "label": "residual: something unconsidered",
+          "probability": 0.056603773584905655,
+          "firstPartySources": [
+            "pendulum_dist",
+            "resonator_dist"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A small real mechanical or environmental perturbation is acting on pendulum_uni intermittently rather than as a clean step change",
+          "probability": 0.3942307692307692,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "The apparent shift is mostly ordinary scatter around a stable pendulum, made more visible by a large sample",
+          "probability": 0.17307692307692307,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "A local setup change in Elena's measurement environment is biasing the readings without changing the pendulum itself",
+          "probability": 0.15384615384615385,
+          "firstPartySources": [],
+          "testimonySources": [
+            "elena"
+          ],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "The shift is mainly a measurement-process artifact in timing, reading, or recording practice",
+          "probability": 0.14423076923076922,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [
+            "elena"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Some other unmodeled mechanical fault or interaction is affecting the pendulum or the measurements",
+          "probability": 0.05769230769230769,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "samuel",
+          "label": "Residual: something unconsidered",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [
+            "pendulum_uni"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "A procedural or environmental change around day 13 altered the readings without changing the clock’s underlying rate",
+          "probability": 0.41,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [
+            "samuel"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "The clock itself underwent a genuine upward rate change starting around day 13",
+          "probability": 0.19,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Some unrecognized factor is producing the pattern",
+          "probability": 0.11,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [
+            "samuel"
+          ],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "The apparent shift is mostly normal sampling variation around a stable clock rate",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_news"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "elena",
+          "label": "Residual: something I haven't thought of",
+          "probability": 0.26,
+          "firstPartySources": [],
+          "testimonySources": [
+            "samuel"
+          ],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The pendulum_cafe experienced a genuine small step-up after day 10; the resonator_cafe did not materially change.",
+          "probability": 0.83,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The pendulum_cafe shows a mild upward drift that has largely flattened into a higher band.",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "A café-level influence altered measurements, but the pendulum is more sensitive than the resonator.",
+          "probability": 0.05,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "An instrument-specific bias, coupling, or unfamiliar mechanism is affecting the pendulum measurements without a comparable effect on the resonator.",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "The resonator_cafe has drifted slightly downward, but only at a level consistent with noise.",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_cafe"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "leah",
+          "label": "Something else not yet considered is responsible.",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "The pendulum system is basically stable; the higher post-baseline mean is ordinary scatter plus small environmental and handling variation.",
+          "probability": 0.67,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "A weak recurring external influence is nudging the readings up and down, raising the average without producing a clean trend.",
+          "probability": 0.13,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "There is a small real mechanical shift in the apparatus, but it is modest enough to hide inside normal scatter.",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Occasional disturbance or miscounting is contributing small errors to some trials.",
+          "probability": 0.05,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "tom",
+          "label": "Something else not yet considered is affecting the pendulum_farm record.",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_farm"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "The pendulum is basically stable and the clusters are ordinary short-run scatter.",
+          "probability": 0.71,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Brief disturbances or calibration wobble produced short local runs away from baseline.",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A small real offset exists, but it is weak and intermittent.",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A genuine nonrandom influence is acting, but its signature is too weak to identify.",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "A hidden procedural artifact or unrecognized environmental factor is biasing some readings intermittently.",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "jamie",
+          "label": "Something not yet considered is producing the readings.",
+          "probability": 0.01,
+          "firstPartySources": [
+            "pendulum_school"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.1144611637549529,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 330,
+      "meanInputTokens": 1606.2181818181818,
+      "maxInputTokens": 3056,
+      "meanInputTokensByAgent": {
+        "maya": 1561.225,
+        "elena": 1711.888888888889,
+        "leah": 1669,
+        "jamie": 1575.2444444444445,
+        "ada": 1587.3076923076924,
+        "theo": 1605.4615384615386,
+        "samuel": 1617.1052631578948,
+        "tom": 1506.95
+      }
+    }
+  }
+]

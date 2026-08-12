@@ -1,0 +1,4196 @@
+[
+  {
+    "runId": "9a0ea4f4-65ca-4fc4-9c07-07884d47513e",
+    "scenario": "control",
+    "seed": 1000,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.7410891089108911,
+      "perAgentCorrectCredence": {
+        "ada": 0.7,
+        "maya": 0.7821782178217822
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0.20064356435643568,
+      "earlyDispersion": 0.21999999999999997,
+      "convergence": 0.01935643564356429
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary measurement scatter around a stable pendulum baseline, with no real drift",
+          "probability": 0.7,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small real calibration or operating shift has nudged the pendulum’s mean, but only slightly",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An intermittent procedural or instrument irregularity is affecting isolated trials without moving the baseline",
+          "probability": 0.09,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A subtle external influence is modulating the pendulum in a nonmonotonic way",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet identified",
+          "probability": 0.01,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary trial-to-trial measurement scatter around a stable pendulum period",
+          "probability": 0.7722772277227723,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small intermittent environmental or handling effect is adding scatter",
+          "probability": 0.1485148514851485,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A very slight upward instrumental drift has begun but is still below confident detection",
+          "probability": 0.039603960396039604,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unrecognized change in apparatus or reduction procedure is affecting the readings",
+          "probability": 0.019801980198019802,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something unconsidered",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9949497474873744,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1092.3181818181818,
+      "maxInputTokens": 1742,
+      "meanInputTokensByAgent": {
+        "ada": 1068.1515151515152,
+        "maya": 1116.4848484848485
+      }
+    }
+  },
+  {
+    "runId": "46124d10-fd67-4876-8759-07e3f27be6d3",
+    "scenario": "control",
+    "seed": 1001,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.5499417588817705,
+      "perAgentCorrectCredence": {
+        "ada": 0.9117647058823529,
+        "maya": 0.18811881188118812
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.7775189283634246,
+      "earlyDispersion": 0.2,
+      "convergence": -0.5775189283634246
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Stable pendulum baseline with ordinary scatter",
+          "probability": 0.8137254901960784,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Small downward shift in pendulum period beginning late in the run",
+          "probability": 0.09803921568627451,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Small upward shift in pendulum period beginning late in the run",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Intermittent procedural or instrument artifact affecting only some trials",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary measurement scatter around stable instrument baselines",
+          "probability": 0.7425742574257426,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A very small real drift or offset is present, but it is still comparable to normal scatter",
+          "probability": 0.1782178217821782,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A short-lived local condition or setup effect is causing temporary excursions without a lasting instrument change",
+          "probability": 0.04950495049504951,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unrecognized calibration or counting bias is affecting the pendulum stream more than the resonator",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something else unconsidered",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9900492610837438,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1135.8030303030303,
+      "maxInputTokens": 1811,
+      "meanInputTokensByAgent": {
+        "ada": 1090.060606060606,
+        "maya": 1181.5454545454545
+      }
+    }
+  },
+  {
+    "runId": "700bda97-a8bc-4f27-b1e8-9d628e21fc2f",
+    "scenario": "control",
+    "seed": 1002,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.0825242718446602,
+      "perAgentCorrectCredence": {
+        "ada": 0.1650485436893204,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.689514563106796,
+      "earlyDispersion": 0.27058823529411763,
+      "convergence": -0.4189263278126784
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A pendulum_lab-specific setup or calibration change caused a small downward shift and extra scatter",
+          "probability": 0.5922330097087378,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The post-baseline pendulum readings are an ordinary fluctuation around the established baseline",
+          "probability": 0.1650485436893204,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A genuine environmental change is affecting pendulum_lab more than resonator_lab",
+          "probability": 0.11650485436893203,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The resonator_lab low reading is an isolated outlier unrelated to the pendulum pattern",
+          "probability": 0.019417475728155338,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Some unidentified procedural or instrumental interaction is producing the pendulum pattern",
+          "probability": 0.04854368932038835,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary trial-to-trial and environmental variation around a stable pendulum period",
+          "probability": 0.59,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A subtle physical shift in the pendulum system, such as temperature, friction, or adjustment effects",
+          "probability": 0.23,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Intermittent setup or timing disturbance affecting individual trials rather than the pendulum itself",
+          "probability": 0.13,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A discrete change in apparatus or observing conditions after about day 7",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unrecognized systematic effect not yet identified",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9901477832512315,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1197.8333333333333,
+      "maxInputTokens": 1855,
+      "meanInputTokensByAgent": {
+        "ada": 1219.8181818181818,
+        "maya": 1175.8484848484848
+      }
+    }
+  },
+  {
+    "runId": "6098db00-e220-45d0-8ff4-e5b852055fb5",
+    "scenario": "control",
+    "seed": 1003,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.5193969849246232,
+      "perAgentCorrectCredence": {
+        "ada": 0.7587939698492463,
+        "maya": 0.28
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.5416080402010051,
+      "earlyDispersion": 0.31,
+      "convergence": -0.23160804020100506
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary random variation around a stable pendulum baseline",
+          "probability": 0.7537688442211056,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small step-like calibration offset after the baseline period",
+          "probability": 0.16080402010050251,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Short-lived environmental or setup perturbations affecting isolated trials",
+          "probability": 0.06030150753768844,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A bookkeeping, reading, or transcription error in one or a few pendulum trials",
+          "probability": 0.01507537688442211,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet considered",
+          "probability": 0.005025125628140704,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Small instrumental or environmental drift in the pendulum setup after day 7",
+          "probability": 0.49,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary short-term scatter around a stable pendulum mean",
+          "probability": 0.28,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A real change confined to the pendulum instrument or its immediate surroundings",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A shared timing effect affecting both instruments, but not yet demonstrable in the resonator record",
+          "probability": 0.07,
+          "firstPartySources": [
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unconsidered, including a measurement artifact in the statistics or sampling window",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A genuine resonator anomaly or drift shared with the pendulum",
+          "probability": 0,
+          "firstPartySources": [
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I have not considered",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.0100251889168765,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 72,
+      "meanInputTokens": 1184.8194444444443,
+      "maxInputTokens": 2286,
+      "meanInputTokensByAgent": {
+        "maya": 1005,
+        "ada": 1336.974358974359
+      }
+    }
+  },
+  {
+    "runId": "5fd2cf93-81bd-4932-83bd-abe822df0522",
+    "scenario": "control",
+    "seed": 1004,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.6348058252427184,
+      "perAgentCorrectCredence": {
+        "ada": 0.6796116504854368,
+        "maya": 0.5900000000000001
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 2,
+      "dispersion": 0.11830097087378633,
+      "earlyDispersion": 0.18470588235294114,
+      "convergence": 0.06640491147915481
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary measurement scatter plus a few chance low outliers, with no real change in the pendulum system",
+          "probability": 0.5825242718446602,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A brief disturbance or setup/handling issue around day 17 caused a short-lived low cluster, after which the instrument returned to baseline",
+          "probability": 0.23300970873786406,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum system is drifting slightly upward, but the effect is weak and not yet separable from noise",
+          "probability": 0.0970873786407767,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An intermittent external factor or procedural change is affecting the pendulum measurements in a non-monotonic way",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The resonator lab is showing a separate upward drift, but this does not explain the pendulum anomaly",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something I have not considered",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum shows a small but real downward shift after the baseline, while the resonator remains consistent with ordinary scatter.",
+          "probability": 0.46,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A mild local drift or setup/environment change is affecting the pendulum instrument.",
+          "probability": 0.3,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A brief disturbance around the transition period depressed some pendulum readings without causing a lasting change.",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A broader timing-system effect is affecting both instruments.",
+          "probability": 0.08,
+          "firstPartySources": [
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum and resonator are both behaving normally, and the apparent offsets are ordinary statistical fluctuation.",
+          "probability": 0.05,
+          "firstPartySources": [
+            "resonator_obs",
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.0257615927167225,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 69,
+      "meanInputTokens": 1241.840579710145,
+      "maxInputTokens": 2296,
+      "meanInputTokensByAgent": {
+        "ada": 1184,
+        "maya": 1294.861111111111
+      }
+    }
+  },
+  {
+    "runId": "5e063ebf-9853-4e66-b111-6b02369c5064",
+    "scenario": "control",
+    "seed": 1005,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.33724079955165326,
+      "perAgentCorrectCredence": {
+        "ada": 0.5754716981132075,
+        "maya": 0.09900990099009901
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.5941528115075659,
+      "earlyDispersion": 0.6222549019607843,
+      "convergence": 0.02810209045321832
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary scatter around a stable pendulum baseline",
+          "probability": 0.5754716981132075,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small calibration offset or slow environmental drift in the pendulum setup",
+          "probability": 0.1981132075471698,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A brief local perturbation affecting only some trials",
+          "probability": 0.09433962264150944,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A broader apparatus interaction affecting more than the pendulum alone",
+          "probability": 0.018867924528301886,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something unconsidered",
+          "probability": 0.056603773584905655,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A transient local disturbance affected a small subset of pendulum runs on day 9 (handling, timing, setup, or environment).",
+          "probability": 0.6138613861386139,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum apparatus has a mild intermittent instability that occasionally produces shorter beat counts.",
+          "probability": 0.1782178217821782,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The day-9 low pair is statistical scatter from an otherwise stable pendulum baseline.",
+          "probability": 0.09900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A protocol, timing, or data-handling issue produced the day-9 dip.",
+          "probability": 0.06930693069306931,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unconsidered is causing the anomaly.",
+          "probability": 0.019801980198019802,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I haven't thought of.",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1125.7575757575758,
+      "maxInputTokens": 1751,
+      "meanInputTokensByAgent": {
+        "ada": 1103.7575757575758,
+        "maya": 1147.7575757575758
+      }
+    }
+  },
+  {
+    "runId": "b958bd03-4065-4a2f-a802-df3b857db1a5",
+    "scenario": "control",
+    "seed": 1006,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.4870388349514563,
+      "perAgentCorrectCredence": {
+        "ada": 0.8640776699029126,
+        "maya": 0.11000000000000001
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.7686407766990292,
+      "earlyDispersion": 0.625,
+      "convergence": -0.1436407766990292
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Normal trial-to-trial scatter around a stable pendulum baseline",
+          "probability": 0.6990291262135921,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small positive systematic shift in pendulum_lab, weakly expressed or intermittent",
+          "probability": 0.1650485436893204,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Short-lived environmental or handling variation producing clustered deviations",
+          "probability": 0.07766990291262135,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: some other unconsidered effect or data issue",
+          "probability": 0.029126213592233007,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small local environmental or procedural influence intermittently nudges the pendulum upward on certain sessions",
+          "probability": 0.48000000000000004,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An occasional setup-dependent measurement bias appears during some pendulum runs, perhaps at reset, alignment, or timing readout",
+          "probability": 0.23000000000000004,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum data are ordinary scatter, and the apparent clusters are chance fluctuations",
+          "probability": 0.11000000000000001,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum is undergoing a real but weak intermittent physical change",
+          "probability": 0.09000000000000001,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Some other unrecognized cause is producing the pattern",
+          "probability": 0.09000000000000001,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1163.8333333333333,
+      "maxInputTokens": 1797,
+      "meanInputTokensByAgent": {
+        "ada": 1151.5757575757575,
+        "maya": 1176.090909090909
+      }
+    }
+  },
+  {
+    "runId": "7d1c2957-a7f2-45af-9e6a-53ad00e18765",
+    "scenario": "control",
+    "seed": 1007,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.3712871287128713,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0.7425742574257426
+      },
+      "majorityDominantClass": "environmental_change",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.9354455445544554,
+      "earlyDispersion": 0.6950000000000001,
+      "convergence": -0.24044554455445533
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary random variation plus mild environmental fluctuation is producing the apparent dip",
+          "probability": 0.63,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum apparatus has developed a small calibration offset or slow mechanical drift",
+          "probability": 0.22,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A brief procedural or operator effect is biasing some pendulum trials low",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet identified is producing the pattern",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum is still stable, and the excursions are ordinary trial-to-trial scatter around a fixed mean.",
+          "probability": 0.6732673267326733,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A mild intermittent disturbance is occasionally perturbing some pendulum trials without changing the underlying mean.",
+          "probability": 0.2079207920792079,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A very small real shift in mean beat length is beginning to emerge.",
+          "probability": 0.06930693069306931,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A procedural or instrument-state bias is intermittently affecting the recorded pendulum beat length.",
+          "probability": 0.0297029702970297,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something else not yet considered is producing the pattern.",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9949228269699432,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 68,
+      "meanInputTokens": 1157.8970588235295,
+      "maxInputTokens": 1805,
+      "meanInputTokensByAgent": {
+        "maya": 1173.5142857142857,
+        "ada": 1141.3333333333333
+      }
+    }
+  },
+  {
+    "runId": "f04dac59-f2f0-45fc-aee8-bebf207056c8",
+    "scenario": "control",
+    "seed": 1008,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.1,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0.2
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.3450495049504951,
+      "earlyDispersion": 0.47058823529411775,
+      "convergence": 0.12553873034362267
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary instrument noise plus normal environmental variation around a stable pendulum setup",
+          "probability": 0.6930693069306931,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A brief episodic disturbance affecting some pendulum trials but not the whole instrument state",
+          "probability": 0.17821782178217824,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A weak genuine drift in pendulum_lab calibration or setup that is still being masked by scatter",
+          "probability": 0.08910891089108912,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A step-like change in the pendulum system that briefly occurred and then relaxed or was corrected",
+          "probability": 0.019801980198019806,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something unconsidered",
+          "probability": 0.009900990099009903,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A pendulum-channel offset from drift, recalibration, or a local instrument adjustment",
+          "probability": 0.56,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary measurement scatter around a stable pendulum baseline",
+          "probability": 0.2,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small environmental change that affects the pendulum more strongly than the resonator",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A short-lived procedural bias during part of the campaign, later corrected",
+          "probability": 0.06,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Some other unrecognized cause, including a subtler shared physical effect",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.994974369283345,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1139.1363636363637,
+      "maxInputTokens": 1810,
+      "meanInputTokensByAgent": {
+        "maya": 1161.2424242424242,
+        "ada": 1117.030303030303
+      }
+    }
+  },
+  {
+    "runId": "8be6c5b4-9d06-4a60-b0ca-b4eb4a82fb6c",
+    "scenario": "control",
+    "seed": 1009,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "control",
+      "correctClass": "measurement_error",
+      "meanCorrectCredence": 0.5025000000000001,
+      "perAgentCorrectCredence": {
+        "ada": 0.8250000000000001,
+        "maya": 0.18
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": true,
+      "anyAgentCorrect": true,
+      "anyAgentCorrectCount": 1,
+      "dispersion": 0.815,
+      "earlyDispersion": 0.795,
+      "convergence": -0.019999999999999907
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The pendulum remains stable; Day 28’s low cluster is an ordinary statistical fluctuation around a fixed baseline.",
+          "probability": 0.8,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small intermittent handling or environmental effect is producing occasional low and high excursions without changing the underlying baseline.",
+          "probability": 0.17,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "There is a very small emerging drift, but it is too weak to distinguish cleanly from noise and transient handling effects.",
+          "probability": 0.025,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A discrete transient disturbance or brief calibration perturbation affected only a small subset of runs.",
+          "probability": 0.005,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something else is generating the pattern that has not yet been identified.",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary instrumental/environmental drift affecting the pendulum more than the resonator",
+          "probability": 0.59,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A discrete setup change or calibration offset occurred around Day 11–12",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The offset is mostly random scatter in a short and uneven dataset",
+          "probability": 0.15,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A shared external influence is nudging both instruments in a coupled way",
+          "probability": 0.07,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something else not yet identified is responsible",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I haven't thought of",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.4200000000000002,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 66,
+      "meanInputTokens": 1102.6363636363637,
+      "maxInputTokens": 1894,
+      "meanInputTokensByAgent": {
+        "ada": 1096.5454545454545,
+        "maya": 1108.7272727272727
+      }
+    }
+  },
+  {
+    "runId": "1facacc6-1d07-4cfa-aafc-543040fa60f9",
+    "scenario": "gravity_shift",
+    "seed": 1000,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.418073316283035,
+      "earlyDispersion": 0.3306796116504854,
+      "convergence": -0.08739370463254958
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A small real offset or calibration shift in the pendulum/timing system beginning around day 9–10",
+          "probability": 0.28695652173913044,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An intermittent environmental or setup influence affecting some pendulum runs",
+          "probability": 0.20869565217391306,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A procedural inconsistency in how pendulum trials are conducted or counted",
+          "probability": 0.08695652173913045,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Ordinary sampling fluctuation around an unchanged pendulum mean",
+          "probability": 0.034782608695652174,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A separate phenomenon in resonator_lab that may matter only after a baseline is established",
+          "probability": 0.026086956521739132,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Some other mundane cause not yet identified, such as a subtle mechanical interaction, maintenance issue, or analysis artifact",
+          "probability": 0.09565217391304348,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered",
+          "probability": 0.13043478260869565,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A brief local environmental disturbance affected the pendulum and then faded",
+          "probability": 0.4117647058823529,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A temporary pendulum-specific readout or calibration offset occurred and then partially settled",
+          "probability": 0.1568627450980392,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum is beginning a genuine small upward drift away from the earlier baseline",
+          "probability": 0.21568627450980393,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An intermittent mechanical issue in the pendulum assembly is producing extra scatter",
+          "probability": 0.11764705882352941,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The apparent anomaly is mostly ordinary scatter around a stable baseline, with the earlier patch exaggerated by chance",
+          "probability": 0.058823529411764705,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unconsidered explains the pattern",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.975299539170507,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 77,
+      "meanInputTokens": 1409.6363636363637,
+      "maxInputTokens": 2256,
+      "meanInputTokensByAgent": {
+        "ada": 1459.948717948718,
+        "maya": 1358
+      }
+    }
+  },
+  {
+    "runId": "d6f1fb3a-5fb2-4dd7-83de-a04165e01dbb",
+    "scenario": "gravity_shift",
+    "seed": 1001,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.4433333333333333,
+      "earlyDispersion": 0.8705882352941177,
+      "convergence": 0.42725490196078436
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A transient handling, setup, or reading difference affected a small run of pendulum measurements",
+          "probability": 0.48,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A brief environmental perturbation in the pendulum room affected a handful of trials",
+          "probability": 0.18,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The cluster is an upper-tail fluctuation within ordinary pendulum variability",
+          "probability": 0.14,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A short-lived mechanical change in the pendulum apparatus occurred and then relaxed",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A broader measurement-environment instability is hinted at by the resonator_lab drift, but it is not the direct cause of the pendulum cluster",
+          "probability": 0.05,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something unconsidered",
+          "probability": 0.03,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary scatter around a mostly stable pendulum mean",
+          "probability": 0.2604166666666667,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A real pendulum-only upward drift that began after the baseline period",
+          "probability": 0.3229166666666667,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A subtle pendulum-specific setup or calibration fault causing a persistent offset",
+          "probability": 0.25,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A weak shared environmental influence that affects both instruments, but is visible mainly in the pendulum",
+          "probability": 0.10416666666666667,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something unconsidered in the current model",
+          "probability": 0.0625,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9600000000000001,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 78,
+      "meanInputTokens": 1428.051282051282,
+      "maxInputTokens": 2426,
+      "meanInputTokensByAgent": {
+        "ada": 1485.3658536585365,
+        "maya": 1364.5405405405406
+      }
+    }
+  },
+  {
+    "runId": "bef6f926-3195-4c5d-83b8-741478d1bf23",
+    "scenario": "gravity_shift",
+    "seed": 1002,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.3869230769230769,
+      "earlyDispersion": 0.505,
+      "convergence": 0.11807692307692308
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "pendulum_lab has a small real systematic upward offset after day 10, but the effect is weak and not mechanism-specific",
+          "probability": 0.44,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "pendulum_lab is still behaving normally; the apparent elevation is ordinary measurement scatter around a stable mean",
+          "probability": 0.18,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "day-specific procedural or environmental conditions are intermittently perturbing pendulum_lab without producing a lasting drift",
+          "probability": 0.26,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "something else unconsidered is responsible",
+          "probability": 0.1,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "resonator_lab shares the same underlying instability as pendulum_lab, but current data are too sparse to show it",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum is still consistent with ordinary scatter around a stable level; the recent post-baseline mean is being held up by a run of high draws rather than a real change.",
+          "probability": 0.4615384615384615,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum baseline has shifted upward by a small but real amount after day 10.",
+          "probability": 0.25961538461538464,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A weak procedural or environmental influence is affecting the pendulum more than the resonator.",
+          "probability": 0.09615384615384616,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The resonator is independent and showing only short-term scatter, so it should not be read as corroboration of the pendulum pattern.",
+          "probability": 0.05769230769230769,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Some unmodeled instrument or setup factor is affecting the pendulum timing records without clearly affecting the resonator.",
+          "probability": 0.04807692307692308,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something unconsidered.",
+          "probability": 0.038461538461538464,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9504754358161648,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 75,
+      "meanInputTokens": 1341.7733333333333,
+      "maxInputTokens": 2222,
+      "meanInputTokensByAgent": {
+        "ada": 1354.8157894736842,
+        "maya": 1328.3783783783783
+      }
+    }
+  },
+  {
+    "runId": "c8000388-31d6-432d-a529-33e95dee8e22",
+    "scenario": "gravity_shift",
+    "seed": 1003,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.20999999999999996,
+      "earlyDispersion": 0.4861386138613861,
+      "convergence": 0.27613861386138616
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "The pendulum has a genuine post-baseline calibration shift or slow upward drift; the resonator is stable.",
+          "probability": 0.76,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum shows a modest persistent offset that developed gradually after baseline rather than as a sharp step; the resonator is stationary.",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum’s elevation is ordinary scatter around an unchanged mean.",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A procedural or local environmental effect affected the pendulum after baseline.",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The baseline period itself contained an unrecognized structural break, so the day 1–10 reference is misleading.",
+          "probability": 0.01,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet considered explains the pendulum pattern.",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A slow environmental or instrumental drift is nudging the pendulum upward, with the resonator only weakly coupled to the same cause.",
+          "probability": 0.62,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum underwent an instrument-local change around day 9, while the resonator is effectively stable.",
+          "probability": 0.24,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum’s elevated mean is mostly finite-sample variation, with the resonator showing ordinary scatter around baseline.",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A residual procedural, calibration, or other not-yet-identified effect is contributing to the pendulum shift.",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unrecognized coupled or exotic effect is influencing the timing measurements.",
+          "probability": 0.03,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9950000000000001,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 80,
+      "meanInputTokens": 1450.2625,
+      "maxInputTokens": 2348,
+      "meanInputTokensByAgent": {
+        "maya": 1419.2,
+        "ada": 1481.325
+      }
+    }
+  },
+  {
+    "runId": "bcd12da5-07a1-4a0a-af37-0ad2cd9dbb2c",
+    "scenario": "gravity_shift",
+    "seed": 1004,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.7683944865074742,
+      "earlyDispersion": 0.558252427184466,
+      "convergence": -0.21014205932300822
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Small real change in the pendulum setup or local environment",
+          "probability": 0.48039215686274506,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Pendulum-specific measurement artifact or procedural offset",
+          "probability": 0.28431372549019607,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Ordinary fluctuation in an otherwise stable pendulum",
+          "probability": 0.058823529411764705,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Broader settlement-wide or cross-lab condition changed, but the resonator sample is too sparse to show it clearly",
+          "probability": 0.11764705882352941,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet identified, including multiple small effects or an unrecognized interaction",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something I have not considered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum developed a real, modest upward shift in its operating/readout level starting around day 11, while the resonator did not change.",
+          "probability": 0.6237623762376238,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum readings are mostly ordinary scatter around a stable level, and the apparent rise is a baseline-sampling fluctuation.",
+          "probability": 0.19801980198019803,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A local disturbance or procedural change affected the pendulum around day 11 and then persisted, producing an incomplete step rather than a smooth drift.",
+          "probability": 0.0891089108910891,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum is drifting slowly upward over time, but the available records do not resolve the trend cleanly.",
+          "probability": 0.039603960396039604,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The resonator baseline is slightly offset from its longer-term norm, but this does not account for the pendulum anomaly.",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unseen coupling or undocumented procedural factor is producing the pendulum offset.",
+          "probability": 0.019801980198019802,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I have not thought of yet.",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9800985221674875,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 76,
+      "meanInputTokens": 1425.6973684210527,
+      "maxInputTokens": 2469,
+      "meanInputTokensByAgent": {
+        "ada": 1374.2432432432433,
+        "maya": 1474.5128205128206
+      }
+    }
+  },
+  {
+    "runId": "e0e3616c-2d45-4a0a-b430-da540647515a",
+    "scenario": "gravity_shift",
+    "seed": 1005,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.22666666666666668,
+      "earlyDispersion": 0.9149999999999999,
+      "convergence": 0.6883333333333332
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Ordinary measurement scatter around a stable instrument response, with the day 1–10 baseline mean a little low by chance",
+          "probability": 0.40196078431372545,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A small persistent upward shift in the pendulum measurement after day 10",
+          "probability": 0.30392156862745096,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A temporary disturbance or intermittent operating irregularity affecting some runs",
+          "probability": 0.13725490196078433,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A procedural or setup change introduced measurement bias without changing the pendulum itself",
+          "probability": 0.08823529411764705,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Some other unrecognized cause, including subtle interaction or analysis artifact",
+          "probability": 0.029411764705882353,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A modest real upward drift in the pendulum system is present, but ordinary scatter prevents a clean step change from appearing",
+          "probability": 0.37,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Ordinary environmental or mechanical variability around a mostly stable pendulum",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A subtle calibration or setup offset is biasing the pendulum measurements upward",
+          "probability": 0.18,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A recurring or intermittent localized disturbance is affecting some trials",
+          "probability": 0.07,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A recording or reduction artifact is contributing to part of the shift",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: some other unmodeled influence or calibration issue",
+          "probability": 0.1,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I have not thought of",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.99009900990099,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 78,
+      "meanInputTokens": 1396.3846153846155,
+      "maxInputTokens": 2339,
+      "meanInputTokensByAgent": {
+        "ada": 1429.6153846153845,
+        "maya": 1363.1538461538462
+      }
+    }
+  },
+  {
+    "runId": "4bc9b86a-8434-4a5b-b121-6f43c8ec3f47",
+    "scenario": "gravity_shift",
+    "seed": 1006,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.11346534653465348,
+      "earlyDispersion": 0.12747572815533983,
+      "convergence": 0.014010381620686352
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Pendulum_lab has a real instrument-specific calibration/readout shift beginning after day 10; resonator_lab stayed stable apart from noise.",
+          "probability": 0.5742574257425742,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An undocumented procedural, timing, or data-handling change affected pendulum_lab after day 10.",
+          "probability": 0.16831683168316833,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A short-lived shared disturbance around days 20–22 nudged both setups, but only the pendulum retained a longer-lived offset or stronger coupling.",
+          "probability": 0.0891089108910891,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Pendulum_lab and resonator_lab excursions are unrelated local fluctuations or separate minor faults.",
+          "probability": 0.12871287128712872,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The observed differences are ordinary statistical variation and routine procedural scatter around stable baselines.",
+          "probability": 0.019801980198019802,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered, including an interaction or unnoticed dependency in the measurement chain.",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A shared environmental or operational change after day 10 affected both instruments differently",
+          "probability": 0.34,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum timing chain developed its own calibration bias after day 10",
+          "probability": 0.29,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "An unmodeled procedural or reduction effect is raising both series indirectly",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The resonator timing chain developed a smaller calibration bias after day 10",
+          "probability": 0.06,
+          "firstPartySources": [
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The post-day-10 pattern is mostly ordinary scatter around a stable baseline",
+          "probability": 0.04,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Something else unconsidered is responsible",
+          "probability": 0.15,
+          "firstPartySources": [
+            "pendulum_obs",
+            "resonator_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 2,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 1.3266169154228855,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 78,
+      "meanInputTokens": 1492.6025641025642,
+      "maxInputTokens": 2436,
+      "meanInputTokensByAgent": {
+        "ada": 1490.157894736842,
+        "maya": 1494.925
+      }
+    }
+  },
+  {
+    "runId": "a2eb6723-28ab-4747-989b-e082bb9cbcdc",
+    "scenario": "gravity_shift",
+    "seed": 1007,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "measurement_error",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.6961904761904761,
+      "earlyDispersion": 0.21000000000000008,
+      "convergence": -0.48619047619047606
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A small but stable change in the pendulum’s operating conditions or setup produced a lasting upward offset",
+          "probability": 0.4476190476190476,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A calibration or reference bias entered the pendulum measurement chain after the baseline period",
+          "probability": 0.23809523809523808,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A weak external influence is intermittently nudging the pendulum upward",
+          "probability": 0.10476190476190476,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The apparent pendulum shift is still a chance fluctuation from a stable instrument",
+          "probability": 0.0857142857142857,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The resonator_lab shows a smaller real shift, but it is not the main anomaly and may be noise or mild drift",
+          "probability": 0.02857142857142857,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something not yet considered",
+          "probability": 0.047619047619047616,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small real upward drift in pendulum_obs is present after the day 1–10 baseline",
+          "probability": 0.68,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum_obs readings are stable and the post-baseline elevations are ordinary scatter around a fixed mean",
+          "probability": 0.16,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Intermittent observing conditions or procedure effects are modulating the pendulum readings without true instrument drift",
+          "probability": 0.12,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A separate resonator anomaly is present but not yet evidenced in the current post-baseline data",
+          "probability": 0,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something unconsidered",
+          "probability": 0.04,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9404878048780488,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 77,
+      "meanInputTokens": 1366.077922077922,
+      "maxInputTokens": 2405,
+      "meanInputTokensByAgent": {
+        "maya": 1244.5405405405406,
+        "ada": 1478.5
+      }
+    }
+  },
+  {
+    "runId": "fdde3051-8aa6-4aac-bce1-5f3ab63b613f",
+    "scenario": "gravity_shift",
+    "seed": 1008,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.2524752475247525,
+      "earlyDispersion": 0.852766990291262,
+      "convergence": 0.6002917427665095
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "Pendulum_lab has a small apparatus- or setup-specific offset plus ordinary scatter from routine disturbances",
+          "probability": 0.79,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A weak intermittent local influence is affecting only the pendulum setup",
+          "probability": 0.1,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum instrument experienced a small calibration shift after the baseline period",
+          "probability": 0.08,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An unmodeled effect selectively influences the pendulum measurement process but is not yet characterized",
+          "probability": 0.02,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Something else not yet considered",
+          "probability": 0.01,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Environmental or instrumental variability is biasing the pendulum readout (temperature, humidity, mounting, timing jitter, or similar)",
+          "probability": 0.7326732673267327,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The pendulum period has genuinely changed, but the change is unstable or intermittent",
+          "probability": 0.15841584158415842,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A transient disturbance or handling event began the anomaly, with partial and uneven recovery afterward",
+          "probability": 0.04950495049504951,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The apparent shift is ordinary scatter around the baseline mean",
+          "probability": 0.0297029702970297,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Another cause not yet identified is operating",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something I have not thought of",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9800497512437811,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 75,
+      "meanInputTokens": 1335.3733333333332,
+      "maxInputTokens": 2071,
+      "meanInputTokensByAgent": {
+        "maya": 1371.0526315789473,
+        "ada": 1298.7297297297298
+      }
+    }
+  },
+  {
+    "runId": "a74f9221-31c2-4393-b5fd-9d44a7b16d31",
+    "scenario": "gravity_shift",
+    "seed": 1009,
+    "n": 2,
+    "institution": "letters",
+    "flow": {
+      "agents": 2,
+      "productionsPerAgent": {
+        "ada": 0,
+        "maya": 0
+      },
+      "meanProductionsPerAgent": 0,
+      "producingFraction": 0,
+      "consumingFraction": 0,
+      "crossAgentEvidenceRefs": 0,
+      "challengeLikeMessages": 0,
+      "uniqueEdges": 0,
+      "largestComponentFraction": 0,
+      "socialInteractive": false,
+      "thresholds": {
+        "minProducingFraction": 0.5,
+        "minConsumingFraction": 0.5,
+        "minCrossAgentEvidenceRefs": 1,
+        "minLargestComponentFraction": 0.5
+      }
+    },
+    "belief": {
+      "scenario": "gravity_shift",
+      "correctClass": "law_change",
+      "meanCorrectCredence": 0,
+      "perAgentCorrectCredence": {
+        "ada": 0,
+        "maya": 0
+      },
+      "majorityDominantClass": "instrument_malfunction",
+      "majorityIsCorrect": false,
+      "anyAgentCorrect": false,
+      "anyAgentCorrectCount": 0,
+      "dispersion": 0.14210832847990681,
+      "earlyDispersion": 0.4692792792792792,
+      "convergence": 0.3271709507993724
+    },
+    "propagationAllClaims": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "propagationUnsupportedScreen": {
+      "claimsTraced": 0,
+      "totalExposures": 0,
+      "transmissionRate": null,
+      "contaminationRate": null,
+      "byStance": {
+        "IGNORED": 0,
+        "REPEATED_NEUTRAL": 0,
+        "ENDORSED": 0,
+        "INCORPORATED_INTO_BELIEF": 0,
+        "CHALLENGED": 0,
+        "CORRECTED": 0
+      },
+      "contaminatedAgents": []
+    },
+    "claimRecords": [],
+    "iesc": {
+      "records": [
+        {
+          "agentId": "ada",
+          "label": "A local procedural or environmental disturbance briefly affected the pendulum setup",
+          "probability": 0.693069306930693,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pendulum has a small instrument-specific offset or short-lived calibration shift that later partly settled",
+          "probability": 0.13861386138613863,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "The pattern is mostly ordinary statistical fluctuation around a stable pendulum mean",
+          "probability": 0.0891089108910891,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "A weak factor in the wider settlement couples more strongly to the pendulum than to the resonator",
+          "probability": 0.039603960396039604,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "An analysis or reduction artifact is contributing to the pendulum pattern",
+          "probability": 0.019801980198019802,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "ada",
+          "label": "Residual: something unconsidered",
+          "probability": 0.009900990099009901,
+          "firstPartySources": [
+            "pendulum_lab"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A small change in the pendulum apparatus or its calibration raised the measured beat count",
+          "probability": 0.5882352941176471,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A sustained change in how the pendulum was started, handled, read, or recorded altered the late measurements",
+          "probability": 0.19607843137254902,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "A shared environmental influence is affecting the pendulum more strongly than the resonator",
+          "probability": 0.08823529411764705,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "The resonator series is too sparse or noisy to reveal the same underlying drift",
+          "probability": 0.049019607843137254,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Some other cause not yet identified is producing the pattern",
+          "probability": 0.0392156862745098,
+          "firstPartySources": [
+            "pendulum_obs"
+          ],
+          "testimonySources": [],
+          "iesc": 1,
+          "cascade": false
+        },
+        {
+          "agentId": "maya",
+          "label": "Residual: something unconsidered",
+          "probability": 0.0196078431372549,
+          "firstPartySources": [],
+          "testimonySources": [],
+          "iesc": 0,
+          "cascade": false
+        }
+      ],
+      "meanIescWeighted": 0.9651724137931035,
+      "cascadeBeliefs": 0
+    },
+    "promptSizes": {
+      "calls": 77,
+      "meanInputTokens": 1406.3766233766235,
+      "maxInputTokens": 2415,
+      "meanInputTokensByAgent": {
+        "ada": 1351.2432432432433,
+        "maya": 1457.375
+      }
+    }
+  }
+]

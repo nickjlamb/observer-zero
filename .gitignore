@@ -3,3 +3,13 @@ dist/
 *.log
 .DS_Store
 .env
+
+# Raw confirmatory run artifacts (308MB) — derived artifacts are committed
+# instead, and the raw data is deposited on Zenodo with its own DOI. Every
+# number in reports/study-2-confirmatory-results.md is reproducible from the
+# derived files below.
+runs/s2-arm*/*seed*.json
+!runs/s2-arm*/society-eval.json
+!runs/s2-arm*/activation.json
+!runs/s2-arm*/judged-propagation.json
+!runs/s2-arm*/battery-index*.json

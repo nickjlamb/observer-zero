@@ -1,0 +1,297 @@
+{
+  "batteryId": "battery-armA-sonar-pro-2026-08-111546",
+  "createdAt": "2026-08-11T16:11:04.372Z",
+  "manifest": {
+    "policyVersion": "observer-zero-epistemic-policy-v0.1",
+    "platformVersion": "0.5.0",
+    "prompts": {
+      "decision": "agent-decision-v3",
+      "beliefUpdate": "belief-update-v5",
+      "digest": "digest-v1"
+    },
+    "personaHash": "453337e7",
+    "society": {
+      "n": 2,
+      "institution": "letters",
+      "memberModels": [
+        {
+          "personaId": "ada",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        },
+        {
+          "personaId": "maya",
+          "model": "sonar-pro",
+          "provider": "perplexity",
+          "modelFamily": "sonar-pro",
+          "servingPlatform": "perplexity-api"
+        }
+      ],
+      "turnOrder": "seeded Fisher-Yates keyed by (worldSeed, day)"
+    },
+    "engine": {
+      "gravity": 14.2,
+      "resonanceConstant": 7.31,
+      "measurementNoise": 0.01,
+      "canonicalShiftGravity": 13.97,
+      "canonicalInterventionDay": 12,
+      "canonicalFaultBias": 1.008,
+      "noiseModel": "per-trial: keyed by (worldSeed, instrumentId, trialIndex); order-independent"
+    },
+    "agentModel": {
+      "model": "sonar-pro",
+      "provider": "perplexity",
+      "webSearchDisabled": true,
+      "temperature": 1,
+      "samplingSeed": null,
+      "limitation": "no provider exposes a sampling seed; model-side variance is part of measured society variance"
+    }
+  },
+  "arm": {
+    "id": "A",
+    "label": "2 agents, letters",
+    "n": 2,
+    "institution": "letters",
+    "contrast": "baseline cell; B−A isolates scale, A′−A isolates institution without scale",
+    "models": {
+      "ada": "sonar-pro",
+      "maya": "sonar-pro"
+    }
+  },
+  "seedHygiene": {
+    "baseSeed": 1000,
+    "seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009
+    ],
+    "seedSet": "confirmatory",
+    "designFrozen": true
+  },
+  "settings": {
+    "conditions": [
+      "control",
+      "gravity_shift"
+    ],
+    "replicates": 10,
+    "days": 30,
+    "baseSeed": 1000,
+    "modelName": "sonar-pro",
+    "temperature": 1,
+    "concurrency": 3,
+    "maxCost": 15,
+    "promptVariant": "v0.1"
+  },
+  "totalEstimatedCostUSD": 10.777962000000002,
+  "jobs": [
+    {
+      "name": "control-seed1000",
+      "condition": "control",
+      "seed": 1000,
+      "file": "runs/s2-armA/control-seed1000.json",
+      "status": "done",
+      "costUSD": 0.37127400000000005,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1001",
+      "condition": "control",
+      "seed": 1001,
+      "file": "runs/s2-armA/control-seed1001.json",
+      "status": "done",
+      "costUSD": 0.38061900000000004,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1002",
+      "condition": "control",
+      "seed": 1002,
+      "file": "runs/s2-armA/control-seed1002.json",
+      "status": "done",
+      "costUSD": 0.40310100000000004,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1003",
+      "condition": "control",
+      "seed": 1003,
+      "file": "runs/s2-armA/control-seed1003.json",
+      "status": "done",
+      "costUSD": 0.49884599999999996,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1004",
+      "condition": "control",
+      "seed": 1004,
+      "file": "runs/s2-armA/control-seed1004.json",
+      "status": "done",
+      "costUSD": 0.46488599999999997,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1005",
+      "condition": "control",
+      "seed": 1005,
+      "file": "runs/s2-armA/control-seed1005.json",
+      "status": "done",
+      "costUSD": 0.3839850000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1006",
+      "condition": "control",
+      "seed": 1006,
+      "file": "runs/s2-armA/control-seed1006.json",
+      "status": "done",
+      "costUSD": 0.3863189999999999,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1007",
+      "condition": "control",
+      "seed": 1007,
+      "file": "runs/s2-armA/control-seed1007.json",
+      "status": "done",
+      "costUSD": 0.41946600000000006,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1008",
+      "condition": "control",
+      "seed": 1008,
+      "file": "runs/s2-armA/control-seed1008.json",
+      "status": "done",
+      "costUSD": 0.38460900000000015,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "control-seed1009",
+      "condition": "control",
+      "seed": 1009,
+      "file": "runs/s2-armA/control-seed1009.json",
+      "status": "done",
+      "costUSD": 0.37465200000000004,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1000",
+      "condition": "gravity_shift",
+      "seed": 1000,
+      "file": "runs/s2-armA/gravity_shift-seed1000.json",
+      "status": "done",
+      "costUSD": 0.678696,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1001",
+      "condition": "gravity_shift",
+      "seed": 1001,
+      "file": "runs/s2-armA/gravity_shift-seed1001.json",
+      "status": "done",
+      "costUSD": 0.7132890000000003,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1002",
+      "condition": "gravity_shift",
+      "seed": 1002,
+      "file": "runs/s2-armA/gravity_shift-seed1002.json",
+      "status": "done",
+      "costUSD": 0.5978640000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1003",
+      "condition": "gravity_shift",
+      "seed": 1003,
+      "file": "runs/s2-armA/gravity_shift-seed1003.json",
+      "status": "done",
+      "costUSD": 0.725058,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1004",
+      "condition": "gravity_shift",
+      "seed": 1004,
+      "file": "runs/s2-armA/gravity_shift-seed1004.json",
+      "status": "done",
+      "costUSD": 0.677724,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1005",
+      "condition": "gravity_shift",
+      "seed": 1005,
+      "file": "runs/s2-armA/gravity_shift-seed1005.json",
+      "status": "done",
+      "costUSD": 0.6768689999999998,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1006",
+      "condition": "gravity_shift",
+      "seed": 1006,
+      "file": "runs/s2-armA/gravity_shift-seed1006.json",
+      "status": "done",
+      "costUSD": 0.729834,
+      "leakClean": true,
+      "failedReviews": 1
+    },
+    {
+      "name": "gravity_shift-seed1007",
+      "condition": "gravity_shift",
+      "seed": 1007,
+      "file": "runs/s2-armA/gravity_shift-seed1007.json",
+      "status": "done",
+      "costUSD": 0.6357240000000001,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1008",
+      "condition": "gravity_shift",
+      "seed": 1008,
+      "file": "runs/s2-armA/gravity_shift-seed1008.json",
+      "status": "done",
+      "costUSD": 0.6049140000000002,
+      "leakClean": true,
+      "failedReviews": 0
+    },
+    {
+      "name": "gravity_shift-seed1009",
+      "condition": "gravity_shift",
+      "seed": 1009,
+      "file": "runs/s2-armA/gravity_shift-seed1009.json",
+      "status": "done",
+      "costUSD": 0.6702330000000003,
+      "leakClean": true,
+      "failedReviews": 0
+    }
+  ]
+}

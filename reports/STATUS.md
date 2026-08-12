@@ -110,49 +110,80 @@ their `-DRAFT` stamps, which is historically correct;
 `POLICY_VERSION_SOCIETY_DRAFT` survives as an alias so those stay readable by
 name. Label only — no prompt text, no agent behaviour, no endpoint changed.
 
-## Confirmatory progress — QC only, endpoints deliberately not computed
+## Confirmatory phase — COMPLETE
 
-**Inspection discipline (author decision, 2026-08-11).** No activation
-endpoint, credence or rate is computed until every arm is complete. Between
-arms the only look taken is the QC pass — completion, failed-review rate,
-stale-final rate, leak findings, cost, and the manifest's seed/freeze stamps —
-because an infrastructure failure is the one thing that would justify a re-run
-under §6.4 and is time-sensitive. Nothing in the substantive results can change
-a decision: run counts are fixed and C's extension was the design's only
-conditional. B, C, D and E are inspected together once E finishes. The point is
-the provenance claim that the remaining runs were completed without anyone
-having seen the endpoints.
+**Results:** `reports/study-2-confirmatory-results.md`. All seven hypotheses
+evaluated. 85 runs, 640 agent-runs, $173.56.
+
+**Inspection discipline (author decision, honoured).** No activation endpoint,
+credence or rate was computed until every arm was complete; between arms the
+only look was the QC pass, because an infrastructure failure is the sole ground
+for a re-run under §6.4 and is time-sensitive. One forced exception: evaluating
+arm C's extension trigger required counting bulletin posts, which also revealed
+C's letters. Recorded in the results, not presented as a later discovery.
 
 | Arm | Runs | Reviews | Failed | Stale finals | Leaks | Cost |
 |---|---|---|---|---|---|---|
-| A (2 × sonar, letters) | 20/20 | 224 | 1 (0.45%) | 0 | 0 | $10.78 |
-| B (8 × sonar, letters) | 20/20 | 916 | 2 (0.22%) | 0 | 0 | $44.23 |
-| C (8 × sonar, bulletin) | 5/5 | 256 | 1 (0.39%) | 0 | 0 | $12.12 |
+| A · 2 sonar, letters | 20/20 | 224 | 1 (0.45%) | 0 | 0 | $10.78 |
+| B · 8 sonar, letters | 20/20 | 916 | 2 (0.22%) | 0 | 0 | $44.23 |
+| C · 8 sonar, bulletin | 5/5 | 256 | 1 (0.39%) | 0 | 0 | $12.12 |
+| D · 7 sonar + haiku | 20/20 | 1140 | 17 (1.49%) | 0 | 0 | $52.35 |
+| E · 7 sonar + sonnet | 20/20 | 1134 | 2 (0.18%) | 0 | 0 | $54.08 |
 
-Stale-final rate is **0.0% in every arm so far**, against §6.4's 10% flag. For
-comparison, P1-C ran at 7.28% failed reviews with six day-30 failures; the
-post-P1 repair path has held at n=8, and the failure rate no longer scales with
-headcount (A 0.45% → B 0.22%). No re-runs performed; none warranted.
+Stale-final rate **0.0% in every arm** (0 of 640 agent-runs), no day-30
+failures anywhere, so the primary and sensitivity analyses are identical by
+construction. No re-runs performed; none warranted. **C closed at 5** — zero
+bulletin posts, extension trigger did not fire, and no further extension is
+permitted anywhere.
 
-**C is CLOSED at five runs.** Zero bulletin posts across all five named cells,
-so the pre-registered extension trigger did not fire. C must not be extended —
-the rule permits no other extension anywhere, for any arm. C's two invocations
-each rewrote `battery-index.json`, so the per-invocation indices are preserved
-as `battery-index-1000-1001.json` and `battery-index-1002.json`; reconcile
-those five cells when reporting C.
+### Verdicts
 
-Two observations forced by evaluating C's trigger, recorded because they were
-seen and should not later appear as if discovered post hoc:
+| | |
+|---|---|
+| H1 ceiling | **SUPPORTED** — 1 agent of 276 concluded law_change |
+| H2a transmission | **SUPPORTED** — 19 minority-origin unsupported claims delivered |
+| H2b contamination | **SUPPORTED** — 18 of 20 deliveries incorporated by grounded agents, **0 challenged** |
+| H3 activation (primary) | **SUPPORTED**, but only on the reply channel |
+| H5a convergence | **REJECTED IN DIRECTION** — dispersion fell *slower* in the talking arms |
+| H5b (descriptive) | evaluable at n=2; nothing concluded |
+| H6 institution null | **SUPPORTED** by its threshold; §9's table row disagrees (recorded, not amended) |
+| H7 identity vs communicativeness | **NEITHER** pre-registered branch |
 
-- **Arm C produced six letters** (gravity_shift-seed1001: Elena → Samuel days
-  19, 20, 27; Samuel → Elena days 28, 29, 30). All eight agents verified
-  `sonar-pro` in the manifest before this was believed. P1 saw zero letters in
-  nine pure-sonar runs, so "sonar never initiates" is falsified at n=8.
-  Procedurally nothing follows: §9's row covers letters in a pure-sonar arm,
-  and H3 remains a contrast.
-- **All 34 bulletin reads are Elena's**, the journalist — the same
-  role-contingent institution use as P1-C, replicating at confirmatory seeds,
-  and still with zero posts to read.
+The mechanism: no sonar agent ever spontaneously initiated in 320 agent-runs of
+D and E. The only spontaneous initiator is the minority agent, in all 40 runs.
+Cascade depth is 1.000 in every run of every arm — a star around the seed, not
+a cascade (A2's wording). D and E differ not in whether the seed initiates
+(identical) but in whether the network answers.
+
+## Post-freeze note 2 — two defects found at analysis time
+
+Both implementation gaps against the frozen design, neither a design change;
+full detail in §8 of the results report.
+
+1. **`src/evaluator/activation.ts` had 14 passing tests and no call sites.** The
+   first confirmatory evaluation computed H3's primary endpoints not at all.
+   Unit tests cannot catch a missing call site; two source-level assertions now
+   pin the CLI's wiring to the activation and stance-judge layers.
+2. **Spontaneous initiation was counted per letter, not per agent.** v0.5 §4.1
+   measure 1 says "Agent-level"; measure 2 says "Edge-level"; the code counted
+   events for both. This inflated arm D's headline H3 number fourfold (0.500 vs
+   0.125) *in the flattering direction*. Same class as amendment A4 — the third
+   time in this programme that prose and implementation disagreed about a
+   denominator. No verdict moved.
+
+172 tests.
+
+## Data archiving
+
+Raw run artifacts are **not** committed: `runs/s2-arm{A..E}` is 308MB, ten
+times P1's volume. The repository carries the derived artifacts per arm
+(`society-eval.json`, `activation.json`, `judged-propagation.json`,
+`battery-index.json`), from which every number in the results report is
+reproducible. The raw artifacts go to Zenodo with their own DOI, as Study 1's
+data did. Until that deposit exists **the raw confirmatory data lives on one
+machine only** — that is the standing risk to close next.
+
+## Next
 
 ## Next: the confirmatory phase
 
