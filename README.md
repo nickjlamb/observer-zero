@@ -5,13 +5,13 @@
 **An instrumented artificial world for studying how societies of AI agents do science – with perfect ground truth on the experimenter's side, and none on theirs.**
 
 [![CI](https://github.com/nickjlamb/observer-zero/actions/workflows/ci.yml/badge.svg)](https://github.com/nickjlamb/observer-zero/actions/workflows/ci.yml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21872781.svg)](https://doi.org/10.5281/zenodo.21872781)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21872780.svg)](https://doi.org/10.5281/zenodo.21872780)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?logo=typescript&logoColor=white)](tsconfig.json)
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white)](package.json)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[Quick start](#quick-start) · [Results](#study-1-headline-results) · [Architecture](#architecture) · [Examples](#examples) · [Paper](https://doi.org/10.5281/zenodo.21872781) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md)
+[Quick start](#quick-start) · [Results](#study-1-headline-results) · [Architecture](#architecture) · [Examples](#examples) · [Paper](https://doi.org/10.5281/zenodo.21872780) · [Roadmap](ROADMAP.md) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -21,9 +21,11 @@ Autonomous LLM scientists inhabit **Meridian**, a closed world with fictional ph
 
 Because the physics is fictional, agents cannot pattern-match the answer from training data: the only way to know anything about Meridian is to measure Meridian. Because every observation, message, and belief update is logged against ground truth, every claim an agent makes can be verified – or exposed.
 
-**Study 1 result (150 runs, 4 model arms):** agents detected the hidden change in 90–100% of intervention worlds, usually within 1–3 days – and correctly concluded that a law of their world had changed in **0 of 40** opportunities. The full story is in the [technical report](reports/observer-zero-study-1.md) ([PDF](reports/observer-zero-study-1.pdf), [Zenodo](https://doi.org/10.5281/zenodo.21872781)).
+**Study 1 result (150 runs, 4 model arms):** agents detected the hidden change in 90–100% of intervention worlds, usually within 1–3 days – and correctly concluded that a law of their world had changed in **0 of 40** opportunities. The full story is in the [technical report](reports/observer-zero-study-1.md) ([PDF](reports/observer-zero-study-1.pdf), [Zenodo](https://doi.org/10.5281/zenodo.21872780)).
 
-A [PharmaTools.AI Labs](https://pharmatools.ai) experiment.
+**Study 2 (85 pre-registered runs, societies of 2 and 8, frozen before any confirmatory data were seen):** homogeneous grounded societies produced zero voluntary communications across 6,880 agent-days; one seeded communicative agent produced a star, not a cascade (depth exactly 1.000 in every run), and 18 of its 20 unsupported claims were incorporated into grounded agents' beliefs, none challenged. The combined two-study paper, *Observer Zero: Do LLM Agents Form Epistemic Communities?*, is [on Zenodo](https://doi.org/10.5281/zenodo.21906653) and under review at JASSS; the model is archived in the [CoMSES Computational Model Library](https://www.comses.net/codebases/f5ff1550-0393-4505-a4d8-96b779944a8d/releases/1.0.0/).
+
+A [PharmaTools.AI](https://pharmatools.ai) experiment.
 
 ## Quick start
 
@@ -200,15 +202,15 @@ If you use Observer Zero in your research, please cite it ([CITATION.cff](CITATI
   author      = {Lamb, Nick},
   title       = {Observer Zero: Autonomous LLM Scientists Detect Changes to
                  Their World but Fail to Conclude That It Changed},
-  institution = {PharmaTools.AI Labs},
+  institution = {PharmaTools.AI},
   year        = {2026},
-  doi         = {10.5281/zenodo.21872781},
+  doi         = {10.5281/zenodo.21872780},
   url         = {https://github.com/nickjlamb/observer-zero}
 }
 ```
 
 ## License
 
-[MIT](LICENSE) © 2026 Nick Lamb / PharmaTools.AI Labs.
+[MIT](LICENSE) © 2026 Nick Lamb / PharmaTools.AI.
 
 *Observer Zero was built through human–AI collaboration: designed, challenged, and interpreted in an ongoing exchange between the author and two AI systems, with every experimental decision reviewed and approved by the author. The AIs that helped build the experiment are the same kind of systems that failed inside it.*

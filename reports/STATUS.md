@@ -1,22 +1,33 @@
 # Observer Zero — current status and handover
 
-**Updated:** 2026-08-11 — **DESIGN FROZEN** (commit `85bcdfb`, tag `study2-freeze`)
+**Updated:** 2026-08-13 — **SUBMITTED** (combined paper under review at JASSS; model on CoMSES)
 **Purpose:** one page that lets a fresh session (or a returning human) pick up
 without rereading the whole programme. Point-in-time; supersede freely.
+Sections below the next one predate submission — read them as history.
 
 ---
 
 ## Where the programme is
 
-**Study 1: published.** Zenodo DOI 10.5281/zenodo.21872781 (concept DOI
-…21872780), repo `github.com/nickjlamb/observer-zero`, Medium article live at
-AI Advances. Complete; no open work.
+**Study 1: published.** Cite concept DOI 10.5281/zenodo.21872780, which
+resolves to the corrected v2; v1 (…21872781) contains a sample-scope error
+corrected by an erratum. Repo `github.com/nickjlamb/observer-zero`, Medium
+article live at AI Advances.
 
-**Study 2: FROZEN, confirmatory phase not started.** Working title *Who Starts
-the Conversation?* The frozen specification is design v0.6 **plus amendments
-A2–A5**; A2 is the canonical experiment specification and supersedes v0.6
-§§2–4 and v0.5 §3. `DESIGN_FROZEN = true` as of `85bcdfb`, tagged
-`study2-freeze`. Nothing about the design changes from here.
+**Study 2: complete.** All 85 confirmatory runs executed under the frozen
+design (v0.6 + amendments A2–A5, tag `study2-freeze`), analysed clean, and
+written up. Raw run data deposited on Zenodo (concept DOI
+10.5281/zenodo.21909254).
+
+**Combined paper: submitted to JASSS 2026-08-13.** *Observer Zero: Do LLM
+Agents Form Epistemic Communities?* — both studies plus a cross-study
+synthesis. Preprint concept DOI 10.5281/zenodo.21906653. Verdict expected
+around early October; an editor question on whether table text counts toward
+the word range is outstanding.
+
+**Model: published in the CoMSES Computational Model Library** (release
+1.0.0, peer review requested — the permanent DOI is minted on review; a 1.1.0
+draft exists on the account but is unpublished and 404s publicly).
 
 ## The one-paragraph version of Study 2
 

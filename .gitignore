@@ -16,3 +16,8 @@ runs/s2-arm*/*seed*.json
 
 # Zenodo upload staging (zips rebuilt from runs/, not source of truth)
 zenodo-upload/
+
+# CoMSES deposit archives (rebuilt from the repo; the CoMSES release is the
+# source of truth) — the deposit docs (ODD.md, guides) ARE committed
+comses-deposit/*.zip
+comses-deposit/*.tar.gz
