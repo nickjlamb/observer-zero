@@ -5,10 +5,48 @@ All notable changes to Observer Zero are documented here. The format follows
 [semantic](https://semver.org/) from 1.0.0 onward. Pre-1.0 versions were
 internal milestones, dated August 2026.
 
+## [1.1.0] – 2026-08-13 · "Study 2 and the combined paper"
+
+The platform state used for every Study 2 confirmatory run and archived in
+the CoMSES Computational Model Library
+([release 1.0.0](https://www.comses.net/codebases/f5ff1550-0393-4505-a4d8-96b779944a8d/releases/1.0.0/),
+peer review requested). The combined two-study paper,
+[*Observer Zero: Do LLM Agents Form Epistemic Communities?*](https://doi.org/10.5281/zenodo.21906653),
+is under review at JASSS.
+
+### Added
+
+- Canonical eight-persona roster (design v0.3): six new residents joining Ada
+  and Maya, qualitative epistemic dials only, and no persona goal requiring
+  coordination with anyone – the voluntary-communication principle
+- Society runner at n = 8 with letters and a public bulletin institution;
+  Study 2 arm specifications A–E frozen per amendment A2 (`src/runner/arms.ts`)
+- Pre-registration machinery: world seeds quarantined in code until the freeze
+  commit (`85bcdfb`, tag `study2-freeze`), with Study 2 run under policy v0.2
+- Activation endpoints (spontaneous initiation, second-order activation) and
+  network-structure metrics: reply rate, unique edges, cascade reach and depth
+- Judged claim-propagation pipeline: FIRST_PARTY / RELAYED_FROM_ANOTHER origin
+  split, citation-based attribution with a no-attribution-by-proximity rule,
+  and stance judging with the frozen evaluator at temperature 0
+- Three-level detector benchmark over the measurements agents themselves chose
+  to take; anomaly-onset dating at n = 8
+- CoMSES deposit documentation (ODD and guides) under `comses-deposit/`; the
+  JASSS manuscript and submission package under `reports/`
+
+### Results shipped with this release
+
+85 confirmatory runs across five arms, audited clean: zero voluntary
+communications across 6,880 agent-days in homogeneous grounded societies;
+cascade depth exactly 1.000 in every run of every arm – a star around the
+seed, not a cascade, predicted from the pilot before the freeze; 18 of 20
+unsupported claims incorporated into grounded agents' beliefs, none
+challenged; and 1 agent of 276 concluded a physical law of its world had
+changed, against none of Study 1's 80.
+
 ## [1.0.0] – 2026-08-10 · "Study 1"
 
 The first published release: the platform state used for every run in the
-Study 1 technical report ([DOI 10.5281/zenodo.21872781](https://doi.org/10.5281/zenodo.21872781)).
+Study 1 technical report ([concept DOI 10.5281/zenodo.21872780](https://doi.org/10.5281/zenodo.21872780), which resolves to the corrected v2).
 
 ### Added
 
@@ -86,4 +124,5 @@ arms versus 7/10 for the scripted baseline; leak audit clean in 150/150.
 - Power-analysis tool enforcing that every anomaly is
   detectable-but-not-trivial
 
+[1.1.0]: https://github.com/nickjlamb/observer-zero/releases/tag/v1.1.0
 [1.0.0]: https://github.com/nickjlamb/observer-zero/releases/tag/v1.0.0
