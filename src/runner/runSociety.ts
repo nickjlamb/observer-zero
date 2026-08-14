@@ -71,6 +71,15 @@ export interface Study3Options {
   workbench?: boolean;
   /** Offer the record_prediction affordance. */
   predictions?: boolean;
+  /**
+   * The town ledger (P3.1c, pilot finding F9): the settlement's timekeeping
+   * tradition records `trialsPerDay` readings from every instrument at each
+   * member's sites, every morning, automatically. Guarantees evidence
+   * AVAILABILITY without constraining inquiry — free instrument choice
+   * gutted packets B and D in pilots (decisive pairs simply unwitnessed).
+   * Condition-uniform wherever enabled.
+   */
+  ledger?: { trialsPerDay: number };
 }
 
 /** The Study 1 configuration: Ada + Maya, letters only. */
@@ -141,6 +150,7 @@ export async function runSociety(opts: RunSocietyOptions) {
       ...(society.members[i]?.sites ? { sites: society.members[i]!.sites! } : {}),
       ...(study3?.workbench ? { workbench: true } : {}),
       ...(study3?.predictions ? { predictions: true } : {}),
+      ...(study3?.ledger ? { ledger: true } : {}),
     });
   });
   const agentIds = personas.map((p) => p.agentId);
@@ -157,6 +167,23 @@ export async function runSociety(opts: RunSocietyOptions) {
 
   for (let d = 1; d <= config.days; d++) {
     const plans: MeasurementPlan[] = [];
+    // Ledger readings FIRST (the morning ledger): within-day positions 1..k
+    // belong to the civic record, so day-aligned pair statistics are anchored
+    // on guaranteed coverage whatever the agents choose to do afterwards.
+    if (study3?.ledger) {
+      for (const agent of agents) {
+        for (const site of agent.sites) {
+          for (const inst of instrumentsAt(site as never)) {
+            plans.push({
+              agentId: agent.persona.agentId,
+              instrumentId: inst.id,
+              trialsPerDay: study3.ledger.trialsPerDay,
+              ledger: true,
+            });
+          }
+        }
+      }
+    }
     const messages: MessagePlan[] = [];
     const posts: BulletinPostPlan[] = [];
     const reads: BulletinReadPlan[] = [];

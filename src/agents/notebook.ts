@@ -32,7 +32,7 @@ export interface InstrumentDigest {
 // editorialising. workbench-v1; part of the frozen condition.
 // ---------------------------------------------------------------------------
 
-export const WORKBENCH_VERSION = "workbench-v1.1"; // v1.1: overlap-aligned pair window (P3.1 fix)
+export const WORKBENCH_VERSION = "workbench-v1.2"; // v1.2: day-window pairing (P3.1c); v1.1: overlap-aligned window (P3.1)
 
 export interface PairAgreement {
   a: string;
@@ -92,19 +92,24 @@ function residualSeries(values: number[]): number[] {
 
 /**
  * Trailing-window pairing: agreement is computed over the most recent
- * WORKBENCH_PAIR_WINDOW aligned readings. A full-history correlation would
+ * WORKBENCH_PAIR_WINDOW_DAYS of aligned readings. A full-history correlation would
  * dilute a mid-run change with the pre-onset baseline (a 29-day identity
  * after an 11-day independent baseline reads as r≈0.72 full-series); recent
  * evidence is what an in-world scientist checking "are these agreeing NOW"
  * would compute. Window size is a frozen workbench parameter, identical in
  * every condition.
  */
-const WORKBENCH_PAIR_WINDOW = 120;
+// Window in DAYS, not pairs (P3.1c fix): a pair-count window spans more
+// calendar time the sparser the sampling — at ledger cadence (2/day) 120
+// pairs reach 60 days back and re-admit pre-onset dilution. Twenty days of
+// recent evidence is the same statistic at every cadence; n varies and the
+// chance band scales with it.
+const WORKBENCH_PAIR_WINDOW_DAYS = 20;
 
 /**
  * Day-aligned pairing (P3.1 fix, 2026-08-13). Readings are paired by
  * (day, within-day position): A's day-d trial t against B's day-(d+offset)
- * trial t, most recent WORKBENCH_PAIR_WINDOW pairs. Cumulative-index pairing
+ * trial t, pairs from the most recent WORKBENCH_PAIR_WINDOW_DAYS days. Cumulative-index pairing
  * broke under free instrument choice — with 286 vs 122 trials the window sat
  * outside the shorter series ("too few overlapping readings" despite 120+
  * true pairs), and index alignment scrambled across an onset whenever
@@ -118,17 +123,18 @@ function corrAtOffset(
   b: Map<number, number[]>,
   offset: number,
 ): { r: number; n: number } | null {
-  const pairs: [number, number][] = [];
   const days = [...a.keys()].sort((x, y) => x - y);
+  const maxDay = days.length ? days[days.length - 1]! : 0;
+  const pairs: [number, number][] = [];
   for (const d of days) {
+    if (d <= maxDay - WORKBENCH_PAIR_WINDOW_DAYS) continue;
     const av = a.get(d)!;
     const bv = b.get(d + offset);
     if (!bv) continue;
     for (let t = 0; t < Math.min(av.length, bv.length); t++) pairs.push([av[t]!, bv[t]!]);
   }
-  const windowed = pairs.slice(-WORKBENCH_PAIR_WINDOW);
-  if (windowed.length < 8) return null;
-  return corrOfPairs(windowed);
+  if (pairs.length < 8) return null;
+  return corrOfPairs(pairs);
 }
 
 function corrOfPairs(pairs: [number, number][]): { r: number; n: number } | null {

@@ -124,6 +124,10 @@ export function buildDecisionPrompt(input: DecisionInput): string {
           .map((s) => s.replace("_", " "))
           .join(" and the ")}.`
       : "";
+  const ledgerSentence = input.ledgerEnabled
+    ? `\nThe settlement's timekeeping ledger records a few readings from each of your instruments ` +
+      `every morning, by long civic tradition; they appear in your notebook alongside your own.`
+    : "";
   const predictionAction = input.predictionsEnabled
     ? `- Record a written forecast of the mean of your NEXT trials on one of your instruments, before taking them ` +
       `(the settlement's registry checks it against the readings once they exist): ` +
@@ -149,7 +153,7 @@ export function buildDecisionPrompt(input: DecisionInput): string {
     identity:
       `You are ${input.persona.name}, ${input.persona.role} in the settlement of Meridian.\n` +
       personaBlock(input.persona) +
-      `\nToday is Day ${input.day}. You are at the ${input.location.replace("_", " ")}.${multiSite}\n` +
+      `\nToday is Day ${input.day}. You are at the ${input.location.replace("_", " ")}.${multiSite}${ledgerSentence}\n` +
       `Your instruments here: ${instruments}.` +
       (colleagues ? `\nColleagues you can write to: ${colleagues}.` : "") +
       bulletinIdentity,

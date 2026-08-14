@@ -32,6 +32,8 @@ export interface AgentStudy3Options {
   workbench?: boolean;
   /** Offer the record_prediction action. */
   predictions?: boolean;
+  /** The town ledger is active (identity sentence + episodic phrasing). */
+  ledger?: boolean;
 }
 
 export class ObserverAgent {
@@ -61,9 +63,11 @@ export class ObserverAgent {
         this.memory.addEpisodic({
           day: obs.day,
           eventId: obs.eventId,
-          text:
-            `Measured ${String(obs.detail["instrumentId"])} trial ${String(obs.detail["trial"])}: ` +
-            `${Number(obs.detail["observedValue"]).toFixed(4)} ${String(obs.detail["unit"])}.`,
+          text: obs.detail["ledger"]
+            ? `Ledger reading for ${String(obs.detail["instrumentId"])}: ` +
+              `${Number(obs.detail["observedValue"]).toFixed(4)} ${String(obs.detail["unit"])}.`
+            : `Measured ${String(obs.detail["instrumentId"])} trial ${String(obs.detail["trial"])}: ` +
+              `${Number(obs.detail["observedValue"]).toFixed(4)} ${String(obs.detail["unit"])}.`,
           tags: ["measurement", String(obs.detail["instrumentId"])],
         });
       } else if (obs.type === "message_sent") {
@@ -222,6 +226,7 @@ export class ObserverAgent {
         recentObservations: view.observations.slice(-120),
         ...(this.sites.length > 1 ? { sites: this.sites } : {}),
         ...(this.study3.predictions ? { predictionsEnabled: true } : {}),
+        ...(this.study3.ledger ? { ledgerEnabled: true } : {}),
       });
       this.actionHistory.push({ day: view.day, action });
       return action;

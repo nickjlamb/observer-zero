@@ -81,6 +81,8 @@ export interface DecisionInput {
   sites?: string[];
   /** Study 3: whether the record_prediction action is offered this run. */
   predictionsEnabled?: boolean;
+  /** Study 3: whether the town ledger is active (one identity sentence). */
+  ledgerEnabled?: boolean;
 }
 
 export interface BeliefUpdateInput {

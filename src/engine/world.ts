@@ -55,6 +55,14 @@ export interface MeasurementPlan {
   agentId: string;
   instrumentId: InstrumentId;
   trialsPerDay: number;
+  /**
+   * Study 3 town ledger (design v0.2 F9 / P3.1c): a reading taken by the
+   * settlement's daily timekeeping ledger rather than by the agent's own
+   * choice. Same physics, same noise path, same visibility to the keeper;
+   * the payload is marked so the agent (and the evaluator) can tell its own
+   * campaign from the civic record. Condition-uniform where enabled.
+   */
+  ledger?: boolean;
 }
 
 /** An agent-to-agent message queued for delivery this day. */
@@ -392,17 +400,26 @@ export class Simulator {
       this.bulletinDeliveredCount.set(read.agentId, readableCount);
     }
 
+    // Within-day trial position per INSTRUMENT, continuous across plan
+    // entries: if the ledger takes trials 1–2 and the agent then measures,
+    // the agent's trials are positions 3+. Restarting per entry would reuse
+    // shared-component keys (day, t) within a day — a spurious within-day
+    // correlation the design never intended.
+    const dayTrialIndex = new Map<InstrumentId, number>();
+
     for (const entry of plan) {
       const inst = instrumentById(entry.instrumentId);
       for (let t = 0; t < entry.trialsPerDay; t++) {
         const instTrial = (this.instrumentTrialIndex.get(entry.instrumentId) ?? 0) + 1;
         this.instrumentTrialIndex.set(entry.instrumentId, instTrial);
+        const withinDay = (dayTrialIndex.get(entry.instrumentId) ?? 0) + 1;
+        dayTrialIndex.set(entry.instrumentId, withinDay);
         const m = measureInstrument(
           this.rules,
           entry.instrumentId,
           this.day,
           Rng.forKey(this.config.seed, `noise:${entry.instrumentId}:${instTrial}`),
-          this.unitNormalFor(entry.instrumentId, instTrial, t + 1),
+          this.unitNormalFor(entry.instrumentId, instTrial, withinDay),
         );
         let observedValue = m.observedValue;
         const q = this.mods.quantisation.get(entry.instrumentId);
@@ -424,6 +441,7 @@ export class Simulator {
             observedValue,
             unit: m.unit,
             trial,
+            ...(entry.ledger ? { ledger: true } : {}),
           },
           visibleTo: [entry.agentId],
           groundTruth: this.groundTruth(entry.instrumentId),

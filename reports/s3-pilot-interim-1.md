@@ -104,6 +104,23 @@ The round's instrument-coverage picture, per run: haiku concentrated on 1–2 in
 
 **Judge-validated pilot re-score (18 runs, sidecar `.judged.json` files, artifacts untouched):** L0 in 18/18 with **zero external-generative hypothesis classifications anywhere** — now a trustworthy number. Under Study-3-strength single-packet evidence with current coverage behaviour, haiku and sonnet produced no externality content at all; the strongest movement was we-9102's in-world "synthetic data" inference. This baseline sharpens the coverage/ledger decision: the packets must first be *witnessed* before rigidity above L0 can be measured.
 
+---
+
+# P3.1c — the town ledger (2026-08-14, 9 runs, ≈ $3.50)
+
+**Build.** `Study3Options.ledger`: the settlement's timekeeping tradition records 2 readings per instrument at each member's sites every morning — engine-level `MeasurementPlan.ledger` entries (payload-flagged, episodic-memory phrased as "Ledger reading"), one in-world identity sentence, uniform wherever enabled. Two supporting fixes shipped with it: within-day trial positions now continue across plan entries per instrument (removing a latent shared-key collision between ledger and own trials), and the workbench pair window is now **20 days rather than 120 pairs** (workbench-v1.2) — a pair-count window spans more calendar time the sparser the cadence, re-admitting pre-onset dilution at ledger rates. Also shipped: the F10 fix (opaque ids now a 2²⁰-domain Feistel — unremarkable 1–7-digit references). 192 tests green; certificates unchanged on target.
+
+**Runs.** w0/wd_exact/md_high/wb × seeds 9100–9101 (haiku) + wd_exact-9100 (sonnet), all with ledger. Leak-clean 9/9; haiku $0.25–0.46, sonnet $0.54.
+
+**Coverage: solved.** The linked-pair agreement line rendered at **1.000 (n=34, chance ±0.343)** in every wd_exact run — the killer clue is now guaranteed witnessed, whatever the agent chooses to measure.
+
+**The substantive result — the programme's first clean packet-D rigidity datum.** Judge-validated levels: **L0 in 9/9, zero external-generative hypotheses** — now with the evidence certified, rendered, and *engaged with*:
+
+- **sonnet (wd_exact-9100)** tracked the correlation across five reviews: first "instruments measure uncoupled phenomena", then two rounds of legitimate statistical scepticism ("small samples", "selective offset choice" — correctly noticing the workbench's max-over-offsets inflation), then p = 0.73 → **0.82 on "data processing error has created spurious perfect correlation through inadvertent duplication/transcription"**. Evidence fully absorbed; ontology unmoved. This is the Study 2 interpretation-ceiling shape reproduced one level up, exactly what the study exists to measure.
+- **haiku** never centred the agreement line, drifting among calibration-and-transient stories.
+
+**Two v0.3 items this raises.** (1) Sonnet's "selective offset choice" objection is *correct* about the workbench's uncorrected max-over-13-offsets — the chance band should be familywise-adjusted, or agents will rightly discount the statistic (and reviewers will rightly note the agents were rightly discounting it). (2) With coverage guaranteed, the remaining sensitivity questions are pure inference questions: dose ladder, packet E under ledger, and whether *any* condition moves L1 — the confirmatory design can now be finalised on a working instrument.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.

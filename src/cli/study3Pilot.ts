@@ -112,7 +112,13 @@ async function main() {
           config,
           modelName: mode === "mock" ? "mock" : model,
           society: SOLO_ADA_TWO_SITE,
-          study3: { opaqueIds: true, workbench: true, predictions: true },
+          study3: {
+            opaqueIds: true,
+            workbench: true,
+            predictions: true,
+            // P3.1c: --ledger enables the town ledger at 2 readings/instrument/day.
+            ...(process.argv.includes("--ledger") ? { ledger: { trialsPerDay: 2 } } : {}),
+          },
           log: (line) => {
             if (mode === "live") console.log(`  ${line}`);
           },

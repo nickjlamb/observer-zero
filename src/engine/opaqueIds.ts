@@ -41,18 +41,31 @@ function roundKeys(runKey: string, agentId: string): number[] {
   return [0, 1, 2, 3].map((r) => fnv1a(`oz-opaque:${runKey}:${agentId}:${r}`));
 }
 
-/** Round function: mix a 16-bit half with a round key into 16 bits. */
+/**
+ * Domain size (pilot finding F10, 2026-08-14): originally 32-bit, which
+ * rendered ids like "event 2043824667" — conspicuous enough that a pilot
+ * agent spent p=0.45 theorising about "counter-based signatures" in the ids
+ * themselves. Boundary machinery must not merely hide information; it must
+ * LOOK BORING (OZ-AUDIT-3 surface-plausibility clause). The permutation now
+ * runs over 20 bits: ids are unremarkable 1–7-digit references, still
+ * bijective and stride-free, with 2²⁰ ≈ 1M ids per agent — two orders of
+ * magnitude above any run's event count.
+ */
+const HALF_BITS = 10;
+const HALF_MASK = (1 << HALF_BITS) - 1;
+
+/** Round function: mix a half-word with a round key into HALF_BITS bits. */
 function F(half: number, key: number): number {
   let z = (half ^ key) >>> 0;
   z = Math.imul(z + 0x9e3779b9, 0x85ebca6b) >>> 0;
   z ^= z >>> 13;
   z = Math.imul(z, 0xc2b2ae35) >>> 0;
-  return (z ^ (z >>> 16)) & 0xffff;
+  return (z ^ (z >>> 16)) & HALF_MASK;
 }
 
 function feistel(x: number, keys: number[], inverse: boolean): number {
-  let left = (x >>> 16) & 0xffff;
-  let right = x & 0xffff;
+  let left = (x >>> HALF_BITS) & HALF_MASK;
+  let right = x & HALF_MASK;
   const order = inverse ? [...keys].reverse() : keys;
   for (const k of order) {
     const t = right;
@@ -60,10 +73,10 @@ function feistel(x: number, keys: number[], inverse: boolean): number {
     left = t;
   }
   // Final swap so the network is its own structural inverse.
-  return (((right & 0xffff) << 16) | (left & 0xffff)) >>> 0;
+  return (((right & HALF_MASK) << HALF_BITS) | (left & HALF_MASK)) >>> 0;
 }
 
-const DOMAIN = 0x80000000; // opaque ids live in [0, 2^31): non-negative ints
+const DOMAIN = 1 << (2 * HALF_BITS); // opaque ids live in [0, 2^20)
 
 /**
  * The opaque id an agent sees for a global event id. Bijective on

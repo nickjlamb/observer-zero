@@ -256,6 +256,56 @@ describe("opaque observation ids", () => {
 });
 
 // ---------------------------------------------------------------------------
+// 3b. The town ledger (P3.1c)
+// ---------------------------------------------------------------------------
+
+describe("town ledger", () => {
+  it("emits flagged daily readings and keeps day-aligned identity intact alongside agent trials", () => {
+    const config = s3SharedStream(9110);
+    const sim = new Simulator(config);
+    for (let d = 1; d <= 40; d++) {
+      const plan: MeasurementPlan[] = [
+        // Morning ledger: 2 trials on each linked instrument.
+        { agentId: "ada", instrumentId: "pendulum_lab", trialsPerDay: 2, ledger: true },
+        { agentId: "ada", instrumentId: "resonator_obs", trialsPerDay: 2, ledger: true },
+        // The agent's own campaign concentrates on one instrument — the
+        // pilot-observed regime that used to break pair alignment.
+        { agentId: "ada", instrumentId: "pendulum_lab", trialsPerDay: 8 },
+      ];
+      sim.runDay(plan);
+    }
+    const ledgerEvents = sim.log
+      .all()
+      .filter((e) => e.type === "experiment_result" && e.payload["ledger"] === true);
+    // 2 instruments × 2 trials × 40 days.
+    expect(ledgerEvents.length).toBe(160);
+
+    const view = buildAgentView({
+      agentId: "ada",
+      day: 40,
+      currentLocation: "laboratory",
+      events: sim.log.all(),
+    });
+    const pair = buildWorkbench(view).pairs.find(
+      (p) =>
+        (p.a === "pendulum_lab" && p.b === "resonator_obs") ||
+        (p.a === "resonator_obs" && p.b === "pendulum_lab"),
+    )!;
+    // Ledger coverage guarantees the pair statistic; within-day positions
+    // continue across ledger + own entries, so shared keys never collide and
+    // the post-onset identity survives the lopsided schedule.
+    expect(pair.agreement).not.toBeNull();
+    expect(Math.abs(pair.agreement!)).toBeGreaterThan(0.9);
+    expect(Math.abs(pair.atOffset)).toBe(3);
+  });
+
+  it("is absent by default: no frozen-path event carries a ledger flag", () => {
+    const sim = runWorld(gravityShift(42));
+    expect(sim.log.all().some((e) => e.payload["ledger"] !== undefined)).toBe(false);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // 4. L3 provenance-blindness (amendment S3-A1)
 // ---------------------------------------------------------------------------
 
