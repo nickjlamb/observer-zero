@@ -25,6 +25,7 @@ import {
   type BulletinReadPlan,
   type MeasurementPlan,
   type MessagePlan,
+  type PredictionPlan,
 } from "../engine/world.js";
 import { buildAgentView } from "../engine/agentView.js";
 import { ObserverAgent } from "../agents/agent.js";
@@ -49,11 +50,27 @@ export interface SocietyMember {
   personaId: string;
   /** Overrides the run-level model — mixed societies (arm D). */
   modelName?: string;
+  /** Study 3: instrument sites this member keeps (default: persona home). */
+  sites?: string[];
 }
 
 export interface SocietySpec {
   members: SocietyMember[];
   institution: Institution;
+}
+
+/**
+ * Study 3 run-level configuration (design v0.2). Every field defaults off;
+ * with the whole object absent the run is the frozen Study 1/2 code path,
+ * byte-for-byte — prompts, ids, noise streams, event surface.
+ */
+export interface Study3Options {
+  /** Per-agent opaque observation ids (leak fix, v0.1 §6.1). */
+  opaqueIds?: boolean;
+  /** Statistical workbench sections in the notebook (workbench-v1). */
+  workbench?: boolean;
+  /** Offer the record_prediction affordance. */
+  predictions?: boolean;
 }
 
 /** The Study 1 configuration: Ada + Maya, letters only. */
@@ -70,6 +87,8 @@ export interface RunSocietyOptions {
   promptVariant?: PromptVariant;
   /** M4: society composition and institution. Defaults to the Study 1 pair. */
   society?: SocietySpec;
+  /** Study 3 machinery; omit entirely for the frozen Study 1/2 path. */
+  study3?: Study3Options;
   /** Optional live progress hook (the CLI prints; the battery stays quiet). */
   log?: (line: string) => void;
 }
@@ -109,38 +128,50 @@ export async function runSociety(opts: RunSocietyOptions) {
     role: p.role,
     location: p.home,
   }));
+  const study3 = opts.study3;
+  const idMode = study3?.opaqueIds
+    ? ({ mode: "opaque", runKey: `${config.name}:${config.seed}` } as const)
+    : undefined;
   const providers = new Map<string, ModelProvider>();
   const agents = personas.map((p, i) => {
     const m = memberModels[i]!;
     const provider = createProvider(m, m === "mock" ? 0 : temperature, callLog, promptVariant);
     providers.set(p.agentId, provider);
-    return new ObserverAgent(p, provider, directory.filter((c) => c.agentId !== p.agentId));
+    return new ObserverAgent(p, provider, directory.filter((c) => c.agentId !== p.agentId), {
+      ...(society.members[i]?.sites ? { sites: society.members[i]!.sites! } : {}),
+      ...(study3?.workbench ? { workbench: true } : {}),
+      ...(study3?.predictions ? { predictions: true } : {}),
+    });
   });
   const agentIds = personas.map((p) => p.agentId);
   const sim = new Simulator(config);
   const startedAt = new Date().toISOString();
+  const viewFor = (agentId: string, day: number, home: string) =>
+    buildAgentView({
+      agentId,
+      day,
+      currentLocation: home as never,
+      events: sim.log.all(),
+      ...(idMode ? { observationIds: idMode } : {}),
+    });
 
   for (let d = 1; d <= config.days; d++) {
     const plans: MeasurementPlan[] = [];
     const messages: MessagePlan[] = [];
     const posts: BulletinPostPlan[] = [];
     const reads: BulletinReadPlan[] = [];
+    const predictions: PredictionPlan[] = [];
     const dayLines: string[] = [];
     const wantsReview = new Set<string>();
 
     for (const agent of turnOrder(agents, config.seed, d)) {
-      const view = buildAgentView({
-        agentId: agent.persona.agentId,
-        day: d,
-        currentLocation: agent.persona.home as never,
-        events: sim.log.all(),
-      });
+      const view = viewFor(agent.persona.agentId, d, agent.persona.home);
       agent.perceive(view);
       const action = await agent.decide(view);
       const who = agent.persona.agentId;
 
       if (action.type === "run_experiment") {
-        const ownIds = instrumentsAt(agent.persona.home as never).map((i) => i.id);
+        const ownIds = agent.sites.flatMap((s) => instrumentsAt(s as never).map((i) => i.id));
         if (ownIds.includes(action.instrumentId)) {
           plans.push({ agentId: who, instrumentId: action.instrumentId, trialsPerDay: action.trials });
           dayLines.push(`${who}: ${action.instrumentId} ×${action.trials}`);
@@ -168,6 +199,20 @@ export async function runSociety(opts: RunSocietyOptions) {
         } else {
           dayLines.push(`${who}: tried to read the bulletin (none exists) — rested`);
         }
+      } else if (action.type === "record_prediction") {
+        const ownIds = agent.sites.flatMap((s) => instrumentsAt(s as never).map((i) => i.id));
+        if (study3?.predictions && ownIds.includes(action.instrumentId)) {
+          predictions.push({
+            agentId: who,
+            instrumentId: action.instrumentId,
+            trials: action.trials,
+            predictedMean: action.predictedMean,
+            tolerance: action.tolerance,
+          });
+          dayLines.push(`${who}: records forecast for ${action.instrumentId}`);
+        } else {
+          dayLines.push(`${who}: tried to record a forecast (unavailable) — rested`);
+        }
       } else if (action.type === "update_beliefs") {
         wantsReview.add(who);
         dayLines.push(`${who}: belief review`);
@@ -176,15 +221,16 @@ export async function runSociety(opts: RunSocietyOptions) {
       }
     }
 
-    sim.runDay(plans, messages, agentIds, bulletinOn ? { posts, reads } : undefined);
+    sim.runDay(
+      plans,
+      messages,
+      agentIds,
+      bulletinOn ? { posts, reads } : undefined,
+      predictions.length > 0 ? predictions : undefined,
+    );
 
     for (const agent of agents) {
-      const view = buildAgentView({
-        agentId: agent.persona.agentId,
-        day: d,
-        currentLocation: agent.persona.home as never,
-        events: sim.log.all(),
-      });
+      const view = viewFor(agent.persona.agentId, d, agent.persona.home);
       agent.perceive(view);
       const who = agent.persona.agentId;
       if (wantsReview.has(who) || agent.shouldForceReview(view)) {
@@ -203,12 +249,7 @@ export async function runSociety(opts: RunSocietyOptions) {
   // End-of-study review: no scientist ends a study without a final analysis.
   for (const agent of agents) {
     if (agent.beliefs.updatedOnDay < config.days) {
-      const view = buildAgentView({
-        agentId: agent.persona.agentId,
-        day: config.days,
-        currentLocation: agent.persona.home as never,
-        events: sim.log.all(),
-      });
+      const view = viewFor(agent.persona.agentId, config.days, agent.persona.home);
       agent.perceive(view);
       // isFinalReview: this review has no later review to correct it, so a
       // parse failure here permanently stales the agent's final belief
@@ -238,8 +279,11 @@ export async function runSociety(opts: RunSocietyOptions) {
         personaId: m.personaId,
         modelName: memberModels[i]!,
         provider: providerKindFor(memberModels[i]!),
+        ...(m.sites ? { sites: m.sites } : {}),
       })),
     },
+    // Study 3 provenance: which machinery was on. null = frozen S1/S2 path.
+    study3: study3 ?? null,
     personas,
     agents: agents.map((a) => ({
       agentId: a.persona.agentId,

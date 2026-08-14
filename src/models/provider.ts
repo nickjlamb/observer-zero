@@ -73,6 +73,14 @@ export interface DecisionInput {
   /** Notices this agent has seen (own posts + read deliveries). */
   bulletinFeed?: BulletinItem[];
   recentObservations: Observation[];
+  /**
+   * Study 3: the agent's instrument sites when it keeps more than one
+   * (solo two-site configuration). Absent in Study 1/2 runs — the rendered
+   * prompt is then byte-identical to the frozen surface.
+   */
+  sites?: string[];
+  /** Study 3: whether the record_prediction action is offered this run. */
+  predictionsEnabled?: boolean;
 }
 
 export interface BeliefUpdateInput {
@@ -196,6 +204,21 @@ export const FORBIDDEN_PROMPT_TOKENS = [
   "WorldRules",
   "trueValue",
   "resonanceConstant",
+  // Study 3 (design v0.2 §6.2 / OZ-AUDIT-3): host-artefact machinery names.
+  // These are simulator-privileged concepts; none may ever reach a prompt.
+  "noise_stream_link",
+  "coupling_field",
+  "noise_quantisation",
+  "noise_replay",
+  "noise_autocorr",
+  "constant_shift",
+  "mixWeight",
+  "periodTrials",
+  "artefacts",
+  "opaqueId",
+  "runKey",
+  "linkId",
+  "unitNormal",
 ] as const;
 
 export interface ModelProvider {

@@ -80,6 +80,12 @@ export function measureInstrument(
   instrumentId: InstrumentId,
   day: number,
   rng: Rng,
+  /**
+   * Study 3: a pre-computed unit normal (the simulator applies host-artefact
+   * modifiers before the draw reaches the physics). When omitted the draw
+   * comes from `rng` exactly as it always has — the Study 1/2 path.
+   */
+  unitNormal?: number,
 ): RawMeasurement {
   const inst = instrumentById(instrumentId);
   const trueValue =
@@ -87,7 +93,8 @@ export function measureInstrument(
       ? truePendulumPeriod(inst.param, rules.gravity)
       : trueResonantFrequency(inst.param, rules.resonanceConstant);
   const bias = effectiveBias(rules, instrumentId, day);
-  const noiseFactor = 1 + rules.measurementNoise * rng.gaussian();
+  const g = unitNormal ?? rng.gaussian();
+  const noiseFactor = 1 + rules.measurementNoise * g;
   return {
     instrumentId,
     experiment: inst.kind === "pendulum" ? "pendulum" : "resonance",

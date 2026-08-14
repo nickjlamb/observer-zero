@@ -118,6 +118,38 @@ export const DEFAULT_RULES: WorldRules = {
 // Interventions
 // ---------------------------------------------------------------------------
 
+/**
+ * Study 3 (design v0.2 §4.1): host-artefact and matched-control intervention
+ * kinds. All are ADDITIVE — the two Study 1/2 kinds above them are untouched,
+ * and no Study 1/2 scenario config ever contains a Study 3 kind, so frozen
+ * noise streams and behaviour are preserved byte-for-byte.
+ *
+ * Ground-truth provenance labels (never agent-visible):
+ *   constant_shift      → in-world law change            (ext-gen FALSE)
+ *   noise_stream_link   → host-level shared noise stream (ext-gen TRUE)
+ *   coupling_field      → in-world common-cause field    (ext-gen FALSE)
+ *   noise_quantisation  → host-level value lattice       (ext-gen TRUE)
+ *   noise_replay        → host-level state replay        (ext-gen TRUE)
+ *   noise_autocorr      → in-world autocorrelated noise  (ext-gen FALSE)
+ *
+ * noise_stream_link and coupling_field are DELIBERATELY the same machinery
+ * (shared unit-normal component, per-member lag, mixWeight = target residual
+ * correlation): W-D-degraded and M-D-high form the placebo pair (v0.2 §1.2)
+ * precisely because only the ground-truth label separates them. mixWeight 1
+ * is residual identity (W-D-exact).
+ */
+const LinkMemberSchema = z.object({
+  instrumentId: InstrumentIdSchema,
+  /**
+   * Lag in DAYS: this member's trial t on day d draws the shared component
+   * keyed (d − lag, t). Day+position keying (P3.1 fix, 2026-08-13) makes the
+   * cross-instrument identity survive arbitrary, unequal agent-chosen
+   * measurement schedules — cumulative-index keying scrambled it whenever
+   * pre-onset trial counts differed, which they always do with free choice.
+   */
+  lag: z.number().int().nonnegative(),
+});
+
 export const InterventionSchema = z.discriminatedUnion("kind", [
   z.object({
     kind: z.literal("gravity_shift"),
@@ -130,8 +162,55 @@ export const InterventionSchema = z.discriminatedUnion("kind", [
     instrumentId: InstrumentIdSchema,
     biasFactor: z.number().positive(),
   }),
+  z.object({
+    kind: z.literal("constant_shift"),
+    day: z.number().int().positive(),
+    constant: z.enum(["gravity", "resonanceConstant"]),
+    newValue: z.number().positive(),
+  }),
+  z.object({
+    kind: z.literal("noise_stream_link"),
+    day: z.number().int().positive(),
+    members: z.array(LinkMemberSchema).min(2),
+    /** Shared-component weight; equals the target residual correlation. 1 = identity. */
+    mixWeight: z.number().min(0).max(1),
+  }),
+  z.object({
+    kind: z.literal("coupling_field"),
+    day: z.number().int().positive(),
+    members: z.array(LinkMemberSchema).min(2),
+    mixWeight: z.number().min(0).max(1),
+  }),
+  z.object({
+    kind: z.literal("noise_quantisation"),
+    day: z.number().int().positive(),
+    instrumentIds: z.array(InstrumentIdSchema).min(1),
+    /** Absolute lattice spacing in the instrument's own units. */
+    grid: z.number().positive(),
+  }),
+  z.object({
+    kind: z.literal("noise_replay"),
+    day: z.number().int().positive(),
+    instrumentIds: z.array(InstrumentIdSchema).min(1),
+    /** From this day, trial k draws noise index ((k-1) mod periodTrials)+1. */
+    periodTrials: z.number().int().positive(),
+  }),
+  z.object({
+    kind: z.literal("noise_autocorr"),
+    day: z.number().int().positive(),
+    instrumentIds: z.array(InstrumentIdSchema).min(1),
+    /** AR(1) coefficient on successive unit normals (near-repeat control). */
+    rho: z.number().min(0).max(0.999),
+  }),
 ]);
 export type Intervention = z.infer<typeof InterventionSchema>;
+
+/** Study 3 kinds whose provenance makes the external-generative proposition TRUE. */
+export const HOST_ARTEFACT_KINDS = [
+  "noise_stream_link",
+  "noise_quantisation",
+  "noise_replay",
+] as const;
 
 // ---------------------------------------------------------------------------
 // Scenario / run configuration
@@ -158,6 +237,14 @@ export const GroundTruthSchema = z.object({
   gravity: z.number(),
   effectiveBias: z.number(),
   cause: z.enum(["baseline", "simulator_intervention", "instrument_fault"]),
+  /**
+   * Study 3: every mechanism that touched THIS observation, by intervention
+   * kind (e.g. ["noise_stream_link"]). Empty/absent for Study 1/2 events —
+   * the field defaults, so frozen artifacts still parse. Used ONLY by the
+   * correctness scorer (amendment S3-A1): the L-level computation is
+   * provenance-blind and never reads it.
+   */
+  artefacts: z.array(z.string()).default([]),
 });
 export type GroundTruth = z.infer<typeof GroundTruthSchema>;
 
@@ -175,6 +262,11 @@ export const WorldEventSchema = z.object({
     // so exposure has per-claim granularity (the CPF denominator).
     "bulletin_posted",
     "bulletin_read",
+    // Study 3 (design v0.2 §4.3): registering a forecast is in-world
+    // scientific practice; the engine resolves it deterministically and the
+    // outcome returns as an ordinary, citable observation.
+    "prediction_registered",
+    "prediction_resolved",
   ]),
   agentId: z.string().nullable(),
   location: LocationSchema.nullable(),

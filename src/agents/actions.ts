@@ -32,6 +32,17 @@ export const AgentActionSchema = z.discriminatedUnion("type", [
     type: z.literal("read_bulletin"),
     reason: z.string(),
   }),
+  // Study 3 (design v0.2 §4.3): register a forecast; the world checks it
+  // against the covering measurements and reports back. Offered only when
+  // the run's affordance set enables it; the runner drops it elsewhere.
+  z.object({
+    type: z.literal("record_prediction"),
+    instrumentId: InstrumentIdSchema,
+    trials: z.number().int().min(1).max(12),
+    predictedMean: z.number().positive(),
+    tolerance: z.number().positive(),
+    reason: z.string(),
+  }),
   z.object({
     type: z.literal("update_beliefs"),
     reason: z.string(),

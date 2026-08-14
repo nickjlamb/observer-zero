@@ -114,6 +114,21 @@ export function buildDecisionPrompt(input: DecisionInput): string {
   const instruments = input.availableInstruments
     .map((i) => `"${i.id}" (${i.kind})`)
     .join(", ");
+  // Study 3 solo two-site configuration: one added identity sentence; absent
+  // in every Study 1/2 run, so the frozen surface is unchanged (a test
+  // asserts byte-identity for single-site inputs).
+  const multiSite =
+    input.sites && input.sites.length > 1
+      ? `\nYou also keep the instruments at the ${input.sites
+          .filter((s) => s !== input.location)
+          .map((s) => s.replace("_", " "))
+          .join(" and the ")}.`
+      : "";
+  const predictionAction = input.predictionsEnabled
+    ? `- Record a written forecast of the mean of your NEXT trials on one of your instruments, before taking them ` +
+      `(the settlement's registry checks it against the readings once they exist): ` +
+      `{"type":"record_prediction","instrumentId":"...","trials":1-12,"predictedMean":0.0,"tolerance":0.0,"reason":"..."}\n`
+    : "";
   const colleagues = input.colleagues
     .map((c) => `${c.name} ("${c.agentId}"), ${c.role} at the ${c.location.replace("_", " ")}`)
     .join("; ");
@@ -134,7 +149,7 @@ export function buildDecisionPrompt(input: DecisionInput): string {
     identity:
       `You are ${input.persona.name}, ${input.persona.role} in the settlement of Meridian.\n` +
       personaBlock(input.persona) +
-      `\nToday is Day ${input.day}. You are at the ${input.location.replace("_", " ")}.\n` +
+      `\nToday is Day ${input.day}. You are at the ${input.location.replace("_", " ")}.${multiSite}\n` +
       `Your instruments here: ${instruments}.` +
       (colleagues ? `\nColleagues you can write to: ${colleagues}.` : "") +
       bulletinIdentity,
@@ -148,14 +163,23 @@ export function buildDecisionPrompt(input: DecisionInput): string {
     task:
       `Choose ONE action for today. Respond with ONLY a JSON object, no other text:\n` +
       `- Run measurements on one of YOUR instruments: {"type":"run_experiment","instrumentId":"...","trials":1-12,"reason":"..."}\n` +
-      `- Write to a colleague: {"type":"send_message","to":"<agentId>","text":"...","reason":"..."}\n` +
+      // Solo runs (Study 3) have no colleagues; offering the action would
+      // invite letters to nobody. Study 1/2 always has colleagues, so their
+      // rendered surface is unchanged.
+      (input.colleagues.length > 0
+        ? `- Write to a colleague: {"type":"send_message","to":"<agentId>","text":"...","reason":"..."}\n`
+        : "") +
+      predictionAction +
       bulletinActions +
       `- Revise your hypotheses against your notebook: {"type":"update_beliefs","reason":"..."}\n` +
       `- Rest / attend to other duties: {"type":"rest","reason":"..."}\n` +
       `Choose based on your goals and what your evidence currently demands. You are a working scientist ` +
-      `with ordinary responsibilities, not a philosopher on watch for the extraordinary. If you ask a ` +
-      `colleague to check something, consider whether to share your numbers: a colleague who measures ` +
-      `WITHOUT seeing your values gives you a far stronger, independent test.`,
+      `with ordinary responsibilities, not a philosopher on watch for the extraordinary.` +
+      (input.colleagues.length > 0
+        ? ` If you ask a ` +
+          `colleague to check something, consider whether to share your numbers: a colleague who measures ` +
+          `WITHOUT seeing your values gives you a far stronger, independent test.`
+        : ``),
   });
 }
 

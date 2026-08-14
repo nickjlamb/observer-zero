@@ -20,6 +20,37 @@ import {
   type WorldRules,
 } from "./types.js";
 
+/**
+ * Study 3 host-artefact / matched-control state (design v0.2 §4.1 + S3-A1).
+ * Lives on the Simulator, never in WorldRules, so the Study 1/2 rules shape
+ * is untouched. Populated only by Study 3 intervention kinds; empty for
+ * every Study 1/2 scenario, in which case the measurement path below is
+ * byte-identical to the frozen one (same Rng keys, same draw order).
+ */
+interface NoiseLink {
+  kind: "noise_stream_link" | "coupling_field";
+  linkId: string;
+  fromDay: number;
+  mixWeight: number;
+  members: Map<InstrumentId, number>; // instrumentId → lag
+}
+interface NoiseMods {
+  links: NoiseLink[];
+  quantisation: Map<InstrumentId, { fromDay: number; grid: number }>;
+  replay: Map<InstrumentId, { fromDay: number; periodTrials: number; startTrial: number | null }>;
+  autocorr: Map<InstrumentId, { fromDay: number; rho: number; last: number | null }>;
+}
+
+/** An agent's registered forecast, resolved deterministically by the engine. */
+export interface PredictionPlan {
+  agentId: string;
+  instrumentId: InstrumentId;
+  /** Number of future trials on that instrument the prediction covers. */
+  trials: number;
+  predictedMean: number;
+  tolerance: number;
+}
+
 export interface MeasurementPlan {
   agentId: string;
   instrumentId: InstrumentId;
@@ -83,6 +114,19 @@ export class Simulator {
    */
   private bulletinPostEventIds: number[] = [];
   private bulletinDeliveredCount = new Map<string, number>();
+  /** Study 3 noise-path modifiers; all empty for Study 1/2 scenarios. */
+  private mods: NoiseMods = {
+    links: [],
+    quantisation: new Map(),
+    replay: new Map(),
+    autocorr: new Map(),
+  };
+  /** Open registered predictions, resolved as covering trials accumulate. */
+  private openPredictions: {
+    eventId: number;
+    plan: PredictionPlan;
+    observed: number[];
+  }[] = [];
 
   constructor(config: ScenarioConfig) {
     this.config = ScenarioConfigSchema.parse(config);
@@ -99,6 +143,22 @@ export class Simulator {
     return this.day;
   }
 
+  /** Study 3 mechanisms touching THIS instrument today (provenance labels). */
+  private artefactsFor(instrumentId: InstrumentId | null): string[] {
+    if (!instrumentId) return [];
+    const out: string[] = [];
+    for (const link of this.mods.links) {
+      if (this.day >= link.fromDay && link.members.has(instrumentId)) out.push(link.kind);
+    }
+    const q = this.mods.quantisation.get(instrumentId);
+    if (q && this.day >= q.fromDay) out.push("noise_quantisation");
+    const r = this.mods.replay.get(instrumentId);
+    if (r && this.day >= r.fromDay) out.push("noise_replay");
+    const a = this.mods.autocorr.get(instrumentId);
+    if (a && this.day >= a.fromDay) out.push("noise_autocorr");
+    return out;
+  }
+
   private groundTruth(instrumentId: InstrumentId | null): GroundTruth {
     let effectiveBias = 1;
     let cause: GroundTruth["cause"] = "baseline";
@@ -110,21 +170,69 @@ export class Simulator {
         }
       }
     }
-    if (this.rules.gravity !== this.config.rules.gravity) {
+    if (
+      this.rules.gravity !== this.config.rules.gravity ||
+      this.rules.resonanceConstant !== this.config.rules.resonanceConstant
+    ) {
       cause = "simulator_intervention";
     }
-    return { gravity: this.rules.gravity, effectiveBias, cause };
+    return {
+      gravity: this.rules.gravity,
+      effectiveBias,
+      cause,
+      artefacts: this.artefactsFor(instrumentId),
+    };
   }
 
   private applyIntervention(iv: Intervention): void {
-    if (iv.kind === "gravity_shift") {
-      this.rules.gravity = iv.newGravity;
-    } else {
-      this.rules.instrumentFaults.push({
-        instrumentId: iv.instrumentId,
-        biasFactor: iv.biasFactor,
-        fromDay: iv.day,
-      });
+    switch (iv.kind) {
+      case "gravity_shift":
+        this.rules.gravity = iv.newGravity;
+        break;
+      case "instrument_fault":
+        this.rules.instrumentFaults.push({
+          instrumentId: iv.instrumentId,
+          biasFactor: iv.biasFactor,
+          fromDay: iv.day,
+        });
+        break;
+      case "constant_shift":
+        if (iv.constant === "gravity") this.rules.gravity = iv.newValue;
+        else this.rules.resonanceConstant = iv.newValue;
+        break;
+      case "noise_stream_link":
+      case "coupling_field":
+        this.mods.links.push({
+          kind: iv.kind,
+          // Stream key namespaced by kind + position so two links never share
+          // a component accidentally — and so noise_stream_link and
+          // coupling_field draw from DIFFERENT streams (the placebo pair is
+          // matched on structure, not on literal values).
+          linkId: `${iv.kind}:${this.mods.links.length}`,
+          fromDay: iv.day,
+          mixWeight: iv.mixWeight,
+          members: new Map(iv.members.map((m) => [m.instrumentId, m.lag])),
+        });
+        break;
+      case "noise_quantisation":
+        for (const id of iv.instrumentIds) {
+          this.mods.quantisation.set(id, { fromDay: iv.day, grid: iv.grid });
+        }
+        break;
+      case "noise_replay":
+        for (const id of iv.instrumentIds) {
+          this.mods.replay.set(id, {
+            fromDay: iv.day,
+            periodTrials: iv.periodTrials,
+            startTrial: null,
+          });
+        }
+        break;
+      case "noise_autocorr":
+        for (const id of iv.instrumentIds) {
+          this.mods.autocorr.set(id, { fromDay: iv.day, rho: iv.rho, last: null });
+        }
+        break;
     }
     // Intervention events are visible to NO agent: visibleTo is empty.
     this.log.append({
@@ -137,12 +245,48 @@ export class Simulator {
       visibleTo: [],
       groundTruth: {
         ...this.groundTruth(null),
-        cause:
-          iv.kind === "gravity_shift"
-            ? "simulator_intervention"
-            : "instrument_fault",
+        cause: iv.kind === "instrument_fault" ? "instrument_fault" : "simulator_intervention",
+        artefacts: iv.kind === "gravity_shift" || iv.kind === "instrument_fault" ? [] : [iv.kind],
       },
     });
+  }
+
+  /**
+   * The unit normal for trial `instTrial` on `instrumentId`, with any active
+   * Study 3 modifier applied. With no modifiers this returns EXACTLY the
+   * frozen draw — same key, same single gaussian — so Study 1/2 measurement
+   * series are byte-identical (the noise-stream-preservation invariant).
+   */
+  private unitNormalFor(instrumentId: InstrumentId, instTrial: number, withinDayTrial: number): number {
+    const replay = this.mods.replay.get(instrumentId);
+    const effTrial =
+      replay && this.day >= replay.fromDay
+        ? ((instTrial - 1) % replay.periodTrials) + 1
+        : instTrial;
+    let g = Rng.forKey(this.config.seed, `noise:${instrumentId}:${effTrial}`).gaussian();
+
+    const ac = this.mods.autocorr.get(instrumentId);
+    if (ac && this.day >= ac.fromDay) {
+      g = ac.last === null ? g : ac.rho * ac.last + Math.sqrt(1 - ac.rho * ac.rho) * g;
+      ac.last = g;
+    }
+
+    for (const link of this.mods.links) {
+      if (this.day < link.fromDay) continue;
+      const lag = link.members.get(instrumentId);
+      if (lag === undefined) continue;
+      // Shared component keyed by (source day, within-day position): member
+      // with lag L on day d, trial t draws the component of day d−L, trial t.
+      // Two members with lags 0 and 3 therefore agree trial-for-trial at a
+      // three-DAY offset, whatever their cumulative trial histories.
+      const w = link.mixWeight;
+      const shared = Rng.forKey(
+        this.config.seed,
+        `${link.linkId}:${this.day - lag}:${withinDayTrial}`,
+      ).gaussian();
+      g = Math.sqrt(w) * shared + Math.sqrt(1 - w) * g;
+    }
+    return g;
   }
 
   /**
@@ -155,11 +299,33 @@ export class Simulator {
     messages: readonly MessagePlan[] = [],
     participants?: readonly string[],
     bulletin?: BulletinPlan,
+    predictions?: readonly PredictionPlan[],
   ): void {
     this.day += 1;
 
     for (const iv of this.config.interventions) {
       if (iv.day === this.day) this.applyIntervention(iv);
+    }
+
+    // Prediction registration FIRST: a forecast must predate the data it
+    // covers, structurally. The registered event is visible to its author.
+    for (const p of predictions ?? []) {
+      const ev = this.log.append({
+        tick: this.tick++,
+        day: this.day,
+        type: "prediction_registered",
+        agentId: p.agentId,
+        location: null,
+        payload: {
+          instrumentId: p.instrumentId,
+          trials: p.trials,
+          predictedMean: p.predictedMean,
+          tolerance: p.tolerance,
+        },
+        visibleTo: [p.agentId],
+        groundTruth: this.groundTruth(null),
+      });
+      this.openPredictions.push({ eventId: ev.id, plan: p, observed: [] });
     }
 
     // Readable universe = posts made on PREVIOUS days. Computed before any
@@ -236,7 +402,13 @@ export class Simulator {
           entry.instrumentId,
           this.day,
           Rng.forKey(this.config.seed, `noise:${entry.instrumentId}:${instTrial}`),
+          this.unitNormalFor(entry.instrumentId, instTrial, t + 1),
         );
+        let observedValue = m.observedValue;
+        const q = this.mods.quantisation.get(entry.instrumentId);
+        if (q && this.day >= q.fromDay) {
+          observedValue = Math.round(observedValue / q.grid) * q.grid;
+        }
         const key = `${entry.agentId}:${entry.instrumentId}`;
         const trial = (this.trialCounters.get(key) ?? 0) + 1;
         this.trialCounters.set(key, trial);
@@ -249,15 +421,53 @@ export class Simulator {
           payload: {
             experiment: m.experiment,
             instrumentId: m.instrumentId,
-            observedValue: m.observedValue,
+            observedValue,
             unit: m.unit,
             trial,
           },
           visibleTo: [entry.agentId],
           groundTruth: this.groundTruth(entry.instrumentId),
         });
+        // Feed open predictions by the measuring agent on this instrument.
+        for (const op of this.openPredictions) {
+          if (
+            op.plan.agentId === entry.agentId &&
+            op.plan.instrumentId === entry.instrumentId &&
+            op.observed.length < op.plan.trials
+          ) {
+            op.observed.push(observedValue);
+          }
+        }
       }
     }
+
+    // Resolve predictions whose covering trials are complete. Resolution is
+    // deterministic engine arithmetic; the outcome reaches the author as an
+    // ordinary observation it can cite.
+    this.openPredictions = this.openPredictions.filter((op) => {
+      if (op.observed.length < op.plan.trials) return true;
+      const mean = op.observed.reduce((a, b) => a + b, 0) / op.observed.length;
+      const hit = Math.abs(mean - op.plan.predictedMean) <= op.plan.tolerance;
+      this.log.append({
+        tick: this.tick++,
+        day: this.day,
+        type: "prediction_resolved",
+        agentId: op.plan.agentId,
+        location: null,
+        payload: {
+          predictionEventId: op.eventId,
+          instrumentId: op.plan.instrumentId,
+          trials: op.plan.trials,
+          predictedMean: op.plan.predictedMean,
+          tolerance: op.plan.tolerance,
+          observedMean: mean,
+          withinTolerance: hit,
+        },
+        visibleTo: [op.plan.agentId],
+        groundTruth: this.groundTruth(op.plan.instrumentId),
+      });
+      return false;
+    });
 
     // Messages are delivered at end of day: visible ONLY to sender and
     // recipient. Content is agent-generated text — it carries no privileged

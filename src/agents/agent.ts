@@ -24,6 +24,16 @@ import { MemoryStore } from "./memory.js";
 import { buildNotebook } from "./notebook.js";
 import type { Persona } from "./persona.js";
 
+/** Study 3 per-agent configuration; every field absent for Study 1/2 runs. */
+export interface AgentStudy3Options {
+  /** Instrument sites beyond the persona's home (solo two-site config). */
+  sites?: string[];
+  /** Render the statistical workbench in notebook sections. */
+  workbench?: boolean;
+  /** Offer the record_prediction action. */
+  predictions?: boolean;
+}
+
 export class ObserverAgent {
   readonly memory = new MemoryStore();
   beliefs: BeliefState = structuredClone(INITIAL_BELIEFS);
@@ -31,13 +41,17 @@ export class ObserverAgent {
   readonly actionHistory: { day: number; action: AgentAction }[] = [];
   /** Belief reviews that failed (provider/validation) — kept visible, never silent. */
   failedUpdates: { day: number }[] = [];
+  readonly sites: string[];
 
   constructor(
     readonly persona: Persona,
     private provider: ModelProvider,
     /** Public directory of other agents in this run. */
     readonly colleagues: ColleagueInfo[] = [],
-  ) {}
+    private study3: AgentStudy3Options = {},
+  ) {
+    this.sites = study3.sites ?? [persona.home];
+  }
 
   /** Fold new observations into episodic (and social) memory. */
   perceive(view: AgentView): void {
@@ -94,6 +108,27 @@ export class ObserverAgent {
           });
           this.memory.addSocial({ aboutAgentId: author, day: obs.day, text });
         }
+      } else if (obs.type === "prediction_registered") {
+        this.memory.addEpisodic({
+          day: obs.day,
+          eventId: obs.eventId,
+          text:
+            `I recorded a forecast for ${String(obs.detail["instrumentId"])}: mean of next ` +
+            `${String(obs.detail["trials"])} trials ${Number(obs.detail["predictedMean"]).toFixed(4)} ` +
+            `± ${Number(obs.detail["tolerance"]).toFixed(4)}.`,
+          tags: ["prediction", String(obs.detail["instrumentId"])],
+        });
+      } else if (obs.type === "prediction_resolved") {
+        this.memory.addEpisodic({
+          day: obs.day,
+          eventId: obs.eventId,
+          text:
+            `My recorded forecast for ${String(obs.detail["instrumentId"])} resolved: observed mean ` +
+            `${Number(obs.detail["observedMean"]).toFixed(4)} vs forecast ` +
+            `${Number(obs.detail["predictedMean"]).toFixed(4)} ± ${Number(obs.detail["tolerance"]).toFixed(4)} — ` +
+            `${obs.detail["withinTolerance"] ? "WITHIN tolerance" : "outside tolerance"}.`,
+          tags: ["prediction", String(obs.detail["instrumentId"])],
+        });
       } else if (obs.type === "day_started") {
         // Mark seen without storing filler memories.
         this.memory.addEpisodic({ day: obs.day, eventId: obs.eventId, text: "", tags: ["tick"] });
@@ -174,18 +209,19 @@ export class ObserverAgent {
         day: view.day,
         location: view.currentLocation,
         memories: this.memory.retrieve({ recentEpisodic: 10 }),
-        notebook: buildNotebook(view),
+        notebook: buildNotebook(view, 10, { workbench: this.study3.workbench ?? false }),
         beliefs: this.beliefs,
-        availableInstruments: instrumentsAt(this.persona.home as never).map((i) => ({
-          id: i.id,
-          kind: i.kind,
-        })),
+        availableInstruments: this.sites.flatMap((s) =>
+          instrumentsAt(s as never).map((i) => ({ id: i.id, kind: i.kind })),
+        ),
         colleagues: this.colleagues,
         inbox,
         outbox,
         bulletin: this.bulletinStatus(view),
         bulletinFeed: this.bulletinFeed(view),
         recentObservations: view.observations.slice(-120),
+        ...(this.sites.length > 1 ? { sites: this.sites } : {}),
+        ...(this.study3.predictions ? { predictionsEnabled: true } : {}),
       });
       this.actionHistory.push({ day: view.day, action });
       return action;
@@ -220,7 +256,7 @@ export class ObserverAgent {
       const update = await this.provider.updateBeliefs({
         persona: this.persona,
         day: view.day,
-        notebook: buildNotebook(view),
+        notebook: buildNotebook(view, 10, { workbench: this.study3.workbench ?? false }),
         recentObservations: view.observations.slice(-40),
         beliefs: this.beliefs,
         inbox,
