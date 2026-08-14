@@ -32,7 +32,17 @@ export interface InstrumentDigest {
 // editorialising. workbench-v1; part of the frozen condition.
 // ---------------------------------------------------------------------------
 
-export const WORKBENCH_VERSION = "workbench-v1.2"; // v1.2: day-window pairing (P3.1c); v1.1: overlap-aligned window (P3.1)
+// v1.3 (B1+B2): familywise chance band — the pair/echo statistics are maxima
+// over the offsets searched, and a pilot sonnet CORRECTLY discounted the
+// per-comparison band as "selective offset choice"; the band is now the 5%
+// level for the best match across the search (z_{1-0.05/26} ≈ 2.9). Plus the
+// self-recurrence (echo) section, so near-repeats short of exactness (M-E's
+// lawful rhythm) are as visible as exact ones.
+// v1.2: day-window pairing (P3.1c). v1.1: overlap-aligned window (P3.1).
+export const WORKBENCH_VERSION = "workbench-v1.3";
+
+/** Familywise 5% band for a max-|r| over ~13 searched offsets: 2.9/√n. */
+const FAMILYWISE_Z = 2.9;
 
 export interface PairAgreement {
   a: string;
@@ -67,11 +77,21 @@ export interface ChangePoint {
   maxAbsZ: number | null;
 }
 
+/** Self-recurrence: does an instrument echo its own values at a day lag? */
+export interface EchoSummary {
+  instrumentId: string;
+  echo: number | null;
+  atLagDays: number;
+  n: number;
+  chanceLevel: number | null;
+}
+
 export interface Workbench {
   version: string;
   pairs: PairAgreement[];
   spacing: SpacingSummary[];
   repeats: RepeatScan[];
+  echoes: EchoSummary[];
   changePoints: ChangePoint[];
 }
 
@@ -194,10 +214,30 @@ export function buildWorkbench(view: AgentView, baselineDays = 10): Workbench {
         agreement: best ? best.r : null,
         atOffset: best ? best.offset : 0,
         n: best ? best.n : 0,
-        chanceLevel: best ? 2 / Math.sqrt(best.n) : null,
+        chanceLevel: best ? FAMILYWISE_Z / Math.sqrt(best.n) : null,
       });
     }
   }
+
+  // Self-recurrence (echo): the same day-aligned agreement machinery applied
+  // to an instrument against itself at day lags 2..14. Exact replay reads
+  // ≈1.0 here AND in the repeat scan; a lawful rhythm reads high here and 0
+  // there — the exactness boundary, visible from both sides.
+  const echoes: EchoSummary[] = instruments.map((inst) => {
+    const a = residualsByDay.get(inst)!;
+    let best: { r: number; n: number; lag: number } | null = null;
+    for (let lag = 2; lag <= 14; lag++) {
+      const c = corrAtOffset(a, a, lag);
+      if (c && (!best || Math.abs(c.r) > Math.abs(best.r))) best = { ...c, lag };
+    }
+    return {
+      instrumentId: inst,
+      echo: best ? best.r : null,
+      atLagDays: best ? best.lag : 0,
+      n: best ? best.n : 0,
+      chanceLevel: best ? FAMILYWISE_Z / Math.sqrt(best.n) : null,
+    };
+  });
 
   const spacing: SpacingSummary[] = instruments.map((inst) => {
     const values = seq.get(inst)!.map((p) => p.value);
@@ -261,7 +301,7 @@ export function buildWorkbench(view: AgentView, baselineDays = 10): Workbench {
     };
   });
 
-  return { version: WORKBENCH_VERSION, pairs, spacing, repeats, changePoints };
+  return { version: WORKBENCH_VERSION, pairs, spacing, repeats, echoes, changePoints };
 }
 
 export function buildNotebook(
@@ -326,7 +366,20 @@ function formatWorkbench(w: Workbench): string {
     } else {
       lines.push(
         `  ${p.a} ↔ ${p.b}: reading-by-reading agreement ${p.agreement.toFixed(3)}` +
-          ` at a ${Math.abs(p.atOffset)}-day offset (n=${p.n}; chance level ±${p.chanceLevel.toFixed(3)})`,
+          ` at a ${Math.abs(p.atOffset)}-day offset (n=${p.n}; chance level for the best match ` +
+          `across all offsets tried: ±${p.chanceLevel.toFixed(3)})`,
+      );
+    }
+  }
+  lines.push("Echoes of earlier readings:");
+  for (const e of w.echoes) {
+    if (e.echo === null || e.chanceLevel === null) {
+      lines.push(`  ${e.instrumentId}: too few readings to check`);
+    } else {
+      lines.push(
+        `  ${e.instrumentId}: readings agree with their own values from ${e.atLagDays} days earlier ` +
+          `at ${e.echo.toFixed(3)} (n=${e.n}; chance level for the best match across all lags tried: ` +
+          `±${e.chanceLevel.toFixed(3)})`,
       );
     }
   }

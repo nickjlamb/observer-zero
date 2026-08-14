@@ -192,18 +192,44 @@ describe("host-artefact mechanisms", () => {
   });
 
   it("certificates fire on every host world and stay quiet on pure control", () => {
+    // Ratios re-baselined at B1: the familywise band (2.9/√n) is 1.45× the
+    // old per-comparison band, so all surprise ratios shrink by that factor.
     const c0 = certify(STUDY3_WORLDS["w0"]!(9105));
     expect(c0.longestExactRepeat).toBeLessThan(10);
-    expect(c0.agreementSurpriseRatio ?? 0).toBeLessThan(3.5);
+    expect(c0.agreementSurpriseRatio ?? 0).toBeLessThan(2.5);
+    expect(c0.echoSurpriseRatio ?? 0).toBeLessThan(2);
     expect(c0.changePointInstruments).toEqual([]);
 
     const cd = certify(STUDY3_WORLDS["wd_exact"]!(9105));
     expect(Math.abs(cd.maxAgreement!)).toBeGreaterThan(0.98);
-    expect(cd.agreementSurpriseRatio!).toBeGreaterThan(4.5);
+    expect(cd.agreementSurpriseRatio!).toBeGreaterThan(3);
     const ce = certify(STUDY3_WORLDS["we"]!(9105));
     expect(ce.longestExactRepeat).toBeGreaterThanOrEqual(40);
     const ca = certify(STUDY3_WORLDS["wa"]!(9105));
     expect(ca.changePointInstruments).toContain("pendulum_lab");
+  });
+
+  it("B2: M-E rhymes without repeating — echo high, exact repeats zero; W-E shows both", () => {
+    const me = certify(STUDY3_WORLDS["me"]!(9105));
+    expect(me.longestExactRepeat).toBeLessThan(10);
+    expect(Math.abs(me.maxEcho!)).toBeGreaterThan(0.6);
+    expect(Math.abs(me.maxEcho!)).toBeLessThan(0.95);
+    const we = certify(STUDY3_WORLDS["we"]!(9105));
+    expect(we.longestExactRepeat).toBeGreaterThanOrEqual(40);
+  });
+
+  it("B3: the impossible reading arrives through the normal surface, ext-gen FALSE", () => {
+    const config = STUDY3_PILOT_WORLDS["wt"]!(9105);
+    expect(extGenTrue(config)).toBe(false);
+    const sim = runWorld(config);
+    const imp = sim.log
+      .all()
+      .filter((e) => e.type === "experiment_result" && Number(e.payload["observedValue"]) < 0);
+    expect(imp.length).toBe(1);
+    expect(imp[0]!.day).toBe(15);
+    expect(imp[0]!.visibleTo).toContain("ada");
+    expect(imp[0]!.payload["ledger"]).toBeUndefined();
+    expect(imp[0]!.groundTruth.artefacts).toContain("impossible_reading");
   });
 
   it("the placebo pair is matched: wd_degraded and md_high land at similar agreement", () => {

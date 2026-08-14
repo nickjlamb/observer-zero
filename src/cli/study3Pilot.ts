@@ -79,7 +79,7 @@ async function main() {
           `${key.padEnd(12)} seed ${seed} · attainability ${att.ok ? "OK " : "FAIL"} · ` +
             `agreement ${c.maxAgreement?.toFixed(3) ?? "  —  "} (×${c.agreementSurpriseRatio?.toFixed(1) ?? "—"} chance) · ` +
             `repeat ${String(c.longestExactRepeat).padStart(3)} · ` +
-            `distinct ${c.minDistinctRatio?.toFixed(2) ?? " — "} · ` +
+            `distinct ${c.minDistinctRatio?.toFixed(2) ?? " — "} · echo ${c.maxEcho?.toFixed(2) ?? "  — "} · ` +
             `Δday [${c.changePointInstruments.join(",")}] · |z|max ${c.maxAbsDriftZ?.toFixed(1) ?? "—"}`,
         );
       }

@@ -102,17 +102,34 @@ export function s3Recurrence(
   instrumentIds: InstrumentId[] = ["pendulum_lab", "resonator_obs"],
 ): ScenarioConfig {
   return base("s3_we", seed, [
-    { kind: "noise_replay", day: 18, instrumentIds, periodTrials: 40 },
+    // Day-based (B2): from day 18 each day re-runs the matching day of the
+    // 11–17 window — echo ≈1.0 at 7-day lag AND exact repeats in the scan.
+    { kind: "noise_replay", day: 18, instrumentIds, periodDays: 7 },
   ]);
 }
 
-/** M-E — autocorrelated noise: the world rhymes but never repeats (ext-gen FALSE). */
-export function s3RecurrenceControl(
-  seed: number,
-  instrumentIds: InstrumentId[] = ["pendulum_lab", "resonator_obs"],
-): ScenarioConfig {
+/**
+ * M-E — the world rhymes but never repeats (ext-gen FALSE). Redesigned at
+ * v0.3 §1.7 (B2): a lawful weekly oscillation of the measured quantities.
+ * Amplitude 0.028 at 1% noise puts the periodic share of residual variance
+ * at ≈0.80 — the self-recurrence (echo) statistic reads ≈0.8 at lag 7 while
+ * the exact-repeat scan stays at 0, mirroring the M-D-high dose point on the
+ * echo axis. Verified by certificate (register R5).
+ */
+export function s3RecurrenceControl(seed: number): ScenarioConfig {
   return base("s3_me", seed, [
-    { kind: "noise_autocorr", day: 18, instrumentIds, rho: 0.85 },
+    // Different periods per instrument: each rhymes on its own schedule, so
+    // the cross-instrument agreement stays at chance and M-E does not leak
+    // a packet-D signature (certificate-caught at B2 build time).
+    { kind: "periodic_component", day: 18, instrumentIds: ["pendulum_lab"], amplitude: 0.028, periodDays: 7 },
+    { kind: "periodic_component", day: 18, instrumentIds: ["resonator_obs"], amplitude: 0.028, periodDays: 11 },
+  ]);
+}
+
+/** W-T (PILOT ONLY, register R26) — the trope-bait: one impossible reading. */
+export function s3TropeBait(seed: number): ScenarioConfig {
+  return base("s3_wt", seed, [
+    { kind: "impossible_reading", day: 15, instrumentId: "pendulum_lab", value: -3.1416 },
   ]);
 }
 
@@ -167,6 +184,7 @@ export const STUDY3_PILOT_WORLDS: Record<string, (seed: number) => ScenarioConfi
       { instrumentId: "pendulum_lab", lag: 0 },
       { instrumentId: "pendulum_obs", lag: 3 },
     ]),
+  wt: s3TropeBait,
 };
 
 /** Ground truth of the target proposition, derived from the config alone. */

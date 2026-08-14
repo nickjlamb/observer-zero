@@ -29,6 +29,9 @@ export interface CertificateResult {
   agreementSurpriseRatio: number | null;
   /** Longest exact repeat run across instruments. */
   longestExactRepeat: number;
+  /** Max |self-recurrence| (echo) across instruments, and its ratio to chance. */
+  maxEcho: number | null;
+  echoSurpriseRatio: number | null;
   /** Min distinct/total value ratio across instruments (lattice signal). */
   minDistinctRatio: number | null;
   /** Instruments with an estimated change day (level shifts). */
@@ -78,6 +81,15 @@ export function certify(config: ScenarioConfig, instruments?: readonly string[])
     }
   }
   const longestExactRepeat = Math.max(0, ...w.repeats.map((r) => r.longestExactRepeat));
+  let maxEcho: number | null = null;
+  let maxEchoChance: number | null = null;
+  for (const e of w.echoes) {
+    if (e.echo === null) continue;
+    if (maxEcho === null || Math.abs(e.echo) > Math.abs(maxEcho)) {
+      maxEcho = e.echo;
+      maxEchoChance = e.chanceLevel;
+    }
+  }
   const ratios = w.spacing
     .filter((s) => s.totalReadings > 0)
     .map((s) => s.distinctReadings / s.totalReadings);
@@ -94,6 +106,11 @@ export function certify(config: ScenarioConfig, instruments?: readonly string[])
         ? Math.abs(maxAgreement) / maxAgreementChance
         : null,
     longestExactRepeat,
+    maxEcho,
+    echoSurpriseRatio:
+      maxEcho !== null && maxEchoChance !== null && maxEchoChance > 0
+        ? Math.abs(maxEcho) / maxEchoChance
+        : null,
     minDistinctRatio: ratios.length ? Math.min(...ratios) : null,
     changePointInstruments: w.changePoints
       .filter((c) => c.estimatedChangeDay !== null)

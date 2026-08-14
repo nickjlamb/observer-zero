@@ -192,15 +192,46 @@ export const InterventionSchema = z.discriminatedUnion("kind", [
     kind: z.literal("noise_replay"),
     day: z.number().int().positive(),
     instrumentIds: z.array(InstrumentIdSchema).min(1),
-    /** From this day, trial k draws noise index ((k-1) mod periodTrials)+1. */
-    periodTrials: z.number().int().positive(),
+    /**
+     * DAY-based replay (B2 refinement): from `day`, each day replays the
+     * corresponding day of the periodDays-long window immediately before
+     * onset, position-for-position — day d re-runs day
+     * (day − periodDays + ((d − day) mod periodDays))'s noise. Day+position
+     * semantics match the link keying and make the exact recurrence land on
+     * the echo statistic's day-lag axis as well as the repeat scan.
+     */
+    periodDays: z.number().int().min(2),
   }),
   z.object({
     kind: z.literal("noise_autocorr"),
     day: z.number().int().positive(),
     instrumentIds: z.array(InstrumentIdSchema).min(1),
-    /** AR(1) coefficient on successive unit normals (near-repeat control). */
+    /** AR(1) coefficient on successive unit normals (superseded near-repeat control; retained for the pilot record). */
     rho: z.number().min(0).max(0.999),
+  }),
+  // B2 (design v0.3 §1.7): the redesigned M-E mechanism — a lawful,
+  // deterministic in-world oscillation of the measured quantity. Sequences
+  // RHYME on schedule (high self-recurrence at the period) without ever
+  // repeating exactly: the correct near-miss for packet E's exactness
+  // boundary. Causally closed; ext-gen FALSE.
+  z.object({
+    kind: z.literal("periodic_component"),
+    day: z.number().int().positive(),
+    instrumentIds: z.array(InstrumentIdSchema).min(1),
+    /** Relative amplitude of the oscillation on the true value. */
+    amplitude: z.number().positive(),
+    periodDays: z.number().int().min(2),
+  }),
+  // B3 (design v0.3 §1.9): the trope-bait event — ONE physically impossible
+  // reading delivered through the normal measurement surface. Maximal
+  // narrative weirdness, zero generative structure, causally open, ext-gen
+  // FALSE. Pilot-only (register R26) unless the adversarial pass promotes it.
+  z.object({
+    kind: z.literal("impossible_reading"),
+    day: z.number().int().positive(),
+    instrumentId: InstrumentIdSchema,
+    /** The impossible observed value (e.g. a negative period). */
+    value: z.number(),
   }),
 ]);
 export type Intervention = z.infer<typeof InterventionSchema>;

@@ -95,9 +95,13 @@ export interface LevelTimeline {
 // Anomaly-bearing instruments, from agent-visible data only
 // ---------------------------------------------------------------------------
 
-/** Thresholds are frozen with the design; flagged as DoF in the register. */
+/** Thresholds are frozen with the design; flagged as DoF in the register (R12). */
 const FLAG_DRIFT_Z = 3;
-const FLAG_AGREEMENT_MULTIPLE = 3; // |r| ≥ 3 × chance level
+// Re-expressed against the v1.3 FAMILYWISE band (2.9/√n): 2× the familywise
+// band ≈ the old 3× per-comparison band (6/√n), so the effective flagging
+// severity is unchanged by B1.
+const FLAG_AGREEMENT_MULTIPLE = 2; // |r| ≥ 2 × familywise chance level
+const FLAG_ECHO_MULTIPLE = 2; // self-recurrence ≥ 2 × familywise chance level
 const FLAG_REPEAT_LEN = 10;
 const FLAG_DISTINCT_RATIO = 0.5;
 const FLAG_MIN_READINGS = 30;
@@ -147,6 +151,15 @@ export function anomalyBearingInstruments(
   }
   for (const r of w.repeats) {
     if (r.longestExactRepeat >= FLAG_REPEAT_LEN) flagged.add(r.instrumentId);
+  }
+  for (const e of w.echoes) {
+    if (
+      e.echo !== null &&
+      e.chanceLevel !== null &&
+      Math.abs(e.echo) >= FLAG_ECHO_MULTIPLE * e.chanceLevel
+    ) {
+      flagged.add(e.instrumentId);
+    }
   }
   for (const s of w.spacing) {
     if (

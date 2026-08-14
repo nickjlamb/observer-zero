@@ -37,8 +37,10 @@ interface NoiseLink {
 interface NoiseMods {
   links: NoiseLink[];
   quantisation: Map<InstrumentId, { fromDay: number; grid: number }>;
-  replay: Map<InstrumentId, { fromDay: number; periodTrials: number; startTrial: number | null }>;
+  replay: Map<InstrumentId, { fromDay: number; periodDays: number }>;
   autocorr: Map<InstrumentId, { fromDay: number; rho: number; last: number | null }>;
+  periodic: Map<InstrumentId, { fromDay: number; amplitude: number; periodDays: number }>;
+  impossible: { day: number; instrumentId: InstrumentId; value: number }[];
 }
 
 /** An agent's registered forecast, resolved deterministically by the engine. */
@@ -102,6 +104,9 @@ export class Simulator {
   private tick = 0;
   /** Agent-facing trial numbers, per agent+instrument (payload only). */
   private trialCounters = new Map<string, number>();
+  /** Per-instrument, per-day: first cumulative trial index and count taken —
+   * the record day-based noise_replay reads to re-run a past day's draws. */
+  private dayTrialLog = new Map<InstrumentId, Map<number, { start: number; count: number }>>();
   /**
    * World-side trial index per instrument, driving PER-TRIAL noise keyed by
    * (worldSeed, instrumentId, trialIndex). Noise is a fixed property of the
@@ -128,6 +133,8 @@ export class Simulator {
     quantisation: new Map(),
     replay: new Map(),
     autocorr: new Map(),
+    periodic: new Map(),
+    impossible: [],
   };
   /** Open registered predictions, resolved as covering trials accumulate. */
   private openPredictions: {
@@ -164,6 +171,8 @@ export class Simulator {
     if (r && this.day >= r.fromDay) out.push("noise_replay");
     const a = this.mods.autocorr.get(instrumentId);
     if (a && this.day >= a.fromDay) out.push("noise_autocorr");
+    const p = this.mods.periodic.get(instrumentId);
+    if (p && this.day >= p.fromDay) out.push("periodic_component");
     return out;
   }
 
@@ -229,17 +238,29 @@ export class Simulator {
         break;
       case "noise_replay":
         for (const id of iv.instrumentIds) {
-          this.mods.replay.set(id, {
-            fromDay: iv.day,
-            periodTrials: iv.periodTrials,
-            startTrial: null,
-          });
+          this.mods.replay.set(id, { fromDay: iv.day, periodDays: iv.periodDays });
         }
         break;
       case "noise_autocorr":
         for (const id of iv.instrumentIds) {
           this.mods.autocorr.set(id, { fromDay: iv.day, rho: iv.rho, last: null });
         }
+        break;
+      case "periodic_component":
+        for (const id of iv.instrumentIds) {
+          this.mods.periodic.set(id, {
+            fromDay: iv.day,
+            amplitude: iv.amplitude,
+            periodDays: iv.periodDays,
+          });
+        }
+        break;
+      case "impossible_reading":
+        this.mods.impossible.push({
+          day: iv.day,
+          instrumentId: iv.instrumentId,
+          value: iv.value,
+        });
         break;
     }
     // Intervention events are visible to NO agent: visibleTo is empty.
@@ -266,11 +287,19 @@ export class Simulator {
    * series are byte-identical (the noise-stream-preservation invariant).
    */
   private unitNormalFor(instrumentId: InstrumentId, instTrial: number, withinDayTrial: number): number {
+    // Day-based replay: re-run the corresponding pre-onset day's draw at the
+    // same within-day position. Positions beyond what that day recorded fall
+    // through to fresh noise (exactness holds for the guaranteed ledger
+    // positions; an agent measuring MORE than the replayed day did gets new
+    // values — itself a discriminating handle, noted in the design).
+    let effTrial = instTrial;
     const replay = this.mods.replay.get(instrumentId);
-    const effTrial =
-      replay && this.day >= replay.fromDay
-        ? ((instTrial - 1) % replay.periodTrials) + 1
-        : instTrial;
+    if (replay && this.day >= replay.fromDay) {
+      const effDay =
+        replay.fromDay - replay.periodDays + ((this.day - replay.fromDay) % replay.periodDays);
+      const rec = this.dayTrialLog.get(instrumentId)?.get(effDay);
+      if (rec && withinDayTrial <= rec.count) effTrial = rec.start + withinDayTrial - 1;
+    }
     let g = Rng.forKey(this.config.seed, `noise:${instrumentId}:${effTrial}`).gaussian();
 
     const ac = this.mods.autocorr.get(instrumentId);
@@ -414,6 +443,13 @@ export class Simulator {
         this.instrumentTrialIndex.set(entry.instrumentId, instTrial);
         const withinDay = (dayTrialIndex.get(entry.instrumentId) ?? 0) + 1;
         dayTrialIndex.set(entry.instrumentId, withinDay);
+        if (!this.dayTrialLog.has(entry.instrumentId)) {
+          this.dayTrialLog.set(entry.instrumentId, new Map());
+        }
+        const dayLog = this.dayTrialLog.get(entry.instrumentId)!;
+        const rec = dayLog.get(this.day);
+        if (rec) rec.count += 1;
+        else dayLog.set(this.day, { start: instTrial, count: 1 });
         const m = measureInstrument(
           this.rules,
           entry.instrumentId,
@@ -422,6 +458,13 @@ export class Simulator {
           this.unitNormalFor(entry.instrumentId, instTrial, withinDay),
         );
         let observedValue = m.observedValue;
+        const per = this.mods.periodic.get(entry.instrumentId);
+        if (per && this.day >= per.fromDay) {
+          // Lawful in-world oscillation of the measured quantity itself:
+          // deterministic, phase-locked to the world's calendar.
+          observedValue *=
+            1 + per.amplitude * Math.sin((2 * Math.PI * this.day) / per.periodDays);
+        }
         const q = this.mods.quantisation.get(entry.instrumentId);
         if (q && this.day >= q.fromDay) {
           observedValue = Math.round(observedValue / q.grid) * q.grid;
@@ -457,6 +500,36 @@ export class Simulator {
           }
         }
       }
+    }
+
+    // B3: the impossible reading — one physically impossible value delivered
+    // through the ordinary measurement surface (same event type, same
+    // payload shape; no flag, no noise stream consumed). Visible to the
+    // day's participants like any site reading.
+    for (const imp of this.mods.impossible) {
+      if (imp.day !== this.day) continue;
+      const inst = instrumentById(imp.instrumentId);
+      const instTrial = (this.instrumentTrialIndex.get(imp.instrumentId) ?? 0) + 1;
+      this.instrumentTrialIndex.set(imp.instrumentId, instTrial);
+      this.log.append({
+        tick: this.tick++,
+        day: this.day,
+        type: "experiment_result",
+        agentId: null,
+        location: inst.location,
+        payload: {
+          experiment: inst.kind === "pendulum" ? "pendulum" : "resonance",
+          instrumentId: imp.instrumentId,
+          observedValue: imp.value,
+          unit: inst.kind === "pendulum" ? "beats" : "cycles/beat",
+          trial: instTrial,
+        },
+        visibleTo: [...(participants ?? plan.map((p) => p.agentId))],
+        groundTruth: {
+          ...this.groundTruth(imp.instrumentId),
+          artefacts: [...this.artefactsFor(imp.instrumentId), "impossible_reading"],
+        },
+      });
     }
 
     // Resolve predictions whose covering trials are complete. Resolution is
