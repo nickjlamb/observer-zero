@@ -116,8 +116,14 @@ async function main() {
             opaqueIds: true,
             workbench: true,
             predictions: true,
-            // P3.1c: --ledger enables the town ledger at 2 readings/instrument/day.
-            ...(process.argv.includes("--ledger") ? { ledger: { trialsPerDay: 2 } } : {}),
+            // Town ledger. Cadence 6 set by P3.2b (finding F12): at 2 the
+            // pair statistic's n is ~34, where max-over-offset inflation and
+            // a wide familywise band leave M-D-high (1.88×) and W-D-degraded
+            // (1.85×) BELOW the anomaly-bearing flag while W-D-exact scrapes
+            // over it at 2.01× — the primary contrast decided by a coin-flip
+            // margin. At 6 (n≈102) the flag separates {md_mid, md_high,
+            // wd_degraded, wd_exact} from {w0, md_low} with real margins.
+            ...(process.argv.includes("--ledger") ? { ledger: { trialsPerDay: 6 } } : {}),
           },
           log: (line) => {
             if (mode === "live") console.log(`  ${line}`);
@@ -155,6 +161,53 @@ async function main() {
     }
     writeFileSync(`${outDir}/summary.json`, JSON.stringify({ mode, model, tokens: FORBIDDEN_PROMPT_TOKENS.length, summary }, null, 2));
     console.log(`\nArtifacts → ${outDir}/`);
+    return;
+  }
+
+  if (mode === "audit") {
+    // OZ-AUDIT-3 corpus scan (design v0.3 R27): re-run the leak audit over
+    // every stored prompt and completion with the CURRENT token list. Run
+    // after any token-list change and before freeze. $0, no model calls.
+    const dir = argStr("dir", "runs");
+    const stack: string[] = [dir];
+    const files: string[] = [];
+    while (stack.length) {
+      const d = stack.pop()!;
+      for (const e of readdirSync(d, { withFileTypes: true })) {
+        const p = `${d}/${e.name}`;
+        if (e.isDirectory()) stack.push(p);
+        else if (e.name.endsWith(".json") && !e.name.includes("summary") && !e.name.includes(".judged")) {
+          files.push(p);
+        }
+      }
+    }
+    let scanned = 0;
+    let calls = 0;
+    const dirty: { file: string; hits: string[] }[] = [];
+    for (const f of files.sort()) {
+      let artifact: { modelCalls?: { promptText: string; completionText: string }[] };
+      try {
+        artifact = JSON.parse(readFileSync(f, "utf8"));
+      } catch {
+        continue;
+      }
+      if (!Array.isArray(artifact.modelCalls)) continue;
+      scanned += 1;
+      const hits: string[] = [];
+      for (const c of artifact.modelCalls) {
+        calls += 1;
+        for (const token of FORBIDDEN_PROMPT_TOKENS) {
+          if (c.promptText.includes(token) || c.completionText.includes(token)) hits.push(token);
+        }
+      }
+      if (hits.length) dirty.push({ file: f, hits: [...new Set(hits)] });
+    }
+    console.log(
+      `OZ-AUDIT-3 CORPUS SCAN — ${scanned} artifacts, ${calls} model calls, ` +
+        `${FORBIDDEN_PROMPT_TOKENS.length} tokens\n`,
+    );
+    for (const d of dirty) console.log(`  HITS ${d.file}: ${d.hits.join(", ")}`);
+    console.log(dirty.length === 0 ? "  clean — no forbidden token in any stored prompt or completion" : `\n${dirty.length} artifact(s) with hits`);
     return;
   }
 

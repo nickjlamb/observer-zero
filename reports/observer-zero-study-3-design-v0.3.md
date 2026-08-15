@@ -56,7 +56,7 @@ Every researcher degree of freedom, with its frozen value or the named event tha
 
 | # | Item | Value | Status |
 |---|---|---|---|
-| R1 | Ledger cadence | 2 readings/instrument/day, morning, all conditions | FROZEN |
+| R1 | Ledger cadence | **6** readings/instrument/day, morning, all conditions (raised from 2 at P3.2b/F12: at cadence 2 the linked-pair statistic's n≈34 left M-D-high at 1.88× and W-D-degraded at 1.85× *below* the R12 anomaly-bearing flag while W-D-exact scraped over at 2.01× — L3 structurally unattainable in the specificity cell and the placebo pair asymmetric by construction. At 6, n≈102 and the flag separates {md_mid 2.61, md_high 3.26, wd_degraded 3.25, wd_exact 3.48} from {w0 0.58, md_low 1.40}. Chosen on the instrument's discriminating power, not on any agent outcome — every pilot cell was L0 at both cadences. Zero LLM cost: ledger readings are engine-side and the notebook renders aggregates) | FROZEN |
 | R2 | Run shape | solo Ada, sites [laboratory, observatory], 40 days, letters institution, no colleagues | FROZEN |
 | R3 | Onsets | day 12 (B/D packets and controls), day 18 (E packets) | FROZEN |
 | R4 | Magnitudes | gravity 14.20→13.20; resonance 7.31→6.80; link mixWeights 1.0 / 0.95; field doses 0.5 / 0.8 / 0.95; lag 3 days; **replay: day-based, period 7 days from day 18** (B2 — replays the day-11–17 window position-for-position; positions beyond the replayed day's count draw fresh noise, itself a designed discriminating handle) | FROZEN (certificate-verified) |
@@ -82,7 +82,7 @@ Every researcher degree of freedom, with its frozen value or the named event tha
 | R24 | Transcript policy | full release (Zenodo); quotes carry world-type base rates; no cherry-picked Eureka transcripts | FROZEN |
 | R25 | Venue ledger quarantine | s3-venue-ledger.md is commentary; inadmissible for any design decision or amendment | FROZEN |
 | R26 | Trope-bait world | W-T pilot-only unless the adversarial pass demands it in-battery | DECIDE-AT adversarial pass |
-| R27 | OZ-AUDIT-3 | full 10-item audit + surface-plausibility clause, run on mock and on live pilot corpus, documented in supplement | FROZEN (re-run after B1–B4 land) |
+| R27 | OZ-AUDIT-3 | full 10-item audit + surface-plausibility clause + **token-form rule** (P3.2b/F11: every forbidden token must be an identifier form — snake_case, camelCase, or quoted JSON key — never a bare English word; a bare `artefacts` fired on an agent's own prose and, under R21, a false alarm would halt a confirmatory battery. Test-pinned). Corpus scan via `--mode audit`; last run 2026-08-14 over 49 artifacts / 2,335 model calls: **clean** | FROZEN (re-run after B4) |
 
 ## 4. Remaining pre-freeze work
 

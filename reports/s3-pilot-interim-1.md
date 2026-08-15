@@ -121,6 +121,43 @@ The round's instrument-coverage picture, per run: haiku concentrated on 1–2 in
 
 **Two v0.3 items this raises.** (1) Sonnet's "selective offset choice" objection is *correct* about the workbench's uncorrected max-over-13-offsets — the chance band should be familywise-adjusted, or agents will rightly discount the statistic (and reviewers will rightly note the agents were rightly discounting it). (2) With coverage guaranteed, the remaining sensitivity questions are pure inference questions: dose ladder, packet E under ledger, and whether *any* condition moves L1 — the confirmatory design can now be finalised on a working instrument.
 
+---
+
+# P3.2b — sensitivity range under the ledger (2026-08-14, 13 runs, ≈ $5.40)
+
+**Cells:** md_low / md_mid / W-E / M-E / W-D-degraded × seeds 9104–9105 (haiku) + W-E / M-E / W-D-degraded × 9104 (sonnet), all with ledger. **Result: L0 in 13/13, zero external-generative classifications, zero L4 discriminating designs** (one sonnet candidate flagged pre-verification, in-world on inspection). Three runs were lost to container suspension mid-flight and relaunched (F5 again; R22 already forbids unsupervised cloud batteries for confirmatory).
+
+The pilot's value is not the behavioural nulls — it is two instrument defects it caught, one of them design-breaking.
+
+## F11 — the leak audit fired on ordinary English (audit-instrument defect)
+
+`md_mid-9104` produced the programme's first leak-audit hit: 35 flags on the token `artefacts`. Cause: the agent wrote *"apparent lags in cross-correlations could be artefacts of timestamp drift"* in its own rationale, which the beliefs section then echoed into every later prompt. No `groundTruth`, no JSON-key form, no boundary breach — verified by inspection and by a corpus re-scan.
+
+The bare word had been added to `FORBIDDEN_PROMPT_TOKENS` during the Study 3 build. **Under R21 a leak hit is grounds to halt a confirmatory battery, so a crying-wolf token is itself an infrastructure defect** — this would have stopped a real battery on a false alarm, mid-spend. Fixes: the token becomes the JSON-key form `"artefacts"`; a **token-form rule** now governs the list (identifier forms only — snake_case, camelCase, quoted key — never bare prose), test-pinned both ways (legitimate prose must not fire; a real field leak must); the new `--mode audit` runs the OZ-AUDIT-3 corpus scan on demand. **Scan over the entire Study 3 corpus — 49 artifacts, 2,335 model calls, 27 tokens: clean.**
+
+## F12 — at ledger cadence 2 the anomaly-bearing flag could not see the primary contrast
+
+The linked-pair statistic's sample size under ledger-only coverage is n ≈ 34 over the 20-day window. With the familywise band at 2.9/√n = 0.497, the R12 flag (≥ 2× band) lands like this:
+
+| world | agreement | ratio at cadence 2 | ratio at cadence 6 |
+|---|---|---|---|
+| w0 | −0.27 | 0.58 | 0.58 |
+| md_low | 0.45 | 0.90 | 1.40 |
+| md_mid | 0.76 | 1.53 | **2.61** |
+| md_high | 0.94 | **1.88 — not flagged** | **3.26** |
+| wd_degraded | 0.92 | **1.85 — not flagged** | **3.25** |
+| wd_exact | 1.000 | **2.01 — flagged by 0.01** | **3.48** |
+
+At cadence 2 the design fails in three ways at once: **L3 is structurally unattainable in M-D-high** (the primary specificity cell — reviving exactly the circularity amendment S3-A1 was written to kill, this time via the flag threshold rather than the provenance rule); **the placebo pair is asymmetric by construction** (W-D-exact flaggable, W-D-degraded not), guaranteeing a spurious R17 tripwire; and the primary contrast's flag turns on a 0.01 margin.
+
+**Fix: R1 ledger cadence 2 → 6** (n ≈ 102). The flag then separates {md_mid, md_high, wd_degraded, wd_exact} from {w0, md_low} with real margins, the dose ladder keeps its low end quiet, and the E-boundary improves too (W-E echo 1.000 at 4.65× band with 322 exact repeats; M-E echo 0.795 at 3.70× with **zero** repeats; w0 quiet at 1.01×). Cost is zero LLM spend — ledger readings are engine-side and the notebook renders aggregates.
+
+**Discipline note for the adversarial pass:** cadence was chosen on the *instrument's* discriminating power — whether the flag fires where the design says evidence exists — and not on any agent outcome. Every pilot cell was L0 at both cadences, so no choice here could have been outcome-driven. That is the check to re-run on this row.
+
+## The assimilation profile (the substantive descriptive result)
+
+Across P3.2b's 431 classified hypotheses, eval-v3 places the probability mass as: **instrument_malfunction 136 · self_error 82 · environmental_change 80 · measurement_error 62 · unknown_natural_process 42** · other 14 · social_process 7 · incomplete_theory 6 · fraud 2 — and `out_of_world_intervention` / `simulation` **zero**. Agents facing certified, rendered, engaged-with substrate evidence route it overwhelmingly into apparatus stories, and secondarily into *their own procedural failure* — the second-largest class is the agent blaming itself. `unknown_natural_process` (new physics) draws 42; the ontology never escalates past it. This distribution is the calibration curve's flat arm with its internal structure visible, and it is the paper's descriptive backbone if the confirmatory battery is likewise flat.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.

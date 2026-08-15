@@ -208,15 +208,29 @@ export const FORBIDDEN_PROMPT_TOKENS = [
   "resonanceConstant",
   // Study 3 (design v0.2 §6.2 / OZ-AUDIT-3): host-artefact machinery names.
   // These are simulator-privileged concepts; none may ever reach a prompt.
+  //
+  // TOKEN-FORM RULE (P3.2b finding F11, 2026-08-14): every entry must be an
+  // IDENTIFIER FORM no working scientist would write in prose — snake_case,
+  // camelCase, or a quoted JSON key. Ordinary words are prohibited from this
+  // list. The bare word `artefacts` was briefly included and fired on an
+  // agent's own rationale ("apparent lags in cross-correlations could be
+  // artefacts"), which is legitimate scientific English echoed back through
+  // the beliefs section — no boundary breach. A false alarm is not harmless:
+  // under design v0.3 R21 a leak hit is grounds to halt a confirmatory
+  // battery, so a crying-wolf token is itself an infrastructure defect. The
+  // JSON-key form below is what an actual leak of the field would look like.
   "noise_stream_link",
   "coupling_field",
   "noise_quantisation",
   "noise_replay",
   "noise_autocorr",
+  "periodic_component",
+  "impossible_reading",
   "constant_shift",
   "mixWeight",
   "periodTrials",
-  "artefacts",
+  "periodDays",
+  '"artefacts"',
   "opaqueId",
   "runKey",
   "linkId",

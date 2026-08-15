@@ -34,6 +34,7 @@ import {
   type PrivilegedEvent,
 } from "../src/evaluator/study3.js";
 import { buildDecisionPrompt } from "../src/agents/promptBuilder.js";
+import { CallLog, FORBIDDEN_PROMPT_TOKENS } from "../src/models/provider.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
 
@@ -328,6 +329,61 @@ describe("town ledger", () => {
   it("is absent by default: no frozen-path event carries a ledger flag", () => {
     const sim = runWorld(gravityShift(42));
     expect(sim.log.all().some((e) => e.payload["ledger"] !== undefined)).toBe(false);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3c. Leak-audit instrument quality (P3.2b finding F11)
+// ---------------------------------------------------------------------------
+
+describe("leak-audit token forms", () => {
+  it("contains only identifier forms — no bare ordinary words", () => {
+    // An entry qualifies if it is snake_case, camelCase, a quoted JSON key,
+    // or a known type name. A lowercase single English word would fire on an
+    // agent's own prose and halt a confirmatory battery on a false alarm.
+    for (const token of FORBIDDEN_PROMPT_TOKENS) {
+      const identifierLike =
+        token.includes("_") || // snake_case
+        token.startsWith('"') || // quoted JSON key
+        /[a-z][A-Z]/.test(token) || // camelCase
+        /^[A-Z]/.test(token); // TypeName
+      expect(identifierLike, `"${token}" is bare prose and will cry wolf`).toBe(true);
+    }
+  });
+
+  it("does not fire on legitimate scientific prose, but does on a real field leak", () => {
+    const call = (promptText: string, completionText: string) => ({
+      agentId: "ada",
+      day: 1,
+      purpose: "belief_update" as const,
+      model: "test",
+      temperature: 0,
+      promptVersion: "test",
+      promptText,
+      completionText,
+      inputTokens: 0,
+      outputTokens: 0,
+      estimatedCostUSD: 0,
+      latencyMs: 0,
+      ok: true,
+    });
+
+    // The exact phrasing that produced the P3.2b false positive.
+    const clean = new CallLog();
+    clean.append(
+      call(
+        "apparent lags in cross-correlations could be artefacts of timestamp drift",
+        "these are calibration artefacts, not physical correlation",
+      ),
+    );
+    expect(clean.leakAudit(FORBIDDEN_PROMPT_TOKENS).clean).toBe(true);
+
+    // What an actual leak of the field would look like.
+    const leaky = new CallLog();
+    leaky.append(call('day 12 {"artefacts":["noise_stream_link"]}', ""));
+    const audit = leaky.leakAudit(FORBIDDEN_PROMPT_TOKENS);
+    expect(audit.clean).toBe(false);
+    expect(audit.hits.join(" ")).toContain("noise_stream_link");
   });
 });
 
