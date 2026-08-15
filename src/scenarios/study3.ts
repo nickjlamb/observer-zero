@@ -126,10 +126,22 @@ export function s3RecurrenceControl(seed: number): ScenarioConfig {
   ]);
 }
 
-/** W-T (PILOT ONLY, register R26) — the trope-bait: one impossible reading. */
+/**
+ * W-T (PILOT ONLY, register R26) — the trope-bait: one impossible reading.
+ *
+ * VALUE CHOICE (P3.3b finding F13): the first build used −3.1416, and an
+ * agent immediately identified it as π to five decimals and reasoned about a
+ * "hard-coded failure state or timeout sentinel" — a sharp inference, but
+ * about the EXPERIMENTER'S fingerprint rather than about the world. A
+ * recognisable constant invites artificial-injection hypotheses for reasons
+ * unrelated to any generative structure, which confounds the trope floor the
+ * world exists to measure. The value is now impossible by SIGN alone
+ * (periods cannot be negative) while numerically unremarkable — matching the
+ * instrument's own scale and digit habits.
+ */
 export function s3TropeBait(seed: number): ScenarioConfig {
   return base("s3_wt", seed, [
-    { kind: "impossible_reading", day: 15, instrumentId: "pendulum_lab", value: -3.1416 },
+    { kind: "impossible_reading", day: 15, instrumentId: "pendulum_lab", value: -1.6731 },
   ]);
 }
 

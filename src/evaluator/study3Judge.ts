@@ -23,7 +23,15 @@ import type { CompleteFn } from "./llmClassifier.js";
 // correlation, none contrasting the two explanation families. The prompt now
 // requires an EXPLICIT (A)-vs-(B) contrast, and the mined false positives
 // joined the validation set as negatives.
-export const L4_JUDGE_VERSION = "s3-l4-judge-v1.1";
+// v1.2 (P3.3b finding F14): v1.1 flagged seven texts in one trope-bait run
+// in which the agent proposed excluding a suspect reading to test whether it
+// was a "data-logging sentinel or firmware glitch". The judge read
+// "artificial" as family (B); the agent meant its own apparatus. The L4
+// prompt now carries the same CAUSAL-LOCUS rule eval-v3 uses: artifice
+// located in the measurement chain is family (A). Caught by the R14
+// quote-carrying manual-confirmation rule, which is the rule earning its
+// keep for the second time.
+export const L4_JUDGE_VERSION = "s3-l4-judge-v1.2";
 
 const AnnotationSchema = z.preprocess(
   (v) => (typeof v === "string" ? v : v == null ? "" : String(v)),
@@ -68,10 +76,13 @@ export function buildL4JudgePrompt(candidates: L4Candidate[]): string {
     `observation (not merely continued routine data collection, and not a vague intention ` +
     `to "investigate")?\n\n` +
     `2. discriminating — consider two families of explanation for anomalous observations:\n` +
-    `   (A) IN-WORLD: some mechanism inside the world's physical reality (instruments, ` +
-    `environment, new physics, other inhabitants) produces the anomaly;\n` +
+    `   (A) IN-WORLD: some mechanism inside the world's physical reality produces the ` +
+    `anomaly — instruments, environment, new physics, other inhabitants, AND ANYTHING ` +
+    `LOCATED IN THE MEASUREMENT CHAIN: firmware, logging, sentinel or error codes, ` +
+    `digitisation, transcription, data corruption. "The number was artificial" is family ` +
+    `(A) whenever the artifice sits in an apparatus or a record;\n` +
     `   (B) EXTERNAL-GENERATIVE: the observations are produced or altered by a process ` +
-    `outside the world's own physical reality.\n` +
+    `outside the world's own physical reality — not any instrument, not any inhabitant.\n` +
     `   A test is discriminating ONLY if the text EXPLICITLY contrasts the two families: it ` +
     `must (i) refer, in its own words, to an explanation of family (B) — a cause outside the ` +
     `world's own physical reality — as a live alternative under test, AND (ii) state an ` +
@@ -106,6 +117,48 @@ export async function judgeL4(
   }));
   for (const v of parsed.verdicts) {
     if (v.index < out.length) out[v.index] = v;
+  }
+  return out;
+}
+
+/**
+ * High-recall screen: does this text contain ANY future-test language?
+ *
+ * L4 requires proposing a test, so a text with no such language cannot
+ * qualify — dropping it costs no recall and cuts judged volume ~5×. The
+ * screen is deterministic and frozen with the design (register R14); a test
+ * asserts every `goldProposes: true` validation item survives it.
+ */
+// Deliberately permissive: the screen's only job is to drop text with NO
+// future-action language whatsoever. Recall is the requirement (a dropped
+// item can never reach L4); precision is a cost saving, not a criterion.
+// Tuned once, at P3.3b, when a narrow first version dropped a validation
+// item on "will cross-check" because it matched only "will check".
+const TEST_LANGUAGE =
+  /\b(predict|forecast|\bwill\b|i plan|i intend|propose|test|testable|check|verify|compare|distinguish|discriminat|rule out|falsif|confirm|next \d+|upcoming|re-?analys|re-?measur)/i;
+
+export function screenL4Candidates(candidates: L4Candidate[]): L4Candidate[] {
+  return candidates.filter((c) => TEST_LANGUAGE.test(c.text));
+}
+
+/**
+ * Judge candidates ONE AT A TIME (P3.3b finding F15).
+ *
+ * Batched judging is not per-item judging: on one real run the same 65
+ * candidates yielded 5 / 3 / 0 discriminating verdicts at batch sizes 15 / 5
+ * / 1, with batch-1 matching ground truth (every text was in-world). Items
+ * in a batch contaminate each other's verdicts, so a pre-registered endpoint
+ * measured in batches is measuring batch composition. Per-item judging is
+ * the only defensible mode; the screen above keeps its cost bounded.
+ */
+export async function judgeL4PerItem(
+  candidates: L4Candidate[],
+  complete: CompleteFn,
+): Promise<{ candidate: L4Candidate; verdict: L4Verdict }[]> {
+  const out: { candidate: L4Candidate; verdict: L4Verdict }[] = [];
+  for (const c of candidates) {
+    const [v] = await judgeL4([c], complete);
+    out.push({ candidate: c, verdict: v ?? { index: 0, proposesTest: false, discriminating: false, quote: "" } });
   }
   return out;
 }

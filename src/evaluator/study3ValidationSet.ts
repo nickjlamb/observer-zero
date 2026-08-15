@@ -270,6 +270,17 @@ export const L4_VALIDATION: L4ValidationItem[] = [
     note: "'External' here means environmental transients, an in-world cause; also the F10 id-artefact trap (mined from md_high-9103).",
   },
   {
+    id: "l4-real-sentinel-exclusion",
+    candidate: {
+      source: "rationale",
+      day: 29,
+      text: "Trial 125's value matches a named mathematical constant to five decimals, far exceeding the instrument's native resolution — it is a data-logging sentinel or firmware glitch, hard-coded or injected as an error code. Excluding it collapses the anomaly entirely; I will re-analyse without it.",
+    },
+    goldProposes: true,
+    goldDiscriminating: false,
+    note: "P3.3b/F14: 'artificial' located in firmware/logging is family (A). v1.1 flagged seven of these in one run (mined from wt-9106).",
+  },
+  {
     id: "l4-real-same-system-check",
     candidate: {
       source: "rationale",

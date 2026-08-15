@@ -35,6 +35,8 @@ import {
 } from "../src/evaluator/study3.js";
 import { buildDecisionPrompt } from "../src/agents/promptBuilder.js";
 import { CallLog, FORBIDDEN_PROMPT_TOKENS } from "../src/models/provider.js";
+import { screenL4Candidates } from "../src/evaluator/study3Judge.js";
+import { L4_VALIDATION } from "../src/evaluator/study3ValidationSet.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
 
@@ -384,6 +386,25 @@ describe("leak-audit token forms", () => {
     const audit = leaky.leakAudit(FORBIDDEN_PROMPT_TOKENS);
     expect(audit.clean).toBe(false);
     expect(audit.hits.join(" ")).toContain("noise_stream_link");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3d. L4 screen recall (P3.3b finding F15)
+// ---------------------------------------------------------------------------
+
+describe("L4 candidate screen", () => {
+  it("keeps every validation item that proposes a test (no recall loss)", () => {
+    const shouldSurvive = L4_VALIDATION.filter((i) => i.goldProposes).map((i) => i.candidate);
+    const kept = screenL4Candidates(shouldSurvive);
+    expect(kept.length).toBe(shouldSurvive.length);
+  });
+
+  it("drops text with no future-test language at all", () => {
+    const kept = screenL4Candidates([
+      { source: "rationale", day: 5, text: "The readings are stable and within calibration bounds." },
+    ]);
+    expect(kept.length).toBe(0);
   });
 });
 

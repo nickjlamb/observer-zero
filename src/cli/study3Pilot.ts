@@ -15,7 +15,13 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createJudgeClient } from "../evaluator/judgeClient.js";
 import { classifyHypothesesLLM, EVAL_V3_VERSION } from "../evaluator/llmClassifier.js";
-import { judgeL4, L4_JUDGE_VERSION, type L4Candidate } from "../evaluator/study3Judge.js";
+import {
+  judgeL4,
+  judgeL4PerItem,
+  screenL4Candidates,
+  L4_JUDGE_VERSION,
+  type L4Candidate,
+} from "../evaluator/study3Judge.js";
 import { CLASSIFIER_VALIDATION, L4_VALIDATION } from "../evaluator/study3ValidationSet.js";
 
 try {
@@ -320,18 +326,15 @@ async function main() {
           }
         }
       }
-      const l4: ReturnType<typeof Object>[] = [];
-      let l4Hits = 0;
-      for (let i = 0; i < candidates.length; i += 15) {
-        const batch = candidates.slice(i, i + 15);
-        const verdicts = await judgeL4(batch, judge.complete);
-        verdicts.forEach((v, j) => {
-          if (v.discriminating) {
-            l4Hits++;
-            l4.push({ ...batch[j]!, ...v } as never);
-          }
-        });
-      }
+      // L4: screened, then judged ONE AT A TIME (F15 — batched verdicts
+      // are batch-composition-dependent: 5/3/0 hits at batch 15/5/1 on the
+      // same run, batch-1 matching ground truth).
+      const screened = screenL4Candidates(candidates);
+      const judgedL4 = await judgeL4PerItem(screened, judge.complete);
+      const l4 = judgedL4
+        .filter((r) => r.verdict.discriminating)
+        .map((r) => ({ ...r.candidate, ...r.verdict }));
+      const l4Hits = l4.length;
       const out = {
         source: f,
         evalVersion: EVAL_V3_VERSION,
@@ -339,6 +342,8 @@ async function main() {
         judgeModel: judge.model,
         levels,
         correctness,
+        l4Screened: screened.length,
+        l4Judged: judgedL4.length,
         l4Discriminating: l4,
         classifications: [...cache.entries()].map(([k, v]) => ({ label: k.split(" ")[0], class: v })),
       };
