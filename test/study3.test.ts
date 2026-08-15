@@ -37,6 +37,8 @@ import { buildDecisionPrompt } from "../src/agents/promptBuilder.js";
 import { CallLog, FORBIDDEN_PROMPT_TOKENS } from "../src/models/provider.js";
 import { screenL4Candidates } from "../src/evaluator/study3Judge.js";
 import { L4_VALIDATION } from "../src/evaluator/study3ValidationSet.js";
+import { BedrockConverseProvider, signV4 } from "../src/models/bedrockConverse.js";
+import { providerKindFor, modelFamilyFor } from "../src/models/factory.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
 
@@ -405,6 +407,119 @@ describe("L4 candidate screen", () => {
       { source: "rationale", day: 5, text: "The readings are stable and within calibration bounds." },
     ]);
     expect(kept.length).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3e. Bedrock Converse provider (B4) — non-Claude families on the AWS credit
+// ---------------------------------------------------------------------------
+
+describe("Bedrock Converse provider", () => {
+  const SIG = {
+    method: "POST",
+    path: "/model/amazon.nova-pro-v1%3A0/converse",
+    host: "bedrock-runtime.us-east-1.amazonaws.com",
+    region: "us-east-1",
+    service: "bedrock",
+    payload: '{"messages":[]}',
+    accessKeyId: "AKIDEXAMPLE",
+    secretAccessKey: "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY",
+    amzDate: "20260815T120000Z",
+  };
+
+  it("routes the converse prefix to its own provider kind and model family", () => {
+    expect(providerKindFor("bedrock-converse:amazon.nova-pro-v1:0")).toBe("bedrock-converse");
+    // The plain bedrock prefix must still route to the Claude SDK path.
+    expect(providerKindFor("bedrock:claude-haiku-4-5")).toBe("bedrock");
+    expect(modelFamilyFor("bedrock-converse:amazon.nova-pro-v1:0")).toBe("amazon.nova-pro-v1:0");
+  });
+
+  it("produces a well-formed SigV4 Authorization header", () => {
+    const h = signV4(SIG);
+    expect(h["authorization"]).toMatch(
+      /^AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE\/20260815\/us-east-1\/bedrock\/aws4_request, SignedHeaders=host;x-amz-date, Signature=[0-9a-f]{64}$/,
+    );
+    expect(h["x-amz-date"]).toBe("20260815T120000Z");
+  });
+
+  it("signs the session token when present", () => {
+    const h = signV4({ ...SIG, sessionToken: "tok" });
+    expect(h["authorization"]).toContain("SignedHeaders=host;x-amz-date;x-amz-security-token");
+    expect(h["x-amz-security-token"]).toBe("tok");
+  });
+
+  it("is deterministic, and sensitive to payload, date, region and secret", () => {
+    const base = signV4(SIG)["authorization"];
+    expect(signV4(SIG)["authorization"]).toBe(base); // deterministic
+    for (const variant of [
+      { payload: '{"messages":[1]}' },
+      { amzDate: "20260816T120000Z" },
+      { region: "eu-west-1" },
+      { secretAccessKey: "different" },
+      { path: "/model/other/converse" },
+    ]) {
+      expect(signV4({ ...SIG, ...variant })["authorization"]).not.toBe(base);
+    }
+  });
+
+  it("shapes the Converse request and parses its response, preferring bearer auth", async () => {
+    const log = new CallLog();
+    let seenUrl = "";
+    let seenBody = "";
+    let seenAuth = "";
+    const provider = new BedrockConverseProvider(
+      {
+        model: "bedrock-converse:amazon.nova-pro-v1:0",
+        temperature: 0,
+        apiKey: "test-bearer",
+        fetchImpl: (async (url: string, init: RequestInit) => {
+          seenUrl = String(url);
+          seenBody = String(init.body);
+          seenAuth = String((init.headers as Record<string, string>)["authorization"]);
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              output: { message: { content: [{ text: '{"type":"rest","reason":"probe"}' }] } },
+              usage: { inputTokens: 11, outputTokens: 7 },
+            }),
+          } as unknown as Response;
+        }) as unknown as typeof fetch,
+      },
+      log,
+    );
+
+    const action = await provider.decide({
+      persona: ADA,
+      day: 1,
+      location: "laboratory",
+      memories: "",
+      notebook: { day: 1, instruments: [] },
+      beliefs: INITIAL_BELIEFS,
+      availableInstruments: [{ id: "pendulum_lab", kind: "pendulum" }],
+      colleagues: [],
+      inbox: [],
+      outbox: [],
+      recentObservations: [],
+    });
+
+    expect(action.type).toBe("rest");
+    // Colon percent-encoded in the path, or SigV4 would not verify.
+    expect(seenUrl).toBe(
+      "https://bedrock-runtime.us-east-1.amazonaws.com/model/amazon.nova-pro-v1%3A0/converse",
+    );
+    expect(seenAuth).toBe("Bearer test-bearer");
+    const body = JSON.parse(seenBody) as {
+      messages: { role: string; content: { text: string }[] }[];
+      inferenceConfig: { maxTokens: number; temperature: number };
+    };
+    expect(body.messages[0]!.role).toBe("user");
+    expect(typeof body.messages[0]!.content[0]!.text).toBe("string");
+    expect(body.inferenceConfig.temperature).toBe(0);
+    // Token accounting reaches the call log, so cost is auditable per run.
+    expect(log.all()[0]!.inputTokens).toBe(11);
+    expect(log.all()[0]!.outputTokens).toBe(7);
+    expect(log.all()[0]!.model).toBe("bedrock-converse:amazon.nova-pro-v1:0");
   });
 });
 

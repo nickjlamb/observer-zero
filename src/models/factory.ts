@@ -21,11 +21,14 @@ import { MockProvider } from "./mock.js";
 import { AnthropicProvider } from "./anthropic.js";
 import { PerplexityProvider } from "./perplexity.js";
 import { BedrockProvider, isBedrockModel, isMantleModel } from "./bedrock.js";
+import { BedrockConverseProvider, isConverseModel } from "./bedrockConverse.js";
 
-export type ProviderKind = "mock" | "anthropic" | "perplexity" | "bedrock";
+export type ProviderKind = "mock" | "anthropic" | "perplexity" | "bedrock" | "bedrock-converse";
 
 export function providerKindFor(modelName: string): ProviderKind {
   if (modelName === "mock") return "mock";
+  // Converse first: its prefix also starts with "bedrock".
+  if (isConverseModel(modelName)) return "bedrock-converse";
   if (isBedrockModel(modelName)) return "bedrock";
   if (/^(sonar|r1-)/.test(modelName)) return "perplexity";
   return "anthropic";
@@ -39,7 +42,10 @@ export function providerKindFor(modelName: string): ProviderKind {
  */
 export function modelFamilyFor(modelName: string): string {
   if (modelName === "mock") return "mock";
-  const bare = modelName.replace(/^bedrock-mantle:/, "").replace(/^bedrock:/, "");
+  const bare = modelName
+    .replace(/^bedrock-converse:/, "")
+    .replace(/^bedrock-mantle:/, "")
+    .replace(/^bedrock:/, "");
   if (/^(sonar|r1-)/.test(bare)) return bare;
   return bare;
 }
@@ -51,6 +57,8 @@ export function servingPlatformFor(modelName: string): string {
       return "none (deterministic mock)";
     case "bedrock":
       return isMantleModel(modelName) ? "amazon-bedrock-mantle" : "amazon-bedrock-runtime";
+    case "bedrock-converse":
+      return "amazon-bedrock-converse";
     case "perplexity":
       return "perplexity-api";
     case "anthropic":
@@ -68,6 +76,9 @@ export function requiredCredentialFor(modelName: string): string | null {
       // the standard AWS chain. A battery checks the right one before it
       // starts spending, rather than failing on run 1 of 20.
       return isMantleModel(modelName) ? "AWS_BEARER_TOKEN_BEDROCK" : "AWS_ACCESS_KEY_ID";
+    case "bedrock-converse":
+      // Bearer preferred; SigV4 from the standard chain is the fallback.
+      return process.env["AWS_BEARER_TOKEN_BEDROCK"] ? "AWS_BEARER_TOKEN_BEDROCK" : "AWS_ACCESS_KEY_ID";
     case "perplexity":
       return "PERPLEXITY_API_KEY";
     case "anthropic":
@@ -86,6 +97,8 @@ export function createProvider(
       return new MockProvider(callLog, promptVariant);
     case "bedrock":
       return new BedrockProvider({ model: modelName, temperature, promptVariant }, callLog);
+    case "bedrock-converse":
+      return new BedrockConverseProvider({ model: modelName, temperature, promptVariant }, callLog);
     case "perplexity":
       return new PerplexityProvider({ model: modelName, temperature, promptVariant }, callLog);
     case "anthropic":

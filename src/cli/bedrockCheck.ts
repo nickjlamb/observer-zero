@@ -17,6 +17,7 @@
 
 import { CallLog } from "../models/provider.js";
 import { BedrockProvider } from "../models/bedrock.js";
+import { BedrockConverseProvider } from "../models/bedrockConverse.js";
 
 try {
   process.loadEnvFile();
@@ -40,11 +41,12 @@ console.log(`  AWS_ACCESS_KEY_ID         ${mask(process.env["AWS_ACCESS_KEY_ID"]
 console.log("");
 
 /** One minimal call through the real provider path. */
-async function probe(prefixed: string): Promise<void> {
-  const label = prefixed.split(":")[0]!;
+async function probe(prefixed: string, label = prefixed.split(":")[0]!): Promise<void> {
   const log = new CallLog();
   try {
-    const provider = new BedrockProvider({ model: prefixed, temperature: 0, region }, log);
+    const provider = prefixed.startsWith("bedrock-converse:")
+      ? new BedrockConverseProvider({ model: prefixed, temperature: 0, region }, log)
+      : new BedrockProvider({ model: prefixed, temperature: 0, region }, log);
     // updateBeliefs would drag in the whole prompt builder; a decision call
     // is the smallest round trip that exercises auth, routing and parsing.
     await provider.decide({
@@ -82,6 +84,18 @@ async function probe(prefixed: string): Promise<void> {
 await probe(`bedrock-mantle:${shortModel}`);
 await probe(`bedrock:${shortModel}`);
 
+// B4 (design v0.3 R19): the question that actually matters for Study 3 is
+// whether a NON-Claude family is reachable — a second Claude is not a second
+// family. Converse is the vendor-neutral surface Nova/Mistral/Llama use.
+const converseArg = process.argv.indexOf("--converse");
+const converseModels =
+  converseArg !== -1 && process.argv[converseArg + 1]
+    ? [String(process.argv[converseArg + 1])]
+    : ["amazon.nova-pro-v1:0", "mistral.mistral-large-2407-v1:0"];
+for (const id of converseModels) {
+  await probe(`bedrock-converse:${id}`, `converse ${id.split(".")[0]}`);
+}
+
 console.log(`Reading the result:`);
 console.log(`  Either endpoint WORKS      → we use that one; nothing else needed.`);
 console.log(`  "not allowed for this account" on both → account-level block; open an`);
@@ -89,4 +103,10 @@ console.log(`     AWS Support case. The study proceeds on Perplexity + first-par
 console.log(`     Anthropic in the meantime (arms A/B/C/D), with E and F contingent.`);
 console.log(`  mantle fails on auth only  → check AWS_BEARER_TOKEN_BEDROCK is in .env`);
 console.log(`     (the shell does not read .env — only the scripts do).`);
-console.log(`  runtime says "AccessDenied" → the First Time Use form is still needed.\n`);
+console.log(`  runtime says "AccessDenied" → the First Time Use form is still needed.`);
+console.log(`  CONVERSE probes are the B4 question: a non-Claude family on the AWS`);
+console.log(`     credit. If a model id is wrong or not enabled in this region, run`);
+console.log(`     "aws bedrock list-foundation-models --region ${region}" and retry with`);
+console.log(`     "npm run bedrock-check -- --converse <modelId>".`);
+console.log(`  Model access is per-model in the Bedrock console — enabling Claude does`);
+console.log(`     not enable Nova or Mistral.\n`);
