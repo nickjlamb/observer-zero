@@ -39,6 +39,8 @@ import { screenL4Candidates } from "../src/evaluator/study3Judge.js";
 import { L4_VALIDATION } from "../src/evaluator/study3ValidationSet.js";
 import { BedrockConverseProvider, signV4 } from "../src/models/bedrockConverse.js";
 import { providerKindFor, modelFamilyFor } from "../src/models/factory.js";
+import { OpenAICompatProvider } from "../src/models/openaiCompat.js";
+import { GeminiProvider } from "../src/models/gemini.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
 
@@ -520,6 +522,122 @@ describe("Bedrock Converse provider", () => {
     expect(log.all()[0]!.inputTokens).toBe(11);
     expect(log.all()[0]!.outputTokens).toBe(7);
     expect(log.all()[0]!.model).toBe("bedrock-converse:amazon.nova-pro-v1:0");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3f. Free-tier family providers (B4): OpenAI-compatible + Gemini
+// ---------------------------------------------------------------------------
+
+describe("family providers", () => {
+  const decisionInput = {
+    persona: ADA,
+    day: 1,
+    location: "laboratory" as const,
+    memories: "",
+    notebook: { day: 1, instruments: [] },
+    beliefs: INITIAL_BELIEFS,
+    availableInstruments: [{ id: "pendulum_lab", kind: "pendulum" }],
+    colleagues: [],
+    inbox: [],
+    outbox: [],
+    recentObservations: [],
+  };
+
+  it("routes every family prefix to a distinct provider kind and platform", () => {
+    expect(providerKindFor("groq:llama-3.3-70b-versatile")).toBe("openai-compat");
+    expect(providerKindFor("mistral:mistral-large-latest")).toBe("openai-compat");
+    expect(providerKindFor("gemini:gemini-2.5-flash")).toBe("gemini");
+    // Existing routes must be untouched.
+    expect(providerKindFor("sonar-pro")).toBe("perplexity");
+    expect(providerKindFor("claude-haiku-4-5")).toBe("anthropic");
+    expect(providerKindFor("bedrock-converse:amazon.nova-pro-v1:0")).toBe("bedrock-converse");
+    expect(modelFamilyFor("gemini:gemini-2.5-flash")).toBe("gemini-2.5-flash");
+  });
+
+  it("OpenAI-compatible: shapes the request per vendor and parses the reply", async () => {
+    const log = new CallLog();
+    let seenUrl = "";
+    let seenBody = "";
+    const provider = new OpenAICompatProvider(
+      {
+        model: "mistral:mistral-large-latest",
+        temperature: 0,
+        apiKey: "k",
+        fetchImpl: (async (url: string, init: RequestInit) => {
+          seenUrl = String(url);
+          seenBody = String(init.body);
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              choices: [{ message: { content: '{"type":"rest","reason":"probe"}' } }],
+              usage: { prompt_tokens: 9, completion_tokens: 4 },
+            }),
+          } as unknown as Response;
+        }) as unknown as typeof fetch,
+      },
+      log,
+    );
+    const action = await provider.decide(decisionInput as never);
+    expect(action.type).toBe("rest");
+    expect(seenUrl).toBe("https://api.mistral.ai/v1/chat/completions");
+    expect(JSON.parse(seenBody).model).toBe("mistral-large-latest");
+    expect(log.all()[0]!.inputTokens).toBe(9);
+    expect(log.all()[0]!.model).toBe("mistral:mistral-large-latest");
+  });
+
+  it("Gemini: uses header auth (never a key in the URL) and parses candidates", async () => {
+    const log = new CallLog();
+    let seenUrl = "";
+    let seenHeaders: Record<string, string> = {};
+    let seenBody = "";
+    const provider = new GeminiProvider(
+      {
+        model: "gemini:gemini-2.5-flash",
+        temperature: 0,
+        apiKey: "secret-key",
+        fetchImpl: (async (url: string, init: RequestInit) => {
+          seenUrl = String(url);
+          seenHeaders = init.headers as Record<string, string>;
+          seenBody = String(init.body);
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              candidates: [{ content: { parts: [{ text: '{"type":"rest","reason":"p"}' }] } }],
+              usageMetadata: { promptTokenCount: 12, candidatesTokenCount: 5 },
+            }),
+          } as unknown as Response;
+        }) as unknown as typeof fetch,
+      },
+      log,
+    );
+    const action = await provider.decide(decisionInput as never);
+    expect(action.type).toBe("rest");
+    expect(seenUrl).toContain("gemini-2.5-flash:generateContent");
+    expect(seenUrl).not.toContain("secret-key"); // key must never reach a URL
+    expect(seenHeaders["x-goog-api-key"]).toBe("secret-key");
+    expect(JSON.parse(seenBody).contents[0].parts[0].text).toContain("Meridian");
+    expect(log.all()[0]!.outputTokens).toBe(5);
+  });
+
+  it("both fall back to rest rather than crashing a run on a provider error", async () => {
+    const failing = (async () =>
+      ({ ok: false, status: 429, text: async () => "rate limited" }) as unknown as Response) as unknown as typeof fetch;
+    for (const provider of [
+      new OpenAICompatProvider(
+        { model: "groq:llama-3.3-70b-versatile", apiKey: "k", fetchImpl: failing, retryBaseMs: 1 },
+        new CallLog(),
+      ),
+      new GeminiProvider(
+        { model: "gemini:gemini-2.5-flash", apiKey: "k", fetchImpl: failing, retryBaseMs: 1 },
+        new CallLog(),
+      ),
+    ]) {
+      const action = await provider.decide(decisionInput as never);
+      expect(action.type).toBe("rest");
+    }
   });
 });
 
