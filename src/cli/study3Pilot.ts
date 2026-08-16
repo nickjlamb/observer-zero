@@ -38,12 +38,20 @@ import {
   checkAttainability,
 } from "../scenarios/study3.js";
 import { certify } from "../analysis/certify.js";
+import { computeCorrectness, computeLevels, stripEvents } from "../evaluator/study3.js";
 import {
-  computeCitationCapability,
-  computeCorrectness,
-  computeLevels,
-  stripEvents,
-} from "../evaluator/study3.js";
+  scoreStudy3Artifact,
+  study3SummaryRow,
+  withStudy3Evaluation,
+  type Study3SummaryRow,
+} from "../evaluator/study3Score.js";
+import {
+  checkInstrumentSeedHygiene,
+  classifyCorpusRole,
+  corpusProvenanceLine,
+  partitionByRole,
+  type CorpusRole,
+} from "../evaluator/corpusFilter.js";
 import { OPAQUE_ID_HALF_BITS } from "../engine/opaqueIds.js";
 import { isInstrumentVariant, type PromptVariant } from "../agents/promptBuilder.js";
 import { FORBIDDEN_PROMPT_TOKENS } from "../models/provider.js";
@@ -125,6 +133,7 @@ function parseSeeds(s: string): number[] {
   return s.split(",").map(Number);
 }
 
+
 const worldKeys = worldsArg
   ? worldsArg.split(",")
   : mode === "certify"
@@ -154,6 +163,11 @@ async function main() {
   }
 
   if (mode === "mock" || mode === "live") {
+    // Before anything is spent, and before mock too — a mock run that violates
+    // the contract would write an unscoreable artifact just as a live one does.
+    checkInstrumentSeedHygiene(promptVariant, parseSeeds(seedsArg), (v) =>
+      isInstrumentVariant(v as PromptVariant),
+    );
     if (mode === "live") {
       for (const seed of parseSeeds(seedsArg)) {
         if (!isStudy3PilotSeed(seed)) {
@@ -182,7 +196,7 @@ async function main() {
       }
     }
     mkdirSync(outDir, { recursive: true });
-    const summary: Record<string, unknown>[] = [];
+    const summary: Study3SummaryRow[] = [];
     for (const key of worldKeys) {
       const build = STUDY3_PILOT_WORLDS[key];
       if (!build) throw new Error(`Unknown world type "${key}"`);
@@ -216,54 +230,18 @@ async function main() {
             if (mode === "live") console.log(`  ${line}`);
           },
         });
-        const levels = computeLevels({
-          config: artifact.config,
-          study3: artifact.study3,
-          startedAt: artifact.startedAt,
-          agents: artifact.agents,
-          events: stripEvents(artifact.events),
-        });
-        const capability = computeCitationCapability({
-          config: artifact.config,
-          study3: artifact.study3,
-          startedAt: artifact.startedAt,
-          agents: artifact.agents,
-          events: stripEvents(artifact.events),
-        });
-        const correctness = computeCorrectness(
-          { config: artifact.config, study3: artifact.study3, agents: artifact.agents, events: artifact.events },
-          levels,
-        );
-        const cert = certify(config);
+        // The scoring path lives in study3Score.ts so that R38 tier 0 can
+        // assert on it for free, with a stubbed classifier, on every commit.
+        const evaluation = scoreStudy3Artifact(artifact, { cert: certify(config) });
         const file = `${outDir}/${key}-seed${seed}.json`;
-        writeFileSync(
-          file,
-          JSON.stringify({ ...artifact, study3Evaluation: { levels, correctness, cert, capability } }, null, 2),
-        );
-        const lv = levels[0]!;
-        const line = {
-          world: key,
-          seed,
-          leakClean: artifact.leakAudit.clean,
-          finalLevel: lv.finalLevel,
-          tau: [lv.tauSuspicion, lv.tauCommitment, lv.tauGrounded],
-          extGenTrue: correctness[0]!.extGenTrue,
-          costUSD: Number(artifact.callTotals.estimatedCostUSD.toFixed(2)),
-          // R29: report health beside the endpoint, never instead of it. A
-          // run that lost calls is missing data, not a null result.
-          healthy: artifact.runHealth.healthy,
-          callFailureRate: Number(artifact.runHealth.callFailureRate.toFixed(3)),
-          healthReasons: artifact.runHealth.reasons,
-          // R32: can this family ground a claim at all? A family that cannot
-          // has L0s that measure output style, not ontological rigidity.
-          groundableRate: Number(capability[0]!.groundableRate.toFixed(3)),
-          admissibleToL3: capability[0]!.admissibleToL3,
-        };
+        writeFileSync(file, JSON.stringify(withStudy3Evaluation(artifact, evaluation), null, 2));
+        const line = study3SummaryRow({ world: key, seed, artifact, evaluation });
         summary.push(line);
         console.log(
           `${key.padEnd(12)} seed ${seed} · leak ${line.leakClean ? "clean" : "HITS"} · ` +
             `final L${line.finalLevel} · τ ${JSON.stringify(line.tau)} · $${line.costUSD}` +
-            `${line.healthy ? "" : "  ⚠ UNHEALTHY"}`,
+            `${line.healthy ? "" : "  ⚠ UNHEALTHY"}` +
+            `${line.corpusRole === "instrument-validation" ? "  [instrument validation — not an observation]" : ""}`,
         );
         for (const r of line.healthReasons) console.log(`             ↳ ${r}`);
         console.log(
@@ -272,8 +250,32 @@ async function main() {
         );
       }
     }
-    writeFileSync(`${outDir}/summary.json`, JSON.stringify({ mode, model, tokens: FORBIDDEN_PROMPT_TOKENS.length, summary }, null, 2));
+    // R38: the directory declares its own role. A summary.json that does not
+    // say which corpus it belongs to is the file most likely to be read months
+    // later by someone who was not here today.
+    const instrumentRows = summary.filter((r) => r.corpusRole === "instrument-validation").length;
+    writeFileSync(
+      `${outDir}/summary.json`,
+      JSON.stringify(
+        {
+          mode,
+          model,
+          promptVariant,
+          instrumentValidation: instrumentRows > 0,
+          tokens: FORBIDDEN_PROMPT_TOKENS.length,
+          summary,
+        },
+        null,
+        2,
+      ),
+    );
     console.log(`\nArtifacts → ${outDir}/`);
+    if (instrumentRows > 0) {
+      console.log(
+        `${instrumentRows}/${summary.length} rows are INSTRUMENT VALIDATION (R38): measurements of the\n` +
+          `detector, not observations of agent behaviour. Excluded from every corpus statistic.`,
+      );
+    }
     return;
   }
 
@@ -317,9 +319,16 @@ async function main() {
         }
       }
     }
-    let scanned = 0;
-    let calls = 0;
-    const dirty: { file: string; hits: string[] }[] = [];
+    // R38. The sweep SCANS instrument-validation runs — a leak is a leak, and
+    // a positive-control prompt is exactly the kind of prose most likely to
+    // carry a forbidden token. But the audit's provenance claim ("N artifacts,
+    // M model calls, clean") is a claim about the EXPERIMENTAL corpus, so the
+    // two denominators are reported separately and never summed. The last
+    // clean sweep covered 49 artifacts and 2,335 calls; if R38 artifacts were
+    // to land silently in that denominator, the audit's own claim goes with it.
+    type Scan = { file: string; role: CorpusRole; calls: number; hits: string[] };
+    const scans: Scan[] = [];
+    const unplaceable: { file: string; message: string }[] = [];
     for (const f of files.sort()) {
       let artifact: { modelCalls?: { promptText: string; completionText: string }[] };
       try {
@@ -328,22 +337,73 @@ async function main() {
         continue;
       }
       if (!Array.isArray(artifact.modelCalls)) continue;
-      scanned += 1;
       const hits: string[] = [];
       for (const c of artifact.modelCalls) {
-        calls += 1;
         for (const token of FORBIDDEN_PROMPT_TOKENS) {
           if (c.promptText.includes(token) || c.completionText.includes(token)) hits.push(token);
         }
       }
-      if (hits.length) dirty.push({ file: f, hits: [...new Set(hits)] });
+      let role: CorpusRole;
+      try {
+        // Throws on contradictory provenance rather than picking a side: an
+        // artifact we cannot place is not one we can report a denominator for.
+        role = classifyCorpusRole(artifact, f);
+      } catch (e) {
+        // Collected, not rethrown. A sweep that dies on the first bad artifact
+        // makes repair a one-at-a-time slog, and the thing people do to
+        // one-at-a-time slogs is delete the check. Every contradiction is
+        // reported, and the sweep still refuses to publish a denominator.
+        unplaceable.push({ file: f, message: e instanceof Error ? e.message : String(e) });
+        continue;
+      }
+      scans.push({
+        file: f,
+        role,
+        calls: artifact.modelCalls.length,
+        hits: [...new Set(hits)],
+      });
     }
+    if (unplaceable.length > 0) {
+      console.error(
+        `OZ-AUDIT-3 REFUSED: ${unplaceable.length} artifact(s) have contradictory ` +
+          `instrument-validation provenance. No corpus denominator is reported until they are ` +
+          `resolved — an audit that cannot say which corpus it counted is not an audit.\n`,
+      );
+      for (const u of unplaceable) console.error(`  ${u.message}\n`);
+      process.exitCode = 1;
+      return;
+    }
+    const part = partitionByRole(scans, (s) => s.role, "OZ-AUDIT-3 sweep");
+    const corpus = part.kept;
+    const instrument = part.excluded;
+    const totals = (xs: Scan[]) => ({
+      artifacts: xs.length,
+      calls: xs.reduce((n, x) => n + x.calls, 0),
+      dirty: xs.filter((x) => x.hits.length > 0),
+    });
+    const c = totals(corpus);
+    const iv = totals(instrument);
     console.log(
-      `OZ-AUDIT-3 CORPUS SCAN — ${scanned} artifacts, ${calls} model calls, ` +
+      `OZ-AUDIT-3 CORPUS SCAN — ${c.artifacts} experimental artifacts, ${c.calls} model calls, ` +
         `${FORBIDDEN_PROMPT_TOKENS.length} tokens\n`,
     );
-    for (const d of dirty) console.log(`  HITS ${d.file}: ${d.hits.join(", ")}`);
-    console.log(dirty.length === 0 ? "  clean — no forbidden token in any stored prompt or completion" : `\n${dirty.length} artifact(s) with hits`);
+    for (const d of c.dirty) console.log(`  HITS ${d.file}: ${d.hits.join(", ")}`);
+    console.log(
+      c.dirty.length === 0
+        ? "  clean — no forbidden token in any stored prompt or completion"
+        : `\n${c.dirty.length} artifact(s) with hits`,
+    );
+    // Reported always, including at zero: silence about instrument validation
+    // is indistinguishable from having forgotten to ask (R38 §3.6).
+    console.log(`\n${corpusProvenanceLine(part)}`);
+    console.log(
+      `Instrument validation, scanned but NOT in the corpus denominator: ` +
+        `${iv.artifacts} artifact(s), ${iv.calls} model call(s)`,
+    );
+    for (const d of iv.dirty) console.log(`  HITS ${d.file}: ${d.hits.join(", ")}`);
+    if (iv.artifacts > 0 && iv.dirty.length === 0) {
+      console.log("  clean — no forbidden token in the instrument-validation runs either");
+    }
     return;
   }
 
@@ -400,7 +460,12 @@ async function main() {
     return;
   }
 
-  if (mode === "rescore") {
+  // "evaluate" is the name the R38 protocol and this file's own usage header
+  // use for re-scoring stored artifacts with the frozen judge. It was never
+  // implemented, so the documented command threw `Unknown --mode "evaluate"`.
+  // Aliased rather than renamed: "rescore" appears in run logs going back to
+  // Study 2, and silently retiring a mode name breaks reproduction scripts.
+  if (mode === "rescore" || mode === "evaluate") {
     // Re-score stored artifacts with the eval-v3 LLM classifier + L4 judge.
     // Writes SIDECAR files (<run>.judged.json) — artifacts are never
     // rewritten in place (provenance discipline, auditEvidence.ts).
@@ -476,6 +541,10 @@ async function main() {
         evalVersion: EVAL_V3_VERSION,
         l4JudgeVersion: L4_JUDGE_VERSION,
         judgeModel: judge.model,
+        // R38: the sidecar carries the role too. The .judged.json files are
+        // what downstream analysis actually reads, so the tag has to survive
+        // the hop from artifact to sidecar or the filter has a hole in it.
+        corpusRole: classifyCorpusRole(artifact, f),
         levels,
         correctness,
         l4Screened: screened.length,
@@ -487,7 +556,8 @@ async function main() {
       const lv = levels[0]!;
       console.log(
         `${f.padEnd(32)} L${lv.finalLevel} · τ [${lv.tauSuspicion},${lv.tauCommitment},${lv.tauGrounded}] · ` +
-          `L4 hits ${l4Hits} · ext-gen classes: ${[...cache.values()].filter((c) => c === "out_of_world_intervention" || c === "simulation").length}`,
+          `L4 hits ${l4Hits} · ext-gen classes: ${[...cache.values()].filter((c) => c === "out_of_world_intervention" || c === "simulation").length}` +
+          `${out.corpusRole === "instrument-validation" ? " · [instrument validation]" : ""}`,
       );
     }
     console.log(`judge calls: ${judge.calls()}`);

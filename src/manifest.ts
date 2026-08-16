@@ -97,6 +97,34 @@ function isDefaultSociety(society: ManifestSocietyInfo): boolean {
   );
 }
 
+/**
+ * The policy version a prompt variant runs under.
+ *
+ * An EXHAUSTIVE switch, deliberately, rather than `variant === "v0.1" ? base :
+ * ablation`. That ternary was correct while there were two variants and became
+ * wrong the moment R38 added two more: both `instrument-*` variants were
+ * stamped `...-ablation-no-mundane-prior`, so a positive-control run carried
+ * the manifest of R39's neutral-prompt arm. Anyone reading manifests to
+ * partition the corpus — which is exactly what a provenance audit does —
+ * would have counted two detector-validation runs as ablation observations.
+ *
+ * Written as a switch on a union so that adding a fifth variant fails the
+ * typecheck here until someone states what policy it runs under (R38 §3.6:
+ * every statistic declares its policy; so does every prompt).
+ */
+export function policyVersionFor(variant: PromptVariant, basePolicy: string): string {
+  switch (variant) {
+    case "v0.1":
+      return basePolicy;
+    case "v0.2-no-mundane-prior":
+      return "observer-zero-epistemic-policy-v0.2-ablation-no-mundane-prior";
+    case "instrument-licensed":
+      return "observer-zero-instrument-validation-poscontrol-licensed";
+    case "instrument-forced":
+      return "observer-zero-instrument-validation-poscontrol-forced";
+  }
+}
+
 export function buildManifest(
   model: string,
   temperature: number | null,
@@ -109,10 +137,7 @@ export function buildManifest(
 ): RunManifest {
   const basePolicy = isDefaultSociety(society) ? POLICY_VERSION : POLICY_VERSION_SOCIETY;
   return {
-    policyVersion:
-      promptVariant === "v0.1"
-        ? basePolicy
-        : "observer-zero-epistemic-policy-v0.2-ablation-no-mundane-prior",
+    policyVersion: policyVersionFor(promptVariant, basePolicy),
     platformVersion: PLATFORM_VERSION,
     prompts: {
       decision: DECISION_PROMPT_VERSION,
