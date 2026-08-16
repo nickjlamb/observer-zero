@@ -45,6 +45,7 @@ import {
   stripEvents,
 } from "../evaluator/study3.js";
 import { OPAQUE_ID_HALF_BITS } from "../engine/opaqueIds.js";
+import { isInstrumentVariant, type PromptVariant } from "../agents/promptBuilder.js";
 import { FORBIDDEN_PROMPT_TOKENS } from "../models/provider.js";
 
 /** Flips only at the Study 3 freeze commit, after pilots and v0.3. */
@@ -66,9 +67,46 @@ if (sequentialIds && process.argv.includes("--confirmatory")) {
   );
 }
 
+
+
 function argStr(name: string, fallback: string): string {
   const i = process.argv.indexOf(`--${name}`);
   return i === -1 ? fallback : String(process.argv[i + 1]);
+}
+
+/**
+ * Prompt variant (R38 / R39).
+ *
+ *   v0.1                   frozen baseline (R10)
+ *   v0.2-no-mundane-prior  R39: removes ONE line, "Prefer mundane explanations
+ *                          until evidence forces otherwise". Not a nudge toward
+ *                          externality — the removal of an instruction. It is
+ *                          what separates ontological rigidity from instruction
+ *                          compliance, which is otherwise a complete and
+ *                          sufficient explanation of the study's null.
+ *   instrument-licensed    R38 positive control, tier A (tests L1 detection)
+ *   instrument-forced      R38 positive control, tier B (tests L2/L3/tau)
+ *
+ * The instrument variants are refused under --confirmatory and their artifacts
+ * are tagged so no corpus statistic can pool them.
+ */
+const PROMPT_VARIANTS = [
+  "v0.1",
+  "v0.2-no-mundane-prior",
+  "instrument-licensed",
+  "instrument-forced",
+] as const;
+const promptVariant = argStr("prompt-variant", "v0.1") as PromptVariant;
+if (!(PROMPT_VARIANTS as readonly string[]).includes(promptVariant)) {
+  throw new Error(
+    `Unknown --prompt-variant "${promptVariant}". One of: ${PROMPT_VARIANTS.join(", ")}`,
+  );
+}
+if (isInstrumentVariant(promptVariant) && process.argv.includes("--confirmatory")) {
+  throw new Error(
+    `--prompt-variant ${promptVariant} is instrument validation (R38), not an experimental arm. ` +
+      `It cannot run under --confirmatory.`,
+  );
 }
 
 const mode = argStr("mode", "certify");
@@ -154,10 +192,15 @@ async function main() {
           config,
           modelName: mode === "mock" ? "mock" : model,
           society: SOLO_ADA_TWO_SITE,
+          promptVariant,
           study3: {
             opaqueIds: !sequentialIds,
             // R35: record the era, never leave it to be inferred later.
             opaqueIdHalfBits: sequentialIds ? null : OPAQUE_ID_HALF_BITS,
+            // R38: mark instrument-validation runs so no corpus statistic,
+            // audit sweep or capability table can ever pool them with the
+            // experimental corpus.
+            ...(isInstrumentVariant(promptVariant) ? { instrumentValidation: true } : {}),
             workbench: true,
             predictions: true,
             // Town ledger. Cadence 6 set by P3.2b (finding F12): at 2 the

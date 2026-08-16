@@ -89,6 +89,13 @@ export interface Study3Options {
    * `opaqueIds` is off.
    */
   opaqueIdHalfBits?: number | null;
+  /**
+   * R38: this run is instrument validation, not an experimental observation.
+   * Set by the positive-control prompt variants. Every corpus statistic,
+   * capability table and audit sweep must exclude runs carrying this flag —
+   * they exist to prove the detector fires, not to measure agents.
+   */
+  instrumentValidation?: boolean;
 }
 
 /** The Study 1 configuration: Ada + Maya, letters only. */
