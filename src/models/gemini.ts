@@ -34,6 +34,7 @@ import {
   fetchWithTimeout,
   headerOrNull,
   peekBody,
+  FATAL_STATUS,
   REQUEST_TIMEOUT_MS,
   RETRYABLE_STATUS,
 } from "./http.js";
@@ -91,9 +92,10 @@ export class GeminiProvider implements ModelProvider {
   private retryBaseMs: number;
   private retryAttempts: number;
   private timeoutMs: number;
-  /** Sticky: once a per-day quota is exhausted it will not refill inside this
-   *  run, so every later call short-circuits without touching the network. */
-  private quotaExhausted: string | null = null;
+  /** Sticky: set when a failure cannot resolve inside this run — an exhausted
+   *  per-day quota, a missing key, an empty balance. Every later call then
+   *  short-circuits without touching the network. */
+  private disabledReason: string | null = null;
 
   constructor(config: GeminiConfig, private log: CallLog) {
     this.modelId = geminiModelId(config.model);
@@ -127,14 +129,14 @@ export class GeminiProvider implements ModelProvider {
 
     // Short-circuit: the daily quota is already gone, so a network round trip
     // can only produce the same 429 more slowly.
-    if (this.quotaExhausted) {
+    if (this.disabledReason) {
       this.log.append({
         agentId, day, purpose, model: this.name, temperature: this.temperature,
         promptVersion, promptText, completionText: "",
         inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs: 0, ok: false,
-        error: `quota exhausted (${this.quotaExhausted}); call skipped`,
+        error: `provider disabled: ${this.disabledReason}; call skipped`,
       });
-      throw new Error(`Gemini quota exhausted (${this.quotaExhausted})`);
+      throw new Error(`Gemini disabled: ${this.disabledReason}`);
     }
 
     let res: Response | null = null;
@@ -167,7 +169,14 @@ export class GeminiProvider implements ModelProvider {
         await sleep(backoffMs(this.retryBaseMs, attempt));
         continue;
       }
-      if (!res || res.ok || !RETRYABLE_STATUS.includes(res.status)) break;
+      if (!res || res.ok) break;
+      if (FATAL_STATUS.includes(res.status)) {
+        // No key, no credit, no permission: identical on every later call.
+        this.disabledReason = `account error HTTP ${res.status}`;
+        failureNote = `account error HTTP ${res.status} (not retried)`;
+        break;
+      }
+      if (!RETRYABLE_STATUS.includes(res.status)) break;
 
       let serverMs: number | undefined;
       if (res.status === 429) {
@@ -178,7 +187,7 @@ export class GeminiProvider implements ModelProvider {
           // Per-day exhaustion does not refill inside a run. Stop paying for
           // it: 25 doomed calls × 508s of backoff was 3.5 hours of the
           // seed-9111 run spent waiting for a quota that resets tomorrow.
-          this.quotaExhausted = verdict.quotaId;
+          this.disabledReason = `daily quota exhausted (${verdict.quotaId})`;
           failureNote = `daily quota exhausted (${verdict.quotaId})`;
           break;
         }

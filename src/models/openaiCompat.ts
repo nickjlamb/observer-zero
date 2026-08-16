@@ -36,6 +36,7 @@ import {
   fetchWithTimeout,
   headerOrNull,
   peekBody,
+  FATAL_STATUS,
   REQUEST_TIMEOUT_MS,
   RETRYABLE_STATUS,
 } from "./http.js";
@@ -142,8 +143,8 @@ export class OpenAICompatProvider implements ModelProvider {
   private retryBaseMs: number;
   private retryAttempts: number;
   private timeoutMs: number;
-  /** Sticky per-day quota flag — see GeminiProvider for the rationale. */
-  private quotaExhausted: string | null = null;
+  /** Sticky run-fatal failure flag — see GeminiProvider for the rationale. */
+  private disabledReason: string | null = null;
 
   constructor(
     config: OpenAICompatConfig,
@@ -181,14 +182,14 @@ export class OpenAICompatProvider implements ModelProvider {
     const promptVersion =
       purpose === "decision" ? DECISION_PROMPT_VERSION : beliefPromptVersion(this.variant);
 
-    if (this.quotaExhausted) {
+    if (this.disabledReason) {
       this.log.append({
         agentId, day, purpose, model: this.name, temperature: this.temperature,
         promptVersion, promptText, completionText: "",
         inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs: 0, ok: false,
-        error: `quota exhausted (${this.quotaExhausted}); call skipped`,
+        error: `provider disabled: ${this.disabledReason}; call skipped`,
       });
-      throw new Error(`${this.name} quota exhausted (${this.quotaExhausted})`);
+      throw new Error(`${this.name} disabled: ${this.disabledReason}`);
     }
 
     let res: Response | null = null;
@@ -218,7 +219,14 @@ export class OpenAICompatProvider implements ModelProvider {
         await sleep(backoffMs(this.retryBaseMs, attempt));
         continue;
       }
-      if (!res || res.ok || !RETRYABLE_STATUS.includes(res.status)) break;
+      if (!res || res.ok) break;
+      if (FATAL_STATUS.includes(res.status)) {
+        // No key, no credit, no permission: identical on every later call.
+        this.disabledReason = `account error HTTP ${res.status}`;
+        failureNote = `account error HTTP ${res.status} (not retried)`;
+        break;
+      }
+      if (!RETRYABLE_STATUS.includes(res.status)) break;
 
       // 429 matters more here than elsewhere: free tiers are rate-limited by
       // tokens per minute, so backoff is the normal path, not an error path —
@@ -229,7 +237,7 @@ export class OpenAICompatProvider implements ModelProvider {
         const body = await peekBody(res);
         const verdict = classifyRateLimit(body, headerOrNull(res, "retry-after"));
         if (verdict.daily) {
-          this.quotaExhausted = verdict.quotaId;
+          this.disabledReason = `daily quota exhausted (${verdict.quotaId})`;
           failureNote = `daily quota exhausted (${verdict.quotaId})`;
           break;
         }

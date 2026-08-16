@@ -294,7 +294,12 @@ export async function runSociety(opts: RunSocietyOptions) {
   // R29: a run whose transport failed is missing data, not a null result.
   const runHealth = computeRunHealth({
     days: config.days,
-    calls: callLog.all().map((c) => ({ ok: c.ok })),
+    calls: callLog.all().map((c) => ({
+      ok: c.ok,
+      purpose: c.purpose,
+      agentId: c.agentId,
+      day: c.day,
+    })),
     agents: agents.map((a) => ({ agentId: a.persona.agentId, failedUpdates: a.failedUpdates })),
   });
 

@@ -728,7 +728,37 @@ describe("transport policy (F16/F17)", () => {
     expect(hits).toBe(1); // sticky: later calls never touch the network
     expect(log.all()).toHaveLength(3);
     expect(log.all().every((c) => !c.ok)).toBe(true);
-    expect(log.all()[2]!.error).toContain("quota exhausted");
+    expect(log.all()[2]!.error).toContain("daily quota exhausted");
+  });
+
+  it("does not retry a hard account error, and stops calling after the first one", async () => {
+    // Cerebras seed-9114 made 72 round trips in 12s to collect 72 identical
+    // `402 payment_required` bodies. Once is informative; 72 times buries it.
+    let hits = 0;
+    const broke = (async () => {
+      hits += 1;
+      return {
+        ok: false,
+        status: 402,
+        headers: { get: () => null },
+        text: async () => '{"message":"Payment required","code":"payment_required"}',
+      } as unknown as Response;
+    }) as unknown as typeof fetch;
+    const log = new CallLog();
+    const provider = new OpenAICompatProvider(
+      { model: "cerebras:gpt-oss-120b", apiKey: "k", fetchImpl: broke, retryBaseMs: 1 },
+      log,
+    );
+    const input = {
+      persona: ADA, day: 1, location: "laboratory" as const, memories: "",
+      notebook: { day: 1, instruments: [] }, beliefs: INITIAL_BELIEFS,
+      availableInstruments: [{ id: "pendulum_lab", kind: "pendulum" }],
+      colleagues: [], inbox: [], outbox: [], recentObservations: [],
+    };
+    await provider.decide(input as never);
+    await provider.decide(input as never);
+    expect(hits).toBe(1);
+    expect(log.all()[1]!.error).toContain("account error HTTP 402");
   });
 
   it("abandons a hung request at the deadline rather than stalling a run", async () => {
@@ -768,6 +798,32 @@ describe("run-health gate (R29)", () => {
     expect(health.agentsMissingFinalReview).toEqual(["ada"]);
     expect(health.reasons.join(" ")).toMatch(/call failure rate/);
     expect(health.reasons.join(" ")).toMatch(/end-of-study review failed/);
+  });
+
+  it("counts review attempts, never reporting an impossible >100% failure rate", () => {
+    // The first version of the gate guessed the denominator from the day
+    // count and reported 400% on the Cerebras run. Attempts are agent-
+    // triggered, so they must be counted, not inferred.
+    const days = [10, 11, 12, 13, 14];
+    const health = computeRunHealth({
+      days: 40,
+      calls: days.map((day) => ({ ok: false, purpose: "belief_update", agentId: "ada", day })),
+      agents: [{ agentId: "ada", failedUpdates: days.map((day) => ({ day })) }],
+    });
+    expect(health.reviewFailureRate).toBe(1);
+
+    // Repair retries share an (agent, day) pair: the unit of loss is the
+    // review, not the HTTP call.
+    const withRepairs = computeRunHealth({
+      days: 40,
+      calls: [
+        { ok: true, purpose: "belief_update", agentId: "ada", day: 10 },
+        { ok: false, purpose: "belief_update", agentId: "ada", day: 20 },
+        { ok: false, purpose: "belief_update", agentId: "ada", day: 20 },
+      ],
+      agents: [{ agentId: "ada", failedUpdates: [{ day: 20 }] }],
+    });
+    expect(withRepairs.reviewFailureRate).toBe(0.5);
   });
 
   it("passes a clean run, and fails a run that lost only the final review", () => {

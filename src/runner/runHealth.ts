@@ -39,7 +39,7 @@ export const MAX_REVIEW_FAILURE_RATE = 0.1;
 
 export interface RunHealthInput {
   days: number;
-  calls: { ok: boolean }[];
+  calls: { ok: boolean; purpose?: string; agentId?: string; day?: number }[];
   agents: { agentId: string; failedUpdates: { day: number }[] }[];
 }
 
@@ -68,12 +68,27 @@ export function computeRunHealth(input: RunHealthInput): RunHealth {
   const agentsMissingFinalReview = input.agents
     .filter((ag) => ag.failedUpdates.some((f) => f.day === input.days))
     .map((ag) => ag.agentId);
-  // Reviews are scheduled at a fixed cadence; denominator is the number of
-  // review opportunities actually attempted, approximated by agents × the
-  // review count implied by the failures plus successes we can see. Using
-  // calls as the denominator would understate the rate, so we use the
-  // conservative agent-days basis.
-  const reviewOpportunities = Math.max(1, input.agents.length * Math.ceil(input.days / 5));
+  // Denominator: review ATTEMPTS actually made, counted as distinct
+  // (agent, day) pairs carrying a belief_update call. Reviews are
+  // agent-triggered, not on a fixed cadence, so any schedule-derived estimate
+  // is a guess — and a wrong one: the first version of this function assumed
+  // days/5 and reported a 400% failure rate on the Cerebras seed-9114 run,
+  // where the agent attempted 32 reviews. A rate above 100% is incoherent and
+  // would have gone straight into an attrition table.
+  //
+  // Repair retries share an (agent, day) pair, so one review with two repair
+  // attempts counts once — which is right: the unit of loss is the review,
+  // not the HTTP call.
+  const attempts = new Set<string>();
+  for (const c of input.calls) {
+    if (c.purpose === "belief_update" && c.agentId !== undefined && c.day !== undefined) {
+      attempts.add(`${c.agentId}:${c.day}`);
+    }
+  }
+  // Fall back to the failure count itself when the caller supplies no call
+  // detail: that yields 100%, which is honest about knowing nothing rather
+  // than optimistic.
+  const reviewOpportunities = attempts.size > 0 ? attempts.size : Math.max(1, failedReviews);
   const reviewFailureRate = failedReviews / reviewOpportunities;
 
   const reasons: string[] = [];

@@ -260,8 +260,24 @@ The seed-9113 run was addressed as `mistral-large-latest`. Under R19 that is ina
 
 That makes the dated Mistral id discoverable from the next run's artifact rather than from vendor documentation, which is the more reliable source of the two.
 
+## F21 — Cerebras rejected on billing, and the gate found its own arithmetic bug
+
+Seed 9114, `cerebras:gpt-oss-120b`: **72/72 calls failed with HTTP 402 `payment_required`** in 12 seconds. The account holds no credit — Cerebras retired its permanently-free tier in favour of a $5 trial that expires 30 days after issue. Nothing to do with the model or our code; the family is simply unavailable without payment.
+
+Two things the run nonetheless earned:
+
+**The gate did its job, loudly and in 12 seconds.** Under the pre-R29 pipeline this would have written a leak-clean artifact reporting `finalLevel: 0` — a fourth data point for the flat curve, manufactured entirely by an unpaid invoice. Instead it printed three reasons and refused. Together with Gemini (fail) and Mistral (pass) on the same day, R29 now has three verdicts on three families and has been wrong on none.
+
+**The gate reported a 400% review-failure rate**, which is impossible and would have been mortifying in an attrition table. The denominator was a guess — `agents × ceil(days/5)` — and belief reviews are agent-triggered, not scheduled: this agent attempted 32. Fixed to count actual attempts as distinct `(agent, day)` pairs carrying a `belief_update` call, so repair retries collapse to one review (the unit of loss is the review, not the HTTP call) and the rate cannot exceed 1. Recomputed: Cerebras 100%, Gemini 60%, Mistral 0%.
+
+Worth stating plainly: **the bug was in the instrument added to catch instrument failure**, and it was caught only because a run failed hard enough to drive the statistic past a value arithmetic forbids. A subtler denominator error — say 2× rather than 4× — would have passed unnoticed into the paper. The general lesson is one this programme keeps relearning: a measurement instrument needs its own impossible-value check, and F13's principle applies to our own apparatus as much as to the worlds.
+
+**Transport addition (F17 extension).** 402 is not retryable, so each call failed fast — but 72 identical bodies buried the one fact that mattered. `FATAL_STATUS = [401, 402, 403]` now trips the same sticky short-circuit as a per-day quota: no key, no credit, no permission are all conditions that cannot resolve inside a run. One informative log line instead of seventy-two.
+
+Roster unchanged: **Claude ✓ · sonar-pro ✓ · Mistral ✓ · fourth family unsourced.** Remaining free candidate is `groq:` (slow — 6k TPM makes a 40-day run ~45 min — but it costs nothing to find out). Cerebras is available for ~$5 if a fourth lineage turns out to matter; `gpt-oss-120b` would supply an OpenAI-lineage arm, which is otherwise unaffordable, at the cost of stating precisely that an open-weight model shares a lab and pretraining family with the API models but not their post-training or serving stack.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.
 
-Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), the first evidence that family admissibility is a *quota* question rather than a capability question (F18), the first family admitted by measurement (F19), and per-call serving-version provenance (F20).
+Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), the first evidence that family admissibility is a *quota* question rather than a capability question (F18), the first family admitted by measurement (F19), per-call serving-version provenance (F20), and an arithmetic defect in the health gate itself, caught by an impossible value (F21).

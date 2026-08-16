@@ -38,6 +38,16 @@ export const REQUEST_TIMEOUT_MS = 180_000;
 /** Retry-worthy statuses. 429 is conditional — see classifyRateLimit. */
 export const RETRYABLE_STATUS = [429, 500, 502, 503, 529];
 
+/**
+ * Statuses that will never succeed later in the same run: a missing key, an
+ * empty balance, a revoked permission. The Cerebras seed-9114 run made 72
+ * round trips in 12 seconds to collect 72 identical
+ * `402 payment_required` bodies. Harmless in cost terms, but it buries the
+ * one fact that matters — the account has no credit — under 72 log lines,
+ * and on a battery it would do so per run.
+ */
+export const FATAL_STATUS = [401, 402, 403];
+
 /** Upper bound on an honoured server-supplied Retry-After / RetryInfo delay.
  *  A server asking us to wait 20 minutes is telling us to stop, not to wait. */
 export const MAX_HONOURED_RETRY_MS = 90_000;
