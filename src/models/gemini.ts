@@ -200,6 +200,7 @@ export class GeminiProvider implements ModelProvider {
     }
 
     const data = (await res.json()) as {
+      modelVersion?: string;
       candidates?: { content?: { parts?: { text?: string }[] } }[];
       usageMetadata?: { promptTokenCount?: number; candidatesTokenCount?: number };
     };
@@ -211,6 +212,9 @@ export class GeminiProvider implements ModelProvider {
     this.log.append({
       agentId, day, purpose, model: this.name, temperature: this.temperature,
       promptVersion, promptText, completionText: text,
+      // R19 provenance, as in openaiCompat.ts: Google reports the serving
+      // snapshot in `modelVersion`.
+      ...(data.modelVersion ? { resolvedModel: data.modelVersion } : {}),
       inputTokens: inTok, outputTokens: outTok,
       estimatedCostUSD: (inTok / 1e6) * inPrice + (outTok / 1e6) * outPrice,
       latencyMs, ok: true,

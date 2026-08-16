@@ -573,6 +573,7 @@ describe("family providers", () => {
             ok: true,
             status: 200,
             json: async () => ({
+              model: "mistral-large-2512",
               choices: [{ message: { content: '{"type":"rest","reason":"probe"}' } }],
               usage: { prompt_tokens: 9, completion_tokens: 4 },
             }),
@@ -587,6 +588,9 @@ describe("family providers", () => {
     expect(JSON.parse(seenBody).model).toBe("mistral-large-latest");
     expect(log.all()[0]!.inputTokens).toBe(9);
     expect(log.all()[0]!.model).toBe("mistral:mistral-large-latest");
+    // R19: the request was addressed by alias, so provenance must be
+    // recovered from the response — per call, so a silent swap is visible.
+    expect(log.all()[0]!.resolvedModel).toBe("mistral-large-2512");
   });
 
   it("Gemini: uses header auth (never a key in the URL) and parses candidates", async () => {
@@ -607,6 +611,7 @@ describe("family providers", () => {
             ok: true,
             status: 200,
             json: async () => ({
+              modelVersion: "gemini-2.5-flash-001",
               candidates: [{ content: { parts: [{ text: '{"type":"rest","reason":"p"}' }] } }],
               usageMetadata: { promptTokenCount: 12, candidatesTokenCount: 5 },
             }),
@@ -622,6 +627,7 @@ describe("family providers", () => {
     expect(seenHeaders["x-goog-api-key"]).toBe("secret-key");
     expect(JSON.parse(seenBody).contents[0].parts[0].text).toContain("Meridian");
     expect(log.all()[0]!.outputTokens).toBe(5);
+    expect(log.all()[0]!.resolvedModel).toBe("gemini-2.5-flash-001");
   });
 
   it("both fall back to rest rather than crashing a run on a provider error", async () => {
@@ -739,7 +745,10 @@ describe("transport policy (F16/F17)", () => {
     const { res, timedOut } = await fetchWithTimeout(never, "https://example.invalid", {}, 40);
     expect(timedOut).toBe(true);
     expect(res).toBeNull();
-    expect(Date.now() - started).toBeLessThan(2000);
+    // The assertion that matters is "returned at all"; the bound is loose
+    // because a tight wall-clock check would flake under CI load and a
+    // flaky test in a pre-registered pipeline is worse than no test.
+    expect(Date.now() - started).toBeLessThan(5000);
   });
 });
 

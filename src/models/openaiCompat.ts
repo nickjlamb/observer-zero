@@ -251,6 +251,7 @@ export class OpenAICompatProvider implements ModelProvider {
     }
 
     const data = (await res.json()) as {
+      model?: string;
       choices?: { message?: { content?: string } }[];
       usage?: { prompt_tokens?: number; completion_tokens?: number };
     };
@@ -261,6 +262,10 @@ export class OpenAICompatProvider implements ModelProvider {
     this.log.append({
       agentId, day, purpose, model: this.name, temperature: this.temperature,
       promptVersion, promptText, completionText: text,
+      // R19 provenance: `mistral-large-latest` is an alias, so the request
+      // cannot pin a version. The response can — record what actually served
+      // the call, per call, so a silent upstream swap is visible afterwards.
+      ...(data.model ? { resolvedModel: data.model } : {}),
       inputTokens: inTok, outputTokens: outTok,
       estimatedCostUSD: (inTok / 1e6) * inPrice + (outTok / 1e6) * outPrice,
       latencyMs, ok: true,

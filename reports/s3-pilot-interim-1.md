@@ -231,8 +231,37 @@ That is exactly the reasoning quality a fourth family needs to contribute. The b
 
 Consequence for R19: **gemini-3.7-flash cannot serve a confirmatory family on the free tier.** Options in preference order — (a) an older Flash id with a larger free RPD, verified by running one full 40-day run to completion under the health gate; (b) another free vendor already wired (`groq:`, `cerebras:`) as the fourth lineage; (c) three families, declared as a limitation. A family is admissible only if it can complete a full run **healthy**, and that is now a testable property rather than an impression.
 
+## F19 — Mistral is the first family admitted under R30 (and the gate works both ways)
+
+Re-run at seed 9113 under the widened retry policy and the new transport rules, world w0 (control — this is a transport test, so an anomaly-free world keeps the health numbers uncontaminated by anything interesting):
+
+| | previous smoke | seed 9113 |
+|---|---|---|
+| calls ok / total | 40 / 44 | **50 / 50** |
+| call failure rate | 9.1% | **0%** |
+| belief reviews lost | — | **0** (10 reviews, day 40 included) |
+| wall clock | — | **12.6 min** for 40 days |
+| cost | $0 | $0 |
+
+`runHealth.healthy: true`, `reasons: []`. **Mistral is admissible under R30** — the first family to clear the gate by measurement rather than by impression.
+
+Two secondary readings worth recording:
+
+- **Latency calibration.** p50 4.3 s, p95 63.5 s, max 69.1 s. The 180 s deadline sits at 2.6× the observed maximum — tight enough to kill a hung socket, loose enough not to truncate a genuinely slow reasoning call. Note the spread: a 15× p50→p95 ratio is normal for this vendor, so a deadline set from the median would have destroyed the run.
+- **The gate is not merely permissive.** Same code, same thresholds, two families, opposite verdicts (Gemini fail / Mistral pass) on the same day. R29 discriminates.
+
+Roster after B4: **Claude ✓ · sonar-pro ✓ · Mistral ✓ · fourth family unsourced** (Gemini blocked on free-tier RPD; `groq:` and `cerebras:` wired but unmeasured).
+
+## F20 — alias provenance was unrecoverable (R19 gap, now closed)
+
+The seed-9113 run was addressed as `mistral-large-latest`. Under R19 that is inadmissible for a confirmatory run — an undated alias cannot pin a version, and a silent upstream swap mid-battery would be indistinguishable from a family effect. The alias guard added earlier warns on pilots and throws under `--confirmatory`, which is the right *policy*, but it does not solve the *provenance* problem: a dated id must exist and be known.
+
+`ModelCallRecord.resolvedModel` already existed for exactly this purpose (added for bedrock-mantle) and neither new provider populated it. Both now record what the API says actually served each call — `data.model` for the OpenAI-compatible vendors, `modelVersion` for Gemini. Per call, not per run, so a mid-battery version change is visible as a discontinuity in the log rather than as an unexplained shift in the results.
+
+That makes the dated Mistral id discoverable from the next run's artifact rather than from vendor documentation, which is the more reliable source of the two.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.
 
-Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), and the first evidence that family admissibility is a *quota* question rather than a capability question (F18).
+Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), the first evidence that family admissibility is a *quota* question rather than a capability question (F18), the first family admitted by measurement (F19), and per-call serving-version provenance (F20).
