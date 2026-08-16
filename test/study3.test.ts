@@ -41,7 +41,13 @@ import { BedrockConverseProvider, signV4 } from "../src/models/bedrockConverse.j
 import { providerKindFor, modelFamilyFor } from "../src/models/factory.js";
 import { OpenAICompatProvider } from "../src/models/openaiCompat.js";
 import { GeminiProvider } from "../src/models/gemini.js";
-import { classifyRateLimit, fetchWithTimeout } from "../src/models/http.js";
+import {
+  backoffMs,
+  classifyRateLimit,
+  fetchWithTimeout,
+  MAX_BACKOFF_MS,
+  MAX_HONOURED_RETRY_MS,
+} from "../src/models/http.js";
 import { computeRunHealth } from "../src/runner/runHealth.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
@@ -631,6 +637,10 @@ describe("family providers", () => {
   });
 
   it("both fall back to rest rather than crashing a run on a provider error", async () => {
+    // Also pins the backoff scale: with retryBaseMs 1 this path must be
+    // near-instant. It was not — a fixed 0-500ms jitter ignored the
+    // configured base and made the retry chain take seconds (F22).
+    const startedAt = Date.now();
     const failing = (async () =>
       ({ ok: false, status: 429, text: async () => "rate limited" }) as unknown as Response) as unknown as typeof fetch;
     for (const provider of [
@@ -646,6 +656,7 @@ describe("family providers", () => {
       const action = await provider.decide(decisionInput as never);
       expect(action.type).toBe("rest");
     }
+    expect(Date.now() - startedAt).toBeLessThan(1000);
   });
 });
 
@@ -759,6 +770,19 @@ describe("transport policy (F16/F17)", () => {
     await provider.decide(input as never);
     expect(hits).toBe(1);
     expect(log.all()[1]!.error).toContain("account error HTTP 402");
+  });
+
+  it("caps a single backoff interval and scales jitter to the base", () => {
+    // A per-minute limit refills within 60s; doubling past that waits for a
+    // quota that has already returned.
+    for (let attempt = 0; attempt < 10; attempt++) {
+      expect(backoffMs(4000, attempt)).toBeLessThanOrEqual(MAX_BACKOFF_MS * 1.25);
+    }
+    expect(backoffMs(4000, 0)).toBeGreaterThan(2000);
+    // Jitter must respect a tiny configured base rather than swamping it.
+    for (let i = 0; i < 50; i++) expect(backoffMs(1, 0)).toBeLessThan(5);
+    // A server-supplied delay is honoured but bounded.
+    expect(backoffMs(4000, 0, 3_600_000)).toBeLessThanOrEqual(MAX_HONOURED_RETRY_MS * 1.25);
   });
 
   it("abandons a hung request at the deadline rather than stalling a run", async () => {

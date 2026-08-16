@@ -276,8 +276,23 @@ Worth stating plainly: **the bug was in the instrument added to catch instrument
 
 Roster unchanged: **Claude ✓ · sonar-pro ✓ · Mistral ✓ · fourth family unsourced.** Remaining free candidate is `groq:` (slow — 6k TPM makes a 40-day run ~45 min — but it costs nothing to find out). Cerebras is available for ~$5 if a fourth lineage turns out to matter; `gpt-oss-120b` would supply an OpenAI-lineage arm, which is otherwise unaffordable, at the cost of stating precisely that an open-weight model shares a lab and pretraining family with the API models but not their post-training or serving stack.
 
+## F22 — a fixed jitter term, and the second apparatus bug in a day
+
+The provider-error test began timing out. It was not flaky infrastructure; it was arithmetic, and the same arithmetic governs live batteries.
+
+`backoffMs` added `Math.random() * 500` to every retry interval — a **fixed** jitter, independent of the configured base. Against the 4 s free-tier base that is invisible. Against the 1 ms base the test configures to keep the retry path instant, it is the entire delay: up to 500 ms per attempt × 7 attempts × 2 calls × 2 providers ≈ 7 s, against a 5 s timeout. Intermittent by construction, because the jitter is random.
+
+Two fixes, both of which matter in production rather than only in tests:
+
+1. **Proportional jitter (±25%)** instead of a fixed term. Decorrelates retries just as effectively and behaves correctly at every scale.
+2. **`MAX_BACKOFF_MS = 60 s` per interval.** After `classifyRateLimit`, the only retryable 429 left is a per-*minute* limit, which by definition refills within 60 s — so doubling on to 256 s waits four minutes for a quota that returned three minutes earlier. Uncapped doubling is also what made the seed-9111 worst case 508 s per call.
+
+The test now pins the property rather than the symptom: with `retryBaseMs: 1` the whole path must finish in under a second, and `backoffMs` is asserted to respect both the cap and the base across 50 draws.
+
+**This is the second defect in a day found in apparatus added this week** (F21 was the first), and both were found by a run failing rather than by the tests passing. The pattern is worth stating in the methods section: code that only executes on the failure path is exercised only when something fails, so its own defects are systematically under-detected. Every threshold, denominator and backoff constant added for robustness needs a test that pins its *scale*, not merely its behaviour — 215 tests passing told us nothing about whether the retry chain took 3 ms or 7 s until one of them ran out of patience.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.
 
-Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), the first evidence that family admissibility is a *quota* question rather than a capability question (F18), the first family admitted by measurement (F19), per-call serving-version provenance (F20), and an arithmetic defect in the health gate itself, caught by an impossible value (F21).
+Added in round 4 (B4 family sourcing): a run-health gate that makes transport failure distinguishable from a null (F16), two transport fixes without which no long battery is finishable (F17), the first evidence that family admissibility is a *quota* question rather than a capability question (F18), the first family admitted by measurement (F19), per-call serving-version provenance (F20), and two arithmetic defects in apparatus added this week — an impossible-value denominator in the health gate (F21) and a scale-blind jitter term in the retry policy (F22), both surfaced by failing runs rather than by passing tests.

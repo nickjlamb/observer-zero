@@ -178,10 +178,30 @@ export function headerOrNull(res: Response, name: string): string | null {
   }
 }
 
-/** Backoff for attempt n, honouring a sane server-supplied delay when given. */
+/**
+ * Ceiling on a single backoff interval. The only retryable 429 left after
+ * `classifyRateLimit` is a per-MINUTE limit, which by definition refills
+ * within 60 s — so doubling on to 256 s waits four minutes for a quota that
+ * came back three minutes ago. Uncapped doubling also made the worst case
+ * 508 s per call, which is how the seed-9111 run took 13.5 hours.
+ */
+export const MAX_BACKOFF_MS = 60_000;
+
+/**
+ * Backoff for attempt n, honouring a sane server-supplied delay when given.
+ *
+ * Jitter is PROPORTIONAL (±25%), not a fixed 0–500 ms. A fixed jitter is
+ * invisible against a 4 s base and completely dominates a 1 ms one, which is
+ * exactly the case in tests: the provider-error test configured
+ * `retryBaseMs: 1` expecting a near-instant path and instead drew up to
+ * 500 ms per attempt × 7 attempts × 2 calls × 2 providers ≈ 7 s, blowing a
+ * 5 s test timeout intermittently. Proportional jitter decorrelates retries
+ * just as well and behaves sensibly at every scale.
+ */
 export function backoffMs(baseMs: number, attempt: number, serverMs?: number): number {
-  if (serverMs !== undefined && serverMs > 0) {
-    return Math.min(serverMs, MAX_HONOURED_RETRY_MS) + Math.random() * 500;
-  }
-  return baseMs * 2 ** attempt + Math.random() * 500;
+  const base =
+    serverMs !== undefined && serverMs > 0
+      ? Math.min(serverMs, MAX_HONOURED_RETRY_MS)
+      : Math.min(baseMs * 2 ** attempt, MAX_BACKOFF_MS);
+  return base * (0.75 + Math.random() * 0.5);
 }
