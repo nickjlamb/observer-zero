@@ -56,6 +56,17 @@ export interface CompatVendor {
   pricing: [number, number];
   /** Lineage label recorded in the manifest — the thing R19 actually counts. */
   lineage: string;
+  /**
+   * How hard to retry a per-minute rate limit.
+   *
+   * Deliberately SEPARATE from `pricing`. The first version inferred it —
+   * price 0 meant "free tier, be patient" — which conflates two unrelated
+   * facts: Mistral is free AND generous, Groq is free and stingy (6k TPM),
+   * Cerebras Developer costs money and is very generous (1M TPM, 1k RPM).
+   * Inferring patience from price would have quietly mis-tuned any vendor
+   * that breaks the correlation, and nothing would have failed loudly.
+   */
+  retryProfile: "patient" | "standard";
 }
 
 /**
@@ -71,30 +82,40 @@ export const COMPAT_VENDORS: Record<string, CompatVendor> = {
     envKey: "GROQ_API_KEY",
     pricing: [0, 0],
     lineage: "varies-by-model",
+    retryProfile: "patient", // 6k TPM: roughly one call per minute
   },
   mistral: {
     baseUrl: "https://api.mistral.ai/v1/chat/completions",
     envKey: "MISTRAL_API_KEY",
     pricing: [0, 0],
     lineage: "mistral",
+    retryProfile: "patient",
   },
   cerebras: {
     baseUrl: "https://api.cerebras.ai/v1/chat/completions",
     envKey: "CEREBRAS_API_KEY",
-    pricing: [0, 0],
+    // Developer (pay-as-you-go) tier, verified 2026-08-16: gpt-oss-120b at
+    // $0.35/$0.75 per 1M in/out. The free trial's [0,0] was wrong the moment
+    // the trial lapsed, and reported $0 while spending real credit — cost
+    // accounting that silently reads zero is worse than none, because the
+    // reproducibility statement quotes it.
+    pricing: [0.35, 0.75],
     lineage: "varies-by-model",
+    retryProfile: "standard", // 1M TPM, 1k RPM, no daily cap
   },
   deepseek: {
     baseUrl: "https://api.deepseek.com/v1/chat/completions",
     envKey: "DEEPSEEK_API_KEY",
     pricing: [0.28, 0.42],
     lineage: "deepseek",
+    retryProfile: "standard",
   },
   openai: {
     baseUrl: "https://api.openai.com/v1/chat/completions",
     envKey: "OPENAI_API_KEY",
     pricing: [2, 12],
     lineage: "openai",
+    retryProfile: "standard",
   },
 };
 
@@ -158,14 +179,14 @@ export class OpenAICompatProvider implements ModelProvider {
     this.temperature = config.temperature ?? 1.0;
     this.variant = config.promptVariant ?? "v0.1";
     this.doFetch = config.fetchImpl ?? fetch;
-    // A vendor priced at zero is a free tier, and free tiers rate-limit by
-    // tokens per minute: a 40-day run bursts ~48 calls and WILL hit the
-    // ceiling. The Mistral smoke test lost 4 of 44 calls (9%) at the paid
-    // defaults — enough to cost four decision days — so free tiers get more
-    // attempts and a longer base.
-    const free = vendor.pricing[0] === 0 && vendor.pricing[1] === 0;
-    this.retryBaseMs = config.retryBaseMs ?? (free ? 4000 : 2000);
-    this.retryAttempts = config.retryAttempts ?? (free ? 7 : 5);
+    // Rate-limited tiers throttle by tokens per minute: a 40-day run bursts
+    // ~48 calls and WILL hit the ceiling. The Mistral smoke test lost 4 of 44
+    // calls (9%) at the impatient defaults — four decision days — so those
+    // vendors get more attempts and a longer base. Declared per vendor, not
+    // inferred from price.
+    const patient = vendor.retryProfile === "patient";
+    this.retryBaseMs = config.retryBaseMs ?? (patient ? 4000 : 2000);
+    this.retryAttempts = config.retryAttempts ?? (patient ? 7 : 5);
     this.timeoutMs = config.timeoutMs ?? REQUEST_TIMEOUT_MS;
     const key = config.apiKey ?? process.env[vendor.envKey];
     if (!key) throw new Error(`${vendor.envKey} is not set`);

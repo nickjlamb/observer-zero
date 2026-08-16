@@ -39,7 +39,7 @@ import { screenL4Candidates } from "../src/evaluator/study3Judge.js";
 import { L4_VALIDATION } from "../src/evaluator/study3ValidationSet.js";
 import { BedrockConverseProvider, signV4 } from "../src/models/bedrockConverse.js";
 import { providerKindFor, modelFamilyFor } from "../src/models/factory.js";
-import { OpenAICompatProvider } from "../src/models/openaiCompat.js";
+import { COMPAT_VENDORS, OpenAICompatProvider } from "../src/models/openaiCompat.js";
 import { GeminiProvider } from "../src/models/gemini.js";
 import {
   backoffMs,
@@ -551,6 +551,41 @@ describe("family providers", () => {
     outbox: [],
     recentObservations: [],
   };
+
+  it("declares retry patience per vendor rather than inferring it from price", () => {
+    // Price and rate-limit generosity are uncorrelated: Mistral is free and
+    // generous, Groq free and stingy, Cerebras paid and very generous.
+    expect(COMPAT_VENDORS["mistral"]!.retryProfile).toBe("patient");
+    expect(COMPAT_VENDORS["groq"]!.retryProfile).toBe("patient");
+    expect(COMPAT_VENDORS["cerebras"]!.retryProfile).toBe("standard");
+    // A vendor that charges must not report $0: the reproducibility
+    // statement quotes this number.
+    expect(COMPAT_VENDORS["cerebras"]!.pricing).toEqual([0.35, 0.75]);
+  });
+
+  it("bills a paid vendor at its real rate instead of silently reporting zero", async () => {
+    const log = new CallLog();
+    const provider = new OpenAICompatProvider(
+      {
+        model: "cerebras:gpt-oss-120b",
+        temperature: 0,
+        apiKey: "k",
+        fetchImpl: (async () =>
+          ({
+            ok: true,
+            status: 200,
+            json: async () => ({
+              model: "gpt-oss-120b",
+              choices: [{ message: { content: '{"type":"rest","reason":"p"}' } }],
+              usage: { prompt_tokens: 1_000_000, completion_tokens: 1_000_000 },
+            }),
+          }) as unknown as Response) as unknown as typeof fetch,
+      },
+      log,
+    );
+    await provider.decide(decisionInput as never);
+    expect(log.all()[0]!.estimatedCostUSD).toBeCloseTo(1.1, 6);
+  });
 
   it("routes every family prefix to a distinct provider kind and platform", () => {
     expect(providerKindFor("groq:llama-3.3-70b-versatile")).toBe("openai-compat");
