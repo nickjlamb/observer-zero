@@ -42,6 +42,7 @@ import { createProvider, providerKindFor } from "../models/factory.js";
 import { deriveBeliefMetrics } from "../evaluator/classify.js";
 import { analyzeReplication } from "../evaluator/replication.js";
 import { buildManifest } from "../manifest.js";
+import { computeRunHealth } from "./runHealth.js";
 import type { PromptVariant } from "../agents/promptBuilder.js";
 
 export type Institution = "letters" | "bulletin";
@@ -290,6 +291,12 @@ export async function runSociety(opts: RunSocietyOptions) {
   const audit = callLog.leakAudit(FORBIDDEN_PROMPT_TOKENS);
   const totals = callLog.totals();
   const totalsByAgent = callLog.totalsByAgent();
+  // R29: a run whose transport failed is missing data, not a null result.
+  const runHealth = computeRunHealth({
+    days: config.days,
+    calls: callLog.all().map((c) => ({ ok: c.ok })),
+    agents: agents.map((a) => ({ agentId: a.persona.agentId, failedUpdates: a.failedUpdates })),
+  });
 
   const artifact = {
     runId: randomUUID(),
@@ -332,6 +339,7 @@ export async function runSociety(opts: RunSocietyOptions) {
     callTotals: totals,
     callTotalsByAgent: totalsByAgent,
     leakAudit: audit,
+    runHealth,
     modelCalls: callLog.all(),
     events: sim.log.toJSON(),
   };

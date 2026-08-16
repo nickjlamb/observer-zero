@@ -28,6 +28,15 @@ import {
   type PromptVariant,
 } from "../agents/promptBuilder.js";
 import { extractJson } from "./anthropic.js";
+import {
+  backoffMs,
+  classifyRateLimit,
+  fetchWithTimeout,
+  headerOrNull,
+  peekBody,
+  REQUEST_TIMEOUT_MS,
+  RETRYABLE_STATUS,
+} from "./http.js";
 import { stripThink } from "./perplexity.js";
 import { runStructuredWithRepair } from "./repair.js";
 import type {
@@ -60,6 +69,11 @@ export interface GeminiConfig {
   /** Base backoff in ms. Free tiers rate-limit by TPM, so retries are the
    *  normal path; tunable so a battery can be gentler and tests fast. */
   retryBaseMs?: number;
+  /** Retry attempts. Free tiers need more patience than paid ones. */
+  retryAttempts?: number;
+  /** Per-request deadline. See http.ts: a hung socket cost the seed-9111
+   *  smoke run seven hours on a single call. */
+  timeoutMs?: number;
 }
 
 function sleep(ms: number): Promise<void> {
@@ -75,6 +89,11 @@ export class GeminiProvider implements ModelProvider {
   private variant: PromptVariant;
   private doFetch: typeof fetch;
   private retryBaseMs: number;
+  private retryAttempts: number;
+  private timeoutMs: number;
+  /** Sticky: once a per-day quota is exhausted it will not refill inside this
+   *  run, so every later call short-circuits without touching the network. */
+  private quotaExhausted: string | null = null;
 
   constructor(config: GeminiConfig, private log: CallLog) {
     this.modelId = geminiModelId(config.model);
@@ -83,7 +102,11 @@ export class GeminiProvider implements ModelProvider {
     this.temperature = config.temperature ?? 1.0;
     this.variant = config.promptVariant ?? "v0.1";
     this.doFetch = config.fetchImpl ?? fetch;
-    this.retryBaseMs = config.retryBaseMs ?? 2000;
+    // Free tier by default: be patient (see openaiCompat.ts for the
+    // measured justification).
+    this.retryBaseMs = config.retryBaseMs ?? 4000;
+    this.retryAttempts = config.retryAttempts ?? 7;
+    this.timeoutMs = config.timeoutMs ?? REQUEST_TIMEOUT_MS;
     const key = config.apiKey ?? process.env["GEMINI_API_KEY"] ?? process.env["GOOGLE_API_KEY"];
     if (!key) throw new Error("GEMINI_API_KEY is not set");
     this.apiKey = key;
@@ -99,41 +122,81 @@ export class GeminiProvider implements ModelProvider {
       `https://generativelanguage.googleapis.com/v1beta/models/` +
       `${encodeURIComponent(this.modelId)}:generateContent`;
     const started = Date.now();
-    let res: Response | null = null;
-    for (let attempt = 0; attempt < 5; attempt++) {
-      res = await this.doFetch(url, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          // Header auth rather than a query parameter, so the key cannot
-          // leak into any URL that gets logged.
-          "x-goog-api-key": this.apiKey,
-        },
-        body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: promptText }] }],
-          generationConfig: {
-            temperature: this.temperature,
-            maxOutputTokens: this.maxTokens,
-          },
-        }),
-      });
-      // Free-tier quota exhaustion is a 429 and is expected, not exceptional.
-      if (res.ok || ![429, 500, 502, 503, 529].includes(res.status)) break;
-      await sleep(this.retryBaseMs * 2 ** attempt + Math.random() * 500);
-    }
-    const latencyMs = Date.now() - started;
     const promptVersion =
       purpose === "decision" ? DECISION_PROMPT_VERSION : beliefPromptVersion(this.variant);
 
+    // Short-circuit: the daily quota is already gone, so a network round trip
+    // can only produce the same 429 more slowly.
+    if (this.quotaExhausted) {
+      this.log.append({
+        agentId, day, purpose, model: this.name, temperature: this.temperature,
+        promptVersion, promptText, completionText: "",
+        inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs: 0, ok: false,
+        error: `quota exhausted (${this.quotaExhausted}); call skipped`,
+      });
+      throw new Error(`Gemini quota exhausted (${this.quotaExhausted})`);
+    }
+
+    let res: Response | null = null;
+    let timedOut = false;
+    let failureNote = "";
+    for (let attempt = 0; attempt < this.retryAttempts; attempt++) {
+      ({ res, timedOut } = await fetchWithTimeout(
+        this.doFetch,
+        url,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            // Header auth rather than a query parameter, so the key cannot
+            // leak into any URL that gets logged.
+            "x-goog-api-key": this.apiKey,
+          },
+          body: JSON.stringify({
+            contents: [{ role: "user", parts: [{ text: promptText }] }],
+            generationConfig: {
+              temperature: this.temperature,
+              maxOutputTokens: this.maxTokens,
+            },
+          }),
+        },
+        this.timeoutMs,
+      ));
+      if (timedOut) {
+        failureNote = `timeout after ${this.timeoutMs}ms`;
+        await sleep(backoffMs(this.retryBaseMs, attempt));
+        continue;
+      }
+      if (!res || res.ok || !RETRYABLE_STATUS.includes(res.status)) break;
+
+      let serverMs: number | undefined;
+      if (res.status === 429) {
+        // Read the body once here; it is re-read below only if we give up.
+        const body = await peekBody(res);
+        const verdict = classifyRateLimit(body, headerOrNull(res, "retry-after"));
+        if (verdict.daily) {
+          // Per-day exhaustion does not refill inside a run. Stop paying for
+          // it: 25 doomed calls × 508s of backoff was 3.5 hours of the
+          // seed-9111 run spent waiting for a quota that resets tomorrow.
+          this.quotaExhausted = verdict.quotaId;
+          failureNote = `daily quota exhausted (${verdict.quotaId})`;
+          break;
+        }
+        serverMs = verdict.retryAfterMs;
+      }
+      await sleep(backoffMs(this.retryBaseMs, attempt, serverMs));
+    }
+    const latencyMs = Date.now() - started;
+
     if (!res || !res.ok) {
-      const body = res ? await res.text() : "no response";
+      const body = timedOut || !res ? failureNote || "no response" : await res.text();
       this.log.append({
         agentId, day, purpose, model: this.name, temperature: this.temperature,
         promptVersion, promptText, completionText: "",
         inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs, ok: false,
-        error: `HTTP ${res?.status ?? "?"}: ${body.slice(0, 300)}`,
+        error: `HTTP ${res?.status ?? "timeout"}: ${body.slice(0, 300)}`,
       });
-      throw new Error(`Gemini error ${res?.status ?? "?"}`);
+      throw new Error(`Gemini error ${res?.status ?? "timeout"}`);
     }
 
     const data = (await res.json()) as {

@@ -30,6 +30,15 @@ import {
   type PromptVariant,
 } from "../agents/promptBuilder.js";
 import { extractJson } from "./anthropic.js";
+import {
+  backoffMs,
+  classifyRateLimit,
+  fetchWithTimeout,
+  headerOrNull,
+  peekBody,
+  REQUEST_TIMEOUT_MS,
+  RETRYABLE_STATUS,
+} from "./http.js";
 import { stripThink } from "./perplexity.js";
 import { runStructuredWithRepair } from "./repair.js";
 import type {
@@ -111,6 +120,10 @@ export interface OpenAICompatConfig {
   /** Base backoff in ms. Free tiers rate-limit by TPM, so retries are the
    *  normal path; tunable so a battery can be gentler and tests fast. */
   retryBaseMs?: number;
+  /** Retry attempts. Free tiers need more patience than paid ones. */
+  retryAttempts?: number;
+  /** Per-request deadline. See http.ts. */
+  timeoutMs?: number;
 }
 
 function sleep(ms: number): Promise<void> {
@@ -127,6 +140,10 @@ export class OpenAICompatProvider implements ModelProvider {
   private variant: PromptVariant;
   private doFetch: typeof fetch;
   private retryBaseMs: number;
+  private retryAttempts: number;
+  private timeoutMs: number;
+  /** Sticky per-day quota flag — see GeminiProvider for the rationale. */
+  private quotaExhausted: string | null = null;
 
   constructor(
     config: OpenAICompatConfig,
@@ -140,7 +157,15 @@ export class OpenAICompatProvider implements ModelProvider {
     this.temperature = config.temperature ?? 1.0;
     this.variant = config.promptVariant ?? "v0.1";
     this.doFetch = config.fetchImpl ?? fetch;
-    this.retryBaseMs = config.retryBaseMs ?? 2000;
+    // A vendor priced at zero is a free tier, and free tiers rate-limit by
+    // tokens per minute: a 40-day run bursts ~48 calls and WILL hit the
+    // ceiling. The Mistral smoke test lost 4 of 44 calls (9%) at the paid
+    // defaults — enough to cost four decision days — so free tiers get more
+    // attempts and a longer base.
+    const free = vendor.pricing[0] === 0 && vendor.pricing[1] === 0;
+    this.retryBaseMs = config.retryBaseMs ?? (free ? 4000 : 2000);
+    this.retryAttempts = config.retryAttempts ?? (free ? 7 : 5);
+    this.timeoutMs = config.timeoutMs ?? REQUEST_TIMEOUT_MS;
     const key = config.apiKey ?? process.env[vendor.envKey];
     if (!key) throw new Error(`${vendor.envKey} is not set`);
     this.apiKey = key;
@@ -153,39 +178,76 @@ export class OpenAICompatProvider implements ModelProvider {
     promptText: string,
   ): Promise<string> {
     const started = Date.now();
-    let res: Response | null = null;
-    for (let attempt = 0; attempt < 5; attempt++) {
-      res = await this.doFetch(this.vendor.baseUrl, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${this.apiKey}`,
-        },
-        body: JSON.stringify({
-          model: this.modelId,
-          max_tokens: this.maxTokens,
-          temperature: this.temperature,
-          messages: [{ role: "user", content: promptText }],
-        }),
-      });
-      // 429 matters more here than elsewhere: free tiers are rate-limited by
-      // tokens per minute, so backoff is the normal path, not an error path.
-      if (res.ok || ![429, 500, 502, 503, 529].includes(res.status)) break;
-      await sleep(this.retryBaseMs * 2 ** attempt + Math.random() * 500);
-    }
-    const latencyMs = Date.now() - started;
     const promptVersion =
       purpose === "decision" ? DECISION_PROMPT_VERSION : beliefPromptVersion(this.variant);
 
+    if (this.quotaExhausted) {
+      this.log.append({
+        agentId, day, purpose, model: this.name, temperature: this.temperature,
+        promptVersion, promptText, completionText: "",
+        inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs: 0, ok: false,
+        error: `quota exhausted (${this.quotaExhausted}); call skipped`,
+      });
+      throw new Error(`${this.name} quota exhausted (${this.quotaExhausted})`);
+    }
+
+    let res: Response | null = null;
+    let timedOut = false;
+    let failureNote = "";
+    for (let attempt = 0; attempt < this.retryAttempts; attempt++) {
+      ({ res, timedOut } = await fetchWithTimeout(
+        this.doFetch,
+        this.vendor.baseUrl,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${this.apiKey}`,
+          },
+          body: JSON.stringify({
+            model: this.modelId,
+            max_tokens: this.maxTokens,
+            temperature: this.temperature,
+            messages: [{ role: "user", content: promptText }],
+          }),
+        },
+        this.timeoutMs,
+      ));
+      if (timedOut) {
+        failureNote = `timeout after ${this.timeoutMs}ms`;
+        await sleep(backoffMs(this.retryBaseMs, attempt));
+        continue;
+      }
+      if (!res || res.ok || !RETRYABLE_STATUS.includes(res.status)) break;
+
+      // 429 matters more here than elsewhere: free tiers are rate-limited by
+      // tokens per minute, so backoff is the normal path, not an error path —
+      // UNLESS the exhausted quota is per-day, which no amount of waiting
+      // fixes inside a run.
+      let serverMs: number | undefined;
+      if (res.status === 429) {
+        const body = await peekBody(res);
+        const verdict = classifyRateLimit(body, headerOrNull(res, "retry-after"));
+        if (verdict.daily) {
+          this.quotaExhausted = verdict.quotaId;
+          failureNote = `daily quota exhausted (${verdict.quotaId})`;
+          break;
+        }
+        serverMs = verdict.retryAfterMs;
+      }
+      await sleep(backoffMs(this.retryBaseMs, attempt, serverMs));
+    }
+    const latencyMs = Date.now() - started;
+
     if (!res || !res.ok) {
-      const body = res ? await res.text() : "no response";
+      const body = timedOut || !res ? failureNote || "no response" : await res.text();
       this.log.append({
         agentId, day, purpose, model: this.name, temperature: this.temperature,
         promptVersion, promptText, completionText: "",
         inputTokens: 0, outputTokens: 0, estimatedCostUSD: 0, latencyMs, ok: false,
-        error: `HTTP ${res?.status ?? "?"}: ${body.slice(0, 300)}`,
+        error: `HTTP ${res?.status ?? "timeout"}: ${body.slice(0, 300)}`,
       });
-      throw new Error(`${this.name} error ${res?.status ?? "?"}`);
+      throw new Error(`${this.name} error ${res?.status ?? "timeout"}`);
     }
 
     const data = (await res.json()) as {

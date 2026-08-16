@@ -41,6 +41,8 @@ import { BedrockConverseProvider, signV4 } from "../src/models/bedrockConverse.j
 import { providerKindFor, modelFamilyFor } from "../src/models/factory.js";
 import { OpenAICompatProvider } from "../src/models/openaiCompat.js";
 import { GeminiProvider } from "../src/models/gemini.js";
+import { classifyRateLimit, fetchWithTimeout } from "../src/models/http.js";
+import { computeRunHealth } from "../src/runner/runHealth.js";
 import { ADA } from "../src/agents/persona.js";
 import { INITIAL_BELIEFS } from "../src/agents/beliefs.js";
 
@@ -638,6 +640,145 @@ describe("family providers", () => {
       const action = await provider.decide(decisionInput as never);
       expect(action.type).toBe("rest");
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 3b. Transport policy and run health (R29) — all four findings from the
+//     gemini-3.7-flash seed-9111 smoke run.
+// ---------------------------------------------------------------------------
+
+describe("transport policy (F16/F17)", () => {
+  const GOOGLE_DAILY_429 = JSON.stringify({
+    error: {
+      code: 429,
+      message: "You exceeded your current quota",
+      details: [
+        {
+          "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+          violations: [{ quotaId: "GenerateRequestsPerDayPerProjectPerModel" }],
+        },
+        { "@type": "type.googleapis.com/google.rpc.RetryInfo", retryDelay: "41s" },
+      ],
+    },
+  });
+
+  it("distinguishes a per-day quota from a per-minute limit", () => {
+    const daily = classifyRateLimit(GOOGLE_DAILY_429);
+    expect(daily.daily).toBe(true);
+    expect(daily.quotaId).toContain("PerDay");
+    expect(daily.retryAfterMs).toBe(41_000);
+
+    // A per-minute limit must stay retryable: misreading it as fatal would
+    // throw away a perfectly recoverable run.
+    const perMinute = classifyRateLimit(
+      JSON.stringify({
+        error: {
+          details: [{ violations: [{ quotaId: "GenerateRequestsPerMinutePerProject" }] }],
+        },
+      }),
+    );
+    expect(perMinute.daily).toBe(false);
+
+    // Free-text bodies from the OpenAI-compatible vendors.
+    expect(classifyRateLimit("Rate limit exceeded: 200 requests per day").daily).toBe(true);
+    expect(classifyRateLimit("Rate limit exceeded: tokens per minute").daily).toBe(false);
+    // Unparseable bodies default to patient, not fatal.
+    expect(classifyRateLimit("<html>502</html>").daily).toBe(false);
+    // A Retry-After header is honoured when the body says nothing.
+    expect(classifyRateLimit("slow down", "12").retryAfterMs).toBe(12_000);
+  });
+
+  it("stops calling once a per-day quota is exhausted, instead of backing off 25 times", async () => {
+    let hits = 0;
+    const fetchImpl = (async () =>
+      ({
+        ok: false,
+        status: 429,
+        headers: { get: () => null },
+        clone: () => ({ text: async () => GOOGLE_DAILY_429 }),
+        text: async () => GOOGLE_DAILY_429,
+      }) as unknown as Response) as unknown as typeof fetch;
+    const counting = (async (...args: Parameters<typeof fetch>) => {
+      hits += 1;
+      return fetchImpl(...args);
+    }) as unknown as typeof fetch;
+
+    const log = new CallLog();
+    const provider = new GeminiProvider(
+      { model: "gemini:gemini-3.7-flash", apiKey: "k", fetchImpl: counting, retryBaseMs: 1 },
+      log,
+    );
+    const input = {
+      persona: ADA, day: 1, location: "laboratory" as const, memories: "",
+      notebook: { day: 1, instruments: [] }, beliefs: INITIAL_BELIEFS,
+      availableInstruments: [{ id: "pendulum_lab", kind: "pendulum" }],
+      colleagues: [], inbox: [], outbox: [], recentObservations: [],
+    };
+    await provider.decide(input as never);
+    expect(hits).toBe(1); // no exponential retry against a daily quota
+    await provider.decide(input as never);
+    await provider.decide(input as never);
+    expect(hits).toBe(1); // sticky: later calls never touch the network
+    expect(log.all()).toHaveLength(3);
+    expect(log.all().every((c) => !c.ok)).toBe(true);
+    expect(log.all()[2]!.error).toContain("quota exhausted");
+  });
+
+  it("abandons a hung request at the deadline rather than stalling a run", async () => {
+    // The seed-9111 run lost 7 hours to a single `fetch` that never resolved.
+    const never = (async (_url: string, init: RequestInit) =>
+      new Promise<Response>((_resolve, reject) => {
+        (init.signal as AbortSignal).addEventListener("abort", () => {
+          const e = new Error("aborted");
+          e.name = "AbortError";
+          reject(e);
+        });
+      })) as unknown as typeof fetch;
+    const started = Date.now();
+    const { res, timedOut } = await fetchWithTimeout(never, "https://example.invalid", {}, 40);
+    expect(timedOut).toBe(true);
+    expect(res).toBeNull();
+    expect(Date.now() - started).toBeLessThan(2000);
+  });
+});
+
+describe("run-health gate (R29)", () => {
+  it("marks the seed-9111 failure profile invalid rather than null", () => {
+    const health = computeRunHealth({
+      days: 40,
+      // 24 ok, 25 failed — the observed profile.
+      calls: [
+        ...Array.from({ length: 24 }, () => ({ ok: true })),
+        ...Array.from({ length: 25 }, () => ({ ok: false })),
+      ],
+      agents: [{ agentId: "ada", failedUpdates: [20, 21, 22, 23, 24, 40].map((day) => ({ day })) }],
+    });
+    expect(health.healthy).toBe(false);
+    expect(health.failedCalls).toBe(25);
+    expect(health.agentsMissingFinalReview).toEqual(["ada"]);
+    expect(health.reasons.join(" ")).toMatch(/call failure rate/);
+    expect(health.reasons.join(" ")).toMatch(/end-of-study review failed/);
+  });
+
+  it("passes a clean run, and fails a run that lost only the final review", () => {
+    const clean = computeRunHealth({
+      days: 40,
+      calls: Array.from({ length: 49 }, () => ({ ok: true })),
+      agents: [{ agentId: "ada", failedUpdates: [] }],
+    });
+    expect(clean.healthy).toBe(true);
+    expect(clean.reasons).toEqual([]);
+
+    // One lost review is tolerable; losing the LAST one is not, because the
+    // primary endpoint is measured at final belief state.
+    const finalLost = computeRunHealth({
+      days: 40,
+      calls: Array.from({ length: 49 }, (_, i) => ({ ok: i !== 0 })),
+      agents: [{ agentId: "ada", failedUpdates: [{ day: 40 }] }],
+    });
+    expect(finalLost.healthy).toBe(false);
+    expect(finalLost.reasons.join(" ")).toMatch(/final belief state is stale/);
   });
 });
 

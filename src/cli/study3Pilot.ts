@@ -106,6 +106,20 @@ async function main() {
       if (process.argv.includes("--confirmatory") && !STUDY3_DESIGN_FROZEN) {
         throw new Error("STUDY3_DESIGN_FROZEN is false: no confirmatory Study 3 runs exist yet.");
       }
+      // R19 pins EXACT model ids. An undated alias ("...-latest") or a
+      // preview id can be repointed or withdrawn by the vendor mid-battery,
+      // silently altering the frozen condition — the discipline Study 2
+      // adopted for Bedrock, now enforced for every provider. Two vendors
+      // have already withdrawn models under us (r1-1776; gemini-2.5-flash),
+      // so this is a demonstrated hazard, not a hypothetical one.
+      if (/-latest$|preview/i.test(model)) {
+        const message =
+          `Model "${model}" is an undated alias or preview id. R19 requires exact, ` +
+          `stable ids so a vendor cannot change the frozen condition mid-battery. ` +
+          `Run "npm run study3 -- --mode models" and pick a stable id.`;
+        if (process.argv.includes("--confirmatory")) throw new Error(message);
+        console.warn(`  WARNING (pilot only): ${message}\n`);
+      }
     }
     mkdirSync(outDir, { recursive: true });
     const summary: Record<string, unknown>[] = [];
@@ -157,16 +171,46 @@ async function main() {
           tau: [lv.tauSuspicion, lv.tauCommitment, lv.tauGrounded],
           extGenTrue: correctness[0]!.extGenTrue,
           costUSD: Number(artifact.callTotals.estimatedCostUSD.toFixed(2)),
+          // R29: report health beside the endpoint, never instead of it. A
+          // run that lost calls is missing data, not a null result.
+          healthy: artifact.runHealth.healthy,
+          callFailureRate: Number(artifact.runHealth.callFailureRate.toFixed(3)),
+          healthReasons: artifact.runHealth.reasons,
         };
         summary.push(line);
         console.log(
           `${key.padEnd(12)} seed ${seed} · leak ${line.leakClean ? "clean" : "HITS"} · ` +
-            `final L${line.finalLevel} · τ ${JSON.stringify(line.tau)} · $${line.costUSD}`,
+            `final L${line.finalLevel} · τ ${JSON.stringify(line.tau)} · $${line.costUSD}` +
+            `${line.healthy ? "" : "  ⚠ UNHEALTHY"}`,
         );
+        for (const r of line.healthReasons) console.log(`             ↳ ${r}`);
       }
     }
     writeFileSync(`${outDir}/summary.json`, JSON.stringify({ mode, model, tokens: FORBIDDEN_PROMPT_TOKENS.length, summary }, null, 2));
     console.log(`\nArtifacts → ${outDir}/`);
+    return;
+  }
+
+  if (mode === "models") {
+    // Free-tier catalogues move (gemini-2.5-flash 404'd as "no longer
+    // available to new users"; r1-1776 was retired by Perplexity). Ask the
+    // vendor rather than guessing. $0.
+    const key = process.env["GEMINI_API_KEY"] ?? process.env["GOOGLE_API_KEY"];
+    if (!key) throw new Error("GEMINI_API_KEY is not set");
+    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models", {
+      headers: { "x-goog-api-key": key },
+    });
+    if (!res.ok) throw new Error(`models list failed: HTTP ${res.status} ${(await res.text()).slice(0, 200)}`);
+    const data = (await res.json()) as {
+      models?: { name?: string; displayName?: string; supportedGenerationMethods?: string[] }[];
+    };
+    console.log("\nGEMINI MODELS AVAILABLE TO THIS KEY (generateContent only)\n");
+    for (const m of data.models ?? []) {
+      if (!m.supportedGenerationMethods?.includes("generateContent")) continue;
+      const id = (m.name ?? "").replace(/^models\//, "");
+      console.log(`  gemini:${id.padEnd(38)} ${m.displayName ?? ""}`);
+    }
+    console.log("\nUse one of these verbatim as --model, e.g. --model gemini:<id>\n");
     return;
   }
 
