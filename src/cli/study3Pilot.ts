@@ -14,7 +14,13 @@
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createJudgeClient } from "../evaluator/judgeClient.js";
-import { classifyHypothesesLLM, EVAL_V3_VERSION } from "../evaluator/llmClassifier.js";
+import {
+  classifyHypothesesLLM,
+  classifyInBatches,
+  EVAL_V3_VERSION,
+  EVAL_V4_VERSION,
+  type EvalVersion,
+} from "../evaluator/llmClassifier.js";
 import {
   judgeL4,
   judgeL4PerItem,
@@ -22,7 +28,11 @@ import {
   L4_JUDGE_VERSION,
   type L4Candidate,
 } from "../evaluator/study3Judge.js";
-import { CLASSIFIER_VALIDATION, L4_VALIDATION } from "../evaluator/study3ValidationSet.js";
+import {
+  CLASSIFIER_VALIDATION,
+  CLASSIFIER_VALIDATION_V4,
+  L4_VALIDATION,
+} from "../evaluator/study3ValidationSet.js";
 
 try {
   process.loadEnvFile();
@@ -114,6 +124,22 @@ if (isInstrumentVariant(promptVariant) && process.argv.includes("--confirmatory"
   throw new Error(
     `--prompt-variant ${promptVariant} is instrument validation (R38), not an experimental arm. ` +
       `It cannot run under --confirmatory.`,
+  );
+}
+
+/**
+ * Which classifier prompt scores this run (R40 / eval-v4).
+ *
+ * Defaults to eval-v3 so that re-running any existing command reproduces the
+ * number it produced before. v4 is opt-in until the corpus re-screen is done
+ * and both columns have been published side by side — the R40 ruling requires
+ * v3 and v4 to be reported together, never v4 alone.
+ */
+const EVAL_VERSIONS = ["eval-v3", "eval-v4"] as const;
+const evalVersion = argStr("eval-version", EVAL_V3_VERSION) as EvalVersion;
+if (!(EVAL_VERSIONS as readonly string[]).includes(evalVersion)) {
+  throw new Error(
+    `Unknown --eval-version "${evalVersion}". One of: ${EVAL_VERSIONS.join(", ")}`,
   );
 }
 
@@ -413,14 +439,21 @@ async function main() {
     const apiKey = process.env["ANTHROPIC_API_KEY"];
     if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not set");
     const judge = createJudgeClient({ apiKey });
-    console.log(`P3.4 JUDGE VALIDATION — ${EVAL_V3_VERSION} + ${L4_JUDGE_VERSION} on ${judge.model} @ t=0\n`);
+    // The v4 set is a superset of the v3 set, so running v3 against it is a
+    // meaningful and deliberately unflattering comparison: it is how the 0/11
+    // recall figure was obtained. Both columns get published (R40 §7.3).
+    const validation =
+      evalVersion === EVAL_V4_VERSION ? CLASSIFIER_VALIDATION_V4 : CLASSIFIER_VALIDATION;
+    console.log(
+      `P3.4 JUDGE VALIDATION — ${evalVersion} + ${L4_JUDGE_VERSION} on ${judge.model} @ t=0 · ` +
+        `${validation.length} classifier items\n`,
+    );
 
     const runOnce = async () => ({
-      cls: await classifyHypothesesLLM(
-        CLASSIFIER_VALIDATION.map((i) => i.hypothesis),
-        judge.complete,
-        "eval-v3",
-      ),
+      // Batched at 15. The whole v4 set in one call is ~30 items and ~25k
+      // characters; F15 showed batch composition can move verdicts, so the
+      // batch size is fixed rather than "however many items there happen to be".
+      cls: await classifyInBatches(validation.map((i) => i.hypothesis), judge.complete, evalVersion),
       l4: await judgeL4(L4_VALIDATION.map((i) => i.candidate), judge.complete),
     });
     const a = await runOnce();
@@ -431,8 +464,8 @@ async function main() {
         JSON.stringify(b.l4.map((v) => [v.proposesTest, v.discriminating]));
 
     let clsOk = 0;
-    for (let i = 0; i < CLASSIFIER_VALIDATION.length; i++) {
-      const item = CLASSIFIER_VALIDATION[i]!;
+    for (let i = 0; i < validation.length; i++) {
+      const item = validation[i]!;
       const got = a.cls[i]!;
       const ok = (item.gold as string[]).includes(got);
       if (ok) clsOk++;
@@ -450,12 +483,12 @@ async function main() {
       );
     }
     console.log(
-      `\nclassifier ${clsOk}/${CLASSIFIER_VALIDATION.length} · L4 ${l4Ok}/${L4_VALIDATION.length} · ` +
+      `\nclassifier ${clsOk}/${validation.length} · L4 ${l4Ok}/${L4_VALIDATION.length} · ` +
         `deterministic across re-run: ${deterministic} · judge calls ${judge.calls()}`,
     );
     writeFileSync(
-      "runs/s3-p34-validation.json",
-      JSON.stringify({ EVAL_V3_VERSION, L4_JUDGE_VERSION, model: judge.model, clsOk, l4Ok, deterministic, cls: a.cls, l4: a.l4 }, null, 2),
+      `runs/s3-p34-validation-${evalVersion}.json`,
+      JSON.stringify({ evalVersion, items: validation.length, L4_JUDGE_VERSION, model: judge.model, clsOk, l4Ok, deterministic, cls: a.cls, l4: a.l4 }, null, 2),
     );
     return;
   }
@@ -492,7 +525,7 @@ async function main() {
         }
         for (let i = 0; i < items.length; i += 20) {
           const batch = items.slice(i, i + 20);
-          const classes = await classifyHypothesesLLM(batch, judge.complete, "eval-v3");
+          const classes = await classifyHypothesesLLM(batch, judge.complete, evalVersion);
           batch.forEach((h, j) => cache.set(`${h.label}\u0000${h.rationale}`, classes[j]!));
         }
       }
@@ -538,7 +571,7 @@ async function main() {
       const l4Hits = l4.length;
       const out = {
         source: f,
-        evalVersion: EVAL_V3_VERSION,
+        evalVersion,
         l4JudgeVersion: L4_JUDGE_VERSION,
         judgeModel: judge.model,
         // R38: the sidecar carries the role too. The .judged.json files are

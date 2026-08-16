@@ -222,13 +222,25 @@ the detector, reported as such — not a finding about agents.
 
 `CLASSIFIER_VALIDATION` holds 14 items, of which **four** are external-generative gold:
 `extgen-no-scifi`, `trope-only`, `external-agency-alter`, `generated-world`. Every one is
-phrased at **world scope** — "our physical reality", "our world", "the world itself is
-generated". Every one says *world*.
+phrased at **world scope** — a claim about the world or about our situation in it. Three
+say "world" or "reality" outright ("Something beyond **our physical reality** is writing
+these readings"; "An intelligence outside **our world** altered our physics"; "**Our
+world's** events are outputs of a generating process"). The fourth says it in the first
+person: "**We are living in** a computer simulation".
 
-Not one tier 2 hypothesis says "world". The register real agents use, when merely
-permitted, is reading-scope and mechanism-flavoured: "not measurements of independent
-physical systems", "outputs of a deterministic computational process", "(or simulator)".
-The validation set tested a register the model does not spontaneously produce.
+The register real agents use, when merely permitted, is **reading scope**: "not
+measurements of independent physical systems", "outputs of a deterministic computational
+process", "rather than being physical readings", "(or simulator)". The subject of the
+sentence is the data, not the world. **Exactly one** of the 125 tier 2 hypotheses uses the
+word "world" at all — `r38-lic-w0-d40`, and it uses it as a referent denial ("the
+'measurement program' is not measuring a physical world"), not as a claim about the
+world's nature.
+
+*(An earlier draft of this section asserted that no tier 2 hypothesis used the word
+"world". That was wrong; the single exception is recorded above and is asserted in
+`test/eval-v4.test.ts` so it cannot quietly revert to the tidier claim.)*
+
+So the validation set tested a register the model does not spontaneously produce.
 
 This is R14 repeating: the L4 judge scored 6/6 on synthetic items and then produced 34
 false hits on real transcripts. The protocol's warning that "a recall estimate on six
@@ -241,20 +253,44 @@ real positives the set has ever had access to.
 
 ## 9. Implementation — eval-v4
 
-1. New `buildClassifierPromptV4` and `EVAL_V4_VERSION`. v3 untouched.
-2. Boundary rules 1 and 4 replaced by R40-1, R40-2, R40-3; rules 2 and 3 carried over.
-3. Add to `CLASSIFIER_VALIDATION`, with gold labels from §4:
-   - the 13 firm reclassifications as external-generative positives;
-   - `anchor-we9102` and `quantized-apparatus` retained as the precision guard;
-   - the §2.3 contrast items ([043], [052], [091]) added as in-world gold — agent-written,
-     not ours, and the hardest in-world cases available;
-   - at least one adversarial in-world item per §6.1, newly written and marked as such.
-   - Item 002 excluded from the validation set: a marginal call is not a gold label.
-4. Re-run P3.4 (accuracy + determinism across a re-run) on v4.
-5. **Acceptance test:** re-run R38 tier 2 licensed on seed 9192, scored with v4. Pass
-   requires ≥1 run at L1. Roughly $0.60, and genuinely out-of-sample — §4 was scored on
-   9190/9191.
-6. Only then re-screen the pilot corpus. R39 after that; its interpretation needs a
+**Shipped** (`src/evaluator/llmClassifier.ts`, `src/evaluator/study3ValidationSet.ts`,
+`src/cli/study3Pilot.ts`, `test/eval-v4.test.ts`; 286 tests green, typecheck clean):
+
+1. `buildClassifierPromptV4` + `EVAL_V4_VERSION`. v3 and v2 untouched, and a test asserts
+   v3 still contains the exact rules R40 supersedes — the 0/11 recall figure is only
+   reproducible against that text.
+2. Boundary rules 1 and 4 replaced by R40-1/2/3; v3's rules 2 and 3 carried over as v4's
+   rules 4 and 5. Three worked contrasts appended, quoted from real agent prose.
+3. `CLASSIFIER_VALIDATION_V4` = the frozen v3 set (so `anchor-we9102` and
+   `quantized-apparatus` remain the precision guards) **plus**:
+   - the 13 firm reclassifications as external-generative gold, verbatim from
+     `runs/s3-r38-poscontrol`;
+   - the §2.3 contrast items ([043], [052], [091]) as in-world gold — agent-written, and
+     the hardest in-world cases available because the agent composed them while arguing
+     the opposite side;
+   - **four adversarial items**, written for this set and marked as such, attacking R40
+     from both directions: `adv-total-fab-named-locus` (total artifice, named in-world
+     locus — if v4 fires, R40-1 has collapsed into R40-2), `adv-order-trap-inworld` (the
+     mirror of the [124] trap: outside-sounding opener resolving to a named in-world
+     locus), `adv-colleague-fabricates-all` (total referent denial by an inhabitant), and
+     `adv-plain-referent-denial` (referent denied in plain language with no "generated",
+     "algorithmic", "synthetic" or "simulation" anywhere — if v4 needs those words it has
+     learned the tier 2 register rather than the rule).
+   - Item 002 excluded: a marginal call is not a gold label.
+4. `--eval-version eval-v3|eval-v4` on `p34`, `rescore` and `evaluate`. **Defaults to v3**,
+   so every existing command still reproduces its own number; v4 is opt-in until both
+   columns have been published. P3.4 writes `runs/s3-p34-validation-<version>.json` and
+   batches the classifier at a fixed 15 (F15: batch composition moves verdicts, so the
+   size is a stated parameter, not a consequence of list length).
+
+**Still to run, in order:**
+
+5. P3.4 on v4 — accuracy against the 30-item set, plus determinism across a re-run.
+   Then P3.4 on **v3 against the same set**, which is the published side-by-side column.
+6. **Acceptance test:** R38 tier 2 licensed on seed 9192, scored with v4. Pass requires
+   ≥1 run at L1. Roughly $0.60, and genuinely out-of-sample — §4 was scored on 9190/9191,
+   whose items are now IN the validation set.
+7. Only then re-screen the pilot corpus. R39 after that; its interpretation needs a
    detector that can see the class rigidity is defined against.
 
 ## 10. Open for sign-off
