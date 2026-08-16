@@ -44,10 +44,27 @@ import {
   computeLevels,
   stripEvents,
 } from "../evaluator/study3.js";
+import { OPAQUE_ID_HALF_BITS } from "../engine/opaqueIds.js";
 import { FORBIDDEN_PROMPT_TOKENS } from "../models/provider.js";
 
 /** Flips only at the Study 3 freeze commit, after pilots and v0.3. */
 export const STUDY3_DESIGN_FROZEN = false as boolean;
+
+/**
+ * R36 (findings F26/F27): run a pilot cell with SEQUENTIAL observation ids
+ * instead of opaque ones, to test whether R8's boundary machinery is what
+ * suppressed evidence citation in sub-flagship families.
+ *
+ * Pilot-only by construction. R8 is frozen for the confirmatory battery — the
+ * side channel it closes is real — so this flag is refused under
+ * `--confirmatory` rather than merely discouraged.
+ */
+const sequentialIds = process.argv.includes("--sequential-ids");
+if (sequentialIds && process.argv.includes("--confirmatory")) {
+  throw new Error(
+    "--sequential-ids is a pilot-only diagnostic (R36); R8 (opaque ids) is frozen for confirmatory runs.",
+  );
+}
 
 function argStr(name: string, fallback: string): string {
   const i = process.argv.indexOf(`--${name}`);
@@ -138,7 +155,9 @@ async function main() {
           modelName: mode === "mock" ? "mock" : model,
           society: SOLO_ADA_TWO_SITE,
           study3: {
-            opaqueIds: true,
+            opaqueIds: !sequentialIds,
+            // R35: record the era, never leave it to be inferred later.
+            opaqueIdHalfBits: sequentialIds ? null : OPAQUE_ID_HALF_BITS,
             workbench: true,
             predictions: true,
             // Town ledger. Cadence 6 set by P3.2b (finding F12): at 2 the
@@ -157,12 +176,14 @@ async function main() {
         const levels = computeLevels({
           config: artifact.config,
           study3: artifact.study3,
+          startedAt: artifact.startedAt,
           agents: artifact.agents,
           events: stripEvents(artifact.events),
         });
         const capability = computeCitationCapability({
           config: artifact.config,
           study3: artifact.study3,
+          startedAt: artifact.startedAt,
           agents: artifact.agents,
           events: stripEvents(artifact.events),
         });
@@ -354,7 +375,7 @@ async function main() {
         const items: { label: string; rationale: string }[] = [];
         for (const snap of ag.beliefTimeline) {
           for (const h of snap.state.hypotheses) {
-            const key = `${h.label} ${h.rationale}`;
+            const key = `${h.label}\u0000${h.rationale}`;
             if (!cache.has(key)) {
               cache.set(key, "pending");
               items.push({ label: h.label, rationale: h.rationale });
@@ -364,13 +385,19 @@ async function main() {
         for (let i = 0; i < items.length; i += 20) {
           const batch = items.slice(i, i + 20);
           const classes = await classifyHypothesesLLM(batch, judge.complete, "eval-v3");
-          batch.forEach((h, j) => cache.set(`${h.label} ${h.rationale}`, classes[j]!));
+          batch.forEach((h, j) => cache.set(`${h.label}\u0000${h.rationale}`, classes[j]!));
         }
       }
       const classify = (label: string, rationale: string) =>
-        cache.get(`${label} ${rationale}`) ?? "other";
+        cache.get(`${label}\u0000${rationale}`) ?? "other";
       const levels = computeLevels(
-        { config: artifact.config, study3: artifact.study3, agents: artifact.agents, events: stripEvents(artifact.events) },
+        {
+          config: artifact.config,
+          study3: artifact.study3,
+          startedAt: artifact.startedAt,
+          agents: artifact.agents,
+          events: stripEvents(artifact.events),
+        },
         classify,
       );
       const correctness = computeCorrectness(artifact, levels);
@@ -411,7 +438,7 @@ async function main() {
         l4Screened: screened.length,
         l4Judged: judgedL4.length,
         l4Discriminating: l4,
-        classifications: [...cache.entries()].map(([k, v]) => ({ label: k.split(" ")[0], class: v })),
+        classifications: [...cache.entries()].map(([k, v]) => ({ label: k.split("\u0000")[0], class: v })),
       };
       writeFileSync(`${dir}/${f.replace(/\.json$/, "")}.judged.json`, JSON.stringify(out, null, 2));
       const lv = levels[0]!;

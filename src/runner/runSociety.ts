@@ -81,6 +81,14 @@ export interface Study3Options {
    * Condition-uniform wherever enabled.
    */
   ledger?: { trialsPerDay: number };
+  /**
+   * The opaque-id scheme this run was generated under, written into the
+   * artifact so the evaluator never has to infer it (R35, finding F25). The
+   * scheme changed once, at F10, and an evaluator decoding a run with the
+   * wrong era reports every legitimate citation as fabricated. Null when
+   * `opaqueIds` is off.
+   */
+  opaqueIdHalfBits?: number | null;
 }
 
 /** The Study 1 configuration: Ada + Maya, letters only. */

@@ -70,7 +70,11 @@ const hmac = (key: string | Buffer, data: string): Buffer =>
 
 export interface SigV4Input {
   method: string;
-  /** Already-encoded canonical path, e.g. /model/foo%3A0/converse */
+  /**
+   * The CANONICAL path — each segment URI-encoded TWICE, e.g.
+   * /model/foo%253A0/converse. This is NOT the path you put in the URL
+   * (which is encoded once). See `converseCanonicalPath` for why.
+   */
   path: string;
   host: string;
   region: string;
@@ -81,6 +85,39 @@ export interface SigV4Input {
   sessionToken?: string | undefined;
   /** ISO basic format, e.g. 20260815T120000Z — injected so tests are stable. */
   amzDate: string;
+}
+
+/**
+ * The path that goes in the request URL: each segment encoded ONCE, so the
+ * colon in a model id becomes %3A.
+ */
+export function conversePath(modelId: string): string {
+  return `/model/${encodeURIComponent(modelId)}/converse`;
+}
+
+/**
+ * The path that goes in the SigV4 CANONICAL REQUEST: each segment encoded
+ * TWICE, so the colon becomes %253A (the %3A's own '%' is re-encoded to %25).
+ *
+ * WHY THIS IS NOT THE SAME AS `conversePath`. AWS's SigV4 specification says
+ * every service EXCEPT S3 double-encodes each path segment when building the
+ * canonical request. The first version of this module assumed the two paths
+ * had to be identical — a plausible-sounding inference, stated as a comment,
+ * and wrong. Every Converse call failed with:
+ *
+ *   "The request signature we calculated does not match the signature you
+ *    provided… The Canonical String for this request should have been
+ *    'POST\n/model/amazon.nova-pro-v1%253A0/converse\n…"
+ *
+ * That message is a free published test vector and the tests below use it.
+ *
+ * Recorded because it is the same class of defect as F21, F22 and F25: code on
+ * a path that never executed in anger, unit-tested only against itself. The
+ * module's own header said "only a live call validates it". The live call
+ * invalidated it.
+ */
+export function converseCanonicalPath(modelId: string): string {
+  return `/model/${encodeURIComponent(encodeURIComponent(modelId))}/converse`;
 }
 
 /** Returns the headers SigV4 requires, Authorization included. */
@@ -192,11 +229,11 @@ export class BedrockConverseProvider implements ModelProvider {
   /** URL and headers for one Converse call. */
   private request(payload: string): { url: string; headers: Record<string, string> } {
     const host = `bedrock-runtime.${this.region}.amazonaws.com`;
-    // The model id contains dots and a colon; the colon must be percent-encoded
-    // in both the request path and the canonical path, or the signature will
-    // not match what AWS recomputes.
-    const encodedId = encodeURIComponent(this.modelId);
-    const path = `/model/${encodedId}/converse`;
+    // The model id contains dots and a colon. The URL encodes the colon ONCE
+    // (%3A); the SigV4 canonical request encodes it TWICE (%253A). They are
+    // deliberately different — see converseCanonicalPath.
+    const path = conversePath(this.modelId);
+    const canonicalPath = converseCanonicalPath(this.modelId);
     const url = `https://${host}${path}`;
 
     const bearer = this.config.apiKey ?? process.env["AWS_BEARER_TOKEN_BEDROCK"];
@@ -217,7 +254,7 @@ export class BedrockConverseProvider implements ModelProvider {
     const amzDate = this.nowIso().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const signed = signV4({
       method: "POST",
-      path,
+      path: canonicalPath,
       host,
       region: this.region,
       service: "bedrock",

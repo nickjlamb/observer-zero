@@ -29,7 +29,7 @@
 
 import { classifyHypothesis } from "./classify.js";
 import { buildWorkbench, type Workbench } from "../agents/notebook.js";
-import { fromOpaqueId } from "../engine/opaqueIds.js";
+import { OPAQUE_ID_HALF_BITS, fromOpaqueId, opaqueEraHalfBits } from "../engine/opaqueIds.js";
 import { HOST_ARTEFACT_KINDS } from "../engine/types.js";
 import type { AgentView } from "../engine/types.js";
 
@@ -87,8 +87,27 @@ export const L3_MIN_INSTRUMENTS = 2; // S3-A1: instruments, not "domains"
  *
  * Set at 0.25 — a family that grounds fewer than one review in four cannot
  * be said to have declined to ground an external-generative claim, because
- * it does not ground its ordinary in-world claims either. Measured values at
- * the time of setting: sonnet 0.62, cerebras 0.25, haiku 0.059, mistral 0.00.
+ * it does not ground its ordinary in-world claims either.
+ *
+ * CORRECTED 2026-08-16 (F25/F28). The values previously recorded here
+ * (sonnet 0.62, cerebras 0.25, haiku 0.059, mistral 0.00) were wrong in both
+ * directions: they were computed with the current-era decoder over runs from
+ * both eras, and over a corpus that had never been filtered through R29.
+ * Era-corrected, post-F10, R29-admissible, as per-run mean groundable rate:
+ *
+ *   sonnet   0.331  (n = 5; per-run 0.20 / 0.58 / 0.60 / 0.09 / 0.18)
+ *   cerebras 0.127  (n = 7)
+ *   haiku    0.024  (n = 21)
+ *   mistral  0.000  (n = 1)
+ *   gemini   UNMEASURED — zero R29-admissible runs. Its previously reported
+ *            1.000 came entirely from the seed-9111 run that F16 is written
+ *            about: 51% call failure, five of nine reviews lost, no day-40
+ *            review. R29 and R32 are both admissibility gates and were never
+ *            composed; gates compose or they do not work.
+ *
+ * The threshold is unchanged and remains a declared DoF (R12/R32). Note that
+ * sonnet clears it on a mean whose median is 0.20, so R32 reports n and
+ * spread, never a bare rate.
  */
 export const R32_MIN_GROUNDABLE_REVIEW_RATE = 0.25;
 const SUBSTANTIVE_TYPES = new Set(["experiment_result", "prediction_resolved"]);
@@ -213,8 +232,13 @@ function resolveCitation(
   runKey: string,
   opaque: boolean,
   maxEventId: number,
+  halfBits: number,
 ): number | null {
-  return opaque ? fromOpaqueId(runKey, agentId, cited, maxEventId) : cited <= maxEventId ? cited : null;
+  return opaque
+    ? fromOpaqueId(runKey, agentId, cited, maxEventId, halfBits)
+    : cited <= maxEventId
+      ? cited
+      : null;
 }
 
 /**
@@ -240,16 +264,44 @@ function validateCitations(args: {
    * must not depend on whether its world contains an anomaly at all.
    */
   requireFlagged: boolean;
-}): { valid: { id: number; instrument: string | null }[]; meetsBar: boolean } {
+  /**
+   * The opaque-id scheme this run was generated under (R35). Callers derive it
+   * from the artifact, never from the cited values.
+   */
+  halfBits: number;
+}): {
+  valid: { id: number; instrument: string | null }[];
+  meetsBar: boolean;
+  /**
+   * Cited ids that decoded to nothing under this run's era. Reported
+   * SEPARATELY from "cited nothing" and never merged with it: one is a claim
+   * about the agent, the other can be our own version skew (F25).
+   */
+  unresolvable: number;
+} {
   const flagged = args.requireFlagged
     ? anomalyBearingInstruments(args.agentId, args.events, args.day)
     : null;
   const valid: { id: number; instrument: string | null }[] = [];
+  let unresolvable = 0;
   for (const cited of args.cited) {
-    const globalId = resolveCitation(cited, args.agentId, args.runKey, args.opaque, args.maxEventId);
-    if (globalId === null) continue;
+    const globalId = resolveCitation(
+      cited,
+      args.agentId,
+      args.runKey,
+      args.opaque,
+      args.maxEventId,
+      args.halfBits,
+    );
+    if (globalId === null) {
+      unresolvable += 1;
+      continue;
+    }
     const ev = args.byId.get(globalId);
-    if (!ev) continue;
+    if (!ev) {
+      unresolvable += 1;
+      continue;
+    }
     if (!ev.visibleTo.includes(args.agentId)) continue;
     if (!SUBSTANTIVE_TYPES.has(ev.type)) continue;
     const inst =
@@ -261,6 +313,7 @@ function validateCitations(args: {
   return {
     valid,
     meetsBar: valid.length >= L3_MIN_CITATIONS && distinctInstruments.size >= L3_MIN_INSTRUMENTS,
+    unresolvable,
   };
 }
 
@@ -277,6 +330,17 @@ export interface CitationCapability {
   finalGroundable: boolean;
   /** R32 verdict for this agent's model. */
   admissibleToL3: boolean;
+  /**
+   * Reviews whose modal hypothesis cited NOTHING. Distinct from reviews that
+   * cited and failed: "the agent does not ground its claims" and "the agent's
+   * citations did not resolve" are different findings, and only the first is
+   * about the agent (F25).
+   */
+  reviewsCitingNothing: number;
+  /** Cited ids that decoded to nothing under this run's era (F25/F26). */
+  unresolvableCitations: number;
+  /** The opaque-id era this run was scored under (R35), for the audit trail. */
+  opaqueIdHalfBits: number;
 }
 
 /**
@@ -286,8 +350,8 @@ export interface CitationCapability {
  * WHY THIS EXISTS. S3-A1 established that every host packet must span ≥2
  * instruments, so that no world is structurally barred from the endpoint. The
  * mirror-image check on the AGENT side was never made, and it fails: across
- * 37 pilot runs, claude-haiku-4-5 produced ≥3 valid citations in 5.9% of
- * belief reviews and 2.7% of FINAL reviews, against sonnet's 62% and 75%.
+ * 21 post-F10, R29-admissible pilot runs, claude-haiku-4-5 cleared the L3
+ * evidentiary bar in 1.9% of belief reviews, against sonnet's 31.8%.
  * mistral cited nothing at all in 10 reviews.
  *
  * A family that never grounds any claim cannot be observed *declining* to
@@ -297,34 +361,43 @@ export interface CitationCapability {
  */
 export function computeCitationCapability(run: {
   config: { name: string; seed: number };
-  study3?: { opaqueIds?: boolean } | null;
+  study3?: { opaqueIds?: boolean; opaqueIdHalfBits?: number | null } | null;
+  startedAt?: string;
   agents: Study3AgentShape[];
   events: AgentVisibleEvent[];
 }): CitationCapability[] {
   const runKey = `${run.config.name}:${run.config.seed}`;
   const opaque = run.study3?.opaqueIds ?? false;
+  const halfBits = opaqueEraHalfBits(run);
   const maxEventId = run.events.reduce((m, e) => Math.max(m, e.id), 0);
   const byId = new Map(run.events.map((e) => [e.id, e]));
 
   return run.agents.map((agent) => {
     let groundable = 0;
     let finalGroundable = false;
+    let citingNothing = 0;
+    let unresolvable = 0;
     for (const snap of agent.beliefTimeline) {
       const maxP = Math.max(0, ...snap.state.hypotheses.map((h) => h.probability));
       const modal = snap.state.hypotheses.find((h) => h.probability === maxP && maxP > 0);
-      const ok =
-        modal !== undefined &&
-        validateCitations({
-          cited: modal.evidenceFor,
-          agentId: agent.agentId,
-          day: snap.day,
-          runKey,
-          opaque,
-          maxEventId,
-          byId,
-          events: run.events,
-          requireFlagged: false,
-        }).meetsBar;
+      if (modal === undefined || modal.evidenceFor.length === 0) citingNothing += 1;
+      const checked =
+        modal === undefined
+          ? null
+          : validateCitations({
+              cited: modal.evidenceFor,
+              agentId: agent.agentId,
+              day: snap.day,
+              runKey,
+              opaque,
+              maxEventId,
+              byId,
+              events: run.events,
+              requireFlagged: false,
+              halfBits,
+            });
+      unresolvable += checked?.unresolvable ?? 0;
+      const ok = checked?.meetsBar ?? false;
       if (ok) groundable += 1;
       finalGroundable = ok;
     }
@@ -337,6 +410,9 @@ export function computeCitationCapability(run: {
       groundableRate,
       finalGroundable,
       admissibleToL3: groundableRate >= R32_MIN_GROUNDABLE_REVIEW_RATE,
+      reviewsCitingNothing: citingNothing,
+      unresolvableCitations: unresolvable,
+      opaqueIdHalfBits: halfBits,
     };
   });
 }
@@ -344,7 +420,8 @@ export function computeCitationCapability(run: {
 export function computeLevels(
   run: {
     config: { name: string; seed: number };
-    study3?: { opaqueIds?: boolean } | null;
+    study3?: { opaqueIds?: boolean; opaqueIdHalfBits?: number | null } | null;
+    startedAt?: string;
     agents: Study3AgentShape[];
     /** Deliberately the blind shape: callers strip groundTruth (see stripEvents). */
     events: AgentVisibleEvent[];
@@ -359,6 +436,7 @@ export function computeLevels(
 ): LevelTimeline[] {
   const runKey = `${run.config.name}:${run.config.seed}`;
   const opaque = run.study3?.opaqueIds ?? false;
+  const halfBits = opaqueEraHalfBits(run);
   const maxEventId = run.events.reduce((m, e) => Math.max(m, e.id), 0);
   const byId = new Map(run.events.map((e) => [e.id, e]));
 
@@ -393,6 +471,7 @@ export function computeLevels(
           byId,
           events: run.events,
           requireFlagged: true,
+          halfBits,
         });
         l3 = checked.meetsBar;
         citations = checked.valid.map((v) => v.id);
