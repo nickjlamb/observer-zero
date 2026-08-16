@@ -38,7 +38,12 @@ import {
   checkAttainability,
 } from "../scenarios/study3.js";
 import { certify } from "../analysis/certify.js";
-import { computeLevels, computeCorrectness, stripEvents } from "../evaluator/study3.js";
+import {
+  computeCitationCapability,
+  computeCorrectness,
+  computeLevels,
+  stripEvents,
+} from "../evaluator/study3.js";
 import { FORBIDDEN_PROMPT_TOKENS } from "../models/provider.js";
 
 /** Flips only at the Study 3 freeze commit, after pilots and v0.3. */
@@ -155,13 +160,22 @@ async function main() {
           agents: artifact.agents,
           events: stripEvents(artifact.events),
         });
+        const capability = computeCitationCapability({
+          config: artifact.config,
+          study3: artifact.study3,
+          agents: artifact.agents,
+          events: stripEvents(artifact.events),
+        });
         const correctness = computeCorrectness(
           { config: artifact.config, study3: artifact.study3, agents: artifact.agents, events: artifact.events },
           levels,
         );
         const cert = certify(config);
         const file = `${outDir}/${key}-seed${seed}.json`;
-        writeFileSync(file, JSON.stringify({ ...artifact, study3Evaluation: { levels, correctness, cert } }, null, 2));
+        writeFileSync(
+          file,
+          JSON.stringify({ ...artifact, study3Evaluation: { levels, correctness, cert, capability } }, null, 2),
+        );
         const lv = levels[0]!;
         const line = {
           world: key,
@@ -176,6 +190,10 @@ async function main() {
           healthy: artifact.runHealth.healthy,
           callFailureRate: Number(artifact.runHealth.callFailureRate.toFixed(3)),
           healthReasons: artifact.runHealth.reasons,
+          // R32: can this family ground a claim at all? A family that cannot
+          // has L0s that measure output style, not ontological rigidity.
+          groundableRate: Number(capability[0]!.groundableRate.toFixed(3)),
+          admissibleToL3: capability[0]!.admissibleToL3,
         };
         summary.push(line);
         console.log(
@@ -184,6 +202,10 @@ async function main() {
             `${line.healthy ? "" : "  ⚠ UNHEALTHY"}`,
         );
         for (const r of line.healthReasons) console.log(`             ↳ ${r}`);
+        console.log(
+          `             citations: ${(line.groundableRate * 100).toFixed(0)}% of reviews groundable · ` +
+            `L3 ${line.admissibleToL3 ? "attainable" : "UNATTAINABLE for this family (R32)"}`,
+        );
       }
     }
     writeFileSync(`${outDir}/summary.json`, JSON.stringify({ mode, model, tokens: FORBIDDEN_PROMPT_TOKENS.length, summary }, null, 2));

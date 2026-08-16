@@ -28,6 +28,7 @@ import {
 import { certify } from "../src/analysis/certify.js";
 import {
   computeLevels,
+  computeCitationCapability,
   computeCorrectness,
   stripEvents,
   anomalyBearingInstruments,
@@ -903,6 +904,58 @@ describe("run-health gate (R29)", () => {
     });
     expect(finalLost.healthy).toBe(false);
     expect(finalLost.reasons.join(" ")).toMatch(/final belief state is stale/);
+  });
+});
+
+describe("family citation capability (R32)", () => {
+  const events = [
+    { id: 1, day: 5, type: "experiment_result", visibleTo: ["ada"], payload: { instrumentId: "pendulum_lab", observedValue: 1 } },
+    { id: 2, day: 5, type: "experiment_result", visibleTo: ["ada"], payload: { instrumentId: "resonator_obs", observedValue: 2 } },
+    { id: 3, day: 6, type: "experiment_result", visibleTo: ["ada"], payload: { instrumentId: "pendulum_lab", observedValue: 3 } },
+    { id: 4, day: 6, type: "experiment_result", visibleTo: ["maya"], payload: { instrumentId: "resonator_obs", observedValue: 4 } },
+  ];
+  const snap = (day: number, evidenceFor: number[]) => ({
+    day,
+    state: {
+      hypotheses: [
+        { label: "instrument drift", rationale: "r", probability: 0.7, evidenceFor, evidenceAgainst: [] },
+        { label: "noise", rationale: "r", probability: 0.3, evidenceFor: [], evidenceAgainst: [] },
+      ],
+      residual: 0,
+    },
+  });
+  const run = (timeline: ReturnType<typeof snap>[]) => ({
+    config: { name: "s3_w0", seed: 1 },
+    study3: { opaqueIds: false },
+    agents: [{ agentId: "ada", beliefTimeline: timeline }],
+    events,
+  });
+
+  it("is world-independent: a control world must not make a family look incapable", () => {
+    // The capability question is about the AGENT. Applying the L3
+    // anomaly-bearing filter here would score every family 0 in any control
+    // world, which is what the first version of this metric did.
+    const cap = computeCitationCapability(run([snap(10, [1, 2, 3])]))[0]!;
+    expect(cap.groundableRate).toBe(1);
+    expect(cap.admissibleToL3).toBe(true);
+  });
+
+  it("requires real, visible, multi-instrument citations", () => {
+    // Three citations but only one instrument.
+    expect(computeCitationCapability(run([snap(10, [1, 3])]))[0]!.groundableRate).toBe(0);
+    // Cites another agent's private event, and a non-existent id.
+    expect(computeCitationCapability(run([snap(10, [1, 4, 99])]))[0]!.groundableRate).toBe(0);
+    // Empty citations — the mistral profile.
+    expect(computeCitationCapability(run([snap(10, [])]))[0]!.groundableRate).toBe(0);
+  });
+
+  it("separates the rate from whether the FINAL review is groundable", () => {
+    // The haiku/cerebras profile: grounds mid-run, not at the end, where
+    // finalLevel is evaluated.
+    const cap = computeCitationCapability(run([snap(10, [1, 2, 3]), snap(40, [])]))[0]!;
+    expect(cap.groundableRate).toBe(0.5);
+    expect(cap.finalGroundable).toBe(false);
+    expect(cap.admissibleToL3).toBe(true);
   });
 });
 

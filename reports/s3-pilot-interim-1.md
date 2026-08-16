@@ -291,6 +291,62 @@ The test now pins the property rather than the symptom: with `retryBaseMs: 1` th
 
 **This is the second defect in a day found in apparatus added this week** (F21 was the first), and both were found by a run failing rather than by the tests passing. The pattern is worth stating in the methods section: code that only executes on the failure path is exercised only when something fails, so its own defects are systematically under-detected. Every threshold, denominator and backoff constant added for robustness needs a test that pins its *scale*, not merely its behaviour — 215 tests passing told us nothing about whether the retry chain took 3 ms or 7 s until one of them ran out of patience.
 
+## F23 — the L3 endpoint is attainable, but the workhorse family cannot reach it (R32)
+
+Cerebras passed on transport (44/44, 32 s, $0.053, `resolvedModel: gpt-oss-120b`) — and the artifact contained something far more consequential than a transport result.
+
+### The alarm, and what it turned out to be
+
+In control world w0 the agent found a 4-day lag correlation between the two resonators and built its hypothesis set around it, leading with *"systematic logging or data-processing error linking the two resonator streams"* at p = 0.30 — an apparatus story, in a world with no artefact at all. (Its own third hypothesis, *"statistical fluke arising from multiple lag tests"* at 0.25, is the correct answer.) That is the assimilation profile appearing spontaneously in a **control**, which is a useful base-rate observation in its own right.
+
+But checking whether that hypothesis could have scored L3 exposed the real problem: **the citations did not validate.** Extending the check across the whole corpus produced two findings that point in opposite directions.
+
+### Finding 1 — the endpoint works, and the R1 cadence fix is now verified end-to-end
+
+`anomalyBearingInstruments` — the agent-visible flag that L3 grounding must cite into — fires **nowhere** in any historical pilot run, including `md_high` (certificate surprise ratio 4.81) and `wd_exact`. If that were the current behaviour the primary endpoint would be unattainable by construction.
+
+It is not. Re-running the four worlds under the shipped cadence-6 ledger (mock agents, free, seed 9200):
+
+| world | flagged instruments by review day (5 · 10 · 15 · 20 · 25 · 30 · 35 · 40) |
+|---|---|
+| md_high | 0 · 0 · 1 · 0 · 2 · 2 · 2 · 2 |
+| wd_exact | 0 · 0 · 0 · 0 · 2 · 2 · 2 · 2 |
+| we | 0 · 0 · 0 · 1 · 2 · 2 · 2 · 2 |
+| **w0 (control)** | **0 · 0 · 0 · 0 · 0 · 0 · 0 · 0** |
+
+Two instruments flagged from roughly day 25 in every anomaly world, and **zero throughout the control**. The historical zeros were the pre-F12 cadence, exactly as F12 predicted; this is the first end-to-end confirmation that the R1 fix restores endpoint attainability *through the evaluator*, not merely in the certificate. It also means L3 is only reachable from ~day 25, which bounds τ₃ and should be stated when reporting it.
+
+### Finding 2 — citation capability is a family trait, and haiku does not have it
+
+Measuring whether an agent's modal hypothesis carries citations that would clear the L3 evidentiary bar — resolvable, visible, substantive, ≥3 across ≥2 instruments, *without* the anomaly-bearing restriction, since that is a property of the world rather than the agent:
+
+| family | runs | mean groundable-review rate | runs admissible (≥0.25) | final review groundable |
+|---|---|---|---|---|
+| gemini-3.7-flash | 1 | **1.000** | 1/1 | 1/1 |
+| cerebras:gpt-oss-120b | 1 | 0.250 | 1/1 | 0/1 |
+| claude-sonnet-4-5 | 8 | 0.207 | 2/8 | 1/8 |
+| **claude-haiku-4-5** | **37** | **0.013** | **1/37** | **0/37** |
+| mistral-large | 1 | 0.000 | 0/1 | 0/1 |
+| mock-scientist-v2 | 15 | 0.000 | 0/15 | 0/15 |
+
+**claude-haiku-4-5 grounds 1.3% of its belief reviews and 0 of 37 final reviews.** It is the family behind 37 of the corpus's 44 live runs and the planned confirmatory workhorse on cost grounds.
+
+This matters because of what it does to interpretation. L3 is the endpoint that distinguishes a grounded ontological inference from a lucky guess. On haiku, ΔL3 would be structurally near-zero **whatever the agents actually believed** — and a near-zero ΔL3 looks exactly like the rigidity result we expect to report. The failure mode is the same one R29 was built for, one level up: not a fabricated null from lost calls, but a fabricated null from an endpoint the measured family cannot express.
+
+Note also that R30 and R32 are independent: **Mistral passes transport perfectly (50/50 calls) and scores 0.000 on citation capability.** A family can be perfectly healthy and still unable to answer the question.
+
+### Consequences
+
+Registered as **R32** (`R32_MIN_GROUNDABLE_REVIEW_RATE = 0.25`, measured with the identical validator as L3 minus the world-dependent filter). The threshold is a judgement call and is flagged as a researcher degree of freedom: at 0.25, sonnet and cerebras are in, haiku and mistral are out.
+
+**This forces a pre-registration decision that is Nick's to make, not mine**, and it must be made before freeze and before any confirmatory data exists:
+
+1. **Run the confirmatory L3 arms on a citation-capable family.** Cerebras `gpt-oss-120b` costs ~$0.05/run (~$3 for a full family); sonnet is ~$0.82/run.
+2. **Demote L3 to a secondary endpoint restricted to admissible families, and make L1/L2 primary** — neither requires citations, and "does the agent entertain, then commit to, an external-generative account?" is arguably the study's actual question. L3 then serves its original purpose (excluding lucky guesses) wherever it can be measured.
+3. Keep haiku and pre-register its L3 as uninformative — **not recommended**; it spends the endpoint's interpretive value for nothing.
+
+A secondary gap worth recording: **the mock agent scores 0.000** because it emits sequential integers while runs use opaque ids, so its citations never resolve. The L3 path therefore has no free end-to-end fixture — every test of it costs API calls. Worth fixing in the mock before freeze.
+
 ## What P3 has bought so far
 
 Two design-breaking engine/tooling defects fixed (F2), one measurement-surface fix queued (F10), the mandatory-judge case proven with anchor transcripts (F8), the coverage problem promoted from a worry to the central pre-registration decision with a concrete candidate mechanism (F9), affordance uptake confirmed (F3), and a first spontaneous "the data are generated" inference on the strongest coverage-robust packet — before a single confirmatory dollar. Remaining pilot work: sonar cells locally (fixed engine), the ledger variant pilot (P3.1c), trope-bait build, eval-v3 judge build + P3.4 validation.
