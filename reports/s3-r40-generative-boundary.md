@@ -463,6 +463,11 @@ external-generative hypothesis all on its own** — and §13 says what that mate
 
 ## 13. F30 — the apparatus is leaking its own artificiality
 
+> **Superseded in part by §14.** The id-scheme half of this section was written from a
+> grep and overstated the channel: the controlled ablation in §14 shows the endpoint is
+> unchanged when opaque ids are removed. The float-texture half stands, and is now the
+> whole of F30. Read §14 before citing anything below about event ids.
+
 Not an R40 matter. Recorded here because it was found by reading the 9192 rationales and
 it bears on every Study 3 endpoint.
 
@@ -528,3 +533,84 @@ F30 is about whether what agents see is the manipulation or the apparatus. But F
 larger threat to the study's headline, and it was invisible until a positive control was
 run — which is the second time today the answer to "why has nothing ever fired" turned out
 to be about our instruments rather than the agents.
+
+## 14. F30 probe result (R36) — the id channel is real but NOT load-bearing
+
+`runs/s3-f30-opaque` vs `runs/s3-f30-seq`, worlds `wd_exact` and `w0`, seeds 9193 and 9194,
+`instrument-licensed`, claude-haiku-4-5, ~$2.80. All eight runs healthy (0 failed calls, 0
+failed reviews), correct id scheme recorded in each artifact, scored with eval-v4.
+Reproduce with `npm run study3 -- --mode idprobe --dirs runs/s3-f30-opaque,runs/s3-f30-seq`.
+
+| arm | L1+ | ext-gen classes | hypotheses citing ids (screened) |
+|---|---|---|---|
+| opaque (R8) | **4/4** | 33 | 9 / 156 |
+| sequential | **4/4** | 31 | **0 / 162** |
+
+**The endpoint does not move.** Every run reaches L1 or better in both arms, and the
+ext-gen class counts are within noise of each other (33 vs 31). Removing the opaque-id
+scheme entirely changes nothing about whether agents reach an external-generative
+conclusion, or how often.
+
+The id channel itself is unambiguously real — 9 screened citations in the opaque arm
+against 0 in the sequential arm, and three of them use language only opaque ids make
+possible ("random 6-digit integers", "arbitrary 6-digit integers"). But it is decorative,
+not structural: the agents get to the same place without it.
+
+### 14.1 Reading the sentences changed the finding — §13 overstated this
+
+The screen was built generous and its output was to be read, not counted. Reading it:
+
+- **Three of the nine are the agent DISMISSING ids as evidence**, not using them.
+  wd_exact-9193, all three reviews: *"The event IDs (random 6-digit integers) are
+  consistent with logging, but do not prove causality"*; *"…log the sequence but do not
+  establish that physical measurements occurred"*; *"…remain arbitrary 6-digit integers;
+  they do not prove physical measurements are occurring."* That is an agent correctly
+  declining to infer from the id scheme. It is the opposite of the F30 concern.
+- **Five of the nine are list-mentions**, where "event IDs" appears inside an enumeration
+  of things the agent cannot audit ("the notebook entries, event IDs, and statistical
+  summaries … are outputs of a data-generation process"). The claim is referent denial;
+  the ids are incidental. Screen false positives, exactly as anticipated.
+- **One is a genuine id-derived inference**, and it is modal: wd_exact-9194 d40, p=0.64 —
+  *"event ids 605624–605654 cluster in post-level-shift zone) matches expected behavior if
+  synthetic data is assembled from separate segments."* Here the agent reasons from id
+  VALUES to segment assembly. This one is real F30.
+
+So the honest count for this probe is **1 of 9 screened hits is an agent reasoning from
+opaque-id form toward artificiality**, with three more explicitly declining to.
+
+§13 was written from a grep over the earlier tier 2 runs, where the phrasing was stronger
+("suspicious event ID patterns (6-digit random/hashed IDs, no monotonicity)"; "large
+pseudo-random integers, consistent with … synthetic generation"). Those sentences are
+real and still stand. But **the strength of the channel varies a great deal by run, and
+this probe — the only controlled test of it — shows it carrying almost no weight.**
+§13's framing of the id channel should be read as superseded by this section.
+
+### 14.2 What the probe does NOT show
+
+**It says nothing about the float-texture channel**, which is identical in both arms and
+untouched by the manipulation. That is the channel every run actually builds its case on
+("664 unique values across 664 trials with minimum spacing 0.000000–0.000005"), and this
+result — that the endpoint holds up perfectly when the id channel is removed — is
+consistent with float texture carrying essentially all of it. F30's serious half is
+unprobed and now looks like the whole of F30.
+
+**It is n=2 seeds per world per arm.** Qualitative only. It supports "the id channel is
+not load-bearing" and does not support any rate.
+
+### 14.3 R8 stays
+
+The gap channel R8 closes is real, the ablation shows R8 costs nothing at the endpoint,
+and the sequential arm is a pilot-only diagnostic (refused under `--confirmatory`). There
+is no case for reverting R8, and this probe removes the only argument there might have
+been for it.
+
+### 14.4 The control-world result got stronger, not weaker
+
+Across the four `w0` runs here — no intervention, no host artefact — **three reach L2**
+(a modal external-generative hypothesis) and one reaches L1, in both arms. Combined with
+§12.3, the pure control now reaches L1 or better in **7 of 7** licensed/forced runs, and
+L2 in three of them.
+
+That is the finding to carry forward. Not the ids — the fact that a licensed agent in a
+world where nothing was done to it will build, and commit to, an external-generative
+account from the simulator's numerical texture alone.
