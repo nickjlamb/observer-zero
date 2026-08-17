@@ -5,6 +5,7 @@
  *   npm run study3 -- --mode mock                         # $0: P3.0 end-to-end mock validation
  *   npm run study3 -- --mode live --worlds wd_exact,w0 --model sonar-pro --seeds 9100-9102
  *   npm run study3 -- --mode evaluate --dir runs/s3-p31   # re-evaluate stored artifacts
+ *   npm run study3 -- --mode idprobe --dirs runs/a,runs/b  # $0: F30 opaque-vs-sequential
  *
  * SEED HYGIENE: live runs are refused off the pilot range 9100–9199 unless
  * --confirmatory, which additionally requires STUDY3_DESIGN_FROZEN (not yet
@@ -48,6 +49,7 @@ import {
   checkAttainability,
 } from "../scenarios/study3.js";
 import { certify } from "../analysis/certify.js";
+import { reportIdCitations } from "../analysis/idCitation.js";
 import { computeCorrectness, computeLevels, stripEvents } from "../evaluator/study3.js";
 import {
   scoreStudy3Artifact,
@@ -345,6 +347,126 @@ async function main() {
       console.log(`  gemini:${id.padEnd(38)} ${m.displayName ?? ""}`);
     }
     console.log("\nUse one of these verbatim as --model, e.g. --model gemini:<id>\n");
+    return;
+  }
+
+  if (mode === "idprobe") {
+    // F30 / R36. Compare an opaque-id arm against a sequential-id arm, same
+    // worlds and seeds, and report what changed. $0, no model calls.
+    //
+    //   npm run study3 -- --mode idprobe --dirs runs/s3-f30-opaque,runs/s3-f30-seq
+    //
+    // The HEADLINE measurement is the endpoint: L1 rate, τ, and ext-gen class
+    // counts from the judged sidecars. Those need no text screening and are
+    // what the probe actually turns on. The citation screen underneath is a
+    // mechanism check — generous by design, auditable by reading (F8), and
+    // never the thing a conclusion rests on.
+    const dirs = argStr("dirs", "").split(",").filter(Boolean);
+    if (dirs.length !== 2) {
+      throw new Error(
+        `--dirs requires exactly two directories, opaque first: ` +
+          `--dirs runs/s3-f30-opaque,runs/s3-f30-seq (got ${dirs.length})`,
+      );
+    }
+    type Row = {
+      dir: string;
+      file: string;
+      opaqueIds: boolean;
+      healthy: boolean;
+      finalLevel: number | null;
+      tauSuspicion: number | null;
+      extGenClasses: number | null;
+      judgedWith: string | null;
+      cite: ReturnType<typeof reportIdCitations>;
+    };
+    const rows: Row[] = [];
+    for (const dir of dirs) {
+      if (!existsSync(dir)) throw new Error(`Directory not found: ${dir}`);
+      for (const f of readdirSync(dir).filter(
+        (x) => x.endsWith(".json") && !x.includes("summary") && !x.includes(".judged"),
+      )) {
+        const art = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
+        if (!art.agents || !art.events) continue;
+        // Prefer a v4 sidecar, then v3, then the artifact's own (keyword) scoring.
+        const stem = f.replace(/\.json$/, "");
+        const sidecar = [`${dir}/${stem}.judged-eval-v4.json`, `${dir}/${stem}.judged.json`].find(
+          (p) => existsSync(p),
+        );
+        const judged = sidecar ? JSON.parse(readFileSync(sidecar, "utf8")) : null;
+        const lv = judged?.levels?.[0] ?? art.study3Evaluation?.levels?.[0] ?? null;
+        const extGen = judged
+          ? (judged.classifications ?? []).filter(
+              (c: { class: string }) =>
+                c.class === "out_of_world_intervention" || c.class === "simulation",
+            ).length
+          : null;
+        rows.push({
+          dir,
+          file: f,
+          opaqueIds: art.study3?.opaqueIds ?? false,
+          healthy: art.runHealth?.healthy ?? false,
+          finalLevel: lv?.finalLevel ?? null,
+          tauSuspicion: lv?.tauSuspicion ?? null,
+          extGenClasses: extGen,
+          judgedWith: judged?.evalVersion ?? null,
+          cite: reportIdCitations(art.agents[0].beliefTimeline),
+        });
+      }
+    }
+    const unhealthy = rows.filter((r) => !r.healthy);
+    console.log(
+      `F30 ID-SCHEME PROBE (R36) — ${rows.length} runs across 2 arms\n` +
+        `  opaque arm : ${dirs[0]}\n  sequential : ${dirs[1]}\n`,
+    );
+    if (unhealthy.length) {
+      console.log(
+        `  ⚠ ${unhealthy.length} UNHEALTHY run(s) — R29: missing data, not a null. ` +
+          `Excluded from nothing here; read them before concluding.\n`,
+      );
+    }
+    console.log(
+      "  arm  world/seed                 ids   L   τ1    ext-gen  id-cites(art/ord)  P(id-cites)",
+    );
+    for (const r of rows.sort((a, b) => a.file.localeCompare(b.file) || a.dir.localeCompare(b.dir))) {
+      console.log(
+        `  ${(r.dir === dirs[0] ? "OPQ" : "SEQ").padEnd(4)} ${r.file.replace(/\.json$/, "").padEnd(26)} ` +
+          `${(r.opaqueIds ? "opaq" : "seq ").padEnd(5)} ` +
+          `${r.finalLevel === null ? "?" : `L${r.finalLevel}`}  ` +
+          `${String(r.tauSuspicion ?? "—").padStart(4)}  ` +
+          `${String(r.extGenClasses ?? "?").padStart(7)}  ` +
+          `${String(`${r.cite.artificiality}/${r.cite.ordering}`).padStart(17)}  ` +
+          `${r.cite.probabilityMassEither.toFixed(2).padStart(11)}` +
+          `${r.healthy ? "" : "  ⚠ UNHEALTHY"}`,
+      );
+    }
+    const arm = (d: string) => rows.filter((r) => r.dir === d);
+    const sum = (rs: Row[], f: (r: Row) => number) => rs.reduce((n, r) => n + f(r), 0);
+    console.log("");
+    for (const [i, d] of dirs.entries()) {
+      const rs = arm(d);
+      console.log(
+        `  ${i === 0 ? "OPAQUE" : "SEQ   "}  runs ${rs.length}` +
+          ` · L1+ ${rs.filter((r) => (r.finalLevel ?? 0) >= 1).length}/${rs.length}` +
+          ` · ext-gen classes ${sum(rs, (r) => r.extGenClasses ?? 0)}` +
+          ` · hypotheses citing ids ${sum(rs, (r) => r.cite.either)}/${sum(rs, (r) => r.cite.hypotheses)}` +
+          ` (artificiality ${sum(rs, (r) => r.cite.artificiality)}, ordering ${sum(rs, (r) => r.cite.ordering)})`,
+      );
+    }
+    console.log(
+      `\n  Read the matched sentences before drawing anything from the citation columns — ` +
+        `\n  the screen is generous by construction (F8). Endpoint columns need no screening.\n`,
+    );
+    for (const r of rows) {
+      if (r.cite.hits.length === 0) continue;
+      console.log(`  ── ${r.dir}/${r.file}`);
+      for (const hit of r.cite.hits) {
+        console.log(
+          `     d${String(hit.day).padEnd(3)} p=${hit.probability.toFixed(2)}${hit.modal ? " MODAL" : "      "} ` +
+            `[${hit.families.join("+")}] ${hit.label.slice(0, 80)}`,
+        );
+        for (const s of hit.sentences) console.log(`        “${s}”`);
+      }
+    }
     return;
   }
 
