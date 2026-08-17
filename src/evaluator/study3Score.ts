@@ -28,6 +28,7 @@ import {
   type CitationCapability,
   type LevelTimeline,
   type PrivilegedEvent,
+  type AssertedProposition,
   type Study3AgentShape,
   type Study3Correctness,
 } from "./study3.js";
@@ -95,7 +96,12 @@ export interface Study3SummaryRow {
   leakClean: boolean;
   finalLevel: 0 | 1 | 2 | 3;
   tau: [number | null, number | null, number | null];
+  /** @deprecated misleading name: this is intervention truth, not "was the agent right" (F30). */
   extGenTrue: boolean;
+  /** A host artefact was applied in this run. */
+  interventionTrue: boolean;
+  /** Which proposition the modal ext-gen hypothesis advanced, if any (F30). */
+  asserted: AssertedProposition;
   costUSD: number;
   healthy: boolean;
   callFailureRate: number;
@@ -125,6 +131,8 @@ export function study3SummaryRow(args: {
     finalLevel: lv.finalLevel,
     tau: [lv.tauSuspicion, lv.tauCommitment, lv.tauGrounded],
     extGenTrue: evaluation.correctness[0]!.extGenTrue,
+    interventionTrue: evaluation.correctness[0]!.interventionTrue,
+    asserted: evaluation.correctness[0]!.asserted,
     costUSD: Number(artifact.callTotals.estimatedCostUSD.toFixed(2)),
     // R29: report health beside the endpoint, never instead of it. A run that
     // lost calls is missing data, not a null result.
