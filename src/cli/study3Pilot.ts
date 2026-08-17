@@ -478,10 +478,47 @@ async function main() {
     });
     const a = await runOnce();
     const b = await runOnce();
-    const deterministic =
-      JSON.stringify(a.cls) === JSON.stringify(b.cls) &&
-      JSON.stringify(a.l4.map((v) => [v.proposesTest, v.discriminating])) ===
-        JSON.stringify(b.l4.map((v) => [v.proposesTest, v.discriminating]));
+    // A bare `deterministic: false` is not actionable. It matters enormously
+    // WHICH items disagree: a boundary item wobbling between two in-world
+    // classes is a limitation to document, while a positive flipping in or out
+    // of the ext-gen classes means the endpoint itself is unstable and no
+    // re-screen can be anchored on it. Report the disagreements, and separate
+    // the ones that cross the ext-gen boundary from the ones that do not.
+    const EXT = new Set(["out_of_world_intervention", "simulation"]);
+    const clsDisagreements = validation
+      .map((item, i) => ({ id: item.id, a: a.cls[i]!, b: b.cls[i]! }))
+      .filter((d) => d.a !== d.b);
+    const boundaryCrossing = clsDisagreements.filter((d) => EXT.has(d.a) !== EXT.has(d.b));
+    const l4Disagreements = L4_VALIDATION.map((item, i) => ({
+      id: item.id,
+      a: a.l4[i]!,
+      b: b.l4[i]!,
+    })).filter(
+      (d) =>
+        d.a.proposesTest !== d.b.proposesTest || d.a.discriminating !== d.b.discriminating,
+    );
+    const deterministic = clsDisagreements.length === 0 && l4Disagreements.length === 0;
+    if (!deterministic) {
+      console.log("\nNON-DETERMINISTIC ACROSS RE-RUN — items that disagreed at t=0:");
+      for (const d of clsDisagreements) {
+        const crosses = EXT.has(d.a) !== EXT.has(d.b);
+        console.log(
+          `  ${crosses ? "!! BOUNDARY" : "   in-class"} ${d.id.padEnd(28)} run1=${d.a}  run2=${d.b}`,
+        );
+      }
+      for (const d of l4Disagreements) {
+        console.log(
+          `  !! L4       ${d.id.padEnd(28)} ` +
+            `run1=${d.a.proposesTest}/${d.a.discriminating} run2=${d.b.proposesTest}/${d.b.discriminating}`,
+        );
+      }
+      console.log(
+        boundaryCrossing.length === 0
+          ? "  No disagreement crosses the ext-gen boundary: the endpoint classes were stable.\n"
+          : `  ${boundaryCrossing.length} disagreement(s) CROSS the ext-gen boundary — the primary ` +
+            `endpoint is unstable across re-runs and no corpus re-screen can be anchored on this judge.\n`,
+      );
+    }
 
     let clsOk = 0;
     for (let i = 0; i < validation.length; i++) {
@@ -508,7 +545,31 @@ async function main() {
     );
     writeFileSync(
       `runs/s3-p34-validation-${evalVersion}-set${validationSet}.json`,
-      JSON.stringify({ evalVersion, validationSet, items: validation.length, L4_JUDGE_VERSION, model: judge.model, clsOk, l4Ok, deterministic, cls: a.cls, l4: a.l4 }, null, 2),
+      JSON.stringify(
+        {
+          evalVersion,
+          validationSet,
+          items: validation.length,
+          L4_JUDGE_VERSION,
+          model: judge.model,
+          clsOk,
+          l4Ok,
+          deterministic,
+          clsDisagreements,
+          boundaryCrossingDisagreements: boundaryCrossing.length,
+          l4Disagreements,
+          perItem: validation.map((item, i) => ({
+            id: item.id,
+            got: a.cls[i],
+            gold: item.gold,
+            ok: (item.gold as string[]).includes(a.cls[i]!),
+          })),
+          cls: a.cls,
+          l4: a.l4,
+        },
+        null,
+        2,
+      ),
     );
     return;
   }
