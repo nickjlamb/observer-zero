@@ -143,6 +143,23 @@ if (!(EVAL_VERSIONS as readonly string[]).includes(evalVersion)) {
   );
 }
 
+/**
+ * Which validation set P3.4 scores against, INDEPENDENT of which prompt scores
+ * it. Defaults to the set matching the prompt version, which is the sane
+ * default; the whole reason it is a separate flag is that the R40 side-by-side
+ * needs `--eval-version eval-v3 --validation-set v4`.
+ */
+const VALIDATION_SETS = ["v3", "v4"] as const;
+const validationSet = argStr(
+  "validation-set",
+  evalVersion === EVAL_V4_VERSION ? "v4" : "v3",
+) as (typeof VALIDATION_SETS)[number];
+if (!(VALIDATION_SETS as readonly string[]).includes(validationSet)) {
+  throw new Error(
+    `Unknown --validation-set "${validationSet}". One of: ${VALIDATION_SETS.join(", ")}`,
+  );
+}
+
 const mode = argStr("mode", "certify");
 const worldsArg = argStr("worlds", "");
 const model = argStr("model", "mock");
@@ -439,14 +456,17 @@ async function main() {
     const apiKey = process.env["ANTHROPIC_API_KEY"];
     if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not set");
     const judge = createJudgeClient({ apiKey });
-    // The v4 set is a superset of the v3 set, so running v3 against it is a
-    // meaningful and deliberately unflattering comparison: it is how the 0/11
-    // recall figure was obtained. Both columns get published (R40 §7.3).
-    const validation =
-      evalVersion === EVAL_V4_VERSION ? CLASSIFIER_VALIDATION_V4 : CLASSIFIER_VALIDATION;
+    // The set is chosen SEPARATELY from the prompt version, and that separation
+    // is the point. R40 §7.3 requires v3 and v4 to be published side by side,
+    // and a side-by-side is only a comparison if both columns are scored
+    // against the SAME items — `--eval-version eval-v3 --validation-set v4` is
+    // the v3 column, and it is meant to be unflattering. Defaulting the set to
+    // match the version (as the first cut of this code did) silently made that
+    // comparison impossible while appearing to offer it.
+    const validation = validationSet === "v4" ? CLASSIFIER_VALIDATION_V4 : CLASSIFIER_VALIDATION;
     console.log(
-      `P3.4 JUDGE VALIDATION — ${evalVersion} + ${L4_JUDGE_VERSION} on ${judge.model} @ t=0 · ` +
-        `${validation.length} classifier items\n`,
+      `P3.4 JUDGE VALIDATION — prompt ${evalVersion} × set ${validationSet} + ` +
+        `${L4_JUDGE_VERSION} on ${judge.model} @ t=0 · ${validation.length} classifier items\n`,
     );
 
     const runOnce = async () => ({
@@ -487,8 +507,8 @@ async function main() {
         `deterministic across re-run: ${deterministic} · judge calls ${judge.calls()}`,
     );
     writeFileSync(
-      `runs/s3-p34-validation-${evalVersion}.json`,
-      JSON.stringify({ evalVersion, items: validation.length, L4_JUDGE_VERSION, model: judge.model, clsOk, l4Ok, deterministic, cls: a.cls, l4: a.l4 }, null, 2),
+      `runs/s3-p34-validation-${evalVersion}-set${validationSet}.json`,
+      JSON.stringify({ evalVersion, validationSet, items: validation.length, L4_JUDGE_VERSION, model: judge.model, clsOk, l4Ok, deterministic, cls: a.cls, l4: a.l4 }, null, 2),
     );
     return;
   }
@@ -585,7 +605,14 @@ async function main() {
         l4Discriminating: l4,
         classifications: [...cache.entries()].map(([k, v]) => ({ label: k.split("\u0000")[0], class: v })),
       };
-      writeFileSync(`${dir}/${f.replace(/\.json$/, "")}.judged.json`, JSON.stringify(out, null, 2));
+      // eval-v3 keeps the historical `.judged.json` path — existing sidecars
+      // and anything reading them stay valid. v4 writes alongside rather than
+      // over the top: R40 §7.3 requires both columns to exist at once, and a
+      // version-independent filename would mean scoring a directory twice
+      // silently destroyed the first result and left a side-by-side that was
+      // really the same column twice.
+      const suffix = evalVersion === EVAL_V3_VERSION ? ".judged.json" : `.judged-${evalVersion}.json`;
+      writeFileSync(`${dir}/${f.replace(/\.json$/, "")}${suffix}`, JSON.stringify(out, null, 2));
       const lv = levels[0]!;
       console.log(
         `${f.padEnd(32)} L${lv.finalLevel} · τ [${lv.tauSuspicion},${lv.tauCommitment},${lv.tauGrounded}] · ` +

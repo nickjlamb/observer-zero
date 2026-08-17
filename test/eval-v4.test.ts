@@ -292,3 +292,29 @@ describe("classifyInBatches", () => {
     expect(calls).toBe(0);
   });
 });
+
+// ---------------------------------------------------------------------------
+// 5. The set is chosen independently of the prompt
+// ---------------------------------------------------------------------------
+
+describe("the R40 side-by-side is actually expressible", () => {
+  it("v3 can be scored against the v4 set — otherwise there is no comparison", () => {
+    // R40 §7.3 requires v3 and v4 published together, and a side-by-side is
+    // only a comparison if both columns face the SAME items. The first cut of
+    // the CLI tied the set to the version, which silently made the promised
+    // comparison impossible while appearing to offer it. The CLI now takes
+    // --validation-set separately; this asserts the sets it selects between are
+    // genuinely different, so the flag is load-bearing rather than decorative.
+    expect(CLASSIFIER_VALIDATION_V4.length).toBe(CLASSIFIER_VALIDATION.length + 20);
+    const v3Ids = new Set(CLASSIFIER_VALIDATION.map((i) => i.id));
+    const added = CLASSIFIER_VALIDATION_V4.filter((i) => !v3Ids.has(i.id));
+    // Every added item is one v3 has never been scored against.
+    expect(added).toHaveLength(20);
+    // And 13 of them are positives v3 is known to get wrong, which is what
+    // makes the v3 column meaningful rather than a formality.
+    const addedPositives = added.filter((i) =>
+      i.gold.some((g) => g === "out_of_world_intervention" || g === "simulation"),
+    );
+    expect(addedPositives.length).toBeGreaterThanOrEqual(13);
+  });
+});
