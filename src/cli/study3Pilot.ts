@@ -160,6 +160,9 @@ if (!(VALIDATION_SETS as readonly string[]).includes(validationSet)) {
   );
 }
 
+/** How many times P3.4 scores the set. Stability is measured, never assumed. */
+const repeat = Math.max(2, Number(argStr("repeat", "3")));
+
 const mode = argStr("mode", "certify");
 const worldsArg = argStr("worlds", "");
 const model = argStr("model", "mock");
@@ -476,49 +479,42 @@ async function main() {
       cls: await classifyInBatches(validation.map((i) => i.hypothesis), judge.complete, evalVersion),
       l4: await judgeL4(L4_VALIDATION.map((i) => i.candidate), judge.complete),
     });
-    const a = await runOnce();
-    const b = await runOnce();
-    // A bare `deterministic: false` is not actionable. It matters enormously
-    // WHICH items disagree: a boundary item wobbling between two in-world
-    // classes is a limitation to document, while a positive flipping in or out
-    // of the ext-gen classes means the endpoint itself is unstable and no
-    // re-screen can be anchored on it. Report the disagreements, and separate
-    // the ones that cross the ext-gen boundary from the ones that do not.
+    // Run N times, not twice. The two-back-to-back check inside one process
+    // reported `deterministic: false` on one pair of invocations and `true` on
+    // the next, which is the worst possible signal: it means the judge is
+    // MOSTLY stable and occasionally not, and a single pass cannot tell you
+    // which items are the unstable ones. Worse, comparing two separate
+    // invocations by hand showed `adv-plain-referent-denial` moving from
+    // unknown_natural_process to out_of_world_intervention under eval-v3 —
+    // a flip ACROSS the ext-gen boundary that the in-process check never sees.
+    //
+    // So stability is measured, not asserted: N runs, per-item agreement,
+    // and boundary-crossing instability called out separately from
+    // within-class wobble.
+    const runs: Awaited<ReturnType<typeof runOnce>>[] = [];
+    for (let r = 0; r < repeat; r++) runs.push(await runOnce());
+    const a = runs[0]!;
+
     const EXT = new Set(["out_of_world_intervention", "simulation"]);
-    const clsDisagreements = validation
-      .map((item, i) => ({ id: item.id, a: a.cls[i]!, b: b.cls[i]! }))
-      .filter((d) => d.a !== d.b);
-    const boundaryCrossing = clsDisagreements.filter((d) => EXT.has(d.a) !== EXT.has(d.b));
-    const l4Disagreements = L4_VALIDATION.map((item, i) => ({
-      id: item.id,
-      a: a.l4[i]!,
-      b: b.l4[i]!,
-    })).filter(
-      (d) =>
-        d.a.proposesTest !== d.b.proposesTest || d.a.discriminating !== d.b.discriminating,
-    );
-    const deterministic = clsDisagreements.length === 0 && l4Disagreements.length === 0;
-    if (!deterministic) {
-      console.log("\nNON-DETERMINISTIC ACROSS RE-RUN — items that disagreed at t=0:");
-      for (const d of clsDisagreements) {
-        const crosses = EXT.has(d.a) !== EXT.has(d.b);
-        console.log(
-          `  ${crosses ? "!! BOUNDARY" : "   in-class"} ${d.id.padEnd(28)} run1=${d.a}  run2=${d.b}`,
-        );
-      }
-      for (const d of l4Disagreements) {
-        console.log(
-          `  !! L4       ${d.id.padEnd(28)} ` +
-            `run1=${d.a.proposesTest}/${d.a.discriminating} run2=${d.b.proposesTest}/${d.b.discriminating}`,
-        );
-      }
-      console.log(
-        boundaryCrossing.length === 0
-          ? "  No disagreement crosses the ext-gen boundary: the endpoint classes were stable.\n"
-          : `  ${boundaryCrossing.length} disagreement(s) CROSS the ext-gen boundary — the primary ` +
-            `endpoint is unstable across re-runs and no corpus re-screen can be anchored on this judge.\n`,
-      );
-    }
+    const stability = validation.map((item, i) => {
+      const seen = runs.map((r) => r.cls[i]!);
+      const distinct = [...new Set(seen)];
+      return {
+        id: item.id,
+        seen,
+        distinct,
+        stable: distinct.length === 1,
+        crossesBoundary: new Set(distinct.map((c) => EXT.has(c))).size > 1,
+      };
+    });
+    const l4Stability = L4_VALIDATION.map((item, i) => {
+      const seen = runs.map((r) => `${r.l4[i]!.proposesTest}/${r.l4[i]!.discriminating}`);
+      return { id: item.id, seen, stable: new Set(seen).size === 1 };
+    });
+    const unstable = stability.filter((s) => !s.stable);
+    const boundaryCrossing = stability.filter((s) => s.crossesBoundary);
+    const l4Unstable = l4Stability.filter((s) => !s.stable);
+    const deterministic = unstable.length === 0 && l4Unstable.length === 0;
 
     let clsOk = 0;
     for (let i = 0; i < validation.length; i++) {
@@ -541,8 +537,23 @@ async function main() {
     }
     console.log(
       `\nclassifier ${clsOk}/${validation.length} · L4 ${l4Ok}/${L4_VALIDATION.length} · ` +
-        `deterministic across re-run: ${deterministic} · judge calls ${judge.calls()}`,
+        `stable across ${repeat} runs: ${deterministic} · judge calls ${judge.calls()}`,
     );
+    if (!deterministic) {
+      console.log(`\nUNSTABLE ACROSS ${repeat} RUNS at t=0:`);
+      for (const u of unstable) {
+        console.log(
+          `  ${u.crossesBoundary ? "!! BOUNDARY" : "   in-class"} ${u.id.padEnd(28)} ${u.seen.join(" | ")}`,
+        );
+      }
+      for (const u of l4Unstable) console.log(`  !! L4       ${u.id.padEnd(28)} ${u.seen.join(" | ")}`);
+      console.log(
+        boundaryCrossing.length === 0
+          ? "\n  No instability crosses the ext-gen boundary: the endpoint classes held.\n"
+          : `\n  ${boundaryCrossing.length} item(s) CROSS the ext-gen boundary between runs — the ` +
+            `primary endpoint is unstable and no corpus re-screen can be anchored on this judge.\n`,
+      );
+    }
     writeFileSync(
       `runs/s3-p34-validation-${evalVersion}-set${validationSet}.json`,
       JSON.stringify(
@@ -554,10 +565,11 @@ async function main() {
           model: judge.model,
           clsOk,
           l4Ok,
+          repeat,
           deterministic,
-          clsDisagreements,
-          boundaryCrossingDisagreements: boundaryCrossing.length,
-          l4Disagreements,
+          unstableItems: unstable,
+          boundaryCrossingItems: boundaryCrossing.map((b) => b.id),
+          l4Unstable,
           perItem: validation.map((item, i) => ({
             id: item.id,
             got: a.cls[i],

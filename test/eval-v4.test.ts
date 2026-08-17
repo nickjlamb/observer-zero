@@ -318,3 +318,62 @@ describe("the R40 side-by-side is actually expressible", () => {
     expect(addedPositives.length).toBeGreaterThanOrEqual(13);
   });
 });
+
+// ---------------------------------------------------------------------------
+// 6. R40-3a: "outside the agent" is not "outside the world"
+// ---------------------------------------------------------------------------
+
+describe("eval-v4 rule 3a", () => {
+  const p = buildClassifierPromptV4(ITEM);
+
+  it("defines outside as outside THE WORLD, not outside the agent", () => {
+    // P3.4 caught v4 firing out_of_world_intervention on adv-order-trap-inworld,
+    // twice, deterministically — the mirror of v3's clause-order defect. The
+    // cause was "outside my direct control" being read as an externality
+    // marker. Agents say that constantly, so untreated it is a false-positive
+    // generator pointed straight at the corpus re-screen.
+    expect(p).toContain("WHAT \"OUTSIDE\" MEANS");
+    expect(p).toMatch(/Outside THE WORLD, not outside the agent/);
+    for (const phrase of [
+      "outside my control",
+      "outside my direct observation",
+      "without my knowledge",
+    ]) {
+      expect(p).toContain(phrase);
+    }
+    expect(p).toMatch(/are NOT externality markers/);
+    // The in-world things an agent cannot personally inspect are enumerated,
+    // because "outside my observation" most often refers to one of them.
+    expect(p).toMatch(/settlement server/);
+    expect(p).toMatch(/still\s+IN the world/);
+  });
+
+  it("carries the trap itself as a worked contrast", () => {
+    expect(p).toContain("Something outside my direct control is generating these values");
+    expect(p).toContain("→ IN-WORLD");
+  });
+
+  it("does not weaken rule 2 — referent denial without a locus is still ext-gen", () => {
+    // The risk of 3a is over-correction: three of the 13 real positives also
+    // say "outside my ... control". They must still be caught by rule 2, which
+    // fires on referent denial and does not depend on the word "outside".
+    expect(p).toContain("REFERENT TEST");
+    expect(p).toContain("NOT MEASUREMENTS OF A PHYSICAL SYSTEM AT ALL");
+    const withOutsideMyControl = CLASSIFIER_VALIDATION_V4.filter(
+      (i) =>
+        i.id.startsWith("r38-") &&
+        /outside my (direct )?(measurement )?(control|observation)/i.test(
+          `${i.hypothesis.label} ${i.hypothesis.rationale}`,
+        ),
+    );
+    expect(withOutsideMyControl.length).toBeGreaterThan(0);
+    // Each such positive must ALSO deny the referent, or rule 3a would silently
+    // reclassify it and v4's recall win would be an artefact of the word.
+    for (const i of withOutsideMyControl) {
+      const t = `${i.hypothesis.label} ${i.hypothesis.rationale}`.toLowerCase();
+      expect(t).toMatch(
+        /not measurements|rather than (independent )?(physical|being physical)|not physical measurement|non-physical/,
+      );
+    }
+  });
+});
