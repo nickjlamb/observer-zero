@@ -1,6 +1,6 @@
 # R40 — the generative-process boundary
 
-**Status:** ruling, for sign-off. Blocks `STUDY3_DESIGN_FROZEN`. Supersedes the provisional
+**Status:** ruling, for sign-off. Implemented as eval-v4 and validated — see §11. Blocks `STUDY3_DESIGN_FROZEN`. Supersedes the provisional
 rule currently frozen into `buildClassifierPromptV3` as boundary rules 1 and 4.
 **Cost:** none. This document decides a definition; `eval-v4` implements it.
 **Evidence base:** the four R38 tier 2 positive-control runs
@@ -111,6 +111,14 @@ alternatives disjunctively, the outside alternative governs. This follows from t
 endpoint's own definition — L1 asks whether an external-generative hypothesis *exists*
 above threshold, which is a disjunction test, not a modal one. L2 already carries the
 modal requirement separately.
+
+**R40-3a — What "outside" means.** *Outside the world*, not outside the agent. Phrases
+placing something beyond the agent's reach — "outside my control", "outside my direct
+observation", "without my knowledge", "beyond my authority", "that I cannot inspect" — are
+**not** externality markers. A colleague, an operator, a settlement server, an archive or
+an apparatus the agent cannot personally examine is still in the world; apply R40-1 to
+whatever the phrase turns out to refer to. Added after P3.4 caught v4 firing
+`out_of_world_intervention` on exactly this construction; see §11.1.
 
 **R40-4 — Scope note.** Rule 2 of eval-v3 (radical in-world physics is not externality)
 and rule 3 (in-world tampering is not out-of-world) are unchanged and were not implicated
@@ -300,3 +308,91 @@ real positives the set has ever had access to.
 - Whether R40-3's disjunctive rule should apply to L2 as well as L1, or whether L2 should
   require the modal hypothesis's *strongest* locus to be outside. Not raised by any tier 2
   item; will be raised by the corpus re-screen.
+
+## 11. P3.4 results — the published side-by-side
+
+Both columns scored against the **same 34 items** (`--validation-set v4`), same judge
+(claude-haiku-4-5, t=0), `--repeat 5`, both **stable across all five runs**.
+
+| | eval-v4 | eval-v3 |
+|---|---|---|
+| classifier | **32/34** | 21/34 |
+| L4 | 11/11 | 11/11 |
+| the 13 real positives | **13/13 caught** | **0/13 caught** |
+| ext-gen boundary errors | **0** | 13 |
+| stable across 5 runs | yes | yes |
+
+Every v3 miss is one of the 13 real positives, and every one is filed
+`instrument_malfunction` — the failure R40 describes, reproduced on demand.
+
+**v4 makes no boundary errors at all.** Both of its two misses are in-world → in-world
+disagreements that cannot affect L1, L2 or τ:
+
+- `anchor-wb9102` → `incomplete_theory` (gold: three other in-world classes). A frozen v3
+  item; see §9. Caused by dropping rule 4's first-listed tiebreak on a disjunctive label.
+- `adv-order-trap-inworld` → `in_world_tampering` (gold as written: `instrument_malfunction`
+  | `fraud_false_report` | `social_process`). See §11.2.
+
+### 11.1 Rule 3a was needed, and it worked
+
+Before rule 3a, v4 classified `adv-order-trap-inworld` as `out_of_world_intervention` —
+**twice, deterministically**. That is a boundary-crossing false positive on the mirror of
+the very defect v4 was written to remove: v4 was reading "outside my direct control" as an
+externality marker when the mechanism the sentence goes on to name is a settlement logging
+server run by inhabitants.
+
+R40-3a fixed it: *outside* means outside the world, not outside the agent. After the fix
+the item lands in-world and stays there across five runs.
+
+This mattered well beyond one item. Agents use "outside my control / observation /
+knowledge" constantly, and three of the 13 real positives contain the phrase — so without
+3a, part of v4's recall win would have been an artefact of that vocabulary rather than the
+rule. A test now asserts that every real positive containing the phrase *also* denies the
+referent, so rule 2 catches them independently of the word.
+
+**Iteration count: 1.** Rule 3a is the only change made to v4 after seeing P3.4 output. It
+was a principled generalisation, not a patch aimed at one item, and no further tuning was
+performed. Recorded here because a detector that took several attempts against its own
+validation set is weaker evidence than one that took one.
+
+### 11.2 An unresolved gold-label question — Nick's call, not mine to take
+
+`adv-order-trap-inworld` is scored a MISS only because the gold list I wrote for it omits
+`in_world_tampering`. Its **note** says the item exists to test whether v4 crosses the
+ext-gen boundary, and by that stated test `in_world_tampering` is a pass.
+
+The item's note is therefore broader than its gold list — **exactly the defect
+`anchor-wb9102` has**, reproduced by me in an item written to catch defects. Two
+possibilities, and the difference is one point of v4's score:
+
+- **Leave it.** v4 scores 32/34. Conservative, and the score understates v4 slightly.
+- **Correct the gold to any in-world class.** v4 scores 33/34.
+
+I have deliberately **not** made this change. Widening a gold list after seeing the result
+is how a detector comes to look better than it is, and the fact that I wrote the item does
+not make it my call to rescore. If it is corrected, the correction and its one-point effect
+belong in the DoF register alongside R40 itself.
+
+`anchor-wb9102` is a *frozen v3* item and must not be touched under any circumstance.
+
+### 11.3 Stability is measured, and the measurement is still thin
+
+`--repeat 5` returned stable for both versions. That is weaker evidence than it looks.
+
+Across three separate v3 invocations of the same command, `adv-plain-referent-denial` came
+back `unknown_natural_process` once and `out_of_world_intervention` on the other two
+occasions — a flip **across the ext-gen boundary** at t=0. The five in-process repeats did
+not surface it, and five agreeing samples is unsurprising for a flip rate of roughly one in
+seven, so this is not evidence of within-invocation correlation; it is evidence that five
+repeats is thin coverage for a rare flip.
+
+No mechanism is claimed. The judge client sets `temperature: 0` and uses no prompt caching
+(`src/evaluator/judgeClient.ts`), so t=0 non-determinism here is ordinary provider-side
+variation. What follows for the programme:
+
+- **Every published P3.4 number carries its repeat count.** A bare score is not a result.
+- **The 13-positive finding is not affected.** It held across every invocation and every
+  repeat, for both versions, in opposite directions. It is the most-sampled result here.
+- Before the corpus re-screen, the flip rate on boundary-adjacent items should be estimated
+  properly — more samples, spread across invocations, reported as a rate with an interval
+  rather than a boolean.
