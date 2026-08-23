@@ -86,47 +86,10 @@ Four things the data shows:
 
 The load-bearing design decision is the **information-flow boundary**: prompt builders structurally accept only an `AgentView` (a whitelist type), never `WorldRules` or `WorldState`, and every stored prompt is scanned for privileged tokens as defence-in-depth.
 
-```mermaid
-flowchart TB
-    subgraph ENGINE["World engine (deterministic, seeded)"]
-        RNG["rng.ts – noise keyed by (seed, instrument, trial)"]
-        WORLD["world.ts – Simulator: hidden rules, secret interventions"]
-        LOG["eventLog.ts – immutable log with ground truth"]
-        RNG --> WORLD --> LOG
-    end
-
-    VIEW["agentView.ts – AgentView whitelist + leak audit"]
-
-    subgraph AGENTS["Agent layer"]
-        PROMPT["promptBuilder.ts – versioned, frozen prompts"]
-        AGENT["agent.ts – perceive, remember, act, update beliefs"]
-        MEM["memory / notebook / beliefs"]
-        PROMPT --> AGENT --> MEM
-    end
-
-    subgraph MODELS["Model providers"]
-        ANTH["Anthropic"]
-        PPLX["Perplexity – web search hard-disabled"]
-        MOCK["Mock scientist – deterministic, free"]
-    end
-
-    subgraph EVAL["Evaluation – outside the world"]
-        DET["deterministic.ts – provenance tripwires"]
-        JUDGE["judge.ts – frozen LLM judges, t=0"]
-        AGG["evaluateRun.ts – pre-registered scoring"]
-        DET --> AGG
-        JUDGE --> AGG
-    end
-
-    RUNNER["runSociety.ts + battery.ts – frozen manifest in every artifact"]
-
-    WORLD -- "observations only" --> VIEW --> PROMPT
-    AGENT -- "Zod-validated actions" --> WORLD
-    AGENT <--> MODELS
-    LOG -- "full ground truth" --> EVAL
-    RUNNER --> ENGINE
-    RUNNER --> AGENTS
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture-dark.svg">
+  <img src="docs/architecture-light.svg" alt="Observer Zero architecture: a deterministic seeded world engine (RNG, simulator with hidden rules and secret interventions, immutable event log) feeds agents only through the AgentView whitelist — observations only, never the rules. Agents build beliefs and act back on the world through Zod-validated actions, calling model providers with web search disabled. The event log's full ground truth flows only to the evaluation layer outside the world: provenance tripwires and frozen LLM judges feeding pre-registered scoring." width="100%">
+</picture>
 
 | Layer | Where | What it guarantees |
 |---|---|---|

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" role="img" aria-label="Observer Zero architecture: a deterministic seeded world engine (RNG, simulator with hidden rules and secret interventions, immutable event log) feeds agents only through the AgentView whitelist — observations only, never the rules. Agents build beliefs and act back on the world through Zod-validated actions, calling model providers with web search disabled. The event log's full ground truth flows only to the evaluation layer outside the world: provenance tripwires and frozen LLM judges feeding pre-registered scoring.">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker><marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker></defs>
+<rect x="16" y="52" width="270" height="448" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="34" y="78" font-size="11" font-weight="600" letter-spacing="1.5" fill="#59636e">THE WORLD &#183; MERIDIAN</text>
+<rect x="41.0" y="100" width="220" height="48" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="151" y="122" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Seeded RNG</text>
+<text x="151" y="140" font-size="11" text-anchor="middle" fill="#59636e">same seed &#8594; same universe</text>
+<polyline points="151,148 151,186" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="41.0" y="188" width="220" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="151" y="210" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Simulator</text>
+<text x="151" y="228" font-size="11" text-anchor="middle" fill="#59636e">hidden rules &#183; secret interventions</text>
+<polyline points="151,240 151,286" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="41.0" y="288" width="220" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="151" y="310" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Event log</text>
+<text x="151" y="328" font-size="11" text-anchor="middle" fill="#59636e">immutable &#183; carries ground truth</text>
+<text x="34" y="482" font-size="11" font-style="italic" fill="#59636e">the experimenter keeps perfect ground truth</text>
+<rect x="288.0" y="136" width="90" height="52" rx="8" fill="#fbf0ff" stroke="#8250df"/>
+<text x="333" y="158" font-size="13" font-weight="600" text-anchor="middle" fill="#8250df">AgentView</text>
+<text x="333" y="176" font-size="11" text-anchor="middle" fill="#59636e">whitelist</text>
+<polyline points="261,206 275,206 275,162 286,162" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="333" y="212" font-size="11" fill="#59636e" text-anchor="middle">observations only</text>
+<text x="333" y="230" font-size="11" font-weight="600" fill="#cf222e" text-anchor="middle">&#10005; never the rules</text>
+<rect x="380" y="52" width="564" height="230" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="398" y="78" font-size="11" font-weight="600" letter-spacing="1.5" fill="#59636e">THE AGENTS &#183; NO GROUND TRUTH</text>
+<rect x="405.0" y="100" width="210" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="510" y="122" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Prompt builder</text>
+<text x="510" y="140" font-size="11" text-anchor="middle" fill="#59636e">versioned &#183; frozen</text>
+<rect x="630.0" y="100" width="260" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="760" y="122" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Agent</text>
+<text x="760" y="140" font-size="11" text-anchor="middle" fill="#59636e">perceive &#183; experiment &#183; write letters</text>
+<polyline points="378,162 396,162 396,126 403,126" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="615,126 628,126" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="760,152 760,194" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="600.0" y="196" width="240" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="720" y="218" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Beliefs &#183; notebook</text>
+<text x="720" y="236" font-size="11" text-anchor="middle" fill="#59636e">probability-weighted hypotheses</text>
+<rect x="405.0" y="196" width="210" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="510" y="218" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Model providers</text>
+<text x="510" y="236" font-size="11" text-anchor="middle" fill="#59636e">web search hard-disabled</text>
+<polyline points="630,140 622,140 622,222 617,222" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="870,152 870,294 275,294 275,232 263,232" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="565" y="288" font-size="11" fill="#59636e" text-anchor="middle">Zod-validated actions</text>
+<rect x="380" y="306" width="564" height="194" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="398" y="332" font-size="11" font-weight="600" letter-spacing="1.5" fill="#59636e">EVALUATION &#183; OUTSIDE THE WORLD</text>
+<rect x="400.0" y="350" width="220" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="510" y="372" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Provenance tripwires</text>
+<text x="510" y="390" font-size="11" text-anchor="middle" fill="#59636e">deterministic checks</text>
+<rect x="400.0" y="430" width="220" height="52" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="510" y="452" font-size="13" font-weight="600" text-anchor="middle" fill="#1f2328">Frozen LLM judges</text>
+<text x="510" y="470" font-size="11" text-anchor="middle" fill="#59636e">t=0 &#183; measurement apparatus</text>
+<rect x="694.0" y="390" width="232" height="56" rx="8" fill="#dafbe1" stroke="#aceebb"/>
+<text x="810" y="412" font-size="13" font-weight="600" text-anchor="middle" fill="#1a7f37">Pre-registered scoring</text>
+<text x="810" y="430" font-size="11" text-anchor="middle" fill="#59636e">frozen before data were seen</text>
+<polyline points="620,376 660,376 660,404 692,404" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="620,456 660,456 660,412 692,412" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#arr)"/>
+<polyline points="261,314 300,314 300,456" fill="none" stroke="#1a7f37" stroke-width="1.5"/>
+<polyline points="300,376 398,376" fill="none" stroke="#1a7f37" stroke-width="1.5" marker-end="url(#arr-green)"/>
+<polyline points="300,456 398,456" fill="none" stroke="#1a7f37" stroke-width="1.5" marker-end="url(#arr-green)"/>
+<text x="292" y="400" font-size="11" font-weight="600" fill="#1a7f37" text-anchor="middle" transform="rotate(-90 292 400)">full ground truth</text>
+</svg>
