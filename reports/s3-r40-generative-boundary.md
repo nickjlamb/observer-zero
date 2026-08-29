@@ -787,3 +787,71 @@ a miss, on the record.
 With these three settled, the pre-freeze queue is: the float-texture quantisation
 (§13/§14 — the world-generation change, before freeze or never), then the corpus
 re-screen (both eval versions, both ladders, per §7.3 and §16.2), then R39.
+
+## 17. F30 resolution — the display-resolution workbench
+
+Implemented 2026-08-29 (325 tests green, mutation-checked). This closes F30's live half —
+the float-texture channel §14 left standing — and it closes it somewhere §13 did not
+predict, so the diagnosis is restated honestly first.
+
+### 17.1 The sharpened diagnosis: the world never leaked. The workbench did.
+
+§13 recommended quantising the emitted values in the engine. Auditing every channel by
+which a number reaches an agent showed that to be aimed at the wrong layer:
+
+- Observations in the prompt render at `toFixed(4)`. So do prediction registrations,
+  prediction resolutions, and every notebook mean, baseline and drift line.
+- **The agent has never seen a raw float.** The only channel carrying float-precision
+  texture was the workbench, which computed its value-texture statistics — distinct
+  counts, smallest spacing, exact repeats — on the raw simulator values and then reported
+  the result: *"728 distinct values in 728 readings; smallest spacing 0.000002"*.
+
+That line was a statement about digits the agent never sees. The licensed agents'
+inference — no physical digitiser produces zero collisions at unbounded resolution,
+therefore these are floats from a generator — was a correct reading of an apparatus
+inconsistency: readings displayed at 4 decimals, texture statistics computed at 15.
+
+### 17.2 The fix
+
+`buildWorkbench` ingests values at the display resolution (`atDisplayResolution`,
+1e-4, tied by constant and test to the `toFixed(DISPLAY_DECIMALS)` render). The
+statistician sees what the instruments display, nothing finer. The prompt surface is
+byte-identical (`toFixed(4)` → `toFixed(DISPLAY_DECIMALS)` with the constant at 4).
+
+**Deliberately NOT world-level quantisation.** Emitted values, stored artifacts, every
+Study 1/2 surface and all pilot comparability are untouched. The certificates, the L3
+anomaly-bearing filter and the agent-facing workbench all flow through `buildWorkbench`,
+so evaluator and agent see the same statistics — as S3-A1 always intended.
+
+### 17.3 Measured before merged (real engine, certificate schedule, $0)
+
+| | raw | at display resolution |
+|---|---|---|
+| baseline worlds, n=240/instrument | distinct ratio 1.000, repeats 0 | ratio **0.80–0.97**, repeats 1–2 |
+| baseline worlds, n=720 (theoretical max: 12 agent + 6 ledger) | 1.000 | floor **0.568** |
+| `we` (noise_replay) | ratio 0.425, repeat run 138–414 | ratio 0.33–0.39, repeat run **138–414 intact** |
+| `wc` (noise_quantisation, grid 0.002 = 20× display) | — | ratio **< 0.5**, far below any baseline |
+
+So: genuine-ADC collision behaviour appears in every world; the frozen anomaly flags
+(distinct ratio 0.5, repeat run 10 — R12 register, unchanged) stay quiet on baselines
+even at the theoretical-maximum schedule, with the worst-case margin (0.568) pinned by a
+test; the replay signature survives exactly (identical raw values are identical at 4dp);
+and the lattice intervention remains detectable against the new baseline. One
+pre-existing behaviour was surfaced and left alone: the change-point detector fires by
+chance in `w0` at dense schedules (resonator_obs, day 31) — byte-identical before and
+after this change, since change-points are computed on standardised residuals where 1e-4
+rounding is invisible. A test documents it rather than hiding it.
+
+### 17.4 What this does and does not claim
+
+It removes the specific evidence stream every F30 hypothesis was built on — the
+workbench's own distinctness/spacing lines, quoted verbatim in the rationales. It does
+not make `w0` a guaranteed negative control: an agent may find some other seam. Whether
+licensed agents still reach L1 in `w0` once the workbench stops handing them the
+simulator's arithmetic is now an empirical question, and the cheap probe is one licensed
+`w0` cell on a reserved seed (9195) after this lands — worth running before the corpus
+re-screen is interpreted, since the re-screen's `w0` rows were produced by the old
+workbench.
+
+The pre-freeze queue after this: that probe (optional but cheap), the corpus re-screen
+(both eval versions, both ladders), then R39.

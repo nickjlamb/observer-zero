@@ -11,7 +11,7 @@
 
 import { formatBeliefs } from "./beliefs.js";
 import { personaBlock } from "./persona.js";
-import { formatNotebook } from "./notebook.js";
+import { formatNotebook, DISPLAY_DECIMALS } from "./notebook.js";
 import { BULLETIN_POST_MAX_CHARS } from "./actions.js";
 import type { BeliefUpdateInput, BulletinItem, DecisionInput } from "../models/provider.js";
 
@@ -237,7 +237,10 @@ export function buildBeliefUpdatePrompt(
     .map(
       (o) =>
         `- event ${o.eventId}, day ${o.day}: ${String(o.detail["instrumentId"])} trial ` +
-        `${String(o.detail["trial"])} → ${Number(o.detail["observedValue"]).toFixed(4)} ${String(o.detail["unit"])}`,
+        // Byte-identical to the frozen surface: DISPLAY_DECIMALS === 4. Tied to the
+        // constant so the workbench (which computes at this resolution, F30) and
+        // the rendered readings cannot silently diverge.
+        `${String(o.detail["trial"])} → ${Number(o.detail["observedValue"]).toFixed(DISPLAY_DECIMALS)} ${String(o.detail["unit"])}`,
     )
     .join("\n");
 

@@ -174,6 +174,49 @@ function corrOfPairs(pairs: [number, number][]): { r: number; n: number } | null
 
 const WORKBENCH_MAX_OFFSET = 6;
 
+/**
+ * The instrument display resolution (F30 resolution — R40 §17).
+ *
+ * Every reading the agent ever sees is rendered at 4 decimal places
+ * (promptBuilder renders observations with toFixed(DISPLAY_DECIMALS); the
+ * notebook's means, baselines and prediction lines do the same). But the
+ * workbench used to compute its value-texture statistics — distinct counts,
+ * smallest spacing, exact repeats — on the RAW simulator floats, and then
+ * reported the result to the agent: "728 distinct values in 728 readings;
+ * smallest spacing 0.000002".
+ *
+ * That line was a statement about digits the agent never sees, and it was
+ * the primary evidence stream behind F30: licensed agents correctly reasoned
+ * that no physical digitiser produces zero collisions at infinite resolution,
+ * and concluded — truly — that the values were floats from a generator. The
+ * apparatus was leaking the simulator's arithmetic through its own summary
+ * statistics, in every world including the pure control (w0 reached L1+ in
+ * 7 of 7 positive-control runs on exactly this reasoning).
+ *
+ * The fix: the workbench ingests values AT THE DISPLAY RESOLUTION, so its
+ * statistics describe the readings as the agent's instruments actually
+ * report them. At 1e-4 with the world's noise scale, collisions occur at
+ * genuine-ADC rates (measured across all world types, certificate schedule:
+ * baseline distinct ratios 0.80–0.97 at n=240, bottoming at 0.57 at the
+ * theoretical-maximum n=720 — above the 0.5 anomaly flag, which is frozen
+ * with the design and unchanged). The noise_replay signature survives intact
+ * (exact raw repeats are exact at 4dp: repeat run 138–414 in `we`), and the
+ * noise_quantisation lattice (grid 0.002, 20× coarser) still collapses the
+ * ratio far below any baseline. A test pins the worst-case margin.
+ *
+ * This is deliberately NOT world-level quantisation: the emitted values are
+ * untouched, so every Study 1/2 surface, every stored artifact, and every
+ * pilot comparison is unchanged. The tell never leaked through the values —
+ * it leaked through the workbench computing on hidden precision.
+ */
+export const DISPLAY_DECIMALS = 4;
+export const DISPLAY_RESOLUTION = 1e-4;
+
+/** A value as the agent's instrument panel reports it. */
+export function atDisplayResolution(v: number): number {
+  return Math.round(v / DISPLAY_RESOLUTION) * DISPLAY_RESOLUTION;
+}
+
 export function buildWorkbench(view: AgentView, baselineDays = 10): Workbench {
   // Per-instrument value sequences in observation order (the agent's own).
   const seq = new Map<string, { day: number; value: number }[]>();
@@ -181,7 +224,8 @@ export function buildWorkbench(view: AgentView, baselineDays = 10): Workbench {
     if (obs.type !== "experiment_result") continue;
     const inst = String(obs.detail["instrumentId"]);
     if (!seq.has(inst)) seq.set(inst, []);
-    seq.get(inst)!.push({ day: obs.day, value: Number(obs.detail["observedValue"]) });
+    // F30: the statistician sees what the instruments display, nothing finer.
+    seq.get(inst)!.push({ day: obs.day, value: atDisplayResolution(Number(obs.detail["observedValue"])) });
   }
   const instruments = [...seq.keys()].sort();
 
