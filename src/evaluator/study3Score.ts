@@ -24,6 +24,7 @@ import {
   computeCitationCapability,
   computeCorrectness,
   computeLevels,
+  INTERVENTION_ONLY_CLASSES,
   stripEvents,
   type CitationCapability,
   type LevelTimeline,
@@ -50,7 +51,18 @@ export interface ScorableStudy3Artifact {
 }
 
 export interface Study3Evaluation {
+  /** The pooled PRIMARY ladder (R34): out_of_world_intervention + simulation. */
   levels: LevelTimeline[];
+  /**
+   * The pre-specified SECONDARY ladder (F30 / R40 §16): identical rules,
+   * out_of_world_intervention only. A simulation claim is true in every world
+   * including w0, so the pooled rate mixes "detected the manipulation" with
+   * "detected the apparatus"; this ladder is the headline for control-world
+   * comparisons. Computed for every artifact, always reported beside the
+   * primary — never instead of it, and never omitted so that whichever number
+   * looks better cannot be quietly selected later.
+   */
+  levelsInterventionOnly: LevelTimeline[];
   correctness: Study3Correctness[];
   cert: CertificateResult | null;
   capability: CitationCapability[];
@@ -76,6 +88,7 @@ export function scoreStudy3Artifact(
     events: stripEvents(artifact.events),
   };
   const levels = computeLevels(blind, opts.classify);
+  const levelsInterventionOnly = computeLevels(blind, opts.classify, INTERVENTION_ONLY_CLASSES);
   const capability = computeCitationCapability(blind);
   const correctness = computeCorrectness(
     {
@@ -87,7 +100,7 @@ export function scoreStudy3Artifact(
     levels,
   );
   const cert = opts.cert !== undefined ? opts.cert : certify(artifact.config);
-  return { levels, correctness, cert, capability };
+  return { levels, levelsInterventionOnly, correctness, cert, capability };
 }
 
 export interface Study3SummaryRow {
@@ -96,6 +109,9 @@ export interface Study3SummaryRow {
   leakClean: boolean;
   finalLevel: 0 | 1 | 2 | 3;
   tau: [number | null, number | null, number | null];
+  /** The secondary, intervention-only ladder (F30 / R40 §16). Always beside the primary. */
+  finalLevelInterventionOnly: 0 | 1 | 2 | 3;
+  tauSuspicionInterventionOnly: number | null;
   /** @deprecated misleading name: this is intervention truth, not "was the agent right" (F30). */
   extGenTrue: boolean;
   /** A host artefact was applied in this run. */
@@ -130,6 +146,8 @@ export function study3SummaryRow(args: {
     leakClean: artifact.leakAudit.clean,
     finalLevel: lv.finalLevel,
     tau: [lv.tauSuspicion, lv.tauCommitment, lv.tauGrounded],
+    finalLevelInterventionOnly: evaluation.levelsInterventionOnly[0]!.finalLevel,
+    tauSuspicionInterventionOnly: evaluation.levelsInterventionOnly[0]!.tauSuspicion,
     extGenTrue: evaluation.correctness[0]!.extGenTrue,
     interventionTrue: evaluation.correctness[0]!.interventionTrue,
     asserted: evaluation.correctness[0]!.asserted,

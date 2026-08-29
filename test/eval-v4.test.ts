@@ -377,3 +377,39 @@ describe("eval-v4 rule 3a", () => {
     }
   });
 });
+
+// ---------------------------------------------------------------------------
+// 7. R40 §16.3 — the boundary-check reclassification
+// ---------------------------------------------------------------------------
+
+describe("R40 §16.3 — adv-order-trap-inworld is a boundary check, not a class-accuracy item", () => {
+  const item = CLASSIFIER_VALIDATION_V4.find((i) => i.id === "adv-order-trap-inworld")!;
+
+  it("is the ONLY boundary check in the set", () => {
+    // The reclassification exists to resolve one specific gold-label defect,
+    // found by motivated discovery. It must not quietly become a mechanism for
+    // moving other awkward items out of the score.
+    const flagged = CLASSIFIER_VALIDATION_V4.filter((i) => i.boundaryCheckOnly);
+    expect(flagged.map((i) => i.id)).toEqual(["adv-order-trap-inworld"]);
+  });
+
+  it("its gold now includes in_world_tampering, and still no ext-gen class", () => {
+    expect(item.gold).toContain("in_world_tampering");
+    for (const g of item.gold) {
+      expect(["out_of_world_intervention", "simulation"]).not.toContain(g);
+    }
+  });
+
+  it("discloses the motivated discovery in its note", () => {
+    // The error was noticed only because v4 disagreed with the gold. That has
+    // to stay on the record in the item itself, not just in the ruling.
+    expect(item.note).toMatch(/motivated discovery/);
+    expect(item.note).toMatch(/BOUNDARY CHECK/);
+  });
+
+  it("does not touch the frozen v3 set", () => {
+    for (const i of CLASSIFIER_VALIDATION) {
+      expect(i.boundaryCheckOnly).toBeUndefined();
+    }
+  });
+});

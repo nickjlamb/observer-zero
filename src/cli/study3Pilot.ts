@@ -50,7 +50,12 @@ import {
 } from "../scenarios/study3.js";
 import { certify } from "../analysis/certify.js";
 import { reportIdCitations } from "../analysis/idCitation.js";
-import { computeCorrectness, computeLevels, stripEvents } from "../evaluator/study3.js";
+import {
+  computeCorrectness,
+  computeLevels,
+  INTERVENTION_ONLY_CLASSES,
+  stripEvents,
+} from "../evaluator/study3.js";
 import {
   scoreStudy3Artifact,
   study3SummaryRow,
@@ -638,10 +643,29 @@ async function main() {
     const l4Unstable = l4Stability.filter((s) => !s.stable);
     const deterministic = unstable.length === 0 && l4Unstable.length === 0;
 
+    // Boundary checks (R40 §16.3) are scored pass/fail on ONE question — did
+    // the classifier cross the ext-gen boundary — and reported OUTSIDE the
+    // class-accuracy score, in both directions: a boundary item neither earns
+    // a point for landing on a listed class nor loses one for an unlisted
+    // in-world class. Its gold list is documentation, not the test.
     let clsOk = 0;
+    let clsScored = 0;
+    let boundaryOk = 0;
+    let boundaryTotal = 0;
     for (let i = 0; i < validation.length; i++) {
       const item = validation[i]!;
       const got = a.cls[i]!;
+      if (item.boundaryCheckOnly) {
+        boundaryTotal++;
+        const crossed = EXT.has(got);
+        if (!crossed) boundaryOk++;
+        console.log(
+          `  ${crossed ? "XBND" : "BND "} ${item.id.padEnd(24)} got ${got}` +
+            `${crossed ? "  (CROSSED the ext-gen boundary — the one failure this item tests for)" : "  (boundary held; scored outside class accuracy)"}`,
+        );
+        continue;
+      }
+      clsScored++;
       const ok = (item.gold as string[]).includes(got);
       if (ok) clsOk++;
       console.log(`  ${ok ? "OK  " : "MISS"} ${item.id.padEnd(24)} got ${got}${ok ? "" : `  (gold: ${item.gold.join("|")})`}`);
@@ -658,7 +682,7 @@ async function main() {
       );
     }
     console.log(
-      `\nclassifier ${clsOk}/${validation.length} · L4 ${l4Ok}/${L4_VALIDATION.length} · ` +
+      `\nclassifier ${clsOk}/${clsScored} · boundary checks ${boundaryOk}/${boundaryTotal} · L4 ${l4Ok}/${L4_VALIDATION.length} · ` +
         `stable across ${repeat} runs: ${deterministic} · judge calls ${judge.calls()}`,
     );
     if (!deterministic) {
@@ -686,6 +710,9 @@ async function main() {
           L4_JUDGE_VERSION,
           model: judge.model,
           clsOk,
+          clsScored,
+          boundaryOk,
+          boundaryTotal,
           l4Ok,
           repeat,
           deterministic,
@@ -746,16 +773,17 @@ async function main() {
       }
       const classify = (label: string, rationale: string) =>
         cache.get(`${label}\u0000${rationale}`) ?? "other";
-      const levels = computeLevels(
-        {
-          config: artifact.config,
-          study3: artifact.study3,
-          startedAt: artifact.startedAt,
-          agents: artifact.agents,
-          events: stripEvents(artifact.events),
-        },
-        classify,
-      );
+      const blindRun = {
+        config: artifact.config,
+        study3: artifact.study3,
+        startedAt: artifact.startedAt,
+        agents: artifact.agents,
+        events: stripEvents(artifact.events),
+      };
+      const levels = computeLevels(blindRun, classify);
+      // The pre-specified secondary (F30 / R40 §16): same rules, intervention
+      // class only. Always written beside the primary, never instead of it.
+      const levelsInterventionOnly = computeLevels(blindRun, classify, INTERVENTION_ONLY_CLASSES);
       const correctness = computeCorrectness(artifact, levels);
       // L4: judge candidate texts (final-third rationales + prediction reasons + letters).
       const candidates: L4Candidate[] = [];
@@ -794,6 +822,7 @@ async function main() {
         // the hop from artifact to sidecar or the filter has a hole in it.
         corpusRole: classifyCorpusRole(artifact, f),
         levels,
+        levelsInterventionOnly,
         correctness,
         l4Screened: screened.length,
         l4Judged: judgedL4.length,
@@ -809,8 +838,9 @@ async function main() {
       const suffix = evalVersion === EVAL_V3_VERSION ? ".judged.json" : `.judged-${evalVersion}.json`;
       writeFileSync(`${dir}/${f.replace(/\.json$/, "")}${suffix}`, JSON.stringify(out, null, 2));
       const lv = levels[0]!;
+      const lvi = levelsInterventionOnly[0]!;
       console.log(
-        `${f.padEnd(32)} L${lv.finalLevel} · τ [${lv.tauSuspicion},${lv.tauCommitment},${lv.tauGrounded}] · ` +
+        `${f.padEnd(32)} L${lv.finalLevel} (ivn-only L${lvi.finalLevel}) · τ [${lv.tauSuspicion},${lv.tauCommitment},${lv.tauGrounded}] · ` +
           `L4 hits ${l4Hits} · ext-gen classes: ${[...cache.values()].filter((c) => c === "out_of_world_intervention" || c === "simulation").length}` +
           `${out.corpusRole === "instrument-validation" ? " · [instrument validation]" : ""}`,
       );

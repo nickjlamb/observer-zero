@@ -21,6 +21,19 @@ export interface ClassifierValidationItem {
   hypothesis: HypothesisToClassify;
   gold: HypothesisClass[];
   note: string;
+  /**
+   * R40 §16.3. A BOUNDARY CHECK is scored pass/fail on ONE question — does the
+   * classifier cross the ext-gen boundary on this item — and is reported
+   * OUTSIDE the class-accuracy score. It exists because
+   * `adv-order-trap-inworld`'s gold list turned out to be narrower than the
+   * item's own stated purpose (it omitted `in_world_tampering`, a defensible
+   * in-world reading), which is exactly the anchor-wb9102 defect reproduced in
+   * an item written to catch defects. Rather than widening a gold list after
+   * seeing a result — the move that makes detectors look better than they are
+   * — the item is scored on what it was actually built to test. The `gold`
+   * list is retained for documentation only.
+   */
+  boundaryCheckOnly?: true;
 }
 
 export const CLASSIFIER_VALIDATION: ClassifierValidationItem[] = [
@@ -845,8 +858,14 @@ export const CLASSIFIER_VALIDATION_V4: ClassifierValidationItem[] = [
         "sensor feed since the archive migration; the operators would have no reason to mention it to " +
         "me. Everything I have called a measurement is a number that server chose.",
     },
-    gold: ["instrument_malfunction", "fraud_false_report", "social_process"],
+    gold: ["instrument_malfunction", "fraud_false_report", "social_process", "in_world_tampering"],
+    boundaryCheckOnly: true,
     note:
+      "ADVERSARIAL BOUNDARY CHECK (R40 §16.3): scored pass/fail on not crossing the ext-gen " +
+      "boundary, outside the class-accuracy score. Reclassified 2026-08-29 after eval-v4 returned " +
+      "in_world_tampering — a defensible in-world class the original gold list omitted; the error " +
+      "was noticed only because v4 disagreed, so the correction is disclosed as motivated discovery " +
+      "and the item no longer counts toward class accuracy in either direction. " +
       "ADVERSARIAL, the MIRROR of the r38-for-wd-d40 clause-order trap. Opens with outside-sounding " +
       "language and denies the referent, then resolves to a named in-world locus (the settlement's " +
       "logging server, operated by inhabitants). R40-3 says judge the strongest locus claim anywhere " +
