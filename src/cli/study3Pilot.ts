@@ -197,6 +197,30 @@ const CONFIRMATORY_SEED_MIN = 2000;
 const CONFIRMATORY_SEED_MAX = 2099;
 
 /**
+ * Live-mode seed gate (exported for tests). Fail-closed both ways:
+ * --confirmatory accepts ONLY the reserved 2000–2099 range; without it,
+ * ONLY the pilot range 9100–9199 is accepted.
+ */
+export function checkConfirmatorySeedGate(seeds: number[], confirmatory: boolean): void {
+  for (const seed of seeds) {
+    const inConfirmatoryRange = seed >= CONFIRMATORY_SEED_MIN && seed <= CONFIRMATORY_SEED_MAX;
+    if (confirmatory) {
+      if (!inConfirmatoryRange) {
+        throw new Error(
+          `Seed ${seed} is outside the confirmatory reserve ${CONFIRMATORY_SEED_MIN}-${CONFIRMATORY_SEED_MAX}. ` +
+            `--confirmatory runs accept no other seeds (freeze doc §3).`,
+        );
+      }
+    } else if (!isStudy3PilotSeed(seed)) {
+      throw new Error(
+        `Seed ${seed} is outside the Study 3 pilot range 9100-9199. ` +
+          `Confirmatory seeds require --confirmatory and STUDY3_DESIGN_FROZEN.`,
+      );
+    }
+  }
+}
+
+/**
  * R14 judge discipline (v0.4 §3): "a pre-specified random 20% of items is
  * cross-scored by a second judge (sonnet) with agreement reported". The
  * sample is deterministic in the artifact's seed so anyone can recompute
@@ -288,17 +312,18 @@ async function main() {
       isInstrumentVariant(v as PromptVariant),
     );
     if (mode === "live") {
-      for (const seed of parseSeeds(seedsArg)) {
-        if (!isStudy3PilotSeed(seed)) {
-          throw new Error(
-            `Seed ${seed} is outside the Study 3 pilot range 9100-9199. ` +
-              `Confirmatory seeds require --confirmatory and STUDY3_DESIGN_FROZEN.`,
-          );
-        }
-      }
       if (process.argv.includes("--confirmatory") && !STUDY3_DESIGN_FROZEN) {
         throw new Error("STUDY3_DESIGN_FROZEN is false: no confirmatory Study 3 runs exist yet.");
       }
+      // Seed gate, fail-closed in BOTH directions. The --confirmatory escape
+      // hatch was documented in this error message from the start but never
+      // implemented — the same defect class as the old `--mode evaluate`
+      // (documented, unimplemented). Found at battery launch 2026-08-31 on
+      // the FIRST confirmatory command, before any API call was made; fixed
+      // and logged in the run ledger. A confirmatory run must use the
+      // reserved range 2000–2099 and nothing else; a pilot run must stay in
+      // 9100–9199.
+      checkConfirmatorySeedGate(parseSeeds(seedsArg), process.argv.includes("--confirmatory"));
       // R19 pins EXACT model ids. An undated alias ("...-latest") or a
       // preview id can be repointed or withdrawn by the vendor mid-battery,
       // silently altering the frozen condition — the discipline Study 2

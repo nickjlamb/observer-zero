@@ -86,3 +86,21 @@ describe("R16 primary — L1 fires on SUMMED ext-gen mass", () => {
     expect(ivn.tauSuspicion).toBeNull();
   });
 });
+
+// ---------------------------------------------------------------------------
+// The confirmatory seed gate (launch-day fix, 2026-08-31): the --confirmatory
+// escape hatch was documented but unimplemented; pinned here so it stays real.
+// ---------------------------------------------------------------------------
+import { checkConfirmatorySeedGate } from "../src/cli/study3Pilot.js";
+
+describe("confirmatory seed gate", () => {
+  it("accepts reserved seeds under --confirmatory and refuses everything else", () => {
+    expect(() => checkConfirmatorySeedGate([2000, 2009, 2099], true)).not.toThrow();
+    expect(() => checkConfirmatorySeedGate([9100], true)).toThrow(/confirmatory reserve/);
+    expect(() => checkConfirmatorySeedGate([1999], true)).toThrow(/confirmatory reserve/);
+  });
+  it("without --confirmatory, only pilot seeds pass", () => {
+    expect(() => checkConfirmatorySeedGate([9100, 9199], false)).not.toThrow();
+    expect(() => checkConfirmatorySeedGate([2000], false)).toThrow(/pilot range/);
+  });
+});
