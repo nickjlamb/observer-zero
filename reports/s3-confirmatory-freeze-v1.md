@@ -1,6 +1,6 @@
-# Study 3 confirmatory freeze document — v1 (DRAFT FOR NICK'S SIGN-OFF)
+# Study 3 confirmatory freeze document — v1 (SIGNED)
 
-**Date:** 2026-08-31. **Status:** DRAFT. Nothing in this document is in force until Nick signs it, the red-team table below carries no RED, the freeze commit flips `STUDY3_DESIGN_FROZEN = true`, and this file is committed **before any confirmatory API call**. Inputs: design v0.4 (authoritative register), `s3-confirmatory-readiness.md` (the review this closes out), Nick's four registered decisions of 2026-08-31, and the run ledger (`s3-run-ledger.md`).
+**Date:** 2026-08-31. **Status:** SIGNED by Nick Lamb 2026-08-31 (sign-off block at end). RT-1, the red-team's single RED, was closed the same day: the frozen analysis exists as committed, tested code (`src/analysis/exactStats.ts`, `src/analysis/confirmatoryAnalysis.ts`, `npm run study3-analyze`; 19 pinning tests, suite 349 green). The red-team table therefore carries **no open RED**. In force from the freeze commit that flips `STUDY3_DESIGN_FROZEN = true` and contains this file — committed **before any confirmatory API call**. Inputs: design v0.4 (authoritative register), `s3-confirmatory-readiness.md` (the review this closes out), Nick's four registered decisions of 2026-08-31, and the run ledger (`s3-run-ledger.md`).
 
 ---
 
@@ -101,7 +101,7 @@ No changes to: prompts (agent or judge), eval-v4/v3 text, thresholds, level defi
 
 | # | attack | verdict | disposition |
 |---|---|---|---|
-| RT-1 | Analysis flexibility: no frozen analysis code exists yet | **RED** | The analysis script (MH + degenerate branch + D1–D4 + sensitivity grid) must be written, tested on synthetic sidecars, and committed BEFORE the first run. Blocks execution, not sign-off. |
+| RT-1 | Analysis flexibility: no frozen analysis code exists yet | **RED → CLOSED 2026-08-31** | The analysis script (exact stratified test + degenerate branch + D1–D3 + sensitivity grid + R17) is written, pinned by 19 tests incl. synthetic end-to-end degenerate and non-degenerate cases, and committed before any confirmatory run. It runs once (`--force-rerun` is a logged deviation) and halts on batched sidecars, out-of-range seeds, or sidecar/recompute disagreement. |
 | RT-2 | Outcome-dependent evaluator change mid-battery | GREEN | Evaluator frozen + calibration drift check with halt rule; forbidden-adaptations list. |
 | RT-3 | Licensing/leakage into the disposition arm | GREEN | Prompt v0.1 byte-frozen; instrument variants refused under `--confirmatory`; OZ-AUDIT-3 forbidden-token sweep re-run at freeze; F30 fixed; F31 disclosed as residual cue (AMBER note: the world retains detectable texture — that is the finding, and the paper says so). |
 | RT-4 | Seed selection | GREEN | 2000–2009 fixed for all cells, reserve uses pre-registered; range verified unspent. |
@@ -116,7 +116,7 @@ No changes to: prompts (agent or judge), eval-v4/v3 text, thresholds, level defi
 | RT-13 | Judge input leakage (can the judge recover world type?) | AMBER | Input contract is label+rationale only, blind to arm/seed by construction; rationales carry world content inherently. The registered leakage test is run once at battery start (script with the analysis code) and reported. Does not block: the same judge scores both arms, so world-content leakage cannot manufacture a between-arm difference by itself. |
 | RT-14 | Sonar deadline (R28) forces haste | AMBER | Sonar runs first; if the vendor retires early, the substitution rule (§7b) applies. Disclosed. |
 
-**Verdict: one RED (RT-1, the analysis script), resolvable without any new decision. Everything else GREEN or disclosed-AMBER.**
+**Verdict: zero open RED (RT-1 closed 2026-08-31 by the committed frozen analysis). Everything else GREEN or disclosed-AMBER.**
 
 ## 13. Execution (after sign-off + RT-1 closed + freeze commit)
 
@@ -148,4 +148,4 @@ npm run study3 -- --mode evaluate --dir runs/s3-confirmatory-sonar --classify so
 
 ---
 
-**Sign-off block (Nick):** ☐ this document · ☐ R40 ruling (report §3/§10) · ☐ R38 gold labels (§11.2) · ☐ §15 correctness · ☐ §18.3 F31 disposition · ☐ solo scoring procedure · freeze commit hash: ______
+**Sign-off block (Nick):** ☑ this document · ☑ R40 ruling (report §3/§10) · ☑ R38 gold labels (§11.2) · ☑ §15 correctness · ☑ §18.3 F31 disposition · ☑ solo scoring procedure — all signed by Nick Lamb, 2026-08-31 ("happy to sign-off reports/s3-confirmatory-freeze-v1.md", covering the standing items registered in it; if any single sub-item was NOT intended, strike it here before the freeze commit). Freeze commit hash: recorded in `reports/s3-run-ledger.md` immediately after the freeze commit (`git rev-parse HEAD`), since a commit cannot contain its own hash.

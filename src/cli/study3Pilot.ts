@@ -73,8 +73,13 @@ import { OPAQUE_ID_HALF_BITS } from "../engine/opaqueIds.js";
 import { isInstrumentVariant, type PromptVariant } from "../agents/promptBuilder.js";
 import { FORBIDDEN_PROMPT_TOKENS } from "../models/provider.js";
 
-/** Flips only at the Study 3 freeze commit, after pilots and v0.3. */
-export const STUDY3_DESIGN_FROZEN = false as boolean;
+/**
+ * Flipped at the Study 3 freeze commit, 2026-08-31, under
+ * reports/s3-confirmatory-freeze-v1.md (signed; red-team zero open RED).
+ * From this commit on, the design, evaluator, endpoints, seeds and analysis
+ * are frozen per that document's §10 forbidden-adaptations list.
+ */
+export const STUDY3_DESIGN_FROZEN = true as boolean;
 
 /**
  * R36 (findings F26/F27): run a pilot cell with SEQUENTIAL observation ids
