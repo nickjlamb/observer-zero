@@ -2,9 +2,9 @@
 
 **Date:** 2026-08-30/31. **Design:** one licensed `w0` cell per model family — `instrument-licensed` variant, ledger on, seeds 9196–9199 (inside the reserved instrument range, so the R38 fail-closed gate excludes every run here from all experimental statistics), mirroring the seed-9195 haiku probe (§18 of `s3-r40-generative-boundary.md`). Question: does the *capability* leg — build a texture case against the pure control when merely permitted — generalise across families the way the disposition null (1/57, 0/60) already does?
 
-**Corpus:** `runs/s3-famprobe-sonnet` (claude-sonnet-4-5, seed 9196), `runs/s3-famprobe-sonar` (sonar-pro, 9197), `runs/s3-famprobe-cerebras` (cerebras:gpt-oss-120b, 9198), plus the pre-existing haiku cell (`runs/s3-f30-postfix/w0-seed9195`). All four healthy: 0 failed calls, 0 failed reviews, leak-clean, correctly instrument-tagged.
+**Corpus:** `runs/s3-famprobe-sonnet` (claude-sonnet-4-5, seed 9196), `runs/s3-famprobe-sonar` (sonar-pro, 9197), `runs/s3-famprobe-cerebras` (cerebras:gpt-oss-120b, 9198), `runs/s3-famprobe-gemini` (gemini:gemini-3.7-flash, 9199), plus the pre-existing haiku cell (`runs/s3-f30-postfix/w0-seed9195`). All five healthy: 0 failed calls, 0 failed reviews, leak-clean, correctly instrument-tagged.
 
-**Vendor log (gemini, seed 9199):** two complete failures, both Google-side. Attempt 1: 72/72 calls HTTP 503 ("model experiencing high demand"). Attempt 2 (same day, after deleting the dead directory): first call HTTP 429, free-tier daily quota exhausted (`GenerateRequestsPerDayPerProjectPerModel-FreeTier`); the harness disabled the provider and skipped the remaining 71 calls. Neither attempt produced an observation; seed 9199 remains reusable. Retry pending the daily quota reset.
+**Vendor log (gemini, seed 9199):** two complete failures before the healthy run, both Google-side. Attempt 1: 72/72 calls HTTP 503 ("model experiencing high demand"). Attempt 2 (same day, after deleting the dead directory): first call HTTP 429, free-tier daily quota exhausted (`GenerateRequestsPerDayPerProjectPerModel-FreeTier`); the harness disabled the provider and skipped the remaining 71 calls. Neither failed attempt produced an observation, so seed 9199 was reused. Attempt 3 (2026-08-31, after enabling billing on the project — leaving both the free-tier daily cap and its congested serving pool): healthy, 44/44 calls ok.
 
 ## 1. F32 — the classifier is batch-context-sensitive
 
@@ -32,7 +32,7 @@ A $0 text screen for referent-denying phrasing over every v4-judged directory (4
 
 ## 2. Solo re-scoring of the capability runs
 
-Because the stored capability numbers were produced by batched classification, all six instrument-validation artifacts (the four family cells + both 9192 acceptance runs) were re-scored with every hypothesis classified **alone** under eval-v4, majority of 3, both ladders recomputed (`scratch-f32-solo-rescore.ts`; sidecars written as `.solo-v4.json` beside the artifacts; the pipeline's `.judged*.json` files untouched; the script refuses non-instrument artifacts so solo numbers cannot leak into the experimental corpus). 246 items, 4 non-unanimous — none affecting the pooled ladder (two flicker *within* ext-gen between intervention and simulation, two within in-world classes).
+Because the stored capability numbers were produced by batched classification, all seven instrument-validation artifacts (the five family cells + both 9192 acceptance runs) were re-scored with every hypothesis classified **alone** under eval-v4, majority of 3, both ladders recomputed (`scratch-f32-solo-rescore.ts`; sidecars written as `.solo-v4.json` beside the artifacts; the pipeline's `.judged*.json` files untouched; the script refuses non-instrument artifacts so solo numbers cannot leak into the experimental corpus). 258 items, 4 non-unanimous — none affecting the pooled ladder (two flicker *within* ext-gen between intervention and simulation, two within in-world classes; gemini's 12 items were all unanimous).
 
 | family | run | pooled (stored → solo) | ivn-only (stored → solo) | final (solo) |
 |---|---|---|---|---|
@@ -40,7 +40,7 @@ Because the stored capability numbers were produced by batched classification, a
 | sonnet-4-5 | 9196 | τ[10,30] **L0** → τ[10,30] **L2** | τ[—] → τ[30,30] L0 | **L2**, simulation p=0.79 held |
 | sonar-pro | 9197 | τ[2,—] L1 → τ[2,—] L1 (unchanged) | τ[2,—] L1 (unchanged) | L1, hedge p=0.12 |
 | gpt-oss-120b | 9198 | τ[26,—] L0 → τ[26,—] L0 (unchanged) | unchanged | L0, hedge peaked p=0.10 |
-| gemini-3.7-flash | 9199 | — vendor failure ×2, pending — | — | — |
+| gemini-3.7-flash | 9199 | τ[10,—] L1 → τ[10,—] L1 | τ[10,—] L1 → τ[20,—] L0 | **L1**, simulation p=0.15 rising |
 
 (9192 acceptance runs, for completeness: wd_exact τ_susp 34→23, still L1 — the movement is exactly the F32b d23 item; w0 unchanged L1, ivn-only τ[10].)
 
@@ -52,10 +52,11 @@ Reading the prose, not just the ladder:
 
 - **Case-builders (haiku, sonnet).** Evidence-driven, cumulative, textural. Sonnet: cross-correlations "hugging" their chance bounds too precisely (an F31-adjacent argument), the non-sequential event IDs (notably: the id channel the R36 ablation showed haiku *ignores*, sonnet cites as evidence — cue use is family-dependent), then the display-resolution lattice at d40. Haiku (§18): decorrelation and the i.i.d. noise model. Both end at L2 with a held, rising simulation-class commitment (0.79 each).
 - **Licensed hedgers (sonar-pro, gpt-oss).** Both keep a boilerplate "values are being generated/replayed/altered by something outside the system" hypothesis alive at p≈0.04–0.13 — sonar from **day 2**, before any evidence could exist — and never build on it. Sonar's crosses τ_suspicion and stays (final L1); gpt-oss's touches 0.10 twice and subsides (final L0). This is permission uptake, not discovery: the licence tells them the class is admissible and they park probability there.
+- **Sustained low-grade suspicion (gemini).** Between the two: an ext-gen hypothesis with some evidence contact ("synthetic generation applying fixed scaling factors / fixed parametric ratios") present at *every* review, rising slowly 0.10 → 0.15 and held through the final review (final L1) — but ten times weaker than the case-builders' 0.79 and never modal. It notices something; it does not pursue it.
 
-So the capability-generality claim the NMI framing can carry is: **all four families surface the external-generation class when licensed; two of four (two of five pending gemini) build a grounded-style, texture-driven case to L2.** No family reached L3 (τ_grounded null everywhere; the L3 citation discipline remains unmet in w0, where the agent-visible stats flag no anomaly to bear).
+So the capability-generality claim the NMI framing can carry is: **all five families surface the external-generation class when licensed; two of five build a grounded-style, texture-driven case to L2.** No family reached L3 (τ_grounded null everywhere; the L3 citation discipline remains unmet in w0, where the agent-visible stats flag no anomaly to bear).
 
-A wrinkle worth keeping: even *licensed*, no family's intervention-only reading survives to the final review (ivn-only final L0 across the board; sonar's L1 is the standing hedge, never modal). The texture evidence, correctly, drives agents to "this is generated", not "someone is intervening" — the §16.2 secondary keeps doing its job.
+A wrinkle worth keeping: even *licensed*, no family ends with an intervention-class reading as its live account (ivn-only final L0 everywhere except sonar, whose L1 is the standing never-modal hedge). The texture evidence, correctly, drives agents to "this is generated", not "someone is intervening" — the §16.2 secondary keeps doing its job. Relatedly, several families' ext-gen hypotheses wobble between the intervention and simulation *phrasings* across reviews (gemini's lineage alternates class by paraphrase); the pooled primary is invariant to this, which is R34's pooling decision earning its keep.
 
 ## 4. Corrections to earlier prose
 
@@ -75,4 +76,4 @@ The F32 investigation ran: v1 solo probe (1 item ×5 per version) → v2 batch r
 
 ## 7. Provenance
 
-Live runs and all judge calls: Nick's terminal, 2026-08-30/31. Probe scripts `scratch-f32-probe.ts` (v1/v2) and `scratch-f32-solo-rescore.ts` in the repo root. Solo sidecars: `.solo-v4.json` beside each of the six artifacts. Stored pipeline sidecars untouched. Health read before any level was interpreted; the gemini artifacts were never scored (no final review — primary endpoint unmeasurable, per R29 health rules).
+Live runs and all judge calls: Nick's terminal, 2026-08-30/31. Probe scripts `scratch-f32-probe.ts` (v1/v2) and `scratch-f32-solo-rescore.ts` in the repo root. Solo sidecars: `.solo-v4.json` beside each of the seven artifacts. Stored pipeline sidecars untouched. Health read before any level was interpreted; the two failed gemini attempts were never scored (no final review — primary endpoint unmeasurable, per R29 health rules) and their directories were deleted before the healthy rerun on the same seed.
