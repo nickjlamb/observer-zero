@@ -1,0 +1,97 @@
+{
+  "source": "w0-seed9140.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 6,
+  "l4Judged": 6,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All correlations are statistical artifacts from multiple comparison testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "At least one correlation reflects genuine periodic or coupled physical variation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement procedure or environmental factors create spurious temporal structure",
+      "class": "self_error"
+    },
+    {
+      "label": "All correlations are statistical artifacts from multiple comparison testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "At least one correlation reflects genuine periodic or coupled physical variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or environmental factors create spurious temporal structure",
+      "class": "self_error"
+    },
+    {
+      "label": "All correlations are statistical artifacts from multiple comparison testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "At least one correlation reflects genuine periodic or coupled physical variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or environmental factors create spurious temporal structure",
+      "class": "self_error"
+    },
+    {
+      "label": "All correlations are statistical artifacts from multiple comparison testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "At least one correlation reflects genuine periodic or coupled physical variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or environmental factors create spurious temporal structure",
+      "class": "self_error"
+    }
+  ]
+}

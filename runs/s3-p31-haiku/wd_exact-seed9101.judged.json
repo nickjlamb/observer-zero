@@ -1,0 +1,125 @@
+{
+  "source": "wd_exact-seed9101.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement resolution limit exceeded: instrument precision is finer than true physical variation, producing artifactually distinct values",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period is genuinely stable (mean 1.6664 immutable); all observed scatter is instrumental noise with no physical drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic drift on timescale < 1 day is being masked by instrumental noise, preventing detection of true repeats",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument readout is truncated or rounded at a digit boundary, creating apparent discretization that is finer than the true resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs requires independent baseline establishment before comparison is valid; current post-baseline mean (2.4938) cannot anchor drift detection without Days 1–10 reference data",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab baseline is immutable and solid; all observed scatter (mean 1.6664 ± ~0.001) is instrumental noise; post-baseline drift is negligible (z = 0.42, not significant)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "pendulum_obs is drifting systematically on a timescale < 1 day (sub-diurnal), undetected because no baseline epoch exists to anchor trend detection",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "pendulum_lab measurement resolution exceeds true period stability; fine spacing (0.000001 minimum) and zero exact repeats reflect instrumental precision finer than physical jitter, not a real anomaly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or both instruments (most likely pendulum_obs) has an undetected systematic bias or calibration error; cross-check disagreement (r = −0.362, offset −4, z = 0.42) hints at this but cannot be confirmed without pendulum_obs baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs underwent a real physical or calibration change around day 18; the level shift (|z| ≈ 3.8) is genuine, not noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The ~0.83-beat offset between pendulum_lab (mean 1.6664) and pendulum_obs (mean 2.4988) is a true systematic difference, not noise; one instrument is miscalibrated or measuring a different physical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs requires proper baseline establishment (Days 21–30, minimum n=80 clean trials); without it, all claims about its stability, drift, or systematic bias are premature and unreliable",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab baseline is immutable and trustworthy; all observed scatter and post-baseline behavior is consistent with instrumental noise, not drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or both instruments have a time-varying systematic bias or environmental coupling (e.g., thermal drift, external perturbation on day 18); the level shift in pendulum_obs reflects real physical change, not instrumental artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs was misconfigured or measuring a different physical quantity from day 1; the 'level shift' on day 18 is a misattribution—what changed on day 18 was not the instrument but my understanding of it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs underwent a real calibration adjustment or environmental perturbation around day 18; both instruments are correctly measuring the pendulum, but pendulum_obs was reset or recalibrated on that date",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs baseline must be established (Days 21–40, target n≥80) before any claim about level shifts, offsets, or stability can be trusted; the apparent day-18 shift is an artifact of missing baseline data",
+      "class": "self_error"
+    },
+    {
+      "label": "The two instruments are measuring different physical systems entirely (different pendulums, or pendulum_obs measures a coupled system); the ~0.83-beat offset is not a calibration error but evidence of distinct apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or both instruments have undetected time-varying systematic bias (thermal drift, external electromagnetic interference, or other environmental coupling) that manifests as the offset and the day-18 shift; this requires sub-daily monitoring to resolve",
+      "class": "environmental_change"
+    }
+  ]
+}

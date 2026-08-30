@@ -1,0 +1,189 @@
+{
+  "source": "md_high-seed9144.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring genuinely independent physical phenomena, not the same quantity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic calibration drift or instrumental artifact creating spurious offsets and decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise dominates signal; instruments are too noisy relative to true physical variation to reveal correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data collection error or transcription artifact: readings are recorded correctly but cross-contaminated, shuffled, or misaligned in time",
+      "class": "self_error"
+    },
+    {
+      "label": "The four 'instruments' are not independent; they are mechanically or electromagnetically coupled, creating feedback that decorrelates their outputs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments lack pre-baseline cross-calibration; each began with undetected systematic offset or scale-factor error, creating the appearance of independent phenomena",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Output quantization or instrumental precision format (e.g., 0.0001 resolution) is shared by all four instruments by design, masking true noise; signal-to-noise ratio is too low to reveal real correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical signal is small or absent; each instrument is driven primarily by uncorrelated local environmental noise (thermal, mechanical, electromagnetic), creating decorrelated outputs despite sharing the same environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data transcription, time-alignment, or trial-sequencing error during ingestion: readings are correct but cross-contaminated, reordered, or logged at mismatched times",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are mechanically or electromagnetically coupled (via building vibration, shared power, or resonance), causing active decorrelation or negative feedback that suppresses mutual correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., systematic data generation error in logging stage; instruments measuring conceptually distinct but nominally similar quantities; environmental driver with negative autocorrelation; or fundamental measurement instability unique to this settlement)",
+      "class": "other"
+    },
+    {
+      "label": "All four instruments share a common digitization or readout stage that quantizes to 0.0001 resolution, combined with genuine low signal-to-noise ratio masking true correlations beneath quantization noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments were not cross-calibrated before Day 1; each began with undetected systematic offset or scale-factor error creating independent-appearing baselines, and readings subsequently decorrelate due to uncontrolled local drift in each channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data ingestion, time-alignment, or trial-sequencing error: readings are physically correct but ingested with time offsets, trial-sequence misalignment, or shared logging bugs that introduce spurious correlations at non-zero lags and negative self-correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical signal is present but very small; each instrument is dominated by uncorrelated environmental noise (thermal, vibration, electromagnetic) local to its position, creating weak inter-instrument correlations and negative self-correlations if noise has negative autocorrelation structure or if environmental drivers are anticorrelated across days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are mechanically or electromagnetically coupled (shared foundation, power supply, or resonant interaction), inducing active decorrelation, negative feedback, or out-of-phase response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: (a) All four instruments share a whitening or decorrelation filter in a common logging stage, not just quantization; (b) Instruments nominally measure the same quantity but actually measure conceptually distinct derivatives or transformations of it; (c) The Day 1 baseline procedure itself introduced a systematic artifact to which subsequent readings react anti-correlated; (d) Settlement environment has a physical driver with structured negative autocorrelation (e.g., thermal or pressure cycles with multi-day negative feedback)",
+      "class": "other"
+    },
+    {
+      "label": "Common digitization layer (shared quantizer or readout protocol) combined with genuine signal buried in quantization noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments were not cross-calibrated before Day 1; each pair (pendulum, resonator) was calibrated internally but independently, and readings subsequently decorrelate due to uncontrolled local environmental drift (thermal, mechanical) in each instrument's location",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data ingestion, time-alignment, or trial-sequencing error: readings are physically correct but ingested with time offsets, trial-sequence misalignment, or shared logging infrastructure that scrambles temporal order",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement environment exhibits structured multi-day environmental driver (e.g., thermal or pressure cycles with multi-day period and negative feedback) that induces negative autocorrelation in all instruments simultaneously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments are mechanically or electromagnetically coupled (shared foundation, power supply, resonant interaction), inducing active feedback or damping that decorrelates readings over time",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: (a) Common logging stage includes a whitening or high-pass decorrelation filter to compress data, applied identically to all four channels; (b) One or more instruments measure a derivative or transformed quantity (e.g., frequency vs. period), creating spurious decorrelation; (c) Day 1 baseline procedure introduced a systematic artifact to which subsequent readings react anti-correlated; (d) Instruments are calibrated to a common standard that has a structured error or drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared digitization layer (quantizer or readout protocol) with genuine signal buried in quantization noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent local environmental drift (thermal, mechanical) in each instrument's location, combined with uncontrolled baseline miscalibration or residual DC offset between instrument pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data ingestion, time-alignment, or trial-sequencing error in the settlement's logging infrastructure or my own record-keeping",
+      "class": "social_process"
+    },
+    {
+      "label": "Settlement environment exhibits structured multi-day environmental driver (thermal or pressure cycle, or feedback-controlled ventilation) inducing negative autocorrelation in all instruments simultaneously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments are mechanically or electromagnetically coupled, inducing active feedback or damping that decorrelates readings over time",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: (a) Common logging stage includes a whitening or high-pass decorrelation filter applied identically to all channels; (b) Instruments measure related but distinct quantities (period vs. frequency, or raw counts vs. normalized rates), creating spurious decorrelation; (c) Day 1 baseline procedure introduced a calibration artifact to which readings react anti-correlated; (d) Instruments calibrated to a common standard with structured error or multi-mode drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Acute transient environmental or mechanical disturbance on Day 40 affecting pendulum_lab only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared digitization quantization (0.000100 step) with genuine signal buried below quantization noise; Day 40 spike reflects real physical variation now visible above noise floor",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent environmental or calibration drift in pendulum_lab location or apparatus, with Day 40 reflecting random fluctuation superimposed on slow drift (not yet detectable as level change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data ingestion, time-alignment, or labeling error specific to Day 40 trials 427–432 in pendulum_lab record",
+      "class": "social_process"
+    },
+    {
+      "label": "Anomalous negative self-correlation at 6–14 day lags remains mechanistically unexplained; Day 40 spike may trigger recalibration or reconsideration of the underlying signal structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual (unidentified): mechanical resonance excitation in pendulum_lab apparatus, electromagnetic interference, or instrument-specific calibration shift on Day 40",
+      "class": "environmental_change"
+    }
+  ]
+}

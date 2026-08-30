@@ -1,0 +1,125 @@
+{
+  "source": "w0-seed9144.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Calibration drift or thermal/mechanical instability in instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My cross-check correlations are artifacts of small sample sizes and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are measuring genuinely independent physical quantities, or measurement protocol introduces independence by design",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my cross-check methodology (lag searches, binning, or alignment)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are measuring independent physical quantities despite nominal equivalence, or measurement protocol enforces independence by design (electrical isolation, temporal separation, environmental decoupling).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak autocorrelations and cross-correlations are statistical artifacts from multiple comparisons (lag searching, offset trials) inflating false-positive rate; no true signal present.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument exhibits independent 8–13 day cyclic or quasi-periodic noise (thermal cycling, mechanical relaxation, or environmental drift on that timescale), causing weak negative autocorrelations and decorrelation from past readings.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in cross-check methodology: lag-search procedure, alignment, or binning introduces spurious correlations or anticorrelations; the uniform weak negative bias reflects methodological artifact, not physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data fabrication, transcription error, or systematic measurement protocol error affecting all four streams identically (e.g., reading instruments in fixed order with timing-dependent bias, or all readings taken under a single hidden constraint).",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Instruments measure independent physical quantities despite nominal equivalence; spatial/environmental/temporal isolation enforces decorrelation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak correlations are statistical artifacts from multiple-comparisons bias; true signal is near-zero, consistent with instrument stability and independence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument exhibits independent 8–13 day quasi-periodic noise (thermal cycling, mechanical relaxation, or environmental drift), causing weak negative autocorrelations; but this does NOT explain weak cross-correlations between different instrument types.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in cross-check methodology: lag-search procedure, timestamp alignment, or binning introduces spurious weak negative bias across all correlations.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data contamination or measurement protocol error affecting all four streams identically: readings taken in fixed order with timing-dependent bias, or all readings constrained by a hidden single variable.",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Systematic error in cross-check methodology: lag-search, timestamp alignment, or correlation computation introduces consistent weak negative bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are electrically/mechanically isolated or read under sufficiently different environmental conditions that they capture independent noise sources, not shared signal; weak correlations reflect genuine independence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparisons bias: I tested ~36 correlation hypotheses (6 pairwise pairs × 6 offsets + 4 autocorrelations × multiple lags). At α~0.05 per test, expect ~1.8 false positives; all observed correlations are weak and most within chance thresholds. True signal is near-zero stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental quasi-periodicity (8–13 day thermal/humidity cycle) affects all instruments similarly, but instruments are mechanically decoupled enough that phase-locking is weak; weak negative autocorrelations reflect phase opposition within a single cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data contamination or protocol error: all four streams constrained by a hidden single variable or systematic timing-dependent bias in measurement sequencing or transcription",
+      "class": "fraud_false_report"
+    }
+  ]
+}

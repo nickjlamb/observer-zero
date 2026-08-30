@@ -1,0 +1,205 @@
+{
+  "source": "md_high-seed9146.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 23,
+  "l4Judged": 23,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Correlated environmental drift (temperature, pressure, vibration) affecting both instrument types similarly within each location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement error or calibration drift in one or more instruments, producing spurious cross-correlations through shared systematic bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random noise with no real correlation; apparent patterns are statistical artifacts from multiple comparisons without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between instruments (mechanical, electromagnetic, or thermal) that we have not yet isolated or characterized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Random noise; Day 11 variance is within expected sampling fluctuation for n=6 per instrument",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified environmental event on Day 11 (temperature spike, vibration, humidity shift) affecting all instruments similarly but manifesting as scattered variance rather than a coherent level change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator fatigue, distraction, or procedural drift on Day 11; measurements are sound but trial-to-trial execution (timing, damping, reset method) became less consistent",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument calibration or zero-point drift beginning on Day 11 in one or more devices, possibly triggered by cumulative thermal or mechanical stress over 10 days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unsuspected artifact in data logging, timestamp assignment, or trial indexing that makes Day 11 appear anomalous when measurements are actually sound",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Periodic environmental oscillation (3–7 day cycle) driven by settlement operations, resource cycles, or geophysical forcing, dampened differently by each instrument's mechanical response, causing lagged anti-correlations within streams and weak or out-of-phase cross-correlations between streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmodeled instrumental autocorrelation: each instrument's readout includes a slow (3–7 day) thermal or mechanical 'memory' effect—creep, drift recovery, or phase-lag in sensor response—that produces negative lag correlation as the system oscillates around equilibrium without external forcing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling or data-logging artifact: trials are mislabeled, time-stamped inconsistently, or recorded out of temporal order in a way that creates spurious lag correlations when data are binned by calendar day rather than true collection time",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 11 procedural or environmental perturbation (fatigue, thermal transient, vibration) that produced elevated variance but left no lasting level shift, followed by recovery; anomaly is confined to Day 11 and does not explain post-Day-11 lag correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or zero-point drift on one or more instruments beginning between Day 10 and Day 11, manifesting as a noisy baseline shift rather than a sharp step, and continuing through Day 21",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unidentified physical phenomenon (e.g., gravitational wave detection, settling of building foundations, long-period seismic response, nonlinear coupling between instrument systems) or data analysis error (e.g., incorrect lag-correlation algorithm, p-value miscalculation, misidentified 'chance level' baseline) not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Periodic environmental oscillation (3–7 day cycle) at the settlement, differentially damped and phase-shifted by each instrument's mechanical response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental autocorrelation: each instrument contains a slow (3–7 day) thermal or mechanical memory effect (creep, viscoelastic damping, sensor response lag) that produces damped oscillation around equilibrium without external forcing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp artifact: trials are mislabeled, time-stamped inconsistently, or recorded out of temporal order in a way that creates spurious lag correlations when data are binned by calendar day",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calibration or zero-point drift beginning between Day 10 and Day 11, manifesting as noisy baseline shift or recovery oscillation rather than sharp step",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 11 transient perturbation (thermal spike, vibration, procedural error) elevated variance on Day 11 but left no lasting level shift; however, this does not explain lag correlations in Days 12–31",
+      "class": "self_error"
+    },
+    {
+      "label": "Unidentified physical phenomenon (geophysical forcing, nonlinear inter-instrument coupling, gravitational or seismic response) or data analysis error (incorrect lag-correlation algorithm, chance-level miscalculation)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 31–32 variance spike is instrumental drift or hysteresis initiation in pendulum_lab specifically",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "3–7 day periodic environmental or instrumental oscillation continues unabated; Day 31–32 spike is expected noise within the oscillation cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 31–32 spike in pendulum_lab is a measurement or logging error (misrecorded trial, mislabeled event, sensor glitch)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent a procedural or environmental perturbation on Day 31–32 (thermal transient, humidity spike, vibration, handling) not captured by other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-logging timestamp or trial-sequence artifact: trials indexed as Day 32 were collected at different times or batched non-chronologically",
+      "class": "social_process"
+    },
+    {
+      "label": "Unidentified mechanical or environmental interaction: inter-instrument coupling, settlement infrastructure resonance, or geophysical/atmospheric forcing at a previously undetected timescale",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure the same physical quantity via different transduction mechanisms, with a consistent 3-day phase lag due to thermal mass or signal propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The 3-day pendulum_lab–resonator_obs correlation is a statistical artifact of search bias: Ada tried all offsets (lags 0–36 or more), and 0.958 is a chance maximum from multiple comparisons despite reported chance level ±0.287",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab trials 468–474 (Day 31–32) represent a true instrumental excursion (transient hysteresis, thermal shock, or mechanical stress) localized to the pendulum platform, unrelated to the 3-day lag correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or trial indexing error: trials assigned to Day 31–32 were collected at different calendar times, or the 3-day offset in pendulum_lab ↔ resonator_obs correlation reflects misalignment of chronological records",
+      "class": "social_process"
+    },
+    {
+      "label": "Undiscovered confound: pendulum_lab and resonator_obs are both sensitive to a settlement environmental variable (e.g., power-supply frequency, humidity, vibration) that resonator_lab and pendulum_obs are not, and this variable has a 3-day memory or lag in its impact on resonator_obs readings",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The resonator_obs readings are not independent measurements but are derived or influenced by pendulum_lab data in near-real time, creating spurious correlation (contamination, feedback, or algorithmic coupling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure the same physical quantity via different transduction mechanisms, with a consistent 3-day phase lag due to thermal mass, signal propagation delay, or integration time constant in resonator_obs.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The 3-day pendulum_lab–resonator_obs correlation is a statistical artifact of search bias: Ada tried many offsets (lags 0–36+), and 0.958 is a chance maximum from multiple comparisons despite reported chance level ±0.272.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab trials 468–474 (Day 31–32) represent a true instrumental excursion (transient hysteresis, thermal shock, mechanical stress, or aging) localized to the pendulum platform, unrelated to the 3-day lag correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or trial indexing error: trials assigned to Day 31–32 or the 3-day offset were collected at different actual times than recorded, or event timestamps are mislabeled.",
+      "class": "social_process"
+    },
+    {
+      "label": "Undiscovered environmental or infrastructure confound: pendulum_lab and resonator_obs are both sensitive to a settlement variable (power-supply frequency, humidity, vibration, magnetic field) that the other two instruments are not, and this variable exhibits a 3-day memory or lag in its effect on resonator_obs.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs readings are not independent measurements but are derived, calibrated, or influenced by pendulum_lab data in near-real time, creating spurious correlation (contamination, feedback, or algorithmic coupling in the calibration procedure).",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

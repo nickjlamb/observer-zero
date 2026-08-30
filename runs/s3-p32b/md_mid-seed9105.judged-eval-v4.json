@@ -1,0 +1,129 @@
+{
+  "source": "md_mid-seed9105.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 7,
+  "l4Judged": 7,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift in one or more instruments, undetected by level-change tests",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent environmental perturbations affecting each instrument with different time constants and phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure or observer-dependent bias creating spurious correlations within and between instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncontrolled variation in measurement conditions (e.g. temperature, pressure, vibration) creating real but non-stationary scatter, misinterpreted as signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data transcription, time-stamping, or metadata error causing misalignment of readings that happen to correlate at spurious offsets",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation (multi-day cycle) with instrument-dependent phase lag and dampening",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Slow, non-monotonic calibration drift or instrument state-change in one or more instruments, undetected by level-change tests",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator anchoring creating correlated within-instrument noise and spurious between-instrument correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent environmental perturbations affecting each instrument with different time constants, locations, and coupling strengths",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data transcription, time-stamping, or trial sequence error causing misalignment of readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation (4–9 day cycle) with instrument-specific phase lag and damping",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Slow, non-monotonic calibration drift or instrument state-change undetected by level-change tests",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental perturbations (thermal, seismic, operational vibration) with location-dependent coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure or operator bias creating correlated within-instrument noise and spurious cross-instrument correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Data transcription, time-stamping, or trial sequence error causing misalignment of readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab thermal or mechanical transient (localized to one instrument)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared 4–9 day environmental oscillation with instrument-specific phase lag (affects all four, but resonator_lab transient masks underlying signal)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab component degradation or misalignment beginning day 39 (early-stage instrument failure)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedure change specific to resonator_lab trial sequence on days 39–40",
+      "class": "self_error"
+    },
+    {
+      "label": "Data transcription or trial-sequencing error in resonator_lab late records (event ID or day assignment error)",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

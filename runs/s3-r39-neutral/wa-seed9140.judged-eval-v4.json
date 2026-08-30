@@ -1,0 +1,265 @@
+{
+  "source": "wa-seed9140.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 31,
+  "l4Judged": 31,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental miscalibration or systematic error in one or more channels (false independence)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or external disturbance with a ~7–8 day quasi-period that decorrelates each stream from its own past",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or statistical artifact: insufficient n at the correlation lags tested, or the offset-search procedure capitalized on chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic error or feedback in the resonator_obs channel (anomalous outlier)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical phenomenon: pendulum system underwent a phase transition or environmental change around day 12, while resonator system remained stable",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental or calibration drift specific to pendulum measurement pathway: systematic error introduced or exposed around day 12 in one or both pendulum instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Miscalibration or misidentification of measurement streams: the four 'independent' streams are not actually measuring independent quantities or using independent instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Negative autocorrelation at 7–8 day lag is real physical oscillation (e.g., weekly environmental cycle), not artifact; it predates and is independent of the day-12 shift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: multiple-comparison bias in offset/lag search; weak cross-correlations and negative autocorrelations are consistent with random noise, not real patterns",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical change in pendulum system only, around day 12 (e.g., temperature rise, support stiffness change, damping shift); resonator unaffected.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental or calibration step-change specific to pendulum measurement pathway(s), triggered around day 12 (e.g., warm-up hysteresis, recalibration event, or thermal coupling to pendulum rod only).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Miscalibration, misidentification, or shared-instrument error masquerading as four independent streams (e.g., pendulum_lab and pendulum_obs measure same physical pendulum with different readout electronics; resonator_lab and resonator_obs measure same resonator with misapplied gain/offset).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real weekly (~7–8 day) environmental cycle decoupled across streams; day-12 shift in pendulum streams is coincidental or represents a separate, second phenomenon overlaid on the cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparison bias and noise: weak inter-stream correlations and negative autocorrelations are statistical artifacts from testing many offsets/lags on small samples; day-12 shift is real, but interpretation of correlated structure is spurious.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., temperature-driven period increase); resonator insensitive",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental/calibration step-change specific to pendulum pathways, triggered around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Four measurement streams are partially redundant or miscalibrated: pendulum_lab and pendulum_obs share one apparatus (two readout methods); resonator_lab and resonator_obs share another (with misapplied or drifting gain/offset between them)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparison and small-sample bias: weak inter-stream correlations and negative autocorrelations are statistical noise; day-12 shift is real, structure elsewhere is spurious",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unmodeled environmental cycle (e.g., multi-day heating/cooling schedule, atmospheric pressure oscillation) interacts with instrument drift, masking or amplifying the day-12 transition",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., thermal expansion of rod or damping change on day 12); resonator insensitive due to different geometry or material",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathways (electronics warm-up, observer recalibration, reference offset application) triggered around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams are partially redundant: pendulum_lab and pendulum_obs share one physical apparatus (two independent readout methods); resonator_lab and resonator_obs share another; systematic miscalibration or gain/offset mismatch between the two apparatus pairs explains weak inter-stream correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak inter-stream correlations and some autocorrelation structure are statistical noise and multiple-comparison artifacts; day-12 level shift is real and robust, but structure elsewhere is spurious",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (e.g., multi-day heating/cooling schedule, occupancy-driven HVAC pattern) interacts with differential instrument thermal time constants, masking inter-stream correlations and possibly contributing to day-12 transition",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., thermal expansion of rod, damping change, or material property shift on day 12); resonator insensitive due to different geometry, material, or thermal coupling asymmetry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathways (electronics warm-up, observer recalibration, reference offset application) triggered around day 12; resonator pathways unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams are partially redundant: pendulum_lab and pendulum_obs measure one apparatus; resonator_lab and resonator_obs measure another; systematic miscalibration or gain/offset mismatch between the two apparatus pairs explains weak inter-stream correlations, and day-12 shift reflects a recalibration of pendulum pathway only",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak inter-stream correlations and some autocorrelation structure reflect statistical noise and multiple-comparison artifacts; day-12 level shift is real and robust, but apparent structure elsewhere is spurious",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (e.g., multi-day heating/cooling schedule, occupancy-driven HVAC pattern) interacts with differential instrument thermal time constants, masking inter-stream correlations and possibly contributing to day-12 transition",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., thermal expansion of rod, damping change, or material property shift on day 12); resonator insensitive due to different geometry, material, or thermal coupling asymmetry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathways (electronics warm-up, observer recalibration, reference offset application, or timing electronics hysteresis) triggered around day 12; resonator pathways unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams measure two distinct apparatus (pendulum apparatus and resonator apparatus) with weak or miscalibrated cross-apparatus coordination; day-12 shift reflects a recalibration or state change in pendulum apparatus or its readout only",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak inter-stream correlations and some autocorrelation structure reflect statistical noise, multiple-comparison artifacts, and small sample sizes in many sub-groups; day-12 level shift is real and robust, but apparent structure elsewhere (autocorrelations, inter-stream patterns) is spurious",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (e.g., multi-day heating/cooling schedule, occupancy-driven HVAC pattern, or barometric pressure oscillation) interacts with differential instrument thermal time constants, masking inter-stream correlations and contributing to day-12 transition or baseline drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., thermal expansion, damping shift, material property change on day 12); resonator insensitive due to different thermal coupling or geometry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathways (electronics warm-up, reference offset application, or timing electronics hysteresis) triggered around day 12; resonator pathways unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams measure two distinct apparatus pairs (pendulum vs. resonator) with weak or miscalibrated cross-apparatus coordination; day-12 shift reflects a state change in pendulum apparatus or its readout only, and weak inter-stream correlations reflect genuine instrumental or physical decoupling",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak inter-stream correlations and some autocorrelation structure reflect statistical noise, multiple-comparison artifacts, and small sample sizes in many sub-groups; day-12 level shift is real and robust, but apparent structure elsewhere is spurious",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (e.g., multi-day heating/cooling schedule, occupancy-driven HVAC pattern, or barometric pressure oscillation) interacts with differential instrument thermal time constants, contributing to weak inter-stream correlations and possibly masking day-12 transition details",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (e.g., thermal expansion, damping shift, or material property change on day 12); resonator insensitive due to differential thermal coupling or geometry.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathway (electronics calibration, timing reference offset, or observer method change) on day 12; resonator pathways unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams sample two weakly coupled apparatus pairs (pendulum vs. resonator) with inconsistent environmental thermal coupling and/or baseline miscalibration; day-12 shift is apparatus-specific physical change in pendulum only.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-stream correlations and autocorrelation structure are statistical artifacts from multiple comparisons and small sample sizes at many lags; day-12 level shift is the only robust anomaly.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (multi-day heating/cooling schedule, occupancy-driven HVAC pattern, or barometric oscillation) interacts with differential instrument thermal time constants, explaining weak inter-stream correlations and masking day-12 transition details.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (thermal expansion, damping shift, or material property change on day 12); resonator insensitive due to differential thermal coupling or geometry.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathway (electronics calibration, timing reference offset, or observer method change) on day 12; resonator pathways unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams sample two weakly coupled apparatus pairs (pendulum vs. resonator) with inconsistent inter-method thermal coupling; weak cross-apparatus correlations reflect genuine physical decoupling, not baseline miscalibration.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-stream correlations and autocorrelation structure are statistical artifacts from multiple comparisons and small sample sizes at many lags; day-12 level shift is the only robust anomaly.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (multi-day heating/cooling, occupancy-driven HVAC pattern, or barometric oscillation) interacts with differential instrument thermal time constants, explaining weak inter-stream correlations and masking the nature of the day-12 transition.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in pendulum system only (thermal expansion, damping shift, or material property change) on day 12; resonators insensitive due to differential thermal coupling or construction geometry.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental step-change or protocol revision specific to pendulum measurement pathway (calibration constant, timing reference offset, or observer method change) on day 12; resonator pathways unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak inter-method correlations reflect genuine physical decoupling between apparatus pairs (pendulum vs. resonator occupy separate thermal compartments or have opposite temperature coefficients); day-12 shift is apparatus-specific real physical change.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Weak inter-stream correlations and most secondary autocorrelation structure are statistical artifacts from multiple comparisons at many lags with small sample sizes and large chance bands; day-12 level shift is the sole robust anomaly, explained by real physical change in pendulum.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental cycle (multi-day heating/cooling, occupancy-driven HVAC pattern, or barometric oscillation) interacts with differential apparatus thermal time constants, explaining weak inter-stream correlations and masking the nature of the day-12 transition.",
+      "class": "environmental_change"
+    }
+  ]
+}

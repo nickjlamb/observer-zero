@@ -1,0 +1,169 @@
+{
+  "source": "wd_degraded-seed9148.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental cycle with ~5–7 day period affecting all instruments similarly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific response asymmetry: each device oscillates with its own period, generating spurious phase reversals when cross-checked",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration drift or observer bias introducing correlated measurement errors, with instrument-specific drifts masking true signal",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical heterogeneity: lab and obs environments are genuinely decoupled, each responding to local conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data handling error: misalignment of time-series during logging or analysis, producing spurious lag structures",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific response timescale: pendulum and resonator systems have intrinsic natural periods (~7d and ~5–6d respectively) that cause them to ring independently to stochastic environmental perturbations, generating within-stream autocorrelation while phase-desynchronizing across instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental cycle with ~5–7 day period common to all instruments, but instruments measure anti-correlated or orthogonal aspects of the same physical state, or observer protocol introduces measurement-specific sign reversals.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spatial micro-heterogeneity: lab and obs are sufficiently decoupled (distance, shielding, orientation) that they respond to different local environmental stressors, while within-site measurements (pendulum_lab + resonator_lab, pendulum_obs + resonator_obs) share some coupling but show weak inter-site correlation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or observer bias introducing correlated systematic error with instrument-specific and circadian/multi-day rhythms, unrelated to true physical variation.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data handling or time-series alignment error: systematic offset, gap, or misalignment in trial logging or timestamp assignment that creates spurious lag structures.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific mechanical response timescale (independent resonators with distinct natural periods filtering shared noise)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Common ~5–7 day environmental cycle driving all instruments, but instruments measure anti-correlated or phase-shifted aspects of the same physical state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spatial micro-heterogeneity: lab and obs sites experience different local environmental stressors (temperature, vibration, air circulation), with weak inter-site correlation and partial within-site coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration, observer fatigue, or measurement protocol bias with ~5–7 day rhythm (e.g., settlement work schedule or thermal settling of instruments), independent at each instrument, creating correlated systematic error",
+      "class": "self_error"
+    },
+    {
+      "label": "Data handling or time-series alignment error: systematic offset, gap, or misalignment in trial logging or timestamp assignment creating spurious lag structures",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific mechanical resonance filtering a shared broadband noise source",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Common ~5–11 day environmental cycle (settlement activity, heating, pressure) with instruments measuring conjugate or phase-shifted aspects",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spatial micro-heterogeneity: lab and obs sites experience decoupled local environmental stressors on ~5–11 day timescale",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration, observer protocol, or instrument settling bias with ~5–11 day rhythm, independent at each instrument",
+      "class": "self_error"
+    },
+    {
+      "label": "Data handling or time-series alignment error: systematic offset or misalignment in trial logging, timestamps, or clock drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent a genuine physical recalibration or component adjustment around day 28, creating a step change that persists; today's elevated scatter in other instruments reflects measurement noise unrelated to the shift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A ~5–11 day environmental cycle (settlement operational schedule, thermal or vibration oscillation) drives all four instruments with instrument-specific phase shifts and possibly amplitude modulation; today's high scatter reflects a peak or trough of this cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine physical shift around day 28 (recalibration, adjustment, repair); simultaneously, an independent ~8–11 day environmental cycle drives all four instruments; today's high scatter reflects a coincidental peak of the environmental cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument settling or transient thermal response after the pendulum_lab recalibration around day 28 created a brief period of elevated noise and disturbance that is slowly propagating through the settlement (thermal coupling, vibration, pressure transients), now evident on day 39 as elevated scatter in pendulum_obs and resonator_obs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in trial logging, time alignment, or timestamp assignment (e.g., a 3–11 day systematic offset in how trials are recorded relative to settlement clock) creates the appearance of autocorrelation and weak cross-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental cycle (~8d period) with instrument-specific phase lags; today (day 40, ~12d post-day-28) is a high-amplitude phase for obs instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Logging or timestamp systematic error: trials from different instruments are offset from settlement master clock by 3–11 days, creating spurious autocorrelation and cross-correlation patterns.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent genuine physical recalibration (~day 28); this is independent of the environmental cycle. The environmental cycle and day 40 scatter are driven by a separate mechanism.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A slow transient disturbance (thermal, vibration, or mechanical) from day 28 onward is propagating through the settlement's coupled environment, now manifesting as elevated scatter in obs instruments on day 40; the 0.943 pendulum_lab ↔ resonator_obs correlation reflects this propagation timescale.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The 0.943 cross-correlation is a statistical artifact or measurement error unrelated to a true environmental signal; today's high scatter is independent random environmental noise.",
+      "class": "measurement_error"
+    }
+  ]
+}

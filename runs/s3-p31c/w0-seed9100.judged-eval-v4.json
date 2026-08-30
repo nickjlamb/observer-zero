@@ -1,0 +1,125 @@
+{
+  "source": "w0-seed9100.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration or zero-point offset between lab and observational setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental or instrumental drift is coupled across instruments but manifests differently in lab vs observational settings",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observational instruments are measuring noise or a different physical phenomenon than lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-instrument calibration has drifted or been inadequately established during baseline period",
+      "class": "self_error"
+    },
+    {
+      "label": "Observational instruments are experiencing transient environmental or instrumental disturbance on Days 19–20 that lab instruments are shielded from",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab and observational instruments are measuring the same physical quantity but with different gain or zero-point calibration, and the weak cross-correlations reflect this scale mismatch rather than uncorrelated noise",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The 10-day baseline period was insufficient to establish true zero-point or gain calibration; inter-instrument synchronization was not verified from day 1, and apparent drift is an artifact of incomplete baseline establishment",
+      "class": "self_error"
+    },
+    {
+      "label": "Observational instruments are inherently noisier or lower-fidelity than lab instruments and are not suitable for this precision program; they should be re-engineered or retired",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic synchronization or clock error between lab and observational data streams was introduced during acquisition or logging, causing apparent time lags and sign reversals in cross-correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 30 pendulum_lab excursion is a transient environmental or mechanical disturbance localized to the lab instrument, unrelated to observational setup or settlement-wide physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The pendulum_lab baseline (n=118 over Days 1–10) was not truly representative; the Day 30 readings reveal an underlying slow drift that was not detectable in the baseline window but is now becoming visible in the tail of the distribution",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab was recalibrated or adjusted on Day 30 morning; the two new readings reflect a real change in instrumental reference (zero-point shift), and all prior baseline and post-baseline readings were made with a different physical setup",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental signal (thermal, barometric, or gravitational) is beginning to emerge at a 25–30 day period; pendulum_lab is more sensitive to this signal than resonator_lab due to its lower mechanical stiffness, and the Day 19–20 observational anomalies were an earlier phase of the same phenomenon",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Logging, timestamping, or trial-numbering error on Day 30: the two anomalous pendulum_lab readings belong to a different day or a different instrument, or their timestamps are mislabeled",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments are measuring independent physical quantities or instrumental noise rather than a common signal; the measurement programme is not coupled to a shared environmental or physical phenomenon",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline period (n=10 days) was too short to capture true instrumental behaviour; each instrument has a distinct drift timescale (15–40 days) that was not yet visible in Days 1–10, and correlations are weak because instruments drift out of phase with each other",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "At least one instrument (likely observational channel) has a systematic calibration error or zero-point offset undetected in baseline; the observational instruments are not reliably coupled to the lab instruments due to systematic rather than random error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The measurement campaign is correctly executed and instruments are independent; weak correlations are expected because Meridian does not experience a large common environmental signal, or the signal is much smaller than instrumental noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data aggregation or correlation method is flawed; the lag-based cross-checks (4–6 day offsets) are artifacts of finite sample size and incorrect alignment; true correlations are masked by poor methodology",
+      "class": "self_error"
+    }
+  ]
+}

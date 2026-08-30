@@ -1,0 +1,129 @@
+{
+  "source": "me-seed9103.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Pendulum period is genuinely stable to ~0.01 beats or better over this timescale",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise is higher than initially calibrated, masking small drifts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental drift is present but slower than 10-day timescale can resolve",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument baseline calibration is unreliable or unknown; readings may not be commensurate with claimed precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab has genuinely higher measurement noise (±0.03–0.04 cycles/beat) due to instrumental or environmental coupling; baseline will stabilize only after identifying and isolating the noise source",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab is measuring a genuinely variable quantity (not a stable instrumental property) due to environmental modulation or partial coupling to unmeasured degrees of freedom; the high scatter is physical, not instrumental",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab and pendulum_lab are measuring incommensurable quantities or are calibrated on different absolute scales; the apparent discrepancy in noise is real but not a sign of instability in either instrument",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator_lab calibration protocol was not properly established on day 1; the instrument may have significant zero-offset, scale-factor error, or hysteresis that makes early readings non-commensurate with later ones",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline is artificially narrow due to selection bias, data truncation, or post-hoc binning that suppresses apparent scatter; true underlying stability is weaker than it appears",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab is subject to genuine environmental noise (vibration, thermal drift, electromagnetic coupling) absent or well-controlled in pendulum_lab; baseline cannot stabilize until noise source is identified and isolated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab calibration was not properly baselined on day 1; early trials (1–30, days 1–?) may suffer unknown zero-offset, scale-factor error, or hysteresis that I did not detect.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab is genuinely measuring a physically variable quantity (not a stable instrumental property) due to environmental modulation of resonator frequency; 'baseline' is a category error until environmental variables are controlled.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab and pendulum_lab measure incommensurable quantities or respond to different environmental variables; their scatter profiles should not be expected to match.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab baseline is artificially narrow due to unexamined selection bias, outlier rejection, or post-hoc averaging; true pendulum stability may be weaker than apparent.",
+      "class": "self_error"
+    },
+    {
+      "label": "A sudden physical or instrumental change occurred between trials 129 (pre-day 28) and 130 (day 28); resonator data are best modeled as two populations: stable (trials 1–129, SD ~?) and destabilized (trials 130–154, SD ~?).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab was never formally baselined on day 1; early trials lack documented calibration protocol (zero-offset, scale-factor verification, stability check against independent standard), rendering all 272 readings suspect for unknown systematic error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab is subject to genuine environmental noise (vibration, thermal microdrift, electromagnetic coupling) absent or well-controlled in pendulum_lab; baseline cannot stabilize until noise source is identified and isolated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab is measuring a physically variable quantity (resonator frequency modulated by real environmental state: temperature, pressure, vibration mode-coupling, electromagnetic field) rather than a stable instrumental property; 'baseline' is a category error until environmental state variables are controlled.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab and pendulum_lab measure incommensurable or orthogonal physical quantities; their scatter profiles need not match, and difference in SD is not an anomaly requiring explanation.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab baseline (SD ~1.0%) is artificially narrow due to undocumented selection bias, outlier rejection, post-hoc averaging, or cherry-picking during days 1–10; true pendulum stability is weaker than apparent.",
+      "class": "self_error"
+    }
+  ]
+}

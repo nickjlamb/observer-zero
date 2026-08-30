@@ -1,0 +1,277 @@
+{
+  "source": "wb-seed9101.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental drift with environmental modulation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration offset or scale factor mismatch between instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise dominated by instrument-specific random fluctuations; correlations are noise artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified confound affecting resonator_obs selectively; possible contamination, vibration coupling, or observer bias in that subsystem",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental forcing with system-dependent response amplitudes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or scale-factor mismatch unmasked by post-baseline protocol change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Selective contamination or decoupling of one or more instruments, revealing independent baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine measurement noise at or near instrument sensitivity limit, with level shifts driven by statistical artifacts or fluke clustering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified local event or intervention on day 11–12 (e.g., building work, power surge, equipment restart)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown coupling mechanism or signal propagation pathway not yet hypothesized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Common environmental forcing with system-dependent response amplitudes and/or delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol change or calibration mismatch revealed on day 11, not present during baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Selective contamination, electromagnetic coupling, or mechanical decoupling of one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact or fluke clustering in post-baseline noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unlogged local event or intervention on day 11–12 (building work, power surge, seismic event, geomagnetic storm, equipment start-up)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Common environmental forcing (thermal, pressure, magnetic, seismic, or power) with system-dependent response amplitudes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged discrete environmental event or intervention on day 11–12 (power surge, HVAC restart, seismic activity, geomagnetic storm, equipment start-up, building work)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol change or calibration mismatch revealed/introduced on day 11, creating a discrete step in one or more measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Selective contamination, electromagnetic coupling, or mechanical decoupling of one or more instruments from the common perturbation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact or fluke clustering in post-baseline noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unknown mechanism not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Common environmental forcing with system-dependent response amplitudes and opposite sign coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged discrete environmental event (power, seismic, geomagnetic, HVAC, or construction) on day 10–11 triggering coupled response across all systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Latent calibration or transduction mismatch between nominally equivalent instrument pairs, revealed or exacerbated on day 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical mechanism intrinsic to the measurement process itself (e.g., secular change in air density, settlement drift, or instrument self-heating cascade) initiated near day 11",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: apparent level shift is a high-variance clustering in post-baseline noise that happens to align across systems by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: mechanism not yet considered (e.g., gravitational anomaly, relativistic effect, phase transition, or unknown coupling pathway)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, or magnetic) with system-dependent response amplitudes and opposite-sign coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged discrete environmental event (power disturbance, seismic event, geomagnetic storm, HVAC restart, or construction) on day 10–11 triggering coupled response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Latent calibration or transduction mismatch between nominally equivalent instrument pairs, unmasked or exacerbated around day 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical mechanism intrinsic to measurement apparatus or medium (air density secular change, settlement threshold, self-heating cascade, or resonator aging) initiated near day 11",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: apparent level shift is a clustering in post-baseline noise that happens to align across systems by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, magnetic, or vibrational) with opposite coupling to pendulum vs. resonator physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete environmental or instrumental event (power disturbance, seismic event, geomagnetic storm, HVAC restart, or unlogged protocol change) on day 10–11, triggering coupled state-change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Latent calibration or transduction mismatch (sign inversion, transducer reversal, or protocol change) between nominally equivalent instruments, unmasked around day 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Intrinsic measurement apparatus dynamics (self-heating cascade, mechanical threshold, or air-conditioning threshold crossed around day 11–12)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: apparent level shift is random clustering in post-baseline noise that aligns across systems by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent geometric, optical, or transduction misalignment in each physical instrument, present from baseline but camouflaged by high baseline noise; post-day-11 environmental forcing increases signal amplitude, revealing these latent instrument-specific biases as residual decorrelation superimposed on the common shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, magnetic, or vibrational) with opposite coupling polarity to pendulum vs. resonator systems, sustained from day 11–12 onward; within-pair decorrelation reflects spatial heterogeneity in the environmental field or time-lagged transduction differences between nominally identical instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transducer or signal-conditioning error (e.g., one member of each pair wired with inverted polarity, phase-shifted input, or offset bias) introduced or exposed around day 11, coincidentally synchronized across both pairs but with opposite sign convention in pendulum vs. resonator readout circuitry",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Intrinsic instrument warm-up or mechanical settling dynamics (resonator electronics self-heating, pendulum bearing relaxation, air-column thermal equilibration) crossing a nonlinear threshold around day 11–12, coupling oppositely to the two measurement types but independent across the pair members",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: apparent synchronized level shifts and inter-system correlations are random noise clustering that aligns by chance across systems",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, vibrational) with opposite coupling polarity to pendulum vs. resonator physics; within-pair decorrelation reflects spatial heterogeneity in the environmental field or differential time-constant responses between nominally identical instruments at different physical locations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent geometric, optical, or transduction misalignment in each physical instrument, present from baseline but camouflaged by high baseline noise; post-day-11 environmental forcing (common driver) increases signal amplitude 3–5×, revealing latent instrument-specific biases as residual decorrelation superimposed on the common level shift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transducer or signal-conditioning error (inverted polarity, phase shift, or offset bias in one member of each pair) introduced or exposed around day 10–11, coincidentally synchronized across both pairs but with opposite sign convention in pendulum vs. resonator readout circuitry.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Nonlinear threshold crossing in instrument warm-up or mechanical settling dynamics (resonator electronics self-heating, pendulum bearing relaxation, air-column thermal equilibration) around day 11–12, coupling oppositely to the two measurement types.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: apparent synchronized level shifts and correlations are random noise clustering aligning by chance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, vibrational) with opposite physical coupling to pendulum vs. resonator modalities; within-pair decorrelation driven by spatial heterogeneity in the environmental field or differential instrument time-constants.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Static instrument-specific misalignment (optical, transduction, or mounting geometry) present from day 1 but camouflaged by high baseline noise; post-day-11 environmental forcing increases signal amplitude 3–5×, revealing latent biases as decorrelation superimposed on common shift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transducer or signal-conditioning error (inverted polarity, phase shift, or impedance change) in one member of each pair, triggered or exposed around day 10–11 by a maintenance action, component stress, or protocol change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Nonlinear instrument warm-up or mechanical settling thresholds (resonator electronics self-heating, pendulum bearing relaxation, air-column thermal drift) crossing independently around day 11–12 in a way that produces opposite-polarity shifts by coincidence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: apparent synchronized level shifts and correlations are random noise clustering aligning by chance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common environmental forcing (thermal, barometric, or vibrational) with opposite physical coupling to pendulum vs. resonator, mediated by spatial heterogeneity in the environmental field or differential instrument time-constants",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Static instrument-specific misalignment or transduction bias present from day 1 but camouflaged by high baseline noise; post-day-11 environmental shift increases signal amplitude 3–5×, resolving latent biases as decorrelation superimposed on common shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transducer or signal-conditioning fault (inverted polarity, phase shift, or impedance change) in one member of each pair, triggered by maintenance action, component stress, or protocol change around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Nonlinear instrument-specific warm-up, mechanical settling, or thermal threshold-crossing (resonator amplifier self-heating, pendulum bearing relaxation, air-column drift) triggering independently around day 11–12 by coincidence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism(s) explaining synchronized opposite-polarity shifts with persistent within-pair decorrelation",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

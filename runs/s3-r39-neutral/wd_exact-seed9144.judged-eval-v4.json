@@ -1,0 +1,253 @@
+{
+  "source": "wd_exact-seed9144.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental noise: each stream is dominated by random measurement error uncorrelated with the others",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic periodic interference: environmental or instrumental cycles are anti-correlating measurements with their own past or with other instruments at fixed phase offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol drift or observer bias: systematic differences between lab and observatory protocols, or between how I record pendulum vs. resonator, are creating anti-correlated artifacts",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncontrolled environmental covariate (e.g., barometric pressure, local seismic activity) is coupled to instruments in opposite ways depending on location or type",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or file corruption: readings are being randomly shuffled, duplicated, or truncated at the edge of the baseline period, creating apparent anti-correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic periodic environmental cycle (3–5 day period) coupling differentially to lab vs. observatory or to pendulum vs. resonator physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental noise with genuine low-level drift in pendulum_lab only",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic difference in observation or transcription protocols between lab and observatory, or between pendulum and resonator recording",
+      "class": "self_error"
+    },
+    {
+      "label": "External environmental covariate (barometric pressure, humidity, local seismic noise) measured but not yet examined, coupling oppositely to different instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, file retrieval, or timestamp corruption introducing systematic misalignment between trials and dates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic periodic environmental cycle (3–5 day period) coupling oppositely to pendulum vs. resonator, or to lab vs. observatory locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine instrumental drift in pendulum_lab only; other three streams are independent white noise; resonator_obs day 14 shift is a random excursion or measurement outlier",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic difference in observation or transcription protocol between lab and observatory, or between pendulum and resonator recording (timing, clock synchronization, phase of measurement cycle)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine measurement anomaly on day 14–15 in resonator_obs (instrument malfunction, environmental shock, or recording protocol change) causing a level shift that does not yet propagate to other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External environmental covariate (barometric pressure, humidity, seismic noise, power-line frequency) measured by settlement but not yet cross-referenced, coupling oppositely to pendulum vs. resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, file retrieval, or timestamp corruption introducing systematic misalignment between trials and dates",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic protocol or timing drift between lab and observatory sites, or between pendulum and resonator recording methods, causing phase inversion and spurious lag structures",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental periodic cycle (3–5 day period) coupling oppositely to pendulum vs. resonator, or to lab vs. observatory, producing weak correlations and lag-specific negative autocorrelations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine instrumental drift or malfunction localized to resonator_obs around day 14–15, causing a discrete level shift independent of other streams; other streams are stable or drifting only in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab only shows genuine instrumental drift (z=−2.60, statistically significant); other three streams are nominally stable; weak cross-correlations and the resonator_obs shift are statistical artifacts from random noise and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An external environmental covariate (barometric pressure, humidity, seismic activity, power-line frequency, or settlement-wide thermal cycle) measured by the settlement but not yet cross-referenced, drives weak/inverted correlations and the resonator_obs shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, or file retrieval error causing systematic offset or binning of readings across trial boundaries",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Protocol or clock drift between lab and observatory sites: ambiguous operationalization of 'beat' or phase-definition mismatch, or desynchronized timing between sites introduced around day 14",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental periodic cycle (3–6 day period) with opposite coupling to pendulum vs. resonator, or opposite coupling between lab and observatory sites, producing anti-correlations and weak overall cross-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized instrumental drift or malfunction in resonator_obs around day 14–15, independent of other streams; pendulum_lab drift is genuine but unrelated to resonator_obs shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An external environmental covariate (barometric pressure, humidity, seismic activity, power-line frequency, or settlement-wide thermal cycle) measured by the settlement but not yet cross-referenced, drives weak cross-correlations and the resonator_obs shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, or file retrieval error causing systematic offset or binning of readings between trial numbers or sites",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Protocol or timing desynchronization between lab and observatory sites introduced around day 14–15, causing systematic misalignment in how 'beats' or 'cycles' are operationalized or timestamped",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental oscillation (3–6 day period) in barometric pressure, humidity, microseism, or power-line frequency, with opposite coupling to pendulum vs. resonator dynamics, or opposite phase between lab and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized instrumental drift or malfunction in resonator_obs around day 14–15, independent of other streams; does not imply broader observatory failure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unexamined settlement environmental measurements (barometric pressure, humidity, seismic activity, power-line frequency, thermal logs) drive the weak cross-correlations and resonator_obs shift via opposite coupling to instrument types or sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, or file retrieval error causing systematic binning, offset, or site-mislabeling of readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observatory-specific protocol or timing desynchronization introduced around day 14–15, affecting how trials are timestamped, operationalized, or synchronized with lab site.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental oscillation (3–6 day period) in barometric pressure, humidity, microseism, or thermal conditions, with opposite or phase-shifted coupling to pendulum vs. resonator dynamics between lab and observatory sites.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized instrumental drift or sensor malfunction in resonator_obs after day 14–15 (thermal drift, recalibration event, or localized environmental change affecting only observatory resonator), independent of pendulum_obs or other streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environmental measurements (barometric pressure, humidity, seismic activity, power-line frequency, thermal logs) exist and drive weak cross-correlations and resonator_obs shift via opposite coupling between instrument types or sites.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, or file retrieval error causing systematic binning, offset, or site-mislabeling of readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observatory timing or synchronization protocol error introduced day 14–15, affecting all observatory measurements identically in their temporal structure, causing systematic phase offset between lab and observatory readings.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental oscillation (3–5 day period) or discrete environmental event on day 14–15 couples oppositely to pendulum vs. resonator response, with lab and observatory sites experiencing opposite phase or magnitude.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized instrumental drift, recalibration, or thermal effect in resonator_obs after day 14–15, independent of other streams; the high pendulum_lab ↔ resonator_obs correlation reflects a coincidental alignment of two independent artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environmental measurement logs (barometric pressure, humidity, seismic, thermal, power-line frequency) exist and show a 3–5 day oscillation or discrete day-14–15 event that I have not yet retrieved; this environmental covariate drives weak correlations and the resonator_obs shift via opposite instrument coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, file retrieval error, or site-mislabeling of readings causing systematic offset, binning, or trial-number reassignment.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observatory timing or synchronization protocol change on day 14–15 affecting all observatory measurements identically, causing a composite systematic artifact where pendulum_lab readings become time-aligned with resonator_obs readings at a 3-day offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental oscillation or event on day 14–15 (barometric pressure, thermal, seismic, or power-line perturbation) couples oppositely to pendulum vs. resonator response, with lab and observatory sites experiencing opposite-phase or sheltered-vs.-exposed inputs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized instrumental artifact (thermal drift, recalibration, or equipment change) in resonator_obs after day 14–15, and the r = 1.000 pendulum_lab ↔ resonator_obs correlation is a red herring—a coincidental alignment of two independent instrumental drifts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environmental measurement logs (barometric pressure, humidity, seismic, thermal, power-line frequency) exist, contain a 3–5 day oscillation or discrete day-14–15 event, and have not yet been retrieved; independent environmental covariate would explain the high pendulum_lab ↔ resonator_obs correlation and the resonator_obs level shift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data corruption, timestamp misalignment, file retrieval error, or site-mislabeling of readings causing systematic offset, binning, or trial-number reassignment after day 14–15",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observatory trial timestamp or synchronization protocol drift introduced between day 10–15, causing trial-number misalignment in observatory readings while lab readings remain correctly time-indexed. The r = 1.000 pendulum_lab ↔ resonator_obs correlation reflects trial numbers accidentally matching at a 3-day offset despite representing physically asynchronous measurements.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a localized recalibration, environmental isolation, or equipment change (thermal shielding, power supply swap, shelter installation) between day 10–15, introducing a ramp or level shift that by coincidence produces readings in phase with pendulum_lab's natural drift oscillation. The r = 1.000 correlation is a real but coincidental alignment of two independent instrumental artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs both experienced genuine environmental or instrumental events (independent, not coupled) between day 10–15; the r = 1.000 correlation is a real coincidence, and the weak same-type instrument correlations reflect genuine decorrelation in site-specific environmental inputs (e.g., lab and observatory experience opposing thermal or barometric transients).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Subtle data retrieval, file archival, or trial-numbering corruption (not gross mislabeling) introduced systematic trial-offset or timestamp binning after day 10–15 in observatory data, causing trial indices to diverge from physical measurement times. This remains a residual hypothesis, ranked lowest because notebook cross-checks provide independent verification.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

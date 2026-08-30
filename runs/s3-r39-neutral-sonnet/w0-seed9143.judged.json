@@ -1,0 +1,189 @@
+{
+  "source": "w0-seed9143.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All instruments are operating correctly with independent measurement noise at expected levels",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic correlation exists but is masked by insufficient statistical power in the baseline period",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments have calibration drift or systematic error that happens to produce uncorrelated noise patterns",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_lab has developed genuine calibration drift or environmental sensitivity since baseline period ended",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent drift is a statistical artifact from multiple testing or natural variance clustering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or procedural change occurred after baseline period affecting only resonator_lab measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical phenomenon affecting settlement resonators began after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "resonator_lab has developed genuine calibration drift or environmental sensitivity since baseline period ended",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent drift is a statistical artifact from multiple testing or natural variance clustering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or procedural change occurred after baseline period affecting only resonator_lab measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical phenomenon affecting settlement resonators began after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "resonator_lab has developed genuine calibration drift or environmental sensitivity since baseline period ended",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent drift is a statistical artifact from multiple testing or natural variance clustering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or procedural change occurred after baseline period affecting only resonator_lab measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical phenomenon affecting settlement resonators began after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise dominates genuine signal variation, masking any true correlations between instruments measuring related physical phenomena",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The instruments are genuinely measuring independent physical phenomena with no shared environmental sensitivity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Temporal offset analysis methodology is flawed—testing multiple offsets inflates chance thresholds, and true correlations exist at untested timescales or non-linear relationships",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic operator recording errors or instrument digitization artifacts create apparent independence by adding uncorrelated noise to each measurement stream",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The settlement's physical environment is exceptionally stable, and instruments have adequate precision to detect variations if they occurred—the null results represent genuine environmental stability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal for all four instruments—current precision is insufficient to detect real environmental variations that may exist below the noise floor",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments genuinely measure independent phenomena with no shared environmental sensitivity—pendulums and resonators respond to different physical variables that don't covary in this environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The 0.000100 resolution limit across all four instruments represents a common digitization or recording protocol that adds independent quantization noise, partially masking true correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Meridian's underground environment is exceptionally stable (temperature, gravity, pressure) and all four instruments have adequate precision to detect variations if they occurred—the comprehensive null results across 28 days represent genuine physical stability",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise (1.5-1.6% relative standard deviation) dominates any real environmental signal—true variations exist below the detection threshold of current methods",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All four instruments share a common systematic limitation (digitization protocol, operator procedure, or environmental isolation) that produces artificially stable readings by suppressing sensitivity to real variations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure genuinely independent phenomena with no shared environmental coupling in Meridian's specific conditions—pendulum gravitational sensitivity and resonator responses are decoupled here",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Meridian's underground environment is exceptionally stable (temperature, gravity, pressure) and all four instruments have adequate precision to detect variations if they occurred—the comprehensive null results across 30 days represent genuine physical stability",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise (1.5-1.6% relative standard deviation) dominates any real environmental signal—true variations exist below the detection threshold of current methods",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All four instruments share a common systematic limitation (digitization protocol, operator procedure, or environmental isolation) that produces artificially stable readings by suppressing sensitivity to real variations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure genuinely independent phenomena with no shared environmental coupling in Meridian's specific conditions—pendulum gravitational sensitivity and resonator responses are decoupled here",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Meridian's underground environment is exceptionally stable (temperature, gravity, pressure) and all four instruments have adequate precision to detect variations if they occurred—the comprehensive null results across 40 days represent genuine physical stability",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise (1.5-1.6% relative standard deviation) dominates any real environmental signal—true variations exist below the detection threshold of current methods",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All four instruments share a common systematic limitation (digitization protocol, operator procedure, or environmental isolation) that produces artificially stable readings by suppressing sensitivity to real variations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure genuinely independent phenomena with no shared environmental coupling in Meridian's specific conditions—pendulum gravitational sensitivity and resonator responses are decoupled here",
+      "class": "environmental_change"
+    }
+  ]
+}

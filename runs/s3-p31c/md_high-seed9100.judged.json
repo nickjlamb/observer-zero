@@ -1,0 +1,169 @@
+{
+  "source": "md_high-seed9100.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic measurement isolation: each stream measures a genuinely distinct physical quantity (or the same quantity filtered through incompatible apparatus), so weak cross-correlations are expected and baseline stability within streams is the real success.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental calibration drift or coupling: systematic errors in one or more instruments are causing readings to diverge unpredictably, masked because baseline period was too short to detect slow drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or temporal modulation: a shared external driver (temperature, pressure, cosmic activity, settlement activity) is weakly coupling the streams but with lags and phase shifts that obscure the signal.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: observed correlations are noise fluctuations within the range expected for uncorrelated streams, and apparent patterns reflect multiple-comparison bias.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent instrumental noise events: Day 19–20 saw isolated high-variance episodes in resonator_lab and pendulum_obs, unrelated to each other, caused by local apparatus disturbance (vibration, thermal fluctuation, power transient) affecting each independently.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental or settlement-wide transient on Day 19: a brief disturbance (seismic event, operational surge, temperature spike, power fluctuation) affected multiple instruments simultaneously or with small lags, explaining the Day 19 clustering of anomalies across resonator_lab, pendulum_obs, and resonator_obs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental calibration drift or environmental creep during Days 11–20: the baseline (Days 1–10) was too short to establish true zero-drift; a slow, nonlinear drift began after Day 10 and manifested as high-variance excursions on Days 19–20 when the instruments were pushed or when accumulated drift crossed a threshold.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias change on Day 19: a procedural change (faster or slower trial cycle, temperature of reagents, handling method, observer attention) introduced on Day 19 caused apparent high variance in two streams while others remained stable.",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: Day 19–20 high-variance readings are within the expected scatter for independent instruments under normal conditions, and no anomaly exists—the appearance of clustering reflects post-hoc pattern-seeking and small-sample noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments are not measuring the same quantity; pendulum_lab and resonator_obs measure a shared environmental signal (e.g., barometric pressure, thermal cycling, ambient vibration) while pendulum_obs and resonator_lab are decoupled from it or respond oppositely.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "One or more instruments have a systematic calibration offset or time constant mismatch relative to the others; the weak cross-correlations reflect phase lags and amplitude scaling that are instrument-specific rather than signal-specific.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical undersampling and multiple comparisons: the cross-correlation matrix (6 pairwise comparisons) combined with variable offsets (2–5 day lags) inflates the apparent signal in one or two 'lucky' pairs by chance; the majority of correlations are noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The Day 19–20 high-variance bursts in resonator_lab and pendulum_obs are legitimate anomalies indicating a shared transient (environmental or operational disturbance), and the weak cross-correlations reflect contamination of the baseline by these bursts; post-Day 20 data will show stronger agreement if I exclude the burst trials.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental or measurement-protocol heterogeneity ('lab' vs 'obs' streams measure fundamentally different observables or use incomparable methods, such that correlation is not physically meaningful).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 27–29 high variance reflects a real, settlement-wide transient disturbance (thermal event, seismic/vibration episode, power supply fluctuation, or operational anomaly) affecting all four instruments simultaneously but with different amplitudes and time constants; the coherence across instruments on these dates is a fingerprint of a shared environmental driver, not independent noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Days 27–29 high variance is an artifact of sampling bias, operator fatigue, or degraded measurement protocol on those dates (e.g., faster trial execution under time pressure, less careful equilibration before readings, environmental shield removed, or instruments moved to a new location without re-baseline)—not a physical transient, but a procedural lapse that inflates scatter without changing true means.",
+      "class": "self_error"
+    },
+    {
+      "label": "Days 27–29 readings include true outliers (measurement errors, instrument malfunction, or transcription mistakes) that should be flagged and excluded from further analysis; the underlying baseline remains stable and the 27–29 spike is a data-quality issue, not a physical phenomenon.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The Days 27–29 variance is genuine and driven by a real external environmental driver (e.g., a lunar tidal cycle, atmospheric pressure front, or groundwater thermal pulse) that couples differently to each instrument's time constant and location, producing the observed coherent multi-stream scatter without a permanent level shift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The Days 27–29 spike is a statistical artifact: I computed post-baseline statistics with insufficient sample size (post-baseline n=56–158 depending on stream), and including a few high-variance Days 27–29 readings in the post-baseline pool inflates the apparent variance, making them appear anomalous in retrospect, when in fact they are consistent with a broader (but unmeasured) baseline tail.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab apparatus malfunction or calibration drift beginning Day 38, independent of other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 38–39 resonator_lab scatter reflects genuine environmental transient (late repetition of Days 27–29 pattern), but pendulum streams happened to be in low-noise phase by Day 39",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Days 38–39 resonator_lab readings include data transcription or digital-logging errors (corrupted subset of trials 306–324), not apparatus drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 38–39 resonator_lab high variance is a statistical artifact: post-baseline resonator_lab distribution is genuinely wider-tailed than baseline estimate, and trials 306–324 happen to be a high-variance draw from that broader distribution, not anomalous",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: measurement interaction or feedback loop between resonator_lab and resonator_obs that emerges on Days 38–39, or an unknown apparatus-specific failure mode",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator apparatus underwent a calibration shift or thermal equilibration change between Day 39 and Day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab Days 38–39 high variance was an instrumental malfunction that partially resolved by Day 40, leaving apparatus drifted to a higher calibration state",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient (temperature, barometric pressure, or vibration spike) on Day 40 affected resonator apparatus preferentially; pendulum apparatus remained isolated or insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 40 resonator readings include systematic transcription or digital-logging errors confined to resonator streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are coupled (shared power supply, thermal enclosure, or vibration isolation table); a shared component degraded or drifted on Day 40, raising both sensors' readings identically",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: Days 38–39 and Day 40 resonator readings are heavy-tailed draws from a broader post-baseline distribution; no apparatus change implied",
+      "class": "measurement_error"
+    }
+  ]
+}

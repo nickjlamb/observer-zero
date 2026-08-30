@@ -1,0 +1,121 @@
+{
+  "source": "wd_exact-seed9100.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument is functioning normally; baseline captures genuine environmental/thermal variation in pendulum period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement precision is insufficient; spacing below ~0.001 beats represents instrumental noise floor, not resolvable signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument calibration or zero-point drift over days 1–10; baseline is contaminated by unlogged instrumental drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline is sound; days 18–20 represent genuine environmental excursion (temperature spike, pressure drop, or seismic activity) causing real pendulum period change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration or timing-clock drift over days 1–20; baseline epoch (days 1–10) was already contaminated, and days 18–20 show acceleration of pre-existing drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline is sound; days 18–20 variance is consistent with natural measurement scatter; no anomaly exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol breach or instrument handling change on day 18–19; systematic error introduced (e.g., thermal contact with operator, displaced pendulum bob, altered release height)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental noise floor is being exceeded or noise characteristics changed; days 18–20 readings reflect a mix of genuine signal and suddenly increased instrumental jitter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental excursion (thermal, barometric, or seismic) beginning day 28–29",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration or internal clock drift accelerating from day 18 onward, now evident as variance surge on days 28–30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or apparatus handling change on or before day 28; systematic error introduced (thermal contact, release height variation, or mechanical disturbance)",
+      "class": "self_error"
+    },
+    {
+      "label": "No genuine anomaly on days 28–30; readings are consistent with natural measurement scatter in a stable system, and apparent variance surge is a random cluster",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental noise floor exceeded or noise characteristics changed catastrophically on day 28; jitter amplitude increased",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument calibration drift or frequency reference failure, now acute by day 39",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical excursion in pendulum system (thermal expansion, barometric pressure, or seismic activity) beginning day 28–29, now sustained and elevated through day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change or apparatus handling error introduced on day 38–39 (e.g., thermal contact, release height drift, or apparatus relocation)",
+      "class": "self_error"
+    },
+    {
+      "label": "The level shift on day 39 is a random high cluster within the broader variance surge of days 28–40; no distinct new anomaly, only continuation of elevated scatter",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument jitter or noise floor exceeded; high-frequency noise component failure on or before day 28",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

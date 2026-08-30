@@ -1,0 +1,161 @@
+{
+  "source": "wd_exact-seed9147.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 21,
+  "l4Judged": 21,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift with periodic or quasi-periodic component",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-talk or coupling between instruments in shared environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine periodic physical phenomenon with ~5–6 day period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical over-fitting: spurious correlations from small sample sizes and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Laboratory instruments experiencing genuine environmental drift independent of observatory instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental cycle (~5–6 day period) affecting lab and observatory instruments in opposite phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine sub-10-day physical oscillation being measured by independent instruments, weakly coupled through shared environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: spurious lag-dependent correlations from multiple testing and small effective sample sizes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observatory occupy genuinely distinct environmental regimes (temperature, vibration, magnetic field, or gravitational gradient) causing real instrumental drift in labs only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental cycle (~5–7 day period) weakly affects all instruments but appears as drift in lab ensemble due to sampling phase alignment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Post-baseline calibration drift or procedural change introduced on Day 11 affecting laboratory measurements only",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: apparent drift from multiple-comparison bias and baseline variance asymmetry",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified environmental or procedural anomaly specific to laboratory site",
+      "class": "other"
+    },
+    {
+      "label": "Lab and observatory occupy genuinely distinct environmental regimes (temperature, vibration, magnetic field, or gravitational gradient) causing real instrumental drift in labs only.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared environmental or instrumental cycle (~5–7 day period) weakly affects all instruments, and sampling-phase alignment in the baseline window (Days 1–10) vs. post-baseline window (Days 11–25) creates an apparent drift in lab ensemble only by statistical coincidence.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A procedural change or recalibration on or shortly after Day 11 affected laboratory measurements only (e.g., amplifier gain adjustment, readout electronics offset, or data extraction method).",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: apparent drift from baseline sample-size asymmetry and regression to the true mean, combined with multiple-comparison bias in the cross-instrument correlation search.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified environmental or procedural cause specific to the laboratory site, including a hidden oscillation, electromagnetic interference, or data-logging error not yet conceived.",
+      "class": "other"
+    },
+    {
+      "label": "Observatory instruments underwent genuine environmental or physical disturbance on Day 35, causing elevated noise and readings to scatter; this is transient and will revert if the disturbance ceases.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A measurement protocol or data-handling procedure changed on Day 35 (e.g., operator, data logger settings, or readout cadence), affecting all instruments simultaneously but not visible in the mean, only in increased scatter.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are failing or degrading (e.g., sensor aging, electronic drift, or mechanical wear), with Day 35 marking the visible onset or acceleration of failure noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The Day 35 variance elevation is a statistical fluctuation within normal bounds for a single day's trial run; future days will show reversion to lower variance, and no causal event is required.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unobserved or unconceived—e.g., a data-transmission error affecting Day 35 readings, a software bug in the trial-logging system, electromagnetic interference from a new source in the settlement, or an environmental event I have no record of.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental or facility-wide physical disturbance (seismic, HVAC, vibration, occupancy surge) on Day 35 caused transient noise elevation in all instruments; effect should revert if disturbance ceases.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or data-handling procedure changed on or just before Day 35 (operator change, data logger settings, sampling cadence, sensor alignment, or readout mode), affecting all instruments without a causal physical event.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are degrading or failing (transient electrical contact, sensor aging, power supply fault affecting multiple instruments via shared infrastructure), with Day 35 marking visible onset of failure noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 35 variance elevation is a statistical fluctuation within normal sampling variability; no causal event is required, and variance will revert to baseline on subsequent days.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: data-transmission error, software bug in trial-logging system, electromagnetic interference from a new settlement source, facility power glitch, or external event not yet visible in my records.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

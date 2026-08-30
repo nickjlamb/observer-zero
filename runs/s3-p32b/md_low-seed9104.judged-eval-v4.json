@@ -1,0 +1,209 @@
+{
+  "source": "md_low-seed9104.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic environmental drift or periodic disturbance affecting all instruments in phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or instrumental coupling error in measurement protocol or data recording",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Insufficient baseline length; anomaly reflects genuine stochastic process not yet characterized",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled experimenter bias or selective reporting in trial selection or logging",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic environmental oscillation or periodic disturbance with ~5–9 day timescale affecting all instruments in phase-shifted or damped response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental coupling, wiring polarity inversion, or shared data pipeline artifact introducing systematic negative correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period too short; negative correlations reflect genuine autocorrelated noise or natural process with ~5–10 day coherence not yet distinguished from instrument error",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Experimental bias in trial selection, exclusion, or logging order, or selective reporting influenced by prior results",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab underwent a physical or environmental perturbation on Day 20 that increased its mechanical susceptibility or ambient forcing",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data entry or logging error on Day 20; some or all of trials 177–190 may be corrupted or miscalibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The baseline period (days 1–10) was too short or unrepresentative; post-baseline drift and variance increases reflect genuine process dynamics, not an anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The negative autocorrelations and cross-correlations in the baseline reflect instrumental coupling or shared signal path artifacts, and Day 20 elevation represents a mode shift in the coupled system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered: mechanical resonance induced by external vibration, intentional or accidental change to trial protocol, or correlation with a settlement event not yet reported",
+      "class": "other"
+    },
+    {
+      "label": "The four instruments measure genuinely different physical quantities or operate under different measurement protocols, producing systematic offsets and poor cross-correlation by design",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The negative cross-correlations and mutual disagreement reflect wiring errors, polarity inversions, or misaligned signal conditioning in the lab instruments (pendulum_lab and resonator_lab), such that their outputs are anticorrelated by systematic artifact rather than by physics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a real environmental or mechanical change on or before Day 20 that increased its output magnitude (e.g., tighter coupling, higher Q, stronger driving force, or temperature change affecting capacitance), while the other three instruments were unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The four instruments are sufficiently decoupled and operating in sufficiently different physical domains (time, frequency, mechanical vs. electrical) that weak cross-agreement is expected; the resonator_obs elevation is a real but low-probability statistical fluctuation (z=2.34 is not a 5σ event), and no anomaly requires explanation beyond baseline variability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The baseline period (days 1–10, n=38 for resonator_obs) is too short to establish a stable mean for resonator_obs; the post-baseline 'elevation' reflects regression to a true population mean or reveal of a slow drift that the 10-day baseline masked",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10, n=20) was too short; the 'elevation' reflects regression toward a true mean with longer natural periodicity (14–21 day cycle).",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments measure genuinely different physical quantities or operate under different measurement protocols; poor cross-agreement is by design, and resonator_obs elevation reflects a real but local change in that apparatus (mechanical, thermal, or environmental) on/before day 20.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Wiring error, polarity inversion, or signal-conditioning misalignment in the lab channel (pendulum_lab and resonator_lab share circuitry); the negative cross-correlations reflect systematic artifact, not physics. Resonator_obs elevation is real but independent.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs elevation (z=2.43) is a statistical fluctuation within expected noise; no real anomaly requires explanation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unknown mechanism or unobserved variable (e.g., undocumented settlement event, unlogged environmental variable, or fundamental misunderstanding of apparatus function).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs baseline (n=20, days 1–10) was too thin; elevation reflects natural ~14–21 day oscillation, not drift or damage.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Four instruments measure distinct physical quantities or operate under different protocols; poor cross-agreement is by design. Resonator_obs elevation reflects a real local change (mechanical, thermal, operational) in that apparatus on/before day 20.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Wiring error, polarity inversion, or signal-conditioning artifact in the lab channel (pendulum_lab and resonator_lab share circuitry); lab negative cross-correlations are artifact. Resonator_obs elevation is real but independent.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs elevation (z=1.43) is a statistical fluctuation within expected noise; no real anomaly.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs elevation and day-36 variability reflect an undocumented settlement event, environmental variable (temperature, humidity, vibration), or fundamental misunderstanding of apparatus function or measurement protocol.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs baseline too thin; elevation reflects genuine ~14–21 day natural oscillation, not instrumental change or settlement event.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Four instruments measure independent physical quantities under distinct protocols; poor cross-agreement is expected. Resonator_obs elevation reflects real local mechanical or thermal change in that apparatus around day 18–23.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs elevation (z=1.39) is a statistical fluctuation within expected noise; no real physical anomaly. All four streams are stable and independent as designed.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Wiring or signal-path artifact (polarity, offset, cross-talk) in lab channels inflates negative cross-correlation; resonator_obs elevation is real but independent of artifact. Obs stream shares separate signal path and shows weaker correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented settlement event, environmental variable (temperature, humidity, vibration, power, water system), or fundamental misunderstanding of apparatus function or measurement protocol on or before day 20.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs baseline too thin; z=1.10 and day 36–38 scatter reflect genuine ~10–12 day natural oscillation inadequately sampled by baseline (n=20 over 10 days, avg 2/day).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs experienced localized mechanical, thermal, or coupling change around day 18–23; elevation persists as new equilibrium, day 36–38 scatter reflects apparatus transitioning through or amplifying response near new operational point.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline is real but marginal (n=20); z=1.10 is a statistical fluctuation (p≈0.137); day 36–38 scatter is elevated but within expected noise for small sample. All four instruments are operating normally.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab signal path artifact (polarity inversion or cross-talk between pendulum_lab and resonator_lab) inflates their negative correlation (r=−0.418); resonator_obs elevation is real and independent. Obs stream uses separate signal path.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented settlement event, environmental change (thermal, vibration, power, water system), or operational mode change on or before day 20 affected resonator_obs location/apparatus differently than others. Requires external log review.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Misunderstanding or undocumented change in resonator_obs measurement protocol, apparatus function, or operational mode (e.g., resonator frequency, drive amplitude, readout method) between days 1–10 and day 11 onwards, causing apparent elevation.",
+      "class": "self_error"
+    }
+  ]
+}

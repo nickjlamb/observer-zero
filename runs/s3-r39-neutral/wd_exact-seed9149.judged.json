@@ -1,0 +1,237 @@
+{
+  "source": "wd_exact-seed9149.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 29,
+  "l4Judged": 29,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent measurement error dominates; instruments are measuring distinct noise rather than a common signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are capturing distinct physical phenomena or environmental modes, not a unified system property",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Time-lag structure reflects genuine periodicity or cyclical environmental forcing; current 10-day baseline is too short to resolve the true period",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or systematic offset between lab and observational branches masks a real shared signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational disturbance on Day 20 affected observational apparatus (pendulum_obs and resonator_obs) but not laboratory apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational apparatus (both pendulum_obs and resonator_obs) underwent a synchronous fault or mode change on Day 20—independent of environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 20 observational readings reflect genuine physical variance (not instrumental artifact), revealing a real transient phenomenon in the settlement or measurement volume",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry, transcription, or trial-numbering error on Day 20: observational trials 121–126 are mislabeled or corrupted",
+      "class": "self_error"
+    },
+    {
+      "label": "The earlier hypothesis set (uncorrelated measurement noise, independent phenomena, periodicity, calibration offset) incompletely captured the dynamics; Day 20 variance signals a breakdown or transition in one of those regimes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational apparatus underwent a genuine recalibration, thermal drift, or mode change starting Day 22, decoupled from lab apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, or electromagnetic) on or after Day 22 affected observational site but not lab site",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 20 variance spike in observational streams was a genuine transient phenomenon (seismic, thermal pulse, EM burst) captured by observational apparatus but not lab apparatus",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry or trial-numbering error, particularly in trials 121–156 of pendulum_obs or surrounding region, or in the Day-22 boundary",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab's negative autocorrelation at lag 11d (–0.367) reflects genuine coupled oscillation or mode interference at ~11-day timescale, decoupled from other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Cross-correlation anomaly: pendulum_lab ↔ resonator_obs at 3-day offset shows r=0.653, well above chance (±0.287), indicating hidden coupling or shared forcing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism or artifact",
+      "class": "other"
+    },
+    {
+      "label": "Observational apparatus underwent genuine instrumental drift or recalibration starting Day 22, decoupled from lab apparatus due to different environmental isolation or data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, or EM) at observational site starting Day 22, with no effect on lab site due to spatial separation or different isolation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Anomalous three-day lagged correlation (r=0.726) between pendulum_lab and resonator_obs reflects genuine physical or instrumental coupling, not noise or transcription error",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry, trial-numbering, or transcription error in observational streams, particularly in trials 121–156 (pendulum_obs) or in Day-22 boundary, creating spurious level shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab's negative autocorrelation at lag 11 days (r=−0.367) reflects genuine instrumental settling, mode interference, or coupled oscillation at ~11-day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (calibration standard drift, gravitational transient, settlement structural resonance, data firmware bug, observer bias, non-linear hysteresis)",
+      "class": "other"
+    },
+    {
+      "label": "Observational apparatus (pendulum_obs and/or resonator_obs site) underwent instrumental drift, recalibration, or environmental perturbation starting ~Day 22, decoupled from lab apparatus due to spatial isolation or different data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The perfect (r=1.000) three-day lagged correlation between pendulum_lab and resonator_obs is a statistical artifact: either a data transcription error, a coincidental near-perfect match within noise that has been misinterpreted, or an artifact of the correlation-search procedure (multiple offsets tested without correction)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, or EM) at observational site starting ~Day 22, with no effect on lab site due to spatial separation or different isolation; coupling between sites (explaining the r=1.000 correlation) is indirect or mediated by shared settlement infrastructure (e.g., building vibration, air circulation, power coupling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, trial-numbering, or transcription error in observational streams (particularly trials 127–162 in pendulum_obs, or mislabeling of the Day-22 boundary), creating spurious level shift and/or spurious inter-site correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (external calibration standard drift, gravitational transient, settlement structural resonance, data firmware clock drift, observer bias, non-linear hysteresis in sensor memory effects, or interaction of multiple causes)",
+      "class": "other"
+    },
+    {
+      "label": "Data identity or transcription error: pendulum_lab trials were duplicated into resonator_obs with a 3-day time-shift label, or vice versa, creating the spurious r=1.000 correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental drift or calibration change at observational site (pendulum_obs and/or resonator_obs) starting ~Day 22, decoupled from lab apparatus due to spatial isolation or different data path.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data audit error or trial-numbering mistake in observational streams, particularly in trials 127–162 (pendulum_obs) or in resonator_obs trials contributing to the r=1.000 correlation, revealing systematic mislabeling or transcription error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, or EM) at observational site starting ~Day 22, with coupling to lab site via shared settlement infrastructure (e.g., building thermal mass, vibration), explaining the r=1.000 correlation as a delayed environmental signal.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (external calibration standard drift, data acquisition firmware change, sensor hysteresis, observer bias, or interaction of multiple causes).",
+      "class": "other"
+    },
+    {
+      "label": "Data identity or transcription error: pendulum_lab trials copied into resonator_obs with 3-day time-shift label (or vice versa), or pipeline merge applied wrong index mapping.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site (pendulum_obs and/or resonator_obs) underwent calibration change, thermal drift, or instrumental deterioration on or near Day 22, independent of lab site.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial-numbering, unit-conversion, or data-import error confined to resonator_obs trials 70–171 (or to pendulum_lab trials contributing to the r=1.000 correlation), indicating undetected transcription or pipeline corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal transient, seismic event, EM interference, or human activity change) at observational site starting ~Day 22, with 3-day delayed coupling to lab site via shared settlement infrastructure (thermal mass, vibration transmission, or power coupling).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: external calibration standard drift, data acquisition firmware change, sensor hysteresis, observer bias, or unconsidered interaction of causes.",
+      "class": "other"
+    },
+    {
+      "label": "Data identity or transcription error: pendulum_lab trials duplicated into resonator_obs dataset with 3-day relabeling, or pipeline merge mismapped row indices.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unit-conversion, decimal-place transcription, or data-import error confined to resonator_obs trials ~70–171 or pendulum_lab corresponding trials (days 11–37).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site (pendulum_obs and/or resonator_obs) underwent calibration drift, thermal transient, or sensor deterioration around Day 22, independent of lab site.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, EM, or operational) at or near observational site starting ~Day 22, with ~3-day delayed coupling to lab site via shared settlement infrastructure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: external calibration standard drift, data acquisition firmware change, sensor hysteresis, observer bias, or unidentified mechanism.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data identity error: pendulum_lab trials duplicated into resonator_obs dataset with systematic 3-day time relabeling or row-index mismapping in data pipeline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Selective unit-conversion, decimal-place, or row-index error isolated to contiguous block of resonator_obs or pendulum_lab trials spanning Day 11–37",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site (pendulum_obs and/or resonator_obs) underwent independent calibration drift, thermal transient, or sensor deterioration around Day 22, unrelated to lab site",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental disturbance (thermal, seismic, EM, or operational) at or near observational site ~Day 22, with ~3-day delayed coupling to lab site via shared settlement infrastructure (power, thermal mass, vibration paths)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: external calibration standard drift, data acquisition firmware change, sensor hysteresis, observer bias, or other unidentified mechanism",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

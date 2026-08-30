@@ -1,0 +1,305 @@
+{
+  "source": "wa-seed9142.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 57,
+  "l4Judged": 57,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental common-mode signal with differential propagation delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift or calibration coupling between measurement pairs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized temporal aliasing or periodic sampling artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical noise and random lag-hunting artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol variation or observer bias correlated with instrument type",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental or instrumental change affecting pendulum systems only",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration drift or reference-coupling in pendulum measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum measurements corrupted by unrecognized operator-dependent protocol change or attention shift around day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Temperature-dependent pendulum response with delayed thermal equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Artifact of statistical lag-hunting or small-sample bias in cross-correlation analysis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical change affecting pendulum systems only (gravitational, magnetic, thermal, or structural)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration drift or reference-coupling in the pendulum measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator-dependent protocol drift or unconscious technique change around day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Temperature-dependent pendulum response with delayed thermal equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact from lag-hunting in cross-correlation analysis and small-sample bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unconsidered physical or procedural mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical change affecting pendulum systems only",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared calibration reference drift in pendulum measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator-dependent protocol drift or unconscious technique change around day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Temperature-dependent pendulum response with delayed thermal equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact from lag-hunting bias and small-sample spurious correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unconsidered physical or procedural mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical change affecting pendulum systems only",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared calibration reference drift in pendulum measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator-dependent protocol drift or unconscious technique change around day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Temperature-dependent pendulum response with delayed thermal equilibration to new steady state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or electromagnetic interference affecting pendulum detection chain",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change affecting air buoyancy and damping in pendulum chain only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical process affecting pendulum inertia or effective gravity selectively",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared calibration reference drift or recalibration event in pendulum measurement chain around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator technique shift around day 12—e.g., altered release height, timing, or beat-counting focus in pendulum measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Temperature-dependent pendulum response to thermal transient with delayed equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change affecting air buoyancy and damping in pendulum apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or EM interference in pendulum detection circuit around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical process: structural or mechanical change in pendulum apparatus (pivot compliance, suspension geometry, or support stiffness) around day 12, with independent anti-correlated noise from unshielded common environmental coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator technique drift in pendulum measurements (release height, amplitude, or beat-counting protocol) stabilizing around day 12, with residual anti-correlated sampling bias from unequal measurement spacing or timing",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or beat-counting protocol shift in pendulum reference chain (shared beat frequency standard or air-pressure correction) around day 12, with independent measurement noise introducing anti-correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature-dependent pendulum response (pivot compliance, air viscosity) with delayed equilibration following a thermal transient around day 12, with independent thermal noise contributing to anti-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change around day 12 affecting air buoyancy and damping selectively in pendulum apparatus, with uncorrelated measurement noise explaining anti-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or EM interference in pendulum detection circuit (ferrous material introduction or EM source activation around day 12) affecting pivot damping or beat-detection electronics, with independent EM noise introducing anti-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum apparatus structural change (pivot compliance, suspension geometry, or support stiffness) around day 12, with residual anti-correlations from independent measurement noise or unshielded environmental coupling affecting each chain differently.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator technique stabilization in pendulum measurements (release height, amplitude, beat-counting focus, or measurement timing) around day 12, with residual anti-correlations from correlated sampling bias if measurements shifted to different circadian window or inter-trial spacing.",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or reference standard shift in pendulum beat-counting method or environmental correction (e.g., pressure sensor recalibration, air-density adjustment) around day 12, with independent measurement noise producing weak anti-correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature-dependent pendulum response (pivot compliance, air viscosity, buoyancy) following a thermal transient around day 12, with delayed equilibration (2–5 day time constant) and independent thermal noise contributing to weak anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change around day 12 affecting air buoyancy and damping selectively in pendulum apparatus, with independent measurement noise explaining anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or EM interference in pendulum detection circuit (ferrous material introduction or EM source activation around day 12) affecting pivot damping or beat-detection electronics, with independent EM noise introducing anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum apparatus structural change (pivot compliance, suspension geometry, or support stiffness) around day 12, with residual anti-correlations from independent measurement noise or unshielded environmental coupling affecting detection circuits differently.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator technique stabilization in pendulum measurements (release height, amplitude, beat-counting focus, or measurement timing) around day 12, with residual anti-correlations from correlated sampling bias.",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or reference standard shift in pendulum beat-counting method or environmental correction around day 12, with independent measurement noise producing weak anti-correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature-dependent pendulum response (pivot compliance, air viscosity, buoyancy) following thermal transient around day 12, with delayed equilibration and independent thermal noise contributing to weak anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change around day 12 affecting air buoyancy and damping selectively in pendulum apparatus, with independent measurement noise explaining anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or EM interference in pendulum detection circuit (ferrous material introduction or EM source activation around day 12) affecting pivot damping or beat-detection electronics.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum apparatus structural change (pivot compliance, suspension geometry, or support stiffness) around day 12, with residual anti-correlations from independent measurement noise or detection circuit coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator technique stabilization in pendulum measurements (release height, amplitude, beat-counting focus, inter-trial timing) around day 12, with residual anti-correlations from correlated environmental or sampling noise.",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or reference standard shift in pendulum beat-counting method or environmental correction around day 12, with independent measurement noise producing weak anti-correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature-dependent pendulum response (pivot compliance, air viscosity, buoyancy) following thermal transient around day 12, with delayed equilibration through day 22.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Barometric pressure change around day 12 affecting air buoyancy and damping selectively in pendulum apparatus, with independent measurement noise explaining anti-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Magnetic contamination or EM interference in pendulum detection circuit (ferrous material introduction or EM source activation around day 12) affecting pivot damping or beat-detection electronics.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak correlations reflect independent thermal or environmental noise coupling differently to pendulum vs. resonator detection geometry, with no systematic coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Detection circuits for pendulum instruments share a common low-frequency reference or clock coupling through a shared power supply or communication bus, producing anti-correlated noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum bifurcation at day 12 is genuine structural apparatus change (pivot compliance, suspension geometry settling, or support stiffness); weak cross-correlations are independent measurement noise, likely unrelated to bifurcation mechanism.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator detection circuits contain phase-shifted coupling (via AC coupling, integrator networks, or anti-aliasing filters) that inverts the sign of low-frequency noise relative to pendulum circuits, producing apparent negative correlations even from shared environmental source.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlated operator drift in measurement timing or environmental conditions between day 12–22 (e.g., measurement time of day shift, seasonal or ventilation change) created anti-correlations that now persist as artifact in residuals despite structural apparatus stabilization.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: An unmeasured or unconsidered confounding variable (e.g., oscillating magnetic field from facility equipment with period 2–6 days, modal vibration in building structure, or complex fluid-structure interaction in apparatus suspension).",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

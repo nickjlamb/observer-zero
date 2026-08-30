@@ -1,0 +1,205 @@
+{
+  "source": "wd_degraded-seed9147.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic measurement coupling: instruments mechanically or electromagnetically interfere with each other, creating anti-correlated noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental driver with inverted phase response: temperature, pressure, or other background field affects instruments with opposite sign sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or calibration error: I am systematically inverting or scaling one of the four measurement streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental autocorrelation (memory or hysteresis): each instrument's reading depends on its own prior value, creating 'echoes' that happen to show negative cross-terms by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "No real anomaly; all cross-correlations are noise, and I am over-interpreting chance successes in a large multiple-comparisons space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry or calibration error: systematic sign inversion or scaling miscalibration in one or more streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver with instruments exhibiting opposite-sign or phase-delayed responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental coupling (mechanical or electromagnetic interference between instruments in shared lab space)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental autocorrelation and memory effects creating false cross-terms in a multiple-comparisons space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "No real anomaly; all cross-correlations are noise within expected statistical variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry, transcription, or calibration error: systematic sign inversion, scaling miscalibration, or systematic offset in one or more streams during baseline setup or ongoing data logging",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, pressure, electromagnetic field) with instruments exhibiting opposite-sign or phase-delayed mechanical responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental coupling (mechanical vibration, electromagnetic interference, or resonant mode coupling) between instruments sharing lab space, with opposite-sign response or damping feedback",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious cross-correlations arising from multiple-comparison bias and weak within-instrument autocorrelation, inflated by scanning many time offsets and instrument pairs",
+      "class": "measurement_error"
+    },
+    {
+      "label": "No real anomaly; all cross-correlations are noise within expected statistical variation, and negative sign bias is a chance fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration error or sign inversion in one or more instruments during baseline setup (days 1–10), propagating through all downstream readings and cross-correlations.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, barometric pressure, or electromagnetic field fluctuation) with differential time-response or phase-lag across instruments due to distinct mounting orientations, thermal mass, or electromagnetic coupling symmetries established during baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak instrumental cross-talk or anti-phase coupling in lab space (pendulum_lab and resonator_lab share mounting platform or power distribution), with characteristic response time of several days due to low-Q damping or nonlinear feedback.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparison bias and weak autocorrelation inflated by scanning many time offsets and instrument pairs, creating spurious negative sign bias in a subset of correlations.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "No real anomaly; all patterns are consistent with independent random measurement error, and the negative sign bias is a chance fluctuation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical drift in pendulum_lab during days 11–25: thermal equilibration, mechanical settling, or persistent environmental effect specific to pendulum_lab mounting or environment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration error in pendulum_lab (systematic offset or timing misalignment during days 1–10) creates apparent drift when post-baseline readings revert to true instrumental output, inflating the z-score.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The negative cross-correlations observed in the previous analysis (e.g., pendulum_lab ↔ resonator_lab: r=−0.142) are real and reflect systematic environmental or instrumental coupling, but today's data do not yet contain enough power to falsify or confirm this pattern. The pendulum_lab drift may be a separate phenomenon, unrelated to cross-instrument correlations.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Random noise and multiple-comparison bias; all observed patterns (drift, correlations, lags) are consistent with independent measurement error, and perceived anomalies reflect p-hacking or cherry-picked offset scanning.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unconsidered: a hidden temporal structure, non-stationarity, or data-collection artifact in pendulum_lab specifically (e.g., operator bias, sensor age-out, or trial-numbering errors creating spurious ordering effects).",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was systematically offset low by ~0.0007 beats due to calibration error, timing misalignment, or environmental transient; post-baseline readings reflect true instrument output and appear to drift only because the baseline is wrong. The negative cross-correlations with other instruments may reflect sign inversion or systematic bias propagating through cross-validation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical drift in pendulum_lab during days 11–25 (thermal equilibration, mechanical settling, or persistent environmental effect specific to pendulum_lab mounting, location, or operator); instrument reached stable new equilibrium by day 25 and has remained there through day 35. Other instruments unaffected due to independent physical drivers or superior environmental stability.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The negative cross-correlations observed in earlier analysis (pendulum_lab ↔ resonator_lab r=−0.172 at 6-day lag; pendulum_obs ↔ resonator_lab r=−0.268 at 6-day lag) reflect real systematic instrumental or environmental coupling with multi-day lag, unrelated to pendulum_lab drift. Coupling may involve shared environmental driver (humidity, vibration, temperature gradient) or instrumental cross-talk (e.g., pendulum vibration damping resonator response with delay). The pendulum_lab drift is a separate phenomenon.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "All observed patterns (pendulum_lab drift, negative cross-correlations, apparent lags) are consistent with random noise, measurement error, and multiple-comparison bias from scanning offsets across 1–12 day lags. Perceived anomalies reflect cherry-picked offset windows and p-hacking.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden temporal structure, data-collection artifact, or procedural error specific to pendulum_lab (e.g., operator bias, sensor age-out, trial-numbering error, or environmental factor unique to pendulum_lab location). Baseline calibration may be correct, but post-baseline procedure diverged from baseline protocol.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was systematically offset low by ~0.0007 beats due to calibration error, timing misalignment, environmental transient, or incomplete mechanical settling. Post-baseline readings reflect true stable instrument output. The appearance of 'drift' is an artifact of baseline miscalibration.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical drift in pendulum_lab during days 11–25 (thermal equilibration, mechanical creep, or environmental settling specific to pendulum apparatus); instrument reached stable new equilibrium by ~day 25 and has remained there through day 36. Other instruments unaffected due to independent environmental drivers or superior environmental stability.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or data-collection error specific to pendulum_lab post-baseline workflow (operator bias, sensor degradation, trial-numbering artifact, or environmental factor unique to pendulum_lab location). Baseline calibration may be correct, but post-baseline procedure diverged from baseline protocol, or data were mis-recorded.",
+      "class": "self_error"
+    },
+    {
+      "label": "Random noise and multiple-comparison artifact: observed patterns reflect measurement error and cherry-picked offset windows across 1–12 day lags. No true anomaly exists; all instruments output independent Gaussian noise around constant means.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was systematically offset low due to calibration, timing, or environmental transient; post-baseline readings reflect true stable output. The asymmetry between pendulum_lab and pendulum_obs is explained by instrument-specific baseline error, not physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical drift in pendulum_lab apparatus (thermal settling of pivot, damping fluid transient, mechanical creep in mount) occurred days 11–25 and reached stable equilibrium by day 25. Pendulum_obs is insensitive to this drift due to different measurement principle or environmental decoupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or data-handling error specific to pendulum_lab post-baseline workflow: operator protocol shift, sensor degradation, trial-numbering artifact, or environmental factor unique to pendulum_lab location that began on day 11 and remained constant through day 40.",
+      "class": "self_error"
+    },
+    {
+      "label": "Random noise, measurement error, and multiple-comparison artifact: observed patterns are statistical noise emerging from scanning 1–12 day offset windows. No true anomaly exists; all instruments output constant means with independent Gaussian noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an explanatory pattern not yet considered.",
+      "class": "other"
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "source": "wa-seed9145.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 47,
+  "l4Judged": 47,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration divergence between lab and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental crosstalk introducing time-delayed correlation structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undetected instrumental drift or detector saturation/nonlinearity emerging over 10-day baseline window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observational instruments measure genuinely different physical quantities (different measurement axes or environmental coupling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum apparatus experienced a genuine physical perturbation around day 12 (mechanical shift, environmental coupling, or calibration drift in pendulum-specific mounting or detection)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific instrumental artifact or detection nonlinearity became active around day 12 (e.g., hysteresis, saturation, or phase-locked-loop tracking error in readout electronics)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; the day-12 shift reflects a real change in pendulum dynamics (e.g., effective gravitational acceleration, damping, or thermal response) orthogonal to the resonator-measured quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "My baseline protocol (days 1–10) was too short to resolve slow instrumental drift or warm-up effects; the day-12 'level change' is actually the tail end of a multi-day drift that started before day 1 and plateaued around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected systematic error in my baseline statistical test (e.g., violation of normality, autocorrelation in readings, or bias in trial selection) is producing false large z-scores for pendulum level change while masking true level changes in resonators",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical perturbation specific to pendulum apparatus around day 12 (mechanical settling, thermal expansion, environmental coupling, or gravitational/damping change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific instrumental artifact in readout electronics or detection path (hysteresis, saturation, phase-lock tracking error, or nonlinear amplifier response) triggered around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator measure genuinely orthogonal physical quantities; day-12 shift reflects real change in gravitational or damping environment decoupled from resonator-sensitive quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline protocol (days 1–10) too short; slow instrumental drift or warm-up started before day 1 and plateaued around day 12, mimicking a sharp level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in statistical test or data structure (autocorrelation, non-normality, biased trial selection, or spurious epoch alignment) inflates pendulum z-scores and masks resonator signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum apparatus (mechanical settling, thermal expansion, gravitational/damping change, or environmental coupling) around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific detection artifact (readout electronics, photogate design, phase-lock error, or nonlinear amplifier saturation) triggered around day 12, possibly by shared environmental coupling (temperature, humidity, power rail perturbation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely orthogonal physical quantities; day-12 shift reflects a real change in local gravitational or damping environment decoupled from electromagnetic/elastic resonance response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too short; pendulum instruments underwent slow thermal equilibration or systematic warm-up starting before day 1 and plateauing around day 12, creating a false appearance of sharp level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation, non-normality, biased trial selection, epoch misalignment, or post-hoc p-hacking) inflates pendulum z-scores and masks resonator signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum apparatus (mechanical settling, thermal expansion, gravitational or damping change) around day 12.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, phase-lock loop threshold crossing, or nonlinear amplifier response) triggered around day 12 by environmental drift (temperature, humidity, or power supply perturbation).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; day-12 shift reflects a real change in local gravitational, damping, or mechanical environment affecting pendulums but not elastic resonators.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too short; pendulum instruments underwent slow thermal or mechanical equilibration starting before day 1 and plateauing around day 12, creating false appearance of sharp step change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation structure change, non-normality, heteroscedasticity, epoch misalignment, or bias in trial selection) inflates pendulum z-scores and masks resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum apparatus (mechanical settling, thermal expansion, gravitational or damping change) around day 12.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, PLL threshold crossing, or nonlinear amplifier response) triggered around day 12 by shared environmental drift (temperature, humidity, or power supply perturbation).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; day-12 shift reflects real change in local gravitational, damping, or mechanical environment affecting pendulums but not elastic resonators.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too short; pendulum instruments drifted slowly before day 1, with drift continuing to plateau around day 12, creating false appearance of sharp level shift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation structure change, non-normality, heteroscedasticity, epoch misalignment, or bias in trial selection) artificially inflates pendulum z-scores and masks or inverts resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum apparatus (mechanical settling, thermal expansion, gravitational or damping change) around day 12, persisting through day 26.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, PLL phase-lock threshold crossing, or nonlinear amplifier response) triggered around day 12 by shared environmental drift (temperature, humidity, or power supply perturbation) affecting both pendulum instruments' readout electronics but not resonator instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; day-12 shift reflects real subsurface or mechanical change (groundwater flux, density redistribution, effective gravity gradient, or damping change) affecting pendulum response selectively.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too short; pendulum instruments drifted slowly before or within baseline period, creating false appearance of sharp level shift around day 12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation, non-normality, heteroscedasticity, epoch misalignment, trial selection bias) artificially inflates pendulum z-scores and masks resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum apparatus (mechanical settling, thermal expansion, gravitational or damping change) around day 12, persisting through day 29.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, PLL phase-lock crossing, or amplifier nonlinearity) triggered around day 12 by slow environmental drift (temperature, humidity, or supply voltage) crossing a threshold, affecting both pendulum instruments' readout electronics but not resonator instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; day-12 shift reflects real subsurface or mechanical change (groundwater flux, density redistribution, effective gravity gradient, or damping change) affecting pendulum response selectively.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too short or drifting; pendulum instruments underwent slow drift before or within baseline period, creating false appearance of sharp level shift around day 12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation, non-normality, heteroscedasticity, epoch misalignment, trial selection bias) artificially inflates pendulum z-scores and masks resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum mechanics (thermal, gravitational, or damping change) around day 12, persisting through day 32 without decay.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, phase-lock crossing, or amplifier nonlinearity) triggered around day 12 by environmental drift crossing a threshold, affecting both readout chains but not resonator electronics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical quantities; day-12 shift reflects real subsurface or mechanical change (groundwater flux, density redistribution, effective gravity gradient, or damping) affecting pendulum response selectively, while resonator-sensitive parameters (elastic moduli, inertial mass) remain unchanged.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was drifting or too short; pendulum instruments underwent slow drift before or within baseline period, creating false appearance of sharp level shift around day 12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing or data structure (undetected autocorrelation, non-normality, heteroscedasticity, epoch misalignment, trial selection bias) artificially inflates pendulum z-scores and masks resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum mechanics (effective gravity, damping, or subsurface density shift) around day 11–12, stabilized by day 12 without decay.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, PLL phase crossing, or amplifier nonlinearity) triggered around day 11–12 by environmental drift crossing a threshold, affecting both readout chains synchronously.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely orthogonal physical quantities; day-12 shift reflects real subsurface/mechanical perturbation (groundwater flux, density redistribution, gravity gradient, damping change) affecting only pendulum-sensitive parameters while resonator-sensitive parameters (elastic moduli, inertia) remain unchanged.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) drifted or was too short; pendulum instruments underwent gradual drift before or within baseline period, creating false appearance of sharp level shift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing (undetected autocorrelation, heteroscedasticity, non-normality, epoch misalignment, trial selection bias) artificially inflates pendulum z-scores and masks resonator signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical perturbation selective to pendulum mechanics (g_eff, damping, subsurface density/groundwater shift) around day 11–12, stabilized without decay through day 35.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate saturation, PLL phase crossing, amplifier nonlinearity) triggered synchronously around day 11–12, affecting both readout chains independently but via shared environmental threshold-crossing.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure orthogonal physical quantities; day-11/12 shift reflects real subsurface/geomechanical perturbation (density redistribution, groundwater flux, damping change, localized gravity gradient) affecting only pendulum-sensitive parameters while resonator-sensitive parameters remain unchanged.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was drifting or systematically misaligned; pendulum instruments underwent gradual drift before or during baseline, creating false appearance of sharp level shift at day 11–12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical testing (undetected autocorrelation, heteroscedasticity, non-normality, epoch misalignment, trial selection bias) artificially inflates pendulum z-scores and creates spurious inter-pendulum coherence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: phenomenon not yet considered (undetected instrumental coupling, third-party disturbance, localized electromagnetic or acoustic resonance, settlement-specific metrology calibration drift, or observer/processing bias).",
+      "class": "other"
+    },
+    {
+      "label": "Genuine subsurface/geomechanical perturbation selective to pendulum parameters (g_eff, damping, or both) around day 11–12, stabilized by day 12 without decay.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate/PLL threshold crossing, amplifier nonlinearity) triggered synchronously around day 11–12 via shared environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was drifting or misaligned; apparent day-11/12 shift is artifact of baseline misrepresenting true pre-shift level.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic statistical error (undetected autocorrelation, heteroscedasticity, non-normality, epoch misalignment, trial-selection bias) inflates pendulum z-scores and creates spurious inter-pendulum coherence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: phenomenon not yet considered (undetected instrumental coupling, third-party disturbance, electromagnetic/acoustic resonance, localized gravity gradient, settlement-specific metrology calibration drift, or observer/processing bias).",
+      "class": "other"
+    },
+    {
+      "label": "Genuine subsurface geomechanical event selective to gravitational or damping parameters around day 11–12, stabilized without decay or hysteresis.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific readout artifact (photogate threshold crossing, PLL phase-lock upset, amplifier nonlinearity) triggered synchronously around day 11–12 via shared environmental driver (temperature, humidity, supply voltage transient).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was contaminated by undetected drift, offset misalignment, or instrumental transient; apparent day-11/12 shift is artifact of baseline not representing true pre-shift level.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic statistical error (undetected autocorrelation, heteroscedasticity, non-normality, epoch misalignment, or bias in variance estimation) inflates pendulum z-scores and artificially creates inter-pendulum coherence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: undetected instrumental coupling, third-party disturbance, electromagnetic/acoustic resonance, localized gravity gradient shift, settlement-specific calibration drift, or observer/processing bias not yet identified.",
+      "class": "other"
+    }
+  ]
+}

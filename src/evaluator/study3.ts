@@ -137,6 +137,19 @@ export interface LevelTimeline {
   tauCommitment: number | null; // first day at L2
   tauGrounded: number | null; // first day at L3
   finalLevel: 0 | 1 | 2 | 3;
+  /**
+   * L1 under the REGISTERED SENSITIVITY aggregation (any single ext-gen
+   * hypothesis > L1_THRESHOLD), reported beside the primary. The primary L1
+   * (tauSuspicion / finalLevel above) fires on the SUMMED ext-gen class mass
+   * per R16-as-amended (design v0.4 §1.2): "three variants at 0.03 sum to
+   * 0.09 and individually fail". Until 2026-08-31 the code implemented only
+   * the max-single rule; a mechanical sweep of all 132 judged sidecars found
+   * ZERO snapshots where the two disagree, so no historical number moves —
+   * but the registered primary must be what the code computes. Recorded in
+   * the readiness review (s3-confirmatory-readiness.md, RED-1).
+   */
+  tauSuspicionMaxSingle: number | null;
+  finalLevelMaxSingle: 0 | 1 | 2 | 3;
   /** Global event ids the final modal ext-gen hypothesis validly cited. */
   finalGroundedCitations: number[];
   /**
@@ -479,9 +492,11 @@ export function computeLevels(
 
   return run.agents.map((agent) => {
     let tau1: number | null = null;
+    let tau1MaxSingle: number | null = null;
     let tau2: number | null = null;
     let tau3: number | null = null;
     let finalLevel: 0 | 1 | 2 | 3 = 0;
+    let finalL1MaxSingle = false;
     let finalCitations: number[] = [];
     let finalModalExtGenClass: string | null = null;
 
@@ -491,7 +506,12 @@ export function computeLevels(
         cls: classify(h.label, h.rationale),
       }));
       const extGen = hyps.filter((h) => extGenClasses.includes(h.cls));
-      const l1 = extGen.some((h) => h.probability > L1_THRESHOLD);
+      // PRIMARY L1 aggregation (R16 as amended, v0.4 §1.2): the SUMMED
+      // external-generative class mass exceeds the frozen threshold. The
+      // max-single variant is the registered sensitivity, carried alongside.
+      const extGenMass = extGen.reduce((s, h) => s + h.probability, 0);
+      const l1 = extGenMass > L1_THRESHOLD;
+      const l1MaxSingle = extGen.some((h) => h.probability > L1_THRESHOLD);
       const maxP = Math.max(0, ...hyps.map((h) => h.probability));
       const modalExt = extGen.find((h) => h.probability === maxP && maxP > 0);
       const l2 = modalExt !== undefined;
@@ -516,9 +536,11 @@ export function computeLevels(
       }
 
       if (l1 && tau1 === null) tau1 = snap.day;
+      if (l1MaxSingle && tau1MaxSingle === null) tau1MaxSingle = snap.day;
       if (l2 && tau2 === null) tau2 = snap.day;
       if (l3 && tau3 === null) tau3 = snap.day;
       finalLevel = l3 ? 3 : l2 ? 2 : l1 ? 1 : 0;
+      finalL1MaxSingle = l1MaxSingle;
       finalCitations = l3 ? citations : [];
       finalModalExtGenClass = modalExt?.cls ?? null;
     }
@@ -529,6 +551,9 @@ export function computeLevels(
       tauCommitment: tau2,
       tauGrounded: tau3,
       finalLevel,
+      tauSuspicionMaxSingle: tau1MaxSingle,
+      finalLevelMaxSingle:
+        finalLevel >= 2 ? finalLevel : finalL1MaxSingle ? 1 : 0,
       finalGroundedCitations: finalCitations,
       finalModalExtGenClass,
     };

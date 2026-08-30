@@ -1,0 +1,165 @@
+{
+  "source": "wd_degraded-seed9105.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement systems are not synchronized or operate on different effective time bases",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observational instruments measure different physical processes or are contaminated by independent noise sources",
+      "class": "self_error"
+    },
+    {
+      "label": "Presence of a genuine periodic or quasi-periodic external signal, but with low signal-to-noise ratio and confounded measurement bases",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab hardware fault or calibration drift — mechanical slippage, thermal runaway, or sensor drift localized to that instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and pendulum_lab are genuinely drifting apart in effective clock rate or phase, revealing weak but real coupling to a ~4–6 day cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Lab and field instruments measure genuinely different physical quantities or are subject to independent contamination; resonator_lab degradation is unrelated to weak cross-correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more data streams are contaminated by systematic human error (observer drift, unblinded calibration, procedural differences between lab and field teams)",
+      "class": "self_error"
+    },
+    {
+      "label": "A real ~4–6 day external signal is present but is being aliased or phase-shifted differently by each instrument's sampling or response function, degrading apparent cross-correlation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab hardware fault or thermal drift localized to that instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Paired lab/field instruments (pendulum_lab ↔ pendulum_obs; resonator_lab ↔ resonator_obs) measure genuinely different physical quantities or suffer independent observer/procedural contamination",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine ~4–6 day environmental oscillation is present but instruments sample or alias it differently, appearing as weak cross-correlations and autocorrelations at staggered lags",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data contamination by systematic observer or procedural error (calibration drift, handling differences, sign convention errors) introduced independently in each stream between days 1–10 and days 11+",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab drift and weak cross-instrument agreement are both real but independent phenomena: hardware fault in resonator_lab; measurement bases or sampling rates genuinely different between lab and field, or between pendulum and resonator instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab hardware entered acute failure mode on day 26–27",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs measure independent or inverted physical quantities; no repair of resonator_lab will improve their cross-correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab trials 93–94 show a secondary drop (mean 1.6517 vs post-baseline 1.6687) suggesting multi-instrument degradation or environmental shock on day 27",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab absolute baseline (days 1–10) was miscalibrated or contaminated, and the post-baseline 'drift' + day-27 collapse are the true steady state",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural or data-entry error on day 27 (transcription, unit conversion, or observer substitution) affecting resonator_lab final trials",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab hardware entered acute degradation mode around day 26–27, compressing dynamic range or locking to a lower resonance mode",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs measure inverted or orthogonal physical quantities (e.g., frequency vs. period, or opposite field polarizations), explaining their persistent anti-correlation independent of any lab hardware fault",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide environmental transient (thermal shock, electromagnetic pulse, seismic event, or power fluctuation) on day 26–27 caused acute stress to multiple instruments, with resonator_lab showing maximal sensitivity and other instruments showing smaller or recovered responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab baseline (days 1–10) was miscalibrated or taken under non-equilibrium conditions, and the post-baseline mean + day-27 compression represent the true steady-state instrument behavior",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-entry or transcription error on day 27 (decimal-point error, unit conversion, observer substitution) artificially compressed resonator_lab trials 246–404",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab hardware entered degraded state around day 26–27, compressing dynamic range or shifting to lower resonance mode",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs measure inverted or orthogonal physical quantities (frequency vs. period, opposite polarization, or systematic sign error), explaining their persistent anti-correlation independent of lab hardware state",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide environmental transient (thermal shock, electromagnetic pulse, seismic event, or power fluctuation) on day 26–27 caused acute stress to resonator_lab specifically, with other instruments showing smaller or undetectable responses due to differing sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab baseline (days 1–10) was miscalibrated or taken under non-equilibrium conditions; post-day-27 compression represents true instrument steady state",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-entry or transcription error on or after day 27 artificially compressed or scaled resonator_lab trials 246–404",
+      "class": "self_error"
+    }
+  ]
+}

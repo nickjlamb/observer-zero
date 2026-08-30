@@ -1,0 +1,273 @@
+{
+  "source": "md_high-seed9101.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 53,
+  "l4Judged": 53,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental drift or systematic error in each apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine time-lagged coupling between measurement streams (physical or observational)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period was too short or contaminated; true calibration not yet established",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more measurement streams are not measuring what I believe (misalignment of intent and apparatus)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic calibration error or drift present during baseline period (days 1–10), undetected because no pre-baseline reference exists",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The two measurement types (lab vs obs) measure the same physical quantity via fundamentally different apparatus or protocols, introducing independent systematic biases that obscure correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental or instrumental coupling at non-zero lags, indicating shared forcing or causal influence between measurement streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement apparatus or protocol documentation is incorrect or incomplete; pendulum_lab, pendulum_obs, resonator_lab, resonator_obs may not measure what I believe they measure",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period (days 1–10) captured a drifting or unaligned system, not a stable resting state; all cross-correlations are biased relative to a corrupted reference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The two measurement methods (lab vs obs) measure the same physical quantity via fundamentally different apparatus or protocols, introducing method-specific systematic biases that are independent of calibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Apparatus or protocol documentation is incorrect, incomplete, or inconsistently implemented; the four streams may not measure what I believe they measure, or measurement protocols differ undetectably",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine environmental or instrumental coupling at variable non-zero lags (temperature, vibration, or cross-apparatus influence); requires sustained post-baseline measurement to distinguish signal from noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unknown unknowns (unobserved confounding, unrecognized apparatus failure, or physical phenomenon not yet considered)",
+      "class": "other"
+    },
+    {
+      "label": "Baseline period (days 1–10) was drifting or unaligned; all streams started from a corrupted reference state that contaminates cross-stream validation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory apparatus measure the same quantity via fundamentally different measurement methods or apparatus designs, introducing systematic method-specific biases independent of calibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Apparatus documentation or implementation is incomplete, inconsistent, or incorrect; one or more streams may be recording a derived quantity, inverted phase, or misaligned sensor output",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental or instrumental coupling (temperature, vibration, electromagnetic interference) manifests at variable non-zero lags; current evidence is underpowered to distinguish signal from noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown confounding, unrecognized apparatus failure, or unobserved physical phenomenon not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Observatory apparatus (pendulum_obs, resonator_obs) underwent an undocumented recalibration, realignment, or physical swap around day 14; lab and observatory measure via fundamentally different methods (optical vs mechanical, manual vs gated timing) introducing independent systematic biases, or one apparatus has inverted sign/phase relative to the other.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) for one or more streams was itself drifting or poorly anchored to ground truth; all post-baseline drift estimates and all cross-stream correlations are biased by corruption in the baseline reference state.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more apparatus streams record an inverted quantity, transformed quantity, or phase-shifted measurement (e.g., inverse period rather than period, −phase rather than +phase, or a derived ratio) relative to the others, introducing systematic sign-inversion or anti-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling (temperature, vibration, electromagnetic crosstalk) manifests at variable non-zero lags and is partially masked by method-specific noise; current sample sizes (n=16–28) are too small to distinguish signal from noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown confounding, unrecognized apparatus failure, or unobserved physical phenomenon (e.g., systematic error in my statistical analysis, unrecorded measurement condition, or genuine anomaly in the instruments) not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observatory apparatus underwent undocumented recalibration, realignment, or method change around day 14; lab and obs use fundamentally different transducers or timing protocols, yielding independent systematic biases that are uncorrelated or inversely correlated.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) was itself drifting or poorly anchored; post-baseline drift estimates and cross-correlations are biased by corrupted reference state.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more apparatus streams record an inverted quantity, phase-shifted measurement, or derived quantity (e.g., 1/period instead of period, −phase instead of +phase) relative to others, introducing systematic sign-inversion.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling (temperature, vibration, electromagnetic crosstalk) manifests at variable lags and is partially obscured by method-specific noise; current sample sizes (n=16–40) are too small to establish lag significance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown confounding, unrecognized apparatus failure, systematic error in statistical analysis, or unobserved physical phenomenon not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observatory pendulum apparatus underwent undocumented physical intervention (recalibration, realignment, sensor swap, or transducer change) around day 14; lab and obs employ fundamentally different measurement methods or transducers, yielding independent or inversely correlated systematic biases.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) for one or both observatory streams was corrupted by undocumented drift or poor anchoring; post-baseline statistics and cross-correlations are biased by a moving reference state.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more apparatus streams records an inverted or phase-shifted quantity (e.g., 1/period instead of period, −phase instead of +phase) relative to others, or an undocumented protocol change on day 14 switched measurement definition for pendulum_obs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling (temperature, vibration, electromagnetic crosstalk, facility activity cycles) manifests at variable lags and is partially obscured by method-specific noise; current sample sizes (n=16–40 per lag) are too small to establish significance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown confounding, unrecognized apparatus failure, systematic error in statistical analysis (e.g., date-alignment bug), or unobserved physical phenomenon not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented apparatus intervention (recalibration, realignment, transducer swap, or physical adjustment) on or just before day 14 affected only pendulum_obs; lab and observatory employ fundamentally different measurement methods or transducers, yielding independent or inversely correlated systematic biases.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sign-inversion or definition mismatch: one or both pendulum apparatus record an inverted, negated, or reciprocal quantity (e.g., 1/period, −phase, or inverted detector polarity) relative to the other, either from inception or after an undocumented protocol change on day 14.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) for pendulum_obs was corrupted by slow undocumented drift or poor anchoring, misaligning the reference state; post-baseline statistics are biased by a drifting baseline, and the day-14 'shift' is a reaction to correction or measurement protocol change triggered by recognition of baseline drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or instrumental coupling (thermal diffusion, vibration, electromagnetic crosstalk, facility activity cycles) drives lagged correlations across apparatus streams; current sample sizes (n = 16–40 per lag pair) are too small to achieve statistical significance, and lag structure is masked by method-specific noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown confounding, unrecognized apparatus failure, systematic error in statistical analysis (e.g., date-alignment bug, recording timestamp drift, or operator error in event logging), or unobserved physical phenomenon not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented apparatus intervention or operator protocol change on day 33–34 degraded measurement precision in pendulum_lab only (e.g., loose mechanical coupling, power supply fluctuation, transducer misalignment, or operator switching to a noisier measurement method).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure via fundamentally different methods (e.g., lab uses electronic counter, obs uses manual stopwatch or mechanical timer), producing independent systematic biases that persist regardless of day-14 shift in pendulum_obs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sign inversion or definition mismatch in one or both pendulum apparatus (e.g., pendulum_obs records 1/period or negated quantity from inception), with the day-14 isolated level shift representing an undocumented protocol flip or wiring reversal.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period corruption or slow drift during days 1–10 in pendulum_obs, compounded by operator recalibration attempt on day 14 that misaligned obs to lab reference frame rather than correcting it.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental or instrumental coupling (thermal diffusion, vibration, power supply fluctuation, or facility activity cycles) drives lagged correlations and influences measurement noise; current monitoring is insufficient to detect or characterize the coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Date-alignment or event-logging error in the trial-to-day mapping for pendulum_lab, causing spurious clustering in the final trials; the high variance is a statistical artifact, not a real measurement phenomenon.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented mechanical or instrumental failure in pendulum_lab on day 33–34 (loose coupling, power supply transient, sensor misalignment, or operator protocol shift degraded precision locally)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure via fundamentally different methods (electronic vs. manual/mechanical timing; different transducers; different filtering), producing persistent independent systematic biases that survive the day-34 failure independently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration window (days 1–10) was too small or corrupted for pendulum_obs (n=26), introducing baseline estimation error that compounds with a day-14 recalibration attempt that misaligned rather than corrected the apparatus",
+      "class": "self_error"
+    },
+    {
+      "label": "Sign error or definition mismatch in one or both pendulum apparatus from inception (e.g., pendulum_obs records 1/period or negated quantity), with day-14 isolated shift representing an undocumented code or wiring reversal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling (thermal diffusion, vibration, power supply ripple, facility activity cycles) drives lagged correlations between apparatus and influences measurement noise via shared electrical or mechanical paths; current environmental monitoring is insufficient",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Date-alignment or trial-to-day mapping error in the data logging system for pendulum_lab, causing spurious clustering in trials 281–299; the high variance is a statistical artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented mechanical or instrumental failure in pendulum_lab on day 33–34 (loose coupling, power transient, thermal shock, sensor misalignment, or operator protocol deviation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs employ fundamentally different measurement methods (electronic vs. manual/mechanical; different transducers, filtering, timing resolution), generating persistent independent systematic biases independent of the day-34 variance event",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration window for pendulum_obs was too small (n=26 vs. n=78 for pendulum_lab) or corrupted by undetected drift during days 1–10, and a misguided recalibration attempt on day 14 compounded rather than corrected the offset",
+      "class": "self_error"
+    },
+    {
+      "label": "Sign error or definition mismatch in one or both pendulum apparatus from inception (inverted polarity, reciprocal period, negated quantity), with day 14 representing an undocumented code or wiring reversal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling (thermal diffusion, vibration, power supply ripple, facility activity cycles) drives lagged correlations and influences measurement noise via shared electrical or mechanical paths; current environmental monitoring is insufficient",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Date-alignment or trial-to-day mapping error in the data logging system for pendulum_lab, causing spurious variance clustering in trials 281–299; the high variance is a statistical artifact of misdated or conflated data",
+      "class": "measurement_error"
+    }
+  ]
+}

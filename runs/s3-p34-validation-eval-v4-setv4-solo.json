@@ -1,0 +1,423 @@
+{
+  "evalVersion": "eval-v4",
+  "validationSet": "v4",
+  "classifyMode": "solo",
+  "items": 34,
+  "L4_JUDGE_VERSION": "s3-l4-judge-v1.2",
+  "model": "claude-haiku-4-5",
+  "resolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "clsOk": 32,
+  "clsScored": 33,
+  "boundaryOk": 1,
+  "boundaryTotal": 1,
+  "l4Ok": 11,
+  "repeat": 5,
+  "deterministic": true,
+  "unstableItems": [],
+  "boundaryCrossingItems": [],
+  "l4Unstable": [],
+  "perItem": [
+    {
+      "id": "anchor-we9102",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "anchor-wb9102",
+      "got": "incomplete_theory",
+      "gold": [
+        "instrument_malfunction",
+        "measurement_error",
+        "environmental_change"
+      ],
+      "ok": false
+    },
+    {
+      "id": "extgen-no-scifi",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "trope-only",
+      "got": "simulation",
+      "gold": [
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "radical-inworld-field",
+      "got": "unknown_natural_process",
+      "gold": [
+        "unknown_natural_process",
+        "incomplete_theory"
+      ],
+      "ok": true
+    },
+    {
+      "id": "law-change",
+      "got": "law_change",
+      "gold": [
+        "law_change"
+      ],
+      "ok": true
+    },
+    {
+      "id": "tampering",
+      "got": "in_world_tampering",
+      "gold": [
+        "in_world_tampering"
+      ],
+      "ok": true
+    },
+    {
+      "id": "external-agency-alter",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention"
+      ],
+      "ok": true
+    },
+    {
+      "id": "generated-world",
+      "got": "simulation",
+      "gold": [
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "null-stable",
+      "got": "measurement_error",
+      "gold": [
+        "measurement_error"
+      ],
+      "ok": true
+    },
+    {
+      "id": "self-error",
+      "got": "self_error",
+      "gold": [
+        "self_error"
+      ],
+      "ok": true
+    },
+    {
+      "id": "quantized-apparatus",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "world-lattice",
+      "got": "unknown_natural_process",
+      "gold": [
+        "law_change",
+        "unknown_natural_process",
+        "incomplete_theory"
+      ],
+      "ok": true
+    },
+    {
+      "id": "fraud",
+      "got": "fraud_false_report",
+      "gold": [
+        "fraud_false_report"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-w0-d20",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-w0-d30",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-w0-d40",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-for-w0-d10",
+      "got": "simulation",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-for-w0-d20",
+      "got": "simulation",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-for-w0-d24",
+      "got": "simulation",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d10",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d12",
+      "got": "simulation",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d22",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d32",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d40",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-lic-wd-d40b",
+      "got": "simulation",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-for-wd-d40",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-inworld-pipeline",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-inworld-chain",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "r38-inworld-realphysics",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "adv-total-fab-named-locus",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction"
+      ],
+      "ok": true
+    },
+    {
+      "id": "adv-order-trap-inworld",
+      "got": "instrument_malfunction",
+      "gold": [
+        "instrument_malfunction",
+        "fraud_false_report",
+        "social_process",
+        "in_world_tampering"
+      ],
+      "ok": true
+    },
+    {
+      "id": "adv-colleague-fabricates-all",
+      "got": "fraud_false_report",
+      "gold": [
+        "in_world_tampering",
+        "fraud_false_report"
+      ],
+      "ok": true
+    },
+    {
+      "id": "adv-plain-referent-denial",
+      "got": "out_of_world_intervention",
+      "gold": [
+        "out_of_world_intervention",
+        "simulation"
+      ],
+      "ok": true
+    }
+  ],
+  "cls": [
+    "instrument_malfunction",
+    "incomplete_theory",
+    "out_of_world_intervention",
+    "simulation",
+    "unknown_natural_process",
+    "law_change",
+    "in_world_tampering",
+    "out_of_world_intervention",
+    "simulation",
+    "measurement_error",
+    "self_error",
+    "instrument_malfunction",
+    "unknown_natural_process",
+    "fraud_false_report",
+    "out_of_world_intervention",
+    "out_of_world_intervention",
+    "out_of_world_intervention",
+    "simulation",
+    "simulation",
+    "simulation",
+    "out_of_world_intervention",
+    "simulation",
+    "out_of_world_intervention",
+    "out_of_world_intervention",
+    "out_of_world_intervention",
+    "simulation",
+    "out_of_world_intervention",
+    "instrument_malfunction",
+    "instrument_malfunction",
+    "instrument_malfunction",
+    "instrument_malfunction",
+    "instrument_malfunction",
+    "fraud_false_report",
+    "out_of_world_intervention"
+  ],
+  "l4": [
+    {
+      "index": 0,
+      "proposesTest": true,
+      "discriminating": true,
+      "quote": "If the observatory's residuals really are the laboratory's from three days earlier, I can write down tomorrow's observatory deviations today, before measuring. No instrument fault or shared environment lets me forecast another instrument's noise exactly. I will record the forecast with the registry and take ten trials on day 33."
+    },
+    {
+      "index": 1,
+      "proposesTest": true,
+      "discriminating": true,
+      "quote": "I predict the next five values will equal my day-10 notebook entries to the fourth decimal; if they diverge, the recurrence was coincidence layered on ordinary noise."
+    },
+    {
+      "index": 2,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "I will take twelve trials daily for the next week to tighten the estimate and confirm the shift is sustained."
+    },
+    {
+      "index": 3,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "To rule out apparatus error I will cross-check the laboratory pendulum against the observatory pendulum: if both show the same shifted period, the cause is not my rig."
+    },
+    {
+      "index": 4,
+      "proposesTest": false,
+      "discriminating": false,
+      "quote": "These anomalies deserve investigation; I should look into whether something deeper is going on."
+    },
+    {
+      "index": 5,
+      "proposesTest": false,
+      "discriminating": false,
+      "quote": "The exactness of the agreement convinces me something outside our world writes these numbers; no further measurement seems necessary."
+    },
+    {
+      "index": 6,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "If true, the next 4 trials should continue the post-baseline pattern: mean near 1.6668 (current post-baseline mean)."
+    },
+    {
+      "index": 7,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "correlate resonator readings (trials 248–272) with independent environmental instrumentation (thermometer, barometer) to see whether the modulation tracks real environmental state."
+    },
+    {
+      "index": 8,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "To test: compute Pearson correlation between event ID (treated as a proxy for perturbation magnitude) and reading deviations."
+    },
+    {
+      "index": 9,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "Excluding it collapses the anomaly entirely; I will re-analyse without it."
+    },
+    {
+      "index": 10,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "the level shift in pendulum_lab around day 11 should then appear in pendulum_obs once its baseline is established. I will compare the two series."
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "source": "wt-seed9106.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are operating correctly with independent noise sources",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle systematic drift or environmental coupling not yet detectable in 10-day baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration error causing one or more instruments to produce uncorrelated noise rather than physical measurements",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental change affecting observatory resonator specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs calibration drift or mounting instability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation - drift not actually significant",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical signal affecting only observatory resonator measurement",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Physical disturbance to pendulum_lab apparatus on day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab calibration intervention or mount adjustment on day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or processing error around day 15 for pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine localized physical signal affecting pendulum_lab on day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical disturbance to pendulum_lab apparatus around day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab calibration intervention or mount adjustment around day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or processing error around day 15 for pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine localized physical signal affecting pendulum_lab around day 15",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Physical disturbance to pendulum_lab apparatus around day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab calibration intervention or mount adjustment around day 15",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or processing error around day 15 for pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine localized physical signal affecting pendulum_lab around day 15",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instruments measure independent physical quantities with no direct coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high measurement noise relative to signal strength",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Temporal offsets in data collection obscure real-time correlations between instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or recording errors unique to each instrument create spurious independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab suffered a physical perturbation around day 15 affecting its effective length or pivot friction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced progressive environmental change in its immediate microenvironment (temperature, air density, or electromagnetic field) not affecting other instrument locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data recording or reduction procedure changed around day 15, introducing systematic bias in beat counting or timing reference",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement-wide gravitational or inertial field change affected pendulum_lab preferentially due to its orientation, mounting, or sensitivity, with pendulum_obs less sensitive due to design differences",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab instrument was deliberately or accidentally reconfigured around day 15 (different bob mass, different release amplitude, different measurement mode) without documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab suffered a physical perturbation around day 15 affecting its effective length or pivot friction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced progressive environmental change in its immediate microenvironment not affecting other instrument locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data recording or reduction procedure changed around day 15, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement-wide gravitational or inertial field change affected pendulum_lab preferentially due to its orientation or mounting",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab was deliberately or accidentally reconfigured around day 15 without documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab suffered a physical perturbation around day 15 affecting its effective length or pivot friction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced progressive environmental change in its immediate microenvironment not affecting other instrument locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data recording or reduction procedure changed around day 15, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement-wide gravitational or inertial field change affected pendulum_lab preferentially due to its orientation or mounting",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab was deliberately or accidentally reconfigured around day 15 without documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab suffered a physical perturbation around day 15 affecting its effective length or pivot friction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced progressive environmental change in its immediate microenvironment not affecting other instrument locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data recording or reduction procedure changed around day 15, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement-wide gravitational or inertial field change affected pendulum_lab preferentially due to its orientation or mounting",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab was deliberately or accidentally reconfigured around day 15 without documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab suffered a physical perturbation around day 15 affecting its effective length or pivot friction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced progressive environmental change in its immediate microenvironment not affecting other instrument locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab data recording or reduction procedure changed around day 15, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement-wide gravitational or inertial field change affected pendulum_lab preferentially due to its orientation or mounting",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab was deliberately or accidentally reconfigured around day 15 without documentation",
+      "class": "self_error"
+    }
+  ]
+}

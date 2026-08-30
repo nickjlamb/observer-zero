@@ -1,0 +1,257 @@
+{
+  "source": "wd_exact-seed9140.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 19,
+  "l4Judged": 19,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement precision is adequate and instruments are behaving normally; correlations within chance bounds are expected for independent physical systems during stable baseline conditions",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are inadequately sensitive to detect real physical correlations that exist between the measured systems",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Sample size remains insufficient after 10 days to detect weak but real correlations between instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "An environmental factor (seismic activity, groundwater changes, local mass redistribution) is affecting pendulum_lab specifically due to its physical location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "An environmental factor (seismic activity, groundwater changes, local mass redistribution) is affecting pendulum_lab specifically due to its physical location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "An environmental factor (seismic activity, groundwater changes, local mass redistribution) is affecting pendulum_lab specifically due to its physical location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "An environmental factor (seismic activity, groundwater changes, local mass redistribution) is affecting pendulum_lab specifically due to its physical location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An environmental factor (seismic activity, groundwater changes, local mass redistribution) is affecting pendulum_lab specifically due to its physical location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments, and the correlation with resonator_obs is spurious from multiple comparisons",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental or physical effect is coupling to both pendulum_lab and resonator_obs with a 3-day propagation delay, while sparing the observatory location instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline with additional measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An environmental factor specific to the laboratory location is affecting pendulum_lab's mounting or effective length while the resonator_lab configuration is insensitive to it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The perfect correlation (1.000) between pendulum_lab and resonator_obs is a computational or data handling error — the instruments are not actually correlated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments, and the correlation with resonator_obs is spurious",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental or physical effect is coupling to both pendulum_lab and resonator_obs with a 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An environmental factor specific to the laboratory location is affecting pendulum_lab while the resonator_lab configuration is insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The perfect correlation (1.000) between pendulum_lab and resonator_obs is a computational or data handling error — the instruments are not actually correlated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments, and the correlation with resonator_obs is spurious",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental or physical effect is coupling to both pendulum_lab and resonator_obs with a 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An environmental factor specific to the laboratory location is affecting pendulum_lab while the resonator_lab configuration is insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The perfect correlation (1.000) between pendulum_lab and resonator_obs is a computational or data handling error — the instruments are not actually correlated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments, and the correlation with resonator_obs is spurious",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A genuine environmental or physical effect is coupling to both pendulum_lab and resonator_obs with a 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An environmental factor specific to the laboratory location is affecting pendulum_lab while the resonator_lab configuration is insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The perfect correlation (1.000) between pendulum_lab and resonator_obs is a computational or data handling error — the instruments are not actually correlated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab is experiencing gradual thermal drift or mechanical settling that has not yet affected the other instruments, and the correlation with resonator_obs is spurious",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A genuine environmental or physical effect is coupling to both pendulum_lab and resonator_obs with a 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab's calibration or data recording process has a systematic error introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An environmental factor specific to the laboratory location is affecting pendulum_lab while the resonator_lab configuration is insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent drift in pendulum_lab is a statistical fluctuation that will regress toward baseline",
+      "class": "measurement_error"
+    }
+  ]
+}

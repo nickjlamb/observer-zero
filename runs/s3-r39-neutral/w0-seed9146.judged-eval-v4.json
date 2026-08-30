@@ -1,0 +1,185 @@
+{
+  "source": "w0-seed9146.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement noise dominates signal; instruments are simply noisy within their calibration envelope",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak common mode coupling: all instruments respond to a slow environmental signal (thermal drift, settling, instrumental creep) with different sensitivities and phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental miscalibration or misalignment in cross-checks: the observed correlations reflect systematic error in how I am comparing readings (e.g., time-stamp drift, unit conversion error, or reading-pairing error) rather than true physical coupling",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are physically or informationally decoupled; correlations reflect chance coincidence only",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates; instruments are calibrated and stable but intrinsically noisy",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak common-mode environmental coupling with frequency-dependent instrumental response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my cross-check computation: timestamp misalignment, unit conversion error, or reading-pairing logic",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are genuinely decoupled; observed correlations are sampling artifacts from multiple-comparison problem",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Continued instrumental stability; Day 25 scatter is within expected noise envelope",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument calibration drift beginning; pendulum and resonator labs are slowly drifting away from baseline in opposite directions",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "My cross-check computations contain a systematic error in timestamp alignment or reading-pairing logic that inflates apparent independence of the four instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "The four instruments measure truly independent physical processes; weak correlations reflect genuine decoupling, not noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unlogged event on Day 24–25: environmental disturbance, instrument handling, or power fluctuation elevated noise in pendulum_lab and resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Computational error in cross-check alignment logic; correlations are spurious artifacts of my hand-calculated timestamp indexing or reading-pairing method, not true instrumental properties",
+      "class": "self_error"
+    },
+    {
+      "label": "All four instruments measure genuinely independent physical processes; weak cross-correlations and variable-lag peaks are correct null results, not anomalies",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Continued instrumental stability; all scatter and weak correlations are expected noise, and no anomaly exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument calibration drift is beginning slowly; resonator_lab and pendulum_lab show marginally elevated means post-baseline, and today's Day 35 scatter reflects early acceleration",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unlogged environmental event on Day 24–25 transiently elevated noise in resonator_lab and resonator_obs, with possible carry-over into Day 35 readings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my cross-check alignment logic; spurious correlations at variable offsets are artifacts of hand-calculated timestamp indexing or reading-pairing method, not true instrumental properties.",
+      "class": "self_error"
+    },
+    {
+      "label": "All four instruments measure genuinely independent physical processes; weak cross-correlations and variable-lag peaks are correct null results reflecting independent noise, not anomalies.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental stability continues as established; all scatter and weak correlations are expected noise with no significant anomaly present.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Early instrumental creep; resonator_lab and pendulum_lab show marginally elevated post-baseline means, and today's scatter reflects slow drift beginning to accelerate.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unlogged or mis-recorded environmental event on Days 24–25 transiently elevated noise in resonator instruments, with residual effects persisting into Day 36.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Duplicate data-entry or logging artifact on Day 37; trials 249–250 are a single measurement recorded twice by accident.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental state-locking or hysteresis; pendulum_lab physically re-entered a prior state momentarily, producing genuinely identical readings.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Random chance; exact repetition is improbable but not impossible, and will be absorbed in the noise if the instrumental baseline remains stable.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic time-alignment error in my cross-check correlation method remains undetected; the duplicate reading is incidental to the larger pattern of weak, offset-variable cross-correlations, suggesting my timestamp pairing is corrupted across multiple instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unlogged environmental event, instrumental malfunction, or data storage corruption on Day 37 affecting pendulum_lab logging specifically.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Four instruments measure genuinely independent physical processes, not the same quantity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic time-alignment error in my cross-check correlation method; trial numbering or timestamp pairing is corrupted",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental or operational coupling between lab and observatory differs from inter-resonator coupling; instrumental sensitivity profiles are mismatched",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-entry or logging artifact; trials recorded out of sequence or duplicated en masse on Day 37, introducing noise into subsequent cross-checks",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are correctly calibrated but baseline protocol itself was inadequate; true baseline span is longer than 10 days",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: undetected systematic error in settlement infrastructure (shared power, clock, thermal system) that affects all instruments identically, suppressing correlations",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

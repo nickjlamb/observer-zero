@@ -1,0 +1,321 @@
+{
+  "source": "wd_degraded-seed9145.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 30,
+  "l4Judged": 30,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Genuine instrumental drift or environmental periodicity with ~2–8 day timescale",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent measurement noise with different spectral properties per instrument, producing chance-level correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in my cross-check methodology: offset search procedure generating spurious correlations via multiple comparisons",
+      "class": "self_error"
+    },
+    {
+      "label": "Real but weak coupling between measurement streams, with latent confound (e.g. shared environmental sensitivity) introducing modest systematic covariance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected calibration drift in one or more instruments, or human bias in reading (e.g. rounding or anchoring to baseline), creating artificial structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs has undergone genuine instrumental drift or calibration shift around day 10–11, decoupling it from other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent noise in all four streams dominates; weak correlations are random; the pendulum_obs drift is a chance fluctuation within normal instrumental noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A real but slow environmental or instrumental drift on a ~5–8 day timescale is present, but my post-baseline sample (n=6 per stream) is too small to detect it consistently across all streams",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "My baseline was too short (10 days) to establish stable instrumental or environmental reference; true baseline variance is larger than I estimated, and day-11 readings are normal fluctuations",
+      "class": "self_error"
+    },
+    {
+      "label": "Undetected systematic error in my measurement protocol for pendulum_obs specifically (e.g. observer fatigue, scale-reading drift, apparatus wear) is inflating readings on day 11",
+      "class": "self_error"
+    },
+    {
+      "label": "My multiple-comparisons procedure (testing many time offsets without correction) has generated spurious correlations and a false sense that patterns exist",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs underwent genuine instrumental drift or calibration shift around day 10–11, independent of pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent noise in pendulum streams dominates; weak correlation and modest drift in pendulum_obs are chance fluctuations; pendulum_lab drift in opposite direction is coincidence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "My 10-day baseline was too short to capture true instrumental variance; pendulum_obs and pendulum_lab are both within normal operating noise, and the apparent 'drift' in each is a regression-to-mean effect or sampling artifact from an unrepresentative baseline window",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure *different* physical quantities or use different read-out procedures (e.g., one is observer-timed, one is mechanical), causing systematic disagreement unrelated to instrumental drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected systematic error in my measurement protocol or apparatus for pendulum_obs (observer fatigue, scale-reading drift, calibration drift, apparatus wear) is inflating readings after day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., environmental driver with different phase lag in pendulum_obs vs. pendulum_lab, or a real but fragile signal in pendulum_obs that is obscured in pendulum_lab by higher noise)",
+      "class": "other"
+    },
+    {
+      "label": "All four streams are responding to a common environmental driver (temperature, barometric pressure, humidity, or instrumental response lag) with a ~7–14 day period or memory timescale; my 10-day baseline is too short to separate this from true instrumental noise, causing apparent 'drifts' and weak cross-correlations that are actually phase-shifted echoes of the same underlying signal.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs underwent a genuine apparatus-specific drift or calibration shift around day 10–11 (bearing wear, length change, or observer-specific systematic bias), independent of all other streams; the autocorrelations and cross-lag structure are noise or coincidence unrelated to this drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My 10-day baseline is unrepresentative of true long-term instrumental variance; the settlement environment has a ~7–14 day cycle in temperature, humidity, or barometric pressure that was not fully captured by days 1–10, causing all post-day-10 'drifts' and autocorrelations to reflect natural environmental variation rather than instrumental failure or anomaly.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure meaningfully different physical quantities or use fundamentally different read-out procedures (e.g., human-timed vs. mechanical sensor, different pendulum lengths or bobs, different observational protocols), causing their poor correlation and opposite drifts to be unrelated to instrumental anomaly.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Undetected systematic error in my measurement protocol for pendulum_obs (observer fatigue, systematic scale-reading drift after day 10, or slow apparatus wear affecting the read-out procedure) is inflating readings, independent of real physical change in the pendulum.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs apparatus or read-out procedure is genuinely different from pendulum_lab (different lengths, masses, sensor types, or observer protocols), making their poor correlation and opposite drifts physically expected and not anomalous.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A coherent environmental or systematic driver with ~7–14 day periodicity (temperature, humidity, barometric pressure, or instrumental response lag) is affecting all four measurement streams with different phase lags; my 10-day baseline is too short to separate this periodic signal from noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs underwent a genuine apparatus-specific calibration shift or slow wear around day 10–11 (bearing friction increase, string/rod length change, or persistent observer systematic bias), independent of all other streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My measurement protocol for pendulum_obs includes an undetected systematic error (scale-reading bias, observer-specific timing bias, or procedure drift after day 10) that is inflating post-baseline readings, independent of real changes in the pendulum.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab apparatus underwent genuine calibration drift or component degradation (capacitor drift, frequency reference aging, or thermal drift in resonance frequency) starting around day 11–15, independent of resonator_obs and all pendulum streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are fundamentally different apparatus (different sensor types, frequency ranges, or read-out protocols), and their poor correlation is expected rather than anomalous; the z = −2.64 drift in resonator_lab reflects its own apparatus-specific behavior, not a universal resonator effect.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A coherent environmental or instrumental driver with 7–14 day periodicity (temperature, humidity, barometric pressure, or power supply ripple) is affecting all four streams with different phase lags and response magnitudes; resonator_lab's z = −2.64 drift is the low-frequency envelope of this oscillation, not a secular trend.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "I have not calibrated or checked resonator_lab's reference frequency or component values since day 10, and an undetected calibration error (scale factor misapplied, reference frequency assumed constant when it has drifted, or data entry error affecting post-baseline trials) is inflating the apparent drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered: a measurement artifact, environmental transient, or apparatus interaction specific to resonator_lab that I have not yet theorized.",
+      "class": "other"
+    },
+    {
+      "label": "Day-28 environmental transient (temperature, humidity, vibration, or power supply) affected both observation streams acutely, causing coherent scatter in final trials of both pendulum_obs and resonator_obs without affecting lab streams.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs and resonator_obs baseline calibration was misaligned or drifted between day 10 and day 28, such that the final trials reveal the true post-baseline scatter that earlier trials masked by systematic offset; the 'anomaly' is real but was always present, now becoming visible.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Normal statistical scatter: the day-28 pendulum_obs and resonator_obs readings are extreme but within expected ~±3σ fluctuations for random noise; no systematic cause is required, only an unlucky cluster in a 27-day run.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs and resonator_obs measure different physical quantities or are affected by a shared but non-global environmental factor (e.g., vibration from a nearby process running only on day 28), and today's scatter is a warning sign of instrumental coupling or uncontrolled variables I have not yet identified.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "I made a data entry or trial-assignment error on day 28 for obs apparatus, either mislabeling which trials belong to which apparatus, mixing data streams, or misrecording timestamps; the scatter is an artifact of my own bookkeeping, not instrumental.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered—an interaction between the obs apparatus and the lab apparatus (e.g., electromagnetic coupling, a shared ground, or a feedback loop in data acquisition) that manifests only under certain conditions, or a physical phenomenon I have not yet theorized.",
+      "class": "other"
+    },
+    {
+      "label": "Lab apparatus thermal or mechanical drift over 21 days; obs apparatus sheltered or thermally stable",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration days 1–10 captured a transient state (warm-up, settling) not representative of stable post-startup; the post-baseline means are closer to true equilibrium, and apparent 'drift' is reversion to stability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-28 environmental transient (temperature, vibration, power surge) affected obs apparatus acutely; lab apparatus unaffected because sheltered or on separate power",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or trial-assignment error in my records on day 28 or in the days 1–10 baseline; mislabeling or mixing of streams creating false scatter or false drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental coupling or shared environmental factor I have not yet identified; the obs apparatus and lab apparatus are not truly independent, and drift in one is driven by uncontrolled variables in the other",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Normal statistical scatter and measurement noise; no systematic anomaly requires explanation. Day-28 obs scatter and lab drift are within expected fluctuations for 30 days of continuous operation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab apparatus underwent thermal equilibration during days 1–10 baseline; post-baseline means reflect stable equilibrium, not drift away from it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab apparatus (both pendulum_lab and resonator_lab) have undergone genuine instrumental drift or environmental degradation over 21 days post-baseline; obs apparatus are isolated from this drift by location, power, or design",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-28 environmental transient (temperature spike, vibration, power fluctuation, or solar angle shift) acutely affected obs apparatus; lab apparatus unaffected due to shielding, thermal mass, or separate power conditioning",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my baseline protocol or trial assignment, particularly on days 1–10 or around day 28; mislabeling, transposition, or miscounting of trials creates false drift or false scatter patterns",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal statistical scatter; all observed anomalies (lab drift, day-28 obs scatter, cross-stream anticorrelations) are expected fluctuations under the null model of independent Gaussian noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab apparatus underwent incomplete thermal equilibration during baseline (days 1–10); post-baseline means reflect stable new equilibrium after warm-up, not ongoing drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab apparatus location experiences genuine environmental degradation (thermal cycling, mechanical settling, humidity drift, or power supply long-term drift) that obs apparatus location does not experience; spatial separation is the protective factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-28 environmental transient (temperature excursion, vibration, power glitch, or solar position shift) acutely perturbed obs apparatus; lab apparatus were unaffected due to thermal mass, shielding, or isolated power conditioning; this is independent of the long-term lab drift pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my baseline protocol, trial numbering, apparatus labeling, or day assignment (days 1–10 or day 28); mislabeling creates false drift and false scatter patterns",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal statistical scatter; all observed anomalies (lab drift, day-28 obs scatter, spatial decoupling) are expected fluctuations under independent Gaussian noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab apparatus incomplete thermal equilibration during baseline (days 1–10); post-baseline values reflect stable new equilibrium, not ongoing drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab apparatus location undergoes one-time environmental change between day 10 and day 11 (thermal regime shift, apparatus repositioning, power system reconfiguration, or shielding modification) causing one-time downward shift; obs location remains stable",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-28 localized environmental transient (temperature spike, vibration, power glitch, or solar/atmospheric event) acutely perturbed obs apparatus; lab apparatus sheltered by thermal mass, shielding, or isolated power conditioning; this is independent of the long-term lab drift pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my baseline protocol, trial-to-apparatus mapping, trial-to-date assignment, or apparatus-to-location labeling; mislabeling of trials creates spurious drift and spurious scatter patterns",
+      "class": "self_error"
+    },
+    {
+      "label": "All observed anomalies (lab drift, day-28 obs scatter, spatial decoupling) are expected fluctuations under independent Gaussian noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Laboratory apparatus underwent one-time thermal or environmental equilibration between day 10 and day 11, shifting to a stable cooler state; observatory location remained environmentally unchanged",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-28 localized transient event at observatory location (thermal spike, vibration, power glitch, or atmospheric event) acutely perturbed both obs apparatus; laboratory apparatus sheltered by thermal mass, shielding, or isolated power conditioning; this is mechanistically independent of long-term lab drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in baseline trial assignment, apparatus-to-location labeling, or trial-to-date mapping; mislabeled trials create spurious drift and spurious scatter patterns",
+      "class": "self_error"
+    },
+    {
+      "label": "Laboratory thermal regime underwent one-time shift between baseline and post-baseline; day-28 obs scatter is independent acute transient unrelated to lab drift; these are two decoupled phenomena",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All observed anomalies are expected fluctuations under independent Gaussian noise; no anomaly signal present",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Laboratory apparatus underwent one-time thermal or environmental equilibration between day 10 and day 11; observatory location remained environmentally unchanged.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-28 transient event at observatory location (thermal spike, vibration, power glitch, or atmospheric disturbance) acutely perturbed both obs apparatus; laboratory apparatus sheltered by thermal mass, shielding, or isolated power conditioning; this is mechanistically independent of long-term lab drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in baseline trial assignment, apparatus-to-location labeling, or trial-to-date mapping; mislabeled trials create spurious drift and spurious scatter patterns.",
+      "class": "self_error"
+    },
+    {
+      "label": "Laboratory drift and day-28 obs scatter are two independent real phenomena, each with its own cause, unrelated to each other.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All observed anomalies are expected fluctuations under independent Gaussian noise; no real anomaly signal is present.",
+      "class": "measurement_error"
+    }
+  ]
+}

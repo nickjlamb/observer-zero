@@ -1,0 +1,125 @@
+{
+  "source": "wd_degraded-seed9143.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration or environmental offset between lab and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental or instrumental drift with ~6–8 day periodicity (unresolved in baseline period)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement instrument or readout non-independence—readings reflect a common upstream signal (e.g., shared power supply, cosmic ray burst, or shared environmental sensor) with site-specific coupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period is genuinely too short to resolve the timescale structure; data are consistent with i.i.d. noise around per-instrument means, with false peaks from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or environmental offset between sites (lab vs. obs) without temporal drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unresolved ~6–8 day environmental or instrumental oscillation, invisible in 10-day baseline but manifesting as lagged correlation structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Weak non-independence between instruments: shared upstream disturbance (power, thermal, cosmic) with site-specific filtering or delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All observed correlations are statistical artifacts of multiple comparisons; baseline is genuinely too short and noise-like",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unobserved confound (e.g., observer bias in trial selection, instrumental deadtime creating apparent periodicity, or measurement protocol interaction between instruments)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unresolved ~12–16 day oscillation: invisible in 10-day baseline, manifests as lagged correlation structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Weak non-independence: shared upstream disturbance (power, thermal, cosmic) differentially filtered by site/instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calibration/environmental offset between lab and obs sites (static, non-drifting) plus independent instrument noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All observed correlations are statistical artifacts; baseline is too short and data are i.i.d. noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unobserved confound: observer bias, instrumental deadtime artifacts, or measurement protocol interaction",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine ~12–16 day oscillation: invisible in 10-day baseline, manifests as specific lagged correlations and weak autocorrelations at expected periodic intervals",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Weak shared environmental disturbance (power, thermal, cosmic) differentially filtered by site and instrument electronics, producing phase-shifted weak correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Static calibration offset between lab and obs sites plus instrument-specific noise; lagged correlations are statistical artifacts arising from limited baseline and multiple offset testing",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All observed correlations, including lag-3 peak, are statistical artifacts: false discovery from testing ~30 offset combinations per pair and multiple instrument pairs",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unobserved confound in measurement protocol: systematic batching, recording delay, or observer selection bias creating false lagged structure without physical signal",
+      "class": "self_error"
+    }
+  ]
+}

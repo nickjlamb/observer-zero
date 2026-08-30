@@ -1,0 +1,161 @@
+{
+  "source": "w0-seed9141.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All observed correlations are statistical noise from multiple testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more weak real correlations exist between instruments or across time",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumentation or recording error affects one or more data streams",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental change affecting only the observatory resonator beginning around day 11",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or component degradation in resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or processing error specific to resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlated environmental factor affecting multiple instruments with complex signatures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental change affecting only the observatory resonator beginning around day 11",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or component degradation in resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or processing error specific to resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlated environmental factor affecting multiple instruments with complex signatures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental change affecting only the observatory resonator beginning around day 11",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or component degradation in resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All observed correlations and drifts are statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or processing error specific to resonator_obs around day 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlated environmental factor affecting multiple instruments with complex time-delayed signatures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All instruments are functioning normally and measuring stable physical quantities with expected statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient environmental disturbance affecting resonator_obs from days 11-25 has now resolved",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement program lacks sufficient sensitivity to detect real physical variation in Meridian environment",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Calibration or data processing issue in resonator_obs that self-corrected or was repaired between days 25-31",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All instruments are functioning normally and measuring stable physical quantities with expected statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient environmental disturbance affecting resonator_obs from days 11-25 has now fully resolved",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement program lacks sufficient sensitivity to detect real physical variation in Meridian environment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or data processing issue in resonator_obs that spontaneously self-corrected between days 17-38",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All instruments are functioning normally and measuring stable physical quantities with expected statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient environmental disturbance affecting resonator_obs from days 11-25 has now fully resolved",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement program lacks sufficient sensitivity to detect real physical variation in Meridian environment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or data processing issue in resonator_obs that spontaneously self-corrected between days 17-40",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

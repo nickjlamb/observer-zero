@@ -1,0 +1,221 @@
+{
+  "source": "wd_exact-seed9146.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental independence: each apparatus measures a genuinely independent physical quantity with no causal coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak common environmental cycle: a slow (~3–6 day period) shared driver affects all instruments with low coupling strength or high noise floor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or data logging artifact: systematic bias in trial numbering, timestamp alignment, or sampling schedule introduces false lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine coupling with phase lag: pendulum and resonator systems exchange energy or are weakly mechanically coupled via settlement structure, with 3–6 day phase delay in equilibration",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental drift in pendulum_lab only: real physical cause (thermal, mechanical settling, or calibration drift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol artifact or day-numbering misalignment in pendulum_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine weak environmental cycle (~3–6 day period) affecting all four instruments, with pendulum_lab also experiencing independent transient on day 13",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical coupling between pendulum_lab and settlement structure, with 3–6 day relaxation time; independent transient on day 13",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unplanned change in pendulum_lab environment, observer, or apparatus between days 12–13 (discovery needed)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure the same underlying environmental oscillation (thermal, seismic, or power-supply-driven) with a ~3-day phase lag; other instruments are decoupled or measure orthogonal quantities",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement artifact or calibration drift between pendulum_lab and resonator_obs: their high correlation reflects a shared instrumental error (e.g., common timing clock, digital quantization, or observer bias) rather than a physical signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-13 level shift in pendulum_lab is a real physical transient (thermal, mechanical, or electromagnetic), and the high 0.927 correlation with resonator_obs is coincidental or reflects resonator_obs's independent response to the same environmental event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol artifact: pendulum_lab and resonator_obs are measuring different physical quantities than labeled, or a data-entry error, mislabeling, or misaligned trial counter has caused spurious alignment",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs and pendulum_lab are responding to a settlement environmental oscillation, but the other two instruments (resonator_lab and pendulum_obs) are decoupled due to location, mounting, or shielding differences; the network is heterogeneous",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-13 calibration or instrumental event in pendulum_lab alone; 0.927 correlation with resonator_obs is a separate environmental oscillation both instruments couple to independently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic measurement artifact or data-logging error: pendulum_lab and resonator_obs share a timing clock, data acquisition system, or observer, causing spurious 0.927 correlation; day-13 shift is incidental",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription or file-labeling error: pendulum_lab and resonator_obs data are mislabeled, swapped, or time-aligned incorrectly in my records; the 0.927 correlation reflects actual data identity, not physics or shared artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are co-located or share a mounting substrate, coupling them to a local environmental microclimate or vibration hotspot; other instruments are spatially decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered interaction between measurement protocol, environmental timescale, and instrument physics",
+      "class": "other"
+    },
+    {
+      "label": "Shared systematic error: pendulum_lab and resonator_obs use the same data-acquisition thread, clock, observer, or software routine; day-13 shift reflects a logging system change affecting both; high correlation is instrumental artifact, not physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab instrument event (re-zeroing, pivot friction adjustment, thermal re-equilibration) on day 13; separately, pendulum_lab and resonator_obs couple to a shared ~3–6 day environmental oscillation (thermal, seismic, or power-supply driven) with 3-day phase lag. Other instrument pairs are decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data transcription, file-labeling, or trial-counter error: pendulum_lab and resonator_obs data are mislabeled, swapped, or time-aligned incorrectly; the 0.927 correlation reflects actual data identity or a hidden offset, not physics or shared artifact.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are co-located or mounted on the same structural substrate, coupling them to a local environmental microclimate or vibration hotspot; other instruments are spatially decoupled or isolated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered interaction between measurement protocol, settlement environment, and instrument physics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared systematic error: pendulum_lab and resonator_obs share a data-acquisition pathway (clock, observer, logging thread, file-naming convention); day-13 shift reflects a software or hardware change to that shared pathway; high correlation is an instrumental artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-protocol error: pendulum_lab and resonator_obs data are mislabeled, time-offset in my records, or partially swapped; the 0.927 correlation reflects data identity or a hidden chronological offset, not physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Day-13 instrument event in pendulum_lab (recalibration, pivot adjustment, or thermal transient); separately, pendulum_lab and resonator_obs couple to a shared ~3–6 day environmental oscillation with 3-day phase lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Co-location or shared mounting of pendulum_lab and resonator_obs on a common substrate or shelf; local environmental microclimate or seismic hotspot couples them while other instruments remain decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered interaction between measurement protocol, settlement environment, and instrument physics; e.g., a settlement maintenance or observer-shift cycle on a ~3–6 day cadence that differentially modulates sensitivity in pendulum_lab and resonator_obs; or feedback between instruments' electronics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared systematic error in pendulum_lab and resonator_obs data pathway; day-13 shift reflects hardware/software change to logging, clock, or observer assignment; high 0.927 correlation is instrumental artifact, not physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-protocol error: pendulum_lab and resonator_obs data mislabeled, time-offset in my records, or partially swapped; 0.927 correlation reflects data identity or hidden chronological misalignment, not physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Periodic environmental or operational cycle (~8–13 day period) affects all four instruments via different phase lags and sensitivities, creating faint 'echo' structure in autocorrelations; pendulum_lab and resonator_obs happen to couple more strongly due to shared mounting, room, or thermal mass.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-13 genuine physics event in pendulum_lab (recalibration, pivot adjustment, thermal transient); separately, pendulum_lab and resonator_obs are co-located or share thermal/vibrational coupling creating spurious 0.927 correlation at 3-day phase lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact or anomaly in my own analysis pipeline: lag-search algorithm, autocorrelation computation, or trial-matching procedure introduces spurious correlations or echoes; 0.927 correlation and 'echo' patterns are computational artifacts, not physical signals.",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial 371 is a genuine measurement outlier (apparatus transient, observer error, or one-time environmental spike); remaining trials 372–376 are nominal and consistent with post-baseline baseline.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial 371 is the first sign of a genuine non-stationary process in pendulum_lab (slow drift, cyclic modulation, or threshold crossing); trials 372–376 are still consistent with noise atop underlying change, but baseline assumption (stationarity days 1–35) is invalid and requires investigation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial 371 is a data-entry or transcription error: I misrecorded or misread the value; the true value is closer to 1.6540 (nominal), and the 1.6859 entry is a digit transposition, decimal-point error, or unit confusion.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: a genuine physical cause I have not yet formulated (mechanical coupling between trial 371 and prior day-13 event; a rare apparatus state triggered by ambient conditions on day 35; or an error in my baseline calculation that makes trial 371 appear anomalous when it is nominal).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The perfect correlation (pendulum_lab ↔ resonator_obs, r=1.000) is a statistical artifact from multiple comparisons and small sample size (n=102); negative auto-correlations at 4–10 day lags are also noise; all four instruments are genuinely independent and stable within baseline assumptions.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The perfect correlation (pendulum_lab ↔ resonator_obs, r=1.000) is genuine but mediated by a shared environmental driver (e.g., settlement thermal cycle, vibrational mode, or power supply modulation) acting on the two instruments with a 3-day phase lag; negative auto-correlations hint at a 5–10 day cycle being aliased or damped.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My data recording or numerical pipeline has a systematic error: two of the four instrument readings are corrupted copies or scaled versions of others (explaining the perfect correlation and weak cross-checks); or my lag-search algorithm has a bug that creates false correlations.",
+      "class": "self_error"
+    },
+    {
+      "label": "All four instruments are real and independent, but I have not yet collected enough data (Day 40, ~350–460 trials per stream) to establish stable cross-instrument baselines; apparent correlations and lags will converge to zero or reveal genuine structure as n → 1000+.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a genuine instrumental or environmental pathology that I have not yet formulated, such as a mechanical coupling between apparatus components, a failure mode in my calibration procedure that varies by instrument, or a settlement-scale electromagnetic or vibrational transient on specific days that I have not yet correlated with my measurements.",
+      "class": "environmental_change"
+    }
+  ]
+}

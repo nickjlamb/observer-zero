@@ -1,0 +1,173 @@
+{
+  "source": "wd_degraded-seed9142.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental drift or calibration creep in each device, causing apparent decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic time offset or phase lag between measurement streams, masking true underlying correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or settlement-wide oscillation (e.g., thermal, seismic, atmospheric) to which resonators respond more sensitively than pendulums",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or operator variance within or between sites (lab vs obs) introduces noise that dominates any true signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental malfunction or calibration error in one or more devices (e.g., detector saturation, electronic coupling, misalignment)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonators selectively encode a real ~7-day environmental oscillation (thermal, seismic, or atmospheric) that pendulums are too insensitive or too heavily damped to detect",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift or calibration creep specific to each device, causing each to decorrelate from the others while maintaining internal structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic measurement protocol or operator/site differences (lab vs observation) introduce independent noise floors that dominate true signals",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple systematic time offsets or phase lags between measurement streams (different effective measurement latencies or asynchronous sampling protocols) mask a common underlying signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental malfunction, electronic coupling, or detector saturation in one or more devices producing organized but artifactual patterns",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unidentified systematic effect (e.g., unaccounted-for temporal structure in settlement conditions, operator learning curve, or instrumental interaction not yet recognized)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab experienced a real brief environmental perturbation (thermal, mechanical, or seismic) on Day 29 that affected only that instrument or location, while others were insulated or desensitized; the weak inter-instrument correlations reflect genuine spatial or instrumental heterogeneity in sensitivity to settlement-wide phenomena.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab underwent a calibration drift or instrumental creep specific to that device starting on Day 29, independent of any external cause; each of the four instruments operates on its own isolated measurement scale, and weak inter-instrument agreement is baked into their design or mounting, not evidence of shared physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The 7-day periodicity detected in resonator instruments (resonator_lab r=0.354 at lag 14, resonator_obs r=0.358 at lag 13, both exceeding chance ±0.447) is real and reflects a genuine ~7-day environmental or settlement cycle (thermal, seismic, or activity-driven) to which resonators are selectively sensitive. Pendulums do not show this periodicity because they are more heavily damped or mechanically decoupled from the driving mechanism. The Day 29 pendulum_lab elevation is orthogonal to this resonator cycle and may reflect a local transient.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A time offset or phase lag between measurement streams masks a common signal; the Day 29 pendulum_lab elevation and the resonator 7-day periodicity are manifestations of the same underlying phenomenon, but viewed through different effective delays or sampling protocols, making them appear decorrelated.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol, operator technique, or site environmental differences (lab vs. observation location) introduce independent noise that dominates any true signal, and the Day 29 pendulum_lab elevation is a noise artifact or operator learning curve.",
+      "class": "self_error"
+    },
+    {
+      "label": "An unidentified systematic effect: weekly settlement activity or maintenance cycle, thermal conditioning, or unaccounted-for experimental or environmental scheduling that is coupled to the 7-day resonator periodicity and which also produced a transient on Day 29; requires access to settlement operational logs, maintenance schedules, thermal records, or operator shift rotation data to diagnose.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: instrumental malfunction, electronic coupling between devices, or detector saturation producing organized but artifactual patterns.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a real localized transient on Day 29 (thermal, vibrational, or seismic) to which it alone responded; inter-instrument decorrelation reflects genuine spatial/sensitivity heterogeneity, not measurement failure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is undergoing an instrument-specific calibration drift or electrical offset that began on or around Day 29, independent of environment; each of the four instruments operates on its own measurement scale, and weak inter-instrument agreement is expected by design.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine ~7-day environmental or settlement cycle (thermal, seismic, or activity-driven) drives the resonator instruments selectively; pendulums are too heavily damped or decoupled to show this periodicity, and the Day 29 pendulum_lab elevation is a distinct transient unrelated to the resonator cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol, operator technique, or site environmental differences (lab vs. observation location) introduce large independent noise that dominates any true signal; the Day 29 pendulum_lab elevation is a noise artifact, operator shift, or site-specific disturbance unrelated to settlement physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "A time offset or phase lag between measurement streams masks a common signal; the Day 29 pendulum_lab elevation and the resonator 7-day periodicity are manifestations of the same underlying phenomenon, but viewed through different effective delays or sampling protocols.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A settlement operational event (maintenance, thermal conditioning, power cycling, or recalibration protocol) occurred on or near Day 29 or follows a 7-day cycle; this event is coupled to both the Day 29 pendulum_lab elevation and the resonator 7-day periodicity.",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism (instrumental malfunction, electronic coupling between devices, detector saturation, or some other artifact).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure coupled responses to a genuine settlement-wide phenomenon with a consistent 3-day phase lag between readout chains",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Electronic or calibration coupling between pendulum_lab and resonator_obs creates a spurious correlation; the r=0.949 is artifact, not signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent a discrete calibration shift or instrumental drift starting around Day 29, visible as the 6-trial elevation; inter-instrument decorrelation is normal given independent measurement protocols, and the pendulum_lab ↔ resonator_obs correlation is coincidental or driven by a short-term anomaly in one or both instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A ~7-day environmental or operational cycle (thermal, seismic, or settlement activity-driven) preferentially drives the resonator instruments; pendulums are decoupled or too damped to resolve this periodicity, and the Day 29 pendulum_lab elevation is an unrelated local transient",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement operational or maintenance events on or near Day 29 and/or on a 7-day cycle drive both the pendulum_lab elevation and the resonator periodicity; external operational data (logs, maintenance schedules, thermal records) are needed to confirm or refute",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Measurement protocol, operator technique, or environmental differences between lab and field observations introduce independent noise floors that suppress inter-instrument correlation; the pendulum_lab ↔ resonator_obs outlier is a statistical fluke or represents a narrow time window not generalizable to the full dataset",
+      "class": "self_error"
+    }
+  ]
+}

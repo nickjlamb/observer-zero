@@ -1,0 +1,177 @@
+{
+  "source": "we-seed9105.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely different physical quantities (not a single phenomenon aliased four ways)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic instrumental lag or phase shift: lab and observatory instruments operate in different regimes (e.g., temperature, coupling) causing time-offset correlations to emerge rather than decay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are drifting independently, and correlations at offset are statistical artifacts from low-power correlation searches (multiple hypothesis testing bias)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observatory instruments are measuring the same phenomenon but with opposite sign convention or 180° phase offset (physical coupling is real, but systematic calibration sign error exists)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental confound couples all four streams with a common quasi-periodic mode (e.g., settlement thermal cycle, vibration mode) at ~5–6 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure genuinely distinct physical quantities with independent slow drifts and environmental couplings",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Lab and observatory instruments operate with mismatched time constants or coupling filters, producing systematic phase lags with sign inversions in some channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlations at offset are statistical artifacts from multiple hypothesis testing with low effective sample sizes (n=6–24 per offset test), and instruments are drifting independently",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observatory pairs measure the same phenomena with a persistent 180° phase inversion or sign-convention calibration error in the observatory arm",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide quasi-periodic environmental disturbance (thermal cycle, vibration mode, or pressure oscillation) at ~5–6 day period couples to all four instruments with different phase lags and inversion properties",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unmeasured factor or measurement regime not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Lab and observatory channels operate with mismatched dynamical time constants (different RC filters, thermal mass, or mechanical damping), producing systematic phase lags with sign inversions in coupled feedback loops",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure genuinely distinct physical quantities with independent slow drifts and environmental couplings that happen to show sign-flipped correlations by coincidence or statistical clustering",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observatory arm instruments (pendulum_obs, resonator_obs) operate with a persistent ~180° phase inversion or sign-convention calibration error relative to their lab counterparts, but this error couples through a dynamical system with ~4–6 day delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide slow environmental mode (~5–6 day characteristic timescale) couples to all four instruments with instrument-specific phase and amplitude transfer functions, producing the observed offset correlations and sign flips",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-talk or electromagnetic coupling between lab and observatory measurement chains (cables, sensor grounds, power supplies) induces delayed, inverted signals in feedback loops or differential amplifiers",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured factor or measurement regime not yet considered (e.g., observer bias, data recording asynchrony, unknown instrumental coupling path, or a physical phenomenon outside current hypotheses)",
+      "class": "other"
+    },
+    {
+      "label": "Resonator_obs entered a quantization or digitization regime on Day 27 due to instrument saturation, amplifier clipping, or analog-to-digital converter bit-depth exhaustion under high-amplitude input.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs readout or data-logging protocol changed on Day 27 (e.g., switched to a lower-resolution display, different firmware revision, or observer hand-wrote readings from a dial with coarser markings).",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs real readings are overlapping or clustered in a narrow band (4.04–4.11 cycles/beat) on Day 27 due to a transient physical phenomenon (e.g., thermalization toward equilibrium, damping of a resonance, or a brief environmental perturbation), and exact repetitions are a coincidental artifact of low diversity in the underlying measurements.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Earlier hypotheses on lag correlations (phase-lag dynamics, independent drifts, sign inversion, environmental mode, cross-talk) remain valid for the 17-day record (Days 1–17) but are now superseded by a more urgent instrument-state anomaly in the final dataset (Days 26–27).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs data for trials 53–66 (Day 26–27) are correct measurements of a real quantity but coincidentally exhibit low diversity due to a transient physics effect not yet hypothesized, requiring further investigation before exclusion.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs entered a quantization regime (ADC bit-depth exhaustion, amplifier clipping, or digitizer saturation) on Day 27, causing the readout to cycle through discrete output states.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs data-logging procedure changed on Day 27 (switched to lower-precision readout method, different firmware, analog dial instead of digital meter, or coarser observation protocol).",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs readings on Days 26–27 are corrupted or mislogged (data-entry error, file sync failure, observer copy-paste artifact, or test-data accidentally committed to record), and the raw underlying measurements are valid but not yet recovered.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs real underlying readings on Days 26–27 genuinely clustered in a narrow band (e.g., 4.02–4.11 cycles/beat) due to transient physics (thermalization, damping, or environmental perturbation), and exact 20-trial repetition is a coincidental artifact of low diversity in true measurements.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unobserved confound or artifact not yet considered (e.g., environmental-control system interaction, observer fatigue effect, instrument calibration event on Day 27, or a pattern in event IDs that reveals a systematic logging structure).",
+      "class": "other"
+    },
+    {
+      "label": "Resonator_obs readout switched to lower precision or coarser observation protocol on Day 27",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs hardware entered quantization regime (ADC saturation, bit-depth exhaustion, or amplifier clipping) on Day 27",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs trials 53–72 are corrupted or mislogged (copy-paste artifact, file sync failure, duplicate entry, or test data accidentally committed)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs true underlying readings genuinely clustered in narrow band on Days 26–27 due to transient physics, and exact repetition is coincidental",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unobserved confound: environmental-control system change, instrument calibration event, or systematic pattern in event ID structure on Day 27",
+      "class": "other"
+    }
+  ]
+}

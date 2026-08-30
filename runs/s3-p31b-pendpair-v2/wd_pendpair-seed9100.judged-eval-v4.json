@@ -1,0 +1,149 @@
+{
+  "source": "wd_pendpair-seed9100.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument resolution exceeds environmental noise: pendulum period genuinely varies at ~0.01 beat precision due to unmeasured environmental factors (air currents, thermal drift, magnetic field fluctuations) or inherent physical variability; no malfeasance, but baseline may be sampling real micro-variation rather than a stable constant.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration baseline is invalid: the pendulum or timing mechanism itself is in a state of continuous micro-drift or micro-oscillation (e.g., pivot wear-in, thermal transient, magnetic coupling to environment) that will stabilize after Day 10, making the current baseline unreliable for post-baseline drift detection.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural error: each reading is being independently recorded with slight variations in timing, temperature logging, or other uncontrolled metadata (e.g., time of day, ambient humidity) that correlate with the beat-count result, creating apparent randomness.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown systematic effect: the event IDs (ranging from ~60 million to ~1.9 billion) encode temporal or environmental metadata that correlates with beat-count in a way not yet recognized; baseline is being confounded by an unmeasured variable.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Post-baseline environment is genuinely noisier or the pendulum has entered a new regime; baseline remains valid but post-baseline scatter reflects real physical change.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration period was too short and pendulum/timing mechanism is still in thermal or mechanical transient; baseline distribution does not represent true equilibrium and post-baseline scatter reflects settling, not environmental change.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol or environmental metadata varies systematically by day or observer, creating apparent scatter that correlates with procedural factors not yet recognized.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument resolution genuinely exceeds noise floor and all 145 readings are physically correct; no anomaly exists, only mismatched expectation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Event IDs encode hidden temporal or environmental state that correlates with beat count; an unmeasured variable confounds baseline and post-baseline.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum or timing mechanism is undergoing slow thermal or mechanical drift; baseline is valid but post-baseline readings capture real secular change in the system's equilibrium.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period (days 1–10) was too short to capture true equilibrium; both baseline and early post-baseline (trials 121–145) reflect active transient, and trials 179–203 reflect later-stage settling; baseline is invalid as a reference.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental conditions (temperature, air currents, pressure) changed between baseline and post-baseline periods, increasing effective noise floor; baseline is valid but post-baseline scatter reflects genuine environmental change, not instrument drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol drifted subtly (time-of-day sampling changed, environmental sensor calibration changed, or observer changed); trials 179–203 reflect procedural confound, not physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "All readings are physically correct and well-separated; no anomaly exists. The post-baseline scatter and marginal z-score drift are consistent with random environmental noise around a stable mean; expectation of lower scatter was unfounded.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Event IDs encode temporal or environmental state (elapsed time, ambient pressure, magnetic field, or thermal history) that causally drives beat-count variation; a hidden confound correlates with trials 179–203.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument underwent a discrete physical transition (pivot stiffening, thermal lag resolution, or oil redistribution) between trials 295 and 296; bimodal pattern reflects passage through two mechanical equilibria.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period (days 1–10, n=72) was too short to capture true mechanical equilibrium; trials 1–315 are all still in active transient, and the bimodal pattern in 291–315 reflects nonmonotonic settling, not anomaly.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental conditions changed discretely on day 35 afternoon (trials 296 onward): HVAC schedule, neighboring activity, or external thermal/pressure front caused sustained increase in noise floor and mean shift in trials 296–303, then conditions stabilized by day 36 afternoon (trials 304–315).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or protocol drift occurred on day 35 (trials 296 onward): time-of-day sampling shifted, measurement technique changed, observer changed, or sensor recalibration was performed; bimodal pattern reflects procedural confound, not physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "All readings are physically sound and well-separated; the bimodal appearance is a statistical artifact of small sample size within a day; no underlying anomaly exists, and the instrument is stable.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument underwent discrete mechanical transition (pivot friction change, thermal redistribution, or lubricant state shift) on day 39",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period (days 1–10) was too short to capture true mechanical equilibrium; entire dataset (days 1–40) remains in complex transient, and day 39 shift reflects continuation of settling, not anomaly",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental conditions changed on day 39 (external thermal front, HVAC event, or neighboring lab activity); day-39–40 scatter reflects environmental disturbance, not instrument drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or observer protocol changed around day 39 (time-of-day sampling shift, timing sensor recalibration, or observer substitution); apparent level change is methodological, not physical",
+      "class": "self_error"
+    },
+    {
+      "label": "All readings are physically sound and instrument is stable; day-39 level change is a statistical fluctuation in an otherwise stationary process",
+      "class": "measurement_error"
+    }
+  ]
+}

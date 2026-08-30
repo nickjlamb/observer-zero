@@ -1,0 +1,129 @@
+{
+  "source": "wd_degraded-seed9104.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration divergence between lab and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental driver with a 4–6 day period affecting lab and observational modes asymmetrically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or operator bias introducing systematic correlation structure between instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical process with genuine quasi-periodic oscillation at ~4–6 day period, but instruments sample phase-incoherently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental calibration baseline contamination or divergence between lab and observational apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental driver with ~4–6 day periodicity coupling asymmetrically to lab vs. observational detection paths",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or protocol bias during baseline establishment (days 1–10) introducing correlated structure that persists in post-baseline data",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine quasi-periodic physical process at ~4–6 day period, with instruments phase-incoherently sampling different harmonics or paths",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown artifact or process not considered in above framework",
+      "class": "other"
+    },
+    {
+      "label": "Instrumental calibration baseline contamination: lab and observational apparatus drifted apart in their independent calibration trajectories after day 10, creating a shared temporal skeleton within each apparatus class but systematic incoherence between them.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental driver with ~4–6 day periodicity, asymmetrically coupled to lab versus observational detection paths or time constants.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or protocol bias during baseline establishment (days 1–10) introducing correlated structure that persists as a phantom signal in post-baseline data.",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine quasi-periodic physical process at ~4–6 day period indigenous to Meridian's measured phenomenon, with lab and observational apparatus sampling at different phases or harmonics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown artifact or process (data quality issue, hardware malfunction, software bias in record processing, or constellation of factors not yet articulated).",
+      "class": "other"
+    },
+    {
+      "label": "Resonator_lab calibration shift on day 40 combined with shared baseline contamination in lab apparatus pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured ~4–6 day periodic environmental driver (thermal, seismic, power-load, barometric) asymmetrically coupled to lab and obs detection paths, with resonator_lab now entering a peak phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab hardware malfunction, drift, or re-calibration event on day 40, independent of baseline contamination",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline establishment bias (operator protocol, interlacing, or environmental transient during days 1–10) creating phantom correlations that persist in post-baseline data, with day-40 resonator_lab spike as separate artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Data processing artifact (timestamp rounding, missing-data interpolation, or software bias in record aggregation) affecting correlation structure without changing mean/variance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown artifact or constellation of factors not yet articulated",
+      "class": "other"
+    }
+  ]
+}

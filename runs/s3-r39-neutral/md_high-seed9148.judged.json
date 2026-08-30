@@ -1,0 +1,145 @@
+{
+  "source": "md_high-seed9148.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration divergence between lab and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument measures a different physical quantity; the four streams are not replicas of one another",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise is high relative to any common signal; true correlations are buried",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or geophysical forcing with a ~6-day timescale is weakly coupled to some instruments but not others",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator measure physically opposite responses to a shared environmental driver (e.g., pressure compresses resonator, lengthens pendulum)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observatory site experiences environmental forcing (temperature, pressure, seismic) with ~6-day period that affects pendulum and resonator differently, while lab site does not",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are measuring independent physical quantities (or aspects of the same quantity under different conditions); weak correlations reflect that, not environmental coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise is high enough to bury any true common signal; apparent correlations and their signs are statistical fluctuations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: instrumental artifact, calibration procedure cross-talk, or data recording error specific to observatory site or cross-type pairs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs instrument calibration drift or mechanical fault localized to Day 25",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared ~6-day environmental cycle at observatory site affects pendulum and resonator with opposite sign (pendulum lengthens/resonator compresses under pressure or vice versa)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observatory site experiences environmental forcing (~6-day period) that affects pendulum and resonator independently, while lab site does not; Day 25 is a local extremum in that cycle for pendulum only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or timestamping error specific to pendulum_obs on Day 25 (e.g., systematic offset, misalignment with true trial sequence)",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unknown procedural cross-talk, environmental phenomenon, or measurement principle not yet examined",
+      "class": "other"
+    },
+    {
+      "label": "Coupled environmental cycle at observatory site with opposite-sign sensitivity: pendulum responds to one phase of a ~6–9 day environmental cycle; resonator responds to opposite phase or orthogonal component (e.g., thermal expansion of support structure affects pendulum length but compresses resonator cavity, or vice versa).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration or mechanical drift specific to pendulum_obs, manifest as a slow bias accumulation over trials 150–372 (post-baseline period) rather than a sharp Day 25 event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab site and observatory site experience different environmental forcing or are physically decoupled (e.g., different thermal time constants, seismic isolation, or geographic separation); the observed negative correlations reflect lab instruments responding to a global signal while observatory instruments respond to a local signal with opposite phase or independent cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Recording, timestamping, or data alignment error affecting one or more instruments, particularly pendulum_obs or resonator_obs, producing spurious correlations or noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown procedural, environmental, or measurement-principle dependency not yet examined; possible non-linear coupling between instrument types or unmonitored environmental variable (e.g., barometric pressure, humidity, magnetic field, power supply ripple).",
+      "class": "other"
+    },
+    {
+      "label": "Coupled environmental cycle at observatory site with opposite-sign sensitivity between pendulum and resonator types",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs calibration or mechanical drift, manifest as slow bias accumulation and elevated noise over trials 150–372",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data alignment, timestamping, or post-hoc filtering artifact, particularly affecting pendulum_lab ↔ resonator_obs correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab site and observatory site experience decoupled environmental forcing; observatory exhibits local 6–9 day cycle, lab exhibits independent or anti-phase cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown environmental or measurement-principle dependency (barometric pressure, humidity, magnetic field, power supply ripple, non-linear coupling) not yet characterized",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

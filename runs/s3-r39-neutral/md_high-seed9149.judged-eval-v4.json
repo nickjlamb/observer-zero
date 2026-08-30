@@ -1,0 +1,189 @@
+{
+  "source": "md_high-seed9149.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 23,
+  "l4Judged": 23,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring genuinely independent physical quantities with no shared causal drivers",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are all operating near their noise floor; variation is measurement noise, not signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Temporal correlations exist but are obscured by phase shifts longer than the baseline window or by irregular sampling intervals",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline period is too short to resolve drift, and apparent independence is a sampling artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning or miscalibrated, producing noise unrelated to the intended measurand",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental drift affecting resonator systems selectively began on day 20; pendulum systems are decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The day-20 resonator_obs elevation is a statistical fluctuation within normal variance; all four instruments remain stable and independent",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator systems (lab and obs) are sensitive to a common physical driver (e.g., mechanical vibration, temperature) that began or changed on day 20; this driver is independent of the pendulum driver, explaining their lack of correlation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Sampling or trial assignment on day 20 introduced bias (e.g., different operator, different ambient condition during the day, or trials grouped by time-of-day effect); the elevation in resonator_obs is real but transient",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement error or data entry error in resonator_obs trials 217–234; values should be checked against raw instrument logs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Single-instrument environmental drift in resonator_obs began day 20; resonator_lab and pendulum systems decouple because they measure independent physical quantities or are thermally/vibrationally isolated from resonator_obs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-20 resonator_obs elevation is a statistical fluctuation (n=18 trials) within expected noise; all four instruments remain genuinely independent and stable.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Sampling order or time-of-day effect on day 20 caused the elevation; trials were assigned in a non-random order (e.g., all pendulum_obs first, then resonator_obs), and an afternoon thermal or procedural drift affected only resonator_obs.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry or calibration error in resonator_obs trials 217–234; raw instrument logs must be checked.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs and resonator_lab measure the same physical quantity but via instrument paths decoupled enough that a common environmental driver affects them out of phase or with a time delay; correlation is obscured by noise or lag.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs experienced localized environmental drift beginning ~day 23; shift is real, instrument-specific, not laboratory-wide",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure via independent hardware paths; pendulum_obs apparatus has drifted thermally or mechanically, while pendulum_lab has not, explaining their persistent low cross-correlation and the day-23 shift in obs only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The day-23 shift in pendulum_obs is a statistical fluctuation in post-baseline noise; all four instruments remain genuinely independent and stable, with the apparent shift a result of random clustering in a small post-baseline cohort",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry or calibration error in pendulum_obs trials post-day-20; systematic offset or transducer recalibration applied without documentation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments remain uncorrelated because they measure fundamentally independent physical processes, environmental drivers, or employ apparatus in sufficiently isolated locations; no shared signal exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs apparatus experienced a real, localized environmental or mechanical drift beginning ~day 23; shift is persistent and instrument-specific, not a noise fluctuation or shared environmental effect.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure via sufficiently independent hardware (different transducers, housings, or environmental couplings) that they respond decorrelatively to noise; the day-23 apparent shift in pendulum_obs is a real but transient clustering of readings, not indicative of apparatus failure.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A calibration error, transducer replacement, or decimal/unit offset was applied to pendulum_obs data post-day-20, creating a systematic step offset without documentation; raw logs and maintenance records must be audited to rule out this pathway.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure sufficiently independent physical processes or are physically isolated such that no shared environmental driver or common signal propagates across the settlement; zero cross-correlation is expected and reflects genuine independence, not instrumental failure.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: Something unconsidered—e.g., a shared environmental driver with a long time constant (>12 days) that decorrelates the instruments by introducing phase shifts or differential delays; a non-linear coupling between instruments; or a data-processing artifact (e.g., lag-correction or interpolation applied post-hoc to one stream).",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_obs apparatus experienced a real, localized instrumental drift beginning ~day 23; shift is persistent, unidirectional, and specific to this hardware path, not a noise fluctuation or shared environmental effect.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure via sufficiently independent hardware that they decorrelate naturally; the observed shift in pendulum_obs is a real but statistically modest clustering of readings into the lower half of the natural noise distribution, not indicative of apparatus failure or systematic drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A calibration error, transducer replacement, or systematic offset was applied to pendulum_obs data post-day-20, creating a persistent step shift without documentation; raw logs and maintenance records must be audited to rule out this pathway.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure sufficiently independent physical processes or occupy sufficiently isolated hardware environments such that no shared environmental driver propagates across settlement; zero cross-correlation is expected and reflects genuine independence, not instrumental failure. The pendulum_obs drift is an instrument-specific response to a localized environmental change decoupled from lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A higher-order explanation: a common environmental driver with a long time constant (>12 days) or non-linear coupling affects all four instruments but decorrelates them via phase shifts, time delays, or differential frequency responses; alternatively, a data-processing artifact (lag-correction, interpolation, or quantization) was applied post-hoc to one or more streams and artificially obscured correlation.",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_obs apparatus experienced a real, persistent instrumental drift beginning ~day 23; shift is hardware-specific (transducer, optical alignment, or mount), not environmental or noise-driven, and independent from pendulum_lab via separate detection paths.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The persistent downward shift in pendulum_obs is a transient clustering of readings into the lower half of the noise distribution—statistically rare but explainable by noise—and does not indicate apparatus failure.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A calibration event, transducer replacement, or systematic offset was applied to pendulum_obs post-day 20, creating a step-function shift that was not documented in settlement records or my own logs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure independent physical processes or occupy sufficiently isolated hardware environments that zero cross-correlation is expected; the pendulum_obs drift is a hardware-specific environmental response (mount settling, thermal coupling, optical drift) decoupled from lab instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A higher-order explanation: a common environmental driver with non-linear coupling, phase shifts, or time delays affects all four instruments but decorrelates them via differential frequency responses; alternatively, a post-hoc data-processing artifact (smoothing, lag-correction, interpolation, or quantization) obscured correlation without documentation.",
+      "class": "other"
+    }
+  ]
+}

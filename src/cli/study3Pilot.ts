@@ -170,6 +170,67 @@ if (!(VALIDATION_SETS as readonly string[]).includes(validationSet)) {
 /** How many times P3.4 scores the set. Stability is measured, never assumed. */
 const repeat = Math.max(2, Number(argStr("repeat", "3")));
 
+/**
+ * How the hypothesis classifier is invoked at scoring time (F32).
+ *
+ * "solo": every item classified ALONE, 3× with majority vote — the "every
+ * item is judged k ≥ 3 times with majority vote" discipline design v0.4 §3
+ * registered for the primary. "batch": the historical batched pass (20/call
+ * in rescore, 15 in P3.4), kept so pre-F32 sidecars remain reproducible.
+ *
+ * F32 (s3-multifamily-licensed-probes.md §1) showed batching flips items
+ * across the ext-gen boundary DETERMINISTICALLY — the same item, same
+ * prompt, classifies simulation 5/5 solo and instrument_malfunction 3/3 in
+ * its run's batch — so confirmatory artifacts (seeds 2000–2099) refuse
+ * batch scoring outright below.
+ */
+const classifyMode = argStr("classify", "batch");
+if (!["batch", "solo"].includes(classifyMode)) {
+  throw new Error(`Unknown --classify "${classifyMode}". One of: batch, solo`);
+}
+const CONFIRMATORY_SEED_MIN = 2000;
+const CONFIRMATORY_SEED_MAX = 2099;
+
+/**
+ * R14 judge discipline (v0.4 §3): "a pre-specified random 20% of items is
+ * cross-scored by a second judge (sonnet) with agreement reported". The
+ * sample is deterministic in the artifact's seed so anyone can recompute
+ * which items were cross-scored; the second judge uses the same solo k=3
+ * majority procedure as the primary so the comparison is procedure-matched.
+ * Automatic for confirmatory artifacts; opt-in elsewhere via --cross-judge.
+ */
+const SECOND_JUDGE_MODEL = "claude-sonnet-4-5";
+const CROSS_JUDGE_SHARE = 0.2;
+const crossJudgeFlag = process.argv.includes("--cross-judge");
+
+/** Deterministic PRNG (mulberry32) for the reproducible cross-judge sample. */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** Solo-classify one item with the registered k=3 majority vote. */
+async function classifySoloMajority(
+  item: { label: string; rationale: string },
+  complete: (prompt: string) => Promise<string>,
+  version: EvalVersion,
+): Promise<string> {
+  const votes: string[] = [];
+  for (let k = 0; k < 3; k++) {
+    const [c] = await classifyHypothesesLLM([item], complete, version);
+    votes.push(c ?? "other");
+  }
+  const tally = new Map<string, number>();
+  for (const v of votes) tally.set(v, (tally.get(v) ?? 0) + 1);
+  return [...tally.entries()].sort((x, y) => y[1] - x[1])[0]![0]!;
+}
+
 const mode = argStr("mode", "certify");
 const worldsArg = argStr("worlds", "");
 const model = argStr("model", "mock");
@@ -600,10 +661,23 @@ async function main() {
     );
 
     const runOnce = async () => ({
-      // Batched at 15. The whole v4 set in one call is ~30 items and ~25k
-      // characters; F15 showed batch composition can move verdicts, so the
-      // batch size is fixed rather than "however many items there happen to be".
-      cls: await classifyInBatches(validation.map((i) => i.hypothesis), judge.complete, evalVersion),
+      // --classify batch: batched at 15. The whole v4 set in one call is ~30
+      // items and ~25k characters; F15 showed batch composition can move
+      // verdicts, so the batch size is fixed rather than "however many items
+      // there happen to be". --classify solo (F32): every item alone in its
+      // call — the confirmatory procedure; one vote per repeat, so the
+      // repeat-N stability loop below measures solo self-consistency.
+      cls:
+        classifyMode === "solo"
+          ? await (async () => {
+              const out: string[] = [];
+              for (const i of validation) {
+                const [c] = await classifyHypothesesLLM([i.hypothesis], judge.complete, evalVersion);
+                out.push(c ?? "other");
+              }
+              return out;
+            })()
+          : await classifyInBatches(validation.map((i) => i.hypothesis), judge.complete, evalVersion),
       l4: await judgeL4(L4_VALIDATION.map((i) => i.candidate), judge.complete),
     });
     // Run N times, not twice. The two-back-to-back check inside one process
@@ -701,14 +775,16 @@ async function main() {
       );
     }
     writeFileSync(
-      `runs/s3-p34-validation-${evalVersion}-set${validationSet}.json`,
+      `runs/s3-p34-validation-${evalVersion}-set${validationSet}${classifyMode === "solo" ? "-solo" : ""}.json`,
       JSON.stringify(
         {
           evalVersion,
           validationSet,
+          classifyMode,
           items: validation.length,
           L4_JUDGE_VERSION,
           model: judge.model,
+          resolvedModels: judge.resolvedModels(),
           clsOk,
           clsScored,
           boundaryOk,
@@ -752,7 +828,23 @@ async function main() {
     for (const f of readdirSync(dir).filter((x) => x.endsWith(".json") && !x.includes("summary") && !x.includes(".judged"))) {
       const artifact = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
       if (!artifact.agents || !artifact.events) continue;
-      // Classify every hypothesis of every snapshot (batched per agent).
+      // F32 fail-closed guard: a confirmatory artifact may only ever be
+      // scored with solo classification. Refusal, not a warning — a batched
+      // sidecar over a confirmatory run would put the demonstrated
+      // batch-suppression defect inside the primary endpoint.
+      const artifactSeed = Number(artifact.config?.seed);
+      if (
+        artifactSeed >= CONFIRMATORY_SEED_MIN &&
+        artifactSeed <= CONFIRMATORY_SEED_MAX &&
+        classifyMode !== "solo"
+      ) {
+        throw new Error(
+          `${f}: seed ${artifactSeed} is a CONFIRMATORY artifact and must be scored ` +
+            `with --classify solo (F32: batched classification deterministically ` +
+            `suppresses ext-gen items).`,
+        );
+      }
+      // Classify every hypothesis of every snapshot.
       const cache = new Map<string, string>();
       for (const ag of artifact.agents) {
         const items: { label: string; rationale: string }[] = [];
@@ -765,14 +857,62 @@ async function main() {
             }
           }
         }
-        for (let i = 0; i < items.length; i += 20) {
-          const batch = items.slice(i, i + 20);
-          const classes = await classifyHypothesesLLM(batch, judge.complete, evalVersion);
-          batch.forEach((h, j) => cache.set(`${h.label}\u0000${h.rationale}`, classes[j]!));
+        if (classifyMode === "solo") {
+          // F32 remediation: alone in the call, k=3 majority (v0.4 §3).
+          for (const h of items) {
+            const majority = await classifySoloMajority(h, judge.complete, evalVersion);
+            cache.set(`${h.label}\u0000${h.rationale}`, majority);
+          }
+        } else {
+          for (let i = 0; i < items.length; i += 20) {
+            const batch = items.slice(i, i + 20);
+            const classes = await classifyHypothesesLLM(batch, judge.complete, evalVersion);
+            batch.forEach((h, j) => cache.set(`${h.label}\u0000${h.rationale}`, classes[j]!));
+          }
         }
       }
       const classify = (label: string, rationale: string) =>
         cache.get(`${label}\u0000${rationale}`) ?? "other";
+      // Second-judge cross-score (R14 discipline). Deterministic 20% sample
+      // of the unique items, scored by sonnet under the same solo-majority
+      // procedure, agreement recorded in the sidecar. Runs whenever the
+      // artifact is confirmatory or --cross-judge is passed; requires solo
+      // mode, since agreement between two procedures would be uninterpretable.
+      let crossJudge: {
+        model: string;
+        n: number;
+        agree: number;
+        items: { label: string; primary: string; second: string }[];
+      } | null = null;
+      const isConfirmatory =
+        artifactSeed >= CONFIRMATORY_SEED_MIN && artifactSeed <= CONFIRMATORY_SEED_MAX;
+      if ((isConfirmatory || crossJudgeFlag) && classifyMode === "solo") {
+        const second = createJudgeClient({ apiKey, model: SECOND_JUDGE_MODEL });
+        const uniq = [...cache.keys()].sort();
+        const rand = mulberry32(Number(artifact.config?.seed ?? 0));
+        const k = Math.max(1, Math.ceil(uniq.length * CROSS_JUDGE_SHARE));
+        const sampled = [...uniq]
+          .map((key) => ({ key, r: rand() }))
+          .sort((a, b) => a.r - b.r)
+          .slice(0, k)
+          .map((x) => x.key);
+        const items: { label: string; primary: string; second: string }[] = [];
+        for (const key of sampled) {
+          const [label = "", rationale = ""] = key.split("\u0000");
+          const secondClass = await classifySoloMajority(
+            { label, rationale },
+            second.complete,
+            evalVersion,
+          );
+          items.push({ label, primary: cache.get(key)!, second: secondClass });
+        }
+        crossJudge = {
+          model: second.model,
+          n: items.length,
+          agree: items.filter((i) => i.primary === i.second).length,
+          items,
+        };
+      }
       const blindRun = {
         config: artifact.config,
         study3: artifact.study3,
@@ -817,6 +957,9 @@ async function main() {
         evalVersion,
         l4JudgeVersion: L4_JUDGE_VERSION,
         judgeModel: judge.model,
+        judgeResolvedModels: judge.resolvedModels(),
+        classifyMode,
+        crossJudge,
         // R38: the sidecar carries the role too. The .judged.json files are
         // what downstream analysis actually reads, so the tag has to survive
         // the hop from artifact to sidecar or the filter has a hole in it.

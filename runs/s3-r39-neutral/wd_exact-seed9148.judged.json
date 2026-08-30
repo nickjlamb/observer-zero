@@ -1,0 +1,173 @@
+{
+  "source": "wd_exact-seed9148.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or instrumental non-linearity affecting each apparatus differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational cyclic forcing on a ~6–8 day timescale, decoupling the instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement or transcription error correlated with apparatus or time, introducing spurious anti-correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical decoupling: the four measurement streams are responding to genuinely different aspects of the system, not a single shared measurand",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Insufficient data: 10 days and 60–102 trials per stream are below the threshold to establish true baseline correlations; apparent patterns are statistical artifacts of limited sample size",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine environmental or thermal transient on day 15 affecting resonator_lab specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement or recording error introduced on day 15 in resonator_lab data acquisition or calibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True short-timescale instrumental instability in resonator_lab (e.g., frequency servo drift, optical cavity mode-hop, or mechanical resonance shift) triggered on day 15",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Insufficient baseline data (only 84 trials over 10 days) means the day 15 cluster is within normal variance, and the apparent bimodal structure is a statistical artifact of small-n sampling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or procedural change on day 15 (e.g., different person, different measurement protocol, different sampling rate or averaging window) affecting resonator_lab data quality",
+      "class": "self_error"
+    },
+    {
+      "label": "Cross-instrument correlations are noise artifacts; instruments are genuinely independent but underpowered to detect their mutual influence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or electromagnetic forcing couples all four instruments via a shared external driver, with instrument-specific time lags reflecting different thermal or mechanical response times",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Low-level measurement or calibration error common to the entire ensemble (e.g., clock drift, systematic digital quantization, common reference offset) creates spurious cross-correlations masking true instrument independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are independent and measurements valid, but the ensemble is too small (n~150–314 trials each) and correlations too weak to generate publishable conclusions; continue baseline until effect sizes stabilize or anomalies emerge",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has a latent hardware fault (aging component, creeping misalignment, or intermittent electrical contact) that manifests as anomalous coupling or autocorrelation structure on intermediate timescales (days 5–15)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs data streams are aliased or systematically offset copies of each other, indicating a data entry, labeling, or software synchronization error rather than genuine instrument independence.",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "The r=1.000 pendulum_lab ↔ resonator_obs correlation is a statistical artifact: I have searched across many time lags and offsets, and by chance alone, one of these searches will produce an extremely high value; this is the one.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure the same underlying physical quantity (e.g., environmental oscillation or mechanical resonance) via different physical transducers, and the 3-day offset reflects a real phase lag in the settlement's environment or apparatus coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement ensemble is currently too immature to distinguish artifact from signal; continue to ~n=600–1000 trials per instrument, recompute all correlations, and re-evaluate only when the pendulum_lab ↔ resonator_obs r=1.000 finding is either independently replicated in a fresh batch or disappears with extended sampling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (undiscovered mechanism): a flaw in my hypothesis-generation process, in the experimental design, or in my understanding of the settlement's environment or instrumentation that I have not yet considered.",
+      "class": "other"
+    },
+    {
+      "label": "Day 36 pendulum_lab excursion is genuine environmental or instrumental transient (thermal, mechanical, or settlement-wide vibration spike on Day 36 only); other instruments insensitive or damped to this transient.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_lab underwent recalibration, environmental isolation failure, or instrument drift onset between trials 234 (Day 35) and 235 (Day 36); the excursion marks the start of instrument degradation or a step-change in systematic error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_lab Day 36 excursion is a data entry or trial-assignment error: the six readings (trials 235–240) were mislabeled or incorrectly linked to the wrong date/instrument, introducing artificial variance.",
+      "class": "self_error"
+    },
+    {
+      "label": "The r=1.000 pendulum_lab ↔ resonator_obs correlation (from prior review) is a data integrity anomaly that invalidates cross-instrument inference; Day 36 excursion is a secondary symptom of the same underlying record-keeping or software problem.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 36 pendulum_lab excursion is consistent with normal stochastic variation; the apparent mean shift is a random fluctuation within the post-baseline distribution and does not signal instrument or environmental change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A mechanism or event outside my current awareness (e.g., a known operational or environmental protocol on Day 36, a colleague's test run, a partial instrument replacement, or a settlement event I did not log) explains the Day 36 pendulum_lab excursion.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab and resonator_obs data streams are aliased or mislabeled copies—pendulum_lab does not represent the instrument I believe it does, but rather a duplicate or relabeled feed from resonator_obs or an undocumented third source.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 36 pendulum_lab excursion (trials 235–240, mean 1.6704 vs. post-baseline 1.6656) is a genuine environmental or mechanical transient localized to the pendulum_lab apparatus, while other instruments remained stable because they are in a different physical location or have better vibration isolation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_lab underwent unlogged recalibration, maintenance, or instrumental drift onset between Day 35 and Day 36; the excursion marks a step-change or the beginning of sustained degradation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, trial-assignment, or instrument-labeling error introduced the Day 36 pendulum_lab anomaly: trials 235–240 were incorrectly linked to pendulum_lab and/or Day 36, when they actually belong to a different instrument or date.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An operational, maintenance, or environmental event on Day 36 that I did not log (colleague diagnostic test, settlement stress test, scheduled facility work) directly affected pendulum_lab or other instruments, and I was not informed or failed to record it.",
+      "class": "self_error"
+    }
+  ]
+}

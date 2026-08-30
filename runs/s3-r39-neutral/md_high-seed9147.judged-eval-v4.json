@@ -1,0 +1,133 @@
+{
+  "source": "md_high-seed9147.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration error: each instrument has an independent zero-point or scale factor drift not yet detected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observational setups measure genuinely different quantities—or sample different aspects of the same quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise is higher than anticipated; spurious correlations at tested offsets are within noise floor",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak periodic or quasi-periodic environmental driver (6–8 day cycle) is affecting all instruments, but with instrument-specific phase lags and amplitudes that mask simple cross-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are working correctly; apparent anomalies are statistical artifacts of multiple hypothesis tests on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental disturbance on Day 20 affected resonator instruments preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator instruments drifted into a transient state; pendulum instruments remained stable",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 20 observations represent normal sampling noise; no anomaly requires explanation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are decoupled or measure different physical modes; Day 20 shows instrument-specific noise floor being reached",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A human error or procedural change occurred on Day 20 (e.g., different operator, re-zeroed instrument, altered environment access)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine calibration drift or mechanical change around day 24",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 24 level change in pendulum_lab is a statistical artifact arising from choice of partitioning point or hidden heterogeneity in the post-baseline sample",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab underwent re-zeroing, recalibration, or procedural change on or near day 24 that I did not log",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a transient environmental disturbance (vibration, thermal spike, electromagnetic pulse) on day 24 that did not propagate to other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent day-24 level change in pendulum_lab is an artifact of increased measurement density or different handling of trials recorded near that date",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine calibration drift or mechanical change around day 24",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 24 level change is a statistical artifact from data partitioning or post-hoc threshold selection",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab underwent procedural or calibration change (re-zeroing, sensor reconnection, operator handoff) near day 24 that I did not log",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic measurement coupling or correlated errors across instruments are generating spurious structure, including the apparent day-24 shift and cross-instrument correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental disturbance (vibration, thermal spike, EM pulse) on day 24 affected pendulum_lab preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement artifact from trial density, data filtering, or validation rule changes near day 24",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

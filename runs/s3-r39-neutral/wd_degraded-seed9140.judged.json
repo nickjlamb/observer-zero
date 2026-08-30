@@ -1,0 +1,133 @@
+{
+  "source": "wd_degraded-seed9140.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration or systematic error unique to each measurement stream (lab vs. obs; pendulum vs. resonator)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental instability affecting temporal structure: each stream captures real signal but on different timescales or with different noise regimes, preventing alignment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement independence is working correctly: the four streams are genuinely independent measurements of independent or orthogonal physical quantities, or the apparatus is correctly isolating lab from obs conditions",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multiple-comparison bias and overfitting in correlation search: the 'best' correlations observed (r=0.670, r=0.504, etc.) are artifacts of searching many time lags and pairwise combinations, and no true signal exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized instrumental or procedural artifact affecting inter-stream comparisons: e.g., different clock rates, different calibration references, or observer bias in obs vs. lab measurements",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each measurement stream has absorbed a distinct, stable systematic offset or calibration error that decorrelates it from the others despite measuring the same underlying physical quantity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four streams are genuinely measuring independent or orthogonal physical properties (e.g., lab-isolated resonance vs. observatory ambient damping; internal vs. external coupling), and zero correlation is the correct null expectation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multiple-comparison bias from correlation search across many time lags and pairwise combinations has inflated apparent 'best' correlations (pendulum_lab autocorr r=0.670 at lag 8, pendulum_lab ↔ resonator_obs r=0.268 at lag 3) into false positives; the true signal is white noise in all streams.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden instrumental or procedural mismatch between lab and obs measurements—e.g., different clock references, different calibration zero-points, or systematic observer bias in reading/recording—decorrelates inter-stream pairs while preserving internal consistency within each stream.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The underlying physical system is fundamentally non-stationary on the timescale of Days 1–20, with each stream sampling a different dynamical attractor or transient state, rendering cross-correlation meaningless; the 'stable baselines' reflect short-term quasi-stationarity within epochs, not true measurement consistency.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 30 resonator excursions are independent measurement noise (outliers within expected tails of each stream's distribution); no systematic shift or transient has begun.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator systems are beginning a gradual drift away from baseline (early systematic shift), and Day 30 excursions signal the start of a real physical or instrumental change that will accelerate or persist beyond today.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 30 excursions are real but isolated transient events (environmental shock, thermal spike, mechanical vibration, or electrical noise burst) that do not represent ongoing drift and will not recur absent a new disturbance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The four measurement streams are systematically decorrelated by fixed calibration errors or instrumental isolation (not by noise or transience), and Day 30 excursions are unrelated artifacts that distract from the larger anomaly of persistent zero cross-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 30 excursions reflect a measurement protocol or environmental change introduced on Day 30 that I have not yet recorded in my notebook (e.g., a procedural change, a lab temperature adjustment, or a new ambient condition).",
+      "class": "self_error"
+    },
+    {
+      "label": "Each stream has a fixed calibration offset or scaling applied during Days 1–10 that persists unchanged; streams measure the same phenomena but are systematically shifted/scaled relative to each other, creating spurious zero correlation. Day 40 readings are consistent with this locked state.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic drift in resonator systems began ~Day 30–38 and is now accelerating (Day 40); pendulum systems remain stable. The Day 30 excursions were early warning. Post-baseline z-tests missed this because the drift was shallow in Days 11–29 but has now become visible in level-change detection.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 30 excursions were a genuine transient environmental disturbance (seismic event, thermal spike, electrical noise burst) that affected resonators but not pendulums; no ongoing drift has occurred. Decorrelation between streams is a permanent calibration artifact unrelated to the Day 30 event.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A procedural, environmental, or instrumental change occurred around Day 30–38 that I have not yet recorded in my notebook. This change affects resonators and pendulum_obs systematically (creating the level shifts) but not pendulum_lab, and it interacts with the earlier calibration error to produce the observed decorrelation pattern.",
+      "class": "self_error"
+    },
+    {
+      "label": "All four streams are functionally independent and unrelated to each other, despite their names; what I call 'pendulum_lab' and 'resonator_lab' do not measure the same physical quantity as 'pendulum_obs' and 'resonator_obs'. The decorrelation is expected by design. Day 30 and Day 40 anomalies are independent instrumental events.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs correlation (r = 0.962) is real, not a labeling error or data-handling artifact. This reveals a hidden physical relationship between pendulum period and resonator response that the other streams do not capture. The decorrelation in other stream pairs reflects a systematic mismatch between lab and obs measurement environments or calibration.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

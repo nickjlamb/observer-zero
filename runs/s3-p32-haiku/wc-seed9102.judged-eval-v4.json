@@ -1,0 +1,133 @@
+{
+  "source": "wc-seed9102.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental noise (temperature, vibration, air currents) dominates measurement variance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental dead-time or sampling jitter: period measurement precision is genuinely ±0.01 beats at the readout resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected systematic drift or cyclicity on a timescale longer than 10 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration error in the baseline itself (e.g., stopwatch/frequency standard miscalibrated on day 1)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator baseline not yet established; resonator and pendulum measure genuinely different physical quantities or operate in different regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum environmental noise (temperature, vibration, air currents) is the dominant source of observed scatter; resonator is contaminated by a different or additional noise source",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator instrument lacks independent calibration or has undiagnosed systematic error (gain, offset, or frequency reference drift) that pendulum does not share",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum baseline period (1.6657 beats) is drifting on a timescale longer than 10 days (e.g., weekly thermal cycling, instrumental warm-up); undetected by current analysis",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator and pendulum are sampling or responding to genuinely independent physical processes (e.g., different mechanical modes, or different temporal averaging windows) and should not be expected to correlate strongly",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: undetected data-entry error, or a feature of the measurement apparatus or settlement environment I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Resonator baseline not established; cannot yet diagnose whether variance or weak correlation reflect genuine instrument difference or baseline instability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator and pendulum couple to different environmental or instrumental noise sources; pendulum noise is stationary and environmental, resonator noise includes an additional component (electrical, mechanical, or sampling artifact)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator has undiagnosed systematic error: uncalibrated frequency reference, gain/offset drift, or mismatched measurement definition; weak cross-correlation reflects that the two instruments are not measuring the same physical quantity in a fixed ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) obscures slow drift or thermal cycling on a longer timescale (15–30 days); apparent stability is artifact of short observation window",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Cross-check computation error: I have mis-derived the correlation between pendulum and resonator, or the 1-day offset reflects a data-processing artifact rather than genuine lag",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an undetected feature of the measurement apparatus, settlement environment, or data analysis I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Resonator baseline was never established; recent trials show the instrument entering a stable operating regime after initial warm-up or settling. The apparent 'increase' over days 38–40 is an artifact of comparing unstable post-baseline behavior (trials 1–225, mean 2.7061) to trials now approaching equilibrium.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator baseline instability or drift is real but slow (1–2 × 10^−3 cycles/beat over 40 days). Post-baseline mean 2.7061 (trials 1–225, ~40 days cumulative) is lower than days 38–40 mean 2.7084 because the instrument is drifting upward on a timescale of weeks. This is consistent with thermal warm-up or capacitive aging in electronics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator baseline was never established; residual high variance in trials 226–250 reflects undiagnosed instrumental or environmental noise source (electrical, mechanical, or sampling artifact) that is independent of the pendulum noise floor. The mean elevation is within noise; the variance elevation is the real anomaly.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-check alignment error or data-processing artifact: the 1-day offset and weak r=0.413 reflect indexing or matching error, not genuine instrumental lag or decoupling. Both instruments should track at high correlation if they measure the same period; the weakness suggests my derivation is flawed.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum and resonator measure fundamentally different physical quantities or have unknown scale/offset relationship. The weak cross-check (r=0.413) reflects that the instruments do not share a fixed linear relationship, not that they are decoupled by noise. Resonator calibration or measurement definition is incompletely understood.",
+      "class": "incomplete_theory"
+    }
+  ]
+}

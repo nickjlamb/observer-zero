@@ -1,0 +1,269 @@
+{
+  "source": "wa-seed9148.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 42,
+  "l4Judged": 42,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental white noise dominates; true physical signal is below noise floor",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or instrumental drift exists but operates on timescales longer than 10 days, masked by high-frequency noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are measuring independent unrelated quantities, or measurement protocols are decoupled from a common physical referent",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments have a systematic calibration error or component failure that manifests as apparent noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement error is correctly distributed, and 10-day baseline is adequate; physics is stationary at current resolution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (temperature, humidity, or gravitational gradient) affecting period, resonators unaffected by same change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum measurement protocol or calibration error introduced between days 10 and 11 (operator change, instrument recalibration, or systematic timing error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental noise dominates all four streams; the pendulum level shift is a spurious clustering of independent noise draws, not a genuine effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators are insensitive or saturating; a real physical change is occurring but resonators fail to detect it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure fundamentally different physical properties; the 'shift' in pendulum is real physics that resonators are not designed to detect",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11, affecting both lab and obs measurements in parallel",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak cross-instrument correlations and instrument-specific autocorrelations indicate each stream is driven by independent noise or instrument-intrinsic dynamics, not shared physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached a detection ceiling, saturation, or dead zone; true physical shift is occurring but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely different physical properties; a localized gravitational or magnetic anomaly affects pendulum location but not resonator location",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11, affecting both lab and obs measurements in parallel",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak cross-instrument correlations and instrument-specific autocorrelations indicate each stream is driven by independent measurement noise, not shared physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached a detection ceiling, saturation, or dead zone; true physical shift is occurring but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely different physical properties; a localized gravitational, magnetic, or subsidence anomaly affects pendulum location but not resonator location",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location but not resonator location (geographically isolated event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location but not resonator location (geographically isolated event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location but not resonator location (geographically isolated event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location but not resonator location (geographically isolated event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location(s) but not resonator location(s)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to measurement noise, design differences, or independent error sources specific to each stream",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects pendulum location(s) but not resonator location(s)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change at pendulum station(s) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, gravitational, or air-damping) around day 11–12, leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonators have reached saturation, dead zone, or dynamic-range constraint; true physical shift occurs but resonators fail to capture it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized gravitational, magnetic, or subsidence anomaly affects one or both pendulum location(s) but not resonator location(s)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument independence due to independent measurement noise, design differences, or instrument-class-specific error sources",
+      "class": "measurement_error"
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "source": "wa-seed9149.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 35,
+  "l4Judged": 35,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent noise dominating all four streams with no shared signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift or thermal/environmental coupling, present but sub-threshold for detection in 10-day baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or calibration issue causing apparent decorrelation between lab and observatory pairs",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine uncorrelated physical phenomena at each site, or spatial heterogeneity in Meridian environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical change in gravitational or temporal measurement at settlement scale, detectable only by pendulums",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Thermal or environmental transient on or after day 11, affecting pendulum apparatus (length/pivot stiffness) but not resonator frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol drift or systematic error introduced on day 12 (e.g., timing calibration, human procedure change, or instrumental mode switch)",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent noise in each stream, with level shift a random excursion, not a real change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled environmental or instrumental periodicity, with day 12 marking the phase where pendulum sensitivity aligns with an underlying cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real anomaly, but not yet understood; requires expanded measurement campaign",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical change (gravitational, relativistic, or temporal) detectable primarily by pendulums",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Thermal or environmental transient on or after day 11, affecting pendulum apparatus length/pivot stiffness but not resonator frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or calibration drift introduced on day 12—timing calibration, human procedure change, sensor swap, or instrumental mode switch unrecorded in notebook",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmodeled environmental periodicity (multi-day cycle) in which day 12 marks a phase alignment that amplifies pendulum sensitivity but leaves resonators unchanged",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise excursion—the level shift is a rare but real >12σ fluctuation in noise, not a true level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown cause or mechanism—requires expanded measurement campaign including temperature, barometric pressure, settlement activity logs, and higher time resolution on day 12–13",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical change in effective gravitational length or absolute period, detectable by pendulums but not resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Thermal transient or slow environmental drift on/after day 11 affecting pendulum apparatus length but not resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecorded measurement protocol change, calibration drift, or instrumental mode switch on day 12 affecting the pendulum measurement chain",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental noise or measurement error in one or both pendulum streams, amplifying apparent cross-stream correlation weakness",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected multi-day environmental periodicity (5–9 day cycle) in which day 12 marks a phase crossing or threshold transition amplifying pendulum sensitivity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unknown cause or mechanism requiring expanded measurement campaign (temperature, barometric pressure, settlement activity logs, higher temporal resolution on day 11–13)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical shift in effective pendulum period (thermal expansion of rod or pivot stiffness change), undetected by resonators due to instrumental insensitivity to slow absolute-period changes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded measurement protocol change, timing reference recalibration, or equipment relocation on day 11–12 affecting the pendulum measurement chain only",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental noise or unequal calibration quality in the two pendulum streams, attenuating observed cross-correlation without contradicting a shared real physical effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown cause or mechanism requiring expanded environmental monitoring (temperature, barometric pressure, settlement activity logs) and higher temporal resolution on day 11–13 to identify the triggering event",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multi-day environmental periodicity (5–9 day cycle in temperature, barometric pressure, or electromagnetic field) in which day 12 marks a phase transition or threshold crossing amplifying pendulum sensitivity while leaving resonators unchanged",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical shift in effective pendulum period (thermal or mechanical), with instrument-specific noise/calibration differences explaining weak cross-correlation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded measurement protocol change, timing reference recalibration, or equipment relocation on day 11–12 affecting pendulum measurement chain only",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental noise or calibration quality differences between pendulum_lab and pendulum_obs, attenuating cross-correlation without contradicting shared physical effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown cause or mechanism requiring expanded environmental monitoring (temperature, barometric pressure, settlement activity) and higher temporal resolution on day 11–13",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multi-day environmental periodicity (5–9 day cycle in temperature, barometric pressure, or vibration) with day 12 marking a phase transition or threshold crossing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical effect: thermal or mechanical change in pendulum system; weak cross-correlation explained by differential measurement noise or environmental coupling asymmetry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental: unrecorded calibration change, timing reference recalibration, or equipment relocation on day 11–12 affecting pendulum measurement chain only",
+      "class": "self_error"
+    },
+    {
+      "label": "Composite instrumental + measurement-quality effect: level shift is real and physical, but correlation weakness is due to unequal instrument precision, noise, or environmental decoupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Incomplete investigation: unknown causal mechanism requiring expanded environmental monitoring (temperature, barometric pressure, vibration, settlement activity logs) and audit of day 11–12 equipment records",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multi-day periodicity (5–9 day cycle) with day 12 as threshold crossing or phase transition",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical effect: thermal or mechanical transient in pendulum apparatus around day 11–12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental: unrecorded equipment change (timing reference, sensor swap, calibration constant) on day 11–12 affecting pendulum measurement chain only",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement-quality asymmetry: level shift is real and physical (shared cause), but correlation weakness is due to unequal instrument noise, resolution, or environmental decoupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator anomaly: resonator_lab trial 174 (event 486748, day 29) at 2.7813 cycles/beat is a significant excursion (z ≈ 3.8 from post-baseline mean 2.7069); suggests either late instrumental change in resonator chain, or coupling mechanism between pendulum and resonator systems that has just become active",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Incomplete investigation: critical environmental and equipment logs missing; cannot rule out thermal coupling, timing-system drift, or settlement activity as root cause",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical effect: step-change in pendulum environment or mechanics around day 11–12, with persistent new equilibrium",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental: unrecorded calibration change or equipment swap on day 11–12 affecting pendulum timing chain only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-quality asymmetry: level shift is real and physical, but weak correlation reflects independent noise sources decoupled from the shared slow drift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator late change: resonator_lab trial 174 (event 486748, day 29) shows isolated high outlier (z≈3.1σ); may signal delayed instrumental change or emerging coupling to pendulum systems",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Incomplete investigation: missing environmental and equipment logs prevent confirmation of root cause",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical step-change in pendulum environment/mechanics around day 11–12, permanent new equilibrium",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental: unrecorded calibration change in pendulum timing chain only on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-quality asymmetry: level shift is real/physical, but weak correlation reflects independent high-frequency noise sources orthogonal to shared slow drift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Emerging instrumental divergence: day 12 was real/physical for pendulums, but pendulum_lab and pendulum_obs have begun drifting apart in measurement scale or calibration post-shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Incomplete causal chain: environmental and equipment logs for days 11–12 are missing; cannot confirm mechanism without them",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical step-change in shared pendulum environment around day 11–12 (e.g., thermal, gravitational, or mechanical), with weak correlation reflecting genuinely independent noise floors",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "One-time unrecorded calibration change in pendulum timing chain on day 11–12 only, producing permanent level shift and sparing resonators",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Level shift is real/physical, but weak within-modality correlation reflects independent high-frequency noise sources (seismic, acoustic, electronic) orthogonal to slow drift, now rising in magnitude",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Post-shift calibration drift: pendulum_lab and pendulum_obs have begun decalibrating at different rates after day 12, explaining both permanence of initial shift AND weak ongoing correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data completeness failure: environmental and equipment logs for days 11–12 are missing; causal identification is blocked until records are recovered or reconstructed",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical environmental perturbation occurred around day 11–12 (e.g., thermal, gravitational, mechanical); pendulums show it as level shift due to rod/timing sensitivity; resonators remained insensitive until ~day 35–38, when a NEW environmental disturbance (rising seismic, acoustic, or thermal noise) began degrading all four instrument precision",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded instrumental calibration event affected only pendulum timing chain on day 11–12, producing permanent level shift; resonators insensitive because independent timing reference; day-38 resonator variance spike is unrelated coincidence or separate environmental event",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-12 level shift is real and physical; weak within-modality correlation reflects independent high-frequency noise sources (seismic, acoustic, electronic) orthogonal to slow drift; day-38 variance spike is the SAME environmental mechanism now increasing noise amplitude across all instruments, making previously-hidden noise sources visible",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum timing calibration constants diverged after day 12 (e.g., pendulum_lab and pendulum_obs drifting at different rates post-shift), explaining both permanence of the day-12 shift AND the weak ongoing correlation; day-38 variance spike is secondary calibration instability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental and equipment logs for days 11–12 are missing or inaccessible; causal identification of day-12 level shift is blocked until records are recovered or reconstructed; day-38 variance spike similarly lacks supporting environmental data",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something not yet hypothesized",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

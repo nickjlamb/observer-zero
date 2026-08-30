@@ -52,6 +52,8 @@ const atL3 = (finalModalExtGenClass: string | null): LevelTimeline => ({
   tauCommitment: 10,
   tauGrounded: 30,
   finalLevel: 3,
+  tauSuspicionMaxSingle: 10,
+  finalLevelMaxSingle: 3,
   finalGroundedCitations: [1, 2, 3],
   finalModalExtGenClass,
 });

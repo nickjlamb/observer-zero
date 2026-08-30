@@ -1,0 +1,409 @@
+{
+  "source": "wa-seed9146.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 41,
+  "l4Judged": 41,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental driver with different instrumental response times",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration drift in one or more instruments, not yet visible in individual baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or interference between co-located instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or timestamp error creating false offset correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All correlations are statistical noise; offsets, lags, and autocorrelations are chance findings",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental driver with instrument-specific response lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Slow instrumental drift or calibration drift in one or more instruments, masked by daily noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp, trial-numbering, or data-alignment error creating spurious offset correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or mechanical/electromagnetic interference between co-located instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All reported correlations are statistical noise; offset and autocorrelation patterns are false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental event around day 11–12 affecting pendulum systems preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or protocol change on or just before day 11 (e.g., recalibration, instrument repositioning, operator switch)",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise, multiple-comparisons bias, or stochastic clustering creating apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, vibration, pressure) with instrument-specific response lags, interacting with the day-11 boundary",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp or trial-numbering misalignment across instruments, creating spurious offset correlations and mimicking a level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, support stiffness, or vibration) around day 11 affecting pendulum systems preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration, recalibration, instrument repositioning, or protocol change on or just before day 11 affecting only pendulum instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering, random noise, or multiple-comparisons bias creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, vibration, pressure, magnetic field) with instrument-specific response and possible lags between pendulum and resonator response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp, trial-numbering, or data-entry misalignment across instruments (e.g., pendulum_obs mislabeled by ±2 days), creating spurious correlations and mimicking a false level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, support stiffness, or vibration) around day 11 affecting pendulum systems preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration, instrument repositioning, or protocol change affecting pendulum instruments on or just before day 11, possibly undocumented",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared latent environmental driver with delayed resonator response and instrument-specific sensitivity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Timestamp, trial-numbering, or data-entry misalignment across instruments (e.g., one pendulum stream mislabeled by ±1–2 days)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on/before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, temperature, or structural stiffness) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Combination or interaction: environmental trigger on day 11 (real physical change) revealed or amplified by coincident recalibration or protocol adjustment; instrumental memory reflects new geometry responding to pre-existing environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments (e.g., systematic mislabeling or transcription error in pendulum_lab or pendulum_obs around day 10–12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change (white noise with low-probability high cluster)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on/before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Combination: genuine environmental trigger on day 11 (real physical change) revealed or amplified by coincident recalibration or protocol adjustment; 2-day autocorrelation reflects new instrumental geometry responding to pre-existing or coincident environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments (systematic mislabeling or transcription error in pendulum_lab or pendulum_obs around day 10–12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change (white noise with low-probability high cluster)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on or before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Combination: genuine environmental trigger on day 11 (real physical change) revealed or amplified by coincident recalibration or protocol adjustment; 2-day autocorrelation reflects new instrumental geometry responding to environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments around day 10–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on or before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Combination: genuine environmental trigger on day 11 (real physical change) revealed or amplified by coincident recalibration or protocol adjustment; 2-day autocorrelation reflects new instrumental geometry responding to environmental perturbation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments around day 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized systematic bias in my calibration, measurement protocol, statistical analysis, or instrumental failure in resonators on day 10–11 that masked an underlying environmental signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on or before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Combination: genuine environmental trigger on day 11 AND coincident recalibration or protocol adjustment; 2-day autocorrelation reflects new instrumental geometry responding to environmental perturbation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments around day 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized systematic bias in my calibration, measurement protocol, statistical analysis, or instrumental failure in resonators on day 10–11 that masked an underlying environmental signal; also covers unknown anomalous physical mechanisms affecting pendulum but not resonator physics",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on or before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental trigger on day 11 AND coincident recalibration or protocol adjustment; 2-day autocorrelation reflects changed instrumental geometry responding to or masking environmental perturbation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments around day 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized systematic bias in my calibration, measurement protocol, statistical analysis, or instrumental failure in resonators on day 10–11 that masked an underlying environmental signal; also covers unknown anomalous physical mechanisms affecting pendulum but not resonator physics",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented calibration, recalibration, or instrument repositioning on or before day 11 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, or temperature) around day 11 affecting pendulum systems preferentially; resonators insensitive or buffered",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental trigger on day 11 AND coincident recalibration or protocol adjustment; 2-day autocorrelation reflects changed instrumental geometry masking or responding to environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-entry, timestamp, or trial-numbering error specific to pendulum instruments around day 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering or random noise creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized systematic bias in calibration, measurement protocol, statistical analysis, or instrumental failure in resonators; alternatively, anomalous physical mechanism affecting pendulum but not resonator physics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented pendulum-specific calibration, repositioning, or protocol change on or before day 11; resonators left untouched or buffered by independent geometry/isolation",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, temperature, or external equipment activation) on day 11, with pendulum systems more sensitive than resonators; 2-day autocorrelation reflects measurement protocol response or instrumental memory, not the environmental trigger itself",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic bias or error in baseline calibration procedure, trial numbering, or statistical analysis method affecting pendulum instruments only; alternatively, instrumental failure or undetected degradation in both resonators on day 10–11 that masked an underlying signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering, random noise, or statistical mirage creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized physical phenomenon, measurement artifact, or unknown interaction not yet conceived",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented pendulum-specific calibration, repositioning, or protocol change on or before day 11; resonators left untouched or buffered by independent geometry/isolation",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, structural stiffness, temperature, or external equipment activation) on day 11, with pendulum systems more sensitive than resonators; 2-day autocorrelation reflects measurement protocol response or instrumental memory, not the environmental trigger itself",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic bias in baseline calibration procedure, trial numbering, or data recording affecting pendulum instruments only; or silent instrumental failure in one or both resonators on day 10–11 that masked detection of an underlying signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering, random noise, or statistical artifact creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized physical phenomenon, measurement artifact, or unexpected interaction not yet conceived",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented discrete intervention (calibration, repositioning, protocol change) affecting pendulum systems only; resonators buffered or untouched",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental event (gravity, magnetic field, air density, thermal, structural stiffening) on day 10–11 affecting pendulums preferentially; 2-day autocorrelation reflects measurement protocol response, instrumental memory, or resonator insensitivity masking the signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic bias in baseline calibration, trial numbering, data recording, or post-processing affecting pendulum instruments only; or silent instrumental failure (sensor degradation, calibration drift, coupling loss) in one or both resonators on day 10–11 that masked underlying signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Stochastic clustering, random noise, statistical artifact, or post-hoc hypothesis testing bias creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized physical phenomenon, measurement artifact, unexpected interaction, or anomalous mechanism not yet conceived",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented discrete intervention (calibration, repositioning, or protocol change) affecting pendulum systems only; resonators physically buffered or procedurally unchanged",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental or structural event on day 10–11 affecting pendulums preferentially; 2-day autocorrelation reflects instrumental memory, measurement protocol response, or resonator insensitivity masking the signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic bias in baseline calibration, trial numbering, data recording, or post-processing affecting pendulum instruments only; or silent instrumental failure (sensor degradation, calibration drift, coupling loss) in one or both resonators on day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic clustering, random noise, statistical artifact, or post-hoc hypothesis testing bias creating spurious apparent level change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized physical phenomenon, measurement artifact, unexpected interaction, or anomalous mechanism not yet conceived",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented discrete intervention (calibration, repositioning, or protocol change) affecting pendulum systems only on or before day 11; resonators physically isolated or procedurally unchanged.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental or structural event on day 10–11 (building settlement, external equipment startup, HVAC change, structural stiffening) coupling preferentially to pendulum systems; resonators insensitive or geometrically isolated; 2-day autocorrelation reflects pendulum response dynamics or measurement protocol resonance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic bias in baseline establishment, trial numbering, data recording, or post-processing affecting pendulum instruments only; or silent instrumental failure (sensor degradation, calibration loss, magnetic coupling failure) in one or both resonators on day 10–11.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic clustering, random noise, statistical artifact, or post-hoc hypothesis testing bias creating spurious apparent level change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized physical phenomenon, measurement artifact, unexpected interaction, or anomalous mechanism incompatible with current understanding.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

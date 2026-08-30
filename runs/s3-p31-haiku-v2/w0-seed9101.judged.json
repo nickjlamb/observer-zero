@@ -1,0 +1,125 @@
+{
+  "source": "w0-seed9101.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental noise: temperature, air pressure, humidity, vibration.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift or calibration artifact: the 'beats' unit or measurement chain is drifting slowly, producing apparent variation that is not physical.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedural variability: timing method, release angle, or trial protocol introduces human or procedural scatter.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real geophysical or settlement-scale transient: local gravity anomaly, structural vibration from settlement machinery, or transient magnetic/electrostatic field coupling to apparatus.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Different physical setup or measurement protocol between lab and obs systems",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental variables (temperature, pressure, humidity, vibration) affect both systems but produce different effective scatter because they scale differently with apparatus geometry",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift or uncharacterized calibration artifacts in one or both measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedural variability (release angle, timing method, environmental recording) introduces scatter differently between systems",
+      "class": "self_error"
+    },
+    {
+      "label": "Real geophysical or settlement-scale transient (gravity anomaly, structural vibration, electromagnetic coupling) correlates differently with the two measurement locations or sensing methods",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "pendulum_lab and pendulum_obs measure different physical apparatus, or use fundamentally different measurement protocols (timing definition, counting method, apparatus geometry, pivot design, or sensor type).",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental variables (temperature, pressure, humidity, vibration) affect both systems with different scaling factors because apparatus geometry, thermal mass, location, or sensing methods differ; lack of correlation arises from decorrelated environmental forcing or out-of-phase response.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Uncharacterized calibration artifacts, systematic offsets, or timing-chain errors in one or both measurement systems; neither system validated against an independent physical standard (tuning fork, atomic clock, theory prediction, or external observer).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedural variability: release angle, counting method, environmental recording, observer identity, or timing discipline differ between lab and obs runs, or changed partway through (e.g., day 11+ protocol shift).",
+      "class": "self_error"
+    },
+    {
+      "label": "Real geophysical or settlement-scale transient (gravity anomaly, structural vibration, electromagnetic coupling) correlates differently with the two systems because of location or sensing method differences.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "pendulum_lab and pendulum_obs measure fundamentally different apparatus, protocols, or definitions of 'beat' (different pendulum length, pivot design, timing window, sensor type, or counting method); the baseline gap for pendulum_obs reflects deliberate protocol separation, not oversight.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental variables (temperature, humidity, pressure, vibration, settlement disturbances) affect the two systems with different scaling factors due to different apparatus geometry, location, thermal mass, or sensor response; lack of correlation reflects spatial/temporal decorrelation or out-of-phase environmental forcing.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Uncharacterized calibration artifacts, systematic offsets, or timing-chain errors (clock calibration drift, sensor hysteresis, counting-method discretization, or timing-window definition) in one or both systems; neither has been validated against an independent physical standard.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedural variability (release angle, counting method, observer identity, timing discipline, environmental recording) changed partway through the measurement campaign or differs between the two systems; e.g., a protocol change on day 11 or day 17.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real geophysical or settlement-scale transient (gravity anomaly, seismic event, structural vibration, electromagnetic coupling to settlement power/machinery) correlates differently with the two systems because of location or sensing method; level change in pendulum_obs day 17 reflects a genuine geophysical event.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

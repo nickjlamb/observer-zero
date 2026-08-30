@@ -1,0 +1,193 @@
+{
+  "source": "md_low-seed9105.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely independent physical phenomena",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or environmental drift coupling instruments with phase lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or observer bias producing spurious correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are malfunctioning or miscalibrated in ways that produce noise masking weak real signals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real multi-scale physical couplings exist but are obscured by inadequate sample size and noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs has a genuine ~4-day resonant mode or environmental cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs is miscalibrated or contains instrumental ringing/aliasing at ~4-day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs and resonator_lab measure fundamentally different aspects of the resonator (e.g., different modes or damping) and are not calibrated relative to each other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure independent physical phenomena; observed weak correlations are random noise within chance levels",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Sample size (n=8–20 for most correlations) is insufficient to distinguish weak real signals from noise; continue baseline through day 21+ to resolve",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer or protocol bias (lab vs. observational) creates spurious correlations and method divergence",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs measures a genuine ~4-day environmental cycle or structural resonance mode that other instruments do not couple to sensitively",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs apparatus is miscalibrated, improperly damped, or operating at its own resonant frequency, producing instrumental ringing at ~4-day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs measure different physical quantities (e.g., resonant frequency vs. amplitude, or different modes) and require separate independent calibration baselines; cross-correlation reflects mode interference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument and within-instrument correlations are noise within chance levels; resonator_obs 4-day signal is a statistical fluctuation (false positive)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Current sample size (n=8–24 post-baseline per instrument) is too small to distinguish weak real signals from noise; baseline must extend to day 20–30 before any hypothesis can be tested",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs apparatus is miscalibrated, improperly damped, or ringing at its own resonant frequency, producing instrumental artifact at ~4-day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs and resonator_lab measure different physical quantities (e.g., resonant frequency vs. amplitude, or orthogonal modes) and require independent calibration; apparent anti-correlation reflects mode interference or phase lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measures a genuine ~4-day environmental cycle or structural resonance (thermal, seismic, or building mode) that other instruments do not couple to sensitively",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most observed correlations and level shifts are statistical noise within chance levels; resonator_obs 4-day signal is a false positive from small-n multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Post-baseline sample size (n=8–24 per instrument, n=14–68 for resonator_obs) is too small to distinguish weak real signals from noise; baseline must extend to day 20–30 before any hypothesis can be tested rigorously",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs apparatus underwent a state change (damping, tuning, or electronics) around day 26, causing persistent or episodic elevation in measured cycles/beat",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs and resonator_lab measure mechanically or electrically orthogonal observables (e.g., frequency vs. amplitude, or two cavity modes); day-26 excursion reflects mode-dependent response to an environmental perturbation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day-26 excursion is noise within resonator_obs's expected measurement variance; no state change or environmental event is implied",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs apparatus requires independent recalibration; baseline established on days 1–10 does not account for drift or hysteresis and is not valid for post-day-10 data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental or structural event (thermal pulse, seismic noise, or transient building resonance) on day 26 coupled differentially to resonator_obs but not to lab instruments or resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic baseline artifact: day-1–10 baseline established under transient conditions (thermal equilibration, apparatus cold-start, observer unfamiliarity) not representative of steady-state apparatus behavior post-day-10.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures a distinct physical quantity (not all the same underlying 'time') and cross-correlations are weak because they respond to different environmental drivers or have independent instrumental noise.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Post-baseline drift is within expected measurement noise; the z-values (0.90–1.48) are marginally significant and the 'drift' is an optical illusion from small sample size (post-baseline n=54–318) and p-hacking of baseline definition.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer or procedural bias introduced post-day-10: recording technique changed, observer rotated, or calibration standard was unknowingly altered, causing a systematic shift in reported readings across all instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Common environmental signal (daily or multi-day thermal cycle, barometric drift, or building resonance from external activity) couples to all instruments with similar lag and phase, but cross-correlations are low because signal-to-noise ratio is poor and lags vary between instrument pairs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic baseline artifact: day-1–10 baseline corrupted by cold-start transients (thermal cycling, mechanical settling, calibration hysteresis, observer learning), yielding artificially low baseline mean; post-day-10 readings represent true steady-state apparatus equilibrium.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures a distinct physical observable (not all the same underlying quantity), with independent instrumental noise and environmental coupling; weak cross-correlations reflect orthogonal measurement targets rather than measurement error or systematic error.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Post-baseline drift is within expected measurement noise (Type I error); z-values of 0.90–1.48 correspond to 7–18% tail probabilities for single instruments, and with four instruments and multiple analyses (p-hacking via baseline definition or lag-searching), one or two false positives are expected.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural or observer change introduced post-day-10 (new observer, calibration artifact removed, measurement protocol drift) caused systematic upward shift in reported readings across all instruments, explaining coordinated drift without requiring apparatus settling.",
+      "class": "self_error"
+    },
+    {
+      "label": "Common external environmental signal (thermal cycle, barometric drift, building vibration) couples to all instruments with similar amplitude but variable lag and phase due to different mechanical/thermal time constants, explaining coordinated drift; weak cross-correlations reflect poor signal-to-noise ratio and lag variability between pairs.",
+      "class": "environmental_change"
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "source": "wt-seed9106.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely independent physical quantities",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-instrument anticorrelation is real; systems are coupled and oscillate out of phase",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration error or drift unique to each instrument is masking a true signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are working correctly but environmental or operational conditions have subtle temporal structure not yet characterized",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental malfunction, misconfiguration, or data-logging artifact affecting one or more streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure genuinely independent physical quantities; weak correlations are statistical noise artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-instrument anticorrelation reflects real antiphase coupling; offset lags encode physical propagation or feedback timescales",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undetected per-instrument calibration drift or zero-point instability is adding correlated noise that suppresses inter-instrument correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational cycles (daily, multi-day) affect each instrument differently, generating time-lagged correlations and scattered autocorrelations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments have a hardware malfunction, misconfiguration, or data-logging artifact that has not yet crossed alarm thresholds",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic or exotic effect not covered above",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine physical state change (e.g., mechanical drift, bearing wear, environmental shock) around day 15, but has partially or fully recovered by day 16.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab's z-score calculation or level-change detection algorithm has a bug; the apparent shift is an artifact of how post-baseline data were analyzed or aggregated.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab's baseline (days 1–10, n=94) is genuinely stable, but readings from days 11–14 (before the -3.1416 event) represent a slow drift that was not detected as a level change, compounding into the apparent shift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The -3.1416 reading (event 797719) is a data-logging or timestamp error (trial 125 mislabeled, or value corrupted in storage), and should be treated as missing rather than as a true measurement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: a transient external disturbance (vibration, EM pulse, thermal shock) affected only pendulum_lab around day 15, causing both a mechanical shift and a data glitch; the recovery is real and no hypothesis fully explains the -3.1416 spike.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Event 797719 (trial 125, value -3.1416) is a data-logging or storage corruption; excluding it eliminates the apparent level shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a transient mechanical fault around day 15 (causing the -3.1416 spike and a brief downshift) and recovered by day 16; today's readings confirm recovery",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab exhibits a real but slow drift from days 11–14 (before the -3.1416 spike) that was not flagged as a level change; the -3.1416 event is an outlier superimposed on this drift; recovery by day 19 indicates drift cessation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: a true physical recovery after a brief external disturbance (vibration, EM pulse, or thermal shock) on day 15, with genuine measurement anomaly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial 125 is a data-logging corruption (likely −π hard-coded constant), not a physical measurement; excluding it reveals the true post-baseline state, which may be stable or show only minor drift unrelated to the -3.1416 spike.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient mechanical fault (e.g., bearing slip, latch release, or servo oscillation) around day 15, causing a brief anomalous reading (trial 125 = -3.1416, a real but extreme measurement state), followed by rapid physical recovery by day 16; today's readings confirm sustained recovery.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a slow, sub-threshold drift in the post-baseline period (days 11–19) that was masked by the -3.1416 outlier; removing the outlier will reveal whether drift has ceased or is ongoing.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide external disturbance (vibration, electromagnetic pulse, thermal transient, or seismic event) on day 15 transiently affected pendulum_lab hardware, causing both a measurement artifact (trial 125) and a brief mechanical perturbation, followed by genuine recovery by day 19.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial 125 (−3.1416) is a data-logging corruption; pendulum_lab post-baseline state, excluding it, is stable or drifting only slightly, and inter-instrument near-zero correlations reflect instrumental independence or measurement-basis incomparability rather than systematic error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient mechanical fault around day 15 (e.g., bearing slip, servo oscillation, or control-loop instability), producing the extreme reading −3.1416 as a real physical state, followed by rapid self-recovery or manual intervention by day 19; the coincidence with −π is unfortunate but not impossible.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a slow sub-threshold drift in the post-baseline period (trials 36–124, days 11–15) that was masked by the −3.1416 spike; removing the spike reveals a genuine downward trend unrelated to the spike itself.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide transient disturbance (seismic event, power surge, thermal shock, or electromagnetic pulse) on day 15 affected pendulum_lab selectively, causing both a measurement artifact and a brief mechanical perturbation, while leaving the other three instruments unaffected due to different environmental coupling or shielding.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The inter-instrument near-zero correlations reflect genuine measurement-basis incomparability or independent physical processes, not systematic error; this is not anomalous if the instruments measure fundamentally different quantities.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial 125 (−3.1416) is a data-logging corruption; pendulum_lab post-baseline state excluding it remains stable or near-baseline, and apparent drift resolves.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial 125 represents a genuine transient mechanical state (e.g., pendulum at extreme displacement or servo oscillation); the −π coincidence is unfortunate but not impossible; the system self-recovered or was manually reset within 4–5 days.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab drifted downward in trials 36–124 (days 11–15), masking a slower trend; trial 125's spike superimposed on this drift; trend may or may not persist post-day-15.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, thermal, or power) on day 15 selectively affected pendulum_lab due to differential environmental coupling or shielding, while leaving other instruments unaffected.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Inter-instrument near-zero correlations reflect instrumental independence or measurement-basis incomparability, not systematic error; this is expected if instruments measure different physical quantities.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial 125 (−π value) is a data-logging or digitization artifact; excluding it eliminates the apparent anomaly, returning post-baseline to baseline.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient mechanical disruption around day 15 (e.g., bearing slip, servo latch release, or extreme angular displacement); the system self-recovered or was manually reset by day 19–20 without documented intervention.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a genuine post-baseline downward drift (small but real: ~0.015–0.020 beats/day or ~0.8–1.2% over 20 days), independent of the day-15 spike; the spike and drift are separate phenomena; drift has since stabilized or been corrected by day 26–29.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, thermal, or power anomaly) on day 15 preferentially affected pendulum_lab due to differential coupling or shielding, while other instruments were spared or less sensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Inter-instrument correlations are weak and near-random (|r| < 0.25, mostly within chance bands ±0.27–0.31) because the instruments measure physically independent or incomparable quantities, not because of systematic error or malfunction.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial 125 is a data-logging sentinel or digitization artifact (−π hard-coded failure state); excluding it collapses the anomaly; today's recovery reflects no real event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient mechanical disruption (bearing slip, servo latch, hard-stop contact) around day 14–15; the system spontaneously recovered or was manually reset without documentation by day 19–20.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a small genuine post-baseline downward drift (≈0.01–0.02 beats/day, ≈0.8–1.2% over 20 days) independent of the day-15 spike; drift has since stabilized or been corrected by day 26–29.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, or thermal) on day 14–15 preferentially affected pendulum_lab due to differential coupling or shielding; other instruments were spared or less sensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-instrument correlations (|r| < 0.25, within chance) reflect physically independent or incomparable measurement quantities, not systematic error or malfunction.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial 125 is a data-logging sentinel or digitization artifact (−π hard-coded or corruption); excluding it collapses the anomaly; day-30 recovery reflects no real physical event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine but transient mechanical disruption (bearing slip, servo feedback oscillation encoding a mechanical limit) around day 14–15; system spontaneously recovered or was reset without documentation by day 26–29.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a small genuine post-baseline downward drift (independent of the day-15 spike) that has since stabilized or been corrected by day 26–29; trial 125 is a superimposed transient or artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, or thermal event) on day 14–15 preferentially affected pendulum_lab due to differential coupling, shielding, or location; other instruments were spared or insensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-instrument correlations (|r| < 0.25, within chance) reflect physically independent or incomparable measurement quantities, not systematic error or malfunction; this is a correct but uninformative null statement that does not explain the core anomaly.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial 125 is a data-logging sentinel, firmware glitch, or digitization artifact; −π was hard-coded, corrupted, or injected as an error code; excluding it collapses the anomaly entirely.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine but transient mechanical disruption around day 14–15 (bearing slip, servo feedback oscillation, or angular arrest near ±π radians); system spontaneously recovered or was manually reset without documentation by day 26–29.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a small genuine post-baseline downward drift (independent of the trial-125 transient) that has since stabilized or been corrected by day 26–29; trial 125 is a superimposed artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, or thermal event) on day 14–15 preferentially affected pendulum_lab due to differential shielding or location; other instruments were spared or insensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-instrument correlations (|r| < 0.25, within chance) reflect physically independent or incomparable measurement quantities; this is correct but silent on the trial-125 anomaly and does not discriminate among competing explanations.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial 125 is a data-logging artifact: firmware sentinel, hard-coded constant, or digitization error injected at the logging layer (not mechanical failure).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine but transient mechanical disruption around day 14–15 (bearing slip, servo feedback oscillation, or angular arrest near ±π radians); system recovered spontaneously or was manually reset without documentation by day 26–29.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits a small genuine post-baseline downward drift (independent of trial-125 artifact) that stabilized or was corrected by day 26–29; trial 125 is a superimposed artifact masking diagnosis.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide transient (seismic, electromagnetic, or thermal event) on day 14–15 preferentially affected pendulum_lab due to differential shielding or mechanical resonance; other instruments were spared or insensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak inter-instrument correlations (|r| < 0.25, all within chance) correctly reflect measurement of physically independent or incomparable quantities; this does not explain trial-125 anomaly and does not discriminate among competing explanations.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All four instruments experienced a genuine shared environmental drift (thermal, barometric, or power-supply voltage sag) beginning between day 11–15, persisting through day 40, but at differing sensitivities; the drift is real and reproducible, not artifact.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial 125 in pendulum_lab (−3.14159...) is a firmware/logging-layer artifact (hard-coded sentinel, digitization error, or test constant injected by data-acquisition code), masking the true post-baseline distribution; excluding it reveals that pendulum_lab drift is modest and consistent with other instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient mechanical failure or servo disruption centered on day 14–15 (bearing latch-up, servo feedback oscillation, or angular arrest), trial 125 encodes a hard mechanical limit (±π rad), system recovered spontaneously by day 26–29, and artifact hypothesis is incorrect.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide environmental transient (seismic, electromagnetic, or thermal spike) on day 14–15 preferentially affected pendulum_lab due to differential mechanical resonance, shielding, or thermal mass; other instruments were sparsely affected or insensitive.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent post-baseline downward drift across all four instruments is an artifact of baseline definition: the first 10 days (n=60–96 per instrument) are biased high due to warm-up, initialization, or measurement protocol, and 'drift' is merely regression to true steady-state; no real environmental or mechanical change occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unidentified pattern in the data or an unconsidered physical mechanism.",
+      "class": "other"
+    }
+  ]
+}

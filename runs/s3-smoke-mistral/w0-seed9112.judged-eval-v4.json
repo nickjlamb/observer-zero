@@ -1,0 +1,129 @@
+{
+  "source": "w0-seed9112.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic environmental coupling (e.g., temperature, humidity, or vibration) synchronizing independent instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Uncalibrated or shared systematic bias in measurement apparatus (e.g., clock drift, power supply fluctuations)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription errors (e.g., mislabeled trials, rounding artifacts)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Exotic physical coupling (e.g., gravitational waves, local spacetime anomalies)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke (random chance producing apparent patterns)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Localized environmental disturbance affecting pendulum_obs and resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific malfunction or calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Exotic physical coupling or anomaly",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke or random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Localized environmental disturbance affecting resonator_lab and pendulum_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific malfunction or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke or random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Exotic physical coupling or anomaly",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental disturbance affecting resonator_lab and pendulum_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific malfunction or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke or random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Exotic physical coupling or anomaly",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

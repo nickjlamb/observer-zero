@@ -27,6 +27,15 @@ export interface JudgeClient {
   model: string;
   /** Calls made, for cost accounting. */
   calls(): number;
+  /**
+   * Distinct model ids the API REPORTED SERVING across this client's calls
+   * (R14 judge discipline / readiness RED-5d: the requested id is a request,
+   * not a guarantee — an upstream re-point mid-battery would otherwise change
+   * the primary's measuring instrument invisibly). In the normal case this is
+   * exactly [model]; anything else is a battery-halting anomaly and the
+   * caller records it in the evaluation output.
+   */
+  resolvedModels(): string[];
 }
 
 /**
@@ -44,6 +53,7 @@ export function createJudgeClient(opts: {
   const model = opts.model ?? FROZEN_JUDGE_MODEL;
   const maxTokens = opts.maxTokens ?? 2000;
   let calls = 0;
+  const resolved = new Set<string>();
 
   const complete: CompleteFn = async (prompt) => {
     calls += 1;
@@ -63,7 +73,11 @@ export function createJudgeClient(opts: {
         }),
       });
       if (res.ok) {
-        const data = (await res.json()) as { content: { type: string; text?: string }[] };
+        const data = (await res.json()) as {
+          content: { type: string; text?: string }[];
+          model?: string;
+        };
+        if (data.model) resolved.add(data.model);
         return data.content.find((c) => c.type === "text")?.text ?? "";
       }
       if (![429, 500, 502, 503, 529].includes(res.status)) {
@@ -74,5 +88,5 @@ export function createJudgeClient(opts: {
     throw new Error("judge API: retries exhausted");
   };
 
-  return { complete, model, calls: () => calls };
+  return { complete, model, calls: () => calls, resolvedModels: () => [...resolved].sort() };
 }

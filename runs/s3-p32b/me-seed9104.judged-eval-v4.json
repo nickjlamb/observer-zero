@@ -1,0 +1,189 @@
+{
+  "source": "me-seed9104.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift with systematic period ~5–8 days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental forcing (e.g., tidal, atmospheric, magnetic) driving correlated but phase-shifted perturbations in different instrument types",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or observer bias introducing correlated noise within each instrument type (lab vs. observational setup differences)",
+      "class": "self_error"
+    },
+    {
+      "label": "All observed correlations are statistical noise; no systematic pattern exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs hardware failure or systematic misalignment on day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient (atmospheric pressure, seismic, or magnetic pulse) on day 18 selectively coupling to resonator_obs geometry",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator error or protocol change in resonator_obs measurements on day 18",
+      "class": "self_error"
+    },
+    {
+      "label": "No systematic anomaly; resonator_obs shift is a statistical fluctuation within a long-term drift or noise envelope",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs was not properly baselined on day 1–10; the apparent shift reflects correction toward a true baseline that should have been established earlier",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs hardware failure or systematic misalignment on day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient (pressure, seismic, thermal, or magnetic) on day 18 selectively coupling to resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator error, protocol change, or detection system artifact in resonator_obs on day 18",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was compromised; day-18 shift reflects drift toward true operating point, not a failure",
+      "class": "self_error"
+    },
+    {
+      "label": "No true anomaly; resonator_obs shift is a rare statistical fluctuation within intrinsic noise or drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multiple instruments are miscalibrated, misaligned, or measuring different physical proxies for the same quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline (days 1–10) for one or more instruments was collected under non-representative conditions, invalidating drift/shift interpretations",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experienced a discrete hardware fault or misalignment on or before day 18, causing persistent 0.04 cycles/beat suppression; now partially recovering",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient (thermal, pressure, seismic, or magnetic) on or before day 18 coupled selectively to resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator error or protocol drift in one or more instruments, particularly resonator_obs if it involves manual observation",
+      "class": "self_error"
+    },
+    {
+      "label": "Computational or transcription error in my cross-correlation analysis or z-score calculations",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent hardware faults or calibration drifts; the other two instruments are more reliable",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline periods (days 1–10) for all instruments were non-stationary or thermally unstable; 'shift' and 'drift' metrics are artifacts of incomplete equilibration rather than true changes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are measuring physical proxies or are systematically miscalibrated (wrong conversion factors, sign errors, or decalibration events) relative to their nominal partner instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs experienced a discrete environmental transient (thermal, pressure, or seismic) on or around day 29 localized to its location; partial recovery ongoing",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Computational or transcription error in my z-score calculations, cross-correlations, or baseline statistics; anomalies are partially or wholly artifacts of analysis",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period (days 1–10) was non-stationary; instruments still equilibrating; apparent shifts are reversion to true stable state after transient post-baseline elevation, not hardware faults",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced independent hardware fault or thermal/mechanical drift around day 36; resonator_obs experienced independent fault around day 29; each instrument-specific, not environmental",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and/or resonator_obs are systematically miscalibrated (wrong conversion factors, sign reversals, or calibration constants) relative to their nominal partner instruments; low cross-correlations and shifts reflect calibration state drift or recalibration events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs experienced localized environmental transient (thermal, pressure, or seismic) on day 29; partial recovery ongoing through day 37; pendulum_lab shift on day 36 remains unexplained or unrelated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Computational or transcription error in my baseline statistics, z-score calculations, or cross-correlation code; anomalies are partially or wholly analysis artifacts",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent hardware faults: pendulum_lab on day 39, resonator_obs on day 29; each instrument-specific mechanical or thermal drift; recent readings confirm new stable states, not transients.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) was non-stationary; all four instruments were still thermomechanically equilibrating; apparent 'shifts' on day 29 and 39 represent convergence to stable states after longer transient, not faults; cross-instrument disagreement reflects different settling timescales.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration error or sign reversal in pendulum_lab and/or resonator_obs; low cross-correlations are signatures of miscalibration rather than measurement noise; shifts on day 29/39 reflect partial calibration correction or recalibration event (automated routine, thermal compensation activation, or re-zeroing).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Computational or transcription error in my baseline statistics, z-score calculations, cross-correlation offsets, or confidence bounds; anomalies are analysis artifacts, not physical anomalies.",
+      "class": "self_error"
+    },
+    {
+      "label": "Something I have not considered: unmeasured environmental variable (localized thermal, pressure, seismic, electromagnetic, or humidity transient); instrumental coupling or feedback loop I have not instrumented; or data corruption/transmission error in Day 40 batch upload.",
+      "class": "other"
+    }
+  ]
+}

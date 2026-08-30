@@ -1,0 +1,27 @@
+{
+  "mode": "live",
+  "model": "cerebras:gpt-oss-120b",
+  "tokens": 27,
+  "summary": [
+    {
+      "world": "w0",
+      "seed": 9114,
+      "leakClean": true,
+      "finalLevel": 0,
+      "tau": [
+        null,
+        null,
+        null
+      ],
+      "extGenTrue": false,
+      "costUSD": 0,
+      "healthy": false,
+      "callFailureRate": 1,
+      "healthReasons": [
+        "call failure rate 100.0% exceeds 5% (72/72 calls failed)",
+        "end-of-study review failed for: ada — final belief state is stale and the primary endpoint is unmeasurable",
+        "belief-review failure rate 400.0% exceeds 10% (32 lost)"
+      ]
+    }
+  ]
+}

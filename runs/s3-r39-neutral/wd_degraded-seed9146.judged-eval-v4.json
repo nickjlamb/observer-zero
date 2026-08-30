@@ -1,0 +1,245 @@
+{
+  "source": "wd_degraded-seed9146.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 35,
+  "l4Judged": 35,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration divergence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental signal too small to resolve above instrument noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic bias in lab vs. observatory placement or local geometry",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental time-lag or mode-coupling (e.g. thermal or mechanical resonance)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs entered a transient instability on Day 15",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental drift or independent noise signatures in each channel masking shared environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory environments differ systematically (local gravity gradient, vibrational coupling, or thermal gradients)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental periodic cycle (thermal or mechanical) with characteristic 3–4 day response lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs hardware malfunction or calibration error (e.g., optical path degradation, frequency counter drift, or coupling to unshielded RF source)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unidentified source: electromagnetic interference, seismic transient, personnel activity, or measurement protocol change on Day 15)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient resonator-specific environmental or mechanical perturbation (Day 15 onwards)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-level noise floor or sensitivity mismatch masking weak environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Site-specific environmental responses (lab vs. observatory coupled differently to vibrational or thermal modes)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental periodic cycle (3–4 day thermal or mechanical lag) emerging but masked by noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator hardware malfunction or calibration degradation (frequency counter, optical path, or frequency source coupling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified external perturbation (electromagnetic interference, seismic transient, personnel activity, or protocol change around Day 15)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered source or measurement artifact)",
+      "class": "other"
+    },
+    {
+      "label": "Resonator-specific environmental perturbation (vibrational, thermal, or electromagnetic) beginning ~Day 15",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Elevated environmental noise floor or instrument sensitivity mismatch masking weak shared signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Site-specific environmental responses (lab and observatory coupled differently to a shared vibrational or thermal mode)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental periodic cycle (3–7 day thermal or mechanical lag) with weak amplitude masked by noise",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator hardware malfunction (frequency counter, optical path, or RF coupling degradation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External perturbation (RF interference, seismic event, HVAC change, or unrecorded facility event) on/after Day 15",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unidentified source or measurement artifact not yet hypothesized",
+      "class": "other"
+    },
+    {
+      "label": "Resonator-specific environmental perturbation (vibrational, thermal, electromagnetic, or RF coupling) beginning ~Day 15",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Elevated environmental noise floor or instrument sensitivity mismatch masking weak shared signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine environmental periodic cycle (3–7 day thermal or mechanical lag) with weak amplitude masked by noise, superimposed on Day 15 perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator hardware malfunction (frequency counter, optical path, RF coupling degradation, or power supply noise)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External perturbation (RF interference, seismic event, HVAC change, power disturbance, or unrecorded facility event) on/after Day 14–15",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Site-specific environmental responses (lab and observatory coupled differently to a shared vibrational or thermal mode) amplifying or dampening resonator coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab instrumental drift or calibration creep (mechanical, thermal, or optical) beginning early post-baseline",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab–resonator_obs spurious correlation (r = 0.961 at 3-day lag) driven by shared noise or coincidental alignment rather than genuine coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments experience elevated and persistent noise floor beginning ~Day 15 due to resonator-specific environmental coupling (RF, electromagnetic, or switching noise)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure genuinely different environmental quantities (e.g., gravity gradient and RF noise) that happen to co-vary on a 3-day timescale by physical coincidence, not causal coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Discrete external perturbation (RF source activation, seismic event, power disturbance, or facility maintenance) on Day 14–15 selectively affecting resonator noise floor, with causally unrelated coincidental pendulum_lab–resonator_obs correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "(Residual: unexamined instrumental, data processing, or experimental design artifact)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab instrumental drift: slow mechanical or optical calibration creep unrelated to resonator_obs",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab–resonator_obs r = 0.964 is spurious correlation from multiple comparisons, not causal coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments experience elevated noise floor from ~Day 15 onward due to resonator-specific environmental coupling (RF, electromagnetic, or instrumental artifact)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete external event (~Day 14–15) caused resonator noise elevation; pendulum_lab drift and pendulum_lab–resonator_obs correlation are causally independent coincidences",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data processing, calibration reference drift, or experimental design artifact (unrecorded procedural change, timestamp error, baseline miscalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab instrumental drift: slow mechanical creep or optical misalignment specific to that apparatus, unrelated to resonator_obs correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab–resonator_obs r = 0.957 correlation at 3-day lag is spurious: a false discovery from multiple-comparison search, with no causal or physical coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecorded procedural change, calibration reference drift, or data handling artifact (e.g., timestamp error, baseline miscalibration, operator protocol shift) introduced apparent drift in pendulum_lab post-baseline",
+      "class": "self_error"
+    },
+    {
+      "label": "Discrete external event (e.g., RF source activation, facility maintenance, seismic disturbance) on Days 14–15 caused transient resonator noise elevation; pendulum_lab drift and r=0.957 correlation are separate, unrelated coincidences",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab exhibits apparatus-specific instrumental drift unrelated to resonator_obs correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab–resonator_obs r = 0.952 correlation at 3-day lag is a spurious discovery from multiple-comparison search with no physical coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecorded procedural change, calibration reference drift, or data handling artifact in pendulum_lab post-baseline records",
+      "class": "self_error"
+    },
+    {
+      "label": "Discrete external event (RF source activation, facility maintenance, seismic disturbance, HVAC change) Days 14–15 onward; pendulum_lab drift and r=0.952 correlation are separate unrelated coincidences",
+      "class": "environmental_change"
+    }
+  ]
+}

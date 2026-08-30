@@ -1,0 +1,153 @@
+{
+  "source": "w0-seed9147.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instruments, independent noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak shared environmental coupling (undetected variable)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or data-logging artifact (systematic error in one or more channels)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical decoupling of lab and observational environments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab instrument drift or calibration creep (real physical or instrumental effect)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure independent physical quantities; cross-correlations and echoes are white noise (null model unchanged)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab experiences a systematic environmental or coupling effect absent from other channels (temperature, vibration, EM cross-talk, or shared supply ripple)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration error in resonator_lab (scale factor, offset, or data-logging artifact specific to that channel)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab readings are physically valid but represent a different time constant or phase lag than the other instruments, creating apparent drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab genuine instrumental drift or calibration creep (thermal expansion, frequency standard aging, capacitor drift, or ADC calibration drift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab measures a physically real quantity with a slower thermal or electromagnetic time constant than other instruments; post-baseline readings are still equilibrating from a day 1–10 environmental step change, not a malfunction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab environment (power supply, thermal gradient, vibration, or EM field) differs from other three instruments and causes systematic frequency offset; this environmental coupling is absent or weaker at resonator_obs location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab data-logging or ADC calibration error; readings are shifted or scaled relative to true physical quantity, not reflective of genuine drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab drift is real but artifact of a resonator-specific physical property (frequency pulling, mode coupling, or nonlinear resonance behavior) that does not affect resonator_obs, and this property requires hardware-specific investigation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab genuine instrumental drift: thermal expansion, frequency standard aging, capacitor drift, or ADC calibration creep specific to that measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab measures a quantity with slower thermal or electromagnetic equilibration time constant than other instruments; post-baseline readings represent continued relaxation from a day 1–10 environmental transient, not malfunction",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab environment (local power supply instability, local thermal gradient, local vibration coupling, or local EM field) causes systematic frequency offset; this environmental effect is absent or weaker at resonator_obs location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab data-logging, ADC calibration, or time-alignment error; apparent drift reflects systematic offset or scaling in the measurement chain, not genuine physical change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab drift is real but artifact of a resonator-specific physical property (frequency pulling, mode coupling, nonlinear saturation, or load-impedance mismatch) that does not affect resonator_obs because of different hardware design or operating point",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unconsidered systematic effect or experimental confound",
+      "class": "other"
+    },
+    {
+      "label": "Genuine ~12–14 day environmental cycle (thermal, pressure, electromagnetic, or vibration) couples to each instrument with different phase lag and amplitude; apparent 'drift' is aliased periodicity.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab instrumental drift (thermal, aging, or ADC creep specific to that chain) superimposed on shared ~12–14 day environmental cycle affecting all instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) captured a transient or initialization phase; post-baseline oscillation began around day 11 due to a one-time event (power-on thermal stabilization, operational mode change, or environmental step input).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Anti-correlations and echo structure are statistical artifacts of low sample size and multiple hypothesis testing; apparent periodicity is a false positive.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab measures a genuinely different physical quantity (e.g., power consumption, thermal dissipation, or a resonance of the resonator's physical enclosure) that is not coupled to the other three instruments; its apparent 'drift' is real but orthogonal to pendulum and resonator_obs measurements.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an undocumented operational, environmental, or procedural change; a time-of-day dependence in measurements; or an unmodeled physical effect (e.g., coupling to diurnal thermal cycles, power-grid harmonics, or operator bias in measurement timing).",
+      "class": "social_process"
+    }
+  ]
+}

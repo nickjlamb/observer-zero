@@ -1,0 +1,317 @@
+{
+  "source": "wd_degraded-seed9144.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 45,
+  "l4Judged": 45,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent environmental drivers: each instrument responds to a distinct local environmental variable (temperature gradient, vibration mode, electromagnetic coupling) uncorrelated across the lab and observation spaces",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol artifact: my reading procedure, timing window, or trial-to-trial reset differs across the four streams in a way that fragments what would otherwise be a unified signal",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical independence: the pendulum and resonator systems are genuinely decoupled oscillators, and lab versus observation environments truly are uncorrelated noise regimes, revealing a real feature of Meridian's physics rather than a failure of my apparatus",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing or recording error: systematic but subtle errors in how I log, timestamp, or align readings across the four streams have artificially suppressed correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument calibration drift or systematic bias unique to each device: each stream's baseline is anchored not to an absolute physical standard but to that instrument's own initial state, masking a true underlying signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol artifact: my reading procedure, timing window, or trial-to-trial reset differs systematically across streams or even within streams, erasing temporal coherence that would otherwise be observable",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent environmental drivers: each instrument couples to a distinct, locally-uncorrelated environmental variable (temperature gradient in one location, vibration mode in another, electromagnetic coupling in a third), producing stable individual baselines but zero cross-stream coherence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift or absolute zero-point offset unique to each device: each baseline is anchored only to that instrument's day-1 state, not to an external physical standard, masking true underlying absolute signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical independence: pendulum and resonator systems genuinely couple to orthogonal degrees of freedom in Meridian's physics, and lab/obs environments truly are uncorrelated noise regimes, revealing a real feature of the settlement's environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing or recording error: systematic timestamp drift, misalignment during post-hoc grouping, or event-ID scrambling has artificially suppressed correlations across streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement protocol or logging artifact destroys temporal coherence",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument has a unique calibration offset or drift rate unknown to me, masking absolute signal while preserving internal consistency",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical independence: instruments genuinely measure orthogonal environmental modes with no shared attractor or global coherent driver",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing or post-acquisition grouping error: event-ID or timestamp misalignment has artificially suppressed correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement protocol or logging artifact destroys temporal coherence during or after acquisition",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a spatially-localized environmental noise source uncorrelated with others",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset or drift rate differs between instruments, masking absolute signal while preserving internal self-consistency",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical independence: instruments measure orthogonal environmental modes with no shared coherent driver",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data grouping or timestamp misalignment after collection has scrambled true temporal order within each stream",
+      "class": "self_error"
+    },
+    {
+      "label": "Temporal order of readings is scrambled during or after acquisition—trials are sorted by stream post-hoc rather than logged sequentially in wall-clock time, destroying short-lag autocorrelation structure within each stream",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others; cross-stream correlations are genuinely weak because streams measure orthogonal degrees of freedom",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration zero-points differ between streams (no external calibration standard exists), masking absolute signal while preserving each stream's internal self-consistency",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments genuinely measure orthogonal environmental modes with no shared coherent driver; the settlement environment partitions into decoupled spatial/modal regimes, each stable to itself but uncoupled from others",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown unknown—an unrecognized data-handling error, hardware malfunction, or environmental anomaly not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Temporal order of readings is scrambled during or after acquisition—trials are sorted by stream post-hoc rather than logged sequentially in wall-clock time, destroying short-lag autocorrelation structure within each stream",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others; cross-stream correlations are genuinely weak because streams measure orthogonal degrees of freedom",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration zero-points differ between streams (no external calibration standard exists), masking absolute signal while preserving each stream's internal self-consistency",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments genuinely measure orthogonal environmental modes with no shared coherent driver; the settlement environment partitions into decoupled spatial/modal regimes, each stable to itself but uncoupled from others",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unknown unknown—an unrecognized data-handling error, hardware malfunction, or environmental anomaly not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Temporal order of readings is scrambled during or after acquisition—trials are sorted by stream post-hoc rather than logged sequentially in wall-clock time, destroying short-lag autocorrelation structure within each stream while preserving within-stream baseline statistics",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others; cross-stream correlations are genuinely weak because streams measure orthogonal environmental degrees of freedom",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration zero-points differ between streams (no external calibration standard exists); this masks absolute signal and explains weak cross-stream correlations while preserving within-stream self-consistency",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unknown unknown—an unrecognized data-handling error, hardware malfunction, or environmental anomaly not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Instruments genuinely measure orthogonal environmental modes with no shared coherent driver; settlement environment partitions into decoupled spatial/modal regimes, each stable to itself but uncoupled from others",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temporal order of readings is scrambled during or after acquisition—trials are assigned sequential numbers within each stream post-hoc, but wall-clock acquisition order is interleaved across streams, destroying short-lag autocorrelation structure within each stream while preserving within-stream baseline statistics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others; cross-stream correlations are genuinely weak because streams measure orthogonal environmental degrees of freedom, but short-lag within-stream autocorrelations are absent for an unrelated reason (e.g., measurement noise dominates, or temporal order is genuinely random).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration zero-points differ between streams (no external calibration standard exists in Meridian); this masks absolute signal and explains weak cross-stream correlations while preserving within-stream self-consistency and tight baselines.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unknown unknown—an unrecognized data-handling error, hardware malfunction, environmental anomaly, or failure mode not yet enumerated.",
+      "class": "other"
+    },
+    {
+      "label": "Instruments genuinely measure orthogonal environmental modes with no shared coherent driver; settlement environment partitions into decoupled spatial/modal regimes, each stable to itself but uncoupled from others and internally decorrelated on the timescale of measurement.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temporal order of readings is scrambled post-acquisition: trials are assigned sequential numbers within each stream after the fact, but wall-clock acquisition order is interleaved across streams, destroying short-lag autocorrelation structure within each stream while preserving within-stream baseline statistics and variance because readings remain physically genuine—just reordered.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument couples to a distinct, spatially-localized environmental noise source uncorrelated with others; cross-stream correlations are genuinely weak because streams measure orthogonal environmental degrees of freedom, but short-lag within-stream autocorrelations are absent because measurement noise dominates over signal, or because temporal order of readings is genuinely random in the measurement process itself (not post-hoc scrambling).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration zero-points differ between streams (no external calibration standard exists in Meridian); this masks absolute signal and explains weak cross-stream correlations while preserving within-stream self-consistency and tight baselines, but does NOT explain zero within-stream autocorrelation at short lags.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unknown failure mode: (A) All four instruments share a common hardware reset, synchronization pulse, or power-cycling event at unpredictable intervals, clearing internal state and destroying temporal coherence while preserving within-stream baselines; (B) Event-ID assignment uses a deterministic pseudo-random permutation cipher that appears random but is reproducible, making true temporal order reconstruction difficult without reverse-engineering; (C) Environmental conditions in Meridian are pathologically non-stationary (Poisson-driven impulse noise, instantaneous discontinuities, or modal switching at sub-trial timescales) that decorrelates autocorrelation; (D) Systematic error in my own autocorrelation calculation or lag-matching procedure; (E) Deliberate data manipulation or mislabeling.",
+      "class": "other"
+    },
+    {
+      "label": "Temporal order of readings within each stream is scrambled post-acquisition; trial numbers are assigned sequentially after data collection, but wall-clock acquisition order is interleaved across streams and possibly permuted within streams, destroying short-lag autocorrelation while preserving within-stream baseline statistics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure the same or coupled physical quantity (e.g., gravitational acceleration, environmental resonance frequency, or a common external forcing), but are time-shifted by ~3 days in wall-clock acquisition and independently trial-numbered, creating spurious correlation when indexed by trial count rather than wall-clock time. Other streams measure orthogonal quantities with weak environmental coupling, explaining universal weak cross-stream correlations except this pair.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Logging pipeline contains a deterministic algorithmic step (permutation cipher, pseudo-random seed, round-robin queue assignment, or time-bucketing resampler) that interleaves event IDs across streams at acquisition time, making true temporal order hard to reconstruct without reverse-engineering the cipher. This is a design choice, not a bug, and is functionally equivalent to hypothesis 1 (temporal scrambling) from a data perspective.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown failure mode or unconsidered systematic: instrumental hardware shares a common reset or synchronization signal that clears internal state at unpredictable intervals; environmental forcing in Meridian is pathologically non-stationary (sub-trial discontinuities, modal switching, or impulse noise uncorrelated at lag >0); measurement noise dominates signal and temporal order is genuinely scrambled at acquisition (not post-hoc); or my autocorrelation calculation contains a systematic error that suppresses lag-1 correlations artifactually.",
+      "class": "other"
+    },
+    {
+      "label": "Temporal scrambling post-acquisition destroys autocorrelation structure within streams and cross-stream correlations universally, but pendulum_lab and resonator_obs measure the same or coupled physical quantity (gravitational acceleration, environmental resonance, or common forcing) and are acquired with a fixed ~3-day wall-clock phase lag; trial numbering is sequential but independent per stream, creating spurious r=0.946 correlation when indexed by trial count. The Day 33 variance spike in both pendulum_lab and resonator_lab is a genuine environmental event (e.g., structural vibration, temperature transient, or calibration drift) that affects multiple streams simultaneously in wall-clock time but appears scattered in trial-number space due to interleaved acquisition.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_lab measure the same or very tightly coupled physical quantity (or both respond to a shared environmental forcing), but are acquired at wall-clock times offset by 0–1 day and independently trial-numbered. The Day 33 variance spike reflects a genuine, sharp environmental event (e.g., seismic activity, thermal shock, or external vibration) that strikes both instruments simultaneously and is therefore visible in both trial streams on the same calendar day. Temporal scrambling (post-hoc interleaving or logged event-ID permutation) explains the universal zero autocorrelation; the anomalous pendulum_lab ↔ resonator_obs correlation (r=0.946 at 3-day offset) reflects the fact that pendulum_lab and resonator_obs measure the same underlying signal but are acquired with a ~3-day wall-clock phase lag and independent trial numbering, creating spurious correlation when trial counts are misaligned relative to true time.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "All four measurement streams are genuinely independent and unscrambled in trial-number order, but the logging pipeline contains a deterministic algorithmic permutation (pseudo-random cipher, round-robin queue assignment, or time-bucketing resampler seeded by metadata) that scrambles event-IDs at acquisition time without scrambling the underlying trial sequence. The 100% consistency of event-ID interleaving across all 27 days reflects a fixed design or systematic pattern in this algorithm, not post-hoc scrambling. The universal zero autocorrelation is evidence of rapid environmental fluctuations (impulse noise, high-frequency vibration, or modal switching) that decorrelate readings at lag >0, or measurement noise dominating signal. The Day 33 variance spike in pendulum_lab and resonator_lab is a genuine shared environmental event. The anomalous pendulum_lab ↔ resonator_obs correlation (r=0.946 at 3-day offset) remains unexplained under this hypothesis and demands separate investigation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in my autocorrelation calculation, or my choice of lag range (1–14 days) is too coarse to detect true underlying temporal structure that operates at sub-day or inter-trial timescales. The universal zero autocorrelation is artifactual. The Day 33 variance spike is a genuine environmental event. The anomalous pendulum_lab ↔ resonator_obs correlation (r=0.946) reflects genuine physical coupling. Temporal scrambling, deterministic event-ID permutation, and rapid environmental noise are all less likely than a flaw in my analysis.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental event on Day 33 affecting lab instruments selectively; pendulum_lab and resonator_obs measure the same physical quantity at a ~3-day wall-clock offset, creating spurious correlation when indexed by trial count.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Genuine shared environmental forcing on pendulum_lab and resonator_lab only (localized event or coupling), independently affecting both streams via wall-clock time; pendulum_lab and resonator_obs are physically decoupled but trial-number indexing creates spurious r=0.953 correlation due to a fixed ~3-day acquisition time offset masked by post-hoc event-ID scrambling.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequences are not scrambled in wall-clock time; event-ID interleaving reflects a deterministic algorithmic permutation (cipher, queue assignment, or bucketing) applied at acquisition time without shuffling trial order. Zero autocorrelation reflects rapid environmental noise or impulse-dominated fluctuations, not scrambling. Day 33 spike is a genuine event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error or bias in my autocorrelation method (incorrect detrending, lag indexing, or centering) that selectively blinds me to within-stream lag structure while leaving the anomalous pendulum_lab ↔ resonator_obs correlation detectable. Zero autocorrelation is artifactual.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: An unconsidered mechanism (e.g., instrumental artifact in event logging, a hardware clock skew between lab and observatory, a temporal alias in trial-count interpretation, or a physical phenomenon I have not yet hypothesized).",
+      "class": "other"
+    },
+    {
+      "label": "H1: Lab instruments share a real environmental perturbation on Day 33 (wall-clock time); pendulum_lab and resonator_obs measure coupled physical quantities with a ~3-day wall-clock acquisition lag that appears as trial-offset correlation when trial counts are compared without temporal correction.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: Day 33 event is real and localized to lab instruments (genuine environmental coupling via shared infrastructure); pendulum_lab and resonator_obs anomalous correlation is a pure trial-indexing artifact unrelated to physical coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Trial sequences within each stream are not scrambled by event-ID; they reflect true wall-clock order. Zero autocorrelation is genuine and indicates white-noise-dominated, non-stationary, or impulse-driven fluctuations rather than thermal/gravitational drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: My autocorrelation calculation method contains a systematic error (incorrect lag indexing, centering, or detrending) that selectively blinds me to within-stream structure while leaving cross-stream correlation detectable by accident.",
+      "class": "self_error"
+    },
+    {
+      "label": "H5: Residual—an unconsidered mechanism such as instrumental artifact in event-ID logging, hardware clock skew between lab and observatory systems, a temporal alias in trial-count interpretation, or a physical phenomenon not yet hypothesized.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Day 33 lab environmental event (real, localized) + trial-count indexing artifact explains both observations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Day 33 environmental event (real, localized to lab) is independent of pendulum_lab ↔ resonator_obs correlation (trial indexing artifact unrelated to physical coupling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Trial sequences are not scrambled by event-ID; they reflect true wall-clock order. Zero autocorrelation reflects genuine physical white-noise dominance or impulse-driven dynamics, not method error.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Autocorrelation calculation method contains systematic error (lag indexing, detrending, or centering bug) that selectively blinds me to within-stream structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H5: Residual—unconsidered mechanism such as hardware clock skew, event-ID logging artifact, or an unidentified physical coupling pathway (e.g., seismic wave propagation, atmospheric pressure, shared infrastructure with phase lag)",
+      "class": "other"
+    }
+  ]
+}

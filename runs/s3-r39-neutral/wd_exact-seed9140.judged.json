@@ -1,0 +1,189 @@
+{
+  "source": "wd_exact-seed9140.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental cross-talk or shared systematic error creating spurious anticorrelations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias systematically inverting readings or introducing anti-correlated noise",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical anticorrelation: the system under study exhibits oscillatory or compensatory dynamics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data recording, storage, or analysis error: systematic sign flipping or time-axis misalignment in post-processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Insufficient baseline period and random sampling: apparent anticorrelation is a false positive from multiple-comparison bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared systematic error (temperature, power supply, or coupled calibration reference) producing oscillatory anticorrelation across all four instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or analysis pipeline error: systematic sign inversion or time-index misalignment introduced during post-processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias systematically inverting or anti-correlating readings in alternating or instrument-specific patterns",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical anticorrelation: the system exhibits oscillatory or compensatory dynamics with a 4–8 day period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparison bias and insufficient baseline: apparent anticorrelations are false positives from testing many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or analysis pipeline error: systematic sign inversion or time-index misalignment introduced during post-processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared systematic error (thermal cycling, power ripple, or coupled calibration reference) producing oscillatory anticorrelation across all instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or observer bias systematically inverting one measurement axis relative to another, or introducing anticorrelated noise on specific instrument pairs",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical anticorrelation: the system exhibits oscillatory or compensatory dynamics with an 11–13 day period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparison bias: apparent anticorrelations are false positives from testing many offsets and lags without multiple-comparison correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing error: systematic sign inversion or time-index misalignment in post-baseline consolidation affecting three of four streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal cycling, power supply ripple, or mechanical coupling) producing coupled oscillatory motion with ~11–13 day period, measured along axes that appear anticorrelated due to instrument geometry or calibration reference alignment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or calibration reference inversion: one or more instrument axes measured as negative when they should be positive, or calibration reference applied with opposite sign to different instrument pairs",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical oscillatory dynamics or compensatory feedback with ~11–13 day period: the system under study exhibits true anticorrelated behavior across measurement channels",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparison bias: apparent correlations are false positives from testing many offsets and lags without multiple-comparison correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Isolated transient measurement error or sensor glitch in resonator_obs trial 302",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Early warning of a genuine level shift or drift in resonator_obs beginning on Day 36",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Coincident environmental transient (thermal spike, vibration, power ripple) affecting only resonator_obs on Day 36 trial 302",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or transcription error: trial 302 value recorded as 3.9084 when it should read 4.0484 or similar (digit transposition, copy-paste error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: systematic artifact affecting only resonator_obs post-baseline data (sign inversion, time-index misalignment, or calibration reference applied selectively to one stream after Day 10)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab genuine slow thermal drift; resonator instruments stable; cross-instrument r=1.000 is statistical artifact from multiple-comparison overfitting",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic time-alignment or phase-shift error in data consolidation affecting pendulum_lab and resonator_obs specifically; both instruments misaligned by ~3 days, causing spurious correlation and apparent drift in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab calibration baseline established while apparatus was not yet thermally stable; post-baseline readings reflect true equilibrium and represent genuine instrument performance",
+      "class": "self_error"
+    },
+    {
+      "label": "Today's Day 39 observations (resonator_lab trials 344–346; pendulum_obs trials 229–234; resonator_obs trials 343–358) hint at emerging instability in multiple streams; this is a leading indicator of upcoming larger drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The perfect r = 1.000 correlation between pendulum_lab and resonator_obs (lag 3) is genuine and reflects a coupled physical or electronic mechanism I have not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine thermal drift post-baseline; cross-correlation r=1.000 is statistical artifact from multiple comparisons",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Time-alignment or data consolidation error: pendulum_lab and/or resonator_obs trials are shifted by ~3 days, causing spurious perfect correlation and apparent drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was established during thermal non-equilibrium; post-baseline readings represent true equilibrium performance",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are coupled via a shared electromagnetic or mechanical pathway; the r=1.000 at 3-day lag is genuine and indicates a physical mechanism I have not identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple independent small anomalies are converging toward systemic instability; today's elevated variance across all streams is a leading indicator",
+      "class": "measurement_error"
+    }
+  ]
+}

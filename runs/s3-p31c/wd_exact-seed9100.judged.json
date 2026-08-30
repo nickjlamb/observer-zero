@@ -1,0 +1,141 @@
+{
+  "source": "wd_exact-seed9100.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 10,
+  "l4Judged": 10,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration decay affecting all systems at different rates, manifesting as anti-correlated read-pairs across offset windows",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational condition shifting on a ~6-day cycle, affecting pendulum and resonator systems inversely (e.g. temperature, humidity, vibration regime)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-system coupling or cross-talk: lab instruments physically or electronically interfering with observational instruments, or vice versa, with a 6-day feedback loop",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Anomalous data-recording or time-stamping error: readings are correct but offset or grouped by day incorrectly, creating false correlations at offset windows",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_obs is experiencing true physical variability (e.g. stochastic resonance, micro-seismic coupling, or air-mass fluctuation) unrelated to other systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental drift or calibration decay at different rates across systems, manifesting as anti-correlated pairs at 6-day lag windows",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational condition cycling at ~6-day period, inducing inverse responses in mechanical vs. electronic systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-system cross-talk or electromagnetic interference: lab and observational instruments on different schedules or power supplies, with a 6-day feedback cycle or phasing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-recording, time-stamping, or trial-binning error creating false correlations at offset windows",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_obs subsystem is experiencing true local physical variability (micro-seismic coupling, air-mass transient, or resonator electronics instability) unrelated to other systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified mechanism, possibly involving a non-obvious clock, thermal, or architectural coupling between subsystems not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab underwent a transient calibration drift or thermal excursion on day 29–30, unrelated to obs systems; the 6-day anti-correlations are independent instrumental drifts at different rates",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A ~6-day environmental or operational cycle (thermal, vibration, humidity, power-supply load) drives the resonator_lab excursion and also the systematic 6-day anti-correlations between lab and obs systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs instruments share a common oscillator or timing reference with a 6-day resynchronization or phase-drift cycle, causing the measured anti-correlation; the day 29–30 excursion reflects a resynchronization event or phase-locking transient",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-recording, time-stamping, or trial-sequence error is creating false correlations at 6-day offsets; the day 29–30 resonator_lab excursion reflects a mislabeling or batch-processing error in the logging system",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_lab electronics or mechanical resonator itself is undergoing a slow degradation (component aging, frequency-standard drift, or mechanical stress fatigue) that manifested as the day 29–30 excursion; this is independent of the 6-day correlation pattern",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified mechanism, possibly involving resonance coupling between lab and obs resonators, a multi-timescale thermal transient, or an architectural feature not yet apparent",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Transient instrumental event in resonator_lab (thermal drift, calibration slip, or component transient) unrelated to obs systems; 6-day anti-correlations reflect independent drift trajectories at different rates",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A ~6-day environmental or operational cycle (thermal, vibration, humidity, or power load) drives both the day 29–30 resonator_lab excursion and the systematic 6-day anti-correlations between lab and obs systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs share a common frequency reference (atomic clock, GPS standard, or phase-locked loop) with a 6-day resynchronization or calibration cycle, producing the observed anti-correlation; the day 29–30 excursion reflects a resync transient or phase-lock event",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-recording, time-stamping, or trial-sequence error (mislabeling, clock skew in logging system, batch-processing error) is creating false correlations and masking the true structure of the day 29–30 excursion",
+      "class": "social_process"
+    },
+    {
+      "label": "Slow component degradation (aging, frequency-standard drift, mechanical fatigue) in resonator_lab manifested as the day 29–30 excursion; independent of the 6-day correlation pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: resonance coupling between lab and obs resonators via shared housing or electromagnetic fields; multi-timescale thermal transient; or undocumented architectural feature producing phase relationships at multiple timescales (2, 3, 5, 6 days)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

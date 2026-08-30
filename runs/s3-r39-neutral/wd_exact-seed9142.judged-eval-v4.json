@@ -1,0 +1,249 @@
+{
+  "source": "wd_exact-seed9142.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 19,
+  "l4Judged": 19,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Each instrument has a genuine slow drift or quasi-periodic component that creates false internal autocorrelation, but the four instruments are measuring different physical quantities or are mechanically decoupled",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement artefact: instrumental drift or operator/procedural bias causes each stream to correlate with its own recent past, but this is a systematic error in calibration or technique rather than evidence of a real physical effect",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental or external forcing (e.g., geophysical cycles, atmospheric pressure, temperature oscillation on a 5–8 day timescale) is weakly coupling to all instruments in a non-linear or instrument-specific way, creating apparent internal structure but not coherent cross-channel response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical noise and multiple comparisons: the observed autocorrelations and lag-correlations are random outcomes of searching many possible lags and offsets; I have not corrected for multiple hypothesis testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs instrument degradation or systematic calibration failure beginning around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs operator/procedural change or environmental exposure change on day 10–11 (not instrument hardware)",
+      "class": "self_error"
+    },
+    {
+      "label": "Random statistical fluctuation: resonator_obs drift is within expected sampling variance for n=40 post-baseline trials, and z = -2.77 is a false positive from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs is detecting a real physical phenomenon (e.g., slow environmental or geophysical change) that other instruments do not respond to because they measure different physical quantities or have different sensitivities",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: calibration error in my own baseline definition or post-baseline sample assignment; systematic recording error; or unlogged instrument swap/relocation",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs hardware degradation or calibration drift starting day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs procedural or environmental change on day 10–11 (not hardware)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs is detecting a real physical phenomenon (geophysical or atmospheric) with localized or instrument-specific sensitivity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical false positive: resonator_obs drift is within sampling variance; z = −2.45 is noise magnified by small post-baseline sample and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry or partitioning error in my own baseline-to-post-baseline assignment for resonator_obs or mislabeling of trials",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified mechanism or pattern in the data I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Resonator_obs hardware degradation or calibration drift localized to the resonator_obs unit",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or environmental change on day 10–11 affecting resonator_obs measurement protocol or local conditions",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs is detecting a real localized physical phenomenon (environmental or geophysical) with instrument-specific sensitivity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry or partitioning error in baseline→post-baseline assignment for resonator_obs",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical false positive: resonator_obs drift is sampling noise magnified by small post-baseline sample and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unidentified mechanism or unconsidered pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab hardware drift or calibration creep localized to that unit",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or environmental volatility specific to pendulum_lab measurement protocol or local conditions",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs downward offset is a real hardware or calibration step (day 10–11 boundary) now largely stable, distinct from pendulum_lab drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical false positive or small-sample noise in pendulum_lab drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry, trial numbering, or baseline-post-baseline partitioning error for pendulum_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unconsidered pattern or mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab hardware degradation or calibration creep (bearing friction, pivot wear, thermal drift of rod) producing gradual upward bias with noise amplification on high-activity measurement days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or local environmental volatility specific to pendulum_lab (inconsistent damping correction, time-of-day temperature variation in pivot/rod, operator technique drift, measurement location changes)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Anomalous perfect correlation (r=1.000) between pendulum_lab and resonator_obs at 3-day offset indicates shared latent driver, common measurement artifact, or data processing error not yet identified",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical false positive or small-sample noise in pendulum_lab drift; z=1.04 does not reach classical ±2.0σ significance, and Bonferroni correction (critical z≈2.24 for 4 instruments) rules out formal significance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry, trial numbering, baseline-post-baseline partitioning, or instrument swap error in pendulum_lab records; spurious drift artifact from misalignment of baseline boundary",
+      "class": "self_error"
+    },
+    {
+      "label": "Data alignment or trial-dating error: baseline/post-baseline boundary misassigned, trial numbering corrupted, or pendulum_lab records systematically offset by ~3 days relative to resonator_obs records.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab hardware degradation or calibration drift producing upward bias in mean and elevated scatter in high-activity measurement clusters, while pendulum_obs (independent apparatus, same room) shows neither drift nor variance inflation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or local environmental volatility specific to pendulum_lab: time-of-day temperature cycling in pivot/rod, inconsistent damping correction application, operator technique drift, or measurement location microenvironment changes.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical false positive in pendulum_lab drift: z=1.11 is below both classical ±2.0σ (z=2.0) and Bonferroni-corrected threshold (z≈2.24 for 4 instruments); observed drift may be random sampling variation within a stable underlying process.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared latent environmental or instrumental driver affecting both pendulum_lab and resonator_obs (e.g., power supply fluctuation, settlement-wide event, or shared measurement artifact) that creates the anomalous perfect correlation via a common noise source or systematic error source not yet identified.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unmapped error or anomaly (e.g., undocumented instrument swap, missing trial records, data-entry artifact in resonator_obs, or physical mechanism not yet considered).",
+      "class": "other"
+    },
+    {
+      "label": "Data alignment or trial-dating error: baseline/post-baseline boundary misassigned or trial numbering corrupted between pendulum_lab and resonator_obs records.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab hardware degradation or calibration drift producing upward bias in mean (pre-day-39) and elevated scatter in measurement clusters, while today's batch shows reversal due to apparatus malfunction, sudden repair, or transient mechanical failure.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or local environmental volatility specific to pendulum_lab: time-of-day temperature cycling, inconsistent damping correction, operator technique drift, or measurement location microenvironment changes triggered or exacerbated today.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical false positive in pre-day-39 pendulum_lab drift: z=1.00 for upward trend is below classical significance threshold (z=2.0) and multiple-comparison-corrected threshold (z≈2.24); today's downward shift and elevated scatter represent return to baseline noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared latent environmental or instrumental driver affecting both pendulum_lab and resonator_obs (e.g., power supply fluctuation, settlement event, shared calibration source, or undocumented shared measurement component) creating the anomalous perfect r=1.000 correlation at 3-day offset.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: undocumented instrument swap, missing trial records, data-entry artifact in resonator_obs or pendulum_lab, or physical mechanism not yet considered (e.g., settlement-wide event affecting only specific instrument pairs, or a calibration error specific to the boundary between baseline and post-baseline period).",
+      "class": "other"
+    },
+    {
+      "label": "Data alignment or trial-dating error: baseline/post-baseline boundary misassigned or trial numbering corrupted between pendulum_lab and resonator_obs records",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware degradation, calibration drift, or transient mechanical failure: apparatus malfunction between day 38 and day 40 producing sudden reversal of mean and elevated scatter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or local environmental volatility specific to pendulum_lab: time-of-day temperature cycling, inconsistent damping correction, operator technique drift, or measurement location microenvironment changes triggered today",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical false positive in pre-day-39 pendulum_lab drift: z=1.00 is below classical significance (z=2.0); today's downward shift and elevated scatter represent return to baseline noise, not a real discontinuity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared latent driver affecting pendulum_lab and resonator_obs: settlement-wide event, power supply fluctuation, shared calibration source, or undocumented shared measurement component creating the r=1.000 correlation at 3-day offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented instrument swap, missing trial records, data-entry artifact, or calibration error at baseline/post-baseline boundary",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

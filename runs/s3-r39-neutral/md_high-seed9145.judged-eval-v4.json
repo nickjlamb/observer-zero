@@ -1,0 +1,349 @@
+{
+  "source": "md_high-seed9145.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental independence or environmental decoupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement resolution or quantization near instrument noise floor",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in trial sequencing, labeling, or data recording",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments calibrated at baseline but responding to an unmeasured, varying environmental parameter",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments is not functioning as intended (calibration offset, partial failure, or systematic bias introduced after baseline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are genuinely independent (mechanically decoupled, responding to uncorrelated noise sources, or positioned to avoid shared environmental effects)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are resolving at or below their noise floor; systematic physical signals are buried in thermal/mechanical noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial metadata (timestamps, sequence IDs, or 'day' labels) are corrupted, misaligned, or out of order; temporal structure is scrambled during recording or logging",
+      "class": "social_process"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, magnetic field, thermal gradient, or electromagnetic noise) is varying over days 11–15 and affecting all instruments similarly; effect was not present or was constrained during baseline (days 1–10)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments has degraded in signal-to-noise ratio, become partially stuck, or shifted in gain/offset after day 10, without showing a discrete level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a step change in systematic error (calibration drift, pivot wear, or measurement protocol shift) around day 15; other streams remained stable because they measure independently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four streams are operating at or below noise floor; systematic physical signals exist but are buried in thermal/mechanical noise independent across instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial metadata (day labels, sequence assignments, or temporal alignment) are misaligned or corrupted; temporal structure is scrambled during recording or logging, destroying apparent correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, magnetic field, thermal gradient, or electromagnetic noise) emerged post-baseline and is affecting all four instruments coherently, but appears as independent noise because the driver itself is unrecorded",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments has degraded in signal-to-noise ratio, become partially stuck, or shifted in gain/offset after day 10, with the level shift in pendulum_lab representing a discrete mechanical failure (e.g., pivot stick-slip or damper engagement)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic error, instrumental artifact, or data corruption specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete step change in systematic error around day 15 (calibration drift, mechanical wear, or measurement protocol shift); other streams remained stable because they measure independently.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four streams operate at or near their instrumental noise floor; systematic physical signals (if any exist) are buried in thermal, mechanical, and electronic noise that is uncorrelated across instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial metadata (day assignments, sequence ordering, or temporal alignment) are corrupted or misaligned in recording or logging, scrambling temporal structure and destroying apparent correlations.",
+      "class": "social_process"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, magnetic field, thermal gradient, or electromagnetic noise) emerged post-baseline and affects all four instruments, but appears as uncorrelated noise because the driver itself is unrecorded.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete mechanical failure (e.g., pivot stick-slip, damper engagement, or sudden change in friction) around day 15, producing a step change in period without post-shift drift.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A batch-specific sensor error, calibration mistake, experimenter protocol change, or data processing error was introduced around day 15, localized to pendulum_lab.",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete step change in systematic error around day 15 (calibration drift, mechanical wear, measurement protocol shift, or sensor replacement); other streams remained stable because they measure independently.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four streams operate at or near their instrumental noise floor; systematic physical signals are buried in uncorrelated thermal, mechanical, and electronic noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, magnetic field, thermal gradient) emerged post-baseline and affects all four instruments, but appears as uncorrelated noise because the driver itself is unrecorded.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial metadata (day assignments, sequence ordering, temporal alignment) are corrupted or misaligned in recording or logging, scrambling temporal structure and destroying apparent correlations.",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete mechanical failure (pivot stick-slip, damper engagement, friction change) around day 15, producing a step change in period without post-shift drift.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A batch-specific sensor error, calibration mistake, experimenter protocol change, or data processing error was introduced around day 15, localized to pendulum_lab.",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete calibration correction or systematic adjustment around day 15; the improved post-shift precision (lower sd) suggests deliberate measurement-system improvement, not error or drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four measurement streams operate at or near their instrumental white-noise floor; systematic signals are buried in uncorrelated thermal, mechanical, and electronic noise; the pendulum_lab level shift is a rare high-amplitude statistical excursion, not systematic.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete mechanical change (pivot lubrication, damper engagement, or friction transition) around day 15, establishing a new stable equilibrium without post-shift drift.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, temperature, magnetic field) emerged post-baseline and affects all instruments, but appears uncorrelated because the driver itself is unrecorded; however, pendulum_lab shows amplified response or differential sensitivity.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial metadata (day assignments, sequence ordering, temporal alignment, or log interleaving) are corrupted or systematically misaligned across instruments, scrambling temporal structure and destroying apparent correlations.",
+      "class": "social_process"
+    },
+    {
+      "label": "Procedural error, data-processing error, or measurement-protocol change specific to pendulum_lab was introduced around day 15 (e.g., change in release method, trial duration, analysis window, or calibration constant application).",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered: an unmeasured systematic effect specific to pendulum_lab that produces both a discrete step change and improved post-shift precision.",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab underwent deliberate calibration correction or measurement-protocol refinement around day 15; the post-shift variance reduction is fingerprint of improved precision, not noise or drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced a discrete mechanical change (pivot lubrication phase transition, damper engagement, or friction-coefficient stabilization) around day 15, locking into a new equilibrium with lower effective mechanical noise.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "All four measurement streams operate at or near their instrumental white-noise floor; the pendulum_lab level shift is a rare high-amplitude statistical excursion; post-shift variance reduction is a coincidence or sampling artifact.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unmeasured environmental parameter (barometric pressure, temperature gradient, magnetic field) emerged post-baseline and affects all instruments with differential sensitivity; pendulum_lab shows amplified response or coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial metadata (day assignments, sequence ordering, temporal alignment) are corrupted or systematically misaligned across instruments, scrambling temporal structure and destroying real correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural error, data-processing error, or measurement-protocol change specific to pendulum_lab was introduced around day 15 (change in release method, measurement window, data-reduction algorithm, or calibration constant).",
+      "class": "self_error"
+    },
+    {
+      "label": "An unknown systematic effect specific to pendulum_lab produces both a discrete step change and improved post-shift precision; possible mechanisms: sensor aging stabilization, temperature-compensation activation, damping-coefficient shift reducing high-frequency noise, or measurement-environment interaction.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unidentified systematic effect or data-quality issue specific to pendulum_lab that Ada has not yet detected.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "pendulum_obs underwent a discrete downward shift around day 33; the flagged level change signals a real drop, not an upward drift, and today's tight cluster (trials 193–198: 2.4442–2.4901) confirms the new lower equilibrium.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "pendulum_obs and pendulum_lab measure different physical quantities or are decoupled by design; the level shift in pendulum_obs reflects a change in observational measurement protocol (e.g., timing window, observer method, or data-reduction routine) separate from the lab instrument.",
+      "class": "self_error"
+    },
+    {
+      "label": "The level change in pendulum_obs is a statistical anomaly (high-variance excursion) within the post-baseline window; today's measurements represent a tail of the post-baseline distribution, and the flagged |z| ≈ 3.2 reflects noise, not a systematic shift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The reported level change in pendulum_obs around day 33 is an artifact of notebook analysis or trial-sequencing error; the actual data are stable across the measurement window, and the |z| ≈ 3.2 flag reflects a transient computational glitch or misalignment of day boundaries.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Today's six pendulum_obs measurements (trials 193–198) are part of a controlled calibration run or test sequence distinct from the routine post-baseline campaign; they reflect intentional protocol change or system testing, not spontaneous instrumental drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "An environmental parameter (temperature, humidity, barometric pressure) specific to the observational pendulum setup drifted downward around day 33, affecting period measurement in a direction opposite to lab-instrument response.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unidentified systematic effect specific to pendulum_obs or its data-processing pipeline that explains the level-change flag and today's downward measurements.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_obs measures a distinct physical quantity or derives from a decoupled observational protocol; the level shift reflects a real instrumental or procedural change around day 33, and today's downward cluster represents entry into a new, lower equilibrium state.",
+      "class": "self_error"
+    },
+    {
+      "label": "All four instruments are operating at or near their white-noise floor; observed level changes and weak cross-correlations are statistical artifacts (rare high-variance excursions) within a stable instrumental regime. Today's downward pendulum_obs cluster is a tail fluctuation that will revert as measurement continues.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The weak cross-correlations and level-change anomaly in pendulum_obs reflect a systematic timing or data-reduction error in how observational readings are timestamped, aligned with lab readings, or processed relative to baseline; trials are correctly recorded but misaligned in time or offset-computation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs is undergoing a genuine slow environmental or thermal drift (not captured in white-noise statistics) that reached a threshold around day 33 and continues downward today; the weak cross-correlations reflect spatial or temporal segregation of 'obs' from 'lab' systems.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Today's measurement campaign (all 24 events, day 35) represents a structured closure or verification phase distinct from routine post-baseline operations; the tight clustering in all four instruments suggests deliberate controlled conditions or a final calibration run, and pendulum_obs's downward offset reflects intentional protocol change or resetting.",
+      "class": "self_error"
+    },
+    {
+      "label": "The weak cross-correlations reflect genuine independent measurement error or uncontrolled local environmental variability affecting each stream differently; the strong anomaly (pendulum_lab ↔ resonator_obs r = 0.953) is an unexplained outlier demanding investigation into potential data-handling errors or spurious channel coupling.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unidentified instrumental, environmental, or procedural artifact specific to pendulum_obs or its data-integration pipeline explains the level-change anomaly and today's downward cluster.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical quantities or employ decoupled readout schemes; the negative drift in lab reflects genuine instrumental change while obs remains stable because it operates under independent environmental/procedural control.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab's negative drift is real (instrumental calibration drift, thermal effects, or systematic component wear); pendulum_obs correctly tracks baseline but is subject to independent observational or reference-clock drift that exactly cancels lab drift, producing spuriously weak correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments are operating at or near white-noise floors with genuine independence; the weak cross-correlations and marginal drifts (z ≈ ±2) are statistical fluctuations within a stable, high-variance regime.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The near-perfect correlation between pendulum_lab and resonator_obs (r = 0.953 at 3-day offset, n=102) is a data-handling error (cross-talk, duplicate channel, accidental common-mode coupling in readout or time-alignment); this outlier corrupts the cross-correlation matrix and masks underlying patterns.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs underwent a genuine procedural or instrumental reset around day 33 (flagged by level-change algorithm, z ≈ 3.8); today's downward cluster (mean 2.4852 vs. post-baseline 2.5004) reflects entry into a new, stable post-reset equilibrium.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic timing or data-reduction error in pendulum_obs trials: timestamps are systematically offset, misaligned, or corrupted relative to lab readings or baseline epoch; trials are correctly recorded but temporally mislabeled.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common readout artifact, electronic cross-talk, or time-alignment error that produces spurious near-perfect correlation; this corrupts the cross-correlation matrix and invalidates instrument independence assumptions.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab measures the raw physical pendulum period; pendulum_obs measures a derived quantity (e.g., period ratio, phase lag relative to a reference, or a normalized/corrected value) that decorrelates from raw lab readings and follows an independent drift profile.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "All four instruments operate at white-noise floors with genuine independence; the pendulum_lab ↔ resonator_obs outlier (r = 0.953) is a rare tail fluctuation within the expected null distribution; drifts (z ≈ ±2) are marginally significant random walks.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs trials are accidentally duplicated in the data stream, or their trial indices/timestamps are systematically misaligned, creating a false high correlation that masks independent instrument performance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs outlier is real: both streams are driven by a common low-frequency environmental signal (e.g., shared vibration mode, thermal drift, or electromagnetic interference) that couples into both measurement channels despite their nominal independence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is drifting due to genuine instrumental degradation or environmental change; pendulum_obs is insulated from this drift because it measures a derived or normalized quantity; the pendulum_lab ↔ resonator_obs outlier reflects a shared reference signal or readout artifact specific to those two channels.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common readout artifact, electronic cross-talk, or firmware-level time-alignment error that produces the spurious r = 0.953 correlation; the apparent drifts are real but their cross-structure is corrupted.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments operate at white-noise floors with genuine independence; the drifts (z ≈ ±2) and the pendulum_lab ↔ resonator_obs r = 0.953 outlier are rare tail fluctuations within expected null distributions when multiple comparisons are performed.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine low-frequency environmental signal (vibration, thermal cycling, electromagnetic interference) couples into both pendulum_lab and resonator_obs through separate but correlated pathways, producing the r = 0.953 correlation; this signal also drives the observed drifts in lab streams.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified systematic error or physical coupling mechanism not yet considered; could involve data-handling, instrumental design, or environmental factors outside current measurement scope.",
+      "class": "other"
+    }
+  ]
+}

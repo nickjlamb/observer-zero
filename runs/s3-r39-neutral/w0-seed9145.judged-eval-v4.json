@@ -1,0 +1,293 @@
+{
+  "source": "w0-seed9145.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 40,
+  "l4Judged": 40,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental: four independent measurement systems with uncorrelated noise and independent calibration drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental: a shared external driver (temperature, vibration, or electromagnetic) modulates all four streams with different coupling strengths and/or delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol artifact: observer bias, recording error, or systematic misalignment of trial numbering between lab and observatory instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Methodological: I have not yet collected enough post-baseline data to detect true instrumental drift or periodic behavior; the 10-day baseline is too short to establish reliable autocorrelation structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial numbering or index misalignment between lab and observatory instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental noise and calibration drift (no systematic environmental coupling)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, vibration, or electromagnetic) with different coupling strengths and instrumental transmission delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Insufficient post-baseline data; current anomalies are statistical artifacts from multiple comparisons and small sample sizes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial numbering or transcription misalignment between lab and observatory records",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic error in my autocorrelation analysis: lag misspecification or accidental row-shifting during resampling",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, vibration, or electromagnetic) with instrument-specific phase delays and inverted sensitivity in one or more channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Insufficient post-baseline data; current anomalies are false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or both observatory instruments were miscalibrated or re-calibrated between Days 10 and 15, introducing a systematic offset or time-base error that persists in trial numbering",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequence misalignment in my digital transcription between field notebooks and lab/observatory records, concentrated in the pendulum_obs and resonator_obs logs around Days 10–15.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic bug in my lag-computation code: off-by-one error or row-shift during resampling that introduces spurious negative autocorrelations.",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak shared environmental driver (e.g., 10–14 day thermal or vibration cycle from settlement infrastructure) coupling to all instruments with differential phase lags and/or instrument-specific coupling strengths, masked by instrumental noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Post-baseline miscalibration or re-zeroing of observatory instruments (pendulum_obs and/or resonator_obs) on Days 10–15, accompanied by a trial-numbering reset or data-entry protocol change that introduced a persistent index offset in the digital record.",
+      "class": "self_error"
+    },
+    {
+      "label": "False positives from multiple comparisons: current anomalies are real correlations but of physical origin too weak to trust at current sample size (n ∼ 36–96 pairs per lag); continuing to Day 25–30 will separate signal from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial sequence misalignment in digital transcription, concentrated in observatory records (Days 10–15 boundary).",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic bug in lag-computation code: off-by-one error in indexing or sign reversal in correlation formula.",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak shared environmental driver (10–14 day thermal or vibration cycle) with differential phase lags and instrument-specific coupling, emerging from noise only after Day 22.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Post-baseline miscalibration or re-zeroing of observatory instruments around Days 10–15, with a concurrent trial-numbering reset that introduced a persistent index offset in the digital record.",
+      "class": "self_error"
+    },
+    {
+      "label": "False positives from multiple comparisons: echoes are real correlations but of physical origin too weak to trust at current sample size; Day 25 spike is instrumental variance, not systematic.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift or recalibration event on Day 25, independent of the Day 1–22 echo anomalies; require hand-verification of all trial sequences and instrument logs from Days 15–25.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequence misalignment in digital transcription, concentrated in Days 10–15 observatory boundary and/or Day 25 pendulum_lab data entry.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental re-zeroing, calibration drift, or mechanical issue in pendulum_lab instrument on or just before Day 25, independent of historical echoes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in lag-computation code (off-by-one index error, sign reversal, or similar) that couples all four instruments identically, producing spurious echoes at fixed lags.",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak shared environmental driver (thermal or vibration cycle, ~10–14 day period) with instrument-specific phase lags, now amplifying or becoming visible after Day 22 due to seasonal change or facility operation change.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "False positives from multiple comparisons and random noise: echoes are spurious due to high type-I error rate; Day 25 spike is instrumental variance within expected range.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Post-baseline miscalibration or re-zeroing of observatory instruments (pendulum_obs, resonator_obs) around Days 10–15, with a persistent trial-numbering offset localized to these instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data transcription or indexing error concentrated in Days 10–15 (observatory boundary) and Day 25 (pendulum_lab), with cascading corruption of cross-instrument alignment.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental re-zeroing, recalibration, or transient mechanical/environmental disturbance in pendulum_lab on Day 24–25, independent of pendulum_obs day 29 shift and independent of historical echoes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in autocorrelation or lag-computation code (off-by-one, sign error, or loop bounds issue) that couples echoes across all instruments at fixed lags, producing spurious negative correlations between instruments that should agree.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real shared environmental oscillation (thermal or vibration cycle, ~10–14 day period) with instrument-specific phase lags, amplifying or becoming visible after Day 22 due to facility operation change or seasonal shift, now manifesting as day 29 step-change in pendulum_obs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise and multiple-comparison false positives: the Day 25 spike and Day 29 shift are within expected instrumental variance; the echoes are spurious from ~40 independent lag searches.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: An unconsidered cause (e.g., sample contamination or preparation method change on Day 24–25 and Day 27–29, external electromagnetic interference event, or a real physical phenomenon in the settlement's environment that I have not hypothesized).",
+      "class": "other"
+    },
+    {
+      "label": "Data transcription or indexing error in observatory records (Days 10–15 boundary or Days 27–30), with cascading misalignment of cross-instrument pairs and echoes driven by row-shift artifacts.",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental or environmental disturbance to pendulum_obs on Day 27–29 (e.g., re-zeroing, mechanical adjustment, thermal transient, or external EM interference), unrelated to Day 25 pendulum_lab spike or to historical echoes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in lag-search or autocorrelation code (off-by-one error, sign flip, or loop bounds issue) producing spurious negative correlations across instruments at fixed lags, independent of the Day 25 and Day 29 anomalies.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real shared environmental oscillation (thermal or vibration cycle, ~10–14 day period, with anti-phase coupling to lab and observatory instruments) that became visible or amplified after Day 22 due to facility operation change, now manifesting as a step-change in pendulum_obs sensitivity around Day 27–29.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or sample preparation method change on Days 24–25 and Days 27–29 (e.g., observer rotation, calibration procedure revision, or sample storage conditions) that affected the observable value but was not recorded in my contemporaneous notes.",
+      "class": "self_error"
+    },
+    {
+      "label": "Random noise and multiple-comparison false positives; Day 25 spike and Day 29 shift are within expected instrumental variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data transcription or indexing error in observatory records around days 27–30, introducing a row-shift misalignment that persists into day 37 and explains both the step-change in pendulum_obs mean and the systematic negative lab–obs correlations at fixed lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in lag-search algorithm (off-by-one indexing, sign flip, or loop-bounds error) producing spurious negative correlations and false autocorrelation echoes uniformly across all instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental disturbance to pendulum_obs on days 27–29 (e.g., mechanical adjustment, re-zeroing, thermal transient, or external electromagnetic interference), unrelated to day 25 pendulum_lab spike or to historical lag artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or sample preparation method change on days 24–25 and days 27–29 (e.g., observer rotation, calibration procedure revision, sampling rate change, or data transmission change) that affected the observable value but was not recorded in contemporaneous notes.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real shared environmental oscillation at ~10–14 day period (thermal or vibration cycle) that became amplified or reshaped around day 27–29, now manifesting as a step-change in pendulum_obs sensitivity; day 25 spike marks onset of increased coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise and multiple-comparison false positives; day 25 spike and day 29 shift are within expected instrumental variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data transcription or indexing error in observatory records around days 27–30, introducing a row-shift misalignment that persists and explains both the step-change in pendulum_obs mean and the systematic negative lab–obs correlations at fixed lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in lag-search algorithm (off-by-one indexing, sign flip, or loop-bounds error) producing spurious negative correlations and false 11–14 day autocorrelation echoes uniformly across all instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental disturbance to pendulum_obs on days 27–29 (e.g., mechanical adjustment, re-zeroing, thermal transient, or calibration drift correction), unrelated to day 25 pendulum_lab spike or historical lag artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or sample preparation method change on days 24–25 and days 27–29 (e.g., observer rotation, calibration procedure revision, sampling rate change, or data transmission format change) that affected the observable value but was not recorded in contemporaneous notes.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real shared environmental oscillation at ~11–14 day period (thermal or vibration cycle) that became amplified or reshaped around day 27–29, now manifesting as a step-change in pendulum_obs sensitivity; day 25 spike marks onset of increased coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise and multiple-comparison false positives; day 25 spike and day 29 shift are within expected instrumental variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data transcription or indexing error in observatory records around days 27–30, introducing a row-shift misalignment that persists and explains both the step-change in pendulum_obs mean and the systematic negative lab–obs correlations at fixed lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bug in lag-search algorithm (off-by-one indexing, sign flip, or loop-bounds error) producing spurious negative correlations and false 11–14 day autocorrelation echoes uniformly across all instruments, independent of the real day 29 level shift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental disturbance or recalibration to pendulum_obs on days 27–29 (e.g., mechanical adjustment, re-zeroing, thermal transient, or calibration drift correction), unrelated to day 25 pendulum_lab spike or historical lag artifacts, with residual elevated measurement variance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or sample preparation method change on days 24–25 and days 27–29 (e.g., observer rotation, calibration procedure revision, sampling rate change, or data transmission format change) that affected the observable value but was not recorded in contemporaneous notes.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real shared environmental oscillation at ~11–14 day period (thermal or vibration cycle) that became amplified or reshaped around day 27–29, now manifesting as a step-change in pendulum_obs sensitivity; day 25 spike marks onset of increased coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise and multiple-comparison false positives; day 25 spike and day 29 shift are within expected instrumental variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "(residual: something unconsidered)",
+      "class": "other"
+    }
+  ]
+}

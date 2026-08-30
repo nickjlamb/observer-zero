@@ -1,0 +1,169 @@
+{
+  "source": "wd_exact-seed9101.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic instrumental or environmental drift creates lagged anti-correlations between certain instrument pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab and observatory instruments operate under genuinely different physical conditions, producing uncorrelated or anti-correlated readings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is measuring something physically distinct from the other three instruments despite identical setup protocol",
+      "class": "self_error"
+    },
+    {
+      "label": "All correlations are near chance and the observed structure is random noise from small sample sizes at multiple lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine calibration drift or systematic procedural change around day 11, decoupling it from ground truth",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory operate under fundamentally different physical or environmental conditions, producing stable but uncorrelated instrument responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic environmental driver (temperature, vibration, pressure) affects pendulum and resonator instruments with opposite mechanical response and time-lagged coupling between lab and observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab contains an unrecognized systematic bias in calibration or timing protocol that is stable but internally offset from physical reality",
+      "class": "self_error"
+    },
+    {
+      "label": "Random noise and small-sample Type I error: all observed correlations are near chance, and the pattern of signs is accidental",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine instrumental drift or procedural change around day 11, decoupling it from other instruments' ground truth",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory operate under fundamentally different physical or measurement conditions, producing stable but internally uncorrelated instrument responses—accounting for the 48–50% baseline differences between same-instrument pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators respond with opposite mechanical sensitivity (e.g., opposite temperature coefficients) to a shared environmental driver (temperature, vibration, pressure), with time-lagged coupling between lab and observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab contains a stable but unrecognized systematic offset in calibration, timing reference, or measurement protocol—internally precise (hence no repetitions, high spacing) but externally uncorrelated",
+      "class": "self_error"
+    },
+    {
+      "label": "Observed correlations are statistical noise and Type I error from multiple testing across small samples, and the 'sign pattern' is accidental clustering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine instrumental drift or procedural change around day 11, decoupling it from resonator ground truth while maintaining internal precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory operate under fundamentally different physical or measurement conditions (vibration isolation, thermal time constants, or timing gate protocol), producing stable but weakly coupled instrument responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators respond with opposite mechanical sensitivity (e.g., inverse temperature coefficients) to a shared environmental driver (temperature, vibration, air pressure), with time-lagged coupling between locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab contains a stable but unrecognized systematic offset in timing reference or measurement protocol—internally precise but externally offset from true physical value",
+      "class": "self_error"
+    },
+    {
+      "label": "Observed correlations and sign patterns are dominated by statistical noise and Type I error from multiple hypothesis testing on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine instrumental drift, calibration change, or procedural modification around day 11, decoupling it from resonator ground truth while maintaining high internal precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory operate under fundamentally different physical or measurement conditions (vibration isolation, thermal time constants, timing gate protocol), producing stable but location-decoupled responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators respond with opposite mechanical sensitivity (e.g., inverse temperature coefficients) to a shared environmental driver (temperature, vibration, air pressure), with time-lagged coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab contains a stable but unrecognized systematic offset in timing reference or measurement protocol—internally precise but externally offset from true physical value",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed correlations and sign patterns are dominated by statistical noise and Type I error from multiple hypothesis testing on small samples (n=30–40 per pair)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine instrumental drift, calibration change, or procedural modification around day 11, decoupling it from other instruments while maintaining high internal precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observatory operate under fundamentally different measurement regimes (thermal, vibrational, or timing-gate protocol), producing stable but location-decoupled baseline scales, with an additional unexplained positive correlation between pendulum_lab and resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators respond with opposite mechanical sensitivity (e.g., inverse temperature coefficients) to a shared environmental driver, with time lags and location-dependent coupling strength",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab contains a stable systematic offset in timing reference or measurement protocol (e.g., gate opens early, reference oscillator runs at constant fractional drift)—internally precise but externally offset from true physical value—with the day 11 shift reflecting partial correction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The strong positive correlation pendulum_lab↔resonator_obs (r=0.694 at 3-day lag) represents genuine coupling across locations, suggesting either a common environmental driver or a hidden shared measurement pathway not captured by nominal location labels",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified instrumental, environmental, or procedural factor not yet considered",
+      "class": "other"
+    }
+  ]
+}

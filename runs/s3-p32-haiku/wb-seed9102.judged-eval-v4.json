@@ -1,0 +1,261 @@
+{
+  "source": "wb-seed9102.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 34,
+  "l4Judged": 34,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Genuine environmental variability (temperature, pressure, air currents, seismic noise) drives irreducible period fluctuation at ~0.02 beat amplitude",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error or calibration drift in the measurement apparatus itself—each reading incorporates an unrecognized instrumental bias that varies with trial sequence or time-of-day",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The measurement protocol itself—operator technique, trial-to-trial setup variation, or observer bias in timing—is introducing trial-dependent noise that masks the true pendulum period stability",
+      "class": "self_error"
+    },
+    {
+      "label": "Two physically distinct pendulum systems are being measured under different conditions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or zero-point error in one or both measurement apparatus; the apparatus were never cross-checked against each other at baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental or physical change affecting the pendulum occurred around day 11–12, with different instruments responding differently or with latency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The perfect distinctness of all 76 baseline readings (zero exact repetitions, smallest spacing 0.000006 beats) reflects either genuine rich environmental noise or an unrecognized systematic time-dependence in the measurement protocol, not instrumental resolution limits",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator error or protocol deviation: pendulum_obs data were collected on a different physical system or under materially different conditions than pendulum_lab, without my explicit awareness",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs baseline was never established; post-baseline pendulum_obs readings represent a genuinely different physical system or miscalibrated apparatus, unrelated to the day-13 shift in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine physical change in environmental conditions or system state occurred on/around day 11–13, causing pendulum_lab readings to shift upward; pendulum_obs was either collected before this change fully developed, or it measures a decoupled or more stable system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab underwent a genuine instrumental miscalibration or component failure around day 12–13 (e.g., timer drift, sensor offset, pivot wear), causing a systematic upward bias in period readings; pendulum_obs is unaffected because it is a physically independent apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab was too short (n=76 over 10 days) to capture full system stability; what I classified as 'baseline' includes residual drift, and the day-13 'shift' is an artifact of my choice of baseline window",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or protocol deviation: pendulum_obs was collected from a different physical apparatus or under materially different conditions (e.g., different amplitude, pivot type, or timing method) without my explicit awareness or documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs is a miscalibrated or physically distinct apparatus; no baseline was established before data collection, violating protocol and preventing disambiguation of apparatus failure from genuine physical change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent genuine instrumental miscalibration or component failure around day 12–13 (timer drift, sensor offset, pivot wear); pendulum_obs is unaffected because it is physically independent and was not subject to the same fault.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental change (temperature, humidity, mechanical settling) occurred on/around day 11–13, affecting pendulum_lab; pendulum_obs was collected on day 12 before the change fully developed, or the observational apparatus is thermally/mechanically decoupled from the lab system.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab was too short (n=76 over 10 days) to capture true system stability; what I labeled 'baseline' includes residual drift, and the day-13 'shift' is an artifact of choosing an arbitrary cutoff date rather than a real transition.",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or undocumented protocol deviation: pendulum_obs was collected from a different physical apparatus, different amplitude, or different timing method without explicit awareness, and this was not recorded in my notes.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs lacks an established baseline and is either a miscalibrated apparatus or physically distinct system; the ~0.90-beat offset and absence of day-13 shift reflect independent calibration failure or different apparatus, not shared physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab underwent a genuine step-change failure (timer drift, sensor offset, pivot wear, or electronic component failure) around day 12–13; pendulum_obs is unaffected because it is independent apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental change (temperature, humidity, mechanical settling, or air pressure) occurred around day 11–13, affecting pendulum_lab; pendulum_obs either was collected before full environmental change propagated, or is thermally/mechanically decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab (n=76, days 1–10) was insufficient to capture true system stability; the day-13 'shift' is an artifact of an arbitrary cutoff or residual baseline drift, not a real transition.",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or undocumented protocol deviation: pendulum_obs was collected from a physically different apparatus, different amplitude, different timing method, or different physical system than pendulum_lab, without explicit awareness or documentation.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_obs lacks a baseline and is a miscalibrated or physically distinct apparatus; the ~0.90-beat offset and absence of day-13 shift reflect independent calibration failure or different system, not shared physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab underwent a genuine step-change instrumental failure (timer drift, sensor offset, pivot wear, or electronic component failure) around day 12–13; pendulum_obs is unaffected because it is independent apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental change (temperature, humidity, mechanical settling, or air pressure) occurred around day 11–13, affecting pendulum_lab; pendulum_obs either was collected before full environmental change propagated, or is thermally/mechanically decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab (n=76, days 1–10) was insufficient to capture true system stability; the day-13 'shift' is an artifact of baseline drift or an arbitrary cutoff, not a real transition.",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or undocumented protocol deviation: pendulum_obs was collected from a physically different apparatus, different amplitude, different timing method, or different physical system than pendulum_lab, without explicit awareness or documentation.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_obs is a miscalibrated or physically distinct apparatus; the 0.90-beat offset and flat behavior reflect independent calibration failure or different system, not shared physics",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab underwent a genuine step-change instrumental failure (timer drift, sensor offset, pivot wear, or electronic component failure) around day 12–13; pendulum_obs is unaffected because it is independent apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental change (temperature, humidity, mechanical settling, or air pressure) occurred around day 11–13, affecting pendulum_lab; pendulum_obs either was collected before full environmental change propagated, or is thermally/mechanically decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab (n=76, days 1–10) was insufficient to capture true system stability; the day-13 'shift' is an artifact of baseline drift or an arbitrary cutoff, not a real transition",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or undocumented protocol deviation: pendulum_obs was collected from a physically different apparatus, different amplitude, different timing method, or different physical system than pendulum_lab, without explicit awareness or documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_obs is a distinct or miscalibrated apparatus; I failed to baseline it before day 12, creating an epistemic gap I cannot retrospectively close.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab experienced a step-change instrumental failure (electronic drift, sensor offset, pivot wear, component failure, or timer malfunction) between day 12–13, with magnitude ~0.057 beats and sustained plateau thereafter.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine environmental change (temperature, humidity, air pressure, or mechanical settling) occurred around day 11–13 in the lab, affecting pendulum_lab period; pendulum_obs was either unaffected by environmental coupling or collected in a physically decoupled location.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My baseline protocol for pendulum_lab (n=76, days 1–10) was insufficient to capture true system stability; the day-13 'shift' is a statistical artifact of baseline drift or arbitrary cutoff, not a real transition.",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator error or undocumented protocol deviation: pendulum_obs is from a physically different apparatus, different amplitude, different release method, or different physical system than pendulum_lab, unbeknownst to me.",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural failure: pendulum_obs is a distinct or miscalibrated apparatus; I failed to baseline it before day 12, creating an unfillable epistemic gap.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental step-change in pendulum_lab between days 12–13 (sensor offset, timer frequency jump, pivot wear); pendulum_obs remains unaffected baseline or separate apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental change (temperature, humidity, air pressure, mechanical settling) in the lab around day 11–13 affected pendulum_lab period; pendulum_obs was thermally decoupled or in separate location.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented operator error or apparatus mislabeling: pendulum_obs is a physically different apparatus (different length, amplitude, release method, or even spring-mass system), unbeknownst to me at time of measurement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: genuine physical phenomenon (exotic environmental coupling, relativistic effect, apparatus-specific quantum decoherence, or unknown systematic) I have not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural failure: pendulum_obs lacks baseline (days 1–11), creating unfillable epistemic gap; new variance on day 35 reflects genuine apparatus drift, measurement protocol drift, or environmental change now affecting previously isolated apparatus.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental change or threshold event in pendulum_obs apparatus around day 35 (mechanical slip, pivot loosening, air current incursion, or amplitude decay crossing damping threshold).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental change (temperature drop, humidity shift, or air density change) in lab after day 34, affecting pendulum_obs period but not pendulum_lab (different thermal mass, location, or measurement method).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented apparatus mislabeling or misconfiguration: pendulum_obs is not the same physical system as anticipated; change on day 35 reflects unplanned switch to third apparatus or discovery of labeling error during measurement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical fluctuation: increased variance in trials 169–193 is within bounds of random noise for an unstable or under-damped system; no systematic cause, appearance of drift is illusory.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural baseline gap makes pendulum_obs uninterpretable; day 35 variance increase is real but explanation-indeterminate without baseline established days 1–11",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_lab underwent genuine apparatus-level change around day 13; the plateau thereafter is a stable post-change state, not a maintenance condition",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or apparatus-localized change around day 34–35 affects pendulum_obs period/scatter but not pendulum_lab; two apparatus have different thermal mass, isolation, or damping characteristics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs and pendulum_lab are measuring fundamentally different physical systems or using incompatible definitions of 'beats'; the apparent divergence is not an anomaly but a category error in comparison",
+      "class": "self_error"
+    },
+    {
+      "label": "Increased variance in pendulum_obs trials 169–193 is statistical fluctuation within acceptable bounds for n=25 sample; no systematic cause",
+      "class": "measurement_error"
+    }
+  ]
+}

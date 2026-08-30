@@ -1,0 +1,189 @@
+{
+  "source": "md_high-seed9143.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental oscillation with ~3–7 day period affecting all instruments coherently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift or calibration creep with quasi-periodic modulation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias introducing correlated errors at specific intervals",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine but weak coupling between pendulum and resonator systems through unmapped mechanical or acoustic pathway",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: autocorrelations and cross-correlations are noise peaks in a search over many possible lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine environmental disturbance or event on Day 20 affecting all instruments coherently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Coordinated instrumental miscalibration or zero-point shift on Day 20 affecting lab and observational streams together",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical change in the measured systems (pendulum period or resonator frequency actually shifted)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "High-variance sampling on Day 20 due to observer attention, procedural changes, or measurement conditions (not instrumental)",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental faults in multiple instruments coincidentally on Day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic or environmental trigger specific to Day 20",
+      "class": "other"
+    },
+    {
+      "label": "Genuine environmental event or disturbance on Day 26 affecting all instruments coherently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Coordinated calibration, zeroing, or measurement protocol change implemented on Day 26",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical change in measured quantities (pendulum period, resonator frequency) on Day 26",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Increase in measurement scatter or sampling variance on Day 26 without change in true signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Coincident independent instrumental faults or transient sensor drift in multiple instruments on Day 26",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified settlement event, operational change, or external trigger specific to Day 26",
+      "class": "other"
+    },
+    {
+      "label": "Genuine environmental disturbance on Day 26 (seismic, thermal, barometric, or structural vibration) affecting all instruments coherently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration, zeroing, or measurement protocol change implemented on Day 26 affecting all instruments uniformly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical change in measured quantities on Day 26 (local gravity, suspension stiffness, resonator material properties, or temperature)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Increase in measurement scatter or sampling variance on Day 26 due to procedural change (sampling rate, averaging time, observer change, or suboptimal conditions) without change in true signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Coincident independent instrumental faults or transient sensor drift in multiple instruments on Day 26",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified settlement event, operational change, or external trigger on or before Day 26",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Acute environmental disturbance or transient vibration event on Day 38 (seismic shock, structural vibration, thermal spike, or barometric impulse)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol change, recalibration, or zeroing event implemented on Day 38 (change in averaging time, sampling rate, gain, datum reference, or measurement procedure)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical change in measured quantities on Day 38 (local gravity fluctuation, suspension stiffness change, resonator material property shift, or temperature transient affecting pendulum and resonator response)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Increase in measurement scatter or variance on Day 38 without change in true signal (sampling rate increase, reduced averaging time, observer change, or degraded signal-to-noise conditions specific to laboratory instruments)",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent or partially-coupled transient instrumental faults (sensor drift, electrical noise, mechanical slip, or power supply fluctuation) in pendulum_lab and resonator_lab on Day 38",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified settlement or lab-specific operational event, maintenance activity, or trigger on Day 38 (not yet cross-referenced in facility logs, personnel records, or event database)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine physical coupling or shared measurement target between pendulum_lab and resonator_obs",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Coincidental high correlation from random search across multiple offsets and instrument pairs (multiple-comparisons artifact)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement units or scale confusion between pendulum_lab and resonator_obs, or one instrument is partially echoing the other's data stream",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or physical transient that couples preferentially to lab-pendulum and observatory-resonator, with a 3-day delay between measurement locations",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unidentified systematic error or misalignment in my cross-correlation calculation or data pairing (e.g., index offset, systematic lag in data file recording, or column-swap error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs or pendulum_lab equipment was recently installed or replaced with a unit calibrated to or reading from a different standard, creating accidental alignment to the other stream",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

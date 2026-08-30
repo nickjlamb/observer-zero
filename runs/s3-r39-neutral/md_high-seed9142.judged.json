@@ -1,0 +1,169 @@
+{
+  "source": "md_high-seed9142.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental driver with propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift with independent calibration offsets",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol differences masquerading as instrument disagreement",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: multiple comparisons bias in lag search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in my lag-search method or baseline calculation",
+      "class": "self_error"
+    },
+    {
+      "label": "Localized environmental transient (thermal, seismic, or electromagnetic) on Day 20 affecting two of four measurement streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift acceleration or hysteresis becoming visible after 20 days of repeated cycling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Protocol or operator change on Day 20 affecting sample handling, measurement interval, or environmental control in lab and observational streams differently",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: Day 20 variance appears elevated only in post-hoc subsetting; true variance is stable and within expected sampling noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental malfunction or miscalibration in resonator_lab electronic driver or pendulum_obs mechanical damping discovered on Day 20 but originating earlier",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: measurement-by-measurement event metadata (operator ID, room temperature, time-of-day for trials 226–238 and 127–132) will reveal a common change I have not yet queried",
+      "class": "social_process"
+    },
+    {
+      "label": "Genuine physical coupling: resonator_obs (cycles/beat) and pendulum_lab (beats) track a common environmental driver with ~3-day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or reference-frame mismatch between pendulum_lab and resonator_obs creating spurious correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: r=0.891 is the maximum correlation across all tested offsets; multiple-comparisons bias inflates its apparent significance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or environmental metadata confound: trials in pendulum_lab and resonator_obs that contribute to the high correlation were collected under a distinct (unlogged) condition",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument design or calibration reference: resonator_obs was internally calibrated or zeroed against a mechanical/electronic standard that is kinematically or informationally coupled to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, recording, or transcription error in resonator_obs trial subset (trials contributing to offset=+3 correlation): values swapped, date-stamped incorrectly, or misaligned with pendulum_lab trial indices",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: some feature of the data or experimental setup that I have not queried or considered",
+      "class": "other"
+    },
+    {
+      "label": "Environmental transient or instrumental disturbance on Day 31 affecting pendulum_lab mechanical setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator error or procedural deviation in pendulum_lab trials 223–228: timing, release height, or measurement protocol",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab timing reference (clock, trigger, or gate circuit) experienced drift, jitter, or partial failure on Day 31",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, alignment, or merging error in trial 223–228 block: readings from a different date or apparatus inserted into pendulum_lab record",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_lab trial 414 (Day 30, event 534366) showing value 2.6688 cycles/beat—below the post-baseline mean 2.7027 by ~0.034—signals an independent, earlier variance spike or instrumental event that prefigures the Day 31 pendulum_lab anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unknown confound or instrumental feature not yet examined (e.g., nonlinear behavior of pendulum_lab at high amplitude, trial-dependent memory in the timing circuit, metadata anomaly in event logs, or a physical coupling I have overlooked)",
+      "class": "other"
+    },
+    {
+      "label": "Data alignment or time-stamp error: trial numbers or dates are systematically offset or misaligned between instruments or between recording sessions, creating spurious correlations at artificial lags",
+      "class": "social_process"
+    },
+    {
+      "label": "Day 31 variance spike in pendulum_lab (trials 223–228) reflects operator error or procedural deviation specific to that session",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab timing reference (clock, photogate, or trigger circuit) experienced acute drift or intermittent failure on Day 31",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, merging, or raw-file-labeling error: trials 223–228 of pendulum_lab (or trials assigned to any instrument at anomalous lags) are actually readings from a different instrument, date, or session",
+      "class": "social_process"
+    },
+    {
+      "label": "Genuine environmental or instrumental coupling: pendulum_lab and resonator_obs respond to a common weak forcing (thermal, vibrational, or electromagnetic) on a ~3-day timescale, producing real but small correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: undetected instrumental nonlinearity, calibration drift, or metadata error (trial count, event ID assignment, or apparatus serial-number mislabeling) not yet examined",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

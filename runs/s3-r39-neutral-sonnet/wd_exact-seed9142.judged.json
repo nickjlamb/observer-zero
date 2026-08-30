@@ -1,0 +1,145 @@
+{
+  "source": "wd_exact-seed9142.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All instruments performing normally; observed variations are measurement noise within expected bounds",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift or systematic error in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling affecting multiple instruments with time-lagged correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All instruments performing normally; observed variations are measurement noise within expected bounds",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift or systematic error in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling affecting multiple instruments with time-lagged correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or transcription error systematically affecting pendulum_lab and/or resonator_obs records",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious correlation from multiple testing artifact; no true coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "True physical coupling between pendulum_lab and resonator_obs via unknown mechanism with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

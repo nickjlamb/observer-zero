@@ -1,0 +1,149 @@
+{
+  "source": "md_mid-seed9104.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental oscillation with ~4–8 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or systematic error correlated across instruments by shared infrastructure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific thermal or electronic drift, not yet detectable as a linear trend",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random noise; correlations are within chance, and larger samples will dilute them",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Clock or timestamp error: lags reflect systematic misalignment of trial timestamps, not physical correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs has entered a genuine instrumental instability phase starting around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental oscillation (~4–8 day cycle) affects all streams, but resonator_obs happens to be in an upswing phase during days 11–13",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in resonator_obs calibration or readout electronics, introduced around day 10–11, causing a slow multiplicative or additive bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random noise and statistical fluctuation; resonator_obs drift is within expected variance of a 20-trial baseline, and will revert to mean with larger samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp or event logging error causing artificial correlations at specific lags",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs instrumental drift: genuine hardware instability (thermal, electrical, or cavity degradation) beginning day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared multi-day environmental oscillation (~4–8 day cycle) phase-shifted across instruments; resonator_obs happens to be elevated during days 11–23 measurement window",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or readout error in resonator_obs introduced around day 10–11 (voltage reference shift, ADC nonlinearity, PLL drift, or software bias)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation and small-sample noise; resonator_obs drift will revert with continued measurement, and cross-correlations are Type I error from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp or data-logging error causing artificial lag correlations (e.g., systematic misalignment of trial timestamps across streams)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware drift (thermal, electrical, or cavity degradation) beginning around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared multi-day environmental oscillation (~5–6 day cycle) with resonator_obs phase-shifted to elevation during days 11–33 measurement window",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or readout error in resonator_obs (voltage reference shift, ADC nonlinearity, PLL drift, or software offset) introduced around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation and small-sample noise in baseline; resonator_obs drift is marginal and may revert with further measurement",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp or data-logging error (systematic misalignment of trial timestamps across streams producing artificial lag correlations)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware drift (thermal, electrical, cavity degradation) initiated around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration or readout error in resonator_obs (voltage reference shift, ADC nonlinearity, PLL offset, or software calibration constant) applied around day 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared multi-day environmental oscillation (~5–6 day cycle, e.g., thermal or barometric) with resonator_obs phase-locked to elevation during days 11–33, while other instruments phase-locked to neutral or depressed phases",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation in baseline (n=20 small) combined with residual systematic bias in post-baseline trial selection, environment, or measurement protocol introduced around day 11",
+      "class": "self_error"
+    },
+    {
+      "label": "Timestamp or data-logging error producing artificial lag correlations and apparent drift",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

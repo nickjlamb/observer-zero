@@ -1,0 +1,47 @@
+{
+  "mode": "live",
+  "model": "claude-haiku-4-5",
+  "promptVariant": "instrument-licensed",
+  "instrumentValidation": true,
+  "tokens": 27,
+  "summary": [
+    {
+      "world": "wd_exact",
+      "seed": 9192,
+      "leakClean": true,
+      "finalLevel": 1,
+      "tau": [
+        20,
+        null,
+        null
+      ],
+      "extGenTrue": true,
+      "costUSD": 0.39,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0.333,
+      "admissibleToL3": true,
+      "corpusRole": "instrument-validation"
+    },
+    {
+      "world": "w0",
+      "seed": 9192,
+      "leakClean": true,
+      "finalLevel": 0,
+      "tau": [
+        20,
+        null,
+        null
+      ],
+      "extGenTrue": false,
+      "costUSD": 0.3,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0,
+      "admissibleToL3": false,
+      "corpusRole": "instrument-validation"
+    }
+  ]
+}

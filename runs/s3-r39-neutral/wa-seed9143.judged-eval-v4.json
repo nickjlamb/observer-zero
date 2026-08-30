@@ -1,0 +1,269 @@
+{
+  "source": "wa-seed9143.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental oscillation coupling the instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental calibration drift or sensor nonlinearity unfolding over baseline period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: multiple comparisons and low power masquerading as signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected malfunction or data logging artifact in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific instrumental drift: calibration or mechanical change affecting both pendulum channels in parallel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation at 2–8 day period coupling all four instruments weakly, masked by instrument noise and non-synchronous responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact from multiple comparisons and post-hoc lag searches without correction; true baseline is stable and noise is random",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected malfunction or data logging corruption in pendulum channel(s), or both pendulum instruments sensitive to a common upstream error (e.g., operator workflow, data pipeline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific instrumental recalibration or physical state change around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak environmental oscillation at 2–8 day period, coupled to all instruments with varying lag and strength, overlaid on pendulum calibration shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected systematic error or shared operator/data-pipeline issue affecting both pendulum instruments uniquely around day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact from multiple comparisons without correction; correlations are noise, but level shift is real",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown anomaly not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum-specific instrumental recalibration or physical state change around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak environmental oscillation at 2–8 day period coupled to all instruments with varying lag and strength, overlaid on pendulum calibration shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected systematic error, shared data-pipeline issue, or operator protocol change affecting both pendulum instruments uniquely around day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact from multiple comparisons or lag-search bias; weak correlations are noise, but pendulum level shift is real",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown anomaly not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum-specific instrumental state change around day 12: thermal expansion, mechanical settling, or electronic recalibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak multi-day environmental oscillation coupled to all instruments with variable lag and strength, overlaid on dominant pendulum shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared data-pipeline issue or operator protocol change affecting both pendulum instruments uniquely around day 11–12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak lagged correlations are statistical artifacts from multiple comparisons and small sample sizes; pendulum level shift is genuine",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown anomaly not yet considered: unidentified coupling, threshold effect, or transducer aging mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific instrumental state change around day 12: thermal expansion, mechanical settling, electronic recalibration, or transducer property shift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared data-pipeline, logging, or operator protocol anomaly affecting both pendulum instruments uniquely around day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak multi-day environmental oscillation or colored noise coupled to all instruments with variable lag and strength, overlaid on dominant pendulum shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lagged correlations are statistical artifacts from multiple comparisons and small sample sizes; pendulum level shift remains genuine",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown anomaly not yet considered: unidentified physical coupling, threshold effect, or transducer aging mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator transducer or signal path failure / aging threshold crossed on day 28",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 28 facility environmental transient (power glitch, HVAC spike, electromagnetic pulse) coupling selectively to resonator_obs sensor or readout electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, logging, or human operator error in resonator_obs trials 163–168 on day 28; readings are miscorded or mislabeled",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experiencing gradual aging / creep that accelerated on day 28; earlier post-baseline period masked it through averaging",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs calibration or zero-point recalibration triggered on day 28 by operator or automated routine; readings shift upward and scatter increases as system re-stabilizes",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: resonator_obs day 28 scatter is within normal random variation; tomorrow's data will return to baseline scatter",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum mechanical property change (stiffness, length, or effective gravity) beginning ~day 12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration drift in pendulum readout electronics (gain or zero-point) beginning ~day 12, independent of resonator calibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware instability or transducer aging crossing a threshold on day 28; unrelated to the day-12 pendulum shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-talk or environmental coupling between pendulum and resonator instruments beginning ~day 12; resonators compensate or dampen while pendulums amplify a common underlying signal",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data transcription or entry error in pendulum readings beginning ~day 12; systematic digit or decimal-point shift in recording",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs subject to undocumented maintenance, recalibration, or environmental disturbance on day 28; shift and scatter are transient side effects",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum physical property change (length, stiffness, effective gravity, or damping) stabilizing after thermal/mechanical equilibration around day 12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or readout electronics drift in pendulum signal chain (gain, zero-point, or shared reference) beginning day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs transducer aging, piezoelectric creep, or environmental stress threshold crossed around day 28–34, causing elevated noise and possible reading bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or calibration constant error affecting pendulum readings post-day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Cross-instrument environmental coupling (seismic, electromagnetic, or facility-wide transient) beginning day 12, with differential instrument response (pendulums amplifying, resonators rejecting or damping)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum physical property change (length, stiffness, damping, or effective gravity) stabilizing after thermal/mechanical equilibration around day 12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or readout electronics drift in pendulum signal chain (gain, zero-point, or shared reference voltage/clock) beginning day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs transducer aging, piezoelectric creep, or mechanical degradation around day 28–34, causing elevated noise and possible reading bias independent of the day-12 pendulum shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or calibration constant error affecting pendulum readings post-day 12 (e.g., misplaced decimal, systematic offset applied to data-processing script, or operator error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Cross-instrument environmental coupling (seismic, electromagnetic, or facility-wide transient) beginning day 12, with differential instrument response (pendulums amplifying, resonators rejecting or damping)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum physical property change (length, stiffness, damping, effective gravity) via thermal/mechanical equilibration stabilizing after day 12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs transducer aging, piezoelectric creep, or mechanical degradation beginning around day 28–34, causing elevated scatter independent of pendulum shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration or readout electronics drift in pendulum signal chain (shared reference voltage, frequency standard, or shared ADC) beginning day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or calibration constant error affecting pendulum readings post-day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Cross-instrument environmental coupling (seismic, electromagnetic, or facility transient) beginning day 12, with differential instrument response",
+      "class": "environmental_change"
+    }
+  ]
+}

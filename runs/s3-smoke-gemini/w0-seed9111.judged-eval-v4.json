@@ -1,0 +1,81 @@
+{
+  "source": "w0-seed9111.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 2,
+  "l4Judged": 2,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Stable stationary stochastic variation around fixed site-specific instrument baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle shared environmental coupling or low-frequency drift currently submerged beneath measurement noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Uncoupled stationary stochastic variation around fixed site baselines with artifactual lag correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Low-frequency delayed environmental coupling between laboratory and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent stationary stochastic variation around fixed site-specific physical baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Intermittent or decaying low-frequency environmental coupling across laboratory and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent stationary stochastic variation around fixed site-specific physical baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Intermittent or decaying low-frequency environmental coupling across laboratory and observatory sites",
+      "class": "environmental_change"
+    }
+  ]
+}

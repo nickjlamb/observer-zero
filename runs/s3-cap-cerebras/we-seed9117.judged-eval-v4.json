@@ -1,0 +1,141 @@
+{
+  "source": "we-seed9117.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 0,
+  "l4Judged": 0,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument calibration drift (age or temperature effects)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental disturbance affecting resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data processing or recording error specific to resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical change affecting resonator frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental disturbance (e.g., temperature spike, vibration, humidity change) affecting both resonator setups",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day‑20 data‑processing or logging error that introduced a uniform offset in both resonator readouts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared power‑supply or electromagnetic interference affecting both resonator circuits",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "other"
+    },
+    {
+      "label": "Hardware glitch or sensor saturation causing the instrument to output the same value for many consecutive samples",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data‑logging or software error that duplicated a previous block of readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External periodic disturbance that locks both devices into a recurrent state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden post‑processing step (e.g., unintended smoothing or averaging) applied to those data blocks",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered cause)",
+      "class": "other"
+    },
+    {
+      "label": "Hardware fault causing sensor or encoder to lock on a constant value",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software or data‑logging bug that duplicated a previous block of readings for those instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unintended post‑processing step (e.g., smoothing, filling) applied only to those data blocks",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External periodic disturbance that locks both devices into a recurrent state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Software logging bug causing block duplication for specific instrument streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data‑acquisition hardware/firmware issue (e.g., buffer wrap or channel latch) that duplicates a previous block for those channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Post‑processing script inadvertently overwrote a segment with a duplicated block",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External periodic disturbance that forces both devices into a recurrent state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered cause)",
+      "class": "measurement_error"
+    }
+  ]
+}

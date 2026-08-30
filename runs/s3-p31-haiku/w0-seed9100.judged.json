@@ -1,0 +1,125 @@
+{
+  "source": "w0-seed9100.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental noise: legitimate thermal, mechanical, and air-current fluctuations at the sensitivity limit of the measurement apparatus",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected periodic or quasi-periodic environmental modulation (e.g., building vibration, diurnal temperature cycling, operator technique drift) with period > 10 days or irregular amplitude",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or systematic bias in the period-measurement pipeline (e.g., clock drift, counter error, or photogate misalignment) producing spurious scatter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical variation in local gravitational field (micro-seismic, groundwater, or tidal effects) or in the pendulum's moment of inertia (thermal expansion, humidity effects on material properties)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Two physically distinct measurement systems or configurations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental noise floor differs between apparatus (lab is shielded/damped; obs is not)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in pendulum_obs pipeline (electronic timer calibration, photogate alignment, or period-counting algorithm) producing spurious mean and scatter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs baseline not yet established; current 'mean 2.5011' is unstable and will shift when full 10-day baseline is completed",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical modulation of effective pendulum period (slow environmental forcing, operator technique drift, or uncontrolled parameter coupling) visible only in obs data because lab setup is better isolated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural failure: pendulum_obs baseline was never collected; the 202 'post-baseline' trials are mislabeled and should be treated as unanchored exploratory data until a proper 10-day baseline is established.",
+      "class": "self_error"
+    },
+    {
+      "label": "Two physically distinct pendulum systems (or configurations) are being measured; pendulum_lab and pendulum_obs are not cross-checks of the same apparatus.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic calibration error in pendulum_obs timer (e.g., clock frequency miscalibrated at setup) produces a fixed proportionality bias; true period is 1.667 beats but obs timer reads it as 2.50 beats.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental noise floor differs sharply between lab (shielded, damped) and obs (exposed to air currents, vibration, thermal gradients); both measure the same pendulum but obs has ~40× larger scatter.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow thermal drift, initialization transient, or uncontrolled parameter coupling in pendulum_obs that will stabilize once a full 10-day baseline is collected and equilibration is complete.",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural failure: pendulum_obs baseline was never collected; the 202 'post-baseline' trials (days 1–30) are mislabeled unanchored exploratory data.",
+      "class": "self_error"
+    },
+    {
+      "label": "Two physically distinct pendulum systems (or physical configurations) are being measured; pendulum_lab and pendulum_obs are not redundant cross-checks of the same apparatus.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic calibration error in pendulum_obs timer (e.g., clock frequency miscalibrated at setup, or counter logic runs at 150% nominal speed) produces a fixed proportionality bias; reported obs readings are inflated by ~1.5× the true value.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental noise floor differs sharply between lab (shielded, damped) and obs (exposed to air currents, vibration, thermal gradients); both measure the same pendulum but obs has ~40× larger scatter.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow thermal drift, initialization transient, or uncontrolled parameter coupling in pendulum_obs that causes the system to be out of equilibrium during days 1–30; a full 10-day baseline will reveal and allow correction for this drift.",
+      "class": "self_error"
+    }
+  ]
+}

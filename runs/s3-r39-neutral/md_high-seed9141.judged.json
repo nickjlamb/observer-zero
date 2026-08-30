@@ -1,0 +1,125 @@
+{
+  "source": "md_high-seed9141.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 11,
+  "l4Judged": 11,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or slow periodic cycle in each device, independent of others",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or observer bias introducing correlated noise unique to each setup",
+      "class": "self_error"
+    },
+    {
+      "label": "Common environmental driver with propagation delay and/or nonlinear sensor response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: autocorrelation overstated due to small sample size and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument runs on its own device-specific periodic cycle (thermal hysteresis, mechanical resonance, or calibration drift), decoupled from others",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental driver (temperature, humidity, atmospheric pressure, magnetic field, or barometric cycle) reaches all four instruments with different propagation delays or sensor time constants, creating lagged cross-correlations too weak to detect reliably",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational setups (pendulum_obs, resonator_obs) introduce systematic observer bias or procedural drift (timing subjectively, environmental sensitivity, handling variation), creating spurious autocorrelation; lab setups are cleaner but still subject to device drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: autocorrelation peaks are false positives arising from multiple-comparison bias (testing many lags without correction) in small samples; data are actually uncorrelated with noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown mechanism: something about the settlement environment, instrument design, or measurement interaction I have not yet hypothesized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Each instrument runs on its own device-specific periodic cycle (thermal hysteresis, mechanical resonance, calibration drift, or sensor time constant), decoupled from others",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental driver (temperature, humidity, barometric pressure, or other 8–12 day cyclic oscillation) reaches all four instruments with different propagation delays or sensor time constants, creating phase-cancelled or suppressed cross-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational setups (pendulum_obs, resonator_obs) introduce systematic observer bias, procedural drift, or environmental sensitivity (e.g., timing variability, fatigue cycles, handling variation), creating spurious autocorrelation; lab setups are cleaner but still subject to device drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: autocorrelation peaks are false positives from multiple-comparison bias (many lags tested without Bonferroni correction); data are actually uncorrelated noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown mechanism: settlement activity cycles, instrument mechanical/electromagnetic coupling, or misalignment of measurement domains (e.g., pendulums measure local gravity or air density while resonators measure elastic properties or damping, each responding to a different physical driver)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a genuine physical coupling or environmental driver operating on a ~3-day cycle; other instruments are either insensitive to it or respond with different phase relationships that suppress their cross-correlations",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Each instrument operates on its own device-specific periodic cycle (thermal time constant, mechanical compliance cycle, or calibration hysteresis), independent of others; the pendulum_lab ↔ resonator_obs correlation is a false positive from multiple-comparison bias despite marginal appearance of significance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared settlement-wide environmental driver (temperature, humidity, barometric pressure, or power-grid harmonics with ~8–14 day periodicity) reaches all four instruments with different propagation delays and sensor time constants; the pendulum_lab ↔ resonator_obs correlation is the clearest visible signature of this coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational setups (pendulum_obs, resonator_obs) or lab setups (pendulum_lab, resonator_lab) introduce systematic procedural or environmental biases; the anomalous pendulum_lab ↔ resonator_obs correlation reflects a lab-specific effect (e.g., shared lab vibration, power coupling, or measurement-room microenvironment)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulums and resonators measure different physical properties (gravity or air density vs. elastic modulus or damping); they respond to different settlement environmental drivers on different timescales, and the 3-day correlation between pendulum_lab and resonator_obs is a spurious coincidence or reflects measurement noise alignment",
+      "class": "incomplete_theory"
+    }
+  ]
+}

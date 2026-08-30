@@ -1,0 +1,189 @@
+{
+  "source": "we-seed9104.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument calibration drift or systematic offset between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise is dominantly random (white or near-white), masking any true signal correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments are not measuring the same underlying quantity, or the physical quantity itself is unstable in a way not captured by 'baseline'",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol or data handling error (e.g., unit mismatch, timestamp misalignment, or transcription error between lab and observation records)",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: sample size too small, or correlation thresholds set without multiple-comparison correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration misalignment between lab and observation setups (unit, zero-point, or scale factor error introduced during baseline or instrument installation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are measuring genuinely decoupled or anti-correlated physical quantities (e.g., different pendulum rigs under different environmental forcing, or resonator_lab and resonator_obs coupled to independent oscillators)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "High random (white) noise dominates all four instruments, and true signal (if any) is buried below noise floor; cross-instrument correlations are all near-noise because signal-to-noise is too low to achieve synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp misalignment or data-handling error between lab and observation records (off-by-one trial numbering, incorrect offset in file merge, or confusion of UTC vs. local time)",
+      "class": "self_error"
+    },
+    {
+      "label": "Small-sample and multiple-comparison statistical artifact: observed correlations within or barely above chance, and negative correlations are false positives from exploring many offsets without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or instrumental coupling between lab and observation setups creates a feedback loop or mode locking that anti-correlates measurements in a way that violates the assumption that they measure independent copies of the same quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or unit misalignment between lab and observation setups (sign flip, zero-point offset, or scale factor error locked in at baseline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observation setups measure genuinely decoupled or anti-correlated physical quantities (different environmental forcing, damping, or apparatus identity than assumed)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Exact repetition anomaly in pendulum_lab (70/309 readings repeat earlier sequences) and resonator_obs (18/52 readings repeat) indicates data corruption, copy-paste error, or instrument lockup—not physical measurement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High noise floor dominates all instruments; observed correlations (positive or negative) are statistical fluctuations within noise, not signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp or trial-numbering misalignment between lab and observation records introduced systematic lag in cross-instrument correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental or environmental coupling between lab and observation setups creates feedback-driven anti-correlation (shared power supply, thermal bath, or electromagnetic environment)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified anomaly (e.g., undocumented instrument swap, baseline samples mislabeled, or external event affecting observations on a specific date)",
+      "class": "other"
+    },
+    {
+      "label": "Data logging or file-write corruption in pendulum_lab and resonator_obs: repeated sequences indicate instrument lockup, buffer overflow, or accidental copy-paste during record-keeping rather than physical measurement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration or unit sign flip / zero-point offset between lab and observation rigs, locked in at baseline installation, making each rig internally consistent but anti-correlated with its nominal partner.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observation setups measure genuinely decoupled or anti-correlated physical quantities due to different environmental forcing, substrate coupling, or apparatus identity, with no measurement error implied.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparison error and statistical noise: observed correlations (positive or negative) are fluctuations within noise, and the apparent clustering of lab–obs pairs as negative is a false pattern arising from multiple offsets/lags tested.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented event or external disturbance affecting one or more instruments on a specific date (e.g., maintenance, power glitch, thermal event, or instrument swap on day 23) that is not yet in my records.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration procedure on Days 1–10 inadvertently recorded duplicate trials or used a cyclic reference signal, causing both baseline and post-baseline readings to inherit repeated sequences.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging corruption, buffer replay, or accidental duplication in pendulum_lab and resonator_obs hardware or firmware",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration offset (sign flip, unit inversion, or zero-point mismatch) between lab and observation rigs, applied at baseline installation and never detected against independent reference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observation rigs measure genuinely decoupled or uncorrelated physical quantities due to different environmental forcing, substrate coupling, apparatus design, or measurement principle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented external event (maintenance, power glitch, instrument swap, seismic disturbance) affecting one or more rigs on a specific date, triggering malfunction or data logging corruption starting on that date",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration procedure (Days 1–10) inadvertently used a cyclic reference signal (synthetic sine wave, repeated test sequence) that was logged as trial data, contaminating all downstream readings with inherited repetition",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified mechanism",
+      "class": "other"
+    },
+    {
+      "label": "Data logging corruption, buffer replay, or accidental duplication in pendulum_lab and resonator_obs hardware or firmware",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration offset (sign flip, unit inversion, or zero-point mismatch) between lab and observation rigs, undetected at baseline because no independent external reference was available",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observation rigs measure genuinely decoupled or uncorrelated physical quantities due to different environmental forcing, substrate coupling, or apparatus design",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented external event (maintenance, power glitch, instrument swap, seismic disturbance) on a specific date triggered localized malfunction or data logging corruption in pendulum_lab and resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline calibration procedure (Days 1–10) inadvertently used a cyclic reference signal (synthetic sine wave, repeated test sequence) that was logged as trial data, contaminating inherited repetition downstream",
+      "class": "self_error"
+    }
+  ]
+}

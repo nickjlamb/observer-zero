@@ -1,0 +1,129 @@
+{
+  "source": "wd_exact-seed9101.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental driver (temperature, pressure, vibration) affecting both pendulum period and resonator frequency with ~1-day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: 1-day offset correlation is noise; sample size (n=12) and multiple implicit comparisons inflate false-positive risk",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or timing error in one instrument, with systematic day-of-week or operator-scheduling bias masquerading as physical correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental drift or calibration drift in resonator_lab, coincidentally phased to misalign with pendulum_lab's independent variability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine but weak physical coupling (e.g., structural vibration transmission, magnetic or acoustic cross-talk) with ~1-day coherence time",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator calibration or tuning drift beginning day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator readings days 18–19 reflect genuine environmental or physical variation, not instrumental error",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact: days 18–19 resonator readings reflect different operator, batch protocol, or timing bias, not a real physical change",
+      "class": "self_error"
+    },
+    {
+      "label": "The 1-day offset cross-correlation (r = −0.588, n=12) between pendulum_lab and resonator_lab is statistical noise; the day-18 resonator scatter is unrelated to pendulum_lab behavior",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab trials 52–70 are correct, but my earlier baseline or post-baseline divisions were miscoded or mislabeled, and the apparent scatter is a data-entry or labeling error",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator calibration or tuning drift / loss of lock beginning ~day 18, with sustained effect through day 30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical/environmental variation affecting resonator beginning ~day 18, now sustained through day 30",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or operator change around day 18 (equipment swap, tuning protocol revision, or personnel shift), introducing measurement artifact sustained through day 30",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, labeling, or transcription error in trials 52–182; recorded values do not match original measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab baseline (days 1–10, n=18) is not truly representative of the instrument's stable operating range; the real baseline is broader, and post-day-18 scatter is not anomalous",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator calibration/tuning circuit degradation or loss of lock ~day 18, sustained through day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental variation (thermal, vibration, or humidity) coupled specifically to resonator ~day 18, sustained through day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or operator change around trial 52 / day 18 (equipment swap, tuning protocol revision, personnel shift), introducing sustained measurement artifact through day 40",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, labeling, or transcription error in trials 52–292; recorded values do not match original physical measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator baseline (days 1–10, n=18) is artificially tight; post-day-18 scatter represents regression to true instrumental noise floor under normal operation",
+      "class": "incomplete_theory"
+    }
+  ]
+}

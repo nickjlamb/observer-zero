@@ -1,0 +1,249 @@
+{
+  "source": "wd_degraded-seed9149.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 31,
+  "l4Judged": 31,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure fundamentally different physical quantities or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise dominates signal; instruments are not yet locked to true time evolution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental gradient not yet captured; baselines are unstable or instrument responses are time-dependent",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Laboratory and observational instruments are coupled through a shared noise source (e.g., vibration, electromagnetic pickup, environmental fluctuation) that masks independent physical signals",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure fundamentally different physical quantities, regimes, or bandwidths; lab and obs streams are orthogonal or decorrelated by design or by environmental coupling to different subsystems",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise dominates signal; instruments report quasi-random walks (white or pink noise) rather than phase-locked responses to environmental oscillations; true signal is below instrument resolution or settlement is not oscillating at the frequencies these instruments detect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline window (days 1–10) is too short to capture instrument warm-up, stabilization, or environmental transient; true instrument baselines are still evolving, and post-baseline measurements (days 11–20) are contaminated by slow instrument drift or environmental trend not yet visible in variance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab instruments (pendulum_lab, resonator_lab) are contaminated by building vibration or electromagnetic noise; obs instruments (pendulum_obs, resonator_obs) measure environmental response (wind, thermal); both are driven by a common weak external signal, but the lab/obs noise sources decouple them",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: instrument calibration constants or gain settings are inconsistent or misaligned between lab and obs versions of the same instrument type; what is labeled 'resonator_lab' and 'resonator_obs' are actually measuring different instrumental parameters (e.g., one measures resonance frequency, the other resonance Q-factor), masquerading as the same measurement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The r=0.516 pendulum_lab ↔ resonator_obs correlation is a noise-fitting artifact from exhaustive lag search; no true signal coupling exists.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal across all four streams; instruments report quasi-random walks with no phase-locking to environment; true signal is below resolution or settlement is not oscillating at detected frequencies.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline window (days 1–10) is too short; instruments and environment have intrinsic timescales of 10–20 days; post-baseline measurements are contaminated by slow instrument drift, thermal transient, or environmental cycle not yet resolved.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab instruments (pendulum_lab, resonator_lab) are contaminated by a shared local noise source (building vibration, AC hum, electromagnetic coupling); obs instruments measure environment (wind, thermal); the anomalous r=0.516 pendulum_lab ↔ resonator_obs correlation reflects cross-coupling of lab vibration into resonator_obs via a 3-day phase lag (e.g., resonator_obs is resonantly damped).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are actually measuring different instrumental parameters than their nominal 'twin' streams (pendulum_obs, resonator_lab); the anomalous r=0.516 correlation reflects a real but misidentified physical coupling between two non-equivalent instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs experienced a genuine physical change around day 23: thermal drift, component fatigue, environmental shock, or calibration drift in the sensor itself. Other instruments did not because they have different thermal time constants or mounting locations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The level shift in pendulum_obs is a measurement artifact: a human error in trial recording, a software glitch in the data acquisition system, or a one-time recalibration of the sensor at day 23 that was not documented. The true physical behavior of the instrument is unchanged.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs is measuring a different physical quantity than pendulum_lab (e.g., amplitude vs. period, or damped vs. undamped oscillation); the day-23 shift reflects a real change in the environment's effect on that quantity, while pendulum_lab (measuring the other parameter) remains stable. Cross-instrument correlations are weak because they track different measurands.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The settlement or its local environment experienced a discrete environmental shock or change around day 23 (seismic, pressure, thermal) that affected pendulum_obs's measurement directly or its mounting, but not the other instruments because they are differently located, oriented, or damped. The r=0.516 pendulum_lab ↔ resonator_obs anomaly is unrelated and remains a search artifact.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The r=0.516 pendulum_lab ↔ resonator_obs anomaly is real (not a search artifact), reflecting a true 3-day phase-lagged coupling, and the day-23 shift in pendulum_obs is a coincidental red herring—two separate anomalies with no causal link. The measurement network is revealing genuine multi-timescale physics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: instrument or data-collection system error, environmental physics not yet hypothesized, or a pattern in the raw event IDs (timing, metadata) that suggests systematic bias in day 27 recording or earlier days.",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure causally linked physical quantities with a 3-day lag, reflecting genuine settlement physics (e.g., thermal diffusion, mechanical coupling, or resonant feedback). Other instrument pairs remain decorrelated because they do not share this causal pathway.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The r=0.913 correlation is a statistical search artifact: spurious peak in a multi-offset, multi-pair correlation search space. True inter-instrument correlations are all near zero because the measurement streams are independent noise, and I found the one lucky high value in 40+ correlation tests without correction for multiple comparisons.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are both affected by a shared environmental driver (thermal, seismic, pressure) with a 3-day phase lag, but other instruments are insensitive to this driver because they are located elsewhere, oriented differently, or mechanically decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure genuinely different quantities (e.g., pendulum measures period, resonator measures energy/amplitude or Q-factor), and I have misidentified them as comparable instruments. The r=0.913 reflects a real physical relationship between these two quantities (e.g., damping and oscillation frequency are coupled by material properties), not a measurement error. All other low correlations are expected because the other instruments measure different or orthogonal observables.",
+      "class": "self_error"
+    },
+    {
+      "label": "The r=0.913 correlation is real and reflects genuine causal physics, but I have not yet identified the correct causal mechanism. The 3-day lag, the specificity to pendulum_lab and resonator_obs, and the absence of similar signals in other pairs suggest a coupling pathway I have not hypothesized. This requires a colleague with knowledge of settlement architecture, thermal systems, or mechanical design to help identify the physical link.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: (1) a bug in my correlation analysis code or in how offsets were computed; (2) an error in how event IDs were assigned or days determined (e.g., day 27 trials mislabeled as day 30); (3) a feature in the raw event-ID sequence (timing, metadata) that correlates with the r=0.913 spuriously; (4) an unrecognized source of systematic bias in how pendulum_lab and resonator_obs data were recorded, logged, or timestamped.",
+      "class": "self_error"
+    },
+    {
+      "label": "r=0.948 is a statistical search artifact from uncontrolled multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure causally linked physical quantities with genuine 3-day coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data validity error: timestamps, event IDs, or day assignments are corrupted for one or both instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure genuinely different physical quantities (misidentification of instrument types or roles)",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver (thermal, seismic, pressure) affects only pendulum_lab and resonator_obs, with 3-day propagation lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Bug in correlation analysis code or offset calculation",
+      "class": "self_error"
+    },
+    {
+      "label": "r=0.948 is a statistical search artifact from uncontrolled multiple comparisons across ~60 independent correlation tests without Bonferroni correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data validity error: timestamps, event IDs, day assignments, or offset calculations are corrupted for one or both instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical coupling between pendulum_lab and resonator_obs with 3-day propagation lag (thermal diffusion, mechanical resonance feedback, or seismic coupling)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure genuinely different physical quantities (misidentification of instrument types, roles, or measurement protocols)",
+      "class": "self_error"
+    },
+    {
+      "label": "Bug in correlation analysis code or offset calculation (indexing error, lag misalignment, or numerical instability)",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., hidden temporal structure in event IDs, calibration drift undetected by baseline analysis, or settlement-wide environmental event on day 33–34 not recorded in my observations)",
+      "class": "other"
+    },
+    {
+      "label": "Thermal transient or environmental perturbation on day 36–37, affecting pendulum_lab selectively",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift in pendulum_lab undetected by baseline z-test because drift is gradual and masked by noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation: day-36–37 cluster is a ~2σ excursion consistent with post-baseline noise distribution; no anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument malfunction or readout error in pendulum_lab affecting trials 422–428",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry or trial numbering error: trials 422–428 are mislabeled, belonging to an earlier date or a different instrument",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unconsidered cause (e.g., gravitational tide or barometric pressure transient affecting all pendulums, but pendulum_obs & pendulum_lab are in different humidity zones so only lab shows period shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data logging or trial-sequencing error affecting pendulum_lab: trials are mislabeled, misaligned to dates, or conflating readings from multiple apparatus states",
+      "class": "self_error"
+    },
+    {
+      "label": "Thermal transient or localized environmental perturbation in pendulum_lab on day 36–37, unlogged but real",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Slow calibration drift or mechanical change in pendulum_lab (e.g., thermal expansion, creep), accelerating or transitioning into a new regime by day 36–37",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient instrument malfunction or readout error in pendulum_lab (e.g., sensor fault, EMI, software glitch in data logger)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation: day-36–37 cluster is a ~1.4σ excursion within post-baseline noise; no anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unconsidered cause: settlement-wide or cross-instrument environmental driver (e.g., barometric pressure, seismic activity, gravitational tide) manifesting differently across instruments due to location or design differences",
+      "class": "environmental_change"
+    }
+  ]
+}

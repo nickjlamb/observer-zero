@@ -1,0 +1,177 @@
+{
+  "source": "wd_exact-seed9117.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 6,
+  "l4Judged": 6,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: The observed 5‑day correlation is a random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: An unaccounted environmental factor (e.g., temperature, power cycling) induces a ~5‑day repeatable effect on resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: An instrument‑specific artifact (e.g., sensor aging, readout algorithm) creates autocorrelation at ~5‑day intervals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: A genuine physical phenomenon affecting the resonator with a ~5‑day periodicity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Unaccounted environmental factor on day 14",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Instrument‑specific artifact (sensor aging or read‑out glitch)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Genuine short‑term physical phenomenon",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Transient environmental disturbance (e.g., temperature or power spike) affecting the lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Instrument‑specific calibration or read‑out glitch introduced on day 23",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Shared systematic error from power line transients or vibrations (e.g., external machinery)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine short‑term physical phenomenon (local magnetic or micro‑seismic event)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Transient environmental disturbance (e.g., temperature or power spike) affecting the lab on day 29",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Instrument‑specific calibration or read‑out glitch introduced on day 29",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Shared systematic error from power‑line transients or vibrations (e.g., nearby machinery) on day 29",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine short‑term physical phenomenon (local magnetic or micro‑seismic event)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Pure statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Shared systematic artifact (e.g., common data‑processing pipeline or timestamp misalignment) causing the two series to be mathematically coupled",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Genuine physical coupling mediated by a slow environmental variable (e.g., thermal inertia) that links pendulum period and resonator frequency with a 3‑day lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: Shared systematic artifact (e.g., common data‑processing pipeline or timestamp misalignment) couples the two series",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Genuine physical coupling mediated by a slow environmental variable with a ~3‑day lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Pure statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Shared systematic artifact (e.g., common data‑processing pipeline, timestamp mis‑alignment, or shared hardware bias) couples the two series",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Genuine physical coupling mediated by a slow environmental variable with a ~3‑day lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Pure statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: An unidentified data‑handling error (e.g., inadvertent duplication, mis‑ordered timestamps, or software bug) specific to these two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: Shared systematic artifact (e.g., common data‑processing pipeline, timestamp mis‑alignment, or shared hardware bias)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Data duplication / copy‑paste bug (pendulum_lab values inadvertently copied into resonator_obs after a fixed 3‑day lag)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Genuine physical coupling via a slow environmental variable with a ~3‑day lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Pure statistical fluke",
+      "class": "measurement_error"
+    }
+  ]
+}

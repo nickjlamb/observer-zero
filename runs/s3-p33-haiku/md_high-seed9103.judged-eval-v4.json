@@ -1,0 +1,181 @@
+{
+  "source": "md_high-seed9103.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument is functioning normally; spacing and non-repetition reflect genuine physical variability within expected bounds",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout or timing system is digitizing or quantizing readings in a way that creates artificial fine structure; reported precision exceeds actual instrumental resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The event IDs (which increase non-monotonically and show no obvious relationship to trial order or day) are labels for a hidden variable—possibly external perturbations, environmental events, or apparatus state changes—that systematically alter each reading",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or baseline protocol has a systematic error; I am not measuring the pendulum's true period, but an artifact of my method",
+      "class": "self_error"
+    },
+    {
+      "label": "Some reading or transcription is corrupted; one or more of the 72 values is not a genuine measurement",
+      "class": "self_error"
+    },
+    {
+      "label": "Event IDs are labels for real, external perturbations (vibrations, magnetic transients, personnel activity, environmental events) that systematically alter each reading. The IDs encode information about the source or timing of these perturbations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Readout or timing system is embedding a pseudorandom or counter-based signature into the reported values; the tight spacing (0.000001 to 0.000007 beats) and perfect non-repetition reflect quantization or digital artifacts rather than physical variability.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument is functioning normally; spacing and non-repetition reflect genuine physical variability (air currents, thermal drift, measurement noise) within expected bounds, and the event IDs are an ancillary logging or housekeeping artifact I have not yet decoded.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline protocol has a systematic error; I am not measuring the pendulum's true period, but an artifact of my timing method, clock source, or reference frame.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more readings are corrupted, misrecorded, or transcribed incorrectly, breaking the expected pattern and introducing artificial fine structure.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., the event IDs encode real-time system state, apparatus feedback, or an interaction I have not hypothesized).",
+      "class": "other"
+    },
+    {
+      "label": "Event IDs encode real external perturbations (vibrations, transients, environmental events) that systematically drive period variation. Each unique ID represents a distinct physical disturbance occurring during or immediately before that trial.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Readout or timing system is embedding a pseudorandom or counter-based signature into the reported values. Tight spacing (0.000001 to 0.000007 beats) and perfect non-repetition reflect quantization or digital artifacts rather than genuine physical variability.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument is functioning normally. Spacing and non-repetition reflect genuine physical variability (air currents, thermal drift, measurement noise) within expected bounds. Event IDs are an ancillary logging or housekeeping artifact I have not yet decoded.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline protocol has a systematic error. I am not measuring the pendulum's true period, but an artifact of my timing method, clock source, or reference frame.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more readings are corrupted, misrecorded, or transcribed incorrectly, breaking the expected pattern and introducing artificial fine structure.",
+      "class": "self_error"
+    },
+    {
+      "label": "Event IDs encode real-time system state, apparatus feedback, or an interaction I have not yet hypothesized. Residual: something I have not considered.",
+      "class": "other"
+    },
+    {
+      "label": "Readout or timing system embeds artificial fine structure via quantization, counter-based signatures, or timestamp truncation artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Event IDs encode real external perturbations (vibrations, transients, environmental events) that systematically drive fine-scale period variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument is functioning normally; spacing and non-repetition reflect genuine physical variability within expected bounds, and event IDs are an ancillary logging artifact not yet decoded",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline protocol has a systematic error; I am measuring an artifact of my timing method, clock source, or reference frame rather than the true pendulum period",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more readings are corrupted, misrecorded, or transcribed incorrectly",
+      "class": "self_error"
+    },
+    {
+      "label": "Readout or timing system embeds artificial fine structure via quantization, counter-based signatures, or timestamp artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Event IDs encode real external perturbations (vibrations, seismic transients, environmental events) that systematically drive fine-scale period variation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument is functioning normally; spacing and non-repetition reflect genuine physical variability, and event IDs are an ancillary logging artifact not yet decoded",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline protocol error: I am measuring an artifact of timing method, clock source, or reference frame rather than the true pendulum period",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more readings are corrupted, misrecorded, or transcribed incorrectly",
+      "class": "self_error"
+    },
+    {
+      "label": "Recent environmental change (temperature drift, pressure shift, vibration environment alteration) has lengthened pendulum period by ~0.2%. Change is real but unidentified.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Readout or timing system embeds artificial fine structure via quantization, counter-based signatures, or timestamp artifacts—ongoing since day 17, now compounded by real environmental drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Event IDs encode real external perturbations (vibrations, seismic transients, environmental events) that drive fine-scale period variation, and recent event IDs correlate more strongly with outlier readings.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument is functioning normally; the recent period rise is physical variability within expected bounds, and earlier fine-spacing anomalies reflect unidentified but benign logging behavior.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline protocol error: the baseline itself (days 1–10) is biased or subject to systematic timing artifacts, and all subsequent readings are infected by the same error.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more recent readings (trials 340–364) are corrupted, misrecorded, or transcribed incorrectly.",
+      "class": "self_error"
+    }
+  ]
+}

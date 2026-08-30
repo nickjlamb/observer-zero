@@ -1,0 +1,121 @@
+{
+  "source": "wd_degraded-seed9104.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 11,
+  "l4Judged": 11,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Normal measurement noise with independent random variation across all instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle systematic drift or environmental coupling not yet detectable at n=10 days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or methodology error causing instruments to miss true correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal measurement noise with independent random variation across all instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle systematic drift or environmental coupling not yet detectable at current sample sizes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or methodology error causing instruments to miss true correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Chance fluctuation in multi-comparison search across instruments, offsets, and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical coupling between laboratory pendulum and observatory resonator via environmental mediator with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data handling error specific to pendulum_lab↔resonator_obs cross-check calculation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic measurement or calibration coupling introduced during instrument setup that affects only this specific pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation in multi-comparison search across instruments, offsets, and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data handling error specific to pendulum_lab↔resonator_obs cross-check calculation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical coupling between laboratory pendulum and observatory resonator via environmental mediator with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic measurement or calibration coupling introduced during instrument setup affecting only this specific pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation in multi-comparison search across instruments, offsets, and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data handling error specific to pendulum_lab↔resonator_obs cross-check calculation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical coupling between laboratory pendulum and observatory resonator via environmental mediator with 3-day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic measurement or calibration coupling introduced during instrument setup affecting only this specific pair",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

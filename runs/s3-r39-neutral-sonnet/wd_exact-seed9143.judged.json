@@ -1,0 +1,129 @@
+{
+  "source": "wd_exact-seed9143.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All observed correlations are statistical artifacts from multiple comparison testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments show genuine 8-day periodicity or memory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental coupling produces weak real correlations between co-located instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement or recording error introduces spurious structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All instruments are stable within measurement noise; observed correlations and drift statistics are consistent with random variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments show weak environmental sensitivity producing small downward drift in post-baseline period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-testing across lag offsets has generated spurious correlation structure with no physical basis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement quantization at 0.0001 precision creates artificial granularity but does not bias results",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multiple-testing artifact: searching across many time offsets produced one spuriously high correlation by chance, with no physical basis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine systematic error: both pendulum_lab and resonator_obs share a common error source with 3-day propagation delay, creating real but artifactual correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical coupling: pendulum_lab and resonator_obs share an environmental driver or measurement chain element that creates real correlation with temporal offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calculation or transcription error in the correlation analysis itself, not in the underlying instrument data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-testing artifact: searching across many time offsets produced one spuriously high correlation by chance, with no physical basis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing error: pendulum_lab readings are being algorithmically transformed into resonator_obs values, or vice versa, through a deterministic formula",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging error: resonator_obs readings from day N are being stored in pendulum_lab's records at day N+3, creating duplicate datasets mislabeled as independent instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calculation error: the correlation value of 1.000 is itself erroneous, caused by a bug in correlation computation or a transcription mistake",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-testing artifact: searching across many time offsets produced one spuriously high correlation by chance, with no physical basis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing error: pendulum_lab readings are being algorithmically transformed into resonator_obs values, or vice versa, through a deterministic formula",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging error: resonator_obs readings from day N are being stored in pendulum_lab's records at day N+3, creating duplicate datasets mislabeled as independent instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calculation error: the correlation value of 1.000 is itself erroneous, caused by a bug in correlation computation or a transcription mistake",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

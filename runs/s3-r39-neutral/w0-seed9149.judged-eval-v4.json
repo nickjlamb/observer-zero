@@ -1,0 +1,273 @@
+{
+  "source": "w0-seed9149.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 29,
+  "l4Judged": 29,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Resonator instruments share a common environmental coupling (temperature, vibration, or electromagnetic) with a ~5-day lag or modulation period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are mechanically or electronically crosstalk-coupled, introducing a phase-delayed common-mode signal",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs show spurious correlation due to finite-sample noise and multiple-hypothesis testing bias; the true correlation is near zero",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments are sensitive to a periodic environmental or instrumental artifact (e.g., 5-day maintenance cycle, temperature swing, or digital sampling phase) that does not significantly affect pendulum instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious correlation from multiple-hypothesis testing on noise; true resonator correlation is near zero, instruments are independent",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental coupling (temperature, vibration, EMI, or humidity cycle) affects resonators with ~5-day lag or modulation timescale; resonators more sensitive than pendulums",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mechanical or electrical crosstalk between resonator_lab and resonator_obs (shared power line, vibration coupling, or proximity); 5-day offset reflects settling or periodic maintenance cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonators respond to a periodic settlement operational cycle (weekly maintenance, supply delivery, or duty schedule) with differential lag; pendulum time-averaging masks the signal",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered: instrumental artifact in correlation analysis, settlement-wide event undetected in individual instruments, or data-collection bias specific to resonator pair",
+      "class": "other"
+    },
+    {
+      "label": "Day 24 environmental event (thermal transient, power fluctuation, or vibration spike) temporarily elevated resonator sensitivity; pendulum_obs unaffected because mechanical averaging filters high-frequency perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Noise coincidence: Day 24 resonator variance spike is an outlier in a Gaussian noise process; false-positive pattern recognition on real but independent instrument noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol or calibration check conducted on Day 24 for resonator instruments only, introducing procedural variance; pendulum instruments on routine schedule",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact or data-quality issue in resonator_lab and resonator_obs trial records (logging error, timestamp misalignment, or corrupted channel affecting final trial blocks on Day 24)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered: settlement-wide operational change on Day 24, instrumental maintenance cycle, power-system reconfiguration, or observer-dependent bias in trial selection or reporting",
+      "class": "other"
+    },
+    {
+      "label": "Real environmental perturbation on day 24 affected resonators selectively; pendulum_obs level shift (day 23) is separate, mechanical-system drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs mechanical degradation or calibration drift around day 23; resonator variance spike day 24–26 is independent noise or unrelated procedural event",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging or timestamp artifact on day 24–26 affecting both resonators; resonator variance is artificial (clock skew, channel crosstalk, or firmware version change affecting ADC resolution)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator calibration check or diagnostic procedure on day 24 for both instruments; intentional procedural variance, not anomaly",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs systematic calibration drift (separate from resonator event); resonator variance is noise; both anomalies are real but independent",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown operational or measurement-protocol change on day 23–24 affecting multiple instruments; systematic bias in trial selection, collection technique, or observer state",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs mechanical drift (pivot wear, damping shift, or thermal creep); resonator variance spike is independent noise clustering",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Both anomalies reflect real but independent instrumental/mechanical drift; no settlement-wide environmental event required",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging artifact or ADC/firmware change on days 24–26 inflating resonator variance artificially; pendulum_obs drift is real mechanical change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator recalibration or maintenance procedure on days 24–26 produced intentional variance; procedural anomaly, not measurement anomaly",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown operational or measurement-protocol change on day 23–24 (observer state, trial technique, HVAC, housing access) affected multiple instruments differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unobserved environmental or instrumental driver; genuine anomaly not yet hypothesized)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs experienced real mechanical drift (pivot friction, damping, or thermal creep); resonator variance spike is independent noise clustering or transient artifact unrelated to pendulum_obs shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer technique changed on day 23–24 (trial execution speed, apparatus handling, or housing access), affecting pendulum_obs and resonator instruments through independent mechanical pathways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-logging artifact or ADC/firmware change on days 24–26 inflates resonator variance artificially; pendulum_obs drift is real mechanical change of the measurement apparatus, unrelated to resonators",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator calibration, maintenance, or intentional stress-test procedure on days 24–26 produced expected variance; no anomaly in resonators, only in pendulum_obs mechanical drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved environmental driver (electromagnetic interference, vibration coupling from settlement activity, temperature excursion, humidity shift, or power-supply transient) triggered both pendulum_obs mechanical drift and resonator variance spike on days 23–26",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs measurement apparatus (sensor, pivot, housing) experienced real mechanical drift starting ~day 23; resonator variance spike days 24–26 is independent noise clustering unrelated to pendulum shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operational or environmental perturbation on day 23–24 (apparatus handling, HVAC restart, settlement activity, or housing access) affected pendulum_obs and resonators through independent mechanical/electronic pathways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-logging artifact, ADC malfunction, or firmware change in resonator backend on days 24–26 inflates resonator variance artificially; pendulum_obs drift is real mechanical apparatus change, unrelated to resonators",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator maintenance, calibration, or intentional stress-test procedure on days 24–26 produced operationally expected variance; no anomaly in resonators, only in pendulum_obs mechanical drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved environmental driver (electromagnetic interference, vibration from settlement activity, thermal excursion, humidity shift, or power-supply transient) triggered both pendulum_obs mechanical drift and resonator variance spike through instrument-specific coupling pathways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs apparatus experienced real mechanical drift starting ~day 23; resonator variance spike days 24–26 is independent noise clustering.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement or lab event on day 23–24 (HVAC restart, apparatus handling, power reconfiguration, observer technique change) triggered pendulum_obs mechanical drift and resonator variance elevation through independent instrument pathways.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator data-acquisition backend (shared ADC, logging server, firmware, clock source) malfunctioned or was updated on days 24–26, artificially inflating resonator variance; pendulum_obs drift is real mechanical apparatus change, independent.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator maintenance, calibration, environmental stress-test, or intentional recalibration procedure on days 24–26 produced operationally expected variance; no anomaly in resonators, only in pendulum_obs mechanical drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved environmental driver (thermal excursion, vibration, electromagnetic interference, humidity shift, power transient) affected all four instruments through instrument-specific coupling pathways.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: nonlinear coupling, undetected sensor malfunction, measurement-circuit feedback, or observer behavior interaction not yet hypothesized.",
+      "class": "other"
+    },
+    {
+      "label": "Day 36 apparatus handling, environmental transient, or observer technique deviation produced today's elevated variance in both lab instruments; pendulum_obs and resonator_obs unaffected because they use different mechanical or electronic pathways. Transient, not systematic.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab apparatus (pendulum_lab or resonator_lab, or shared lab DAQ backend) experienced real mechanical drift, sensor malfunction, or electronics fault beginning around day 23–24 and continuing through Day 36; today's spike represents crescendo of an underlying drift process rather than a transient event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and/or resonator_obs underwent scheduled or unscheduled maintenance, calibration, frequency-standard check, or thermal/vibration stress-test on days 24–26 or today (Day 36), producing operationally expected variance; lab instruments show variance from different cause (apparatus drift or Day 36 handling).",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator data-acquisition backend (shared ADC, logging server, firmware, clock source) malfunctioned, was updated, or experienced clock desynchronization on days 24–26 and/or today, artificially inflating resonator variance without reflecting true physical variation; pendulum_lab and pendulum_obs data are unaffected and reliable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unobserved environmental driver (thermal excursion, vibration, electromagnetic interference, humidity shift, power transient) affected lab instruments on Day 36 through instrument-specific coupling pathways; observatory instruments isolated or decoupled from this driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: nonlinear coupling between lab instruments, undetected sensor malfunction, measurement-circuit feedback, observer behavior interaction, or apparatus-specific failure mode not yet hypothesized.",
+      "class": "other"
+    },
+    {
+      "label": "Day 40 acute perturbation: lab-space or shared apparatus handling event on Day 40 (HVAC transient, vibration, observer fatigue, recalibration, power event, or EMI) produced synchronized high variance in both lab instruments only; observatory instruments unaffected.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cumulative apparatus drift in lab instruments reaching threshold or instability on Days 36 and 40: pendulum_lab bearing wear, sensor drift, or resonator_lab frequency-standard aging and electronics degradation have progressed since baseline; today's variance spike represents crescendo or oscillation of an underlying degradation process.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator-specific maintenance, calibration, frequency-standard check, or electronics intervention on Days 24–26 or today (Day 40); pendulum_lab variance from separate cause (apparatus drift, handling, or Day 40 event).",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator DAQ backend (shared ADC, logging server, firmware, clock source) experienced malfunction, update, or desynchronization on Days 24–26 or today (Day 40), artificially inflating resonator variance without reflecting true physical variation; pendulum data unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide or lab-space environmental driver (thermal transient, vibration, RFI, humidity, power event) on Day 40 coupled into lab instruments through instrument-specific pathways; observatory instruments isolated or decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: nonlinear coupling between lab instruments, undetected sensor or DAQ circuit malfunction, observer-behavior interaction, apparatus-specific resonance or instability mode, or hidden procedural change not yet hypothesized.",
+      "class": "other"
+    }
+  ]
+}

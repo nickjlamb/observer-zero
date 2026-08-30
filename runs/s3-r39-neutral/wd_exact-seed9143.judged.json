@@ -1,0 +1,189 @@
+{
+  "source": "wd_exact-seed9143.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 27,
+  "l4Judged": 27,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are genuinely decoupled; no common phenomenon drives all four simultaneously",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are coupled to a common phenomenon with ≤4-day period or lag, but my sampling is too coarse or my correlation window too broad to resolve it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My correlation method is underpowered; I am searching too many offsets, inflating noise, and the true signal requires longer baseline or Bayesian reweighting of lag space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has a systematic error or calibration drift not yet visible in the baseline data; cross-correlation failures reflect instrument-specific artifacts rather than physical decoupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are genuinely decoupled; four independent noise sources, no common phenomenon",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak common signal with 4–6 day cycle or lag; my 10-day baseline too short to resolve phase and amplitude reliably",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Correlation method is underpowered and prone to false positives; multiple testing without correction, small sample sizes (n=12–66 per test), and crude chance-level calibration inflate noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has subtle calibration drift, hysteresis, or thermal lag not yet visible in baseline; inter-instrument disagreement reflects instrument-specific artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unknown coupling mechanism, instrumental interaction, or environmental factor not yet hypothesized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Correlation search is severely underpowered and multiple-testing inflation dominates the pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak genuine common environmental signal with ~4–6 day period or phase lag; 10-day baseline too short to resolve cleanly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab shows genuine slow drift or hysteresis; other instruments decoupled; inter-instrument disagreement is real but small",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental or platform coupling; resonators and pendulums share vibration modes or air-pressure response; correlated human sampling or digital quantization artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: nonlinear coupling, modulated signal, or observational bias not yet hypothesized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple testing inflation dominates; all cross-correlations are false positives from ~54 unregistered tests.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak genuine 4–6 day environmental signal partially masked by short baseline and instrument phase/amplitude mismatch; 10-day baseline insufficient to establish robust periodicity.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab is genuinely drifting (thermal hysteresis, creep, or recalibration); other instruments stable; weak cross-correlations reflect transient coupling during resonator adjustment.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument coupling via shared platform, air pressure, or synchronized logging; correlated noise artifact rather than independent noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: nonlinear coupling, threshold effects, or unexamined spectral structure; genuine signal too weak or complex for linear correlation methods.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 27–28 elevated variance is real environmental perturbation (thermal, magnetic, or barometric transient); weak cross-correlations reflect sensor frequency/phase mismatch masking a genuine weak signal.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 27–28 variance spike is instrumental: resonator_lab undergoing calibration drift or thermal lag; pendulum_lab entered a noisy measurement mode (observer error, air vibration, or temporary detector misalignment). Cross-correlations weak because instruments are not coupled; variance spike is local and transient.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple testing dominates; all weak cross-correlations (including the 2–6 day clustering) are false positives from ~54 unregistered hypothesis tests. Day 27–28 variance spikes are random fluctuations expected in any continuous measurement campaign. All four instruments are independent and stable.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab is drifting thermally over the 28-day mission; pendulum instruments are stable. Weak cross-correlations at 2–6 day offsets reflect transient coupling during resonator thermal stabilization, not a shared environmental signal. Day 27–28 spike marks resonator approaching final equilibrium after 27 days of slow cooling or hysteresis.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spectral or nonlinear structure undetected by linear correlation; weak periodic or quasi-periodic signal with time-varying amplitude or phase, or threshold-activated coupling between instruments. Day 27–28 spike reflects amplitude modulation envelope reaching a local maximum.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Perfect correlation is a statistical artifact from multiple comparisons; the r=1.000 result is a false positive from ~54 unregistered lag/offset tests across instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real but weak coupling at 2–6 day lags reflects environmental forcing (e.g., settlement activity cycle, barometric oscillation, or thermal lag in sensor arrays) that excites instruments with different phase and damping; weak correlations persist because coupling is noisy and modulated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs r=1.000 correlation is a genuine measurement or data-handling error (e.g., identical subset of readings recorded twice, truncated sample, or mislabeled trial numbers at 3-day offset).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and pendulum_obs are each independently experiencing transient instrumental destabilization (thermal drift in resonator, optical alignment drift or vibration in pendulum_obs) on day 27–28, unrelated to environmental causes or cross-instrument coupling; day 27–28 spikes are instrument-specific noise bursts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The r=1.000 result is real and reflects a genuine physical coupling mechanism between pendulum_lab and resonator_obs at a 3-day lag that is not visible in linear autocorrelations or other cross-instrument pairs; this indicates a threshold effect, nonlinear resonance, or unobserved mediating variable.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unidentified pattern in the data structure, such as a hidden periodic component at a frequency not tested, aliasing or wrap-around in the offset calculation, or a measurement artifact in how readings are timestamped or aggregated.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data handling error: identical or duplicate readings recorded at different offsets, or trial numbering/timestamp mislabeling in one of the two instruments at the 3-day window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact from multiple comparisons: r=1.000 is the most extreme of ~54 unregistered lag tests across 6 instrument pairs; it emerged by chance under Bonferroni-corrected threshold",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine but transient physical coupling via unobserved mediating variable (e.g., thermal, vibrational, or electromagnetic link) that activated or was measurable only during days 30–39 (the 3-day-lagged alignment window) and did not produce visible autocorrelations because the coupling was weak, noisy, or frequency-domain modulated",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental drift or transient instability specific to pendulum_lab on days 30–39 (the lagged window) that happened to align numerically with resonator_obs readings on days 27–36, causing spurious correlation without reflecting any physical link between the instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified data structure anomaly such as aliasing in the offset calculation, a hidden periodic component in one instrument at a frequency that aliases into the 3-day lag, or a subtlety in how trial numbers were assigned during the measurement window",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

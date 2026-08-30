@@ -1,0 +1,265 @@
+{
+  "source": "wa-seed9141.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental noise dominates; systematic signals are small or absent",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument tracks a real signal, but signals are independent or multiply-inverted across apparatus types",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration drift or sensor creep affecting different apparatus on incompatible timescales",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol error or environmental confounder systematically affecting lab vs. observatory readings differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Insufficient trial count or baseline length; anomalies reflect sampling noise and will resolve with more data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical effect affecting pendulum systems but not resonators, with independent or inverted readout paths between lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration drift or sensor creep on incompatible timescales: lab and observatory systems degrading or recalibrating independently around day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental confounder (thermal, mechanical, or electromagnetic) affecting lab and observatory locations differently, with resonator apparatus more robust or decoupled from the driver",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol error, apparatus misalignment, or data logging artifact introduced around day 11–12, affecting primarily pendulum readout",
+      "class": "self_error"
+    },
+    {
+      "label": "Insufficient trial count and short baseline window: apparent anomalies (weak correlations, level shift, negative autocorrelations) are mostly sampling noise and will clarify with 30+ days of data and larger n",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical effect on pendulum systems only; lab and obs use fundamentally different readout or transduction paths that respond to the same underlying shift with independent noise, phase inversion, or temporal misalignment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration drift, sensor creep, or recalibration event on both pendulum systems around day 11–12, independent between lab and obs despite synchronized timing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental confounder (thermal, mechanical, structural, or electromagnetic) affecting lab and observatory differently, with different time constants and coupling strengths; resonators buffered or decoupled from the driver",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging error, analysis pipeline artifact, or undocumented apparatus change (e.g., timing window, trigger threshold, sensor misalignment) around day 11–12 affecting both pendulum readouts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Insufficient trial count, short baseline, and weak signal-to-noise ratio; apparent anomalies (weak inter-stream correlations, negative autocorrelations, level shift) are sampling noise and will clarify with 30+ days of data and larger n",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical effect on pendulum systems (gravitational, inertial, or structural shift) around day 12; lab and obs respond synchronously but with independent measurement noise and different temporal response profiles that degrade sustained inter-stream correlation despite strong 0-lag agreement.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent recalibration or sensor-state reset event on both pendulum systems near day 11-12, timed by coincidence or shared environmental trigger (e.g., thermal equilibration after setup); each system recalibrates with different sensor bias or offset trajectory, explaining synchronized level shift but poor inter-stream correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data acquisition or analysis artifact around day 11-12: shared timing calibration, trigger threshold change, or analysis pipeline update affecting both pendulum readouts but not resonators; produces synchronized shift and strong 0-lag correlation by construction, not physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental confounder (thermal gradient, barometric pressure, structural settling, or EM disturbance) affecting pendulum apparatus but not resonators around day 11-12; resonators actively stabilized or physically buffered from driver; independent measurement noise at each site leads to weak inter-stream correlation despite shared physical driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator data contain systematic measurement or analysis pathology (negative autocorrelations r=-0.163 to -0.228, weak cross-correlations with all other streams, anti-correlation at short lags); resonator instruments or readout may be uncalibrated, misconfigured, or subject to aliasing or timing error that produces spurious negative correlations and masks true physical signals.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator readout contains phase inversion, aliasing, or sign-flip error in the data acquisition or analysis pipeline; negative autocorrelations are a pathological signature of misconfigured timing gate, frequency counter alias, or inverted sensor feedback that corrupts the resonator signal systematically.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical effect on pendulum systems (gravitational, inertial, or structural shift) around day 12; resonator apparatus is physically decoupled or actively stabilized against this driver and thus shows no level shift, while pendulum sensors respond with synchronized upward shift but independent high-frequency noise at each site, degrading sustained cross-correlation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent recalibration or sensor-state reset event on both pendulum systems near day 11–12, coincidentally timed or triggered by shared environmental condition (thermal equilibration, power-on reset, or facility-wide zero calibration); each system recalibrates with different transduction method, introducing correlated offset but independent settling noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data acquisition or analysis artifact: shared timing calibration constant, trigger threshold, or data pipeline parameter changed around day 11–12, affecting both pendulum readouts but not resonators by design (e.g., resonators use independent readout path).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental confounder (thermal gradient, barometric pressure, structural settling, EM disturbance) affecting pendulum apparatus but not resonators around day 11–12; resonators actively stabilized, buffered, or less sensitive; independent measurement noise at each site leads to weak inter-stream correlation despite shared physical driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator readout contains systematic data pathology (timing gate misconfiguration, frequency counter aliasing, sign inversion, or inverted feedback) producing spurious negative autocorrelations; both resonator channels exhibit independent corruption of the same type, ruling out single-point hardware failure but consistent with shared analysis pipeline error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical effect (gravitational shift, structural settling, or inertial perturbation) near day 12 coupled strongly to pendulum apparatus; resonator apparatus is physically decoupled, actively stabilized (PID servo feedback on resonance frequency), or insensitive to the driver, yielding null response by design rather than by measurement failure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared calibration, zero-point reset, or sensor-state recalibration event affecting both pendulum systems near day 11–12 by coincidence or shared facility trigger (thermal ramp, power cycling, scheduled zero calibration); each system equilibrates with independent settling noise, producing correlated offset but weak sustained cross-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data acquisition or analysis artifact: a shared timing calibration constant, trigger threshold, or conversion parameter in the pendulum data pipeline changed around day 11–12; resonator pipeline uses independent readout path and was unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental confounder (thermal gradient, barometric pressure, structural settling, EM disturbance) affecting pendulum apparatus but not resonators; resonators are actively stabilized via closed-loop feedback, physically isolated, or inherently less sensitive to the driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator data contain systematic pathology (timing misconfiguration, frequency aliasing, sign inversion, inverted feedback) producing spurious negative autocorrelations; both resonator channels independently corrupted by shared analysis pipeline error, making resonator 'null response' claim unreliable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical environmental driver (gravitational shift, thermal gradient, structural settling, or inertial perturbation) around day 12, coupled strongly to pendulum apparatus; resonator apparatus is physically decoupled, actively stabilized (PID servo on resonance frequency), or insensitive to the driver, yielding true null response by design rather than measurement failure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared recalibration, zero-point reset, or sensor-state reconfiguration affecting both pendulum systems near day 11–12 by coincidence or shared facility trigger (thermal ramp, power cycling, scheduled calibration); each system equilibrates with independent settling noise, producing correlated offset but weak sustained correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared timing calibration constant, trigger threshold, or conversion parameter in pendulum data pipeline changed around day 11–12; resonator pipeline uses independent readout path and was unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: Unknown mechanism not yet considered (e.g., instrumental resonance specific to pendulum frequency range, non-linear coupling between measurement apparatus and environment, artifact in cross-lag correlation methodology, or multi-scale environmental driver with frequency-dependent coupling).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator data contain systematic pathology (timing misconfiguration, frequency aliasing, sign inversion, or inverted feedback) producing spurious negative autocorrelations and inter-stream anti-correlation; resonator 'null response' claim is unreliable until audit clears data.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical environmental driver (gravitational shift, thermal gradient, or structural settling) around day 12 couples strongly to pendulum apparatus; resonator apparatus is physically decoupled, actively stabilized (PID servo), or insensitive by design, yielding true null response—but resonator data corruption (Hypothesis 1) currently prevents use of silence as evidence for this hypothesis.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared recalibration, zero-point reset, or sensor-state reconfiguration affecting both pendulum systems near day 11–12 by facility event or coincidence; each system equilibrates with independent settling noise, producing correlated offset but weak sustained correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared timing calibration constant, trigger threshold, or conversion parameter in pendulum data pipeline changed around day 11–12; resonator pipeline uses independent readout and was unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: Unknown mechanism not yet considered (e.g., instrumental resonance specific to pendulum frequency range, non-linear thermal coupling, artifact in correlation methodology, or multi-scale environmental driver with frequency-dependent coupling).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator data contain systematic pathology (timing misconfiguration, frequency aliasing, sign inversion, or inverted feedback) producing spurious negative autocorrelations and inter-stream anti-correlation; resonator 'null response' is uninformative until audit clears data.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical environmental driver (gravitational shift, thermal gradient, or structural settling) around day 12 couples strongly to pendulum apparatus; resonator apparatus is physically decoupled, actively stabilized (PID servo), or insensitive by design—BUT resonator data corruption currently prevents use of silence as evidence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared recalibration, zero-point reset, or sensor-state reconfiguration affecting both pendulum systems near day 11–12 by facility event or coincidence; each system then equilibrates with independent settling noise, producing correlated offset but weak sustained correlation.",
+      "class": "social_process"
+    },
+    {
+      "label": "Shared processing-pipeline parameter change (calibration constant, conversion factor, trigger threshold, or analysis code update) affecting both pendulum channels around day 11–12; resonator pipeline uses independent readout and was unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental resonance of pendulum measurement apparatus (photogate + mechanical resonator) near the 2-day timescale, selectively amplifying environmental noise; or non-linear thermal coupling producing periodic pendulum response to smooth environmental driver; or multi-scale environmental perturbation with frequency-dependent coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown mechanism not yet considered.",
+      "class": "other"
+    },
+    {
+      "label": "Resonator data contain systematic corruption (timing misconfiguration, frequency aliasing, sign inversion, or inverted feedback) that invalidates inter-stream and autocorrelation structure; resonator silence on day 12 is uninformative until audit resolves data integrity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental driver (gravitational shift, thermal gradient, building settling, or structural resonance) around day 12 couples selectively to pendulum apparatus; resonator apparatus is actively stabilized (PID servo feedback), physically decoupled, or insensitive by design—but resonator data corruption prevents use of silence as confirmatory evidence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum instrumentation (photogate + mechanical resonator assembly) has resonant response near 2-day timescale (~0.5 mHz), selectively amplifying environmental noise or thermal coupling at that frequency; or non-linear thermal coupling produces periodic pendulum response to smooth environmental driver.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared recalibration, zero-point reset, or sensor-state reconfiguration affecting both pendulum systems near day 11–12 via facility event or coincidence; post-recalibration settling noise then evolves independently at each site.",
+      "class": "social_process"
+    },
+    {
+      "label": "Shared downstream processing-pipeline parameter change (calibration constant, conversion factor, time-stamp clock, or analysis code update) around day 11–12 affecting both pendulum channels; resonator pipeline uses independent infrastructure and was unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator data contain systematic corruption (timing misconfiguration, frequency aliasing, sign inversion, or inverted feedback) that invalidates inter-stream and autocorrelation structure; resonator silence on day 12 is uninformative until audit resolves data integrity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental driver (gravitational shift, thermal gradient, building settling, or structural resonance) around day 12 couples selectively to pendulum apparatus; resonator apparatus is actively stabilized (PID servo feedback), physically decoupled, or insensitive by design—but resonator data corruption prevents use of silence as confirmatory evidence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum instrumentation (photogate + mechanical resonator assembly) has resonant response near 2-day timescale (~0.5 mHz), selectively amplifying environmental noise or thermal coupling at that frequency; or non-linear thermal coupling produces periodic pendulum response to smooth environmental driver.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

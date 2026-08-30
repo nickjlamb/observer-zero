@@ -1,0 +1,241 @@
+{
+  "source": "w0-seed9142.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 27,
+  "l4Judged": 27,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring genuinely different physical quantities or aspects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic instrumental drift or calibration error unfolding across the 10 days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High measurement noise or insufficient instrumental precision masking true signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or external coupling: all four streams react to unmeasured external variables differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental malfunction, misalignment, or systematic readout error in one or more streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period too short; true signal structure emerges only after ~10 days",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments measure genuinely different physical quantities or decouple from a common measurand",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Continuous instrumental drift or low-frequency gain/offset variation unfolding across baseline period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High white noise or measurement precision floor masking true signal; baseline period insufficient to separate signal from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or external coupling: unmeasured settlement conditions couple differentially to each instrument with different time constants",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments are miscalibrated, misaligned, or in instrumental failure mode from day 1",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical signal has autocorrelation or oscillation period longer than 10 days; baseline campaign is incomplete",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Each instrument measures a genuinely distinct physical quantity or couples to settlement conditions differently; cross-instrument decorrelation is expected and not anomalous.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Continuous instrumental drift or low-frequency gain/offset variation at different rates per instrument, causing self-decorrelation and opposite-direction drifts causing negative cross-correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise floor (white noise or instrumental precision limit) dominates signal variance; true signal smaller than noise; baseline period too short to separate signal from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmeasured environmental variables (temperature, pressure, vibration) couple differentially to each instrument with different time constants (2–5 day lags), causing variable-offset cross-correlations and self-decorrelation via rapid environmental fluctuation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments are miscalibrated or in partial failure mode from day 1, producing incoherent output that correlates neither with other instruments nor with itself.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True underlying physical signal has an autocorrelation timescale or oscillation period longer than ~14 days; baseline campaign is incomplete, and signal structure will emerge after day 20–30.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Noise dominance: true signal variance is much smaller than measurement noise variance; baseline period too short to resolve signal structure from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Differential instrumental drift at different rates and directions; post-baseline means diverge from baseline, causing self-decorrelation via non-stationary signal and cross-decorrelation via opposite-direction drifts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental variables (temperature, humidity, vibration) with differential coupling to each instrument (different sensitivities and time constants 2–5 days), causing variable-lag cross-correlations and self-decorrelation if environmental driver itself decorrelates at ~9–14 day timescale.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure genuinely distinct physical quantities or local microenvironments; zero cross-correlation is baseline expected; self-correlation collapse remains anomalous and unexplained under this hypothesis alone.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Partial instrumental failure or severe miscalibration from day 1 in one or more streams; incoherent output.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Signal timescale or oscillation period is longer than ~14–20 days; baseline is incomplete; signal structure and positive autocorrelations will emerge after day 20–30.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Noise dominance: true signal variance is much smaller than measurement noise variance; baseline period too short to resolve signal structure from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Differential instrumental drift at different rates and directions; post-baseline means diverge from baseline, causing self-decorrelation via non-stationary signal and cross-decorrelation via opposite-direction drifts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental variables (temperature, humidity, vibration) with differential coupling to each instrument (different sensitivities and time constants 2–5 days), causing variable-lag cross-correlations and self-decorrelation if environmental driver itself decorrelates at ~9–14 day timescale.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure genuinely distinct physical quantities or local microenvironments; zero cross-correlation is baseline expected outcome; self-correlation collapse remains anomalous and unexplained under this hypothesis alone.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Partial instrumental failure, severe miscalibration, or data acquisition artifact in one or more streams; output is incoherent or contaminated by systematic error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Signal timescale or oscillation period is longer than ~14–20 days; baseline is incomplete; signal structure and positive autocorrelations will emerge after day 20–30.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Noise dominance: true signal variance is much smaller than measurement noise variance; baseline period too short to resolve signal structure from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Differential instrumental drift at different rates and directions; non-stationarity in post-baseline period causes self-decorrelation via systematic offset from baseline and cross-decorrelation via opposite-direction drifts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental variables (temperature, humidity, vibration) with differential coupling to each instrument (different sensitivities and time constants 2–5 days), causing variable-lag cross-correlations; self-decorrelation occurs if environmental driver itself decorrelates at ~9–14 day timescale.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure genuinely distinct physical quantities or couple to distinct microenvironments; near-zero cross-correlation is baseline expected outcome; self-correlation collapse remains unexplained under this hypothesis.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Partial instrumental failure, severe miscalibration, or data acquisition artifact; output is incoherent or contaminated by systematic error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Signal timescale or oscillation period is longer than ~14–20 days; baseline is incomplete; positive autocorrelations will emerge after day 25–30.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Noise dominance: signal variance much smaller than measurement noise; baseline too short to resolve signal structure.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental or environmental instability: differential drift rates across streams and/or non-stationary noise structure causes self-decorrelation and variable cross-correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental driver with autocorrelation structure at ~9–14 day timescale couples to instruments differentially; environmental signal itself decorrelates negatively or oscillates, producing observed lag structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments or microenvironments measure genuinely distinct physical quantities; near-zero cross-correlation is expected and uninformative about instrument function.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instrumental failure, severe miscalibration, or data acquisition artifact; output incoherent or systematically corrupted.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Signal timescale or oscillation period longer than ~14–20 days; baseline incomplete; positive autocorrelations will emerge after day 25–30 as coherence interval accumulates.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified mechanism or combination of mechanisms not yet considered.",
+      "class": "other"
+    },
+    {
+      "label": "Noise dominance: true signal variance much smaller than measurement noise floor; baseline too short to resolve signal structure beneath white noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental or environmental instability: systematic drift, non-stationary noise, or time-varying coupling in at least one stream corrupts autocorrelation structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmeasured environmental driver with short-timescale (~8–14 day) autocorrelation structure couples differentially to instruments; environmental signal itself decorrelates or oscillates, producing observed lag patterns.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Signal oscillation or relaxation timescale ~14–21 days; baseline (10 days) is shorter than one coherence interval; positive autocorrelation will emerge after day 25–30.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental miscalibration, failure, or data acquisition artifact corrupting output coherence or introducing systematic bias.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

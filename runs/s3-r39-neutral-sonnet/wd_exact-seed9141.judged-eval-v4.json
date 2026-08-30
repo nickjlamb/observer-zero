@@ -1,0 +1,145 @@
+{
+  "source": "wd_exact-seed9141.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement noise alone",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Correlated environmental variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration drift or coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent measurement noise with stable baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak correlated environmental variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental coupling or calibration drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent measurement noise with stable baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak environmental coupling affecting pendulum_lab and resonator_obs",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing or recording artifact creating spurious correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or transcription artifact systematically linking pendulum_lab and resonator_obs measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine environmental coupling between pendulum_lab and resonator_obs with 3-day propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Computational or statistical artifact in my cross-correlation analysis code",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription artifact systematically linking pendulum_lab and resonator_obs measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Computational or statistical artifact in my cross-correlation analysis code",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental coupling between pendulum_lab and resonator_obs with 3-day propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription artifact systematically linking pendulum_lab and resonator_obs measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Computational or statistical artifact in my cross-correlation analysis code",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental coupling between pendulum_lab and resonator_obs with 3-day propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription artifact systematically linking pendulum_lab and resonator_obs measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Computational or statistical artifact in my cross-correlation analysis code",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental coupling between pendulum_lab and resonator_obs with 3-day propagation delay",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or transcription artifact systematically linking pendulum_lab and resonator_obs measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Computational or statistical artifact in my cross-correlation analysis code",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine environmental coupling between pendulum_lab and resonator_obs with 3-day propagation delay",
+      "class": "measurement_error"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "source": "wd_exact-seed9144.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 23,
+  "l4Judged": 23,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent measurement noise dominates all signals",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic environmental coupling exists but baseline period is too short to detect it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement discretization or computational artifact creates apparent uncorrelated structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are measuring genuinely different physical phenomena with no common mode",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Laboratory pendulum experiencing isolated environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation - baseline variance underestimated",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical signal affecting only gravitational/inertial measurements at laboratory site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Laboratory pendulum experiencing isolated environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation - baseline variance underestimated",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical signal affecting only gravitational/inertial measurements at laboratory site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Laboratory pendulum experiencing isolated environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation - baseline variance underestimated",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical signal affecting only gravitational/inertial measurements at laboratory site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Laboratory pendulum experiencing isolated environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation - baseline variance underestimated",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical signal affecting only gravitational/inertial measurements at laboratory site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Correlated data handling artifacts in recording or transcription",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in correlation search across multiple offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized environmental covariate affecting both instruments with 3-day transport/propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real but unexplained physical coupling between instruments through unknown mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Correlated data handling artifacts in recording or transcription",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in correlation search across multiple offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized environmental covariate affecting both instruments with 3-day transport/propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real but unexplained physical coupling between instruments through unknown mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic data handling artifact in recording or transcription pathway",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in multiple-comparison correlation search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental covariate with 3-day propagation delay affecting both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized physical coupling through exotic mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic data handling artifact in recording or transcription pathway",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in multiple-comparison correlation search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental covariate with 3-day propagation delay affecting both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized physical coupling through exotic mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic data handling artifact in recording or transcription pathway",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in multiple-comparison correlation search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental covariate with 3-day propagation delay affecting both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized physical coupling through exotic mechanism",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

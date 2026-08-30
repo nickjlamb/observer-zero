@@ -1,0 +1,149 @@
+{
+  "source": "w0-seed9148.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental periodic forcing (e.g., thermal, magnetic, or gravitational cycle with ~5–7 day period)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic drift or recalibration cycle in one or more instruments (including systematic observer bias in manual settings or reading transcription on a ~5–7 day rhythm)",
+      "class": "self_error"
+    },
+    {
+      "label": "Sampling or filtering artifact: correlation structure is an artifact of how I am selecting or binning readings, not a property of the underlying measurement process",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: I am over-interpreting noise and the apparent correlations are chance occurrences, especially due to multiple testing across many lags and offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or observer bias with ~5–7 day cycle (e.g., recalibration rhythm, transcription error pattern, or unlogged facility operations)",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental periodic forcing (~5–7 day cycle in temperature, magnetic field, or gravity), but with instrument-dependent responses or noise that obscure cross-instrument agreement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact: readings cluster by time-of-day or unlogged conditions; autocorrelation reflects my work routine, not instrumental or environmental periodicity",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact from multiple-lag testing: autocorrelations are within noise, and I am over-interpreting best-fit lags chosen from a large search space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown: a systematic bias or physical process not yet identified, possibly revealed by today's anomalous scattered readings",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement procedure or observer bias with ~5–7 day cycle (recalibration routine, zero-point adjustment, transcription pattern, or unlogged facility maintenance)",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental periodic forcing (~5–7 day cycle in temperature, magnetic field, or facility conditions) with instrument-dependent coupling or noise obscuring cross-instrument agreement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact: trials are clustered by time-of-day, day-of-week, or unlogged work routine; autocorrelation reflects my measurement schedule, not instrumental periodicity",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact from multiple-lag testing: autocorrelations are within noise, and I am over-interpreting best-fit lags chosen from a large search space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic bias or physical process not yet identified, possibly involving instrument interdependence, hidden environmental confounder, or an event on day 24–25 revealed only by forensic analysis of logs I have not yet compiled",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement procedure or observer scheduling bias with ~5–7 day cycle",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental periodic forcing (~5–7 day cycle) with instrument-dependent coupling obscuring cross-instrument agreement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact: trials clustered by time-of-day, day-of-week, or unlogged work routine; autocorrelation reflects my measurement schedule, not instrumental periodicity",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: autocorrelations are within noise; I am over-interpreting best-fit lags from multiple-comparison problem",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic bias or physical process not yet identified: instrument interdependence, hidden environmental confounder, or cryptic facility event on day 24–25",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab hardware fault or calibration drift on day 40 — isolated to one instrument, unrelated to the global autocorrelation mystery",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement scheduling or procedure bias with ~5–7 day cycle — shared work routine (e.g., intensive testing bursts, calibration day, administrative day) induces correlated within-stream autocorrelation in all four instruments independent of external drivers",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental periodic forcing (~5–7 day cycle, e.g., facility HVAC, thermal oscillation, geomagnetic variation) with instrument-specific coupling or phase shifts obscuring direct cross-instrument agreement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Selection bias in trial logging or reporting — I unconsciously cluster trials by time-of-day or operational state, inducing spurious autocorrelation independent of calibration or external drivers",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: autocorrelations are within noise due to multiple comparisons; I am over-interpreting best-fit lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic bias or cryptic physical process — unlogged facility event, instrument cross-talk, hidden environmental confounder, or data entry/transcription error undetected by value spacing and repetition checks",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

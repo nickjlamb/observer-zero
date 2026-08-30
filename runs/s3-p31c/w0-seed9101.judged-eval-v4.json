@@ -1,0 +1,225 @@
+{
+  "source": "w0-seed9101.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental coupling: shared environmental drift affecting both locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol difference between lab and observatory: systematic bias in observer or apparatus handling",
+      "class": "self_error"
+    },
+    {
+      "label": "Time-lagged common cause (e.g., atmospheric tide, diurnal cycle) affecting all instruments with frequency-dependent phase shifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unidentified calibration error or instrumental malfunction in resonator instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or environmental change specific to the observatory site around day 18",
+      "class": "self_error"
+    },
+    {
+      "label": "Gravitational or height-dependent systematic offset between lab and observatory, confounded with a real pendulum_obs drift on day 18",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared environmental driver (temperature, humidity, or tidal forcing) with frequency-dependent phase shifts, now visible as pendulum_obs instability",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or observer competence change at the observatory around day 18 (e.g., timing convention shift, apparatus misalignment, fatigue artifact)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator instruments are miscalibrated or drifting, yielding apparent anti-correlations with pendulums by systematic bias rather than true coupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or environmental change specific to observatory site around day 18, unrelated to lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental driver (temperature, humidity, or tidal cycle) with frequency-dependent phase delays, causing instrument-specific drift and negative cross-correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "True gravitational or height offset between observatory and lab sites, plus genuine day-18 drift in pendulum_obs",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement protocol or timing-convention change at observatory around day 18 (observer fatigue, apparatus misalignment, or beat-cycle definition shift)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator instruments are miscalibrated or have lower measurement fidelity, producing spurious or misleading correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental driver (thermal, tidal, or pressure cycle) with instrument-dependent response delays, plus independent local change at observatory around day 18",
+      "class": "environmental_change"
+    },
+    {
+      "label": "True gravitational (or height) offset between observatory and lab sites, plus independent observer protocol change or environmental disturbance at observatory around day 18",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Observer fatigue, protocol drift, or apparatus misalignment at observatory around day 18 (human factor, not environmental)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator instruments have lower measurement fidelity or systematic calibration error, producing spurious negative cross-correlations with pendulums",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent phenomena occurring simultaneously: constant g offset between sites + global tidal/thermal cycle with phase delays + local observer protocol change or environmental transient at observatory day 18",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental driver (thermal, pressure, or tidal cycle) with instrument-dependent phase delays, superimposed on a local observatory perturbation around day 18",
+      "class": "environmental_change"
+    },
+    {
+      "label": "True gravitational or elevation offset between observatory and lab sites (~0.49 difference in pendulum period implies ~2% g variation or ~200 m altitude difference), with the day-18 pendulum_obs shift caused by a local environmental transient unrelated to baseline offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer protocol change, apparatus misalignment, or local environmental disturbance at the observatory around day 17–19, causing the pendulum_obs level shift, independent of any global coupling mechanism",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact or calibration error in one or both resonator instruments, producing spurious negative correlations when compared to pendulums",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental driver (thermal, pressure, or tidal cycle) with instrument-dependent phase delays, plus a local observatory perturbation around day 18",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "True gravitational or elevation offset between observatory and lab sites (~49% period difference in baseline pendulum measurements), with the day-18 shift caused by a local environmental transient unrelated to the baseline offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer protocol change, apparatus misalignment, or local environmental disturbance at the observatory around day 17–19, causing the pendulum_obs level shift, independent of any global coupling mechanism",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact or measurement bias in resonator instruments (coarser resolution, averaging window, or calibration drift), producing false negative correlations when compared to pendulums",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic bias or coupling mechanism not yet considered; could involve instrumental resonances, observer-apparatus interaction, or environmental factors with non-linear or threshold behavior",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental transient or thermal event localized to observatory on day 34, affecting resonator_obs frequency measurement; unrelated to earlier day-18 pendulum_obs shift or systematic correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or intermittent measurement error in resonator_obs electronics or frequency-counting apparatus, unmasked on day 34",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The day-18 pendulum_obs level shift and day-34 resonator_obs excursion are coupled symptoms of a slow environmental oscillation (multi-cycle forcing with ~16–20 day period) affecting observatory instruments with different phase delays and amplitudes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement programme baseline is not yet established with sufficient statistical depth; observed anomalies (day-18 shift in pendulum_obs, day-34 excursion in resonator_obs) are within expected variability for n ≤ 200 trials per instrument and require more data before declaring a true anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Apparatus misalignment, thermal stress fracture, or mechanical fatigue in resonator_obs mounting, causing resonant frequency to shift upward on day 34; unrelated to other instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: genuine anomaly driven by a mechanism not yet considered (e.g., nonlinear instrument response to compound environmental drivers, observer protocol change specific to day 34, or artifact in data logging/timestamping)",
+      "class": "other"
+    },
+    {
+      "label": "Thermal transient or sustained thermal drift localized to observatory, affecting resonator_obs frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Intermittent or progressive electronics fault in resonator_obs apparatus (gain, reference clock, or frequency-counter calibration drift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multi-cycle environmental oscillation (barometric, thermal, or pressure-driven) with ~32-day period and site-specific coupling, causing day-18 pendulum_obs shift and day-34 resonator_obs elevation as separated phases",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline epoch insufficient; observed anomalies lie within expected variability for n≤100 trials per instrument; true baseline not yet established",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical misalignment, stress relief, or thermal-induced frequency shift in resonator_obs cavity or mounting",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Thermal transient or sustained thermal drift localized to observatory, affecting resonator_obs frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Intermittent or progressive electronics fault in resonator_obs (gain, reference clock, or frequency-counter calibration)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline epoch still insufficient; anomalies lie within plausible variability; reserve judgment until n≥100 post-baseline per instrument",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Multi-cycle environmental oscillation (~32-day period) with phase separation 16 days (day 18 → day 34), site-specific coupling to observatory instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical misalignment, stress relief, or thermal-induced frequency shift in resonator_obs cavity or mounting",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

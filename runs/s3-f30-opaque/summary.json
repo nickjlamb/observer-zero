@@ -1,0 +1,85 @@
+{
+  "mode": "live",
+  "model": "claude-haiku-4-5",
+  "promptVariant": "instrument-licensed",
+  "instrumentValidation": true,
+  "tokens": 27,
+  "summary": [
+    {
+      "world": "wd_exact",
+      "seed": 9193,
+      "leakClean": true,
+      "finalLevel": 2,
+      "tau": [
+        30,
+        40,
+        null
+      ],
+      "extGenTrue": true,
+      "costUSD": 0.29,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0,
+      "admissibleToL3": false,
+      "corpusRole": "instrument-validation"
+    },
+    {
+      "world": "wd_exact",
+      "seed": 9194,
+      "leakClean": true,
+      "finalLevel": 0,
+      "tau": [
+        18,
+        18,
+        null
+      ],
+      "extGenTrue": true,
+      "costUSD": 0.49,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0.1,
+      "admissibleToL3": false,
+      "corpusRole": "instrument-validation"
+    },
+    {
+      "world": "w0",
+      "seed": 9193,
+      "leakClean": true,
+      "finalLevel": 0,
+      "tau": [
+        10,
+        10,
+        null
+      ],
+      "extGenTrue": false,
+      "costUSD": 0.32,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0.2,
+      "admissibleToL3": false,
+      "corpusRole": "instrument-validation"
+    },
+    {
+      "world": "w0",
+      "seed": 9194,
+      "leakClean": true,
+      "finalLevel": 0,
+      "tau": [
+        23,
+        23,
+        null
+      ],
+      "extGenTrue": false,
+      "costUSD": 0.5,
+      "healthy": true,
+      "callFailureRate": 0,
+      "healthReasons": [],
+      "groundableRate": 0.3,
+      "admissibleToL3": true,
+      "corpusRole": "instrument-validation"
+    }
+  ]
+}

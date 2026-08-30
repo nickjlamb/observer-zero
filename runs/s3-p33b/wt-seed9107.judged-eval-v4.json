@@ -1,0 +1,301 @@
+{
+  "source": "wt-seed9107.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 32,
+  "l4Judged": 32,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring independent noise with no shared physical substrate",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling, undetected within 10-day baseline window",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly but measuring uncorrelated physical quantities (not a single unified baseline)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data acquisition or logging error: readings are being recorded correctly but timestamps or instrument identities are scrambled",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures genuinely independent noise with no shared physical substrate or repeating signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling on a 3–6 day timescale, masked by a 10-day baseline window that is too short to resolve full cycles",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly but measuring genuinely independent physical quantities (not components of a single system baseline), each with its own valid but uncorrelated signal",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data acquisition or logging error: readings recorded correctly but with systematic misalignment of instrument identity, day offset, or trial sequence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab instrument malfunction or recalibration event around day 11–15; other instruments unaffected because they measure independent physical quantities or are physically decoupled",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure genuinely independent stochastic processes (white noise or random walk), each with its own valid baseline; the 10-day baseline captured stable first moments but no coherence structure exists to find",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling on a 3–10 day timescale (thermal, seismic, or electromagnetic) with inverse or phase-delayed feedback, masked by a 10-day baseline window too short to resolve full oscillation cycles; pendulum_lab shift reflects entry into a new phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging or instrument-identity misalignment error: readings recorded with correct values but assigned to wrong instrument, trial sequence, or day bin; 5–10% contamination sufficient to collapse all correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Four instruments designed as independent measurement streams (not components of a unified baseline) and are functioning correctly; zero cross-correlation is expected by design",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab underwent a discrete hardware event (recalibration, mechanical shift, damping change, or thermal shock) around day 11–15; the other three instruments remain unaffected because they measure independent physical quantities or are physically isolated from the lab apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure genuinely independent stochastic processes (white noise, random walk, or stochastic drift), each with valid baseline statistics; the 10-day baseline captured stable first moments but no coherence structure exists.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling on a 3–10 day timescale (thermal, seismic, electromagnetic, or pneumatic) produces anti-correlated or phase-delayed feedback; the 10-day baseline window was too short to resolve full oscillation cycles, leaving the system partially phased such that correlated components cancel; the pendulum_lab shift reflects entry into a new quadrature.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging or instrument-identity misalignment error: readings recorded with correct values but assigned to wrong instrument, trial sequence, or day bin; systematic contamination of day 11–15 trials sufficient to produce the observed pendulum_lab shift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments measure independent physical quantities by design (lab-interior gravity gradient vs. settlement-wide motion vs. acoustic resonance vs. electromagnetic perturbation); zero cross-correlation is expected; each instrument has its own valid baseline.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab underwent discrete hardware recalibration or mechanical shift around day 11–15; other instruments remain unaffected because they measure physically decoupled subsystems or locations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure genuinely independent stochastic processes (white noise, random walk, or non-stationary drift); the 10-day baseline captured a stable first moment of the first phase, and post-baseline drift reflects natural state changes or sample variation in uncoupled noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling on a 3–10 day timescale (thermal, seismic, pneumatic, or electromagnetic) produces anti-correlated or phase-delayed feedback; the 10-day baseline window was too short to resolve full cycles, leaving the system phase-locked such that coherent components cancel or are phase-shifted; pendulum_lab shift reflects entry into a new quadrature or damped oscillation from the coupled system.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging, instrument misidentification, or trial sequence contamination around day 11–15; systematic mislabeling of a subset of trials (5–15%) such that pendulum_lab post-baseline bin contains readings from a different population or physical source.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments measure independent physical quantities by design (e.g., lab-interior gravity vs. settlement-wide motion vs. acoustic resonance vs. electromagnetic perturbation); zero cross-correlation is expected; each instrument has its own valid baseline and state-change history.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab experienced a transient disturbance (mechanical shock, thermal pulse, or calibration check) around day 11–15; the system is now recovering toward baseline, and today's higher readings reflect partial or oscillatory return.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure different physical quantities or spatial modes (e.g., lab-interior gravity vs. settlement-wide or regional motion); each instrument's baseline and drift reflect its own independent stochastic process; the step-change in pendulum_lab is real but decoupled from the others by design.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "All four instruments record independent white noise or non-stationary random processes; the baseline window (days 1–10, n=60–128) captured the empirical mean of phase one; post-baseline drift (z-values near −13 for pendulum_lab, < ±1 for others) reflects natural sampling variability and possible regime shift in the underlying stochastic process, not external physical coupling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data logging, trial labeling, or instrument assignment error around day 11–15; a subset of trials were mislabeled or assigned to the wrong bin (baseline vs. post-baseline), creating a spurious shift in pendulum_lab.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling on a 3–10 day timescale (thermal, seismic, or electromagnetic feedback) produces anti-correlated or phase-delayed signals; the 10-day baseline captured only one incomplete cycle, leaving the system phase-locked such that coherent oscillatory components are masked; today's reversion reflects entry into a new phase of an underlying oscillation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Transient mechanical or thermal disturbance in pendulum_lab around day 11–15; system recovering or oscillating back toward baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent physical modes or locations; the day-15 shift is real and localized; today's reversion is natural variability around a new stable equilibrium for pendulum_lab.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "All instruments record independent white noise or non-stationary stochastic processes; observed shifts and reversions are natural sampling variability and regime changes in underlying distributions.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data logging or trial assignment error around day 11–15; spurious shift created by mislabeling or misassignment of baseline vs. post-baseline trials.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation on a 3–10 day timescale (thermal, seismic, or electromagnetic); baseline window captured incomplete cycles; today's reversion reflects phase-dependent dynamics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized transient mechanical/thermal disturbance in pendulum_lab around day 11–15; system undergoing damped recovery or overshoot oscillation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent physical modes or spatially decoupled locations; day-15 shift is real and localized; today's readings reflect natural variability around a new equilibrium for pendulum_lab",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "All instruments record high-entropy independent noise or non-stationary stochastic processes; observed shifts and reversions are empirical mean fluctuations within underlying distributions",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data logging or trial assignment error around day 11–15; spurious shift created by mislabeling, misassignment, or sequence corruption",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation on a 3–10 day timescale (thermal, seismic, or electromagnetic); baseline window captured incomplete cycles; today's reversion reflects phase-dependent dynamics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Localized transient mechanical/thermal disturbance in pendulum_lab around day 11–15; system undergoing damped recovery or underdamped overshoot oscillation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent physical modes or spatially decoupled subsystems; post-shift mean (1.6509) is a valid new equilibrium for pendulum_lab, and today's elevated readings represent natural noise fluctuation around that equilibrium.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "All four instruments record high-entropy independent noise or non-stationary stochastic processes; observed shifts and reversions are empirical mean fluctuations within underlying distributions with time-varying parameters.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data logging or trial assignment error around day 11–15; spurious shift created by mislabeling, misassignment, or sequence corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental oscillation on a 3–10 day timescale (thermal, seismic, or electromagnetic coupling); baseline window (days 1–10) captured incomplete cycles, leading to misestimated baseline mean.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., gravitational anomaly, instrumental artifact not yet hypothesized, systematic external coupling not captured by the four instruments).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized transient mechanical/thermal shock to pendulum_lab around day 11–15, followed by slow underdamped recovery or friction-state redistribution",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent mechanical modes or spatial subsystems; post-shift mean (1.6509) is pendulum_lab's true equilibrium, and today's elevation represents short-lived excursion or unresolved damped oscillation within that system",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental oscillation (thermal, seismic, or EM) on a 3–10 day timescale; baseline window (days 1–10) captured incomplete oscillation cycles, misestimating true baseline mean",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging, trial assignment, or event-id corruption around day 11–15; observed shift is spurious",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental artifact, calibration drift, or gain change in pendulum_lab electronics or sensor coupling not yet hypothesized",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: gravitational anomaly, unknown external coupling, or physical mechanism not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized transient mechanical/thermal shock to pendulum_lab (day 11–15), followed by slow underdamped recovery or friction-state redistribution",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging, trial assignment, or event-ID corruption around day 11–15; observed shift is spurious",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent mechanical modes; post-shift mean (1.6509) is true equilibrium, today's elevation is short-lived excursion",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental oscillation (thermal, seismic, or EM) on a 3–10 day timescale; baseline window (days 1–10) captured incomplete oscillation cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental artifact, calibration drift, or gain change in pendulum_lab electronics or sensor coupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: gravitational anomaly, unknown external coupling, or physical mechanism not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized mechanical transient (shock/thermal) to pendulum_lab circa day 11–15, followed by prolonged friction redistribution or stick-slip recovery",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sustained upward drift or gain increase in pendulum_lab measurement chain (electronics, sensor, or data pipeline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or trial-assignment error introduced circa day 11–15, causing systematic upward bias in subsequent pendulum_lab records",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure independent mechanical modes; today's elevation in pendulum_lab is a damped excursion that will revert within 5–10 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Weak environmental oscillation (thermal, seismic, or EM) on 3–10 day timescale, undetectable at current sample resolution but phase-locked to pendulum_lab only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unknown instrumental, environmental, or physical mechanism",
+      "class": "incomplete_theory"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "source": "wd_exact-seed9141.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or environmental cycle with ~6–8 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument systematic bias or coupling; instruments are not independent",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or readout artefact: instruments are not drifting but reporting in a way that aliases environmental or instrumental state onto reading values",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random noise with spurious patterns at small sample sizes; all correlations are statistical flukes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental cycle ~6–8 days with opposite phase response in pendulum vs. resonator systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental forcing or measurement coupling, with propagation delays between lab and observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Readout or calibration artefact: instruments report a hidden state (e.g., reference drift, thermal expansion of measurement apparatus) aliased onto reading values, not physical drift of the measured quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical flukes from multiple comparisons at small sample sizes; no real signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unobserved: measurement schedule or operator procedure correlated with environmental state, e.g., trials clustered by time of day or week, creating artefactual lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental cycle ~6–8 days with differential phase response between pendulum and resonator systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement schedule or operator procedure creates artefactual lag structure (trials clustered by time of day, week, or maintenance cycle)",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental forcing (atmospheric, electrical, or thermal propagation) coupling lab and observatory with 1–6 day propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Readout or calibration bias (thermal drift of electronics, mechanical expansion) produces artefactual autocorrelations, not real physical variation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical flukes from multiple comparisons; no real signal, all correlations are noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unobserved mechanism (e.g., instrumental resonance to seismic noise, feedback oscillation in electronics, unknown environmental driver with exotic phase structure)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Perfect correlation r=1.000 is a computational or data-processing artefact (e.g., subsample of trials with identical reporting, aliased time-series window, or offset-matching error in cross-correlation code).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement schedule or operator procedure clusters trials by day-of-week, maintenance cycle, or local time-of-day, creating artefactual autocorrelations and lagged cross-correlations without real physical signal.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental cycle (~6–8 days: temperature, humidity, or atmospheric pressure) with differential phase response between pendulum and resonator systems, couples instruments at 3–6 day propagation delay.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared reference or feedback pathway between pendulum_lab and resonator_obs (e.g., one uses output of the other as a calibration standard with 3-day reporting delay) produces the r=1.000 correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Readout bias (thermal drift of electronics, mechanical expansion, or reference voltage variation on a 6–14 day cycle) creates artefactual autocorrelations and cross-correlations without real physical signal.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

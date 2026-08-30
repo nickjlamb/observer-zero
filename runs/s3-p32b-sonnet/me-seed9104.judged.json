@@ -1,0 +1,253 @@
+{
+  "source": "me-seed9104.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 22,
+  "l4Judged": 22,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are functioning correctly and measuring genuinely independent physical processes with no significant coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement error or calibration drift is obscuring real correlations between instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Insufficient data to detect real but weak correlations that exist between instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling specific to the observatory resonator location is causing genuine drift in the measured physical quantity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or systematic measurement error specific to resonator_obs is producing spurious elevation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation: the post-baseline sample has randomly sampled the high end of the baseline distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator measurement protocol has subtly changed for resonator_obs specifically, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "The instruments are measuring genuinely independent physical quantities with no direct coupling relationship",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates true signal variance, making any underlying correlations undetectable at current precision",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Time offset between when instruments respond to common driving forces exceeds the lag ranges tested in cross-correlation analysis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic differences in measurement timing or protocol between instruments prevent temporal alignment needed to detect correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "The cross-correlation analysis methodology has errors that systematically underestimate true correlation strength",
+      "class": "self_error"
+    },
+    {
+      "label": "A localized environmental perturbation affected only the laboratory building on day 18, where both pendulum_lab and resonator_obs are housed, while the observatory location was unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Both pendulum_lab and resonator_obs experienced independent instrument malfunctions or calibration drifts that coincidentally manifested on the same day",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide physical change occurred on day 18, but pendulum_obs and resonator_lab have insufficient sensitivity or inappropriate measurement ranges to detect it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The level change detection methodology produces false positives, and no real physical change occurred on day 18",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or transcription errors affected only pendulum_lab and resonator_obs records around day 18",
+      "class": "self_error"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred between days 18-21 affecting all instruments except resonator_lab, which has insufficient sensitivity or incompatible measurement principle to detect this particular phenomenon",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Three independent instruments experienced coincidental calibration drifts or malfunctions in the same 3-day window, while resonator_lab remained stable",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic change in my measurement or recording methodology occurred around days 18-21, affecting three instruments but not resonator_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "The level change detection methodology produces correlated false positives across instruments due to shared statistical properties in the baseline period",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab is the anomalous instrument — it should have shifted but did not due to malfunction or unique environmental isolation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around days 22-23 affecting pendulum_lab and resonator_obs, while pendulum_obs and resonator_lab either did not respond or responded below detection threshold",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent coincidental calibration shifts or malfunctions on consecutive days, while pendulum_obs and resonator_lab remained stable",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic change in my measurement or recording methodology occurred around days 22-23, selectively affecting pendulum_lab and resonator_obs but not the other two instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "The level change detection methodology produces correlated false positives due to statistical artifacts, and the true means have not shifted",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common environmental coupling (location, mounting, temperature source) that changed around days 22-23, while pendulum_obs and resonator_lab are isolated from this factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common environmental coupling (location, mounting, or environmental control system) that changed around days 23-25, while pendulum_obs and resonator_lab are isolated from this factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around days 23-25, but pendulum_obs and resonator_lab have lower sensitivity or different coupling mechanisms that place their responses below detection threshold",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent instrument malfunctions or calibration drifts on days 23-25, coincidentally temporally clustered",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic change in my measurement or recording methodology occurred around days 23-25 affecting pendulum_lab and resonator_obs selectively",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent instrument malfunctions, calibration drifts, or environmental perturbations at different times (day 22 and day 28 respectively), with no common cause linking the two events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common environmental coupling or location-specific factor, but the coupling produces delayed response in resonator_obs, with a 6-day lag between the triggering event and resonator_obs response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around day 22, with pendulum_lab responding immediately and resonator_obs responding after a 6-day integration or accumulation period, while pendulum_obs and resonator_lab have insufficient sensitivity or different coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic error in my measurement or recording methodology affecting pendulum_lab and resonator_obs selectively at different times",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent instrument malfunctions, calibration drifts, or environmental perturbations at different times (day 28 and day 32 respectively), with no common cause linking the two events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common environmental coupling or location-specific factor, but the coupling produces delayed response in pendulum_lab, with a 4-day lag following the resonator_obs shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around day 28, with resonator_obs responding immediately and pendulum_lab responding after a 4-day integration, accumulation, or threshold-crossing period, while pendulum_obs and resonator_lab have insufficient sensitivity or different coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic error in my measurement or recording methodology affecting resonator_obs around day 28 and pendulum_lab around day 32",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs experienced independent instrument malfunctions, calibration drifts, or environmental perturbations at different times (day 28 and day 32 respectively), with no common cause linking the two events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a common environmental coupling or location-specific factor, with resonator_obs responding immediately around day 28 and pendulum_lab responding after a 4-day delayed integration or threshold-crossing period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around day 28, with resonator_obs responding immediately and pendulum_lab responding after a 4-day integration period, while pendulum_obs and resonator_lab have insufficient sensitivity or different coupling mechanisms",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my measurement or recording methodology affecting resonator_obs around day 28 and pendulum_lab around day 32",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experienced an instrument malfunction, calibration drift, or environmental perturbation specific to its location around day 35, independent of earlier shifts in other instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide environmental change occurred around day 35, with resonator_obs showing the strongest response while other instruments have insufficient sensitivity or different coupling mechanisms",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs shares a location-specific environmental coupling with pendulum_lab, producing staggered responses (pendulum_lab day 32, resonator_obs day 35) due to different integration times or threshold-crossing dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my measurement or recording methodology affecting resonator_obs beginning around day 35",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experienced a transient instrument malfunction or environmental perturbation around days 35-38 that has now resolved, with the day 39 shift representing return toward baseline rather than a new anomaly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs is tracking a genuine oscillating environmental phenomenon with period approximately 10-15 days, with day 39 marking a phase transition from peak (days 36-38) to trough",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs experienced a permanent calibration shift around day 35, with day 39-40 readings representing a second independent shift in the opposite direction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement or recording error specific to resonator_obs during days 36-38 created spurious elevation, with day 39-40 readings representing correct instrument function",
+      "class": "self_error"
+    }
+  ]
+}

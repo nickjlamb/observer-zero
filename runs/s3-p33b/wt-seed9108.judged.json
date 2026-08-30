@@ -1,0 +1,265 @@
+{
+  "source": "wt-seed9108.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental drift (temperature, pressure, vibration) affecting all four instrument types systematically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument has genuine internal periodicity (electronic oscillation, mechanical resonance) that we are observing rather than the quantity we intend to measure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or timestamp error: readings are being shuffled or collated in a way that introduces spurious lag correlations without reflecting true physical signals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical coupling: the four measurement systems are responding to a genuine shared phenomenon (e.g., gravitational wave noise, cosmic ray rate modulation, or a settlement-scale effect) that has a natural ~5–8 day timescale",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument failure or saturation in pendulum_lab at trial 151",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental drift affecting all instruments with instrument-specific coupling and propagation delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument harbors internal periodicity (electronic oscillation, mechanical resonance, or feedback loop) unrelated to target measurement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or timestamp error introduced spurious lag correlations and/or trial 151 corruption",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial 151 entry is a typo or symbolic constant accidentally logged instead of measurement data",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Instrument failure, saturation, or signal inversion in pendulum_lab hardware at trial 151",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry error: −π was accidentally logged (typo, test constant, or symbolic entry) instead of actual measurement",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Shared environmental source (thermal, vibrational, or electromagnetic) with instrument-specific coupling constants and lag structure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal electronic oscillation or resonance contamination in each instrument (9–14 day cycles) unrelated to measurement target",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp or trial indexing corruption in the logging system introduced spurious lag correlations without affecting individual instrument stability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault in pendulum_lab (signal inversion, saturation, or overflow) with recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry or logging error: −π accidentally recorded as trial 151 value (placeholder, typo, or test constant)",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Shared environmental source (thermal, vibrational, EM) with instrument-specific coupling and lag structure explains baseline drift; trial 151 is a separate localized event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal resonance or feedback loop in measurement electronics (9–14 day cycles) unrelated to physical target",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp or trial indexing corruption in logging system introduced phantom lags without affecting per-instrument stability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault in pendulum_lab (signal inversion, saturation, or overflow) with recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry or logging error: −π recorded as trial 151 (placeholder, typo, or test constant inserted into live log)",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental source (thermal, vibrational, EM) with instrument-specific coupling and lag structure explains baseline drift in trials 1–150; trial 151 is a separate localized event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal resonance or feedback loop in measurement electronics (9–14 day cycles) unrelated to physical target",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp or trial indexing corruption in logging system introduced phantom lags without affecting per-instrument stability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared systematic artifact: common-mode logging or timestamp drift affecting all four channels with instrument-specific lags",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (signal inversion, saturation, or polarity reversal) around day 15, with autonomous recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry or logging error: trial 151 entry (−3.1416) inserted as a test constant or placeholder and not replaced",
+      "class": "self_error"
+    },
+    {
+      "label": "Internal resonance or feedback loop in measurement electronics (3–13 day natural frequencies) contaminating all four channels; trial 151 is a separate outlier",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp or trial indexing corruption in logging system misaligned readings across measurement runs without affecting individual instrument baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared systematic artifact in measurement pipeline: common timestamp, clock-drift, or trigger-distribution system introducing instrument-specific phase lags",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (signal inversion or saturation) around day 15, with autonomous recovery; unrelated to cross-correlation pattern",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp corruption: trial 151 is a placeholder or test constant that was never replaced; underlying measurement integrity intact",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement-to-measurement serial correlation or feedback in the logging pipeline: each trial's timestamp or digitization is correlated with previous trials at instrument-specific delays, creating the observed lag patterns",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic artifact or measurement-system coupling mechanism not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Shared systematic timing artifact in measurement pipeline (common clock, trigger distribution, or digitization delay)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (signal inversion, saturation, or polarity reversal) around day 15, with autonomous recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp corruption: trial 151 is a hard-coded constant or test script placeholder; underlying measurement integrity intact",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement-to-measurement serial correlation or feedback in logging pipeline (RC or IIR filtering on timestamp or ADC output with instrument-specific lag constants)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic artifact or measurement-system coupling mechanism not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Shared systematic timing artifact in measurement pipeline (common clock, trigger distribution, or digitization delay)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (signal inversion, saturation, or polarity reversal) around day 15, with partial recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp corruption: trial 151 is a hard-coded constant or test placeholder; underlying measurement integrity intact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-to-measurement serial correlation in logging or trigger pipeline (RC or IIR filtering on timestamp or ADC output with instrument-specific lag constants)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic artifact or measurement-system coupling mechanism not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Shared systematic timing or trigger artifact in measurement pipeline (common clock, ADC digitization delay, or trigger distribution latency)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (signal inversion, saturation, or polarity reversal) initiated around day 15, with partial recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp corruption: trial 151 is a hard-coded constant or test placeholder; underlying measurement integrity otherwise intact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-to-measurement serial correlation in logging or trigger pipeline: RC or IIR filtering on ADC output or timestamp with instrument-specific lag constants",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic artifact or measurement-system coupling mechanism not yet considered (magnetic cross-talk, environmental feedback, grounding or power-distribution issues, or settlement-specific timing artifact)",
+      "class": "other"
+    },
+    {
+      "label": "Shared timing or trigger artifact in measurement pipeline (common clock, ADC digitization delay, trigger distribution latency, or timestamp jitter)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab hardware fault (polarity inversion, saturation, or register overflow) initiated around day 15, with recovery by day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging or timestamp corruption: trial 151 is a hard-coded constant or test placeholder; underlying measurement integrity otherwise intact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-to-measurement serial correlation in logging or ADC output pipeline (IIR or RC filtering with instrument-specific lag constants)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic artifact or measurement-system coupling mechanism not yet considered (magnetic cross-talk, environmental feedback, grounding or power-distribution issues, settlement-specific timing artifact, or analysis bias)",
+      "class": "other"
+    }
+  ]
+}

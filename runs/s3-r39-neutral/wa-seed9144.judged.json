@@ -1,0 +1,297 @@
+{
+  "source": "wa-seed9144.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 44,
+  "l4Judged": 44,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely independent physical quantities",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Each instrument has significant instrumental noise or calibration drift unshared with others",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic environmental or procedural changes across the 10-day baseline period are not yet resolved from noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Time-lag structure in the data is an artifact of chance matching in short runs (n=12–36 per correlation)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational bias (pendulum timing, resonator counting) is larger than laboratory-controlled systematic error",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum system experienced a real physical change (e.g., temperature shift, mechanical tension adjustment, environmental coupling) around day 12 that does not affect the resonator system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum measurements (lab and obs) are contaminated by a correlated instrumental or observational artifact (e.g., systematic timing bias, manual observer drift, or clock calibration error) that emerged around day 12, unrelated to true physical drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The weak cross-correlations among all four channels (r≤0.55 for all pairs) reflect genuine measurement independence (instruments measure different physical properties or degrees of freedom), and the pendulum shift is a real physical change in one specific coupled mode",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparison inflation and small sample sizes (n=12–36 per lag) have produced spurious 'best matches' at various offsets; the apparent structure in offsets (4–8 days) and auto-lags (7–11 days) is noise-driven false discovery",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational procedure bias (observer fatigue, learned expectation, parallax, or timing anchor drift) is larger in pendulum_obs than I estimated, and the 'level shift' is partly real oscillation in the pendulum apparatus partly confounded with observer drift in the post-day-10 period",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum apparatus experienced a real, localized physical change around day 12 (temperature, tension, mechanical coupling) that resonators do not experience",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A systematic measurement artifact (timing calibration drift, observer fatigue or learned bias, optical path thermal drift) emerged around day 12 in pendulum measurement pathways only, unrelated to true physical change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator systems genuinely measure different physical properties or degrees of freedom; the day-12 pendulum shift is real and reflects excitation in a mode to which resonators do not couple",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias in pendulum_obs is substantial and confounds the apparent level shift; pendulum_lab shift is real, but pendulum_obs is partly or wholly artifactual",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias and small sample sizes (n=12–54 per lag, 120+ lag trials total) have inflated apparent correlations and time-lags; the observed offset structure (0, 2, 4, 6 days) is noise-driven false discovery",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum apparatus experienced a real, localized physical change around day 12 (mechanical, thermal, or gravitational) that resonators do not experience or to which they do not couple.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A systematic measurement artifact (timing calibration drift, observer fatigue/bias in beat-counting, or apparatus thermal drift in the optical/mechanical pendulum path) emerged around day 12 in both pendulum channels, confounding the level shift and leaving resonators unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely different physical degrees of freedom; the day-12 shift is real and reflects excitation in a pendulum-sensitive mode (gravitational, seismic, or inertial) to which resonators do not couple.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias in pendulum_obs is substantial and confounds the apparent level shift; pendulum_lab shift is credible, but pendulum_obs shift is partly or wholly artifactual.",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias and small post-baseline sample sizes (n=54–134 per instrument) have inflated apparent correlations and time-lags; the observed offset structure (0, 2, 4, 5 days) is partly noise-driven false discovery.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, or gravitational) that resonators do not couple to.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels (timing calibration drift, observer fatigue/bias in beat-counting, thermal drift in optical/mechanical path) emerged around day 12, confounding the level shift and leaving resonators unaffected.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely different physical degrees of freedom; the day-12 shift reflects excitation in a pendulum-sensitive mode (seismic, gravitational, or inertial) to which resonators do not couple; this is a real physical event, not an artifact.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs inflates post-day-10 readings; pendulum_lab shift is credible, but pendulum_obs shift is substantially artifactual.",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias in time-lag and offset searches has inflated apparent correlations; scattered offsets (0, 2, 4, 5 days) are partly noise-driven false discovery.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, or seismic) that does not couple to resonators",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels (calibration error, observer bias in beat-counting, thermal drift in timing path) introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely different physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (seismic, gravitational, or environmental inertial) to which resonators do not couple",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs inflates post-day-10 readings; pendulum_lab shift is credible, but pendulum_obs shift carries substantial independent artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias in time-lag and offset searches has inflated apparent correlations; scattered time offsets (0, 2, 3, 4, 6 days) across instrument pairs are partly noise-driven false positives",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels (calibration error, observer bias in beat-counting, thermal drift in timing path) introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, or seismic) that couples selectively to pendulum dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely different physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs inflates post-day-10 readings independent of pendulum_lab; pendulum_lab shift may be credible but pendulum_obs carries substantial artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias in time-lag and offset searches has inflated apparent weak correlations; scattered time offsets are partly noise-driven false positives",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels introduced around day 12 (observer bias, calibration error, thermal drift in optical path, or equipment state change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, seismic, or inertial reference frame shift) that couples selectively to pendulum dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely independent physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (e.g., ground motion, inertial drift) invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs (fatigue, expectation bias, time-of-day drift in manual beat-counting) inflates post-day-10 readings independent of pendulum_lab signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact or bias in correlation/lag-search methodology: scattered time offsets and weak cross-correlations are partly noise-driven false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact introduced around day 12 in pendulum channels only (observer bias, calibration drift, thermal or optical instability, equipment state change, or session-protocol shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, seismic, or inertial reference frame shift) that couples selectively to pendulum dynamics but not resonator dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely independent physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (seismic ground motion, inertial drift, or apparatus support motion) invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs (fatigue, expectation bias, time-of-day drift in manual beat-counting) inflates post-day-10 readings independent of pendulum_lab signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact or bias in correlation/lag-search methodology: scattered time offsets and weak cross-correlations are partly noise-driven false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels only (observer bias, calibration drift, thermal/optical instability, equipment state change, or session-protocol shift around day 12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, seismic, or inertial reference frame shift) that couples selectively to pendulum dynamics but not resonator dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely independent physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (seismic ground motion, inertial drift, apparatus support motion, or local gravitational perturbation) invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs (fatigue, expectation bias, time-of-day drift in manual beat-counting) inflates post-day-10 readings independent of pendulum_lab signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact in inter-instrument correlation/lag-search methodology: scattered time offsets and weak cross-correlations are partly noise-driven false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels only (observer bias, calibration drift, thermal/optical instability, equipment state change, or session-protocol shift around day 12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus around day 12 (mechanical, thermal, gravitational, seismic, or inertial reference frame shift) that couples selectively to pendulum dynamics but not resonator dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely independent physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (seismic ground motion, inertial drift, apparatus support motion, or local gravitational perturbation) invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs (fatigue, expectation bias, time-of-day drift in manual beat-counting) inflates post-day-10 readings independent of pendulum_lab signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact in inter-instrument correlation/lag-search methodology: scattered time offsets and weak cross-correlations are partly noise-driven false positives from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Systematic measurement artifact in pendulum channels only (calibration drift, optical/thermal instability, equipment state change, or protocol shift on/around day 12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical perturbation of pendulum apparatus or inertial reference around day 12 (mechanical support shift, mass redistribution, gravitational/seismic boundary condition change) that couples selectively to pendulum modes but not resonator modes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator systems measure genuinely independent physical degrees of freedom; day-12 shift reflects real excitation in a pendulum-sensitive mode (seismic ground motion, gravitational perturbation, apparatus support motion, or local inertial drift) invisible to resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias specific to pendulum_obs (fatigue, expectation bias, time-of-day drift in manual beat-counting, or protocol change on day 12) inflates post-day-10 readings independent of optical signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Artifact in inter-instrument correlation/lag-search methodology: scattered time offsets and weak cross-correlations partly reflect noise-driven false positives from multiple-comparisons bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unobserved or undocumented event on/around day 12 (maintenance, recalibration, personnel change, software update, thermal transient, magnetic field change, optical gain adjustment, or apparatus relocation unlogged in available records)",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

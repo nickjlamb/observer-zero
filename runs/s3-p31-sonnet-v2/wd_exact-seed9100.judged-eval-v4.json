@@ -1,0 +1,101 @@
+{
+  "source": "wd_exact-seed9100.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 6,
+  "l4Judged": 6,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "No anomaly — instruments performing normally within expected measurement variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle calibration drift in one or both instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural error — baseline establishment was simply overlooked or deprioritized for resonator_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab was commissioned after day 10 — all 66 trials are legitimately post-baseline chronologically but no baseline period was defined",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab baseline data exist but were not properly marked or analyzed in the notebook",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural error — baseline establishment was simply overlooked or deprioritized for resonator_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab was commissioned after day 10 — all 166 trials are legitimately post-baseline chronologically but no baseline period was defined",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab baseline data exist but were not properly marked or analyzed in the notebook",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural error — baseline establishment was simply overlooked or deprioritized for resonator_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab was commissioned after day 10 — all 186 trials are legitimately post-baseline chronologically but no baseline period was defined",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab was commissioned after day 10 — all 246 trials are legitimately post-baseline chronologically but no baseline period was defined",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural error — baseline establishment was simply overlooked or deprioritized for resonator_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab baseline data exist but were not properly marked or analyzed in the notebook",
+      "class": "self_error"
+    }
+  ]
+}

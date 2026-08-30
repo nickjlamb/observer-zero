@@ -1,0 +1,125 @@
+{
+  "source": "wd_pendpair-seed9100.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument resolution is finer than environmental noise; each reading resolves genuine sub-trial variation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data recording or timestamping process introduces artificial distinctness (e.g., decimal rounding, systematic offset per trial)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline establishment protocol itself introduces coupling between trials; measurement procedure is not truly independent",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement system is not actually continuous; it quantizes or selects from a discrete set, but set size equals trial count",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two physically distinct measurement regimes: pendulum_lab measures damped/controlled oscillation; pendulum_obs measures free or driven oscillation in open environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration or zero-offset error in one or both channels: systematic bias in pendulum_obs recording (e.g., timestamp offset, digitization constant) or pendulum_lab baseline miscalculation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs baseline never established; trial sequence is not yet stable, exhibiting slow drift or initialization artifact that mimics a distinct physical oscillation",
+      "class": "self_error"
+    },
+    {
+      "label": "Perfect distinctness in both datasets reflects instrumental quantization at the edge of resolution: event IDs or trial indices are encoding measurement values or vice versa, conflating metadata with data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Both datasets reflect genuine independent physical systems (e.g., two separate pendulums, or two measurement points on one pendulum with different dynamics), not anomalies",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or zero-offset error: pendulum_obs has systematic additive bias (e.g., digitizer constant, timestamp offset, or baseline miscalculation) yielding false +0.83 beat offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two physically distinct measurement regimes: pendulum_lab and pendulum_obs capture different oscillation modes or operate under different boundary conditions (damped vs. free, confined vs. open air)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "pendulum_obs baseline never established; measurement apparatus or operator technique not yet thermally or mechanically settled as of day 30, yielding transient data masquerading as stable oscillation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data integrity anomaly: perfect distinctness in both datasets reflects event ID encoding or metadata contamination, not genuine physical variation; recorded beat values may be derived from (trial_counter XOR event_id) or similar function, artificially enforcing uniqueness",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "No anomaly: pendulum_lab and pendulum_obs refer to two separate physical installations or measurement modes (documented in protocol but not reproduced in my notebook here); all observations are consistent with two independent, correctly-functioning systems",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or zero-offset error in pendulum_obs recording chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two physically distinct pendulum systems or measurement modes, not documented in my notebook",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Perfect distinctness arises from metadata encoding or data-integrity contamination, not physical variation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs not yet stabilized; transient initialization artifact dominates early trials, masking true baseline",
+      "class": "self_error"
+    },
+    {
+      "label": "No anomaly: pendulum_lab and pendulum_obs are documented as two separate systems in the settlement protocol",
+      "class": "measurement_error"
+    }
+  ]
+}

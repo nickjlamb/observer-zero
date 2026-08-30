@@ -1,0 +1,357 @@
+{
+  "source": "mb-seed9103.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 31,
+  "l4Judged": 31,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental resolution + environmental noise (mundane)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental quantization + systematic drift masking discrete steps",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Uncontrolled experimental procedure injecting non-random correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Event ID sequence encodes instrument state; readings are pseudo-random, not independent",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry or transcription error; readings are post-hoc fabricated or filtered",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Unknown systematic effect (residual)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical effect: pendulum period genuinely lengthened on day 13, but pendulum_obs measures a different quantity or operates at a different scale",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instrumental drift or calibration change in pendulum_lab around day 11–12, unrelated to true physical change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs has not yet entered a baseline regime; its 10 trials are all post-baseline and cannot be compared to pendulum_lab baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Experimental procedure or operator behavior changed between day 10 and day 11, introducing systematic bias into pendulum_lab post-baseline trials",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, transcription, or post-hoc filtering applied differently to pendulum_lab post-baseline vs. baseline, or to pendulum_obs vs. pendulum_lab",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical systems or quantities; the level shift in pendulum_lab is real, but pendulum_obs is unaffected because it is decoupled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unknown or unconsidered systematic effect acting on pendulum_lab alone (e.g., magnetic coupling, resonance locking, environmental transient) around day 11",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine instrumental drift or calibration failure around day 11, unrelated to true physical change; pendulum_obs is a genuinely independent system (different apparatus, location, or method) and provides no constraint on whether the shift is real.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs do measure the same or closely coupled physical system (same pendulum or shared environment), and the level shift in pendulum_lab around day 11 reflects a real physical change (temperature, gravity, atmospheric pressure, or systematic environmental perturbation). Pendulum_obs fails to show a matching level change because it was *not yet baselined* when the perturbation occurred (started day 12, after the shift); its subsequent stable mean ~2.59 represents the post-shift regime, not an independent baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or operator change on day 10–11 altered the measurement method, timing, or data recording for pendulum_lab specifically (e.g., different operator, different time-of-day, different starting phase for stopwatch, apparatus relocation), producing systematic bias *in pendulum_lab only* without reflecting true physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, transcription, filtering, or post-hoc processing was applied *differently* to pendulum_lab baseline (days 1–10) vs. post-baseline (days 11–13), or to pendulum_obs as a whole, introducing artificial level shift or offset unrelated to true measurement.",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was established under conditions (e.g., apparatus cold, room stabilizing, setup incomplete) that are not representative of the true long-term instrument state. The 'post-baseline' mean 1.6990 is actually the *true* baseline, and day 11 marks the start of a stable regime, not a drift or perturbation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical quantities or systems (e.g., different pendulums, different measurement principle, different environmental location) that are not expected to correlate. The level shift in pendulum_lab is real (physics or drift), but pendulum_obs is an independent control and provides no constraint on its interpretation.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unknown or unconsidered systematic effect (e.g., magnetic interference introduced on day 11, resonance locking with building vibration, air conditioning cycle change, electrical noise coupling into photogate, operator fatigue or bias) acting selectively on pendulum_lab.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab experienced instrumental drift or calibration failure around day 10–11 (photogate zero-point shift, thermal equilibration, mechanical play); pendulum_obs is a genuinely independent apparatus/location/method providing no constraint on whether the shift is real or instrumental.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure the same or closely coupled physical system, and the day 11 level shift in pendulum_lab reflects a real physical environmental change (temperature, pressure, gravity gradient, or systematic perturbation). Pendulum_obs lacks a baseline from before day 12, so we cannot distinguish whether it *also* shifted; if coupled, its stable post-shift mean ~2.59 would reflect the new physical regime, not independence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or operator change on day 10–11 altered the measurement method, timing, recording apparatus, or apparatus location for pendulum_lab specifically (e.g., switched from manual stopwatch to photogate, different operator, apparatus moved, different time-of-day protocol), producing systematic bias in pendulum_lab only without reflecting true physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, post-hoc filtering, deduplication, or processing rules were applied *differently* to pendulum_lab baseline (days 1–10) vs. post-baseline (days 11–13), or to pendulum_obs as a whole, introducing artificial level shift unrelated to true measurement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was established under transient or non-equilibrium conditions (apparatus cold, room unstabilized, setup incomplete) not representative of true long-term instrument state. The post-baseline mean 1.6990 is actually the *true* steady-state baseline; day 11 marks entry into stable regime, not a drift or perturbation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are *designed* to be independent systems measuring different physical quantities or different apparatus (e.g., different pendulums, different measurement principles, different environmental locations). The level shift in pendulum_lab is real or instrumental, but pendulum_obs provides no constraint on interpretation because it is a separate control.",
+      "class": "other"
+    },
+    {
+      "label": "Residual: unknown or unconsidered systematic effect (e.g., magnetic interference introduced day 11, resonance locking with building vibration, air conditioning activation, electrical noise coupling, operator fatigue or bias) acting selectively on pendulum_lab.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental drift or calibration failure in pendulum_lab around day 10–11 (photogate zero-point shift, thermal equilibration, mechanical transition); pendulum_obs is independent apparatus or location providing no constraint on lab interpretation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure the same or coupled physical system; the day 11 level shift in pendulum_lab reflects a real environmental change (temperature, pressure, gravity gradient, perturbation); pendulum_obs baseline gap prevents determining whether it also shifted in the same proportion.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure, apparatus, or operator protocol changed for pendulum_lab specifically between day 10–11 (switched measurement method, operator handover, apparatus repositioned, time-of-day changed), producing systematic bias without reflecting true physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Post-hoc data processing rules applied differently to pendulum_lab baseline vs post-baseline, or to pendulum_obs as a whole (deduplication, rounding precision, filtering thresholds, software version differences), creating artificial level shift and zero exact-repetition anomaly unrelated to true measurement or physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was established during transient/non-equilibrium phase (apparatus cold, room unstabilized, setup incomplete); post-baseline mean 1.6990 represents true steady-state; day 11 marks entry into stable regime, not drift or perturbation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are designed as independent control systems measuring different physical quantities or apparatus; level shift in pendulum_lab is interpreted on its own merits; inverse correlation or offset is unproblematic.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown or unconsidered systematic effect (magnetic interference, building resonance, air conditioning activation, electrical noise coupling, operator fatigue/bias) acting selectively on pendulum_lab around day 11.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data-processing artifact: different precision, deduplication, or filtering rules applied to pendulum_lab baseline vs post-baseline or to pendulum_obs pipeline, creating spurious level shift and eliminating coincidental exact repeats.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or physical perturbation around day 11–13 affecting pendulum_lab; pendulum_obs absence of baseline (no pre-day-12 data) prevents determining whether it also shifted proportionally or was decoupled by design.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab instrumental calibration shift around day 11 (photogate zero-point offset, thermal equilibration of mechanical assembly, or discrete component failure); pendulum_obs is independent apparatus providing no constraint, or decoupled by design.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab measurement procedure or operator protocol changed between day 10–11 (apparatus repositioning, method switch, time-of-day protocol change, operator handover), producing systematic bias without reflecting true physical change; pendulum_obs measured under stable protocol.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was contaminated by transient non-equilibrium (apparatus cold-start, room environmental settling, operator learning curve); post-baseline mean 1.6990 reflects true steady-state; day 11 marks end of transient phase, not onset of drift or perturbation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately designed as independent control measurements (measuring different physical quantities, different apparatus, or different locations) with no expectation of concordance; level shift, mean offset, and inverse correlation are each unproblematic and do not require joint explanation.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown or unconsidered systematic effect (magnetic interference, building resonance, air conditioning activation, electrical noise coupling, circadian operator fatigue or bias, seasonal gravity gradient, or instrumentation-specific software bug) acting selectively on one or both instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection or processing pipeline artifact: different precision, quantization, deduplication, or logging structure applied to baseline vs. post-baseline phases or between instruments, creating spurious level shift and eliminating natural exact repeats.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or instrumental perturbation around day 11–13 affecting pendulum_lab's transduction (thermal drift, mechanical settling, photogate zero-point shift), with pendulum_obs independent or decoupled by design/location.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab measurement procedure or operator protocol changed between days 10–11 (apparatus repositioned, sensor relocated, trial initiation method switched, or operator handover), producing systematic bias independent of true physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was contaminated by transient non-equilibrium (apparatus cold-start, thermal or mechanical settling, operator learning curve); post-baseline readings after day 11 represent true stable steady-state.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately independent control measurements (measuring different physical phenomena or apparatus), with no expectation of concordance; level shift, offset, and inverse correlation are each unproblematic.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (magnetic interference, building resonance, air-conditioning cycle, electrical noise coupling, circadian operator fatigue, or instrumentation-specific software bug) acting selectively on one or both instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection or processing pipeline artifact: baseline (days 1–10) and post-baseline (day 11+) phases used different recording, precision, quantization, or deduplication protocols, creating spurious level shift and eliminating natural exact repeats.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real instrumental perturbation affecting pendulum_lab around day 11–13 (photogate zero-point drift, thermal stabilization, mechanical settling, electronic component aging), independent of data collection regime.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab measurement procedure or operator protocol changed discretely between days 10–11 (apparatus repositioned, sensor relocated, trial initiation method switched, operator handover), producing systematic bias independent of true physical change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was contaminated by transient non-equilibrium (apparatus cold-start, thermal or mechanical settling, operator learning curve); post-baseline readings represent true stable steady-state unaffected by new instrumentation or procedure.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately independent instruments measuring different physical phenomena or apparatus configurations; absence of concordance, level shift, and anticorrelation are expected and unproblematic.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (magnetic interference, building resonance, air-conditioning cycle, electrical noise coupling, instrumentation-specific software bug, or environmental variable not yet recorded) acting selectively on one or both instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection or processing pipeline artifact: baseline and post-baseline phases used different recording precision, quantization, deduplication, or logging protocols, creating spurious level shift and eliminating natural exact repeats.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real instrumental perturbation affecting pendulum_lab around day 11–13 (photogate zero-point drift, thermal stabilization, mechanical settling, or component aging), independent of logging regime.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab measurement procedure or operator protocol changed between days 10–11 (apparatus repositioned, sensor relocated, trial initiation method switched, operator handover), producing systematic bias.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) was contaminated by transient non-equilibrium (apparatus cold-start, thermal settling, mechanical break-in); post-baseline readings represent true stable state.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately independent instruments measuring different phenomena or apparatus configurations; absence of concordance is expected.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (magnetic interference, software bug, building resonance, electrical noise coupling, environmental variable not yet logged) acting selectively on one or both instruments.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection pipeline artifact: baseline and post-baseline phases used different recording precision, quantization, deduplication, or logging protocols",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real instrumental perturbation affecting pendulum_lab around day 11–13, compounded by logging regime change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline was contaminated by apparatus non-equilibrium (thermal or mechanical settling); post-baseline represents true stable state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change in measurement protocol (apparatus repositioned, sensor relocated, operator handover, stopwatch-to-automated transition) between days 10–11",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately decoupled instruments measuring different phenomena; absence of concordance is expected",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (software bug, environmental variable not yet logged, magnetic interference, building resonance) acting selectively or globally",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection pipeline artifact: baseline and post-baseline phases employed different recording precision, quantization, or deduplication protocols, creating an apparent instrumental shift that is entirely an artifact of measurement regime change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine instrumental perturbation in pendulum_lab around days 11–13 (thermal zero-point shift, bearing friction, sensor aging, or mechanical settling), coincidentally occurring when logging automation was introduced, with the zero-repetitions anomaly explained separately by the logging regime change.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab baseline was contaminated by apparatus non-equilibrium (thermal or mechanical settling); post-baseline readings represent the true stable state after equilibration.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete procedural change (apparatus repositioned, sensor relocated, operator handover, or stopwatch-to-automated transition) occurred between days 10–11, producing the level offset.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately independent instruments measuring different physical phenomena; absence of concordance and differing statistical properties are expected by design.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (software quantization bug, environmental variable not yet logged, magnetic interference, building resonance, or AC electrical noise) acting selectively or globally.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Post-baseline automated logging applies deterministic deduplication or quantization-floor filtering that eliminates chance repeats; baseline hand-recording at coarser precision allowed natural repeats; the level shift in pendulum_lab is a reporting artifact of precision change, not physical drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine instrumental perturbation in pendulum_lab around days 11–13 (thermal equilibration lag, bearing friction change, or sensor aging) produced real physical drift; the zero-repetition anomaly is explained separately by logging regime change and deduplication.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab baseline was thermally or mechanically non-equilibrated during days 1–10; post-baseline readings represent the true stable equilibrium state after 10+ days of settling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete procedural change between days 10–11 (apparatus repositioned, sensor relocated, operator handover, measurement method transition) produced the level offset; logging automation is coincidental.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are deliberately independent instruments measuring unrelated physical phenomena; zero-repetition anomaly and lack of concordance are expected by design.",
+      "class": "other"
+    },
+    {
+      "label": "Unknown systematic effect (unlogged environmental variable, software quantization bug beyond deduplication, magnetic interference, AC electrical noise, building resonance, or undocumented sensor drift) acts selectively or globally; the zero-repetition anomaly and level shift have distinct mechanisms not yet enumerated.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

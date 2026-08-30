@@ -1,0 +1,153 @@
+{
+  "source": "w0-seed9142.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are functioning as designed with independent noise sources",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Subtle coupling exists but requires longer baseline or different analysis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement error or calibration drift masks true relationships",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift or environmental factor affecting resonator_obs specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation in resonator_obs that will regress to baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical phenomenon affecting time measurement differently at observatory vs laboratory locations",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently sampling uncorrelated true variation in their respective measurands",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high instrument noise or operates on timescales not captured by these offset windows",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data collection or analysis error is producing spuriously independent-looking series",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical isolation between laboratory and observatory locations is extremely effective, while within-location instruments have uncorrelated noise sources",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently sampling uncorrelated true variation in their respective measurands",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high instrument noise or operates on timescales not captured by these offset windows",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data collection or analysis error is producing spuriously independent-looking series",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical isolation between laboratory and observatory locations is extremely effective, while within-location instruments have uncorrelated noise sources",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently sampling uncorrelated true variation in their respective measurands",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high instrument noise or operates on timescales not captured by these offset windows",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data collection or analysis error is producing spuriously independent-looking series",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical isolation between laboratory and observatory locations is extremely effective, while within-location instruments have uncorrelated noise sources",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently sampling uncorrelated true variation in their respective measurands",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high instrument noise or operates on timescales not captured by these offset windows",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data collection or analysis error is producing spuriously independent-looking series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical isolation between laboratory and observatory locations is extremely effective, while within-location instruments have uncorrelated noise sources",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently sampling uncorrelated true variation in their respective measurands",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental coupling exists but is masked by high instrument noise or operates on timescales not captured by these offset windows",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data collection or analysis error is producing spuriously independent-looking series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical isolation between laboratory and observatory locations is extremely effective, while within-location instruments have uncorrelated noise sources",
+      "class": "environmental_change"
+    }
+  ]
+}

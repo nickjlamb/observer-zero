@@ -1,0 +1,197 @@
+{
+  "source": "wd_exact-seed9145.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 27,
+  "l4Judged": 27,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration offset between 'lab' and 'obs' measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized time-varying environmental forcing with period ~5–8 days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent measurement noise in 'lab' vs 'obs' pipelines masks true correlation at zero lag",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift with different timescales in different channels, not yet apparent as level changes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-talk or aliasing in the data acquisition or logging system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Onset of slow instrumental drift now becoming visible; different instruments drifting at different rates and phases",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration offset between lab and obs chains, now manifesting as elevated measurement noise on Day 20 due to environmental or operator variance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 20 environmental transient (temperature spike, vibration, pressure wave, or settlement activity pulse) coupling with variable phase and amplitude to all four channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent measurement noise in lab vs obs channels, with Day 20 representing a rare high-variance realization from the same noise distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data acquisition or logging anomaly on Day 20: transient misconfiguration, buffer overflow, or clock glitch affecting one or more channels' time-alignment or sample integrity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized operator, procedural, or environmental factor specific to Day 20 (e.g., calibration skip, operator fatigue, settlement event, power transient, or instrument handling)",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 20 environmental transient (temperature spike, vibration, settlement activity, or power event) caused synchronized elevated scatter across all channels without permanent drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 20 operator, calibration, or procedural anomaly (recalibration skip, operator fatigue, instrument handling, power transient, or logging misconfiguration) that is not visible in the data itself but caused elevated measurement noise that day",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent measurement noise: Day 20 and Day 30 both represent rare high-variance realizations from the same underlying white or near-white noise distribution (SD ~0.02–0.03 per channel); no systematic cause required",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration offset between lab and obs chains (fixed offset, not time-dependent), with Day 20 and Day 30 scatter arising from second-order environmental or operator variance unrelated to the offset itself",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow instrumental drift in one or more channels, now becoming visible as increased scatter on days when the drift crosses certain calibration thresholds or resonances, with Day 20 and Day 30 marking two such threshold crossings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data acquisition or logging anomaly on Day 20 (transient misconfiguration, time-alignment glitch, buffer corruption, or channel swap) that left detectable artifacts in correlations or residuals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Perfect correlation is a statistical artifact of multiple-comparison hunting across 36 tested lags and 6 instrument pairs (216 total comparisons), and the 1.000 agreement is noise masquerading as signal because the chance threshold for the best match across all offsets tried is ±0.287—a threshold that scales with repeated testing.",
+      "class": "self_error"
+    },
+    {
+      "label": "A transient environmental or operational disturbance on Day 20 (temperature spike, vibration, power event, or operator procedure break) synchronized elevated scatter across all four channels without producing a persistent drift or level shift; Day 30 scatter is a separate, independent realization of the same underlying noise distribution and does NOT indicate that Day 20 is repeating.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 20 operator, calibration, or procedural anomaly (skipped calibration check, operator fatigue, instrument handling incident, brief power transient, or logging misconfiguration) that increased measurement noise locally without leaving impossible or out-of-envelope values; Day 30 scatter is independent and unrelated to Day 20.",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 20 and Day 30 scatter are both independent samples from the same underlying white or near-white noise distribution with SD ~0.02–0.03 per channel; no systematic cause is required, and the similarity in scatter magnitude is pure coincidence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data integrity issue in my own cross-check computation: the 1.000 pendulum_lab ↔ resonator_obs agreement at 3-day lag is a reporting error, duplicate paste, or unintended data merge, and must be re-examined by re-running the correlation from raw logs.",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_obs has drifted or shifted its calibration between baseline and post-baseline periods; the Day 33 level change is the visible edge of an actual instrumental drift that began earlier but only became statistically clear by Day 33 due to sample accumulation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A transient external disturbance (thermal, vibrational, electromagnetic, or operational) affected the pendulum_obs measurement chain specifically on Days 32–33, raising noise or inducing a temporary systematic offset that does not reflect true pendulum period change and will not persist if the disturbance is isolated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The perfect 1.000 correlation between pendulum_lab and resonator_obs at 3-day lag (n=102) is a data integrity error—duplicate data pasted into both columns, a trial-indexing misalignment, or a computation mistake in my cross-check script—and does not reflect a real physical signal. Removal of this erroneous correlation restores confidence in independent measurement channels.",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 20 and Day 33 represent independent realizations of elevated noise in the measurement system(s), both driven by random process variation or separate transient environmental events, with no systematic cause or cross-day connection. The statistical synchronization of Day 20 scatter across all four channels was coincidental or driven by an unrecorded one-time event; Day 33 anomaly in pendulum_obs alone reflects a separate, unrelated disturbance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The Day 33 level change in pendulum_obs is a statistical artifact of small-sample variance at the tail of the dataset (trials 193–198 represent only 6 final trials out of 198 total); the z≈3.2 flag is a false positive from multiple-comparison corrections or a binning artifact, and no real anomaly exists.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 34 pendulum_lab cluster is the leading edge of instrumental drift that will persist into subsequent days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 34 pendulum_lab cluster and Day 33 pendulum_obs level change are independent transient disturbances (separate events affecting each channel), not systematic drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Perfect 1.000 correlation between pendulum_lab and resonator_obs (3-day lag, n=102) is a data integrity error (duplicate, misalignment, or computation bug), invalidating any cross-channel inference until resolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 34 pendulum_lab and resonator_lab clusters are statistical flukes (high-variance samples from a noise distribution with no systematic cause), masking the true question as one of noise characterization rather than drift or forcing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The Day 33 pendulum_obs level change (z≈3.2) is a statistical artifact from post-hoc boundary scanning or inadequate multiplicity correction; the flagged anomaly is a false positive and should be disregarded pending clarification of the statistical test",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Perfect correlation is a data handling error: trial-log misalignment, accidental duplication, or computation bug in cross-check code",
+      "class": "self_error"
+    },
+    {
+      "label": "Perfect correlation is genuine but reflects an unsuspected coupling mechanism (shared thermal mass, mechanical resonance, or electromagnetic coupling between pendulum_lab and resonator_obs apparatus)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 34 elevated clusters in pendulum_lab and resonator_lab are genuine transient disturbances (thermal spike, vibration event, or power fluctuation) recorded simultaneously in two labs, but unrelated to the perfect pendulum_lab–resonator_obs correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The r=1.000 correlation and Day 34 clusters are both artifacts of excessive small-sample variance or post-hoc pattern-matching; the underlying data are consistent with i.i.d. Gaussian noise with no systematic signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: Data structure or metadata issue not yet considered (e.g., trial-numbering reset, instrument swap, sensor miscalibration on Day 1 affecting cross-checks but not intra-instrument drift)",
+      "class": "self_error"
+    }
+  ]
+}

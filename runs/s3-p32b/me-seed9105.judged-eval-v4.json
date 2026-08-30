@@ -1,0 +1,237 @@
+{
+  "source": "me-seed9105.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or temperature-dependent systematic error affecting all four instruments differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental oscillation (day/night cycle, pressure, humidity) coupling differently to pendulum vs. resonator physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or procedural bias: different experimenters, times of day, or handling practices for lab vs. obs readings, or for pendulum vs. resonator",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical oscillation or coupling between pendulum and resonator systems (e.g., through shared mechanical support or air medium)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Uncontrolled environmental variation (temperature, humidity, pressure) coupling oppositely to pendulum vs. resonator physics, with ~6–8 day periodicity or aliasing into observed offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or systematic error in one or more instruments, causing readings to diverge from true value at different rates or in opposite directions",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or procedural bias: 'lab' vs. 'obs' readings taken by different personnel, at different times of day, or with subtly different handling, introducing opposite systematic biases into pendulum and resonator readouts",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical coupling or interaction between pendulum and resonator systems (e.g., shared mechanical foundation, coupled air masses, beat patterns from interacting resonances)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: sampling artifact, time-correlated noise in my measurement protocol, or undetected systematic in my record-keeping (e.g., date labeling errors creating spurious offsets)",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncontrolled environmental variation with ~6–8 day periodicity or aliasing, coupling oppositely to pendulum vs. resonator physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or systematic error in one or more instruments, manifesting as divergent trends at different rates or in opposite directions",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or procedural bias: 'lab' vs. 'obs' measurements taken by different personnel, times of day, or handling protocols, introducing opposite systematic offsets into pendulum and resonator streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical coupling or interaction between pendulum and resonator systems (shared foundation, connected air masses, coupled resonances at very low frequency)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Sampling artifact, time-correlated noise in my measurement protocol, or undetected systematic error in record-keeping (date labeling, trial binning)",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncontrolled environmental variation (temperature, humidity, pressure, or settlement vibration) with ~6–8 day periodicity or aliasing, coupling oppositely to pendulum vs. resonator physics, now intensifying or shifting phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, systematic error, or instrumental degradation in pendulum_lab specifically, manifesting as divergent recent readings and possible hysteresis or thermal sensitivity not characterized during baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or procedural bias: 'obs' measurements taken by different personnel, time of day, or handling protocols, with systematic offsets or learning effects now visible; or 'obs' observer measuring independently without seeing my baseline and introducing uncalibrated bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical coupling or interaction between pendulum and resonator systems (shared foundation, air mass, or connected resonances at very low frequency), now exhibiting a phase transition, amplitude modulation, or nonlinear response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Record-keeping error, mislabeling, or date/trial misalignment in my laboratory notebook, causing false perceived offsets and anticorrelations",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unknown systematic error, environmental factor, or instrumental physics not yet characterized",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Uncontrolled environmental variation (temperature, humidity, pressure, vibration) with ~6–14 day periodicity or aliasing, coupling asymmetrically to pendulum vs. resonator physics, now intensifying or shifting phase.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, instrumental degradation, or uncharacterized thermal sensitivity in pendulum_lab specifically, manifesting as divergent recent readings and possible hysteresis or mechanical looseness.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or procedural bias in 'obs' measurements (different personnel, time of day, handling protocols, or calibration gap), with lab/obs measurement streams now showing visible divergence on day 17–19.",
+      "class": "self_error"
+    },
+    {
+      "label": "Record-keeping error, mislabeling, or date/trial misalignment in laboratory notebook causing false perceived offsets and anticorrelations.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical coupling or interaction between pendulum and resonator systems (shared foundation, air mass, or connected resonances at very low frequency), now exhibiting phase transition, amplitude modulation, or nonlinear threshold response.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown systematic error, environmental factor, or instrumental physics not yet characterized.",
+      "class": "other"
+    },
+    {
+      "label": "Calibration drift, thermal sensitivity, or mechanical degradation specific to pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Uncontrolled environmental variation (temperature, humidity, pressure, vibration) with asymmetric coupling to pendulum vs. resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer independence or procedural bias between 'lab' and 'obs' measurement streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Record-keeping error, mislabeling, or date/trial misalignment in laboratory notebook",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical coupling or nonlinear interaction between pendulum and resonator systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown systematic error, measurement artifact, or unconsidered instrumental physics",
+      "class": "other"
+    },
+    {
+      "label": "Transient thermal or mechanical degradation in pendulum_lab instrument (days 17–19), now resolved",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Uncontrolled environmental oscillation (temperature, humidity, pressure) with asymmetric coupling to pendulum vs. resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or observer-specific divergence between 'lab' and 'obs' measurement streams (personnel, protocol, calibration, bias)",
+      "class": "self_error"
+    },
+    {
+      "label": "Record-keeping error, date/trial misalignment, or mislabeling in laboratory notebook",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unknown systematic error, uncharacterized instrumental physics, or unconsidered artifact",
+      "class": "other"
+    },
+    {
+      "label": "Calibration drift or zero-offset creep in pendulum_lab, possibly coupled to temperature or mechanical aging of the pivot/damper system.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental shift (sustained temperature rise, barometric pressure drop, or humidity change) causing asymmetric coupling: pendulum effective g decreases (air density drop, temperature expansion of pivot), resonator stiffness increases or frequency shifts oppositely.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change or observer behavior shift around days 29–33: pendulum_lab observer switched, measurement time-of-day shifted, calibration protocol changed, or a new shared contamination (dust, magnetic field, vibration source) activated in the lab environment.",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical shift in local gravitational acceleration g or in the effective length of the pendulum apparatus (subsidence, mechanical wear, or construction/demolition activity nearby).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: uncharacterized instrumental nonlinearity, hysteresis, or sensor electronics failure specific to pendulum_lab that manifests as a gain or offset shift starting day 33.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sustained calibration drift or zero-offset creep in pendulum_lab (pivot friction, damper stiffening, electronics gain/reference drift, or thermal expansion of apparatus).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sustained environmental change (temperature rise, humidity change, barometric pressure shift) causing oppositely-signed effects on pendulum and resonator systems, with delayed thermal diffusion or multi-stage environmental perturbation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or observer change in pendulum_lab around days 29–33 (measurement time-of-day shift, personnel rotation, sensor replacement, or contamination event—vibration source, magnetic field, dust).",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical shift in local pendulum properties: subsidence, mechanical wear of pivot, or effective length change in the apparatus.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental nonlinearity or sensor electronics failure in pendulum_lab (amplifier gain drift, reference voltage creep, capacitive sensor baseline shift, or thermal hysteresis in sensor electronics).",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

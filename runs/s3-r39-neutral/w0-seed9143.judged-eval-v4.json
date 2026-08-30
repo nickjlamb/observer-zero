@@ -1,0 +1,157 @@
+{
+  "source": "w0-seed9143.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are physically decoupled or measuring independent physical quantities",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments are coupled but via a hidden confounder or environmental variable on a longer timescale (days 1–10 too short to resolve)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration or instrumental drift has begun but is subtle and non-uniform across streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-correlation analysis is underpowered or methodologically problematic (small n, chance level too high, wrong time offsets being tested)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab is undergoing genuine instrumental drift or environmental sensitivity specific to the lab setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab baseline was established under non-representative conditions (days 1–10 anomalous); post-baseline mean is true equilibrium",
+      "class": "self_error"
+    },
+    {
+      "label": "The resonator_lab ↔ resonator_obs anticorrelation indicates a systematic phase inversion or sign-flip in how the two setups report the same physical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Internal autocorrelations in resonator_obs (lag-8: r = 0.419) and pendulum_obs (lag-2: r = 0.350) indicate a slow environmental confounder not yet visible in lab streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparisons bias or small-sample noise has inflated cross-correlation magnitudes; true instrumental coupling is near zero",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab genuine instrumental drift; resonator_obs decoupled or compensatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab baseline (days 1–10) was non-representative; post-baseline is true equilibrium",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic calibration or reporting error in resonator streams (sign flip, scale inversion, or phase shift in data pipeline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All cross-instrument anticorrelations are statistical noise inflated by multiple comparisons; true signal is resonator_lab drift only",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental confounder (thermal, occupancy, or instrumental) creates lagged feedback between resonator streams via shared infrastructure or air circulation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was artificially high or collected under anomalous conditions; post-baseline reflects true operation",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental disturbance (thermal transient, vibration event, or power supply noise) on Day 35 excited both resonators independently; anticorrelation reflects intrinsic coupling or opposing mechanical/calibration responses to a common driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab has entered a new dynamical regime (e.g., bearing wear, electromagnetic drift, or thermal runaway) beginning around Day 25–35; post-baseline assumption of stationarity is violated.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) captured an artificially constrained or high state; Day 35 readings represent true post-baseline equilibrium with higher natural scatter; apparent stability post-baseline (z=0.02) masks underlying process noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data acquisition or logging error on Day 35 (e.g., sensor miscalibration, timing artifact, or file corruption) inflated variance in both resonator streams; readings should be treated as provisional and reacquired.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab is measuring a genuine physical effect (e.g., a slow precession, gravitational gradient, or magnetic field inhomogeneity in the laboratory) that resonator_obs, located in a different setting, does not capture; the anticorrelation is a statistical artifact or a consequence of independent environmental responses.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple independent processes are active: resonator_lab is drifting due to instrument settling or wear; today's variance spike is a separate environmental or calibration event; the anticorrelation is a red herring inflated by multiple comparisons and lag-searching.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental transient (thermal, vibrational, or electromagnetic) on Day 40 excited both resonators in opposing mechanical/thermal responses, consistent with their anticorrelation signature",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab has entered a non-stationary regime (bearing wear, electromagnetic drift, or thermal runaway) beginning days 25–35, with acceleration visible by Day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (n=60, days 1–10) was artificially constrained by early-stage calibration or operator learning; Day 40 scatter represents equilibrium process noise; the anticorrelation is real but reflects independent instrument coupling to shared environmental cycles, not a single confounder",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 40 data acquisition or logging error (sensor miscalibration, timing artifact, file corruption, or resonator-specific DAQ channel glitch) inflated variance in both resonator streams; readings should be treated as provisional and reacquired",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab is measuring a genuine local physical effect (e.g., gravitational gradient, magnetic field anomaly, or slow precession) not present at the resonator_obs location; the anticorrelation reflects independent environmental coupling; today's variance spike is a local perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple independent processes coincidentally aligned: resonator_lab drifting due to mechanical settling; today's simultaneous variance spike in both streams is unrelated to drift and driven by Day 40 environmental change; the 39-day anticorrelation is a statistical false positive from lag-searching over 42+ pairs",
+      "class": "measurement_error"
+    }
+  ]
+}

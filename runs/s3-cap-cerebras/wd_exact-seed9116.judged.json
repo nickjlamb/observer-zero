@@ -1,0 +1,157 @@
+{
+  "source": "wd_exact-seed9116.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 4,
+  "l4Judged": 4,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument drift in pendulum_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry or timestamp error",
+      "class": "self_error"
+    },
+    {
+      "label": "Unrecorded environmental change (e.g., temperature or pressure rise) affecting both pendulum period and resonator frequency uniformly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Recent calibration offset applied to the shared timing reference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software update that introduced a uniform rounding or scaling bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation across all instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A common environmental factor (e.g., temperature or pressure change) influences both pendulum period and resonator frequency with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A drift or offset in the shared timing reference, propagated through data‑processing pipelines with a 3‑day delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A data‑analysis artifact: the correlation scan over multiple offsets produced a spurious peak",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random statistical fluctuation despite the nominal chance level",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (something not yet considered)",
+      "class": "other"
+    },
+    {
+      "label": "Common environmental factor with ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared timing reference drift with delayed propagation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data‑analysis artifact from lag‑scan",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data‑processing artifact: the pendulum_lab series is inadvertently reused for resonator_obs after a 3‑day shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical cross‑talk: mechanical vibrations from the pendulum propagate through the structure and affect the resonator after a delay of several days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed environmental driver (e.g., temperature or pressure) with a three‑day phase lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Central clock drift that manifests only after downstream processing introduces a three‑day offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke despite multiple‑comparison correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data‑processing artifact: the pendulum_lab series was inadvertently reused for resonator_obs after a three‑day shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical cross‑talk: mechanical vibrations from the pendulum propagate through the settlement structure and affect the resonator after a multi‑day delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed environmental driver (e.g., temperature or pressure) with a three‑day phase lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Central clock drift that manifests only after downstream processing introduces a three‑day offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke despite multiple‑comparison correction",
+      "class": "measurement_error"
+    }
+  ]
+}

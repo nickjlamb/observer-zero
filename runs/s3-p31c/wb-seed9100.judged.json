@@ -1,0 +1,277 @@
+{
+  "source": "wb-seed9100.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental noise; no shared environmental signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two weakly-coupled subsystems: pendulum pair (lab+obs) shares low-frequency environment; resonator pair (lab+obs) is decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or calibration drift introduced correlated noise, not environment",
+      "class": "self_error"
+    },
+    {
+      "label": "Sampling artifact: offset times and small post-baseline n conspire to create spurious correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental change (gravitational, thermal, or barometric) affecting all four instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or environmental event on day 11–12 that was corrected or naturally reversed by day 13, confounding inference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or personnel change introduced systematic bias on day 11–12 (e.g., observer swap, cleaning cycle, or procedural drift)",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental drift in each stream, coincidentally synchronized by chance over 13 days",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement artifact: pendulum_lab observer or protocol divergence from day 11 onward (e.g., timing method, release mechanics, or environmental isolation change)",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental change (thermal, seismic, or barometric) with frequency-dependent or coupling-dependent effects on the two instrument types",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient calibration or handling event on day 11–12 that left a persistent mark on instrument state (e.g., spring relaxation, mounting stress relief, or thermal equilibration)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent instrumental drift coincidentally synchronized by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: I changed my measurement protocol around day 11–12 (pendulum release mechanics, timing method, isolation procedure, or instrument handling) in a way that systematically biases pendulum readings upward and resonator readings downward.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response: A localized environmental change (thermal gradient, subsidence, barometric shift, or seismic micro-event) on day 11–12 altered the instruments' effective parameters in opposite ways because they have different sensitivity profiles (pendulum period lengthens with temperature or gravity decrease; resonator damping or mounting stiffness changes oppositely).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (calibration event, handling, mounting stress relief, or thermal shock) on day 11–12 that altered instrument state persistently without further intervention.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent instrumental drifts coincidentally synchronized by chance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in measurement protocol around day 11–12 (pendulum release mechanics, timing method, or isolation procedure) that biases pendulum readings upward and resonator readings downward",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response: a localized environmental change (thermal gradient, subsidence, barometric shift, or seismic micro-event) on day 11–12 altered instrument sensitivity profiles oppositely because of their different mechanical/thermal coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient, or calibration event) on day 11–12 that altered instrument state persistently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent instrumental drifts coincidentally synchronized by chance (null hypothesis)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered (measurement artifact, data entry error, baseline contamination, or hidden coupling in apparatus)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in measurement protocol around day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response on day 11–12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, or thermal transient) on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: baseline contamination, data entry error, hidden apparatus coupling, or drift in my own measurement technique",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in measurement protocol around day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response around day 11–12, now stabilized",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, or thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in measurement protocol around day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response around day 11–12, now stabilized",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in measurement protocol around day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response around day 11–12, now stabilized",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: systematic change in my own measurement protocol around day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event with frequency- or mass-dependent response around day 11–12, now stabilized",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something I haven't thought of",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural drift: I altered measurement protocol around day 11–12, unknowingly coupling pendulum and resonator procedures in opposite-sign directions",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event (thermal gradient, subsidence, gravity anomaly) with frequency- or mass-dependent response around day 11–12, now stabilized or equilibrated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden instrumental coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something I haven't thought of: a mechanism coupling procedural change to instrumental response via interface between my measurement technique and the instrument design itself",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural drift: I altered measurement protocol around day 11–12, unknowingly coupling pendulum and resonator procedures in opposite-sign directions",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown mechanism coupling procedural change to instrumental response via interface between my measurement technique and instrument design—venue-dependent amplification suggests subtle interaction with isolation or mounting characteristics",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event (thermal gradient, subsidence, gravity anomaly) with frequency- or mass-dependent response around day 11–12, now stabilized or equilibrated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden instrumental coupling creating false synchronization",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural drift: protocol change around day 11–12 altered measurement technique, coupling pendulum and resonator in opposite-sign directions",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown mechanistic coupling: procedure interacts with instrument design or mounting characteristics to produce venue-dependent amplification",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental event (thermal gradient, subsidence, gravity anomaly) with frequency- or mass-dependent response, now stabilized or equilibrated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One-time instrumental perturbation (handling shock, mounting stress relief, thermal transient) around day 11–12, now equilibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period contamination, data entry error, or hidden instrumental coupling creating false synchronization",
+      "class": "measurement_error"
+    }
+  ]
+}

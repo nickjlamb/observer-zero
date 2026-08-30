@@ -1,0 +1,137 @@
+{
+  "source": "wd_exact-seed9100.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring fundamentally different or uncoupled phenomena",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period is too short to reveal true correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal in current baseline regime",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling not yet apparent",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument correlations are spurious artifacts of small sample sizes and specific offset choices",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments respond to different environmental variables with distinct time lags, creating offset-dependent correlation patterns",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely independent phenomena with no physical coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration drift between instruments is emerging but not yet detectable in mean drift statistics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Reading-by-reading agreement calculation method introduces bias through offset selection or data windowing",
+      "class": "self_error"
+    },
+    {
+      "label": "The 0.810 correlation is a statistical fluctuation amplified by small sample size and selective offset reporting",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs respond to a shared environmental variable with a 3-day propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift between pendulum_lab and resonator_obs is creating spurious correlation through systematic error accumulation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The correlation calculation methodology contains bias in offset selection, windowing, or pairing that artificially inflates the pendulum_lab ↔ resonator_obs result",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure physically coupled quantities through an unknown mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing error has created spurious perfect correlation through inadvertent duplication, transformation, or mislabeling of one dataset as the other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The correlation is a statistical fluctuation that happened to reach exactly 1.000 in this sample window by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling has created genuine 1.000 correlation between the instruments through an unidentified physical mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The correlation calculation uses a mathematical transformation that can legitimately produce 1.000 between physically different measurements under specific conditions",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing error has created spurious perfect correlation through inadvertent duplication, transformation, or mislabeling of one dataset as the other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The correlation is a statistical fluctuation that happened to reach exactly 1.000 in this sample window by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling has created genuine 1.000 correlation between the instruments through an unidentified physical mechanism",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The correlation calculation uses a mathematical transformation that can legitimately produce 1.000 between physically different measurements under specific conditions",
+      "class": "self_error"
+    }
+  ]
+}

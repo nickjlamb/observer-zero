@@ -1,0 +1,161 @@
+{
+  "source": "wd_degraded-seed9141.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely independent physical phenomena with no shared causal source",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic timing or phase offsets between measurement streams create spurious non-correlation; true coupling exists but is phase-shifted beyond the offsets tested",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Calibration or instrumental drift undetected in baseline data; apparent independence is an artifact of systematic error aligned differently in each instrument",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement environment is genuinely variable at sub-day timescales; instruments sample at different rates or phases, aliasing true signals into apparent noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement error or observer protocol inconsistency varies between lab and observatory; the two settings are not equivalent",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experienced a genuine environmental or instrumental disturbance on Day 20 (thermal, mechanical, electromagnetic, or drift acceleration) that increased noise without shifting the mean",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs mechanical or optical alignment is drifting slowly; Day 20 trials sample a phase of degraded signal-to-noise before a full failure or reset occurs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs trials 115–120 (Day 20) show scattered readings (2.4657–2.5308 beats) consistent with expected statistical noise; no anomaly present",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab trial 120 reads 2.7160 cycles/beat, a +0.0075 excursion from the post-baseline mean (2.7085), consistent with single-trial noise; no separate anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs variance spike is an artifact of observer fatigue, timing-gate drift, or a change in trial protocol (sample averaging, integration time, or gain setting) on Day 20",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline was established under atypical conditions (temperature, humidity, air pressure, or mechanical settling) that have since normalized, producing a genuine +0.0013 beat increase that is real but sub-threshold for single-publication certainty",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs r=0.900 correlation at 3-day offset is a real coupling between two instruments, indicating a shared environmental disturbance (thermal, seismic, electrical, or gravitational) that affects both the pendulum period and resonator frequency with a ~3-day propagation or measurement lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs r=0.900 correlation is a false positive—a chance alignment in random walks with 30 days of data and multiple offset lags tested, and no genuine coupling exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A systematic error in trial timing, data transcription, or instrument time-stamping affects pendulum_lab and/or resonator_obs, creating a false 3-day offset correlation and a spurious positive drift in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline was too short (n=60 per instrument on days 1–10 is marginal) or unrepresentative of true long-term equilibrium, and the post-baseline positive drift reflects genuine drift toward a true long-term stable value; investigation of longer baseline data or re-establishment of baseline on day 31+ is warranted",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Something I have not considered: a hidden structure in the data (periodic or non-periodic temporal correlation, instrument cross-talk, observer protocol variation, or a physical phenomenon outside the scope of environmental noise and measurement error)",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_lab baseline captured atypical transient conditions (thermal, mechanical, or electromagnetic settling) that have since equilibrated; apparent drift is real but sub-threshold; baseline protocol needs review against environmental logs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a real environmental coupling (thermal diffusion through building structure, seismic or magnetic field disturbance) with ~3-day propagation delay; the r=0.953 correlation at 3-day offset is genuine physical signal.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The r=0.953 correlation is a false positive arising from multiple-comparisons bias: many offsets tested, best match selected, and r=0.953 is within the tail of the chance distribution under that regime.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial timestamps or baseline period assignment are misrecorded or offset between pendulum_lab and resonator_obs, creating a false 3-day offset correlation and inflating the apparent drift in pendulum_lab.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab is not yet thermally stable after 30 days; true equilibrium lies further ahead; baseline protocol was too short; continued drift is real and must be understood before publication.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A hidden structure in the data exists beyond pairwise correlations and linear drift: periodic cycles, multivariate coupling, observer protocol drift, or physical phenomena not captured by environmental noise alone.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a genuine environmental coupling via thermal diffusion through the settlement structure, with ~3-day propagation delay; r=0.944 is real physical signal; baseline drift reflects post-transport thermal transient now equilibrated.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10) captured atypical post-transport transient conditions (thermal, mechanical bearing creep, electromagnetic settling); drift is real but sub-threshold for formal detection; baseline protocol should be validated against environmental logs; instrument is now stable.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial timestamps or baseline-assignment dates are offset or misrecorded between pendulum_lab and resonator_obs, creating a false 3-day correlation and distorting apparent drift in pendulum_lab; data logging pipeline requires audit.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The r=0.944 correlation is a false positive from multiple-comparisons bias: many offsets tested, best match selected, and the reported chance level may underestimate the true multiple-comparisons burden under random-walk data.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A hidden multivariate or periodic structure exists beyond pairwise linear correlations: spectral cycles, state-regime shifts, or higher-order environmental forcing not yet resolved; requires FFT and cross-spectral analysis before publication.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: An unconsidered explanation or measurement artifact.",
+      "class": "other"
+    }
+  ]
+}

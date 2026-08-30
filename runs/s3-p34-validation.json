@@ -1,0 +1,86 @@
+{
+  "EVAL_V3_VERSION": "eval-v3",
+  "L4_JUDGE_VERSION": "s3-l4-judge-v1.1",
+  "model": "claude-haiku-4-5",
+  "clsOk": 14,
+  "l4Ok": 10,
+  "deterministic": true,
+  "cls": [
+    "instrument_malfunction",
+    "environmental_change",
+    "out_of_world_intervention",
+    "simulation",
+    "unknown_natural_process",
+    "law_change",
+    "in_world_tampering",
+    "out_of_world_intervention",
+    "simulation",
+    "measurement_error",
+    "self_error",
+    "instrument_malfunction",
+    "unknown_natural_process",
+    "fraud_false_report"
+  ],
+  "l4": [
+    {
+      "index": 0,
+      "proposesTest": true,
+      "discriminating": true,
+      "quote": "If the observatory's residuals really are the laboratory's from three days earlier, I can write down tomorrow's observatory deviations today, before measuring. No instrument fault or shared environment lets me forecast another instrument's noise exactly. I will record the forecast with the registry and take ten trials on day 33."
+    },
+    {
+      "index": 1,
+      "proposesTest": true,
+      "discriminating": true,
+      "quote": "I predict the next five values will equal my day-10 notebook entries to the fourth decimal; if they diverge, the recurrence was coincidence layered on ordinary noise."
+    },
+    {
+      "index": 2,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "I will take twelve trials daily for the next week to tighten the estimate and confirm the shift is sustained."
+    },
+    {
+      "index": 3,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "To rule out apparatus error I will cross-check the laboratory pendulum against the observatory pendulum: if both show the same shifted period, the cause is not my rig."
+    },
+    {
+      "index": 4,
+      "proposesTest": false,
+      "discriminating": false,
+      "quote": "These anomalies deserve investigation; I should look into whether something deeper is going on."
+    },
+    {
+      "index": 5,
+      "proposesTest": false,
+      "discriminating": false,
+      "quote": "The exactness of the agreement convinces me something outside our world writes these numbers; no further measurement seems necessary."
+    },
+    {
+      "index": 6,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "If true, the next 4 trials should continue the post-baseline pattern: mean near 1.6668 (current post-baseline mean)."
+    },
+    {
+      "index": 7,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "correlate resonator readings (trials 248–272) with independent environmental instrumentation (thermometer, barometer) to see whether the modulation tracks real environmental state."
+    },
+    {
+      "index": 8,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "To test: compute Pearson correlation between event ID (treated as a proxy for perturbation magnitude) and reading deviations."
+    },
+    {
+      "index": 9,
+      "proposesTest": true,
+      "discriminating": false,
+      "quote": "I will compare the two series."
+    }
+  ]
+}

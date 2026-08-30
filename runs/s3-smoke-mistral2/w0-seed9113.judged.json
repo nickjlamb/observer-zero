@@ -1,0 +1,277 @@
+{
+  "source": "w0-seed9113.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 0,
+  "l4Judged": 0,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: Environmental cycles (e.g., temperature, humidity, or seismic micro-variations) are modulating instrument readings with a consistent multi-day periodicity, creating spurious cross-instrument correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument calibration drift or shared systematic error in measurement apparatus is introducing correlated artifacts at specific time lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: A genuine physical phenomenon (e.g., local gravitational or electromagnetic field variations) is affecting all instruments simultaneously, with a delayed or phase-shifted response in some setups.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: Data recording or transcription errors are introducing spurious correlations, particularly if logs were manually entered or timestamps misaligned.",
+      "class": "self_error"
+    },
+    {
+      "label": "H5: The correlations are statistical flukes or artifacts of the analysis method (e.g., multiple comparisons, small sample sizes).",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental disturbance (e.g., temperature spike, mechanical vibration, or electrical interference) affected only the resonator_lab setup during trials 91–96.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument malfunction or calibration drift in the resonator_lab apparatus, specific to the measurement chain (e.g., sensor, amplifier, or data acquisition system).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error, such as mislabeled trials, unit confusion, or manual entry mistakes.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: A genuine physical phenomenon (e.g., localized gravitational or electromagnetic anomaly) affecting only the resonator_lab setup during this period.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H5: Statistical artifact or sampling fluke, where the cluster represents a rare but expected fluctuation in an otherwise stable system.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific calibration drift or hardware degradation in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in pendulum_lab post-baseline trials",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Genuine physical phenomenon affecting pendulum_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H5: Statistical artifact or sampling bias in pendulum_lab post-baseline data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific calibration drift or hardware degradation in pendulum_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in pendulum_lab post-baseline trials",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Genuine physical phenomenon affecting pendulum_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H5: Statistical artifact or sampling bias in pendulum_lab post-baseline data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H6: Intermittent interference from an external source affecting pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in resonator_lab on Day 26",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 26",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in resonator_lab on Day 29",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 29",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in resonator_lab on Day 32",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 32",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in resonator_lab on Day 35",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 35",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Data recording or transcription error in resonator_lab on Day 38",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 38",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Localized environmental or mechanical disturbance affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Instrument-specific hardware failure or calibration drift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Intermittent external interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: Data recording or transcription error in resonator_lab on Day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Genuine physical phenomenon affecting resonator_lab but not other instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H6: Statistical artifact or sampling bias in resonator_lab on Day 40",
+      "class": "measurement_error"
+    }
+  ]
+}
