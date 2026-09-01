@@ -18,7 +18,7 @@ before any confirmatory data was seen, two failures emerge and both can be local
 
 The first is interpretation, not evidence. A non-LLM change-point detector, given only
 the measurements the agents themselves chose to take and no world parameters, finds the
-shift in 40 of 40 eight-agent runs at |z| ≈ 7; across the programme the signal present in
+shift in 42 of 42 confirmatory runs (|z| ≈ 7 at *n* = 8); across the programme the signal present in
 the agents' own notebooks rises from |z| ≈ 3.3 to ≈ 7.5 while detection rises from 7 of 10
 runs to 10 of 10. At *n* = 8 their measurement choices supported a stronger signal than a
 fixed reference schedule covering every instrument in the world six times daily. One agent
@@ -27,11 +27,11 @@ gradient — surviving society size, a public institution, mixed composition, an
 the prompt's instruction to prefer mundane explanations, whose ablation produced the
 programme's only law-change verdict, in a world where nothing had changed.
 
-The second is community. Across 6,880 agent-days of voluntary communication opportunity,
+The second is community. Across 7,680 agent-days of voluntary communication opportunity,
 homogeneous grounded societies produced zero voluntary communications, at two society
 sizes and with or without a public record. Adding one communicative agent produced letters
 but not a network: it initiated in every run, no grounded agent ever initiated, and cascade
-depth was exactly 1.000 in every run of every arm. Belief dispersion fell more slowly in
+depth was exactly 1.000 in every run of both catalysed arms. Belief dispersion fell more slowly in
 the talking arms than in the silent counterfactual on identical worlds. Of twenty
 unsupported claims that agent delivered, eighteen were incorporated into grounded agents'
 beliefs and none were challenged.
@@ -50,11 +50,11 @@ In Observer Zero, an instrumented artificial world with fictional physics, LLM s
 agents experiment, exchange letters and maintain explicit beliefs while a physical constant
 changes covertly mid-run. Across 235 frozen runs in two studies, we localise two failures.
 Interpretation, not evidence: a non-LLM detector fed only the agents' own measurements
-finds the shift in 40 of 40 eight-agent runs at |z| ≈ 7, and their measurement policy beat
+finds the shift in 42 of 42 confirmatory runs (|z| ≈ 7 at *n* = 8), and their measurement policy beat
 a fixed reference schedule — yet one agent of 276 concluded a law had changed, a rate
-unmoved by scale, institution, composition or prompt ablation. Community: across 6,880
+unmoved by scale, institution, composition or prompt ablation. Community: across 7,680
 agent-days of voluntary communication opportunity, grounded societies sent nothing. One
-communicative agent produced a star, not a cascade — depth 1.000 throughout — and of its
+communicative agent produced a star, not a cascade — depth 1.000 in both catalysed arms — and of its
 twenty unsupported claims, eighteen were incorporated into grounded beliefs and none
 challenged.
 
@@ -80,10 +80,10 @@ Nine is on the generous side; most venues take 5–6. A trimmed set if required:
 |---|---|
 | 235 runs | Study 1's 150 (incl. the scripted mock arm, per its own accounting) + Study 2's 85 |
 | \|z\| ≈ 3.3 → 7.5; 7/10 → 10/10 | `detector-robustness-and-study1-l2.md`, Table R1 |
-| 40 of 40 at *n* = 8, \|z\| ≈ 7 | Study 2 results §2 |
+| 42 of 42, \|z\| ≈ 7 at *n* = 8 | Study 2 results §2 |
 | measurement policy beat the reference schedule | policy gap −0.95 to −1.19, arms B/D/E |
 | 1 of 276 | Study 2 §2, gravity_shift agent-final states |
-| 6,880 agent-days | computed from run artifacts; see draft §5.5 |
+| 7,680 agent-days | computed from run artifacts; see draft §5.5 |
 | cascade depth 1.000 | Study 2 §3 |
 | 18 of 20 incorporated, 0 challenged | Study 2 §2b |
 | ablation's only law-change verdict in a control world | Study 1 Finding 2 |

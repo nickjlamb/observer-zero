@@ -12,7 +12,7 @@ the CoMSES Computational Model Library
 ([release 1.0.0](https://www.comses.net/codebases/f5ff1550-0393-4505-a4d8-96b779944a8d/releases/1.0.0/),
 peer review requested). The combined two-study paper,
 [*Observer Zero: Do LLM Agents Form Epistemic Communities?*](https://doi.org/10.5281/zenodo.21906653),
-is under review at JASSS.
+is in peer review.
 
 ### Added
 
@@ -36,8 +36,8 @@ is under review at JASSS.
 ### Results shipped with this release
 
 85 confirmatory runs across five arms, audited clean: zero voluntary
-communications across 6,880 agent-days in homogeneous grounded societies;
-cascade depth exactly 1.000 in every run of every arm – a star around the
+communications across 7,680 agent-days in homogeneous grounded societies;
+cascade depth exactly 1.000 in every run of both catalysed arms – a star around the
 seed, not a cascade, predicted from the pilot before the freeze; 18 of 20
 unsupported claims incorporated into grounded agents' beliefs, none
 challenged; and 1 agent of 276 concluded a physical law of its world had
