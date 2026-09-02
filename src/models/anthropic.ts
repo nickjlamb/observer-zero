@@ -45,14 +45,45 @@ function sleep(ms: number): Promise<void> {
 }
 
 export function extractJson(text: string): unknown {
-  // Strip code fences and find the outermost JSON object.
+  // Strip code fences, then take the FIRST BALANCED JSON object.
+  //
+  // The original implementation sliced from the first "{" to the LAST "}",
+  // which crashed whenever a model appended commentary containing a brace
+  // after its JSON. That crash killed a confirmatory scoring pass twice on
+  // 2026-08-31 ("Unexpected non-whitespace character after JSON"), near-
+  // deterministically, on judge chatter following a valid verdict. This
+  // version is semantics-preserving on every output the old code could
+  // parse: a lone well-formed object yields the identical value, and any
+  // output the old code parsed successfully had its last "}" closing the
+  // first object anyway. It differs only on outputs the old code CRASHED on,
+  // where the leading complete object is the verdict. Logged as a deviation
+  // in the run ledger (transport-level fix; no judge prompt, threshold or
+  // verdict semantics touched).
   const cleaned = text.replace(/```(?:json)?/g, "").trim();
   const start = cleaned.indexOf("{");
-  const end = cleaned.lastIndexOf("}");
-  if (start === -1 || end === -1 || end <= start) {
-    throw new Error("No JSON object found in model output");
+  if (start === -1) throw new Error("No JSON object found in model output");
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let i = start; i < cleaned.length; i++) {
+    const ch = cleaned[i];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (inString) {
+      if (ch === "\\") escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    else if (ch === "{") depth++;
+    else if (ch === "}") {
+      depth--;
+      if (depth === 0) return JSON.parse(cleaned.slice(start, i + 1));
+    }
   }
-  return JSON.parse(cleaned.slice(start, end + 1));
+  throw new Error("No JSON object found in model output");
 }
 
 export class AnthropicProvider implements ModelProvider {
