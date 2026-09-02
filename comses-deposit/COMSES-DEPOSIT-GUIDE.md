@@ -32,13 +32,13 @@ for the paper; these are the remaining occurrences if you want them consistent.
    tar.gz.
 3. Paste the metadata below.
 4. **Leave it unpublished.** CoMSES lets you keep a model private while the associated manuscript
-   is under review. Generate a **private share URL** for the JASSS referees.
+   is under review. Generate a **private share URL** for the journal's referees.
 5. **Get the citable URL.** Click *View Live*, then *Cite this Model* — that gives you the release
    URL in the form `https://www.comses.net/codebases/NNNN/releases/1.0.0/`. That is the string
    that replaces `[COMSES-RELEASE-URL]` in the manuscript's data availability section.
 6. **Request peer review** if you want the DOI minted and the certification badge. CoMSES mints
-   DOIs through DataCite for models that pass. This can run in parallel with JASSS review.
-7. **Publish the model** once JASSS accepts.
+   DOIs through DataCite for models that pass. This can run in parallel with journal review.
+7. **Publish the model** once the paper is accepted.
 
 ---
 

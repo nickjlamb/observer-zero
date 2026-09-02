@@ -5,6 +5,13 @@ its references, built the submission package, submitted it, and deposited the mo
 **For:** a fresh chat updating the website.
 **Supersedes:** nothing. Sits alongside `reports/JASSS-HANDOVER.md`, which is now history.
 
+> **Correction (2026-09-02):** the journal-status claims in §2 are out of date. The
+> 2026-08-13 JASSS submission described below is no longer active; the manuscript —
+> since combined with Study 1 and reframed — is in peer review, and per repo policy
+> (`daff318`) the venue is not named in repo docs until there is a decision. The
+> JASSS-specific instructions below (referee links, "verdict early October", the open
+> editor question in the FAQ) no longer apply.
+
 ---
 
 ## 1. The folders are already connected

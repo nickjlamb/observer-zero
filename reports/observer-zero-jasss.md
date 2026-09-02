@@ -1,5 +1,16 @@
 # Observer Zero: Do LLM Agents Form Epistemic Communities?
 
+> **Errata notice (2026-09-02).** This document is preserved as submitted (per `daff318`:
+> archival documents under `reports/` are left as-submitted; corrections were applied to
+> README, CHANGELOG, `reports/abstract.md`, the website, and the submitted build). Four
+> errata apply to the body below, enumerated in `reports/jaamas/jaamas-information-sheet.md`:
+> agent-days are **7,680**, not 6,880 (256 runs x 30 days); the detector found the shift in
+> **42 of 42** confirmatory runs, not 40 of 40 (arm C was dropped; arm A is n=2); cascade
+> depth 1.000 is **scoped to the two catalysed arms** — arm B produced no letters, so its
+> depth is 0.000 and "every scenario of every arm" is wrong; and **167 of the 190** bulletin
+> reads are the journalist's, not 190 of 190. The body is deliberately not rewritten, so it
+> continues to match what was submitted.
+
 ## Evidence from autonomous agents in an instrumented world
 
 Nick Lamb · PharmaTools.AI

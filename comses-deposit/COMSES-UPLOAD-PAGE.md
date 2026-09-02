@@ -54,6 +54,6 @@ runs as ES modules under Node via `tsx`.
 ## Before you hit Publish
 
 Leave it **Private**. The banner top-left already shows Private, which is what you want while
-JASSS review is running. *View live → Cite this Model* gives you the release URL to put in the
+journal review is running. *View live → Cite this Model* gives you the release URL to put in the
 manuscript, and you can generate a private share link for referees. `Request Peer Review` (top
 of the page) can be started now and run in parallel — that is what mints the DataCite DOI.

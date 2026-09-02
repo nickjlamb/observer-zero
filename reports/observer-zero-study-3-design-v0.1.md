@@ -8,6 +8,8 @@
 
 **Study 2 is frozen and under review at JASSS. Nothing in this document reinterprets it, and no Study 3 code change may alter any artifact, endpoint, or noise stream Study 2 depends on.**
 
+*(Correction 2026-09-02: the venue has since changed — the combined manuscript is in peer review, venue per `daff318` policy. The constraint itself is unchanged.)*
+
 ---
 
 ## 0. Summary of recommendations

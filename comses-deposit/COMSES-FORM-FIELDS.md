@@ -101,7 +101,7 @@ TypeScript
 https://github.com/nickjlamb/observer-zero
 ```
 
-**Consider leaving this blank until after JASSS review.** If you give referees the private share
+**Consider leaving this blank until after journal review.** If you give referees the private share
 URL for this model, this field shows them `nickjlamb` and identifies you. It is reference-only
 and can be added at any time. Your call — the anonymisation is procedural anyway, since the
 preprint is public under your name.
@@ -123,9 +123,9 @@ documentation — and it has been checked for `.env`, `node_modules` and `.git`.
 
 1. Add `ODD.md` as the narrative documentation for the release.
 2. Set the release version to **1.0.0** and the licence to **MIT**.
-3. Leave the model **unpublished**, and generate a private share URL for the JASSS referees.
+3. Leave the model **unpublished**, and generate a private share URL for the journal's referees.
 4. *View Live → Cite this Model* gives you the release URL
    (`https://www.comses.net/codebases/NNNN/releases/1.0.0/`). Send me that string and I will
    rebuild the Word file and the anonymised PDF with it in place of `[COMSES-RELEASE-URL]`.
 5. Request peer review if you want the DataCite DOI and certification badge; it can run in
-   parallel with JASSS review.
+   parallel with journal review.

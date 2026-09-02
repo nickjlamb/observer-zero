@@ -232,7 +232,8 @@ machine only** — that is the standing risk to close next.
 ## Next — the plan from here
 
 **Gate 1 (done).** Detector benchmark: `runs/s2-arm{A,B,D,E}/benchmark.json`.
-The shift was detectable in 40 of 40 gravity_shift runs at z ≈ 6–7.5 from
+The shift was detectable in 42 of 42 confirmatory gravity_shift runs (erratum
+`daff318`: "40 of 40" counted only the eight-agent runs; arm A's n=2 detected too) at z ≈ 6–7.5 from
 ~day 12, from the agents' own measurements, and still detected in 99–100% of
 n=2-equivalent downsamples. At n=8 the measurement-policy gap is NEGATIVE in
 every arm — their measurement choices beat an ideal fixed reference schedule.
