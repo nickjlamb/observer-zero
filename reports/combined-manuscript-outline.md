@@ -1,5 +1,12 @@
 # Observer Zero · Combined manuscript — outline and bounded claims
 
+> **Superseded (2026-09-02).** This outline predates the submitted build
+> (`reports/ais/`) and carries pre-erratum numbers: read **42 of 42** confirmatory
+> runs wherever it says "40 of 40", and scope cascade depth 1.000 to the **two
+> catalysed arms** (arm B produced no letters — its depth is 0.000; erratum
+> `daff318`). The submitted build carries the corrections; this file is kept as a
+> construction record.
+
 **Date:** 2026-08-12
 **Purpose:** settle structure and claim wording before any prose is written.
 **Sources:** `observer-zero-study-1.md`, `study-2-confirmatory-results.md`,

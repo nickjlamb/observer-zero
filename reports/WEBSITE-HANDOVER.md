@@ -170,6 +170,7 @@ reference unresolvable.
 - **`package.json` has no `engines` field** — the likeliest thing a CoMSES reviewer asks for.
 - **Five untracked paths in the repo**: `comses-deposit/`, `reports/submission/`,
   `reports/observer-zero-jasss.md`, `reports/JASSS-CUT-PLAN.md`, `reports/JASSS-SUBMISSION-PLAN.md`.
+  *(Resolved: all five are tracked and committed as of 2026-09-02.)*
 - **The biography draft** at `reports/submission/BIOGRAPHY.md` was never corrected.
 - **An open question sat with the JASSS editor** (whether text inside tables counts toward their
   5,000–8,000 word range). No longer applicable — the JASSS submission is no longer active

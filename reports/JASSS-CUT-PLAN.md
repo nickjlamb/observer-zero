@@ -1,5 +1,10 @@
 # The cut: Observer Zero → 8,000 words for JASSS
 
+> **Superseded (2026-09-02).** This plan targeted the JASSS submission, which is
+> no longer active; the combined manuscript is in peer review (venue per `daff318`
+> policy). Pre-erratum numbers survive below ("40/40" → **42 of 42** confirmatory
+> runs). Kept as a record of how the cut was made.
+
 **Brief applied:** keep both studies, compress Study 1 heavily. Study 1 is the empirical and
 methodological foundation, not a co-equal results section. Preserve task solvability, the epistemic
 ceiling, the model-family dissociation, and the zero-communication baseline. Everything else in

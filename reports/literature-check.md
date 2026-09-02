@@ -172,7 +172,8 @@ not the claim.
 ## 3. Finding 2 — communication without a network
 
 > Adding one communicative agent produced communication but not a network. No grounded
-> agent ever initiated; cascade depth 1.000 everywhere. 18 of 20 unsupported claims
+> agent ever initiated; cascade depth 1.000 in both catalysed arms (arm B produced
+> no letters — erratum `daff318`). 18 of 20 unsupported claims
 > incorporated, 0 challenged.
 
 ### Verdict: strongly novel, and it splits into two claims of different strength.
@@ -483,7 +484,7 @@ by-name write-up. Factor that into the choice rather than discovering it at subm
 | Measurement policy audited against a reference schedule | **Novel.** No prior use as a diagnostic |
 | Agent-level spontaneous-initiation rate under optional communication | **Novel, and structurally invisible to existing frameworks.** The strongest single claim |
 | A measured zero baseline for voluntary agent communication | **Novel.** None found |
-| Cascade depth 1.000 in an LLM society | **Novel.** Only 2607.21912 measures generations, on 6 nodes |
+| Cascade depth 1.000 in an LLM society (catalysed arms) | **Novel.** Only 2607.21912 measures generations, on 6 nodes |
 | Unsupported claims incorporated without challenge, with provenance | **Novel.** CoSim is nearest; injects exogenously, no provenance, no depth |
 | LLM agents conform to peers | **Not novel.** Well quantified; the citation-based attribution is what distinguishes this |
 | Errors amplify through agent chains | **Contested — do not assert.** 2606.07937 found attenuation |

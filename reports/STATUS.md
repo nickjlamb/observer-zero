@@ -227,8 +227,9 @@ times P1's volume. The repository carries the derived artifacts per arm
 (`society-eval.json`, `activation.json`, `judged-propagation.json`,
 `battery-index.json`), from which every number in the results report is
 reproducible. The raw artifacts go to Zenodo with their own DOI, as Study 1's
-data did. Until that deposit exists **the raw confirmatory data lives on one
-machine only** — that is the standing risk to close next.
+data did. *(Resolved 2026-08-12: deposited as 10.5281/zenodo.21909254 — all 85
+runs, full raw artifacts, 42MB compressed. The one-machine-only risk this
+paragraph names is closed; the paragraph predates the deposit.)*
 
 ## Next — the plan from here
 
