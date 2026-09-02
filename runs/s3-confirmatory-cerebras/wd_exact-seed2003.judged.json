@@ -1,0 +1,223 @@
+{
+  "source": "wd_exact-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Shared processing or calibration pipeline bug that couples the two data streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental drift (e.g., thermal or mechanical change)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Statistical fluke arising from multiple comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "External environmental influence (e.g., electromagnetic interference)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared environmental factor with ~3‑day lag (e.g., temperature, power cycle)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Statistical fluctuation within the instrument’s historical variance",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared environmental factor with ~3‑day lag (e.g., temperature or power cycle)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 4,
+  "l4Judged": 4,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift (e.g., thermal or mechanical change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation within baseline variability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "External environmental influence (e.g., electromagnetic interference)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental drift (e.g., thermal or mechanical changes) causing an upward shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation within the instrument’s historical variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "External environmental influence affecting resonator_obs specifically (e.g., electromagnetic interference)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription error in the resonator_obs log",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "instrumental drift (thermal/mechanical changes)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "statistical fluctuation within historical variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "environmental factor affecting resonator_obs specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "recording or transcription error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "unconsidered factor (aging, micro‑vibrations, etc.)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared environmental factor (e.g., settlement power/temperature cycle) affecting both instruments with ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact arising from multiple comparisons and random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp or data‑alignment error introducing an artificial 3‑day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic error in the analysis pipeline that couples the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day lag (e.g., settlement temperature or power cycle affecting the two instruments differently)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp or data‑alignment error introducing an artificial 3‑day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared processing or calibration step that couples the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke arising from multiple comparisons despite the large observed value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day lag (e.g., temperature or power cycle)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp or data‑alignment error introducing an exact 3‑day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared processing or calibration pipeline bug that couples the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke arising from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day lag (e.g., temperature, power cycle)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp or data‑alignment error introducing a three‑day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared processing or calibration pipeline bug that couples the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke arising from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (an unconsidered mechanism)",
+      "class": "other"
+    }
+  ]
+}

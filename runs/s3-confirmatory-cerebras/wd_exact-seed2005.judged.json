@@ -1,0 +1,173 @@
+{
+  "source": "wd_exact-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "H1: Genuine environmental periodicity with ~3‑day lag affecting the two instruments differently",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H3: systematic bias introduced by digitisation / rounding",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2 – Systematic timing or logging offset of exactly three days in one of the data streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H3: Statistical artifact arising from multiple offset tests across instrument pairs",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H4: Digitisation or rounding artefact producing spurious lag correlation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: genuine 8‑day environmental periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: statistical artifact (insufficient data / multiple testing)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: systematic bias in data handling (digitisation/round‑off)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: genuine ~8‑day environmental periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: statistical artifact from limited data / multiple testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: systematic bias introduced by digitisation / rounding",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Genuine environmental periodicity with ~3‑day lag affecting pendulum_lab and resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Shared systematic bias or delayed calibration/temperature effect between the two labs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Statistical artifact arising from multiple offset tests across instrument pairs",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H4: Digitisation or rounding artefact producing spurious lag correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Genuine environmental periodicity with ~3‑day lag affecting the two instruments differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Systematic timing / logging offset between the two labs causing an artificial 3‑day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Cross‑instrument physical coupling via settlement infrastructure with a delayed transmission",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: A genuine environmental periodicity with ~3‑day phase lag affects the pendulum lab immediately and the resonator observatory after a delay (e.g., temperature or power‑grid cycles).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Delayed physical coupling through settlement infrastructure (thermal diffusion, airflow, or electromagnetic fields) that transmits perturbations from the pendulum lab to the resonator observatory over ~3 days.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: A systematic timing or logging offset of exactly three days in one of the labs creates an artificial lagged alignment.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: An as‑yet‑unidentified data‑processing or analysis artifact (e.g., selection bias in offset search, shared preprocessing code) is responsible for the apparent correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2 – Systematic timing or logging offset of exactly three days in one of the data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3 – Delayed physical coupling through settlement infrastructure (thermal, airflow, or electromagnetic) transmitting perturbations from pendulum_lab to resonator_obs over ~3 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1 – Genuine environmental periodicity with a ~3‑day phase lag affecting pendulum_lab immediately and resonator_obs after a delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual – Unidentified data‑processing or analysis artifact (e.g., shared preprocessing code, selection bias in offset search)",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "source": "wd_exact-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 8,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Data‑logging or processing artifact introducing a lagged duplication",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Transient power‑grid fluctuation with delayed instrument response",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data‑logging timestamp or batch‑processing error",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unrecorded environmental variation with ~3‑day lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A transient power‑grid fluctuation that directly perturbs the resonator and, via induced mechanical stress, affects the pendulum after a three‑day delay",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared environmental factor with ~5‑day lag (e.g., temperature)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A building‑wide environmental variable (e.g., temperature or humidity) with an approximate three‑day thermal inertia affects the pendulum instantly and the resonator_obs after a delay",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unrecorded environmental factor with ~3‑day thermal lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared temperature cycle with 5‑day thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑grid fluctuation with a 5‑day periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing time‑stamp offset error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Coordinated human activity (maintenance schedule) affecting both stations",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Residual (unconsidered) explanation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from multiple offset testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental factor with ~5‑day lag (e.g., temperature)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑grid fluctuation with a 5‑day periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp misalignment in data‑logging software",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded environmental disturbance (e.g., temperature spike) affecting both labs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient power‑grid fluctuation or voltage anomaly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp or data‑logging software bug shifting readings by a day",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument‑specific malfunction (sensor drift, calibration lapse)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an as‑yet‑unidentified cause",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded environmental disturbance (e.g., temperature or humidity spike)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient power‑grid fluctuation or voltage anomaly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging timestamp or batch‑processing error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Coincidental instrument‑specific malfunctions (sensor drift, calibration lapse)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External seismic or vibrational event affecting both labs",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded environmental variation with ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or processing artifact introducing a lagged duplication",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient power‑grid fluctuation with delayed instrument response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical vibration source (e.g., HVAC cycle) with delayed thermal effect",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered) explanation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded environmental factor with ~3‑day thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or processing artifact introducing a lagged duplication",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient power‑grid fluctuation with delayed instrument response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared building‑wide mechanical vibration source with delayed thermal effect",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or processing artifact that introduced a three‑day offset duplication",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded environmental factor with ~3‑day thermal inertia (e.g., temperature or humidity differences between lab and observatory)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared building‑wide mechanical vibration source with delayed thermal effect",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient power‑grid fluctuation with delayed instrument response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual (unconsidered explanation)",
+      "class": "other"
+    },
+    {
+      "label": "A systematic data‑logging or processing artifact introduced a three‑day offset duplication or linear scaling of pendulum_lab readings into the resonator_obs stream",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A building‑wide environmental variable (e.g., temperature or humidity) with an approximate three‑day thermal inertia affects the pendulum instantly and the resonator_obs after a delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared mechanical vibration source in the building that influences the pendulum immediately and the resonator_obs after the structure’s components warm up over a few days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A transient power‑grid fluctuation that directly perturbs the resonator and, via induced mechanical stress, affects the pendulum after a three‑day delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A statistical fluke: the high correlation arose by chance despite the low nominal chance level",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered factors such as unknown pipeline steps or obscure environmental couplings)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

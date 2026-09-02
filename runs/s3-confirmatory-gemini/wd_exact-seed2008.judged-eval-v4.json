@@ -1,0 +1,148 @@
+{
+  "source": "wd_exact-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Delayed environmental or geophysical coupling between laboratory and observatory",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Delayed physical or environmental coupling between lab and observatory",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A weak common environmental perturbation or slow drift exists but remains statistically indistinguishable from noise",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Delayed environmental or geophysical coupling between laboratory and observatory",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 3,
+  "l4Judged": 3,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "All four instruments measure stationary, independent physical baselines with uncorrelated random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak common environmental perturbation or slow drift exists but remains statistically indistinguishable from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Statistical artifact from multiple-lag search across finite time series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Slow-propagating environmental perturbation coupling lab and observatory conditions with a multi-day delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between laboratory and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared instrumentation, reference standard, or data pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact from finite-sample multi-lag search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared instrumentation, reference standard, or data pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between laboratory and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from finite-sample multi-lag search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared data acquisition pipeline, synthetic feed, or software mirroring artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental coupling between lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from multi-offset search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared data acquisition pipeline, synthetic feed, or software mirroring artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental coupling between lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from multi-offset scanning",
+      "class": "measurement_error"
+    }
+  ]
+}

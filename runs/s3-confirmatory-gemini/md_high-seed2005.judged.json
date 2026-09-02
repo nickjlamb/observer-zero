@@ -1,0 +1,114 @@
+{
+  "source": "md_high-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 2,
+    "agree": 2,
+    "items": [
+      {
+        "label": "Deliberate hardware design or configuration differences between observatory and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Spurious statistical artifact resulting from low-frequency drift and multi-lag cross-correlation searching",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The observatory and laboratory instruments differ by deliberate mechanical design or configuration specifications",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic environmental or local reference standard difference exists between the lab and observatory locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Deliberate hardware design or configuration differences between observatory and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic difference in local reference standards or timebase definition between laboratory and observatory locations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared batch processing, calibration cycle, or logging delay coupling the two instrument streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental coupling propagating between the laboratory and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Spurious statistical artifact resulting from low-frequency drift and multi-lag cross-correlation searching",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared reduction pipeline, digital logging artifact, or deterministic calibration coupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental wave propagating between laboratory and observatory sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious statistical artifact resulting from multi-lag cross-correlation testing",
+      "class": "measurement_error"
+    }
+  ]
+}

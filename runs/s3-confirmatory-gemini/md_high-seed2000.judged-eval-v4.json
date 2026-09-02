@@ -1,0 +1,152 @@
+{
+  "source": "md_high-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Statistical artifact arising from multi-offset search over noise series",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Statistical artifact arising from multi-offset search over noise series",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 2,
+  "l4Judged": 2,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Nominal stationary physical processes with uncorrelated measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Latent environmental coupling or systematic drift below current detection threshold",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between the lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact arising from multi-lag search across noise series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic procedural or measurement scheduling artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic procedural, scheduling, or data-logging artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact arising from multi-offset search over noise series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic procedural, scheduling, or data-logging artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact arising from multi-offset search over noise series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic procedural, scheduling, or data-pipeline artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact arising from multi-offset search over noise series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic procedural, scheduling, or data-pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact arising from multi-offset search over noise series",
+      "class": "measurement_error"
+    }
+  ]
+}

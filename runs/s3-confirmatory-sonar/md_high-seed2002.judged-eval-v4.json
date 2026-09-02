@@ -1,0 +1,614 @@
+{
+  "source": "md_high-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 22,
+    "agree": 17,
+    "items": [
+      {
+        "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Something I have not yet modeled, probably a mundane process split rather than new physics",
+        "primary": "incomplete_theory",
+        "second": "self_error"
+      },
+      {
+        "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A mundane process split I have not yet isolated is still present, but it is not new physics",
+        "primary": "incomplete_theory",
+        "second": "self_error"
+      },
+      {
+        "label": "A small common environmental influence is present, but each family responds with different lag and attenuation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Two separate calibration or unit-convention regimes are still being applied to the lab and observation families",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "An unisolated mundane process split remains in the workflow, but not a new physical effect",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Two distinct calibration or unit regimes are still in use: one for lab instruments and one for observation instruments.",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some unrecognized compound procedural artifact is producing the split and weak cross-agreement.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "The structure is mostly sampling noise plus many offset comparisons.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Some compound procedural artifact is producing the split and weak cross-agreement.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A stable readout bias or unit transform separates the two families",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A small common environmental influence is present, but each family responds with different lag and attenuation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Two calibration regimes or unit conventions are still being applied: one for lab instruments and one for observation instruments.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A procedural artifact from timing, recording conventions, or calibration practice is producing both the split and the weak lag structure.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: something unconsidered.",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A procedural difference in timing, recording, or calibration practice is generating both the split and the apparent lag structure",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A procedural difference in timing, warm-up, recording order, or data handling is producing both the scale split and the scattered lag structure",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Most of the lagged cross-agreements are sampling noise amplified by multiple comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Two distinct calibration/unit regimes are in use, one for lab instruments and one for observation instruments, producing a stable but mundane split",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "At least one channel has a subtle calibration/scale fault, creating a persistent offset without yet producing a visible step change",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Two separate calibration/unit regimes are in use: one for the lab instruments and one for the observation instruments.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Two separate calibration regimes or unit scales are in use, producing a systematic but mundane split between lab and observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The instruments are picking up a weak common environmental oscillation, but each channel has its own transfer function and lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "At least one instrument class has a subtle but real offset or scaling fault that has not yet produced an obvious level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument structure is mostly chance alignment from short baseline windows and many offset comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two distinct calibration/unit regimes are in use, one for lab instruments and one for observation instruments, producing a stable but mundane split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak common environmental oscillation is present, but each instrument has its own transfer function and lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "At least one channel has a subtle calibration/scale fault, creating a persistent offset without yet producing a visible step change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent structure is mostly chance from short windows and many offset comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two separate calibration/unit regimes are in use: one for the lab instruments and one for the observation instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak common environmental oscillation is present, but each instrument filters it differently and with a different lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "At least one channel has a subtle scale bias or transfer-function fault, creating the persistent offset between families.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent structure is mostly chance from short windows and many offset comparisons.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified is producing the split and weak cross-agreement.",
+      "class": "other"
+    },
+    {
+      "label": "Two distinct calibration/unit regimes are still in use: one for the lab instruments and one for the observation instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "A weak environmental driver exists, but each instrument responds with different lag and filtering.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "One or more channels have a subtle scale bias or transfer-function defect, producing a persistent family offset.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The structure is mostly sampling noise plus many offset comparisons.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some unrecognized compound procedural artifact is producing the split and weak cross-agreement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "Two distinct calibration/unit regimes are still in use: one for the lab instruments and one for the observation instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak shared environmental influence exists, but each instrument filters it differently and with different lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A small instrument-specific scale bias or transfer-function defect is producing the persistent offset.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most of the apparent structure comes from sampling noise amplified by many offset comparisons.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some compound procedural artifact is producing the split and weak cross-agreement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "Two distinct calibration or unit regimes are still in use: one for lab instruments and one for observation instruments.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak common environmental driver exists, but each instrument responds with its own delay and attenuation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A small instrument-specific scale bias or transfer-function defect is causing the persistent separation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural artifact is producing both the split and the weak lagged agreement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent structure is sampling noise amplified by searching many lags and pairings.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet considered is contributing.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two calibration regimes or unit conventions are still being applied: one for lab instruments and one for observation instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A small common environmental influence exists, but each instrument sees it with a different lag and attenuation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observation chains differ by a stable scale/offset bias in the instruments or transfer functions.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural artifact from timing, recording conventions, or calibration practice is creating both the split and the weak lag structure.",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the cross-instrument structure is sampling noise amplified by searching many lags and pairings.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified is contributing.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two separate calibration or unit-convention regimes are still being applied to the lab and observation families.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A small common environmental influence exists, but each instrument responds with different lag and attenuation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A stable scale/offset bias in the instruments or transfer functions separates the two families.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural artifact from timing, recording conventions, or calibration practice is producing both the split and the weak lag structure.",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise magnified by searching many lags and pairings.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified is contributing.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two separate calibration or unit-convention regimes are still being applied to the lab and observation families.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A stable scale or offset bias in the instrument readout or transfer functions separates the two families.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A small common environmental influence is present, but each instrument family responds with different lag and attenuation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A procedural artifact from timing, recording conventions, or calibration practice is producing both the split and the weak lag structure.",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise amplified by searching many lags and pairings.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two separate calibration or unit-convention regimes are still being applied to the lab and observation families",
+      "class": "self_error"
+    },
+    {
+      "label": "A stable readout bias or unit transform separates the two families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A small common environmental influence exists, but each family responds with different lag and attenuation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A procedural artifact in timing, recording conventions, or calibration practice is producing both the split and the weak lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two distinct calibration or unit-convention regimes are still being applied to the lab and observation families",
+      "class": "self_error"
+    },
+    {
+      "label": "A stable readout bias or unit transform separates the two families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A small common environmental influence is present, but each family responds with different lag and attenuation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A procedural artifact in timing, recording conventions, or calibration practice is producing both the split and the weak lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two distinct calibration or unit-convention regimes are still being applied to the lab and observation families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A stable readout bias or unit transform separates the two families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural artifact in timing, recording conventions, or calibration practice is producing both the split and the weak lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "A small common environmental influence is present, but each family responds with different lag and attenuation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something I have not yet modeled, probably a mundane process split rather than new physics",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Two separate calibration/unit conventions are still being applied to the lab and observation families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A fixed readout transform or bias separates one family from the other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, recording, or calibration practice is generating both the split and the apparent lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "A small common environmental influence exists, but the two families respond differently in lag and attenuation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Most of the apparent cross-instrument structure is sampling noise amplified by many lag and pairwise comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A mundane process split I have not yet isolated is still present, but it is not new physics",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate calibration or unit conventions are still being applied to the lab and observation families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A fixed readout transform or bias in one measurement chain separates the two families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, recording, or calibration practice is producing both the scale split and the scattered lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the lagged cross-agreements are sampling noise amplified by multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A small common environmental influence exists, but the two families filter it differently",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "An unisolated mundane process split remains in the workflow, but not a new physical effect",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate calibration conventions or unit standards are still being applied to the lab and observation instrument families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A fixed readout transform or bias affects one measurement chain, separating the two families numerically",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, warm-up, recording order, or data handling is producing both the scale split and the scattered lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent lagged cross-agreements are sampling noise plus multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak common environmental influence exists, but the two families respond differently or with different delays",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some unisolated mundane workflow distinction remains unidentified, such as operator sequence, routing, or record handling",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Separate calibration conventions or unit standards are still being applied to the lab and observation instrument families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A fixed readout transform or bias affects one measurement chain, shifting one family onto a different scale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, warm-up, recording order, or data handling is producing both the scale split and the scattered lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent lagged cross-agreements are sampling noise plus multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak common environmental influence exists, but the two families respond differently or with different delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some unisolated mundane workflow distinction remains unidentified, such as operator sequence, routing, or record handling",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Separate calibration conventions or unit standards are still being applied to the lab and observation instrument families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A fixed readout transform or bias affects one measurement chain, shifting one family onto a different scale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, warm-up, recording order, or data handling is producing both the scale split and the scattered lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent lagged cross-agreements are sampling noise plus multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak common environmental influence exists, but the two families respond differently or with different delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some unisolated mundane workflow distinction remains unidentified, such as operator sequence, routing, or record handling",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Separate calibration conventions, unit standards, or reduction recipes are being applied to lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A fixed readout transform or bias affects one measurement chain, shifting one family onto a different scale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference in timing, warm-up, recording order, or data handling is creating both the scale split and the scattered lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the apparent lagged cross-agreements are sampling noise plus multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak common environmental influence exists, but the two families respond differently or with different delays",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Some unisolated mundane workflow distinction remains unidentified, such as operator sequence, routing, or record handling",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    }
+  ]
+}

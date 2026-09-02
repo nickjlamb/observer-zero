@@ -1,0 +1,452 @@
+{
+  "source": "md_high-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 16,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Configuration-dependent or nonlinear instrument response",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: an unidentified factor affecting setup-specific baselines",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something I have not yet considered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Stable environmental or procedural difference between lab and observation settings",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A configuration-dependent or nonlinear response in one or more instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: an unidentified setup-specific factor affecting baselines",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Chance fluctuation plus ordinary measurement noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Stable environmental or procedural difference between lab and observation settings",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Chance fluctuation plus ordinary measurement noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Stable environmental or procedural difference between lab and observation settings",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A configuration-dependent or nonlinear response in one or more instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable environmental or procedural difference between lab and observation settings",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Chance fluctuation plus ordinary measurement noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 40,
+  "l4Judged": 40,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic instrument offset or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental or procedural influence affecting the observational instruments differently from the lab instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Nonlinear or configuration-dependent response in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pure chance from small samples plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real environmental or procedural difference between the lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A configuration-dependent or nonlinear response in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation from small samples plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real environmental or procedural difference between the lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A configuration-dependent or nonlinear response in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation from small samples plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real environmental or procedural difference between the lab and observation settings",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable environmental or procedural difference between the lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unidentified factor affecting setup-specific baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unidentified setup-specific factor affecting baselines",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unidentified setup-specific factor affecting baselines",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable environmental or procedural difference between lab and observation settings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Configuration-dependent or nonlinear instrument response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chance fluctuation plus ordinary measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: a real but still-unidentified setup-specific factor affecting baselines",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

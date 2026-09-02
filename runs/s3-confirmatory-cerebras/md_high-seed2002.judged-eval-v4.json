@@ -1,0 +1,339 @@
+{
+  "source": "md_high-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 11,
+    "items": [
+      {
+        "label": "H_pressure: Atmospheric pressure or air‑density variation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H_mech: Settlement‑wide mechanical disturbance with delayed transmission to resonator_obs",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H1: Temperature‑driven calibration drift",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H4: Atmospheric pressure/air‑density variation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H_elec",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H4: Settlement‑wide mechanical disturbance with delayed transmission to the observational resonator",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H4: Atmospheric pressure/air‑density variation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H2: Central timing module drift combined with a three‑day data‑pipeline delay for resonator_obs",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: Shared timing‑device calibration drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H3: Common mechanical alteration (wire stretch or support shift)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H_elec",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H5: No real drift – the observed decrease is a statistical fluctuation within expected noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Temperature‑driven calibration drift of the pendulum_obs apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Operator‑induced bias or data‑entry error on day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: Mechanical change in the pendulum (e.g., wire stretch or tension loss)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: External vibration or magnetic interference affecting the pendulum during day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Temperature‑driven calibration drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Common mechanical change (wire stretch or support shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Systematic timing‑device calibration error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: External vibration or magnetic interference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Shared timing‑device calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Recent data‑processing/software update introduced bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Atmospheric pressure/air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Common mechanical alteration (wire stretch or support shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Shared timing‑device calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Recent data‑processing/software update introduced bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Atmospheric pressure/air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Common mechanical alteration (wire stretch or support shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Clock drift with delayed propagation through data pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change with thermal inertia in the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Unrecorded software update that altered resonator_obs processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Atmospheric pressure/air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Mechanical alteration (wire stretch or support shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change with delayed thermal response in the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Central clock drift with delayed data‑pipeline propagation affecting resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Unrecorded software update that introduced a systematic bias in resonator_obs processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Atmospheric pressure/air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Mechanical alteration (wire stretch or support shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered factor (e.g., micro‑vibration coupling, electromagnetic interference)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change with delayed thermal response of the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Central timing module drift combined with a three‑day data‑pipeline delay for resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Unrecorded software update introducing a systematic bias in resonator_obs processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Settlement‑wide mechanical disturbance (e.g., micro‑vibrations or load changes) with delayed transmission to the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Atmospheric pressure or air‑density variation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Settlement‑wide temperature change with delayed thermal response of the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Central timing module drift combined with a three‑day data‑pipeline delay for resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Settlement‑wide mechanical disturbance with delayed transmission to the observational resonator",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Atmospheric pressure or air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H_artifact: Data‑processing timestamp misalignment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H_clock: Master‑clock drift combined with a three‑day data‑pipeline delay for resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H_temp: Settlement‑wide temperature trend with differential thermal inertia",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_mech: Settlement‑wide mechanical disturbance with delayed transmission to resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_pressure: Atmospheric pressure or air‑density variation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "H_mech",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_temp",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_elec",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H_artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H_mech",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_temp",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H_elec",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H_cross",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

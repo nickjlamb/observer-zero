@@ -1,0 +1,127 @@
+{
+  "source": "md_high-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Delayed physical or environmental coupling between settlement sites",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Instrument specification and physical calibration differences between lab and observatory apparatus",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data acquisition pipeline or buffer indexing artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 0,
+  "l4Judged": 0,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument specification and physical calibration differences between lab and observatory apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local environmental variation between observatory and laboratory sites (e.g., altitude, gravity, pressure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Site-specific timebase or reference beat unit definition discrepancy",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument specification and physical calibration differences between lab and observatory apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local environmental variation between observatory and laboratory sites (e.g., altitude, gravity, pressure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Site-specific timebase or reference beat unit definition discrepancy",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data acquisition pipeline or buffer indexing artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental coupling between settlement sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious sample correlation from low-frequency baseline fluctuations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data acquisition pipeline or buffer indexing artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed physical or environmental coupling between settlement sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious sample correlation from low-frequency non-white noise",
+      "class": "measurement_error"
+    }
+  ]
+}

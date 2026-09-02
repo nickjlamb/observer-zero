@@ -1,0 +1,156 @@
+{
+  "source": "md_high-seed2004.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 2,
+    "items": [
+      {
+        "label": "Coincidental numerical convergence",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Site-specific reference standard or time-base differential",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Independent instrumental calibration and geometry offsets",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Independent instrumental calibration and geometry offsets",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Site-specific environmental or reference differential",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental baseline convergence without shared cause",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Site-specific environmental or reference frame differential",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental numerical convergence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Site-specific reference standard or time-base differential",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental numerical convergence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Site-specific reference standard or time-base differential",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental numerical convergence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Site-specific reference standard or time-base differential",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental numerical convergence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Site-specific reference standard or time-base differential",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent instrumental calibration and geometry offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Coincidental numerical convergence",
+      "class": "measurement_error"
+    }
+  ]
+}

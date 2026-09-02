@@ -1,0 +1,152 @@
+{
+  "source": "wd_exact-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 2,
+    "items": [
+      {
+        "label": "External periodic driver with phase shift (e.g., geomagnetic)",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Statistical fluctuation despite low chance threshold",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instrumental systematic drift (e.g., thermal cycling of the resonator chamber) produces an ~8‑day oscillation",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Mechanical coupling with delayed transmission",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 4,
+  "l4Judged": 4,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental systematic drift (e.g., thermal cycling of the resonator chamber) produces an ~8‑day oscillation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "External environmental factor (e.g., solar/geomagnetic activity) imposes an ~8‑day periodicity on the resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation – the apparent 8‑day correlation is a random artifact of limited data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental systematic (e.g., building temperature or power cycling) that influences pendulum_lab directly and resonator_obs after a delay of ~3 days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or processing artifact that introduces a spurious lagged relationship between the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation – the observed correlation is a random outcome of limited sample size",
+      "class": "measurement_error"
+    },
+    {
+      "label": "External periodic driver (e.g., geomagnetic or tidal influence) that affects both instruments with a phase shift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared environmental systematic with delayed effect (e.g., building thermal inertia)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or timestamp offset artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Mechanical coupling with delayed transmission",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "External periodic driver with phase shift (e.g., geomagnetic)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluctuation despite low chance threshold",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data‑logging or timestamp offset artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental systematic with delayed effect (e.g., building thermal inertia)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical coupling with delayed transmission",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "External periodic driver with phase shift (e.g., geomagnetic)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluctuation despite low chance threshold",
+      "class": "measurement_error"
+    }
+  ]
+}

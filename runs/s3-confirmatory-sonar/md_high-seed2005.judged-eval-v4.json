@@ -1,0 +1,381 @@
+{
+  "source": "md_high-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 7,
+    "items": [
+      {
+        "label": "H5. Something unconsidered is producing the pattern.",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "H3. The offset structure is being exaggerated by analysis, transcription, or alignment choices.",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "H5. Something unconsidered is producing the pattern.",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The lab and observation setups are measuring the same underlying quantity, but with fixed instrument-specific calibration differences and lagged transfer functions.",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H1. The lab and observation setups are measuring the same phenomenon through two different transfer functions (fixed calibration offset/scale factor or unit conversion issue)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H3. One or more series contains an analysis or transcription artifact causing the apparent cross-system discrepancies",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2. A shared environmental or procedural influence is acting on both lab and observation measurements with a lag, producing partial alignment at certain offsets without a clear long-term drift.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H1. The lab and observation setups are stable readouts of the same underlying quantity, but through different fixed transfer functions or calibration mappings.",
+        "primary": "incomplete_theory",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The offset structure is mostly an artifact of alignment, indexing, or analysis choices rather than a physical linkage.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "H4. The instruments are stable and the anomalies are just finite-sample noise in moderate-sized baseline data",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H4. The apparent structure is mostly finite-sample noise in otherwise stable instruments.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H2. A shared environmental or procedural influence acts on both lab and observation measurements with a delay, creating offset-dependent partial alignment.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H5. Some other unmodeled mechanism is producing the offset-dependent structure.",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 36,
+  "l4Judged": 36,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1. The lab and observation setups are measuring the same phenomenon through two different transfer functions (fixed calibration offset/scale factor or unit conversion issue)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2. There is a shared environmental or procedural influence that perturbs both lab and observation measurements with a lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. One or more series contains an analysis or transcription artifact causing the apparent cross-system discrepancies",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4. The instruments are stable and the anomalies are just finite-sample noise in moderate-sized baseline data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1. The lab and observation setups are stable readouts of the same underlying quantity, but through different fixed transfer functions or calibration mappings (for example, a scale/unit offset or conversion mismatch).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence is acting on both lab and observation measurements with a lag, producing partial alignment at certain offsets without a clear long-term drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. There is a subtle analysis, transcription, or alignment artifact creating the apparent offset-dependent cross-system relationships.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The apparent structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Something unconsidered is producing the pattern.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1. The lab and observation setups are stable readouts of the same underlying quantity, but through different fixed transfer functions or calibration mappings.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence is acting on both lab and observation measurements with a lag, producing partial alignment at certain offsets without a clear long-term drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. A subtle analysis, transcription, or alignment artifact is creating the apparent offset-dependent cross-system relationships.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The apparent structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Something unconsidered is producing the pattern.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1. The lab and observation setups are stable readouts of the same underlying quantity, but through different fixed transfer functions or calibration mappings.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence is acting on both lab and observation measurements with a lag, producing partial alignment at certain offsets without a clear long-term drift.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3. A subtle analysis, transcription, or alignment artifact is creating the apparent offset-dependent cross-system relationships.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The apparent structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Something unconsidered is producing the pattern.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1. The lab and observation setups are stable readouts of the same underlying quantity, but through different fixed transfer functions or calibration mappings.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence is acting on both lab and observation measurements with a lag, producing partial alignment at certain offsets without a clear long-term drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. A subtle analysis, transcription, or alignment artifact is creating the apparent offset-dependent cross-system relationships.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The apparent structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Something unconsidered is producing the pattern.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1. The lab and observation setups are two stable readouts of the same underlying quantity, but each applies a different fixed calibration or transfer function.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence acts on both lab and observation measurements with a delay, creating offset-dependent partial alignment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. The offset structure is being exaggerated by analysis, transcription, or alignment choices.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The pattern is mostly finite-sample noise in stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1. The lab and observation setups are two stable readouts of the same underlying quantity, but each applies a different fixed calibration or transfer function.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence acts on both lab and observation measurements with a delay, creating offset-dependent partial alignment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. The offset structure is being exaggerated by analysis, transcription, or alignment choices.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4. The pattern is mostly finite-sample noise in stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1. The lab and observation setups are two stable readouts of the same underlying quantity, but each applies a different fixed calibration or transfer function.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence acts on both lab and observation measurements with a delay, creating offset-dependent partial alignment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. The offset structure is being exaggerated by analysis, transcription, or alignment choices.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The pattern is mostly finite-sample noise in stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not yet considered.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1. The lab and observation setups are two stable readouts of the same underlying quantity, but each has a different fixed calibration or transfer function that distorts contemporaneous comparison.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H2. A shared environmental or procedural influence acts on both lab and observation measurements with a delay, creating offset-dependent partial alignment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3. The offset structure is being exaggerated by analysis, transcription, or alignment choices.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4. The pattern is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5. Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual. Something unconsidered.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The cross-stream offset structure is mostly an artifact of alignment, indexing, or analysis choices rather than a physical linkage.",
+      "class": "self_error"
+    },
+    {
+      "label": "The lab and observation setups are stable but differently calibrated readouts of the same underlying quantity.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A delayed shared influence or procedural lag couples the setups, producing real offset-dependent partial alignment.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent offset structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The offset structure is mostly an artifact of alignment, indexing, or analysis choices rather than a physical linkage.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The lab and observation setups are measuring the same underlying quantity, but with fixed instrument-specific calibration differences and lagged transfer functions.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A delayed shared influence or procedural lag is genuinely coupling the setups, producing real offset-dependent partial alignment.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent offset structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "The offset structure is mostly an artifact of alignment, indexing, or analysis choices rather than a physical linkage.",
+      "class": "self_error"
+    },
+    {
+      "label": "The lab and observation setups are measuring the same underlying quantity, but with fixed calibration differences and lagged response functions.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A delayed shared influence or procedural lag is genuinely coupling the setups, producing real offset-dependent partial alignment.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent offset structure is mostly finite-sample noise in otherwise stable instruments.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some other unmodeled mechanism is producing the offset-dependent structure.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not considered.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not considered.",
+      "class": "other"
+    }
+  ]
+}

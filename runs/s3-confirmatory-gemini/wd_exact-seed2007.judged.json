@@ -1,0 +1,139 @@
+{
+  "source": "wd_exact-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 2,
+    "items": [
+      {
+        "label": "Distinct instrument geometry or intentional 3:2 calibration presets exist independently at each site",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data pipeline or telemetry coupling: observatory resonator records are computed directly from the laboratory pendulum data stream via a delayed (3-day) processing queue or script",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Physical calibration transfer delay: observatory resonator measurements rely on reference time signals or transfer standards physically delivered from the lab pendulum on a 3-day transit schedule",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The observatory pendulum period is 1.50× longer than the lab pendulum, directly scaling the resonator's cycles-per-beat reading while intrinsic resonator frequency is uniform",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Distinct instrument geometry or intentional 3:2 calibration presets exist independently at each site",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental differences (gravity/altitude/temperature) between lab and observatory independently alter both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The observatory pendulum period is 1.50× longer than the lab pendulum, directly scaling the resonator's cycles-per-beat reading while intrinsic resonator frequency is uniform",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Distinct instrument geometry or intentional 3:2 calibration presets exist independently at each site",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental differences (gravity/altitude/temperature) between lab and observatory independently alter both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The observatory pendulum period is 1.50× longer than the lab pendulum, directly scaling the resonator's cycles-per-beat reading while intrinsic resonator frequency is uniform",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Distinct instrument geometry or intentional 3:2 calibration presets exist independently at each site",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental differences (gravity/altitude/temperature) between lab and observatory independently alter both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data pipeline or telemetry coupling: observatory resonator records are computed directly from the laboratory pendulum data stream via a delayed (3-day) processing queue or script",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical calibration transfer delay: observatory resonator measurements rely on reference time signals or transfer standards physically delivered from the lab pendulum on a 3-day transit schedule",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External physical driver with propagation lag: a common environmental disturbance affects the lab pendulum first and the observatory resonator 3 days later",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data pipeline or telemetry coupling: observatory resonator records are computed directly from the laboratory pendulum data stream via a delayed (3-day) processing queue or script",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical calibration transfer delay: observatory resonator measurements rely on reference time signals or transfer standards physically delivered from the lab pendulum on a 3-day transit schedule",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External physical driver with propagation lag: a common environmental disturbance affects the lab pendulum first and the observatory resonator 3 days later",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

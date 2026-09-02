@@ -1,0 +1,531 @@
+{
+  "source": "md_high-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 19,
+    "agree": 10,
+    "items": [
+      {
+        "label": "A real external influence is present, but each chain responds differently because of different transfer functions or mounting conditions",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A genuine external physical effect is present and is being measured differently by the four instruments",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A real shared external influence exists, but the two instrument families respond with different transfer functions",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A genuine external physical effect is feeding both measurement classes after filtering through different instrument responses",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A real external influence exists, but the two setups respond differently because their transfer functions or couplings differ",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Residual (something unconsidered)",
+        "primary": "measurement_error",
+        "second": "other"
+      },
+      {
+        "label": "Persistent calibration/scale offset between the lab and observation instrument families",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Persistent calibration/scale offset between lab and observation instrument families",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Persistent calibration/scale mismatch between the lab and observation instrument chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real shared external influence exists, but the two instrument families respond with different transfer functions",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Some of the lagged structure is search noise on stable but noisy series",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Persistent calibration/scale mismatch between lab and observation instrument chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The lagged relationships are mostly search noise on otherwise stable, noisy series",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A real external influence exists, but the two setups respond differently because their transfer functions or couplings differ",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Family-level calibration or scale offset between lab and observation instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Offset/lag searching is generating spurious weak structure in otherwise stable series",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 27,
+  "l4Judged": 27,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument-specific calibration offset between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental or procedural influence with different transfer functions in the four setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent relationships are statistical flukes from many lag/offset comparisons on noisy but stable measurements",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine physical effect is influencing both measurement classes, but only after passing through instrument-specific responses",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Persistent setup-specific calibration/scale offsets between lab and observation instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental or procedural influence with instrument-dependent transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Some of the apparent lagged structure is selection noise from many offset comparisons on stable but noisy data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine external physical effect is feeding both measurement classes after filtering through different instrument responses",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unconsidered explanation, including hidden bookkeeping, unit conversion, or dataset-matching error",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent setup-specific calibration/scale mismatch between lab and observational instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak common influence with instrument-dependent transfer functions overlays the calibration offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Some of the lagged structure is search noise on stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine external physical effect is present and is being measured differently by the four instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: hidden bookkeeping, pairing, unit-conversion, or analysis error not yet identified",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent setup-specific calibration or scale mismatch between lab and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak common influence is present but is filtered differently by each setup",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Some of the lagged structure is search noise on stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine external physical effect is present and is being measured differently by the four instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error not yet identified",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent calibration/scale mismatch between lab and observation instrument chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak common influence exists, but each setup responds differently or with different transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The lagged relationships are mostly search noise on otherwise stable, noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine external physical effect is being sampled differently by the four instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent calibration/scale mismatch between lab and observation instrument chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak common influence exists, but each setup responds differently or with different transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The lagged relationships are mostly search noise on otherwise stable, noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine external physical effect is being sampled differently by the four instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent calibration/scale mismatch between the lab and observation instrument chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence exists, but the four instrument chains convert it differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent lagged relationships are mostly search noise on stable noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent calibration/scale mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence is present, but each chain responds differently because of different transfer functions or mounting conditions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent cross-stream relationships are mostly search noise on stable noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Persistent calibration/scale mismatch between the lab and observation chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A real external influence exists, but the two setups convert it differently because of differing coupling, mounting, or transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The cross-stream relationships are mostly search noise on stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent chain-specific calibration/scale mismatch between the lab and observation setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A real external influence exists, but the two setups respond differently because their transfer functions or couplings differ",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent cross-chain structure is mostly offset-search noise in otherwise stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent chain-specific calibration/scale mismatch between the lab and observation setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A real external influence exists, but the two setups respond differently because their transfer functions or couplings differ",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent cross-chain structure is mostly offset-search noise in otherwise stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent chain-specific calibration/scale mismatch between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence exists, but the two setups respond differently because their transfer functions or couplings differ",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent cross-chain structure is mostly offset-search noise in otherwise stable but noisy series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, unit-conversion, or analysis error remains unresolved",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent calibration/scale offset between the lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence exists, but the two chains convert it differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset-search artifacts in noisy but otherwise stable series are generating spurious cross-chain structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Persistent calibration/scale offset between lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real shared external influence exists, but the two instrument families couple to it differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset-search and lag-search are producing spurious weak structure in otherwise stable series",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (something unconsidered)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Persistent calibration/scale offset between the lab and observation instrument families",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A real shared external influence exists, but the two instrument families respond with different transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset/lag searching is generating spurious weak structure in otherwise stable series",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (something unconsidered)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Persistent calibration/scale offset between the lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real shared external influence exists, but the two instrument families respond with different transfer functions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset/lag searching is producing spurious weak structure in otherwise stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Persistent calibration or scale offset between the lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real shared external influence exists, but the two instrument families respond with different transfer functions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Offset/lag searching is producing spurious weak structure in otherwise stable series",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual bookkeeping, pairing, or unit-conversion error in the records or analysis chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Family-level calibration or scale offset between lab and observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence is present, but the two families respond differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset/lag search is manufacturing weak structure from stable series",
+      "class": "self_error"
+    },
+    {
+      "label": "A subtle bookkeeping, pairing, or unit-conversion problem survives the internal stability checks",
+      "class": "self_error"
+    },
+    {
+      "label": "Something else not yet modeled",
+      "class": "other"
+    },
+    {
+      "label": "Family-level calibration or scale offset between lab and observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence is present, but the two families respond differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset/lag searching is manufacturing weak structure from otherwise stable series",
+      "class": "self_error"
+    },
+    {
+      "label": "A subtle bookkeeping, pairing, or unit-conversion problem survives the internal stability checks",
+      "class": "self_error"
+    },
+    {
+      "label": "Something else not yet modeled",
+      "class": "other"
+    },
+    {
+      "label": "Family-level calibration or scale offset between lab and observation instrument families",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real external influence is present, but the two families respond differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Offset/lag searching is producing apparent structure from stable but unrelated series",
+      "class": "self_error"
+    },
+    {
+      "label": "A subtle bookkeeping, pairing, or unit-conversion problem is surviving the internal checks",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something not yet modeled",
+      "class": "incomplete_theory"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "source": "wd_exact-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 15,
+    "agree": 10,
+    "items": [
+      {
+        "label": "The measurement or calibration workflow is creating a repeated lagged artifact, strongest in the observation instruments",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Something unconsidered is producing the lag structure",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The short-lag matches are mostly a multiple-comparisons artifact from scanning many offsets on modest samples",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Something unconsidered is producing the lag structure",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Shared environmental/operational cycle affecting both lab and observation setups with a 2–3 day lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The lagged matches are mainly a multiple-comparisons artifact from scanning many offsets on small samples",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Something unconsidered is producing the lag structure",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A weak real coupling exists between the two observation instruments, superimposed on broader shared schedule effects",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental/operational cycle affecting both lab and observation setups with a 2–3 day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or recording procedure is introducing a periodic lagged artifact, more visible in the observation instruments than the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The cross-instrument associations are statistical overfitting from many lag comparisons rather than a real physical coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A genuine coupling exists between the two observation instruments, but it is weak and not yet separable from shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared operational/environmental cycle is influencing multiple instruments on a 2–3 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The recording or calibration procedure is introducing a repeating lagged artifact, especially in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak real coupling exists between the two observation instruments, superimposed on broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is generating the lag structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is creating a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement/calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mainly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "residual",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement/calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mainly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement/calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is affecting multiple instruments on roughly a 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lagged matches are mostly a multiple-comparisons artifact from scanning many offsets on small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared operational or environmental cycle is imprinting multiple instruments on a roughly 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The short-lag matches are mostly a multiple-comparisons artifact from scanning many offsets on modest samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared operational or environmental cycle is imprinting multiple instruments on a roughly 2–6 day schedule",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The short-lag matches are mostly a multiple-comparisons artifact from scanning many offsets on modest samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a weak real coupling between the two observation instruments, layered on top of broader shared schedule effects",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered is producing the lag structure",
+      "class": "incomplete_theory"
+    }
+  ]
+}

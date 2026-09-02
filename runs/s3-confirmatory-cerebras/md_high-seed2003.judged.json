@@ -1,0 +1,252 @@
+{
+  "source": "md_high-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 8,
+    "agree": 5,
+    "items": [
+      {
+        "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H1: Shared environmental factor (e.g., temperature or humidity) influences both instruments with a ~3‑day lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H3: Calibration offset change due to hardware aging of resonator_obs sensor",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H1: Apparent drift is random fluctuation or unmodeled environmental variation (e.g., temperature, air pressure) that coincidentally lowered the pendulum_lab reading on day 18.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H3: A settlement‑wide low‑frequency oscillatory mode physically couples the pendulum and resonator",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H2: Procedural or data‑handling artifact introduced a time‑shifted bias between the two data streams",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "H4: Statistical fluke arising from multiple offset tests",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: No drift – observed variation is random noise within baseline variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Temperature‑related drift affecting resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Calibration offset change due to hardware aging of resonator_obs sensor",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: External electromagnetic interference specifically affecting resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: Apparent drift is random fluctuation or unmodeled environmental variation (e.g., temperature, air pressure) that coincidentally lowered the pendulum_lab reading on day 18.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Temperature‑related systematic effect on the pendulum_lab apparatus caused a genuine speed‑up of the swing, lowering the beat count.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Mechanical aging or tension change (e.g., cable stretch, support wear) in the pendulum_lab has progressively shortened the effective length, producing a real decrease in period.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: A data‑processing or calibration artifact introduced at or after trial 156 caused a bias in the recorded pendulum_lab values.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental factor (e.g., temperature or humidity) influences both instruments with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Procedural or data‑handling artifact introduced a time‑shifted bias between the two data streams",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: Genuine physical coupling via a settlement‑wide oscillatory mode affecting both pendulum and resonator",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: Statistical fluke resulting from multiple offset tests (multiple comparisons)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: A shared environmental factor (e.g., temperature or humidity) influences both instruments with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: A procedural or data‑handling artifact introduced a time‑shifted bias between the two data streams",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: A genuine settlement‑wide low‑frequency oscillatory mode physically couples the pendulum and resonator",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: A statistical fluke arising from multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: A shared environmental factor (e.g., temperature or humidity) influences both instruments with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: A procedural or data‑handling artifact introduced a consistent 3‑day offset between the two data streams",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: A settlement‑wide low‑frequency oscillatory mode physically couples the pendulum and resonator",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: The observed correlation is a statistical fluke arising from multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H5: Shared clock or timing drift in the data‑acquisition system causes correlated lagged values",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+      "class": "self_error"
+    },
+    {
+      "label": "H5: Shared clock or timing drift in the data‑acquisition system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental factor with a three‑day lag (e.g., temperature or humidity)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Settlement‑wide low‑frequency oscillatory mode coupling both devices with phase lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: Statistical fluke arising from multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+      "class": "self_error"
+    },
+    {
+      "label": "H5: Shared clock or timing drift in the data‑acquisition system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental factor with a three‑day lag (e.g., temperature or humidity)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Settlement‑wide low‑frequency oscillatory mode with phase lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: Statistical fluke arising from multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Shared clock or timing drift in the data‑acquisition system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental factor with a three‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Settlement‑wide low‑frequency oscillatory mode with fixed phase offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: Statistical fluke arising from multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an as‑yet‑unidentified factor",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

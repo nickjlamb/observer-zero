@@ -57,7 +57,11 @@ export function createJudgeClient(opts: {
 
   const complete: CompleteFn = async (prompt) => {
     calls += 1;
-    for (let attempt = 0; attempt < 5; attempt++) {
+    // 8 attempts with capped exponential backoff (~4 min worst case).
+    // Raised from 5 on 2026-08-31 after a confirmatory scoring pass died on
+    // sustained 429/5xx ("judge API: retries exhausted") — transport-level
+    // resilience only; nothing about the judge's behavior changes.
+    for (let attempt = 0; attempt < 8; attempt++) {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
@@ -83,7 +87,7 @@ export function createJudgeClient(opts: {
       if (![429, 500, 502, 503, 529].includes(res.status)) {
         throw new Error(`judge API error ${res.status}: ${(await res.text()).slice(0, 200)}`);
       }
-      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt + Math.random() * 500));
+      await new Promise((r) => setTimeout(r, Math.min(60_000, 1000 * 2 ** attempt) + Math.random() * 500));
     }
     throw new Error("judge API: retries exhausted");
   };

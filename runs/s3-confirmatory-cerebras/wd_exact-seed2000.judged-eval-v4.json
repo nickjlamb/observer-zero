@@ -1,0 +1,364 @@
+{
+  "source": "wd_exact-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Mechanical coupling between pendulum_lab and resonator_obs (building vibrations or shared support)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrument‑specific mechanical or thermal drift in each resonator enclosure",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data‑logging artifact (duplicate output or rounding)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Distinct power‑supply fluctuations influencing each resonator’s electronics",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual (unidentified factor such as subtle electromagnetic interference or undocumented maintenance activity)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual (unconsidered) mechanism",
+        "primary": "measurement_error",
+        "second": "other"
+      },
+      {
+        "label": "Differential power‑supply fluctuations with delayed effect on pendulum_lab electronics",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Mechanical coupling or shared low‑frequency vibration affecting resonator_obs and pendulum_lab",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Building‑wide low‑frequency mechanical vibration with differential coupling",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrument‑specific calibration drift (mechanical or thermal change in the resonator_obs assembly)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Systematic data‑logging or processing bias affecting resonator_obs (e.g., rounding offset that accumulates) and inadvertently aligning with pendulum_lab values after three days",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data‑logging or processing artefact specific to resonator_obs (e.g., rounding bias, buffer duplication)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 9,
+  "l4Judged": 9,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental calibration drift (mechanical/thermal change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental periodic influence (e.g., daily temperature cycle)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging artifact (duplicate output or rounding)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation within baseline variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument‑specific calibration drift (mechanical or thermal change in the resonator_obs assembly)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local environmental influence affecting only the resonator_obs location (temperature, humidity, or airflow gradient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or processing artefact specific to resonator_obs (e.g., rounding bias, buffer duplication)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient power‑supply fluctuation impacting resonator_obs electronics only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument‑specific mechanical/thermal drift in resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument‑specific mechanical/thermal drift in resonator_lab (opposite direction)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Local environmental gradient affecting the two resonator chambers differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Separate data‑logging or processing bias for each resonator (software rounding or buffer error)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Distinct power‑supply fluctuations influencing each resonator’s electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific mechanical/thermal drift (opposite directions)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Local environmental gradient affecting the two resonator chambers differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias (under‑report for resonator_obs, over‑report for resonator_lab)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Distinct power‑supply fluctuations influencing each resonator’s electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific mechanical or thermal drift (opposite directions)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Local environmental gradient affecting the two resonator chambers differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical coupling between pendulum_lab and resonator_obs (building vibrations or shared support)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias (different offset/rounding in each resonator)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑supply fluctuations influencing each resonator’s electronics differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mechanical coupling or shared vibration affecting resonator_obs and pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific mechanical or thermal drift in each resonator enclosure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Local environmental gradient (temperature/humidity) affecting resonator_obs differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias specific to each resonator",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑supply fluctuations influencing resonator electronics differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical coupling or shared low‑frequency vibration affecting resonator_obs and pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Local temperature/humidity gradient affecting resonator_obs and pendulum_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific mechanical or thermal drift in each resonator enclosure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias specific to each resonator",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑supply fluctuations influencing resonator electronics differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factors)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared low‑frequency mechanical vibration propagating through the observation chamber and affecting resonator_obs with a 3‑day lag, while leaving pendulum_lab mean largely unchanged",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Micro‑climate (temperature/humidity) gradient within the observation chamber that evolves on a multi‑day timescale, influencing resonator_obs frequency and indirectly modulating pendulum_lab readings after a thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Separate mechanical/thermal relaxation of each resonator enclosure (downward drift of resonator_obs, upward drift of resonator_lab) with an unrelated periodic environmental signal that coincidentally aligns with pendulum_lab after three days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias affecting resonator_obs (e.g., rounding offset that accumulates) and inadvertently aligning with pendulum_lab values after three days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Differential power‑supply fluctuations influencing resonator electronics differently, with a delayed effect on pendulum_lab circuitry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual (unidentified factor such as subtle electromagnetic interference or undocumented maintenance activity)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Micro‑climate gradient causing thermal drift with ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared low‑frequency mechanical vibration propagating through structure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent enclosure relaxation with coincidental periodic environmental signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic data‑logging or processing bias affecting resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Differential power‑supply fluctuations with delayed effect",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic data‑logging or processing offset affecting resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Micro‑climate gradient with ~3‑day thermal lag between observation chamber and pendulum_lab enclosure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Building‑wide low‑frequency mechanical vibration affecting resonators differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent enclosure relaxation with coincidental periodic environmental signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Differential power‑supply fluctuations with delayed effect on pendulum_lab electronics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic timestamp / indexing error in resonator_obs data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Micro‑climate thermal lag between observation chamber and pendulum_lab enclosure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Delayed power‑supply modulation affecting resonator_obs and pendulum_lab differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Building‑wide low‑frequency mechanical vibration with differential coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered) mechanism",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic timestamp / indexing error in resonator_obs data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Micro‑climate thermal lag between observation chamber and pendulum_lab enclosure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Delayed power‑supply modulation affecting resonator_obs and pendulum_lab differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Building‑wide low‑frequency mechanical vibration with differential coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered) mechanism",
+      "class": "other"
+    }
+  ]
+}

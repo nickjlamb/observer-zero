@@ -1,0 +1,431 @@
+{
+  "source": "wd_exact-seed2007.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 15,
+    "agree": 9,
+    "items": [
+      {
+        "label": "A shared registration/calibration lag or bookkeeping mismatch between lab and observer records is producing a fixed offset and delayed alignment",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "The lab and observer streams are in different measurement modes or calibration states, so each pair is self-consistent but they are not recording the same quantity on the same scale",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Some of the strongest lagged cross-stream agreements are inflated by scanning many offsets",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Some hidden systematic, such as metadata corruption or operator-handling differences, is affecting the streams",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A genuine physical asymmetry is present between the lab apparatus and the observer apparatus, but it is modest and only visible through stable offsets rather than drift or level changes",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The lab and observer streams are in different measurement modes or calibration states, so each pair is self-consistent but they are not recording the same quantity on the same scale",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A broader metadata, operator, or stream-routing effect is distorting the records in a more complex way than a simple calibration offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A shared calibration/registry mismatch or bookkeeping lag between lab and observer records is creating a fixed offset and delayed alignment",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+        "primary": "self_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The lab and observer streams are in different measurement modes, calibration states, or unit registries, so each pair is internally consistent but not on the same scale",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A hidden process tied to metadata, operator handling, or stream registration distorts the records without a simple one-to-one calibration offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Two different instrument states or configurations are being recorded: the lab pair and observer pair are each self-consistent but offset because they are not measuring the same calibrated quantity or not in the same mode",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared timing/indexing issue is offsetting the streams by a day or more, causing mismatched comparisons and the apparent split between lab and observer series",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine physical asymmetry is present between the lab apparatus and the observer apparatus, but it is modest and only visible through stable offsets rather than drift or level changes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The apparent split is mostly a statistical artifact of short windows, offset search, and multiple comparisons, with no substantive anomaly beyond ordinary noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The lab and observer streams are in different measurement modes or calibration states, so each pair is self-consistent but they are not recording the same quantity on the same scale",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared indexing or timing offset is making the streams look like two regimes when they are being compared out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "There is a genuine but modest physical asymmetry between the lab and observer environments that produces reproducible offsets without drift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The split is mainly a statistical artifact from short windows, multiple offset searches, and selective attention to moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unmodeled is affecting the streams, such as metadata corruption, operator handling, or an unrecognized environmental coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The lab and observer streams are in different measurement modes or calibration states, so each pair is self-consistent but they are not recording the same quantity on the same scale",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared indexing or timing offset is making the streams look like two regimes when they are being compared out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "There is a real but modest physical asymmetry between the lab and observer environments that produces reproducible offsets without drift",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The split is mainly a statistical artifact from short windows, multiple offset searches, and selective attention to moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unmodeled is affecting the streams, such as metadata corruption, operator handling, or an unrecognized environmental coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The lab and observer streams are in different measurement modes, calibration states, or unit registries, so each pair is internally consistent but not on the same scale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared indexing or timing offset is making the streams appear split and causing best matches at nonzero lags",
+      "class": "social_process"
+    },
+    {
+      "label": "There is a real but modest physical or environmental asymmetry between the lab and observer settings that produces reproducible offsets without drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The split is partly a statistical artifact from short windows, offset searching, and selective attention to moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some unmodeled systematic is affecting the streams, such as metadata corruption, operator handling, or an unrecognized environmental coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The lab and observer streams are recorded in different calibration or unit states, so the two bands are a constant registry/mode offset rather than a physical difference",
+      "class": "self_error"
+    },
+    {
+      "label": "The streams are aligned to different day/trial indices, so some of the apparent split and cross-check structure is produced by timing or indexing misalignment",
+      "class": "self_error"
+    },
+    {
+      "label": "There is a genuine but modest environmental or mechanical difference between lab and observer settings that reproducibly shifts both instruments without causing drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Part of the pattern is statistical overinterpretation from short windows, multiple offset searches, and moderate correlations rather than a strong underlying structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unrecognized systematic such as metadata corruption, operator handling differences, or another hidden process is affecting the streams",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The lab and observer records are in different calibration or unit states, producing a fixed registry/mode offset rather than a physical difference",
+      "class": "self_error"
+    },
+    {
+      "label": "Some of the apparent structure is caused by day/trial misalignment, so the cross-stream matches peak at nonzero offsets because the series are indexed out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Some other hidden systematic, such as metadata corruption or operator-handling differences, is affecting the streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observer records are in different calibration or unit states, producing a fixed registry/mode offset rather than a physical difference",
+      "class": "self_error"
+    },
+    {
+      "label": "Some of the apparent structure is caused by day/trial misalignment, so the cross-stream matches peak at nonzero offsets because the series are indexed out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other hidden systematic, such as metadata corruption or operator-handling differences, is affecting the streams",
+      "class": "self_error"
+    },
+    {
+      "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "The lab and observer records are in different calibration or unit states, producing a fixed registry/mode offset rather than a physical difference",
+      "class": "self_error"
+    },
+    {
+      "label": "Some of the cross-stream pattern is due to day/trial misalignment, so the best matches appear at nonzero offsets because the series are indexed out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some hidden systematic, such as metadata corruption or operator-handling differences, is affecting the streams",
+      "class": "self_error"
+    },
+    {
+      "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The lab and observer records are in different calibration or unit states, producing a fixed registry/mode offset rather than a physical difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-stream pattern is caused by day/trial misalignment, so best matches appear at nonzero offsets because the series are out of phase",
+      "class": "self_error"
+    },
+    {
+      "label": "A real but modest environmental or mechanical difference between lab and observer setups shifts both instruments in a reproducible way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some hidden systematic, such as metadata corruption or operator-handling differences, is affecting the streams",
+      "class": "self_error"
+    },
+    {
+      "label": "The cross-stream correlation structure is partly an artefact of short windows, multiple lag searches, and moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Different calibration or registry states in the lab and observer records produce a fixed offset, with lagged alignments arising from bookkeeping/state synchronization rather than physics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real site or setup difference between lab and observer environments shifts the measurements in a reproducible way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some hidden process tied to metadata, operator handling, or stream registration is distorting the records without a clean one-to-one calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent lagged cross-stream agreements are partly a statistical artefact from searching multiple offsets on moderate correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Different calibration or registry states in lab and observer records create a fixed offset, with lagged alignments coming from bookkeeping/state synchronization rather than physics",
+      "class": "social_process"
+    },
+    {
+      "label": "A real site or setup difference between lab and observer environments shifts the measurements reproducibly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A hidden process tied to metadata, operator handling, or stream registration distorts the records without a simple one-to-one calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the lagged cross-stream agreements are inflated by searching multiple offsets on moderate correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "A residual unmodeled cause remains possible",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared calibration/registry mismatch or bookkeeping lag between lab and observer records is creating a fixed offset and delayed alignment",
+      "class": "social_process"
+    },
+    {
+      "label": "A real but constant site/setup difference between lab and observer environments is shifting the measurements reproducibly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A broader metadata/operator/stream-registration effect is distorting the records in a way that is more complex than a simple calibration offset",
+      "class": "social_process"
+    },
+    {
+      "label": "Some of the strongest lagged cross-stream agreements are statistical artifacts from scanning multiple offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unmodeled cause remains that is not captured by the current systematic explanations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared registration/calibration lag or bookkeeping mismatch between lab and observer records is producing a fixed offset and delayed alignment",
+      "class": "social_process"
+    },
+    {
+      "label": "A real but constant site/setup difference between the lab and observer environments is shifting the measurements reproducibly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A broader metadata, operator, or stream-routing effect is distorting the records in a more complex way than a simple calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the strongest lagged cross-stream agreements are inflated by scanning many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unmodeled cause remains that is not captured by the current systematic explanations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared registration, synchronization, or bookkeeping lag is misaligning the lab and observer records by a few days",
+      "class": "social_process"
+    },
+    {
+      "label": "A real but fixed environmental or setup difference between the lab and observer stations is producing two reproducible bands",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A broader procedural, operator, or metadata-routing effect is distorting the records in a more complex but still mundane way",
+      "class": "self_error"
+    },
+    {
+      "label": "The apparent lagged matches are partly an artifact of searching many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A still-unrecognized systematic or physical cause is operating that is not captured by the current mundane explanations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not thought of",
+      "class": "other"
+    }
+  ]
+}

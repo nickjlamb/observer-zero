@@ -1,0 +1,360 @@
+{
+  "source": "md_high-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Stable procedural or reduction difference between the two pipelines",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable instrument-specific bias or mild nonlinearity in one or more sensors",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared environmental influence coupling differently to the two systems",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instrument-specific bias or nonlinearity in one or more sensors",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A shared environmental influence that couples differently to the two systems",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "A shared environmental influence that couples differently to the two systems",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Separate fixed calibration offsets in the lab and observer chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something unconsidered",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent calibration offset between lab and observer instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A common environmental influence affecting both resonator instruments more than the pendulums",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unresolved instrument-specific bias or nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent calibration offset between lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental or setup effect influencing the observer and lab chains differently by system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific bias or nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized procedural difference between the lab and observer protocols",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent calibration offsets in the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared setup or environmental factor affects the two chains differently by system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific bias or nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unrecognized procedural difference between lab and observer protocols",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent calibration offsets in the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A fixed procedural or reduction difference between the lab and observer pipelines",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific bias or nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental influence that couples differently to the two systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent calibration offsets in the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable procedural or reduction difference between the two pipelines",
+      "class": "self_error"
+    },
+    {
+      "label": "A stable instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental influence that couples differently to the two systems",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate fixed calibration offsets in the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable procedural or reduction difference between the two pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental influence that couples differently to the two systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate fixed calibration offsets in the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable procedural or reduction difference between the two pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental influence that couples differently to the two systems",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate fixed calibration offsets in the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or reduction difference between the two pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental influence coupling differently to the two systems",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Separate fixed calibration offsets in the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or reduction difference between the lab and observer pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental influence coupling differently to the two systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration offset between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or reduction difference between the lab and observer pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental influence coupling differently to the two systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or reduction difference between the lab and observer pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental influence coupling differently to the two systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or reduction difference between the lab and observer pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific bias or mild nonlinearity in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental influence coupling differently to the two systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    }
+  ]
+}

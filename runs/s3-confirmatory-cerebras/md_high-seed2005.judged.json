@@ -1,0 +1,339 @@
+{
+  "source": "md_high-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 11,
+    "items": [
+      {
+        "label": "Statistical fluke from multiple lag searches",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Random statistical fluctuation within expected instrumental noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Statistical fluke due to multiple lag searches",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data‑processing or power‑line artifact affecting both streams with a delay",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Operator‑specific bias or handling error during post‑baseline measurements",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Hidden delayed environmental factor",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine instrumental drift (e.g., temperature‑induced or component aging)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared calibration‑drift bias on a three‑day cycle",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Random statistical fluctuation within expected noise (no true drift)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Genuine physical coupling with ~3‑day propagation delay",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Statistical fluke despite multiple comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift in resonator_obs (e.g., temperature‑induced or calibration shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation within expected instrumental noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient measurement error affecting the day‑10 batch (e.g., operator handling or temporary mis‑calibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine instrumental drift of resonator_lab (e.g., temperature‑induced or calibration shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental change affecting resonator_lab only (e.g., temperature rise in the lab compartment)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation within expected noise (no true drift)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator‑specific bias or handling error during post‑baseline measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine instrumental drift of resonator_lab (e.g., temperature‑induced or calibration shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental change affecting resonator_lab only (e.g., temperature rise in the lab compartment)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation within expected noise (no true drift)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator‑specific bias or handling error during post‑baseline measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Genuine instrumental drift (e.g., temperature‑induced or component aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation within expected noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Localized environmental change affecting resonator_lab only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator‑specific bias or handling error during post‑baseline measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental factor with delayed effect (e.g., temperature or humidity cycle) influencing pendulum_lab immediately and resonator_obs three days later",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑handling or logging artifact that introduces a systematic three‑day offset between the two data streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling between the pendulum and resonator via an as‑yet‑unknown mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke arising from multiple offset searches despite the reported chance bounds",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared delayed environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑handling or logging artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke from multiple lag searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data‑handling or logging offset (e.g., an off‑by‑three‑day timestamp error) affecting one data stream",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded delayed environmental factor (e.g., temperature or humidity change with ~3 day thermal inertia)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluke from multiple lag searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical coupling between the pendulum and resonator (e.g., an unknown field with ~3 day propagation delay)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic timestamp offset affecting one data stream",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded delayed environmental factor (e.g., thermal inertia)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluke due to multiple lag searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical coupling with a ~3‑day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecorded delayed environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine physical coupling with a ~3‑day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke due to multiple lag searches across instrument pairs",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic timestamp offset affecting only pendulum_lab data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered explanation)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke despite multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden delayed environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or power‑line artifact affecting both streams with a delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling with ~3‑day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic timestamp misalignment affecting only pendulum_lab data",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual (unconsidered explanation)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden delayed environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or power‑line artifact with a three‑day delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling with ~3‑day propagation delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic timestamp misalignment affecting only pendulum_lab data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared calibration‑drift bias that updates on a three‑day cycle",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden delayed environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or power‑line artifact with a three‑day delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic timestamp misalignment affecting only pendulum_lab",
+      "class": "social_process"
+    },
+    {
+      "label": "Shared calibration‑drift bias on a three‑day cycle",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling with ~3‑day propagation delay",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

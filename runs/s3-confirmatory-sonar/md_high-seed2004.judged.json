@@ -1,0 +1,514 @@
+{
+  "source": "md_high-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 18,
+    "agree": 16,
+    "items": [
+      {
+        "label": "A real environmental or procedural factor is affecting the lab and observation setups differently, but in a stable way that has not produced a clear step change yet",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed channel-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Most cross-family agreements are lag-search artefacts and multiple-testing noise rather than robust shared temporal structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "One or more instruments were miscalibrated or configured differently at baseline, creating a persistent channel mismatch rather than a true environmental signal",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "One or more instruments were miscalibrated or configured differently from day one, creating a persistent channel mismatch rather than a true environmental signal",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The apparent family separation is mostly a consequence of the different physical quantities and units being compared, not a hidden common dynamical effect",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The lab and observation channels are each internally stable but sit on different fixed calibration transforms from day one (offsets and/or gains), so they are not directly comparable without an unknown mapping.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Startup misconfiguration or miscalibration affected one or more instruments, creating a persistent mismatch between the lab and observation setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The lab and observation instruments are measuring the same underlying phenomena but with fixed instrument-specific offsets and/or scale differences from the outset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something I have not yet considered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Startup misconfiguration or persistent miscalibration affected one or more instruments, creating the baseline mismatch",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 40,
+  "l4Judged": 40,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The lab and observation instruments are measuring the same underlying phenomena but with fixed instrument-specific offsets and/or scale differences from the outset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments were miscalibrated or configured differently at baseline, creating a persistent channel mismatch rather than a true environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument relationships are mostly chance fluctuations from small samples and multiple offset searches, with no real common signal beyond noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unrecognized environmental or procedural factor is differentially affecting the obs and lab setups, but not in a way that yet produces a clear step change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observation channels have fixed instrument-specific offsets and/or scale factors present from baseline, so they are measuring the same underlying phenomena through different calibration transforms",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments were miscalibrated or configured differently from day one, creating a persistent channel mismatch rather than a true environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument agreements are mostly chance structure from small samples and many offset/lag searches, with no strong shared signal to recover",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A real environmental or procedural factor is affecting the lab and observation setups differently, but in a stable way that has not produced a clear step change yet",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something else unrecognized is generating the pattern",
+      "class": "other"
+    },
+    {
+      "label": "The lab and observation channels have fixed instrument-specific offsets and/or scale factors present from baseline, so they are measuring the same underlying phenomena through different calibration transforms",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments were miscalibrated or configured differently from day one, producing a persistent channel mismatch rather than a true environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument agreements are mostly chance structure from small samples and many offset/lag searches, with no strong shared signal to recover",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A real environmental or procedural factor is affecting the lab and observation setups differently, but in a stable way that has not produced a clear step change yet",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something else unrecognized is generating the pattern",
+      "class": "other"
+    },
+    {
+      "label": "The lab and observation channels are each internally stable but sit on different fixed calibration transforms from day one (offsets and/or gains), so they are not directly comparable without an unknown mapping.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments were misconfigured or miscalibrated at startup, creating a persistent mismatch between lab and observation setups rather than a later drift event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument agreements are largely search noise from limited samples and multiple offset/lag tries, with no recoverable shared temporal signal beyond each instrument's own internal stability.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects the lab and observation setups differently, but without producing a clear step change or obvious drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism is producing the pattern, beyond the current calibration/configuration/external-factor explanations.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Startup misconfiguration or miscalibration affected one or more instruments, creating a persistent mismatch between the lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument agreements are mostly multiple-testing noise from searching over many offsets/lags, with no robust shared temporal signal beyond each instrument's own stability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects the lab and observation setups differently, without causing obvious drift or a step change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism is producing the pattern, beyond calibration/configuration/external-factor explanations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Startup misconfiguration or persistent miscalibration affected one or more instruments, creating the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent cross-instrument agreements are mostly multiple-testing noise from searching over many offsets/lags, with no robust shared temporal signal beyond each instrument's own stability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects the lab and observation setups differently, without causing obvious drift or a step change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism is producing the pattern, beyond calibration/configuration/external-factor explanations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Startup misconfiguration or persistent miscalibration affected one or more instruments, producing the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most of the cross-instrument agreements are lag-search artefacts and multiple-testing noise rather than a robust shared temporal signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without causing obvious drift or a step change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A startup configuration or persistent calibration mistake affected one or more instruments and created the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A startup configuration or persistent calibration mistake affected one or more instruments and created the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A startup configuration or persistent calibration mistake affected one or more instruments and created the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "residual: something I have not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A startup configuration or persistent calibration mistake affected one or more instruments and created the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A startup configuration or persistent calibration mistake affected one or more instruments and created the baseline mismatch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural factor affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration/configuration/external-factor explanations is producing the pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A one-time startup misconfiguration or persistent calibration mistake established the baseline mismatch",
+      "class": "self_error"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise, not robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+      "class": "self_error"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration, configuration, or external-factor explanations is producing the pattern",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A one-time startup misconfiguration or persistent calibration mistake established the baseline mismatch",
+      "class": "self_error"
+    },
+    {
+      "label": "Most cross-instrument agreements are lag-search artefacts and multiple-testing noise rather than robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent family separation is mostly a consequence of the different physical quantities and units being compared, not a hidden common dynamical effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration, configuration, or external-factor explanations is producing the pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one (offset and/or gain differences), with no meaningful drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A one-time startup misconfiguration or persistent calibration mistake established the baseline mismatch",
+      "class": "self_error"
+    },
+    {
+      "label": "Most cross-family agreements are lag-search artefacts and multiple-testing noise rather than robust shared temporal structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+      "class": "self_error"
+    },
+    {
+      "label": "The apparent family separation is mostly a consequence of comparing different physical quantities and units rather than a hidden common dynamical effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration, configuration, or external-factor explanations is producing the pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed family-specific calibration transforms from day one, with no meaningful drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A one-time startup misconfiguration or persistent calibration mistake established the baseline mismatch",
+      "class": "self_error"
+    },
+    {
+      "label": "Most cross-family agreements are lag-search artefacts and multiple-testing noise rather than robust shared temporal structure",
+      "class": "self_error"
+    },
+    {
+      "label": "A stable environmental or procedural difference affects lab and observation setups differently without producing obvious drift",
+      "class": "self_error"
+    },
+    {
+      "label": "The apparent family separation is mostly a consequence of comparing different physical quantities and units rather than a hidden common dynamical effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unrecognized mechanism beyond calibration, configuration, or external-factor explanations is producing the pattern",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    }
+  ]
+}

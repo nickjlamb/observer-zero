@@ -1,0 +1,327 @@
+{
+  "source": "md_high-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Gradual mechanical wear shortening pendulum lengths, lag correlation is statistical fluke",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unidentified systematic error in the measurement procedure (e.g., power supply fluctuation)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual (unconsidered) factor",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A genuine, transient physical phenomenon (e.g., local gravitational field change) affecting the pendulum period",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Gradual increase in the frequency of the shared timing module used by the pendulum setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Gradual mechanical wear of pendulum suspensions",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Software or data‑processing error applied only to pendulum recordings",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A genuine physical phenomenon affecting the resonator (e.g., transient change in local field)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Drift of the shared electronic timing module used by the pendulum setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Gradual mechanical shortening or wear of each pendulum's suspension",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrumental drift or calibration shift in the pendulum_obs timing system",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 5,
+  "l4Judged": 5,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental noise or short‑term calibration drift in resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental disturbance (e.g., vibration, electromagnetic surge) affecting resonator_obs at the time of trial 69",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription error for trial 69",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic error in the measurement procedure (e.g., power supply fluctuation)",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine physical phenomenon affecting the resonator (e.g., transient change in local field)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental drift or calibration shift in the pendulum_obs timing system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental change affecting pendulum length or timing (e.g., temperature, pressure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or transcription error affecting the post‑baseline pendulum_obs records",
+      "class": "self_error"
+    },
+    {
+      "label": "Transient systematic error in the measurement procedure (e.g., power‑supply ripple, timing‑gate glitch)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine, transient physical phenomenon (e.g., local gravitational field change) affecting the pendulum period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temperature‑induced change in pendulum length (thermal expansion/contraction)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared timing‑circuit drift (electronics aging or clock speed change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Mechanical wear or gradual shortening of pendulum suspensions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Software or data‑processing error applied only to pendulum recordings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Gradual mechanical wear or shortening of the pendulum suspensions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual increase in the frequency of the shared timing circuit used by the pendulum setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental temperature change affecting pendulum length",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Software or data‑processing error applied only to pendulum recordings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered) factor",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent mechanical wear or shortening of each pendulum suspension",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual increase in the frequency of the shared timing module used by the pendulum setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Ambient temperature rise causing contraction of pendulum support structures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Software or data‑processing error applied only to pendulum recordings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unidentified) factor",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Gradual mechanical shortening or wear of each pendulum's suspension",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Drift of the shared electronic timing module used by the pendulum setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Ambient temperature rise causing contraction of pendulum support structures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic software or data‑processing bias affecting only pendulum recordings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmonitored environmental factor (e.g., magnetic field fluctuations, power‑supply ripple) that preferentially influences pendulum electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual mechanical shortening or wear of each pendulum's suspension",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Ambient temperature rise causing contraction of pendulum support structures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Drift of the shared electronic timing module used by the pendulum setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic software or data‑processing bias affecting only pendulum recordings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmonitored environmental factor (e.g., power‑supply ripple) preferentially influencing pendulum electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Temperature‑driven length changes with differential thermal response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual mechanical wear shortening pendulum lengths, lag correlation is statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp offset in resonator_obs logging software",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑supply ripple affecting pendulum electronics with delayed regulator impact on resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature‑driven differential thermal response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual mechanical wear of pendulum suspensions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Three‑day timestamp offset in resonator_obs logging software",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑supply ripple with delayed regulator impact on resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Differential thermal response (temperature‑driven lag)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic 3‑day timestamp offset in resonator_obs logging software",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data‑processing artifact (e.g., smoothing or averaging applied to resonator_obs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Gradual mechanical wear of pendulum suspensions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic 3‑day timestamp offset in resonator_obs logging software",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data‑processing artifact (e.g., moving‑average filter) applied to resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Differential thermal response with inertia in resonator_obs cavity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual mechanical wear of pendulum suspensions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered mechanism)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "source": "md_high-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Instrument‑specific coupling (shared power/DAQ line) with a 3‑day latency",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Statistical fluke arising from multiple lag searches",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual (an as‑yet‑unidentified cause)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared periodic environmental factor",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "A shared environmental or systematic factor produces correlated variations across all four instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The four measurement streams are independent; observed correlations are statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument experiences its own slow drift, unrelated to the others",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared periodic environmental factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent random fluctuations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument‑specific slow drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared systematic/environmental factor causing a 3‑day lag correlation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke due to multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument‑specific coupling (e.g., shared power or data‑acquisition line) that manifests with a 3‑day delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared systematic/environmental factor causing a 3‑day lag correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific coupling (e.g., shared power or DAQ line) with a 3‑day latency",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke arising from multiple lag searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (an as‑yet‑unidentified cause)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared systematic/environmental factor causing a 3‑day lag correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument‑specific coupling (shared power/DAQ line) with a 3‑day latency",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluke arising from multiple lag searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unidentified cause, e.g., subtle thermal inertia or timestamp rounding)",
+      "class": "incomplete_theory"
+    }
+  ]
+}

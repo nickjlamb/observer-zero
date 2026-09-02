@@ -1,0 +1,531 @@
+{
+  "source": "md_high-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 19,
+    "agree": 11,
+    "items": [
+      {
+        "label": "An unmodeled interaction in the measurement model",
+        "primary": "incomplete_theory",
+        "second": "incomplete_theory"
+      },
+      {
+        "label": "Residual: something not yet considered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something not yet identified in the measurement model",
+        "primary": "incomplete_theory",
+        "second": "incomplete_theory"
+      },
+      {
+        "label": "Different effective definitions or conversion rules in the two channels",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable procedural or coupling difference between lab and observation setups",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Stable procedural or coupling difference between lab and observation setups",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical site or apparatus difference contributing a small offset",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something I have not yet considered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "A fixed procedural or coupling difference between lab and observation setups",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Stable procedural or coupling difference between lab and observation setups",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A shared environmental or procedural influence affecting the two measurement modes differently",
+        "primary": "self_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A real physical site or apparatus difference contributing a small offset",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something not yet identified",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A real physical site or apparatus difference contributing a small offset",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A real physical site or apparatus difference contributing a small offset",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Different fixed calibration scales on the lab and observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental or procedural influence affecting the two measurement modes differently",
+      "class": "self_error"
+    },
+    {
+      "label": "The lab and observation systems are not measuring exactly the same physical quantity, but related ones with an apparatus-dependent conversion",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A subtle but real physical difference between the lab and observation apparatuses or sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A fixed procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "The two channels are applying different effective definitions or conversions for the same underlying quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real site or apparatus difference is contributing a small but genuine physical offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something I have not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something not yet identified in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something not yet identified in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some unmodeled interaction in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Overlooked transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Some unmodeled interaction in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "An unmodeled interaction in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable procedural or coupling difference between the lab and observation setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Different effective definitions or conversion rules in the two channels",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic transcription, software-processing, or hidden-coupling issue",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical site or apparatus difference contributing a small offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unmodeled interaction in the measurement model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    }
+  ]
+}

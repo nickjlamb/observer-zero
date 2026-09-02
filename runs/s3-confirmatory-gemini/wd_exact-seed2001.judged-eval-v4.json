@@ -1,0 +1,227 @@
+{
+  "source": "wd_exact-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Localized environmental change at the observatory affecting pendulum dynamics",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Propagating geophysical or environmental perturbation wavefront",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Delayed regional environmental or geophysical coupling",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Shared instrumentation pipeline or data-stream artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline differences arise from idiosyncratic construction and calibration offsets between individual physical instruments rather than location-wide physical factors",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Genuine stationary environmental/physical gradient at the observatory site",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Mechanical perturbation or physical drift in the observatory pendulum apparatus",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 6,
+  "l4Judged": 6,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Baseline differences reflect genuine stationary environmental differences (e.g., elevation/gravitational/atmospheric) between laboratory and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline differences arise from idiosyncratic construction and calibration offsets between individual physical instruments rather than location-wide physical factors",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared systematic calibration or scale factor difference (e.g., 1.50x gear/timing ratio) in observatory instrument apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine stationary environmental/physical gradient at the observatory site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent idiosyncratic manufacturing/setup offsets between the four individual units",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Mechanical perturbation or physical drift in the observatory pendulum apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized environmental change at the observatory affecting pendulum dynamics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient statistical outlier run / sampling variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Statistical artifact from smooth non-stationary drift across trials",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed regional environmental coupling propagating between laboratory and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide operational or scheduling cadence artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Delayed regional environmental coupling propagating between laboratory and observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from smooth non-stationary wandering across trials",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Settlement-wide operational or scheduling cadence artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Delayed regional environmental or geophysical coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide operational or maintenance cadence artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact from smooth non-stationary wandering",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed regional environmental or geophysical wavefront",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide operational or maintenance cadence artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact or low-frequency wandering coincidence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared instrumentation pipeline or data-stream artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating geophysical or environmental perturbation wavefront",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide infrastructure/operational cadence coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared instrumentation pipeline or data-stream artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating geophysical or environmental perturbation wavefront",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide infrastructure or scheduled operational cadence coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared instrumentation pipeline, digitizer buffer replay, or software data stream artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating geophysical, thermal, or barometric perturbation wavefront between sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide cyclic infrastructure or scheduled maintenance coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared instrumentation pipeline, digitizer buffer replay, or software data stream artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating geophysical, thermal, or barometric perturbation wavefront between sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide cyclic infrastructure or scheduled maintenance coupling",
+      "class": "incomplete_theory"
+    }
+  ]
+}

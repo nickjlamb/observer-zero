@@ -1,0 +1,485 @@
+{
+  "source": "wd_exact-seed2006.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 17,
+    "agree": 11,
+    "items": [
+      {
+        "label": "The lab and observational instruments are sampling genuinely different physical conditions or regimes",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something else unrecognized, including analysis artifact or hidden instrument effect",
+        "primary": "measurement_error",
+        "second": "other"
+      },
+      {
+        "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A shared procedural or environmental factor is influencing both observational instruments in a common but modest way",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A fixed calibration or geometry offset separates the observational instruments from the lab instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A common environmental or procedural factor affects both observational instruments in the same direction, creating correlated structure without obvious drift",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A fixed calibration or geometry offset separates the observational instruments from the lab instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some of the apparent cross-instrument structure is chance from finite samples and searching over offsets",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some of the apparent cross-instrument structure is chance arising from finite samples and multiple offset searches",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A weak shared procedural or environmental influence, stronger in the observational setup than the laboratory setup",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A weak shared procedural or environmental influence affecting the observational setup more than the laboratory setup",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 23,
+  "l4Judged": 23,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The observational instruments have a fixed calibration offset relative to the lab instruments, likely from setup/scale differences rather than any physical effect",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A common environmental or procedural factor affects both observational instruments in the same direction, creating correlated structure without obvious drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab instruments and observational instruments are responding to two genuinely different physical states or regimes in Meridian",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "One or more instruments have a slowly evolving, low-amplitude nonlinearity that is too small to register as a clear drift but enough to distort cross-comparisons",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the apparent cross-instrument relationships are mostly chance structure from limited offset searches and finite-sample noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration/geometry offset separates the observational instruments from the lab instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared procedural or environmental factor is modulating both observational instruments in a common way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A subtle nonlinearity or interaction in one or more instruments is distorting cross-comparisons without producing obvious drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance arising from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration or geometry offset separates the observational instruments from the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared procedural or environmental factor is influencing both observational instruments in a common but modest way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak nonlinearity or interaction is distorting cross-comparisons without producing obvious drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration or geometry offset separates the observational instruments from the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared procedural or environmental factor is acting on both observational instruments in a modest way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity or interaction is distorting cross-comparisons without creating obvious drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration or geometry offset separates the observational instruments from the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A modest shared procedural or environmental factor affects both observational instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The lab and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity or interaction is distorting cross-comparisons without creating obvious drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration or geometry offset separates the observational instruments from the laboratory instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A modest shared procedural or environmental factor affects both observational instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity or interaction is distorting cross-comparisons without creating obvious drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration/geometry offset separates the observational instruments from the laboratory instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A modest shared procedural or environmental factor affects both observational instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity or interaction distorts cross-comparisons without creating obvious drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and multiple offset searches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration/geometry offset between laboratory and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Minor shared procedural or environmental influence on the observational instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity or path-dependent response is distorting cross-comparisons",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the apparent cross-instrument structure is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed setup-specific calibration/geometry offset between laboratory and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence affecting the observational instruments more than the laboratory ones",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed setup-specific calibration, geometry, or readout offset between the laboratory and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence affecting the observational setup more than the laboratory setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed setup-specific calibration, geometry, or readout offset between the laboratory and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence affecting the observational setup more than the laboratory setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence, stronger in the observational setup than the laboratory setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unrecognized, including analysis artifact or hidden instrument effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence, stronger in the observational setup than the laboratory setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else unrecognized, including analysis artifact or hidden instrument effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A weak shared procedural or environmental influence, stronger in the observational setup than the laboratory setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The laboratory and observational instruments are sampling genuinely different physical conditions or regimes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mild nonlinearity, lag dependence, or path-dependent response in the measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some of the cross-instrument pattern is chance from finite samples and searching over offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unrecognized, including analysis artifact or hidden instrument effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "source": "md_high-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Propagating physical or geophysical wave with a 3-day transit time between sites",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Systematic data pipeline, shared time-base calibration, or processing artifact introduces a 3-day lag",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A propagating environmental or geophysical wave moves between sites with a 3-day transit time",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Local physical or environmental variations (e.g. elevation, gravity, ambient pressure) between the sites alter the physical rates",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A propagating environmental or geophysical disturbance travels between sites with a 3-day transit time",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 5,
+  "l4Judged": 5,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "A systematic time-base or reference clock discrepancy exists between the two sites, scaling the definition of a 'beat'",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent calibration and physical construction differences between the apparatuses at each site coincidentally produce ~1.50 ratios",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g. elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic time-base discrepancy exists alongside an inverted recording convention for one instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic time-base discrepancy exists alongside an inverted recording convention for one instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic time-base discrepancy exists alongside an inverted recording convention for one instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic time-base discrepancy exists alongside an inverted recording convention for one instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration, gearing, or physical construction differences between the apparatuses at each site yield the 3:2 (~1.50) ratio",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic time-base discrepancy exists alongside an inverted recording convention for one instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical or environmental variations (e.g., elevation, gravity, ambient pressure) between the sites alter the physical rates",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A propagating environmental or geophysical wave moves between sites with a 3-day transit time",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A systematic data pipeline, batching, or shared time-base calibration artifact introduces a 3-day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact or spurious correlation from multiple lag testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic data pipeline, shared time-base calibration, or processing artifact introduces a 3-day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A propagating environmental or geophysical disturbance travels between sites with a 3-day transit time",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact or multiple-testing spurious correlation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared data pipeline, rolling calibration artifact, or batch processing queue delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating physical or geophysical wave with a 3-day transit time between sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact or multiple-testing false positive",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared data pipeline, rolling calibration artifact, or queue buffer delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating physical or geophysical wave with a 3-day transit time between sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact or multiple-testing false positive",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared data pipeline, rolling calibration artifact, or queue buffer delay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating physical or geophysical wave with a 3-day transit time between sites",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact or multiple-testing false positive",
+      "class": "measurement_error"
+    }
+  ]
+}

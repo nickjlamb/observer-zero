@@ -1,0 +1,235 @@
+{
+  "source": "wd_exact-seed2004.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 5,
+    "items": [
+      {
+        "label": "A shared procedural or local-environment effect acting differently on the observer-side channels than on the lab-side channels",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Weak delayed or periodic influence producing lagged echoes",
+        "primary": "measurement_error",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A weak periodic or delayed influence is producing the lagged echoes seen in a few series",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Comparison artifact from alignment, labeling, or lag-search procedure",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Comparison artifact from alignment, labeling, or lag-search procedure",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Weak delayed or periodic influence producing lagged echoes",
+        "primary": "measurement_error",
+        "second": "unknown_natural_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Mundane setup-specific calibration offsets or scale differences between lab and observer instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental or procedural factor is perturbing both observing channels differently from the lab channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A real but currently unrecognized periodic influence is producing lagged echoes in some instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered, including data-processing or bookkeeping artifacts not yet identified",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Setup-specific calibration offsets or scale factors between lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared procedural or environmental factor affects the observer-side channels differently from the lab-side channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A weak periodic or delayed influence is producing the lagged echoes seen in a few series",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A data-processing, bookkeeping, or comparison artifact is distorting the apparent cross-series relationships",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something else unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared procedural or local-environment effect acting differently on the observer-side channels than on the lab-side channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A weak periodic or delayed influence is producing the lagged echoes in some series",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A bookkeeping, alignment, labeling, or comparison artifact is distorting the apparent cross-series relationships",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something else not yet modeled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared observer-side procedure, timing convention, or local environmental effect that affects both observer channels",
+      "class": "self_error"
+    },
+    {
+      "label": "Bookkeeping, alignment, labeling, or comparison artifact in the cross-series analysis",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak delayed or periodic influence generating the lagged echoes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something else not yet modeled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared observer-side procedure, timing convention, or local environmental effect affecting both observer channels",
+      "class": "self_error"
+    },
+    {
+      "label": "Comparison artifact from alignment, labeling, or lag-search procedure",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak delayed or periodic influence producing lagged echoes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else not yet modeled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared observer-side procedure, timing convention, or local environmental effect affecting both observer channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Comparison artifact from alignment, labeling, or lag-search procedure",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak delayed or periodic influence producing lagged echoes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else not yet modeled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared observer-side procedure, timing convention, or local environmental effect affecting both observer channels",
+      "class": "self_error"
+    },
+    {
+      "label": "Comparison artifact from alignment, labeling, or lag-search procedure",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak delayed or periodic influence producing lagged echoes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something else not yet modeled",
+      "class": "incomplete_theory"
+    }
+  ]
+}

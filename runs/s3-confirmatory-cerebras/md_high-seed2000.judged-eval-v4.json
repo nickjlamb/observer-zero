@@ -1,0 +1,164 @@
+{
+  "source": "md_high-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "H4: Statistical fluke arising from multiple lagged comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H1: No genuine shift; the apparent level change is a statistical fluctuation.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H3: A periodic instrumental systematic (e.g., calibration or clock drift) introduces a spurious ~7‑day artifact in the pendulum_obs data.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: Data‑handling artifact (mis‑aligned timestamps or systematic logging offset)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: No genuine periodicity; observed autocorrelations are random fluctuations within statistical noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A real weekly environmental cycle (e.g., temperature, settlement activity) modulates the pendulum_obs measurements.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A periodic instrumental systematic (e.g., calibration or clock drift) introduces a spurious ~7‑day artifact in the pendulum_obs data.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: An external perturbation (e.g., power usage, communal activities) affects multiple instruments, producing weak correlated signals.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: No genuine drift; the observed shift is a statistical fluctuation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A slow environmental factor (e.g., temperature or settlement activity) is gradually affecting the pendulum_lab period.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A weekly calibration or maintenance routine is imprinting a subtle periodic systematic effect that manifests as the apparent drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Mechanical wear or gradual degradation of the pendulum_lab apparatus is causing a real change in its oscillation period.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: No genuine shift; the apparent level change is a statistical fluctuation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A local environmental factor (e.g., temperature rise or vibration) uniquely affecting the resonator_obs location caused the level change.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A weekly calibration or maintenance routine applied to resonator_obs introduced a subtle systematic offset that manifested as a level change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Progressive mechanical wear or degradation of the resonator_obs apparatus caused a real change in its oscillation period.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: A shared environmental factor (e.g., temperature or settlement-wide vibration) impacts pendulum_lab immediately and resonator_obs with a ~3‑day lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: A data‑handling or processing artifact (e.g., mis‑aligned timestamps, batch‑copying of values) creates an artificial lagged correlation between the two data streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Electrical or mechanical cross‑talk between the pendulum_lab and resonator_obs measurement systems introduces a delayed signal coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: The observed correlation is a statistical fluke arising from multiple comparisons across many instrument pairings.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: Shared environmental factor with delayed effect (e.g., temperature or settlement‑wide vibration)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Data‑handling artifact (mis‑aligned timestamps or systematic logging offset)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H3: Electrical or mechanical cross‑talk with a slow transient (e.g., thermal expansion of wiring)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: Statistical fluke arising from multiple lagged comparisons",
+      "class": "measurement_error"
+    }
+  ]
+}

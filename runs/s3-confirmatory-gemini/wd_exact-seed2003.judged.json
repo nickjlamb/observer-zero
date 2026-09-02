@@ -1,0 +1,127 @@
+{
+  "source": "wd_exact-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Delayed common environmental or settlement infrastructure driver",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data-logging, index alignment, or calculation pipeline artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Local site-specific environmental conditions (gravity, altitude, temperature)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 0,
+  "l4Judged": 0,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Distinct instrument construction and intrinsic calibration baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local site-specific environmental conditions (gravity, altitude, temperature)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-site coupled environmental periodicity or propagation delay",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Distinct instrument construction specifications and nominal calibration baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local site-specific environmental conditions (altitude, gravitational gradient, temperature)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Dynamic cross-site physical coupling or periodic propagation lag",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-logging, index alignment, or calculation pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed common environmental or settlement infrastructure driver",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Direct physical cross-site delayed dynamical coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data-logging, index alignment, or calculation pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Delayed common environmental or settlement infrastructure driver",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Direct physical cross-site delayed dynamical coupling",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

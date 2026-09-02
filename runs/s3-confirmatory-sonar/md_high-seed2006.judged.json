@@ -1,0 +1,448 @@
+{
+  "source": "md_high-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 16,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Station-dependent physical difference between lab and observer locations",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared processing, timing, or synchronization artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Finite-sample scatter around a common value",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "E. The offset is mostly finite-sample scatter around a common value",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A. Stable calibration offset on the observer-side instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable observer-side calibration offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A. Observer instruments are miscalibrated by a stable scale/offset error relative to the lab instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A. Stable observer-side calibration offset",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable lab-side calibration offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable lab-side calibration offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Finite-sample scatter around a common value",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Something else not yet identified",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "D. Hidden coupling, timing artifact, or shared processing difference",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Finite-sample scatter around a common value",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "F. Something else not yet identified",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared processing, timing, or synchronization artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "A. Observer instruments are miscalibrated by a stable scale/offset error relative to the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "B. The lab instruments are miscalibrated low relative to the observer instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "C. There is a real environmental or regime difference between the lab and observer setups that shifts the measured quantity without causing drift within each setup",
+      "class": "environmental_change"
+    },
+    {
+      "label": "D. There is some subtler interference pattern or coupling between instruments, but it is not yet characterized by the present data",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "E. The apparent separation is mostly finite-sample noise around a common true value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A. Stable calibration offset on the observer-side instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "B. Stable low calibration on the lab-side instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "C. Real setup/environment difference between lab and observer stations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "D. Some unmodeled coupling or interference between instruments or setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "E. The separation is mostly finite-sample noise around a common true value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "F. Something else not yet identified",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A. Stable calibration offset on the observer-side instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "B. Stable low calibration on the lab-side instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "C. Real setup/environment difference between lab and observer stations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "D. Unmodeled coupling or interference between instruments or setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "E. The separation is mostly finite-sample noise around a common true value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "F. Something else not yet identified",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A. Stable observer-side calibration offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "B. Stable lab-side calibration offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "C. Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "D. Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "E. The offset is mostly finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "F. Something else not yet identified",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Stable lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real station-dependent physical difference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hidden lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Station-dependent physical difference between lab and observer locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not thought of",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Stable observer-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hidden lab-side calibration offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Station-dependent physical difference between lab and observer locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hidden coupling, timing artifact, or shared processing difference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration offset in the observer-side chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration offset in the lab-side chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable location- or setup-dependent difference between lab and observer stations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared processing, timing, or synchronization artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized mechanism or hidden state dependence",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration offset in the observer-side chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration offset in the lab-side chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable location- or setup-dependent difference between lab and observer stations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared processing, timing, or synchronization artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Finite-sample scatter around a common value",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized mechanism or hidden state dependence",
+      "class": "incomplete_theory"
+    }
+  ]
+}

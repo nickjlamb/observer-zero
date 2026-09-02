@@ -1,0 +1,177 @@
+{
+  "source": "md_high-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Data processing or transcription error affecting post‑baseline resonator_lab entries",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data recording or transcription error for trial 64",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A real localized physical phenomenon (e.g., magnetic field fluctuation) altered the resonator frequency only for that measurement",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data processing or transcription error affecting post‑baseline resonator_lab entries",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Logging software bug aligning pendulum_lab readings with resonator_obs timestamps shifted by three days",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 4,
+  "l4Judged": 4,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Transient environmental disturbance (e.g., temperature or pressure spike) affected resonator_obs at that moment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental glitch or calibration drift in resonator_obs during trial 64",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription error for trial 64",
+      "class": "self_error"
+    },
+    {
+      "label": "A real localized physical phenomenon (e.g., magnetic field fluctuation) altered the resonator frequency only for that measurement",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental calibration drift or hardware degradation in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle environmental change (e.g., temperature or pressure) affecting resonator frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation within expected random variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing or transcription error affecting post‑baseline resonator_lab entries",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental calibration drift or hardware degradation in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation within expected random variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing or transcription error affecting post‑baseline resonator_lab entries",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle environmental change (e.g., temperature or pressure) affecting resonator frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared environmental factor (e.g., temperature/pressure) affecting pendulum_lab and resonator_obs with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or logging pipeline error that unintentionally aligns pendulum_lab readings with resonator_obs timestamps shifted by three days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical coupling (vibrational or acoustic) between the laboratory where pendulum_lab resides and the observation chamber housing resonator_obs, with a delayed propagation effect",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke despite the high correlation statistic",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Logging software bug aligning pendulum_lab readings with resonator_obs timestamps shifted by three days",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental factor (e.g., temperature or pressure) that influences pendulum_lab and later, after ≈3 days, resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Physical coupling (vibrational or acoustic) between the laboratory and observation chamber with a delayed propagation effect",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke despite the high correlation statistic",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: other unconsidered systematic (e.g., timestamp misalignment, data‑merging error)",
+      "class": "self_error"
+    }
+  ]
+}

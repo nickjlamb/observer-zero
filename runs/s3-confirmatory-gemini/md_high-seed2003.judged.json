@@ -1,0 +1,123 @@
+{
+  "source": "md_high-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Delayed environmental or thermal propagation cycle connecting laboratory and observatory environments",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A systematic timebase definition discrepancy where the observatory reference 'beat' unit is calibrated to 1.5x laboratory beats",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Standardized nominal design specifications or deliberate 3:2 calibration scaling between observatory and laboratory apparatus",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 3,
+  "l4Judged": 3,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Standardized nominal design specifications or deliberate 3:2 calibration scaling between observatory and laboratory apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic timebase or local environmental discrepancy altering measurement rates at the observatory site",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Intentional 3:2 nominal design specification or scaling standard between observatory and laboratory instrument builds",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A systematic timebase definition discrepancy where the observatory reference 'beat' unit is calibrated to 1.5x laboratory beats",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A delayed environmental or thermal propagation cycle connecting laboratory and observatory environments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A scheduled operational or calibration cycle with a 3-day phase offset between facilities",
+      "class": "self_error"
+    },
+    {
+      "label": "Spurious correlation from multiple offset searching and short-range autocorrelation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Delayed environmental or thermal propagation cycle connecting laboratory and observatory environments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared instrumentation pipeline artifact or operational batching lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Large-scale seismic or gravitational wave front propagating across the settlement",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious correlation from multiple offset searching",
+      "class": "measurement_error"
+    }
+  ]
+}

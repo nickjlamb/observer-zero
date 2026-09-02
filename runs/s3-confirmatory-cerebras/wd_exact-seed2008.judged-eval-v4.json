@@ -1,0 +1,152 @@
+{
+  "source": "wd_exact-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Data‑processing or timestamp alignment artifact that artificially introduces a three‑day offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "External environmental factor – temperature or magnetic perturbation influencing both resonators",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data recording or transcription error",
+        "primary": "measurement_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data‑processing or timestamp alignment artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 7,
+  "l4Judged": 7,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "External environmental influence (e.g., magnetic or temperature perturbation)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or transcription error",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift – a real calibration shift affecting resonator_lab and resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "External environmental factor – temperature or magnetic perturbation influencing both resonators",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation – the observed shifts fall within expected measurement noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or transcription error – one or more recent entries are incorrect",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day lag (e.g., temperature or magnetic field affecting pendulum_lab promptly and resonator_obs after thermal inertia)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or timestamp alignment artifact that artificially introduces a three‑day offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling between pendulum motion and resonator frequency with a delayed effect",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke despite multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing or timestamp alignment artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling between pendulum motion and resonator frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical fluke despite multiple offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered explanation)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

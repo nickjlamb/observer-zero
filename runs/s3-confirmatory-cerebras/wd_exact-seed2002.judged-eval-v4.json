@@ -1,0 +1,273 @@
+{
+  "source": "wd_exact-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Calibration or sensor aging specific to resonator and pendulum‑obs instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Power‑line or electromagnetic interference impacting observation instruments after day 10",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared data‑handling artifact (e.g., timestamp rounding or post‑processing alignment) introduced after day 10",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Power‑line or electromagnetic interference impacting observation instruments after day 10",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data‑acquisition software glitch (e.g., timestamp or conversion error on day 10)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental drift (temperature, humidity, pressure) affecting unshielded instruments",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental drift (temperature/humidity affecting pendulum length or damping)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Power‑line or electromagnetic interference affecting certain instruments after day 10",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Software conversion error affecting observation data streams after day 10",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 7,
+  "l4Judged": 7,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental drift (temperature/humidity affecting pendulum length or damping)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration error introduced on day 10 (e.g., sensor mis‑alignment or scale offset)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation (random noise within expected variation)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data‑acquisition software glitch (e.g., timestamp or conversion error on day 10)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, air pressure) affecting resonator and pendulum‑obs but not the shielded pendulum‑lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor drift specific to resonator and pendulum‑obs instruments (e.g., gradual mis‑alignment or aging of sensors)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software change or conversion error affecting data acquisition after day 10 for resonator‑obs and pendulum‑obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation within expected variability",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, pressure) affecting unshielded instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor aging specific to resonator and pendulum‑obs instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software conversion error affecting observation data streams after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference affecting certain instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, pressure) affecting unshielded instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor aging specific to resonator and pendulum‑obs instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software conversion error affecting observation data streams after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference affecting certain instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, pressure) affecting unshielded observation instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor aging specific to the observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Software conversion error introduced to the observation data stream after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference affecting the observation instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, pressure) affecting the observation setups",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑handling or timestamp artifact causing spurious lagged correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference affecting observation instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor aging specific to observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared data‑handling artifact (timestamp rounding, interpolation, or post‑processing alignment) creates an artificial 3‑day lagged correlation and induces a common drift in the observation‑channel series.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental drift (temperature, humidity, pressure) affecting the less‑shielded observation setups, with thermal inertia producing a few‑day lag relative to the lab pendulum.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference affecting observation instruments after day 10, producing coordinated drift and a lagged alignment with pendulum‑lab.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor aging specific to observation instruments (e.g., a maintenance event or gradual degradation) leading to simultaneous downward shifts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered factor such as a software update or undocumented procedural change on day 10).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared data‑handling artifact (e.g., timestamp rounding, post‑processing alignment)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental drift affecting observation setups (temperature, humidity, pressure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference impacting observation instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor ageing specific to observation instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented procedural change (e.g., software update) enacted on day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared data‑handling artifact (e.g., timestamp rounding or post‑processing alignment) introduced after day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented procedural change (e.g., software update) applied on day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental drift affecting the observation setups (temperature, humidity, pressure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑line or electromagnetic interference impacting observation instruments after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or sensor ageing specific to observation instruments",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

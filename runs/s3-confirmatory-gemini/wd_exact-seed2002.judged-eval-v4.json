@@ -1,0 +1,114 @@
+{
+  "source": "wd_exact-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 2,
+    "agree": 2,
+    "items": [
+      {
+        "label": "Site-specific environmental or gravitational differences between the Lab and Observatory",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Spurious statistical alignment across the finite sampled window",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Site-specific environmental or gravitational differences between the Lab and Observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration and apparatus construction differences across instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Site-specific physical or environmental differences between the Lab and Observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration and apparatus fabrication differences across instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Propagating physical or environmental disturbance affecting instruments with a 3-day delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data pipeline, scheduling, or operational artifact coupling the two measurement streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious statistical alignment across the finite sampled window",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data pipeline, scheduling, or operational artifact coupling the two measurement streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Propagating physical or environmental disturbance affecting instruments with a 3-day delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious statistical alignment across the finite sampled window",
+      "class": "measurement_error"
+    }
+  ]
+}

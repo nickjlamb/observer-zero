@@ -1,0 +1,752 @@
+{
+  "source": "md_high-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 28,
+    "agree": 18,
+    "items": [
+      {
+        "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "There is a processing, transcription, or unit-handling mismatch that makes the observer streams appear offset from the laboratory streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed channel-specific calibration or scale mismatch between the laboratory and observer instrument chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Some other procedural or nonlinear effect not yet modeled is producing the split",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something not yet considered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "A stable processing, transcription, or unit-conversion bias in the observer data path",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed channel-specific calibration/scale mismatch between observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A processing, transcription, or unit-handling mismatch is making the observer streams appear offset from the laboratory streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A shared installation bias affecting both observer channels more than the laboratory channels",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A downstream observer-side bias in transcription, conversion, or processing",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Processing, transcription, or unit-conversion mismatch affecting the observer streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared installation bias affecting both observer channels more than the laboratory channels",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Stable processing, transcription, or unit-conversion error in the observer data path",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+        "primary": "incomplete_theory",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The observer and laboratory instruments are coupled differently to the apparatus or local environment",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The observer and laboratory instruments are on different calibration scales or have fixed offsets/gain differences introduced at setup",
+      "class": "self_error"
+    },
+    {
+      "label": "The laboratory and observer instruments are measuring slightly different physical locations or couplings, so they sample different local conditions rather than the same quantity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared environmental factor is biasing the observer instruments upward relative to the laboratory instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unknown data-processing or transcription issue is distorting one or more instrument streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The observer and laboratory instruments were set up with different calibration constants or fixed offsets/gains at commissioning",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The observer and laboratory instruments are coupled differently to the apparatus or local environment, so they are sampling different effective conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared environmental or installation effect is biasing the observer instruments upward relative to the laboratory instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more data streams have a processing, transcription, or unit-handling error that creates an apparent but not physical offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet captured by the current framing, such as a subtle nonlinear response or unrecognized procedural difference",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observer and laboratory instruments are sampling different local conditions because they are coupled differently to the apparatus or environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared but unrecognized installation bias is pushing the observer channels upward relative to the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "There is a processing, transcription, or unit-handling mismatch that makes the observer streams appear offset from the laboratory streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some other unmodeled procedural or nonlinear effect is generating the apparent baseline split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The observer and laboratory instruments are sampling different local conditions because they are coupled differently to the apparatus or environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared but unrecognized installation bias is pushing both observer channels upward relative to the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A processing, transcription, or unit-handling mismatch is making the observer streams appear offset from the laboratory streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some other unmodeled procedural or nonlinear effect is generating the apparent baseline split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observer and laboratory instruments are coupled differently to the apparatus or local environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A processing, transcription, or unit-handling mismatch is making the observer streams appear offset from the laboratory streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some shared but unrecognized installation bias is pushing both observer channels upward relative to the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural or nonlinear effect is generating the apparent baseline split",
+      "class": "self_error"
+    },
+    {
+      "label": "Different commissioning calibration constants, scale factors, or fixed offsets were applied to the observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observer and laboratory instruments are coupled differently to the apparatus or local environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A processing, transcription, or unit-handling mismatch is making the observer streams appear offset from the laboratory streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some shared but unrecognized installation bias is pushing both observer channels upward relative to the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed channel-specific calibration/scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic but different coupling of the two channel families to the apparatus or local environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Processing, transcription, or unit-conversion mismatch affecting the observer streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation bias affecting both observer channels more than the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the apparent split",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed channel-specific calibration/scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic but different coupling of observer and laboratory setups to the apparatus or local environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Processing, transcription, or unit-conversion mismatch affecting the observer streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation bias affecting both observer channels more than the laboratory channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable but different coupling of observer and laboratory setups to the apparatus or local environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A stable processing, transcription, or unit-conversion error in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation bias affecting both observer channels more than the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable but different coupling of observer and laboratory setups to the apparatus or local environment",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion error in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared installation bias affecting both observer channels more than the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable but different coupling of the two setups to a real physical or environmental influence",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion error in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable but different coupling of the two setups to a real physical or environmental influence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion error in the observer data path",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into the observer and laboratory setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into the observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "self_error"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet considered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between observer and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable processing, transcription, or unit-conversion bias in the observer data path",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental influence couples differently into observer and laboratory setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared installation or site bias affecting observer channels more than laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural, nonlinear, or protocol-specific effect is generating the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration/scale mismatch between the observer and laboratory instrument chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stable data-path bias in the observer stream, such as transcription, conversion, or processing offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine physical or environmental factor couples differently into the laboratory and observer setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A site- or installation-level asymmetry affecting the observer channels more than the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural or nonlinear effect not yet modeled is producing the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed channel-specific calibration or scale mismatch between the laboratory and observer instrument chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A downstream observer-side bias in transcription, conversion, or processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical or environmental factor couples differently into the laboratory and observer setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site- or installation-level asymmetry affecting the observer channels more than the laboratory channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Some other procedural or nonlinear effect not yet modeled is producing the split",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    }
+  ]
+}

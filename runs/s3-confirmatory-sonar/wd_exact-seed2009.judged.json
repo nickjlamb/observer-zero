@@ -1,0 +1,660 @@
+{
+  "source": "wd_exact-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 24,
+    "agree": 19,
+    "items": [
+      {
+        "label": "The lab and observatory are not measuring exactly the same effective quantity, or are weighting the same quantity differently",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something else not yet identified is causing the offset",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed calibration / zero-point mismatch between the lab and observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "An unrecognized protocol interaction or hidden instrument coupling is producing the offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A site-specific environmental effect is shifting the observatory readings relative to the laboratory readings",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something I have not considered",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "A fixed calibration/scale offset differs between observatory and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Fixed calibration/zero-point or scale mismatch between the lab and observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The observation instruments are measuring a different but related physical quantity than the laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observation instruments are miscalibrated or have a fixed scale/zero offset relative to the lab instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Something else not yet identified is causing the offset",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "A stable local environmental influence at the observatory biases readings in a channel-dependent way",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The observatory instruments are reading a different but related physical quantity than the laboratory instruments",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A fixed calibration or scale offset differs between observatory and laboratory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The two sites are not measuring exactly the same underlying quantity",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Observation instruments are miscalibrated or have a fixed scale/zero offset relative to the lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observation instruments are measuring a different but related physical quantity than the laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared environmental factor is affecting the observatory instruments differently from the laboratory instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An unrecognized analysis artifact or cross-processing error is producing the apparent lab/obs separation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The observatory instruments have a fixed calibration/scale offset relative to the laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory instruments are reading a different but related physical quantity than the laboratory instruments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site-specific environmental effect is shifting the observatory readings relative to the laboratory readings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "An analysis or bookkeeping convention is producing an apparent lab/obs offset",
+      "class": "self_error"
+    },
+    {
+      "label": "Something else I have not yet identified is responsible",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The observatory instruments have a fixed calibration/scale offset relative to the laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory instruments are measuring a related but not identical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A site-specific environmental gradient is biasing the observatory measurements",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared analysis or bookkeeping convention is producing an apparent offset",
+      "class": "social_process"
+    },
+    {
+      "label": "Something else not yet identified is responsible",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A fixed calibration/scale offset differs between observatory and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory setup is measuring a related but not identical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A local environmental difference at the observatory is biasing the readings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is responsible",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "A fixed calibration or scale offset differs between observatory and laboratory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory setup is effectively measuring a related but not identical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A local environmental difference at the observatory is biasing the readings",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is responsible",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration/scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory and laboratory setups are not measuring exactly the same physical quantity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A local environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The observatory and laboratory setups are not measuring exactly the same physical quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A local environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory setups are not exactly measuring the same underlying quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A local environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something I have not considered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The two sites are not measuring exactly the same underlying quantity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site-specific environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The nominal channels are not measuring exactly the same underlying quantity at the two sites",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A site-specific environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The nominal channels are not measuring exactly the same underlying quantity at the two sites",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site-specific environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The nominal channels are not measuring exactly the same underlying quantity at the two sites",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site-specific environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The nominal channels are not measuring exactly the same underlying quantity at the two sites",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A site-specific environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The two sites are not measuring exactly the same physical quantity, or not weighting it the same way",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A steady environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet identified is causing the offset",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The two sites are not measuring exactly the same physical quantity, or are weighting it differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A steady environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Fixed calibration/zero-point or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory instruments are not exactly measuring the same physical quantity, or are weighting it differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A steady local environmental bias at the observatory is shifting readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is producing an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An as-yet unidentified systematic effect, such as a subtle protocol interaction or hidden instrument coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration/zero-point or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory setups are not measuring exactly the same effective quantity, or are weighting the shared quantity differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A steady local environmental bias at the observatory shifts readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is producing an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An as-yet unidentified systematic effect, such as a subtle protocol interaction or hidden instrument coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration/zero-point or scale mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory are responding to slightly different effective quantities, or weighting the same underlying quantity differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A steady local environmental bias at the observatory shifts readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is producing an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An as-yet unidentified systematic effect, such as a subtle protocol interaction or hidden instrument coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration / zero-point mismatch between lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory are not measuring exactly the same effective quantity, or are weighting the same quantity differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable local environmental influence at the observatory biases readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unrecognized protocol interaction or hidden instrument coupling is producing the offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration / zero-point mismatch between the lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory are not measuring exactly the same effective quantity, or are weighting the same quantity differently",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A stable local environmental influence at the observatory biases readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unrecognized protocol interaction or hidden instrument coupling is producing the offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration / zero-point mismatch between lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The lab and observatory are not measuring exactly the same effective quantity, or they weight the same quantity differently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A stable local environmental influence at the observatory biases readings in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unrecognized protocol interaction or hidden instrument coupling is producing the offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or zero-point mismatch between corresponding lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The paired instruments are not measuring exactly the same effective quantity, or they weight the quantity differently",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A stable local environmental influence biases the observatory instruments in a channel-dependent way",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A shared reduction, conversion, or bookkeeping convention is creating an apparent offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unrecognized protocol interaction or hidden instrument coupling is producing the offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    }
+  ]
+}

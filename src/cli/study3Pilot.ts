@@ -855,9 +855,31 @@ async function main() {
     const judge = createJudgeClient({ apiKey });
     const dir = argStr("dir", "");
     if (!dir || !existsSync(dir)) throw new Error(`--dir required (got "${dir}")`);
-    for (const f of readdirSync(dir).filter((x) => x.endsWith(".json") && !x.includes("summary") && !x.includes(".judged"))) {
+    // --resume: skip artifacts whose sidecar for THIS eval version already
+    // exists with the solo procedure. Orchestration-level only (which
+    // artifacts to process); every sidecar is still produced by one complete
+    // uniform pass of the frozen procedure, so a resumed pass is
+    // procedurally identical to an uninterrupted one. Added 2026-08-31 after
+    // API instability killed two confirmatory scoring passes mid-directory;
+    // logged in the run ledger.
+    const resume = process.argv.includes("--resume");
+    for (const f of readdirSync(dir).filter((x) => x.endsWith(".json") && !x.includes("summary") && !x.includes(".judged") && !x.includes(".solo"))) {
       const artifact = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
       if (!artifact.agents || !artifact.events) continue;
+      if (resume) {
+        const sidecarPath = `${dir}/${f.replace(/\.json$/, evalVersion === EVAL_V4_VERSION ? ".judged-eval-v4.json" : ".judged.json")}`;
+        if (existsSync(sidecarPath)) {
+          try {
+            const existing = JSON.parse(readFileSync(sidecarPath, "utf8"));
+            if (existing.classifyMode === classifyMode && existing.evalVersion === evalVersion) {
+              console.log(`${f.padEnd(32)} SKIP (--resume: sidecar already written by this procedure)`);
+              continue;
+            }
+          } catch {
+            // Unreadable sidecar: fall through and re-score.
+          }
+        }
+      }
       // F32 fail-closed guard: a confirmatory artifact may only ever be
       // scored with solo classification. Refusal, not a warning — a batched
       // sidecar over a confirmatory run would put the demonstrated

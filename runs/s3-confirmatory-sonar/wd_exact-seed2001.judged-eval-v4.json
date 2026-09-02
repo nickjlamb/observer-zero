@@ -1,0 +1,648 @@
+{
+  "source": "wd_exact-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 24,
+    "agree": 17,
+    "items": [
+      {
+        "label": "Residual: something I have not yet identified",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Compound explanation: weak common driver plus alignment/calibration effects",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: an unconsidered mechanism",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Instrument-specific drift or calibration instability, with different sensors drifting in partially coupled ways",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A genuine periodic signal in the measured quantity sampled differently by the two setups",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Day-labeling, indexing, or bookkeeping offset in the records",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "A shared delayed procedural or environmental influence is imprinting a lagged pattern across records",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Mostly chance structure amplified by trying many offsets and lags",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Bookkeeping, alignment, or indexing artifact shifting records by days",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "A bookkeeping, alignment, or indexing artifact shifting records by days",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Instrument-specific calibration instability with weak memory or lag effects",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Most of the pattern is chance structure from scanning many offsets and lags",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A shared delayed procedural or environmental influence is imprinting a lagged pattern across records",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Shared procedural, scheduling, or environmental driver affecting multiple instruments with a time lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "residual: something unconsidered",
+        "primary": "measurement_error",
+        "second": "other"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 11,
+  "l4Judged": 11,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental or procedural driver affecting multiple instruments in time-shifted fashion",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific drift or calibration instability, with different sensors drifting in partially coupled ways",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine physical periodicity in the measured system that aliases differently in the lab and observational setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure amplified by trying multiple offsets/lags, with one or two apparently strong matches arising by selection",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-processing or indexing artifact causing day-offset misalignment between records",
+      "class": "self_error"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared procedural or environmental driver affecting multiple instruments with a time lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A bookkeeping, alignment, or indexing artifact shifting records by days",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific drift or calibration instability with partially coupled timing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic signal in the measured quantity that is sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure inflated by searching multiple offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something else not yet identified, possibly a compound explanation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I have not thought of",
+      "class": "other"
+    },
+    {
+      "label": "Shared procedural, scheduling, or environmental driver affecting multiple instruments with a time lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Bookkeeping, alignment, or indexing artifact shifting records by days",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific calibration instability with weakly coupled timing effects",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic signal in the measured quantity sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure amplified by trying many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A compound explanation: weak common driver plus some alignment or calibration effects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I have not yet identified",
+      "class": "other"
+    },
+    {
+      "label": "Shared procedural, scheduling, or environmental driver with a time lag across instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Bookkeeping, alignment, or indexing artifact shifting records by days",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific calibration instability with weak memory or lag effects",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic signal in the measured quantity sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure amplified by scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Compound explanation: weak common driver plus alignment/calibration effects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "other"
+    },
+    {
+      "label": "Shared procedural, scheduling, or environmental driver with a time lag across instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Bookkeeping, alignment, or indexing artifact shifting records by days",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific calibration instability with weak memory or lag effects",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic signal in the measured quantity sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure amplified by scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Compound explanation: weak common driver plus alignment/calibration effects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared procedural, scheduling, or environmental driver with a time lag across instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Bookkeeping, alignment, or indexing artifact shifting records by days",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific calibration instability with weak memory or lag effects",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic signal in the measured quantity sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure amplified by scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Compound explanation: weak common driver plus alignment/calibration effects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet identified",
+      "class": "other"
+    },
+    {
+      "label": "Shared delayed environmental or procedural driver affecting both lab and observation records",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day-labeling, indexing, or bookkeeping offset in the records",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-specific memory or calibration hysteresis in one or more channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic underlying signal sampled differently by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mostly chance structure from scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Compound explanation: a weak common driver plus small alignment/calibration effects",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism",
+      "class": "other"
+    },
+    {
+      "label": "A shared delayed procedural or environmental influence is imprinting a lagged pattern across records",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure from scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism",
+      "class": "other"
+    },
+    {
+      "label": "A shared delayed procedural or environmental influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure from searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by searching over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "self_error"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine periodic or quasi-periodic signal is being sampled with different phases by the two setups",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A day-labeling, indexing, or bookkeeping offset is shifting the apparent timing of some records",
+      "class": "social_process"
+    },
+    {
+      "label": "Most of the pattern is chance structure amplified by scanning many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A combination of weak shared influence plus small alignment or calibration effects is acting together",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Small instrument-memory or calibration hysteresis effects are producing weak lagged echoes",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

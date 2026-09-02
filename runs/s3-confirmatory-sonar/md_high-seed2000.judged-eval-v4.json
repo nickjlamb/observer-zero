@@ -1,0 +1,548 @@
+{
+  "source": "md_high-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 20,
+    "agree": 9,
+    "items": [
+      {
+        "label": "The apparent lagged matches are mostly a search artifact from trying many offsets",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Different instruments are measuring the same broad underlying quantity but each chain has its own fixed calibration offset and ordinary noise",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A subtle nonlinear or context-dependent response in one or more chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A subtle nonlinear or context-dependent response in one or more chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some additional unmodeled influence is present but not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "One or more measurement chains has a subtle nonlinear or context-dependent response not yet large enough to produce a clear level change",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "One or more measurement chains has a subtle nonlinear or context-dependent response not yet large enough to produce a clear level change",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "There is a real but weak shared environmental influence affecting all instruments, superposed on instrument-specific offsets and noise",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The offset matches are mostly the result of searching many lags, with a few moderate correlations arising by chance",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Some additional unmodeled influence is present but not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A subtle nonlinear or context-dependent response in one or more chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Different instruments are tracking the same underlying quantity with fixed instrument-specific calibration offsets and modest day-to-day noise",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A subtle nonlinear or context-dependent response in one or more chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A weak shared environmental or procedural influence reaches all instruments with lag and instrument-specific offsets",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "A subtle nonlinear or context-dependent response in one or more chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Some additional unmodeled influence is present but not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Independent calibration offsets plus ordinary noise in each chain",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 37,
+  "l4Judged": 37,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Different instruments are tracking the same underlying quantity with fixed instrument-specific calibration offsets and modest day-to-day noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A daily scheduling or procedural lag is coupling the series, producing best agreement at 1-2 day offsets rather than same-day correspondence",
+      "class": "self_error"
+    },
+    {
+      "label": "The apparent cross-series structure is mostly an artefact of small-sample alignment searches, with the best offset correlations arising by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a real but weak shared environmental influence affecting all instruments, superposed on instrument-specific offsets and noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments are behaving nonlinearly, but not in a way yet strong enough to produce a clear level change in the current baseline window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Different instruments are measuring the same broad underlying quantity but each chain has its own fixed calibration offset and ordinary noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence is affecting all instruments, but with lag and instrument-specific offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The offset matches are mostly the result of searching many lags, with a few moderate correlations arising by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more measurement chains have a subtle nonlinear response or context dependence that is not yet large enough to show a clear level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something not yet captured by these models is affecting the series",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The two chains are measuring the same broad underlying quantity, but each has its own fixed calibration offset plus ordinary noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence reaches all instruments with lag and instrument-specific offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The offset matches are mostly the result of searching many lags, with a few moderate correlations arising by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more measurement chains has a subtle nonlinear or context-dependent response that has not yet produced a clear level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something else not yet captured by these models is affecting the series",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The chains are measuring the same broad underlying quantity, but each has its own fixed calibration offset plus ordinary noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence reaches all instruments with lag and instrument-specific offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The offset matches are mostly a search artifact: looking across many lags produces a few moderate correlations by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more measurement chains has a subtle nonlinear or context-dependent response not yet large enough to produce a clear level change",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Something else not yet captured by these models is affecting the series",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The two chains are measuring the same broad quantity, but each has its own fixed calibration offset plus ordinary noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence reaches all instruments with lag and instrument-specific offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more measurement chains has a subtle nonlinear or context-dependent response not yet large enough to produce a clear level change",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "There is some additional unmodeled influence, but the current data do not yet identify it",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "residual: something I have not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and instrument-specific offsets",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and instrument-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "self_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The apparent lagged matches are mostly search artifacts from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The apparent lagged matches are mostly a search artifact from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The apparent lagged match is mainly a search artifact from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The apparent 3-day match is mainly a search artifact from trying many offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Independent calibration offsets plus ordinary noise in each chain",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The strong 3-day match is mainly a search artifact from scanning multiple offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A weak shared environmental or procedural influence with lag and chain-specific offsets",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A subtle nonlinear or context-dependent response in one or more chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Some additional unmodeled influence is present but not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    }
+  ]
+}

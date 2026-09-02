@@ -1,0 +1,460 @@
+{
+  "source": "wd_exact-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 16,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "incomplete_theory",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "A procedural difference between contexts, such as timing reference, placement, or reading convention",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Different operator conventions or procedural timing between lab and observation contexts",
+        "primary": "self_error",
+        "second": "social_process"
+      },
+      {
+        "label": "Residual: something I haven't thought of",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Fixed calibration or configuration mismatch between lab and observation chains",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "At least one stream contains a subtle processing or transcription artifact that preserves local consistency but distorts cross-comparisons.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A real physical effect is present but weak and not yet cleanly characterized",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "There is a genuine physical effect, but it is presently too weak, offset-dependent, or setup-specific to separate cleanly from systematics.",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "A shared external factor is acting differently on the two contexts",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A shared external influence affects the two contexts differently",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Subtle processing, transcription, or reduction artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something I haven't thought of",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Unmodeled procedural or operator effects are shifting comparability between contexts",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A shared external influence is affecting the setups differently",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "measurement_error",
+        "second": "other"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 32,
+  "l4Judged": 32,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "The lab and observation instruments are each internally consistent, but they are reporting different physical quantities or units because one or more instruments are misconfigured or scaled differently.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A single shared environmental influence is shifting the apparent readings differently in the lab and observation setups, but not yet producing clear drift within each stream.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "At least one stream contains a subtle processing or transcription artifact that preserves local consistency but distorts cross-comparisons.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The system is showing a genuine but still unexplained physical effect that couples differently to the four instrument setups.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: something unconsidered, including hidden changes in procedure, operator behavior, or an unrecognized instrument fault not captured above.",
+      "class": "other"
+    },
+    {
+      "label": "The lab and observation instruments are each internally consistent but are measuring different scales, units, or configurations because one or more setups is misconfigured or differently calibrated.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A single shared environmental influence is affecting the setups differently, producing offset readings without yet generating obvious drift or level shifts within each stream.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more streams contains a subtle processing, transcription, or reduction artifact that preserves local consistency while distorting cross-comparisons.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "There is a genuine physical effect, but it is presently too weak, offset-dependent, or setup-specific to separate cleanly from systematics.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unmodeled procedural or operator effects, including hidden changes in handling or setup, are producing the offset patterns.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration/configuration mismatch between lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared external influence is acting differently on the four setups",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Subtle processing, transcription, or reduction artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmodeled procedural or operator effects are shifting comparability between contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical effect that is weak or setup-dependent",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration/configuration mismatch between lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle processing, transcription, or reduction artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmodeled procedural or operator effects differ between contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared external influence is affecting the setups differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Genuine physical effect that is weak or setup-dependent",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration/configuration mismatch between lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle processing, transcription, or reduction artifact in the comparison chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Different procedural or operator conventions between lab and observation contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared external influence affects the two contexts differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A genuine physical effect is present but is weak or setup-dependent",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between lab and observation chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Subtle reduction, transcription, or comparison-pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Different operator conventions or procedural timing between lab and observation contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared external influence couples the two contexts differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A genuine physical effect is present but weak, setup-dependent, or poorly captured by the current analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle reduction, transcription, or comparison-pipeline artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Different operator conventions or procedural timing between lab and observation contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared external influence couples the two contexts differently",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A genuine physical effect is present but weak, setup-dependent, or poorly captured by the current analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between lab and observation chains",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Subtle transcription, reduction, or comparison-pipeline artifact affecting cross-context comparisons",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Different operator conventions or procedural timing between lab and observation contexts",
+      "class": "self_error"
+    },
+    {
+      "label": "A shared external influence acts differently on the two contexts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A genuine physical effect is present but weak, setup-dependent, or poorly captured by the current analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle reduction, transcription, or comparison-pipeline artifact affecting the cross-context analysis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic procedural difference between contexts, such as timing reference, placement, or reading convention",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared external factor acting differently on the two contexts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A genuine physical effect is present but is weak, setup-dependent, or poorly captured by the current analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle reduction, transcription, or comparison-pipeline artifact affecting the cross-context analysis",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic procedural difference between contexts, such as timing reference, placement, or reading convention",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared external factor acting differently on the two contexts",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A genuine physical effect is present but is weak, setup-dependent, or poorly captured by the current analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural difference between contexts, such as timing reference, placement, or reading convention",
+      "class": "self_error"
+    },
+    {
+      "label": "A reduction, transcription, or comparison-pipeline artifact is shaping the cross-context results",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared external factor is acting differently on the two contexts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "There is a real physical effect, but it is weak and not yet cleanly captured",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration/configuration mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural offset between contexts, such as timing reference, placement, or reading convention",
+      "class": "self_error"
+    },
+    {
+      "label": "A reduction, transcription, or comparison-pipeline artifact is distorting the cross-context comparisons",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared external factor is acting differently on the two contexts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "There is a real physical effect, but it is weak and not yet cleanly captured",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A procedural or timing-reference offset between contexts, such as placement, sequencing, or reading convention",
+      "class": "self_error"
+    },
+    {
+      "label": "A reduction, transcription, or comparison-pipeline artifact is distorting the cross-chain analysis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared external factor is influencing the two contexts differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A real physical effect is present but weak and not yet cleanly characterized",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "An unmodeled mundane issue remains, such as intermittent bookkeeping or an untracked setup difference",
+      "class": "incomplete_theory"
+    }
+  ]
+}

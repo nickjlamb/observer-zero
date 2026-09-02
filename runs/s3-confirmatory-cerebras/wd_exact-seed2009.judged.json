@@ -1,0 +1,310 @@
+{
+  "source": "wd_exact-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Observer‑schedule bias: rotating five‑day shift imposes routine offset on measurements",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: an unconsidered factor (e.g., microseismic activity, humidity effects, unrecorded equipment maintenance)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A genuine unknown physical influence with a ~5‑day periodicity (e.g., local tidal or exotic field fluctuations)",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Observer‑induced bias: the same technician recorded both sets of measurements on a shared schedule",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Observer‑schedule bias (fixed five‑day measurement rotation)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Shared quasi‑weekly temperature cycle affecting both pendulum length and resonator elasticity",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A genuine unknown physical influence affecting both pendulum and resonator periods with a ~5‑day periodicity",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Five‑day power‑grid maintenance cycle introducing correlated noise",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Observer‑induced bias: the same technician recorded both sets of measurements on a shared schedule, imprinting correlated errors",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Periodic fluctuations in the settlement’s power supply (maintenance or load‑balancing) introduce correlated noise into both instruments",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "A shared environmental temperature cycle of ~5 days influences both pendulum and resonator measurements",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Periodic fluctuations in the settlement’s power supply (maintenance or load‑balancing) introduce correlated noise into both instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A timestamp alignment error in data logging creates an artificial 5‑day lag correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer‑induced bias: the same technician recorded both sets of measurements on a shared schedule, imprinting correlated errors",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine unknown physical influence affecting both pendulum and resonator periods with a ~5‑day periodicity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared environmental temperature cycle of ~5 days influences both pendulum length and resonator material properties",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Periodic fluctuations in the settlement’s power supply (maintenance or load‑balancing) introduce correlated noise into both instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer‑induced bias: the same technician recorded both sets of measurements on a shared schedule",
+      "class": "self_error"
+    },
+    {
+      "label": "Timestamp alignment error in data logging creates an artificial 5‑day lag correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A genuine unknown physical influence with a ~5‑day periodicity (e.g., local tidal or exotic field fluctuations)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unconsidered factor (e.g., microseismic activity, humidity effects, unrecorded equipment maintenance)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared quasi‑weekly temperature cycle affecting both pendulum length and resonator elastic constants",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance or load‑balancing cycle introducing correlated noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer‑induced systematic bias due to a shared measurement schedule",
+      "class": "self_error"
+    },
+    {
+      "label": "Unrecorded microseismic or ground‑vibration activity affecting both instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp misalignment between pendulum and resonator data logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Shared quasi‑weekly temperature cycle affecting both pendulum length and resonator elasticity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timestamp misalignment between pendulum and resonator data logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Observer‑schedule bias: rotating five‑day shift imposes routine offset on measurements",
+      "class": "self_error"
+    },
+    {
+      "label": "Data‑processing pipeline interdependency (shared software applying delayed corrections)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded microseismic or ground‑vibration activity with a ~5‑day recurrence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance or load‑balancing cycle introducing correlated noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑processing pipeline interdependency (delayed calibration)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic timestamp misalignment between pendulum and resonator logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Quasi‑weekly temperature cycle with differing thermal inertia",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer‑schedule bias (fixed five‑day measurement rotation)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unrecorded microseismic activity with ~5‑day recurrence",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Delayed calibration interdependency in the data‑processing pipeline (pendulum_lab values used to correct resonator_obs three days later)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Quasi‑weekly temperature cycle with differing thermal inertia of pendulum and resonator components",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer‑schedule bias (rotating measurement roster that offsets pendulum and resonator sessions by three days)",
+      "class": "social_process"
+    },
+    {
+      "label": "Systematic timestamp misalignment between pendulum and resonator logs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded microseismic activity with ~5‑day recurrence affecting pendulum length and resonator frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance cycle introducing correlated noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered mechanism)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed calibration interdependency in the data‑processing pipeline (pendulum_lab values used to correct resonator_obs three days later)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Quasi‑weekly temperature cycle with differing thermal inertia of pendulum and resonator components",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer‑schedule bias (rotating measurement roster offsetting pendulum and resonator sessions by three days)",
+      "class": "social_process"
+    },
+    {
+      "label": "Systematic timestamp misalignment between pendulum and resonator logs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded microseismic activity with ~5‑day recurrence affecting pendulum length and resonator frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance cycle introducing correlated noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered mechanism)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Delayed calibration interdependency in the data‑processing pipeline (software bug)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer‑schedule bias (fixed three‑day rotation of measurement tasks)",
+      "class": "social_process"
+    },
+    {
+      "label": "Systematic timestamp misalignment between pendulum_lab and resonator_obs logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Quasi‑weekly temperature cycle with differing thermal inertia",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unrecorded microseismic activity with ~5‑day recurrence",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Five‑day power‑grid maintenance cycle introducing correlated noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unknown mechanism)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

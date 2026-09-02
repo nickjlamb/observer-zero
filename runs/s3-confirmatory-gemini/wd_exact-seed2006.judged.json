@@ -1,0 +1,127 @@
+{
+  "source": "wd_exact-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Independent nominal design specifications chosen arbitrarily during instrument fabrication",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Analysis script calculation or indexing bug",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Independent physical design specifications chosen during apparatus construction",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 1,
+  "l4Judged": 1,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration or gear-ratio convention difference between lab and observatory apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent nominal design specifications chosen arbitrarily during instrument fabrication",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical environmental disparity between observatory and laboratory locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic timebase, clock divider, or scale factor convention discrepancy between lab and observatory",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent physical design specifications chosen during apparatus construction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local physical environmental disparity between observatory and laboratory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Telemetry, buffer, or data-logging pipeline artifact mirroring delayed lab data into observatory records",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared physical environmental forcing with a 3-day propagation delay between the laboratory and the observatory",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calculation or indexing artifact in the automated cross-check analysis script",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Telemetry or data-logging pipeline mirroring artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Analysis script calculation or indexing bug",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared physical environmental forcing with a 3-day transit delay",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

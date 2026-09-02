@@ -1,0 +1,135 @@
+{
+  "source": "md_high-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 3,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Mechanical or component calibration shift in resonator_lab",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Common broad-scale environmental driver with propagation or thermal lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Spurious correlation from autocorrelated smooth drift over finite sample windows",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 2,
+  "l4Judged": 2,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Statistical artifact arising from multiple comparison testing across lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared diurnal or environmental cycle with a 24-hour thermal/atmospheric lag between lab and observatory",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical or component calibration shift in resonator_lab",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmonitored environmental step change within the laboratory facility",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical sampling fluctuation across post-baseline trial blocks",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common broad-scale environmental driver with propagation or thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared systematic data-logging or pipeline indexing artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious correlation from autocorrelated smooth drift over finite sample windows",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common broad-scale environmental driver with propagation or thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared systematic data-logging or pipeline indexing artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious correlation from autocorrelated smooth drift over finite sample windows",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Common broad-scale environmental driver with propagation or thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared systematic data-logging or pipeline indexing artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spurious correlation from autocorrelated smooth drift over finite sample windows",
+      "class": "measurement_error"
+    }
+  ]
+}

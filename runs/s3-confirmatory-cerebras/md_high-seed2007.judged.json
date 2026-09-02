@@ -1,0 +1,214 @@
+{
+  "source": "md_high-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 6,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Shared environmental factor with a ~3‑day thermal lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Electrical coupling or interference through shared power line",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data‑logging or labeling error affecting timestamps or trial numbers",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Operator procedural bias introducing a consistent pattern",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Local seismic or settlement‑induced vibration affecting the pendulum support",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Local seismic or settlement‑induced vibration affecting resonator_obs support",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 4,
+  "l4Judged": 4,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift due to temperature fluctuations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "External electromagnetic interference affecting resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data‑entry or labeling error",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical modulation of resonator frequency with a ~2‑day cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temperature‑induced change in pendulum length or damping",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical stress relaxation or micro‑creep in the pendulum mounting",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Local seismic or settlement‑induced vibration affecting the pendulum support",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or labeling error affecting timestamps or trial numbers",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (unconsidered factor)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temperature-induced change in resonator dimensions or material properties",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Power‑supply or electronic read‑out drift specific to resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Mechanical stress relaxation or micro‑creep in the resonator_obs mounting",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging or timestamp misalignment after day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Local seismic or settlement‑induced vibration affecting resonator_obs support",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental factor with 3‑day thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data‑logging timestamp misalignment introducing a spurious lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Electrical coupling or interference through shared power line",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator procedural bias introducing a consistent pattern",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical fluke (residual)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp misalignment (systematic 3‑day shift in one data stream)",
+      "class": "social_process"
+    },
+    {
+      "label": "Shared environmental factor with a ~3‑day thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Electrical coupling or interference via common power line",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator procedural bias introducing a consistent 3‑day pattern",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical fluke (unlikely but possible)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Timestamp misalignment (systematic 3‑day shift in one data stream)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental factor with ~3‑day thermal lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Electrical coupling or interference via common power line (delayed effect)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator procedural bias introducing a consistent 3‑day pattern",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical fluke (unlikely but possible)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (something not yet considered)",
+      "class": "other"
+    }
+  ]
+}

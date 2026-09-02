@@ -1,0 +1,189 @@
+{
+  "source": "md_high-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Residual (unconsidered mechanism)",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared environmental influence causing a 3‑day lag correlation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data handling or processing error produced artificial alignment of pendulum_lab and resonator_obs data",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unrecognized systematic error in pendulum_obs data acquisition (timing glitch, sensor mis‑calibration, or software bug)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A localized environmental perturbation (e.g., temperature wave or mechanical vibration) propagated with a 3‑day delay from pendulum_lab to resonator_obs",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 7,
+  "l4Judged": 7,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental influence causing a 3‑day lag correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluctuation within random noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic artifact in data acquisition or processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized systematic error in data acquisition",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient local environmental perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmodeled physical phenomenon affecting pendulum period",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecognized systematic error in pendulum_obs data acquisition (timing glitch, sensor mis‑calibration, or software bug)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient local environmental perturbation affecting pendulum_obs (temperature, vibration, or magnetic field change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled physical phenomenon affecting pendulum period (e.g., subtle mass redistribution in the settlement)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecognized systematic error in resonator_lab data acquisition (sensor mis‑calibration, timing glitch, or software change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow calibration drift of the resonator_lab cavity or electronic components",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient local environmental perturbation affecting resonator_lab only (e.g., temperature spike, vibration, magnetic field change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Transient power or supply anomaly that briefly altered the resonator_lab readout circuit",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data handling or processing error produced artificial alignment of pendulum_lab and resonator_obs data",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared timing reference with a periodic error introduced a lagged systematic offset affecting both instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A localized environmental perturbation (e.g., temperature wave or mechanical vibration) propagated with a 3‑day delay from pendulum_lab to resonator_obs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A statistical fluke – an extremely unlikely but possible random alignment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual (unconsidered mechanism)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data handling or processing error (e.g., copy‑paste, mislabeling of timestamps)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared calibration or correction routine applied to both instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared timing reference with a periodic 3‑day phase error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental perturbation with a 3‑day thermal or mechanical lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical fluke",
+      "class": "measurement_error"
+    }
+  ]
+}

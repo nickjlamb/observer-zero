@@ -1,0 +1,606 @@
+{
+  "source": "wd_exact-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 22,
+    "agree": 20,
+    "items": [
+      {
+        "label": "H3: There is a single unmodeled environmental or procedural influence affecting both observer-side instruments, with weaker manifestation in the lab instruments",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H2: The cross-instrument agreements are mostly offset-search artifacts in stable but otherwise independent series.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H2: The apparent cross-chain alignments are mostly search artifacts from scanning multiple offsets across otherwise independent stable series.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab chain.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Lag-search coincidences among otherwise independent stable series",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: The apparent cross-chain alignments are mostly lag-search artifacts superimposed on otherwise independent stable series.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H2: The cross-chain alignments are mostly lag-search artifacts on top of otherwise independent stable series.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A shared observer-side procedural or environmental influence affecting both observer instruments",
+        "primary": "environmental_change",
+        "second": "self_error"
+      },
+      {
+        "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something unconsidered.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A subtle nonlinear or range-dependent bias in one or more instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: The apparent cross-chain alignments are mostly search artifacts arising from comparing otherwise independent stable series across multiple offsets.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H3: A shared observer-side environmental or procedural factor is acting on both observer instruments, shifting them together relative to the lab instruments.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that produces offset-specific agreement.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A common observer-side procedural or environmental influence affecting both observer instruments",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: The observer-side measurement chain has a stable scale/offset calibration difference from the lab chain, with the stronger resonator agreement reflecting a real common influence rather than a fault in the instruments themselves",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-instrument agreements are mostly chance alignments from limited offset searching, while all four series are just stable but independent instrument baselines",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: There is a single unmodeled environmental or procedural influence affecting both observer-side instruments, with weaker manifestation in the lab instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments have a subtle nonlinearity or range-dependent bias that creates misleading cross-instrument agreement at specific offsets",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "H1: The observer-side measurement chain has a stable calibration scale/offset difference from the lab chain, and the strongest cross-instrument matches are partly real shared structure rather than instrument fault.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-instrument agreements are mostly small-sample offset-search artifacts; the four series are stable but otherwise independent.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A stable observer-side environmental or procedural factor is influencing both observer instruments, creating shared structure and a shifted scale relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates misleading offset-specific agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "H1: The observer-side chain has a stable calibration offset/scale difference from the lab chain, and some cross-instrument alignment is real shared structure rather than pure chance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The cross-instrument agreements are mostly offset-search artifacts in stable but otherwise independent series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor is acting on both observer instruments, shifting them together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain; any apparent cross-instrument agreement is mostly weak shared structure on top of that offset.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-instrument matches are mostly offset-search artifacts in otherwise independent but stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor is shifting both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that produces offset-specific agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "H1: The observer chain is offset from the lab chain by a stable calibration difference, with any cross-chain agreement reflecting only weak shared structure on top of that offset.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The cross-instrument alignments are mostly offset-search artifacts in otherwise independent but stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that produces offset-specific agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared structure superimposed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly search artifacts arising from comparing otherwise independent stable series across multiple offsets.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared structure superimposed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly search artifacts from scanning multiple offsets across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared structure superimposed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly search artifacts from scanning multiple offsets across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared structure superimposed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly search artifacts from scanning multiple offsets across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: The observer chain carries a stable calibration offset relative to the lab chain, with only weak shared structure on top.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly search artifacts from scanning many offsets across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered, such as a hidden timing interaction or unmodeled procedural coupling.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared variation on top.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The cross-chain alignments are mostly artifacts of scanning many offsets across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered, such as a hidden timing interaction or unmodeled procedural coupling.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared variation on top.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly artifacts of scanning many lags across otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H1: The observer chain has a stable calibration offset relative to the lab chain, with only weak shared variation on top.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly lag-search artifacts superimposed on otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side environmental or procedural factor shifts both observer instruments together relative to the lab chain.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that creates offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "other"
+    },
+    {
+      "label": "H1: The observer instruments share a stable calibration offset from the lab instruments, while each chain otherwise behaves normally.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The apparent cross-chain alignments are mostly lag-search artifacts superimposed on otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side procedural or environmental factor shifts both observer instruments relative to the lab chain.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias that produces offset-specific apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+      "class": "self_error"
+    },
+    {
+      "label": "H1: The observer instruments are offset from the lab instruments by a stable calibration difference, while each chain is otherwise behaving normally.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: The cross-chain alignments are mostly lag-search artifacts on top of otherwise independent stable series.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: A shared observer-side procedural or environmental factor shifts both observer instruments relative to the lab chain.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: One or more instruments has a subtle nonlinear or range-dependent bias.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Some unmodeled procedural or timing interaction couples the series in a way not captured by the current cross-checks.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Stable instrument-specific calibration offset between lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-search coincidences on top of otherwise independent stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared observer-side procedural or environmental influence on both observer instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Subtle nonlinear or range-dependent bias in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmodeled procedural or timing interaction that creates apparent lagged relationships",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-search coincidences among otherwise independent stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A common observer-side procedural or environmental influence affecting both observer instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A subtle nonlinear or range-dependent bias in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unmodeled timing or handling interaction creating apparent lagged relationships",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet captured by the current model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-search coincidences among otherwise independent stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared observer-side procedural or environmental influence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A subtle nonlinear or range-dependent bias in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unmodeled timing or handling interaction creating apparent lagged relationships",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet captured by the current model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-search coincidences among otherwise independent stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared observer-side procedural or environmental influence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A subtle nonlinear or range-dependent bias in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unmodeled timing or handling interaction creating apparent lagged relationships",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet captured by the current model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-search coincidences among otherwise independent stable series",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared observer-side procedural or environmental influence affecting both observer instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A subtle nonlinear or range-dependent bias in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "An unmodeled timing or handling interaction creating apparent lagged relationships",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something not yet captured by the current model",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something I haven't thought of",
+      "class": "measurement_error"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "source": "wd_exact-seed2006.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 6,
+    "agree": 5,
+    "items": [
+      {
+        "label": "H3: A ~5‑6‑day periodic environmental factor periodically biases resonator_obs (and possibly other instruments)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H1: No real drift – fluctuations are random noise around a stable baseline",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H1: No genuine systematic change – both clusters are random fluctuations within the instrument’s noise distribution.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H1: Pure statistical fluke",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "H2: Shared environmental factor with a 3‑day thermal inertia delay",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H4: Power‑grid cross‑talk with delayed settling of resonator electronics",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "H1: No real drift – fluctuations are random noise around a stable baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A slow upward drift began around day 9‑10 in resonator_obs",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H3: A ~5‑6‑day periodic environmental factor influences resonator_obs (and possibly other instruments)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: No real change – the day‑20 cluster is a random fluctuation within the instrument’s noise distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A discrete upward shift in the resonator_obs baseline occurred around day 20 (possible aging or environmental change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A ~5‑6‑day periodic environmental factor periodically biases resonator_obs (and possibly other instruments)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H4: A transient instrument or data‑recording artifact affected the late resonator_obs trials",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: No genuine systematic change – both clusters are random fluctuations within the instrument’s noise distribution.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: An intermittent environmental factor (e.g., temperature or power fluctuation) temporarily biases resonator_obs, producing brief upward and downward shifts.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A temporary instrument or data‑recording artifact (sensor saturation, calibration slip, or logging error) affected resonator_obs during those specific periods.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: A shared environmental factor influences both resonator_obs and pendulum_lab, producing correlated shifts with a lag of about three days.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: An unconsidered mechanism (e.g., subtle software update, power‑grid transient) is responsible for the observed deviations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Random fluctuations within the instrument’s noise distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: A transient environmental factor (e.g., temperature or power fluctuation) that temporarily biases resonator_obs alone",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: A temporary instrument‑specific artifact (sensor non‑linearity, calibration slip, or logging error)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: A shared environmental factor influencing both resonator_obs and pendulum_lab, manifesting with a ~3‑day lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: Statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Shared environmental factor with a 3‑day thermal inertia delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Systematic timestamp or trial‑index misalignment in data processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Power‑grid cross‑talk with delayed settling of resonator electronics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H1: Statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Shared environmental factor with a 3‑day thermal inertia delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Systematic timestamp or trial‑index misalignment in data processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Power‑grid cross‑talk with delayed settling of resonator electronics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Pure statistical fluke",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H2: Shared environmental factor with a 3‑day thermal inertia delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Systematic timestamp or trial‑index misalignment in the data pipeline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Power‑grid transient affecting electronics with delayed settling",
+      "class": "environmental_change"
+    }
+  ]
+}
