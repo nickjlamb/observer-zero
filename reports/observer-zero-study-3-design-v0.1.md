@@ -6,9 +6,7 @@
 **Author:** Nick Lamb, PharmaTools.AI Labs. Drafted with AI assistance.
 **Read with:** `observer-zero-spec.md` (the architecture), `reports/observer-zero-study-2-design-v0.6.md` + A2–A5 (the frozen Study 2 design — untouched by this document), `reports/study-2-confirmatory-results.md` (the baseline every claim below builds on), `reports/literature-check.md` (the novelty constraints).
 
-**Study 2 is frozen and under review at JASSS. Nothing in this document reinterprets it, and no Study 3 code change may alter any artifact, endpoint, or noise stream Study 2 depends on.**
-
-*(Correction 2026-09-02: the venue has since changed — the combined manuscript is in peer review, venue per `daff318` policy. The constraint itself is unchanged.)*
+**Study 2 is frozen and in peer review (as of 2026-09-02 the original JASSS submission is no longer active; venue per `daff318` policy). Nothing in this document reinterprets it, and no Study 3 code change may alter any artifact, endpoint, or noise stream Study 2 depends on.**
 
 ---
 

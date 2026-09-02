@@ -34,9 +34,11 @@ delete — it cannot remove them itself.
 
 ## 2. What changed since the page was last written
 
-**The manuscript was submitted to JASSS on 2026-08-13.** Verdict expected around early October.
-It is under anonymous review, but the anonymisation is procedural only — the preprint is public
-under Nick's name — so nothing about the website needs to hide.
+**The manuscript was submitted to JASSS on 2026-08-13; that submission is no longer active
+(corrected 2026-09-02).** The manuscript — since combined with Study 1 and reframed — is in
+peer review; per repo policy (`daff318`) the venue is not named until there is a decision. The
+anonymisation point stands: the preprint is public under Nick's name, so nothing about the
+website needs to hide.
 
 **The model is published in the CoMSES Computational Model Library**, and peer review has been
 requested. That is new and worth surfacing on the page: it is the thing that makes the model a
@@ -92,8 +94,10 @@ a channel.*
 - The evidence gradient: |z| **3.30 → 7.52** across nine conditions, detection **7 of 10 → 10 of
   10 runs**, while the law-change conclusion rate never leaves the floor
 - **1 agent of 276** in Study 2 concluded a physical law had changed — none of Study 1's 80
-- **6,880 agent-days** of voluntary communication opportunity, **zero** voluntary communications
-- Cascade depth exactly **1.000** in every run of every arm — a star, not a cascade
+- **7,680 agent-days** of voluntary communication opportunity, **zero** voluntary
+  communications (erratum `daff318`: originally misstated as 6,880)
+- Cascade depth exactly **1.000** in every run of both catalysed arms — a star, not a cascade
+  (erratum `daff318`: arm B produced no letters, so its depth is 0.000)
 - **18 of 20** unsupported claims incorporated into grounded agents' beliefs, **0** challenged
 - **123 of 141** dated onsets fall before the true onset (87.2%)
 - Fabrication under controlled substitution: **19 claims versus 1**, McNemar p = 0.0078
@@ -167,9 +171,9 @@ reference unresolvable.
 - **Five untracked paths in the repo**: `comses-deposit/`, `reports/submission/`,
   `reports/observer-zero-jasss.md`, `reports/JASSS-CUT-PLAN.md`, `reports/JASSS-SUBMISSION-PLAN.md`.
 - **The biography draft** at `reports/submission/BIOGRAPHY.md` was never corrected.
-- **An open question sits with the JASSS editor**: whether text inside tables counts toward their
-  5,000–8,000 word range. Their guidance is silent and their submission pages are unreachable. If
-  the editor answers, it may prompt a further cut.
+- **An open question sat with the JASSS editor** (whether text inside tables counts toward their
+  5,000–8,000 word range). No longer applicable — the JASSS submission is no longer active
+  (corrected 2026-09-02).
 
 ---
 
