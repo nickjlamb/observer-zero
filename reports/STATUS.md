@@ -197,7 +197,8 @@ permitted anywhere.
 
 The mechanism: no sonar agent ever spontaneously initiated in 320 agent-runs of
 D and E. The only spontaneous initiator is the minority agent, in all 40 runs.
-Cascade depth is 1.000 in every run of every arm — a star around the seed, not
+Cascade depth is 1.000 in every run of both catalysed arms (erratum `daff318`:
+arm B produced no letters, so its depth is 0.000) — a star around the seed, not
 a cascade (A2's wording). D and E differ not in whether the seed initiates
 (identical) but in whether the network answers.
 
@@ -280,7 +281,8 @@ the repo; every number in the results report is reproducible from them.
 2. **Communication transmits unsupported claims and little else.** 18 of 20
    minority-origin unsupported claims were incorporated into grounded agents'
    beliefs, none challenged, mostly on the recipients' own citations. Meanwhile
-   no grounded agent ever initiated, cascade depth was 1.000 everywhere, the
+   no grounded agent ever initiated, cascade depth was 1.000 wherever anything
+   propagated (both catalysed arms; arm B produced no letters), the
    public bulletin was used once in ~2,760 agent-days (to ask whether letters
    were being delivered), and dispersion fell *slower* in the talking arms.
 
