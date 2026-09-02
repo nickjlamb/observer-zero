@@ -1,9 +1,9 @@
 # Observer Zero — current status and handover
 
-**Updated:** 2026-08-13 — **SUBMITTED** (combined paper under review at JASSS; model on CoMSES)
+**Updated:** 2026-09-02 — **Study 3: design frozen, confirmatory battery executed, scoring in progress, analysis not yet run**
 **Purpose:** one page that lets a fresh session (or a returning human) pick up
 without rereading the whole programme. Point-in-time; supersede freely.
-Sections below the next one predate submission — read them as history.
+Sections below "Study 3 — where it stands" predate it — read them as history.
 
 ---
 
@@ -19,15 +19,46 @@ design (v0.6 + amendments A2–A5, tag `study2-freeze`), analysed clean, and
 written up. Raw run data deposited on Zenodo (concept DOI
 10.5281/zenodo.21909254).
 
-**Combined paper: submitted to JASSS 2026-08-13.** *Observer Zero: Do LLM
-Agents Form Epistemic Communities?* — both studies plus a cross-study
-synthesis. Preprint concept DOI 10.5281/zenodo.21906653. Verdict expected
-around early October; an editor question on whether table text counts toward
-the word range is outstanding.
+**Combined paper: under peer review.** Submitted August 2026; per repo policy
+(`daff318`) the venue is not named in public docs until there is a decision.
+Preprint concept DOI 10.5281/zenodo.21906653.
 
 **Model: published in the CoMSES Computational Model Library** (release
 1.0.0, peer review requested — the permanent DOI is minted on review; a 1.1.0
 draft exists on the account but is unpublished and 404s publicly).
+
+**Study 3: frozen, executed, unanalysed.** Details in the next section —
+read it before touching anything under `runs/s3-*`.
+
+## Study 3 — where it stands (2026-09-02)
+
+Three states that are easy to blur, kept deliberately distinct: the design
+is **frozen**, the registered runs are **executed**, and the confirmatory
+*result* does **not yet exist**.
+
+- **Frozen 2026-08-30** (`f4c2280` — signed freeze doc v1,
+  `s3-confirmatory-freeze-v1.md`, `STUDY3_DESIGN_FROZEN = true`, no open
+  RED), committed before any confirmatory API call, as the doc requires.
+- **Executed 2026-08-31: 170/170 registered runs.** Four strata × 20
+  contrast runs (W-D-exact ×10 and M-D-high ×10 for sonar-pro, gemini,
+  gpt-oss and haiku) plus haiku's 90 descriptive runs, seeds 2000–2009 in
+  every cell, exactly as registered. Seeds 2010–2099 remain the unspent,
+  pre-registered contingency reserve. Two launch deviations, both fixed in
+  logged commits: the `--confirmatory` seed gate refused the first command
+  pre-call and was implemented on the spot (`bdcc41a`), and a JSON-transport
+  bug crashed cerebras v3 scoring, fixed 2026-09-02 (`866db1f`).
+- **Scoring: in progress.** sonar and gemini strata fully scored (eval-v4
+  plus the v3 side-by-side, per artifact); cerebras mid-rescore after the
+  transport fix; the haiku contrast and descriptive runs not yet scored.
+- **Analysis: not run.** `npm run study3-analyze` — the frozen analysis —
+  has not been executed. No Δ, no exact upper bound, no negligibility
+  verdict exists yet.
+- **The 130 pilot runs (seeds 9100–9199) are pilots and stay pilots.** The
+  freeze gate exists precisely so they can never be quietly counted as
+  confirmatory.
+- **Ledger debt:** `s3-run-ledger.md` has not been updated with the 170
+  confirmatory rows — it still ends at the pilots, which makes the repo
+  look as if no confirmatory run exists. Update it when scoring completes.
 
 ## The one-paragraph version of Study 2
 
