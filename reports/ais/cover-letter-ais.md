@@ -6,8 +6,13 @@ Please consider the enclosed manuscript, **"Evidence Without Conclusion: Localis
 Autonomous LLM Agent Systems"**, for publication in *Autonomous Intelligent Systems* as an
 Original Article.
 
-The paper sits squarely in the journal's remit of autonomous intelligent systems, multi-agent
-systems and distributed decision-making. It reports two studies — the second pre-registered,
+The paper addresses a question a deployer of autonomous agent systems must answer before
+trusting one with a real-world problem — in healthcare monitoring, autonomous drug
+discovery, or infrastructure — namely: when the system fails, does it fail at sensing or at
+reasoning? It sits squarely in the journal's remit of autonomous intelligent systems,
+multi-agent systems and distributed decision-making. This is a revision of ATIS-D-26-00459,
+prepared in response to the editor's comments; the accompanying response letter itemises the
+changes. It reports two studies — the second pre-registered,
 with the design frozen before any confirmatory data were seen — in Meridian, a deterministic
 multi-agent testbed in which societies of LLM-based agents choose their own measurements,
 maintain explicit probabilistic beliefs, and may communicate at will, while an environmental

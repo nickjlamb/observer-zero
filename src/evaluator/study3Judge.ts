@@ -15,6 +15,7 @@
 
 import { z } from "zod";
 import { extractJson } from "../models/anthropic.js";
+import { completeAndParse } from "./llmClassifier.js";
 import type { CompleteFn } from "./llmClassifier.js";
 
 // v1.1 (P3.4b): v1 passed the 6-item synthetic validation but over-flagged
@@ -107,8 +108,9 @@ export async function judgeL4(
   complete: CompleteFn,
 ): Promise<L4Verdict[]> {
   if (candidates.length === 0) return [];
-  const raw = await complete(buildL4JudgePrompt(candidates));
-  const parsed = L4ResponseSchema.parse(extractJson(raw));
+  const parsed = await completeAndParse(buildL4JudgePrompt(candidates), complete, (raw) =>
+    L4ResponseSchema.parse(extractJson(raw)),
+  );
   const out: L4Verdict[] = candidates.map((_, i) => ({
     index: i,
     proposesTest: false,

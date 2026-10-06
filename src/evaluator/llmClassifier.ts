@@ -278,6 +278,35 @@ export function buildClassifierPromptV4(hypotheses: HypothesisToClassify[]): str
 
 export type EvalVersion = "eval-v2" | "eval-v3" | "eval-v4";
 
+/**
+ * Parse-retry wrapper (deviation logged 2026-10-06). The judge occasionally
+ * emits GENUINELY malformed JSON — the observed case is an unescaped quote
+ * inside the L4 "quote" field — which no extraction fix can rescue. On a
+ * parse failure the completion is simply requested again (up to 3 attempts).
+ * Content-blind by construction: the retry fires only when the response
+ * cannot be read at all, so it cannot prefer any verdict. After 3 failures
+ * it throws with the raw head so the offending item is diagnosable.
+ */
+export async function completeAndParse<T>(
+  prompt: string,
+  complete: CompleteFn,
+  parse: (raw: string) => T,
+): Promise<T> {
+  let lastErr: unknown;
+  let lastRaw = "";
+  for (let attempt = 0; attempt < 3; attempt++) {
+    lastRaw = await complete(prompt);
+    try {
+      return parse(lastRaw);
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw new Error(
+    `judge response unparseable after 3 attempts: ${String(lastErr)} · raw starts: ${JSON.stringify(lastRaw.slice(0, 200))}`,
+  );
+}
+
 export async function classifyHypothesesLLM(
   hypotheses: HypothesisToClassify[],
   complete: CompleteFn,
@@ -290,8 +319,9 @@ export async function classifyHypothesesLLM(
       : version === "eval-v3"
         ? buildClassifierPromptV3(hypotheses)
         : buildClassifierPrompt(hypotheses);
-  const raw = await complete(prompt);
-  const parsed = ResponseSchema.parse(extractJson(raw));
+  const parsed = await completeAndParse(prompt, complete, (raw) =>
+    ResponseSchema.parse(extractJson(raw)),
+  );
   const out: HypothesisClass[] = hypotheses.map(() => "other");
   for (const c of parsed.classifications) {
     if (c.index < out.length) out[c.index] = c.class;
