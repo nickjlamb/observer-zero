@@ -17,7 +17,7 @@
 
 import { z } from "zod";
 import { HYPOTHESIS_CLASSES, type HypothesisClass } from "./classify.js";
-import { extractJson } from "../models/anthropic.js";
+import { extractJson, repairJsonStringQuotes } from "../models/anthropic.js";
 
 export type CompleteFn = (prompt: string) => Promise<string>;
 
@@ -300,6 +300,14 @@ export async function completeAndParse<T>(
       return parse(lastRaw);
     } catch (err) {
       lastErr = err;
+    }
+    // Deterministic malformation (observed: unescaped quotes inside the L4
+    // "quote" field at t=0) cannot be fixed by re-requesting. Try the
+    // targeted string-quote repair; it must still parse AND pass the schema.
+    try {
+      return parse(repairJsonStringQuotes(lastRaw));
+    } catch {
+      // fall through to the next fresh attempt
     }
   }
   throw new Error(

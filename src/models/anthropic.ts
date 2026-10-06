@@ -44,6 +44,60 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * Repair UNESCAPED QUOTE CHARACTERS inside JSON string values (deviation
+ * logged 2026-10-06). The L4 judge quotes agent prose verbatim in its
+ * "quote" field; when that prose itself contains a double quote, the judge
+ * reproduces it unescaped — deterministically at t=0, so completeAndParse's
+ * re-request retry can never recover. This scanner walks the text and
+ * escapes a quote found inside a string UNLESS its next non-whitespace
+ * character is a structural continuation (, } ] :), in which case it closes
+ * the string as normal. Used ONLY as a fallback after a normal parse has
+ * failed, and the result must still parse AND satisfy the response schema —
+ * a wrong repair therefore fails loudly rather than corrupting a verdict.
+ */
+export function repairJsonStringQuotes(text: string): string {
+  const start = text.indexOf("{");
+  if (start === -1) return text;
+  const head = text.slice(0, start);
+  const body = text.slice(start);
+  let out = "";
+  let inString = false;
+  let escaped = false;
+  for (let i = 0; i < body.length; i++) {
+    const ch = body[i]!;
+    if (escaped) {
+      out += ch;
+      escaped = false;
+      continue;
+    }
+    if (inString) {
+      if (ch === "\\") {
+        out += ch;
+        escaped = true;
+        continue;
+      }
+      if (ch === '"') {
+        let j = i + 1;
+        while (j < body.length && /\s/.test(body[j]!)) j++;
+        const next = body[j];
+        if (next === undefined || next === "," || next === "}" || next === "]" || next === ":") {
+          inString = false;
+          out += ch;
+        } else {
+          out += '\\"';
+        }
+        continue;
+      }
+      out += ch;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    out += ch;
+  }
+  return head + out;
+}
+
 export function extractJson(text: string): unknown {
   // Strip code fences, then take the FIRST BALANCED JSON object.
   //
