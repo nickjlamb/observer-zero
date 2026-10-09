@@ -301,3 +301,17 @@ Design (frozen for LX-1 at registration):
   apply; exclusions are mechanical and logged here.
 - Reporting: a clearly-labelled registered-extension subsection in the
   manuscript; never pooled with confirmatory statistics.
+
+### LX-1 amendment 1 (2026-10-09, before any LX run)
+
+The first LX-1 launch was refused by the R38 provenance gate:
+`--prompt-variant instrument-licensed ... must run on a reserved seed
+9190-9199` (offending: 9150-9159). The gate is correct — instrument-variant
+artifacts are confined to the reserved instrument seeds so their provenance
+can never be confused with experimental pilot runs — and it is not touched.
+LX-1's seed specification is amended from 9150-9159 to **9190-9199** (the
+reserved instrument range; same ten seeds in every cell, blocking preserved;
+fresh directories mean no artifact collisions with the R38/probe runs that
+used these seeds in other worlds). Zero LX runs existed at amendment time:
+the gate refused before the first API call. All other LX-1 specifications
+are unchanged.
