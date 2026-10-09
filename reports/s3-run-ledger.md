@@ -262,3 +262,42 @@ reconstruction, run by run. Indicator and modal-class lookups use the full
 key. Two pinning tests added (divergent-class recovery; misalignment halts).
 No judge output, threshold, or endpoint definition changed; the analysis had
 produced no numbers before or after the crash when this fix was applied.
+
+## LX-1 — licensed-discrimination extension (REGISTERED 2026-10-09, before any LX run)
+
+A registered extension, decided and specified AFTER the confirmatory battery
+closed and BEFORE any LX API call. It is NOT part of the frozen battery:
+pilot-range seeds, instrument-tagged artifacts (pooled corpus statistics
+refuse them by construction), separate directories, and a committed analyzer
+(`src/cli/licensedContrastAnalyze.ts`, `npm run lx1-analyze`, run once).
+Motivation: the confirmatory dissociation claim ("agents can evaluate the
+hypothesis when it is available but never generate it") currently rests on
+licensed probes run outside the contrast pair; LX-1 measures licensed
+discrimination on the contrast pair itself.
+
+Design (frozen for LX-1 at registration):
+- Question: under prompt variant `instrument-licensed` (R38 tier-A, verbatim,
+  already frozen), do agents put external-generation belief on W-D-exact and
+  not on M-D-high?
+- Cells: {wd_exact, md_high} x seeds 9150-9159 (10 unused pilot seeds, same
+  ten in every cell) x {claude-haiku-4-5, gemini:gemini-3.7-flash} = 40 runs.
+  (sonar excluded: vendor endpoint retired; cerebras reserve fallback if a
+  gemini cell suffers >2 mechanical exclusions.)
+- Execution: `--mode live --prompt-variant instrument-licensed --ledger`,
+  dirs runs/s3-licensed-contrast-{haiku,gemini}. NO --confirmatory.
+- Scoring: the frozen pipeline unchanged — both eval versions, --classify
+  solo, --cross-judge on. No prompt, threshold, or judge change of any kind.
+- Primary endpoint: final-state L1 (eval-v4|pooled|summed|0.05) per arm.
+  Test: one-sided Fisher per family (treatment > control) and the exact
+  stratified pooled p across the two families, alpha = 0.05.
+- Secondaries (descriptive): ever-L1, final L2, mean final ext-gen mass per
+  arm; eval-v3 column beside eval-v4.
+- Pre-stated interpretation: "evaluation capability on the contrast" is
+  claimed ONLY if pooled one-sided p < 0.05 with treatment > control. Both
+  arms firing at similar rates = licensed agents adopt the hypothesis
+  indiscriminately -> the capability claim is NOT supported and the
+  manuscript keeps the conservative title and framing. Control-side excess
+  is reported, no claim. Health rules 6.1/6.3 analogues and the leak audit
+  apply; exclusions are mechanical and logged here.
+- Reporting: a clearly-labelled registered-extension subsection in the
+  manuscript; never pooled with confirmatory statistics.
