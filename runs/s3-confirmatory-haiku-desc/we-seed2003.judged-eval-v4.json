@@ -1,0 +1,373 @@
+{
+  "source": "we-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical properties or environmental contexts; their weak negative cross-correlation (r≈-0.21) reflects genuine physical difference, not measurement error. Apparent disagreement is real.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Exact-repetition blocks in pendulum_lab and resonator_obs arise from instrumental or environmental mechanisms (resonator lockup, resonant overshoot, instrumental ringing, or deterministic feedback) rather than transcription error; apparent duplication is real behaviour, and baselines are valid.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_lab baseline (trials 1–70) contains a data-entry loop or batch duplication artefact; baseline mean is invalid; post-baseline drift estimates are unreliable.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data recording or time-tagging error creates spurious phase shifts and anticorrelations",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical properties or environmental contexts (e.g. lab vs. exposed environment); their apparent disagreement reflects genuine difference, not measurement error.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Weak, offset-dependent cross-correlations (e.g. pendulum_lab ↔ resonator_obs r=0.328, resonator_lab ↔ resonator_obs r=0.220) reflect genuine multi-day environmental coupling with poor SNR; however, pendulum_lab and resonator_obs baseline corruption now prevents reliable hypothesis testing until both are re-calibrated or excluded.",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription, creating spurious correlations and misalignment across time-series.",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription for pendulum_lab and/or resonator_obs, creating spurious offset-dependent correlations and misalignment across time-series.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Resonator_obs exhibits a separate but equally pathological exact-repetition block (114 of 228 readings, ~50% of dataset); resonator_obs baseline calibration is invalid; post-baseline drift estimates are suspect.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_lab baseline (trials 1–70) contains a data-entry loop or batch duplication artefact; baseline mean is invalid; post-baseline drift estimates are unreliable.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Resonator_obs (trials 114–228) contains a separate exact-repetition block (126 consecutive readings, ~52% of dataset); resonator_obs baseline and all post-baseline drift estimates are invalid.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_lab and pendulum_obs measure different physical properties or environmental contexts; comparison unreliable pending pendulum_lab validation",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum_lab operator or instrument protocol change around day 10/11 boundary, creating conditions for transcription error in baseline phase",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 21,
+  "l4Judged": 21,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental miscalibration or systematic error unique to each apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common weak environmental signal coupled differentially to each apparatus, damped or phase-shifted",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol or operator procedure introduces apparatus-specific bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or time-tagging error creates spurious phase shifts and anticorrelations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical effect: apparatus-dependent resonance or coupling to settlement environment",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab data entry or transcription error: a block of ~18 readings was duplicated or cycled during recording, creating artificial exact repetitions",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab operator protocol drift or stabilization-time change: my colleague or I began allowing less settle time or changed the reading method around day 11, reducing observed variance and creating a false 'echo' effect",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure slightly different phenomena or in different environmental contexts, explaining weak negative cross-correlation (−0.195 at 3-day offset)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator streams (lab and obs) show weak positive correlation (0.196 at 3-day offset) consistent with genuine shared environmental coupling, but pendulum streams show anticorrelation due to a separate instrumental or methodological issue",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data time-tagging or trial-numbering error: event IDs do not reflect true chronological sequence, creating spurious offsets and sign reversals in cross-correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab duplication or loop in trial recording (days 1–17): a block of ~18–24 readings was accidentally re-entered, copied, or cycled during data transcription, creating artificial exact matches.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab operator protocol drift or instrument-setup change around day 11: settle time, threshold, or reading method changed, creating artificial variance compression in post-baseline data and retroactive appearance of 'echo' patterns.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure in genuinely different environmental contexts (temperature, humidity, vibration), and the weak negative cross-correlation (r = −0.210 at 3-day offset) reflects delayed, inverted environmental coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs detect a genuine shared environmental signal (e.g., building vibration, atmospheric pressure), weakly correlated due to spatial separation, and are more robust to operator error than pendulum systems.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial-numbering or event-ID transcription error: post-baseline trials were recorded or logged out of chronological order, creating spurious offsets and sign reversals in cross-correlations across all pairs.",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab data-entry loop or batch duplication in trials 1–17 (baseline or early post-baseline phase)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab operator or instrument protocol change around day 10/11 boundary, affecting baseline method and retroactively corrupting early trial records or creating illusion of validity",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator streams are more robust to transcription error and may detect a weak, genuine environmental signal common to both lab and observatory, but pendulum_lab corruption now obscures any valid comparison",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure genuinely different properties or environmental contexts, with weak anti-phase coupling; but comparison is now unreliable due to pendulum_lab data integrity doubt",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial-numbering, event-ID, or chronological scrambling in post-baseline data transcription, creating spurious offsets and sign reversals in cross-correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab data-entry loop or batch duplication in trials 1–24 (baseline phase)",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Pendulum_lab operator or instrument protocol change around day 10/11 boundary, creating conditions for transcription error in baseline phase",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator streams show weak but genuine environmental signal with spatial coupling; pendulum_lab corruption now obscures valid comparison",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial-numbering, event-ID, or chronological scrambling in post-baseline transcription, creating spurious offsets in cross-correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure different physical properties or environmental contexts; but comparison unreliable pending pendulum_lab validation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab baseline phase (trials 1–52, days 1–10) contains a data-entry loop or batch duplication artefact",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "Pendulum_lab operator or instrumental protocol change between day 10 and day 11 created vulnerability to transcription error in baseline phase only",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak environmental signal in resonator streams (spatial/temporal coupling) is genuine but obscured by poor SNR; pendulum_lab corruption now prevents cross-validation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial numbering, event ID, or chronological scrambling in batch transcription created spurious offset-dependent correlations across all apparatus pairs",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure different physical properties or environmental contexts; comparison unreliable pending pendulum_lab validation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab baseline (trials 1–52) contains a data-entry loop or batch duplication artefact; post-baseline trials (n=230) and other apparatus records are clean.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline phase (trials 1–52, days 1–10) was recorded under different operator protocol, thermal state, or instrumental sensitivity than post-baseline, making it vulnerable to transcription loops; post-baseline trials are reliable.",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak, offset-dependent cross-correlations across apparatus pairs reflect genuine multi-day environmental coupling (e.g. shared vibration or pressure variability) with poor SNR; pendulum_lab corruption now prevents cross-validation of this signal.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial numbering, event ID, or chronological tagging error in batch transcription created spurious offset-dependent correlations and/or scrambled time order across apparatus pairs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical properties or environmental contexts (e.g. lab vs. exposed environment); their apparent disagreement reflects genuine difference, not measurement error.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab baseline and early trials (1–70) contain a data-entry loop or batch duplication artefact; all trials after day 10 baseline window (n≈230 subsequent trials) are clean. Baseline calibration is invalid; post-baseline pendulum_lab drift estimates are unreliable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline phase (trials 1–70, spanning days 1–10) was recorded under a different operator protocol, thermal state, or ledger system than post-baseline, creating systemic vulnerability to transcription errors; the exact-repetition block is a symptom of degraded record-keeping during that phase. Post-baseline trials and other apparatus are reliable.",
+      "class": "social_process"
+    },
+    {
+      "label": "Weak, offset-dependent cross-correlations across apparatus pairs reflect genuine multi-day environmental coupling (e.g. shared vibration, pressure variability, or thermal expansion) with poor signal-to-noise ratio; pendulum_lab baseline corruption now prevents reliable cross-validation of this signal until pendulum_lab is corrected.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription, creating spurious offset-dependent correlations and cross-apparatus misalignment.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs measure fundamentally different physical properties or environmental contexts; their weak negative cross-correlation (r≈-0.21) reflects genuine physical difference, not measurement error. Apparent disagreement is real.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab trials 1–70 contain a data-entry loop or batch duplication artefact; baseline is invalid; post-baseline drift estimates are unreliable pending re-calibration.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs exhibits a complementary pathology: 102-reading exact-repetition block (trials ~114–216). This suggests a separate data-entry loop or systematic duplication in resonator_obs baseline/early phase; resonator_obs baseline calibration is also invalid.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak, offset-dependent cross-correlations (e.g. pendulum_lab ↔ resonator_obs r=0.328, resonator_lab ↔ resonator_obs r=0.220) reflect genuine multi-day environmental coupling with poor SNR; however, pendulum_lab and resonator_obs baseline corruption now prevents reliable hypothesis testing until both are re-calibrated or excluded.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription for pendulum_lab and/or resonator_obs, creating spurious offset-dependent correlations and misalignment across time-series.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline phase (days 1–10) was recorded under a different operator protocol, thermal state, or ledger system than post-baseline, creating vulnerability to transcription errors; the exact-repetition block is a symptom of degraded record-keeping during that phase only. Post-baseline and other apparatus are reliable.",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab trials 1–70 contain a data-entry loop or batch duplication artefact; baseline is invalid; post-baseline drift estimates are unreliable pending re-calibration.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs exhibits a separate but equally pathological exact-repetition block (114 of 228 readings, ~50% of dataset); resonator_obs baseline calibration is invalid; post-baseline drift estimates are suspect.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Exact-repetition blocks in pendulum_lab and resonator_obs arise from instrumental or environmental mechanisms (resonator lockup, resonant overshoot, instrumental ringing, or deterministic feedback) rather than transcription error; apparent duplication is real behaviour, and baselines are valid.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak, offset-dependent cross-correlations (pendulum_lab ↔ resonator_obs r=0.328, resonator_lab ↔ resonator_obs r=0.253) reflect genuine multi-day environmental coupling with poor SNR; baseline corruption in pendulum_lab and resonator_obs prevents reliable hypothesis testing, but resonator_lab ↔ resonator_obs signal may survive as a weak environmental-effect candidate.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription, creating spurious offset-dependent correlations and misalignment across time-series.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline (trials 1–70) contains a data-entry loop or batch duplication artefact; baseline mean is invalid; post-baseline drift estimates are unreliable.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs (trials 114–228) contains a separate exact-repetition block (126 consecutive readings, ~52% of dataset); resonator_obs baseline and all post-baseline drift estimates are invalid.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Exact-repetition blocks in pendulum_lab and resonator_obs represent genuine instrumental or environmental behaviour (resonant lockup, parametric feedback, deterministic limit cycles, or instrumental saturation recovery); apparent duplication is real and baselines are valid.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Weak, offset-dependent cross-correlations (pendulum_lab ↔ resonator_obs r=0.330; resonator_lab ↔ resonator_obs r=0.245) reflect genuine multi-day environmental coupling or shared thermal/vibration effects; baseline corruption in pendulum_lab and resonator_obs does not fully eliminate signal.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription, creating spurious offset-dependent correlations and misalignment across time-series.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab baseline (trials 1–70) contains a data-entry loop or batch duplication artefact; baseline mean is invalid; post-baseline drift estimates are unreliable.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs (trials 114–228) contains a separate exact-repetition block (126 consecutive readings, ~52% of dataset); resonator_obs baseline and all post-baseline drift estimates are invalid.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Exact-repetition blocks represent genuine instrumental or environmental behaviour (resonant lockup, parametric feedback, deterministic limit cycles, or instrumental saturation recovery); the apparent duplication is real and baselines are valid.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-apparatus correlations (pendulum_lab ↔ resonator_obs r=0.330; resonator_lab ↔ resonator_obs r=0.245) reflect genuine multi-day environmental coupling or shared thermal/vibration effects; baseline corruption does not fully eliminate underlying signal.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial numbering, event ID, chronological tagging, or batch time-order scrambling occurred during transcription, creating spurious correlations and misalignment across time-series.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: undocumented instrumental failure, procedural error during baseline phase unrelated to duplication, or pathology in the raw logs themselves (corrupted log files, incomplete writes, or signal-acquisition timing errors).",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

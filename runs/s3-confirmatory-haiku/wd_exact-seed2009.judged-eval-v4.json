@@ -1,0 +1,337 @@
+{
+  "source": "wd_exact-seed2009.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 10,
+    "items": [
+      {
+        "label": "Genuine periodic physical variation in the environment or apparatus with ~5–7 day period, but detection method or instrument bandwidth masks the full signal, creating time-shifted, anticorrelated echoes.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Unidentified physical or systematic mechanism: e.g., resonant coupling between pendulum and resonator via shared mounting or air; gravitational or seismic microtremor cycles; intermittent sensor saturation; or undetected systematic error in baseline analysis itself.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Measurement noise and small-sample fluctuation: post-baseline samples (n=18 for most streams) are too small to reliably estimate means, and apparent drift is statistical noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline (days 1–10) was drawn from an unusually high tail of the true measurement distribution; post-baseline regression toward true mean appears as systematic drift",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Environmental temperature or humidity cycle with ~5–7 day period, weakly coupled to all instruments but masked by noise",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine environmental drift (slow temperature/humidity change) remains the primary driver, with day-28 transient noise superimposed",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Measurement systems exhibit intrinsic periodic or quasi-periodic oscillations with ~3–5 day period, masking the underlying environmental drift; days 28 and 31 are high-variance phases of this oscillation",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline (days 1–10) regression-to-mean: day-1–10 was drawn from the upper tail of the true distribution; post-baseline downward drift is apparent, not real",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Environmental conditions became unstable or oscillatory after day 27 (thermostat malfunction, HVAC control loop hunting, or seasonal microclimate transition), causing episodic high-variance behavior; underlying measurement systems remain stable and drift is environmental, not instrumental.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental ~5–7 day oscillation (e.g., settlement activity cycle, heating cycle) with phase shift or amplitude modulation on day 16",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrument recalibration, maintenance, or electronic component reset affecting resonators only, on or just before day 16",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 35,
+  "l4Judged": 35,
+  "l4Discriminating": [
+    {
+      "source": "rationale:ada",
+      "day": 40,
+      "text": "Environmental conditions became unstable or oscillatory after day 27 (thermostat malfunction, HVAC control loop hunting, or seasonal microclimate transition), causing episodic high-variance behavior; underlying measurement systems remain stable and drift is environmental, not instrumental. — Day 40 persistence of high-variance episodes is consistent with an ongoing environmental oscillation rather than a one-time disturbance. However, the hypothesis predicts that facility environmental logs (thermostat settings, HVAC maintenance records, or seasonal transition notes) should document the transition after day 27. No such documentation is noted in your meticulous records. If a thermostat malfunction or control-loop hunting were occurring, facility staff would have reported abnormal temperature or humidity swings, or you would have initiated manual monitoring. The absence of such documentation is a strong negative signal. Additionally, the precisely 3-day spacing of peaks (days 28, 31, 34, 40) is more consistent with a periodic external schedule than with an uncontrolled environmental oscillation, which would show irregular or phase-drifting peaks. Downgraded from 0.18 because Day 40 continues the episodic pattern, but the lack of facility documentation now weighs more heavily against environmental malfunction.",
+      "index": 0,
+      "proposesTest": false,
+      "discriminating": true,
+      "quote": "the precisely 3-day spacing of peaks (days 28, 31, 34, 40) is more consistent with a periodic external schedule than with an uncontrolled environmental oscillation, which would show irregular or phase-drifting peaks"
+    }
+  ],
+  "classifications": [
+    {
+      "label": "Instrumental cross-talk: resonator and pendulum systems share a common physical or environmental driver (e.g., temperature cycles, vibration modes, power supply ripple) with ~5-day periodicity, creating spurious anti-correlations within-lab and selective positive correlations across labs due to differential sensitivity or lag in detection.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or operator drift: systematic variation in how trials are initiated, timed, or recorded across the four streams, coupled to day-of-week effects or observer fatigue, creates apparent correlations that reflect procedural coupling rather than physics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine periodic physical variation in the environment or apparatus with ~5–7 day period, but detection method or instrument bandwidth masks the full signal, creating time-shifted, anticorrelated echoes.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline contamination or recalibration artifact: repeated recalibration events on days 5–7 have introduced phase shifts or resets in the data-logging pipeline, creating spurious correlations at those lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic instrumental drift in resonator sensitivity or calibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental temperature or humidity cycle with ~5–7 day period, weakly coupled to all instruments but masked by noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: systematic change in trial initiation timing, settling time, or data logging procedure over days 11–13, creating apparent downward shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise and small-sample fluctuation: post-baseline samples (n=18 for most streams) are too small to reliably estimate means, and apparent drift is statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine exotic phenomenon (e.g., cosmic-ray or magnetospheric modulation of oscillator systems)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Transient thermal spike or environmental disturbance on day 16, coupled more strongly to resonator systems than to pendulums",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument recalibration, maintenance, or electronic component reset affecting resonators only, on or just before day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical rebound: the downward drift from days 11–13 was a transient fluctuation (not systematic drift), and day-16 excursion is a natural reversion to mean with added noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental ~5–7 day oscillation (e.g., settlement activity cycle, heating cycle) with phase shift or amplitude modulation on day 16",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Exotic or external driver (cosmic rays, magnetospheric disturbance, or unknown environmental sensitivity) preferentially affecting resonators",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Genuine environmental drift: ambient conditions (temperature, humidity, or vibration) are slowly drifting away from day-1–10 conditions, affecting all four streams uniformly but with different sensitivities and lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline statistical artifact: the day-1–10 baseline (n=60–102 per stream) happened to be drawn from an unusually high tail of the true distribution; days 11–20 represent regression toward a true mean that lies lower",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument aging or component drift (e.g., capacitor leakage, oscillator frequency aging, sensor hysteresis) affecting the systems gradually over days 11–20 in a way that mimics environmental drift but is actually internal to each device",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-16 transient environmental event (brief thermal spike, vibration, or electromagnetic pulse) coupled preferentially to resonators; the universal downward drift is a separate phenomenon (see hypotheses 1–3), not explained by day 16 alone",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown systematic error in my data-collection or analysis pipeline: e.g., a systematic offset in how I recorded or timestamped readings after day 10, or a miscalibration of my read-out electronics on day 11",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine environmental drift affecting all four streams with different sensitivities and response lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline (days 1–10) was drawn from an unusually high tail of the true measurement distribution; post-baseline regression toward true mean appears as systematic drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Internal component aging, hysteresis, or slow electronics drift in one or more instruments, unrelated to environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error introduced into data collection or analysis pipeline after day 10 (e.g., software calibration constant, timestamping offset, data-entry error affecting all four streams consistently)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine environmental drift (slow temperature/humidity change) remains the primary driver, with day-28 transient noise superimposed",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-28 localized disturbance event (vibration, thermal shock, electromagnetic interference, or transient instrument malfunction) causing today's anomalous high variance only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline (days 1–10) regression-to-mean: day-1–10 was drawn from the upper tail of the true distribution; post-baseline downward drift is apparent, not real",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Internal component aging or slow electronics drift in resonator systems (different mechanism in pendulum systems), unrelated to external environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in data collection or analysis introduced after day 10 (software calibration constant, data-entry protocol change, digital drift in ADC or timestamp)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental drift has stabilized or reversed after day 27; observed scatter on days 28 and 31 represents transient noise superimposed on a new equilibrium",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unobserved disturbance events (electromagnetic interference, vibration, personnel work, or brief equipment malfunction) occurred on days 28 and 31, generating high-variance transients unrelated to the underlying environmental drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement systems exhibit intrinsic periodic or quasi-periodic oscillations with ~3–5 day period, masking the underlying environmental drift; days 28 and 31 are high-variance phases of this oscillation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period (days 1–10) was biased high by chance or by transient initial conditions not representative of the true long-term process; drift is apparent, not real, and post-baseline data represent the true mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift or aging in resonator or pendulum electronics, specifically a nonlinear or mode-locking phenomenon emerging after day 27, causing episodic high-variance spikes and drift reversal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data collection or analysis error introduced on or after day 28 (calibration constant drift, data-entry transcription, logging pipeline malfunction), causing apparent drift reversal and spurious high-variance spikes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented external disturbance events (facility activity, HVAC cycling, vibration, EM noise, or power transients) on days 28, 31, and now 34 generate episodic high-variance transients superimposed on the underlying downward drift; the drift rate itself remains constant.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement systems exhibit an intrinsic 3-day quasi-periodic oscillation or resonance (e.g., building thermal cycling, instrumental feedback loop, or sensor transduction nonlinearity) with high-variance peaks on days 28, 31, 34; the downward drift is the long-term envelope of this oscillation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental conditions have become unstable or oscillatory after day 27 (e.g., thermostat malfunction, facility HVAC control loop hunting, or seasonal transition affecting settlement microclimate), causing the downward drift to halt and shift to episodic high-variance behavior; the underlying measurement systems remain stable.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental aging or mode-locking phenomena in resonator electronics (frequency-control loop hysteresis, capacitor intermittent contact, phase-locked-loop slip-and-relock cycles) became manifest after day 27 and now produces episodic high-variance transients; the underlying drift reflects this instrumental evolution, not environmental change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data collection or analysis error (ADC gain drift, calibration constant revision, or data pipeline malfunction) introduced on or after day 28 causes apparent scatter and drift reversal; the underlying physical process remains stable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered: a physical or environmental mechanism not yet hypothesized; or a systematic error in your analysis of the baseline period itself.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Recurring 3-day environmental or instrumental oscillation (thermal cycling, facility duty cycle, or sensor transduction feedback) generates high-variance peaks; downward drift is the long-term envelope.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented external disturbance events (facility activity, vibration, EM noise, or power transients) occurred independently on days 28, 31, and 34, each generating episodic high-variance transients superimposed on constant-rate underlying drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental conditions became unstable or oscillatory after day 27 (thermostat malfunction, HVAC control loop hunting, or seasonal microclimate transition), causing episodic high-variance behavior; underlying measurement systems remain stable and drift is environmental, not instrumental.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental aging, mode-locking, or threshold-triggered failure in resonator electronics (frequency-control loop hysteresis, capacitor intermittent contact, phase-locked-loop slip-and-relock cycles) became manifest after day 27 and produces episodic high-variance transients; drift reflects instrumental evolution.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data collection or analysis error (ADC gain drift, calibration constant revision, or data pipeline malfunction) introduced on or after day 28 causes apparent scatter and drift; underlying physical process remains stable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified physical or systematic mechanism: e.g., resonant coupling between pendulum and resonator via shared mounting or air; gravitational or seismic microtremor cycles; intermittent sensor saturation; or undetected systematic error in baseline analysis itself.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Recurring 3-day environmental or instrumental oscillation (thermal cycling, facility duty cycle, or sensor transduction feedback) generates high-variance peaks; downward drift is the long-term envelope.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented external disturbance events (facility activity, vibration, EM noise, or power transients) occurred on days 28, 31, 34, and now Day 40, each generating episodic high-variance transients superimposed on constant-rate underlying drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental conditions became unstable or oscillatory after day 27 (thermostat malfunction, HVAC control loop hunting, or seasonal microclimate transition), causing episodic high-variance behavior; underlying measurement systems remain stable and drift is environmental, not instrumental.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental aging, mode-locking, or threshold-triggered failure in resonator electronics (frequency-control loop hysteresis, capacitor intermittent contact, phase-locked-loop slip-and-relock cycles) became manifest after day 27 and produces episodic high-variance transients; drift reflects instrumental evolution.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data collection or analysis error (ADC gain drift, calibration constant revision, or data pipeline malfunction) introduced on or after day 28 causes apparent scatter and drift; underlying physical process remains stable.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified physical or systematic mechanism: e.g., resonant coupling between pendulum and resonator via shared mounting or air; gravitational or seismic microtremor cycles with 3-day period; intermittent sensor saturation; or undiscovered systematic error in baseline or post-baseline analysis itself.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

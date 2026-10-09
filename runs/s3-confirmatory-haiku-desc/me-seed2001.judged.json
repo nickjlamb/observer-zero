@@ -1,0 +1,331 @@
+{
+  "source": "me-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 10,
+    "items": [
+      {
+        "label": "Residual: an interaction between multiple simultaneous changes (e.g., calibration + thermal shift, or observer change + instrument drift) that does not decompose into independent hypotheses; or an unrecorded event in the settlement (e.g., vibration, power surge, or local equipment maintenance) affecting pendulum_lab specifically.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data transcription, timestamping, or event-logging error affecting Day 17 batch, creating apparent anomaly in records without physical basis",
+        "primary": "social_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observer or procedural changes (method, timing protocol, or technician turnover) occurring independently on Days 14, 23, 26",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Day 17 readings are consistent with post-baseline noise; the observed clustering and elevation reflect normal sampling variance and no genuine anomaly exists",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Operator or measurement protocol change in pendulum_lab around Day 25–26 (e.g., observer rotation, timing method recalibration, or sampling procedure adjustment) has shifted the effective baseline, creating the appearance of a discontinuous offset.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data processing, transcription, or trial numbering artifact producing spurious level changes",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrument recalibration, sensitivity drift, or a hysteresis recovery event on Day 17 causing non-monotonic shift in one or more sensors",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Sustained environmental perturbation (thermal, barometric, or mechanical) beginning Day 17–18 has stabilized or reversed by Day 23, leaving resonator_obs in a new equilibrium state with elevated readings and higher trial-to-trial variance.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A real physical change in the pendulum_lab apparatus (e.g., thermal contraction, mechanical creep, or damping increase) occurred between Days 25 and 27, producing a sustained downward shift in the measured period.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Operator or measurement protocol change around Day 17–18 in resonator_obs workflow (observer, calibration routine, temperature compensation, or sampling method) has been reversed or corrected by Day 23, restoring higher readings.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data recording, timestamping, or trial numbering error around Days 17–18 or Days 22–23 has caused misalignment or mislabeling of resonator_obs records, creating false impression of drift and recovery.",
+        "primary": "social_process",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 33,
+  "l4Judged": 33,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift in all instruments, possibly coupled to environmental cycling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrument noise with no shared cause — observed correlations are statistical noise inflated by multiple hypothesis testing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol or data-recording artifact: systematic bias introduced at specific time windows or by alternation between lab and observatory settings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real but time-varying coupling between instruments, mediated by unknown shared environmental or instrumental variable (e.g., local magnetic field, vibration, or humidity)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental perturbation on Day 13 affecting all instruments simultaneously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "No anomaly; Day 13 readings are consistent with baseline noise and natural drift, observed as isolated scatter",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator or protocol change on Day 13 affecting measurement procedure or instrument handling",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument calibration drift continues at baseline rate; Day 13 cluster is statistical fluctuation amplified by small sample size",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Sensor saturation, nonlinearity, or hysteresis in one or more instruments triggered by Day 13 conditions",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental perturbation (thermal, seismic, or vibrational) on Day 17 affecting instruments with differential sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or measurement protocol change on Day 17 (e.g., different observer, altered temperature compensation, timing shift, or sampling interval) introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 17 readings are consistent with post-baseline noise; the observed clustering and elevation reflect normal sampling variance and no genuine anomaly exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument recalibration, sensitivity drift, or a hysteresis recovery event on Day 17 causing non-monotonic shift in one or more sensors",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, timestamping, or event-logging error affecting Day 17 batch, creating apparent anomaly in records without physical basis",
+      "class": "social_process"
+    },
+    {
+      "label": "Sustained environmental perturbation (thermal drift, barometric shift, or instrumental settling) beginning Day 17–18, affecting resonator_obs and pendulum_lab preferentially due to differential mechanical sensitivity or coupling pathways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or measurement protocol change around Day 17–18 (e.g., shift in observer, altered calibration reference, temperature compensation routine, or sampling interval) affecting resonator_obs and pendulum_lab workflows preferentially",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal post-baseline noise and sampling variance; observed drift in resonator_obs and pendulum_lab are within expected random fluctuation bounds and do not reflect a genuine anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument degradation, hysteresis recovery, or sensitivity drift in resonator_obs and/or pendulum_lab beginning Days 17–18, driven by accumulated stress or operating condition from Days 13–16 that reaches a critical point",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, timestamping, or event-logging error introduced around Day 17–18, causing misalignment of post-baseline records or false attribution of readings to Days 17–20",
+      "class": "social_process"
+    },
+    {
+      "label": "Sustained environmental perturbation (thermal, barometric, or mechanical) beginning Day 17–18 has stabilized or reversed by Day 23, leaving resonator_obs in a new equilibrium state with elevated readings and higher trial-to-trial variance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or measurement protocol change around Day 17–18 in resonator_obs workflow (observer, calibration routine, temperature compensation, or sampling method) has been reversed or corrected by Day 23, restoring higher readings.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific nonlinear or hysteretic response in resonator_obs: the downward shift Days 17–19 reflects transient stress (thermal overshoot, mechanical creep, or electromagnetic saturation) that has now equilibrated into a higher steady state by Day 23 as the system settles into a new nonlinear regime.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Normal post-baseline noise and sampling variance: the observed drift in resonator_obs and pendulum_lab are statistically significant (z > 3) but within expected bounds for ongoing measurement; the Day 23 resonator_obs elevation is a random fluctuation within the now-wider post-baseline distribution.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording, timestamping, or trial numbering error around Days 17–18 or Days 22–23 has caused misalignment or mislabeling of resonator_obs records, creating false impression of drift and recovery.",
+      "class": "social_process"
+    },
+    {
+      "label": "Calibration, maintenance, or intentional re-zeroing of pendulum_lab occurred between Days 25 and 27, producing a downward offset that persists into Day 27 trials.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical change in the pendulum_lab apparatus (e.g., thermal contraction, mechanical creep, or damping increase) occurred between Days 25 and 27, producing a sustained downward shift in the measured period.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or measurement protocol change in pendulum_lab around Day 25–26 (e.g., observer rotation, timing method recalibration, or sampling procedure adjustment) has shifted the effective baseline, creating the appearance of a discontinuous offset.",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine instrument failure, hysteresis, or transition into a new nonlinear regime in pendulum_lab around Day 26 (e.g., pivot bearing failure, damping material degradation, or coupling with an external resonance).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, labeling, or trial numbering error specific to pendulum_lab around Days 25–27 has caused a spurious level change; the true underlying readings are continuous with Days 1–25.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an interaction between multiple simultaneous changes (e.g., calibration + thermal shift, or observer change + instrument drift) that does not decompose into independent hypotheses; or an unrecorded event in the settlement (e.g., vibration, power surge, or local equipment maintenance) affecting pendulum_lab specifically.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Four independent calibration/maintenance events occurred on or near Days 14, 23, 26, and (possibly not) for pendulum_obs, each producing a localized level shift in its respective apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A settlement-wide environmental shift (e.g., thermal, vibrational, or electromagnetic) occurred around Day 14–26, with different latencies and magnitudes on the four channels due to their different physical sensitivities and apparatus placement/shielding.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or procedural changes (timing method, trial protocol, data entry, or equipment reassignment) occurred independently on Days 14, 23, 26, creating discontinuous offsets; pendulum_obs was unaffected because its observer or protocol remained stable.",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine instrumental degradation or threshold transitions in apparatus (bearing wear, damping material breakdown, thermal creep into a new regime) occurred independently on each channel at its respective shift time, with no common cause.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The apparent level changes are artifacts of data processing, transcription, or trial numbering; the true underlying readings are continuous with no actual shifts, and the appearance of steps is due to batch reprocessing, import error, or labeling drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple simultaneous causes (e.g., calibration on Day 26 + environmental drift beginning Day 14, with resonator_lab responding earliest due to sensitivity) have combined to produce the observed pattern, and a single explanation is incomplete.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent calibration/maintenance events on each apparatus (Days 14, 23, 26; pendulum_obs not serviced)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide environmental drift (thermal, seismic, or electromagnetic) with apparatus-specific response latencies",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or procedural changes (method, timing protocol, or technician turnover) occurring independently on Days 14, 23, 26",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine apparatus degradation or threshold transitions (bearing wear, damping material creep, thermal runaway) independent on each channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, transcription, or trial numbering artifact producing spurious level changes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple simultaneous causes (e.g., environmental drift beginning Day ~12–14, overlaid with independent scheduled maintenance on Days 23 and 26)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent scheduled maintenance events (Days ~14, 23, 26) causing discrete re-zeroing, separate from an ongoing ~6–7 day environmental or instrumental cycle",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide environmental forcing (thermal, seismic, or power-quality cycle ~6–7 days period) with apparatus-specific response latencies and filtering, producing both the staggered level shifts and the autocorrelations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or procedural changes independent on Days 14, 23, 26 (technician reassignment, protocol shift, or calibration standard replacement), overlaid with preexisting instrumental periodicity",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine apparatus degradation (bearing wear, damping material creep, nonlinear thermal runaway) independent on each channel, coincidentally occurring near Days 14, 23, 26",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, transcription, or trial numbering artifact producing spurious level changes and/or autocorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple simultaneous causes: environmental ~6–7 day cycle overlaid with independent maintenance on Days 23 and 26, producing both autocorrelations and discrete shifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Staggered scheduled maintenance (Days ~14, 23, 26) with apparatus-specific recalibration, overlaid on a genuine ~6–7 day environmental or instrumental periodic cycle present in the physical system.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide environmental forcing (thermal, seismic, or power-quality cycle with ~6–7 day period) to which each of the four apparatus respond with apparatus-specific latency, amplitude, and filtering, producing the observed staggered level shifts and distinct autocorrelation signatures.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer, procedural, or calibration-standard changes on Days ~14, 23, 26, independent on each apparatus, producing the level shifts; autocorrelations arise from real but low-amplitude instrumental periodicity unrelated to the shifts.",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine apparatus-specific degradation (bearing wear, damping material creep, thermal runaway, or nonlinear mechanical transition) coincidentally occurring near Days 14, 23, 26.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data pipeline corruption, transcription error, or trial-numbering artifact producing spurious level changes and/or autocorrelation.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

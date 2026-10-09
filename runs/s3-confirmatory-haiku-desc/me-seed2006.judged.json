@@ -1,0 +1,302 @@
+{
+  "source": "me-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Resonator_obs autocorrelation artifact (0.394 at 2-day lag) reflects genuine oscillation that emerges post-Day-18; level shift is a measurement boundary crossing, not a fault or environmental event",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Day 31 environmental transient (thermal, vibrational, or electromagnetic pulse) coupled oppositely to the two apparatus types, causing a systematic shift in both pendulum_lab and resonator_lab that is opposite in sign but coordinated in timing.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline period (days 1–10) contains uncorrected instrumental drift, warm-up transients, or calibration instability that differs across the four devices, rendering all baseline-relative statistics (z-scores, drift estimates) unreliable until baseline stability is verified independently.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "All four instruments are measuring independent noise sources or uncalibrated/drifting baseline references rather than a shared physical quantity; they are not actually measuring the same phenomenon despite nominal design equivalence.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (days 1–10) contains uncorrected instrumental drift, warm-up transients, or per-apparatus calibration instability, rendering all baseline-relative statistics unreliable and masking any true signal coherence; the Day 31 excursions may be real but uninterpretable against a compromised baseline.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs genuine physical drift at constant rate from day 1 onward; day 23 'level shift' is an artifact of post-hoc segmentation and statistical significance inflation",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data processing, calibration, or metadata error applied to pendulum_lab and/or resonator_lab around day 31",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement streams are fundamentally independent (no shared signal)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instruments are genuinely independent or measure sufficiently different observables; baseline cross-correlation failure is expected; day 31–40 shifts are independent apparatus-specific fluctuations, not coordinated; 'coordination' is a false pattern from chance overlap.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instruments are truly independent or measuring sufficiently different quantities; day 31 'coordination' is coincidental scatter within normal statistical noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement streams are fundamentally independent (no shared signal)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are drifting, but drift is slow enough that 10-day baseline is insufficient to detect it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are measuring distinct physical quantities (not intended to correlate)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline period (days 1–10) was too noisy or initialization-dependent; true stability begins after day 10",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental transient (thermal, mechanical, electromagnetic) struck all four instruments simultaneously on Day 18, causing coherent but independent responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental or calibration fault specific to resonator_obs and pendulum_lab sensors on Day 18 (e.g., sensor drift, calibration drift, electrical noise spike, measurement protocol change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 18 marks the point where slow secular drift (< 1% per day) first becomes visible in two instruments; baseline period (days 1–10) was too short to detect accumulation, and poor within-instrument autocorrelations reflect early-stage drift masking true periodicity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 18 marks a genuine phase transition in settlement conditions (e.g., habitat seal breach, thermal system failure, loss of isolation) that alters the baseline regime for all future measurements; pre-Day-18 data are from a different operating state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: clustering of trials on Day 18 in two streams (resonator_obs trials 103–108, resonator_lab trials 118–130) creates apparent level change through sampling variation, exacerbated by small post-baseline sample size in one or both streams",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs sensor or readout fault on or before Day 18; pendulum_lab shows smaller, unrelated drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide environmental transient (thermal, vibration, or electromagnetic) on Day 18 struck all four instruments; resonator_obs is simply more sensitive or coupled differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs autocorrelation artifact (0.394 at 2-day lag) reflects genuine oscillation that emerges post-Day-18; level shift is a measurement boundary crossing, not a fault or environmental event",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Slow instrumental drift in resonator_obs (and minor drift in pendulum_lab) was always present; Day 18 is an artifact of segmenting data into baseline vs. post-baseline periods",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-instrument calibration error or mismatched baseline period in resonator_obs data acquisition introduced on Day 18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified coupling or feedback between measurement apparatus and settlement environment; unrecognized instrumental cross-talk; or statistical pattern masking a physical phenomenon not yet hypothesized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs sensor or readout fault introduced on/before day 23",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide environmental transient (thermal, vibration, electromagnetic) on day 23 caused resonator_obs to shift more than other instruments due to higher sensitivity or isolation asymmetry",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data processing or calibration constant error in resonator_obs introduced on day 23 (raw signal unchanged, metadata mishandled)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs genuine physical drift at constant rate from day 1 onward; day 23 'level shift' is an artifact of post-hoc segmentation and statistical significance inflation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs is measuring a genuine quasi-periodic or resonant phenomenon that emerges post-day-23; level shift marks entry into a new dynamical regime",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "All four instruments are measuring independent noise sources or uncalibrated/drifting baseline references rather than a shared physical quantity; they are not actually measuring the same phenomenon despite nominal design equivalence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs sensor or readout fault (calibration step-change, electronic coupling failure, or acquisition software change) introduced on or shortly before day 23; this is a true instrumental breakdown, not environmental or data-processing artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calibration or data processing error (file-format corruption, scaling constant misapplication, or baseline offset) in resonator_obs applied on day 23; the sensor itself is intact, but metadata or post-acquisition signal processing changed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) itself is unstable or non-representative for all four instruments; the 'post-baseline drift' statistics are computed relative to a noisy/drifting reference, making all downstream inferences unreliable.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Settlement environment is too noisy or too variable at short timescales (hours to days) for these instruments to maintain coherence; each apparatus couples to noise differently, explaining near-zero cross-correlations even if all are 'working'.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) contains uncorrected instrumental drift, warm-up transients, or calibration instability that differs across the four devices, rendering all baseline-relative statistics (z-scores, drift estimates) unreliable until baseline stability is verified independently.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments are not measuring the same physical quantity, or measure it via sufficiently different physical paths, bandwidths, or environmental couplings that baseline coherence should not be expected; the cross-correlation failure reflects true instrumental independence, not calibration error.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator_obs sensor or readout electronics experienced a discrete failure or recalibration event around day 23 (sharp level shift, z≈−9.6), but this represents a localized fault in one apparatus, not a systemic measurement failure; other instruments remain valid as independent measurement streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, file-format corruption, or metadata error (e.g., incorrect scaling constant, baseline offset, or timestamp alignment) was applied to resonator_obs on or before day 23, affecting either baseline period retroactively or post-day-23 readings prospectively; the physical sensor may be intact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment contains incoherent noise (thermal, vibrational, electromagnetic, or pressure fluctuations) on hour-to-day timescales that couples differently to each instrument via path/location/frequency differences; instruments are individually stable but do not see a common signal at baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unidentified systematic error or phenomenon not yet considered (e.g., optical interference patterns in resonator readouts, coupling of measurement process itself to the phenomenon being measured, or an undocumented change in how baselines are computed across instrument types).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 31 environmental transient (thermal, vibrational, or electromagnetic pulse) coupled oppositely to the two apparatus types, causing a systematic shift in both pendulum_lab and resonator_lab that is opposite in sign but coordinated in timing.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) contains uncorrected instrumental drift, warm-up transients, or per-apparatus calibration instability, rendering all baseline-relative statistics unreliable and masking any true signal coherence; the Day 31 excursions may be real but uninterpretable against a compromised baseline.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs sensor/readout failure or discrete recalibration occurred around Day 23 (|z|≈−7.5 level shift from 4.0607 to 4.026 cycles/beat), localized to one apparatus; the Day 31 excursion in resonator_obs is absent or unremarkable because resonator_obs is no longer reliably measuring the same phenomenon as resonator_lab, and the Day 31 pendulum_lab excursion is independent of this.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Four instruments are measuring sufficiently different physical quantities or via sufficiently isolated apparatus paths that baseline cross-correlation should not be expected; the Day 31 excursion in pendulum_lab and resonator_lab is coincidental scatter, not coordinated, and reflects independent apparatus noise or calibration drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data processing error, file-format corruption, metadata misalignment, or baseline subtraction error applied to one or both of pendulum_lab and resonator_lab around or on Day 31, corrupting the apparent readings without affecting physical sensors.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unidentified systematic effect, measurement-induced coupling, or computational error not yet considered (e.g., feedback from measurement apparatus itself, optical interference in resonator readouts, or an error in how 'level shift' statistics are computed).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline instability and warm-up transients mask true signal; day 31 anomalies are real but uninterpretable without baseline revalidation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 31 environmental or mechanical event (thermal, vibrational, or electromagnetic transient) coupled oppositely to pendulum_lab and resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs sensor or readout failure around day 23; day 31 excursions are independent apparatus-specific drifts, not coordinated events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, calibration, or metadata error applied to pendulum_lab and/or resonator_lab around day 31",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are truly independent or measuring sufficiently different quantities; day 31 'coordination' is coincidental scatter within normal statistical noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline warm-up and non-stationarity: days 1–10 baseline is corrupted by ongoing instrument settling; all drift z-scores are therefore unreliable, and day 31–40 shifts may be real but uninterpretable relative to a moving target.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 31–40 environmental or mechanical transient (thermal pulse, seismic settling, vibration): coupled to pendulum_lab (lengthening support, raising period) and resonator_lab (damping or detuning) in opposite directions; resonator_obs decoupled after day-23 shift or located away from epicenter.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs underwent discrete recalibration or sensor drift/failure around day 23; post-day-23 resonator_obs is effectively independent of resonator_lab; day 31–40 excursions in pendulum_lab and resonator_lab are uncoordinated apparatus-specific drifts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, calibration database, or metadata error on days 30–31: voltage-to-beats conversion glitch, calibration constant inverted or offset applied asymmetrically to pendulum_lab (upward) and resonator_lab (downward), or timestamp misalignment causing day-31 data to be retroactively reweighted.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are genuinely independent or measure sufficiently different observables; baseline cross-correlation failure is expected; day 31–40 shifts are independent apparatus-specific fluctuations, not coordinated; 'coordination' is a false pattern from chance overlap.",
+      "class": "measurement_error"
+    }
+  ]
+}

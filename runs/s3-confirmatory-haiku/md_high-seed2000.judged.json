@@ -1,0 +1,181 @@
+{
+  "source": "md_high-seed2000.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Systematic ~6–8 day environmental cycle with phase-lagged instrument responses",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Calibration or baseline offset error: lab vs. observatory instruments systematically biased or drifted separately",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement timing or synchronization drift between lab and observatory: trials recorded with day-scale timestamp error or run on unsynchronized schedules",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Instrumental drift with phase inversion at ~6–8 day cycle",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration or baseline offset error: lab instruments systematically biased or offset in time relative to observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 7,
+  "l4Judged": 7,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift with phase inversion at ~6–8 day cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent noise in each measurement channel with no common physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or offset error systematically biasing pendulum and resonator labs relative to observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic measurement timing or synchronization error between lab and observatory, creating artificial phase lags",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized environmental cyclic forcing (thermal, magnetic, or other) with ~6–8 day period and phase offset between channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic ~6–8 day environmental cycle (thermal, power, magnetic, or cosmic) with phase-lagged responses across channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift in each channel (thermal creep, component fatigue, calibration drift) with no shared physical signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak or independent noise in each measurement channel; autocorrelation inversions and cross-lag structure are statistical artifacts in small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or baseline offset error: lab instruments systematically biased or offset in time relative to observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement timing or synchronization drift between lab and observatory: trials recorded with day-scale timestamp error or run on unsynchronized schedules",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered: a pattern or mechanism I have not yet formulated",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic ~6–8 day environmental cycle with phase-lagged instrument responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift or response-curve nonlinearity in each channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical noise and measurement scatter; autocorrelation inversions are chance artifacts in small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A nonlinear or resonant mechanism not yet formulated: rate-sensitive response, mode beating, or acoustic coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Timing or synchronization error between lab and observatory channels, or in my record-keeping",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or baseline offset error: lab instruments systematically biased or offset in time relative to observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic ~6–8 day environmental cycle with independent instrument response lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift or response-curve nonlinearity in each channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical noise and measurement scatter; autocorrelation inversions are chance artifacts in small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Nonlinear or resonant mechanism not yet fully formulated: rate-sensitive response, mode beating, or acoustic coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Timing or synchronization error between lab and observatory channels, or in record-keeping",
+      "class": "social_process"
+    },
+    {
+      "label": "Calibration or baseline offset error: lab vs. observatory instruments systematically biased or drifted separately",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

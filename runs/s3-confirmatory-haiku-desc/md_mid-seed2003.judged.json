@@ -1,0 +1,189 @@
+{
+  "source": "md_mid-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Measurement protocol error or observer bias introduced during or shortly after the baseline period (day 10–11), affecting all four instruments systematically but subtly",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Early-stage calibration drift or thermal transient beginning on day 24–25",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unmeasured environmental, procedural, or instrumental cause not yet articulated",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data-logging artifact or timestamp error affecting Day 40 batch (out-of-order reads, dropped records, or clock skew introducing false scatter)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental drift or environmental periodicity (e.g. thermal, power-supply, or calibration cycle) with ~3–6 day period",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 19,
+  "l4Judged": 19,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or environmental periodicity (e.g. thermal, power-supply, or calibration cycle) with ~3–6 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: best-of-many-tests (multiple lags and offsets tried); correlations are spurious matches",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift or instrument-specific thermal/mechanical hysteresis obscuring cross-instrument agreement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol error: observer bias, recording error, or procedural change over the 10-day baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Statistical artifact from multiple-comparisons problem (best-of-many-tests across lags and offsets)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument-specific or arm-specific calibration drift / thermal hysteresis, decorrelating cross-arm agreement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental periodicity (~3–6 day cycle in temperature, power supply, or settlement-wide condition) affecting all instruments independently, but weakly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol error or observer bias introduced during or shortly after the baseline period (day 10–11), affecting all four instruments systematically but subtly",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine geophysical or settlement-level signal with ~3–6 day period, detectable via autocorrelation but too weak or noisy to show cross-instrument coherence",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Routine scatter within baseline stability; day-25 cluster is a random fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Early-stage calibration drift or thermal transient beginning on day 24–25",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unnoticed procedural or environmental change on or just before day 24, affecting lab but not observatory instruments uniformly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparisons artifact in earlier autocorrelation and lag analysis inflating apparent 3–6 day periodicity signals",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine geophysical or settlement-level transient on day 24–25 that I have not yet measured",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Routine scatter within established baseline stability; day-35 volatility is random fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Early-stage instrumental drift or thermal creep beginning around day 33–35 in lab instruments only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or localized environmental change in the lab (recalibration, cleaning, temperature transient, mechanical adjustment) on day 33–34, affecting lab instruments but not observatory pair",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Concurrent electronic or data-acquisition error in lab measurement chain (common-mode failure affecting both lab instruments but not observatory readout)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified physical or procedural cause not yet measured",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Routine random scatter within baseline stability; Day 40 volatility is chance clustering in small subsamples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 40 measurement protocol degradation or environmental transient affecting all four instruments concurrently late in the day",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Early-stage instrumental drift or thermal creep in lab instruments (pendulum_lab, resonator_lab) now spreading to or synchronized with observatory pair on Day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator fatigue, protocol non-compliance, or end-of-day sampling shortcuts on Day 40 introducing measurement noise across all instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Data-logging artifact or timestamp error affecting Day 40 batch (out-of-order reads, dropped records, or clock skew introducing false scatter)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured environmental, procedural, or instrumental cause not yet articulated",
+      "class": "measurement_error"
+    }
+  ]
+}

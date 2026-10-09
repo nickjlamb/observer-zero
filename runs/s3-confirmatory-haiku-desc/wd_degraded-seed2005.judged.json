@@ -1,0 +1,181 @@
+{
+  "source": "wd_degraded-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Data ingestion or analysis error: timestamp misalignment, row offset, or row duplication in today's batch causing apparent Day 40 clustering and scatter; readings may actually span Days 38–40 or may include duplicates.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Observer protocol drift or measurement-condition variance accumulating by Day 30",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Environmental transient or localized disturbance on Day 20 affecting multiple instruments asynchronously",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Late-stage instrumental drift or thermal creep becoming visible after Day 10",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observer protocol drift or measurement-condition variance: my handling, fatigue, lab ambient drift, or time-of-day effects have accumulated by Day 40, producing correlated bias in readings taken under variable conditions.",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental cross-talk or environmental coupling at specific delay lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Episodic measurement protocol variance or observer bias at specific intervals",
+      "class": "self_error"
+    },
+    {
+      "label": "Insufficient baseline period to detect true drift or environmental periodicities",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic error in cross-checking methodology or data recording",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine but subtle physical coupling or environmental effect, reproducible but weak",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Late-stage instrumental drift or thermal creep becoming visible after Day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient or localized disturbance on Day 20 affecting multiple instruments asynchronously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer protocol drift or unrecognized measurement-condition variance correlated with calendar time (e.g., weekly routine, fatigue, ambient lab conditions on Day 20)",
+      "class": "self_error"
+    },
+    {
+      "label": "Insufficient baseline period; early-stage transient equilibration still in progress",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data ingestion or cross-check code error introducing artifact at specific offsets or on Day 20",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine, reproducible but weak physical coupling between instruments or between instruments and environmental modes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Late-stage instrumental equilibration or thermal creep becoming visible after Day 10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental transient (thermal, seismic, or pressure pulse) on Day 30, coupling to instruments with different response times and amplitudes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer protocol drift or measurement-condition variance accumulating by Day 30",
+      "class": "self_error"
+    },
+    {
+      "label": "Insufficient baseline period; Day 30 readings reflect normal variance after transient equilibration window, requiring extension to Day 60+ to establish stable baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data ingestion or analysis code error (timestamp parsing, row alignment, or correlation cherry-picking) introducing artifact at specific offsets or on Day 30",
+      "class": "self_error"
+    },
+    {
+      "label": "True but weak physical coupling between instruments or between instruments and settlement-scale environmental modes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Acute environmental transient (thermal pulse, seismic event, or pressure spike) on Day 40, with instruments responding asynchronously by their thermal mass and frequency response.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) too short to capture true instrumental equilibration timescale; Day 40 scatter is normal variance, now visible after instruments have settled into stable operating envelope.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer protocol drift or measurement-condition variance: my handling, fatigue, lab ambient drift, or time-of-day effects have accumulated by Day 40, producing correlated bias in readings taken under variable conditions.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data ingestion or analysis error: timestamp misalignment, row offset, or row duplication in today's batch causing apparent Day 40 clustering and scatter; readings may actually span Days 38–40 or may include duplicates.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument malfunction or fault emergence on Day 40: resonator_obs electronics (capacitor leakage, inductor saturation, or oscillator frequency lock-loss) or pendulum_obs mechanical damage (bearing wear, optical misalignment, or damping increase) causing abrupt increase in noise floor.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonant coupling between instruments or between instruments and settlement structural modes excited on Day 40, producing sympathetic oscillations with amplitudes dependent on initial conditions and damping.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

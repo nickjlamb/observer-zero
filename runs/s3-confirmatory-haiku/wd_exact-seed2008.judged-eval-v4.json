@@ -1,0 +1,173 @@
+{
+  "source": "wd_exact-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Four independent instruments with good baselines; apparent weak correlations are statistical noise from small sample sizes and multiple offset trials (look-elsewhere effect).",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instrumental drift is present but subtle: baseline period too short (10 days) to distinguish real drift from noise; post-baseline measurements will reveal systematic changes in mean or variance.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (10 days) too short; post-baseline instrumental drift or gain creep now becoming visible by day 20",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental disturbance or instrumental stress event on day 20 affecting resonators preferentially",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Operator or procedural change on Day 40 (e.g., new technician, rushed protocol, or equipment maintenance cycle) altered measurement technique or instrumental setup, increasing noise in both channels without affecting their baseline calibration",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Four independent instruments with good baselines; apparent weak correlations are statistical noise from small sample sizes and multiple offset trials (look-elsewhere effect).",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic environmental coupling (thermal, vibration, or electromagnetic) is correlated across some instrument pairs but not others, creating spurious negative correlations and the pendulum_obs 7-day cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental drift is present but subtle: baseline period too short (10 days) to distinguish real drift from noise; post-baseline measurements will reveal systematic changes in mean or variance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or calibration reference differs between lab and observatory instruments (or operators), introducing systematic offset or scaling bias that varies by day.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental disturbance or instrumental stress event on day 20 affecting resonators preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (10 days) too short; post-baseline instrumental drift or gain creep now becoming visible by day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator calibration reference (frequency standard or feedback loop gain) experienced a discrete transient on day 20; pendulum instruments unaffected because they use independent time base",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or trial-sequencing error on day 20; readings are valid but non-random ordering of trials or instrument selection created spurious scatter",
+      "class": "self_error"
+    },
+    {
+      "label": "Noise floor or measurement resolution changed; day-20 readings are picking up finer instrumental fluctuations not averaged out in baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure a common underlying physical signal with a ~3-day propagation or integration lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs and pendulum_lab are cross-coupled via a shared environmental path (e.g., mechanical mounting frame, power distribution) with a ~3-day time constant (thermal lag, slow oscillator stabilization)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial-sequencing artifact: resonator_obs trials 1–120 were run under different procedural or environmental conditions than later trials; correlation arises from alignment of two independent noise sources by chance, but the specific 3-day lag indicates real but complex causation not yet understood",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instrumental self-similarity: each channel shows periodic echoes of its own past readings (negative or weak positive autocorrelations at lags 3–14 days), suggesting a quasi-periodic environmental or instrumental cycle; the pendulum_lab ↔ resonator_obs correlation is one manifestation of a 3-day-periodic phenomenon affecting the entire settlement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, event logging, or trial-number transcription error introduced a spurious correlation by misalignment of timestamps or trial indices between pendulum_lab and resonator_obs records",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: an unmeasured confound (e.g., a physical phenomenon I have not yet hypothesized, or a failure mode of the instruments themselves that couples to a latent variable) explains the pendulum_lab ↔ resonator_obs correlation and the day-20 scatter in resonators",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared environmental transient on Day 40 (thermal spike, vibration event, power surge, or electromagnetic interference) simultaneously excited both instruments with high Q-factors, producing coherent scatter; the anomaly is localized in time because the forcing event was brief",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or procedural change on Day 40 (e.g., new technician, rushed protocol, or equipment maintenance cycle) altered measurement technique or instrumental setup, increasing noise in both channels without affecting their baseline calibration",
+      "class": "self_error"
+    },
+    {
+      "label": "The Day 40 scatter is a statistical fluctuation within the normal distribution of post-baseline noise; the anomaly is a false positive arising from multiple-comparisons bias (cherry-picking Day 40 after observing the data)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental failure or mode transition in one or both devices on Day 40 (e.g., resonator frequency-lock loop lost lock, pendulum magnetic damping circuit developed intermittent contact, or environmental sensor feedback loop saturated)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The previous anomalous pendulum_lab ↔ resonator_obs correlation (r=0.944 at 3-day offset) has resurfaced or is contaminating the Day 40 readings via a delayed feedback mechanism, causing correlated noise in pendulum_lab and resonator_lab (not resonator_obs); this suggests a closed-loop coupling between the two lab instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unconsidered physical mechanism (e.g., a gravitational wave or cosmic ray burst, a sympathetic resonance from external mechanical vibration, a thermal front propagating through the laboratory at a specific rate, or a calibration standard drift coupled to both instruments via a shared electrical reference)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

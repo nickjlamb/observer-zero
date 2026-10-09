@@ -1,0 +1,277 @@
+{
+  "source": "md_low-seed2009.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Systematic error in cross-correlation computation or lag search (e.g., unblinded data selection, p-hacking over multiple offsets)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Unidentified apparatus-specific or environmental factor: undocumented calibration drift during days 1–10, apparatus crosstalk via shared power/mechanical coupling, or a ~4-day environmental cycle unique to resonator_obs measurement geometry",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration drift or systematic offset between lab and observational setups",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Multiple-comparison artifact and small-sample noise; reported anomalies (especially resonator_obs 4-day autocorrelation) are statistical flukes from exhaustive lag/offset search without preregistration.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Real small negative drift (0.002–0.005 unit/week) in baseline period (Days 1–10) reflecting apparatus equilibration or thermal stabilization; Day 38 variance spike masks ongoing stability; drift reversed or plateau by Day 35+ as systems reached equilibrium.",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Weak shared environmental cyclic disturbance (3–6 day period in building HVAC, external weather, or seismic background) with apparatus-specific damping and lag; Day 38 variance spike reflects coherent environmental transient or resonance in one apparatus.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline apparatus equilibration: genuine small negative drift in Days 1–10 reflecting thermal stabilization, mechanical settling, or resonator frequency equilibration; post-baseline drift z-scores are valid signals of real early transient; Day 38 variance spike is orthogonal instrumental noise unrelated to drift mechanism.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Independent instrumental noise; observed correlations are statistical artifacts from small sample sizes and multiple comparisons",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Multiple-comparison false-positive bias from unpreregistered lag/autocorrelation searches masks white-noise baseline; resonator_obs lower drift is coincidental sampling variation",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 36,
+  "l4Judged": 36,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Calibration drift or systematic offset between lab and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-dependent noise floor or quantization masking underlying coherence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Time-varying coupling or interference between measurement channels (crosstalk or environmental common mode)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental noise; observed correlations are statistical artifacts from small sample sizes and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in cross-correlation computation or lag search (e.g., unblinded data selection, p-hacking over multiple offsets)",
+      "class": "self_error"
+    },
+    {
+      "label": "resonator_obs has lower effective noise floor or different temporal response characteristics than other instruments, preserving signal structure across 4-day intervals while other streams' autocorrelations decay to chance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Fixed calibration offset or systematic scale factor between lab and observational apparatus chains; pendulum and resonator pairs measure the same underlying quantity but report different means due to transduction or electronic drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental driver (temperature, pressure, vibration, or other common mode) with instrument-dependent response times, causing correlated fluctuations across streams at characteristic time offsets (1–6 days) rather than zero lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental noise on each channel; observed correlations and the resonator_obs autocorrelation are statistical artifacts from multiple comparisons and small sample sizes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unblinded or post-hoc lag/offset selection in correlation search; reported chance thresholds may not fully account for multiple comparisons, inflating apparent anomalies",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown instrumental or environmental factor not yet identified in the measurement setup or external conditions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs has genuinely lower noise floor or different temporal response that preserves 4-day cyclicity; other streams' autocorrelations are noise-limited.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Time-lagged common environmental driver (temperature, pressure, vibration, or shared mechanical coupling) with instrument-dependent response delays; explains non-zero-lag cross-correlations.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Fixed calibration offset or scale factor between lab and observational apparatus chains; streams measure same quantity but are scaled/shifted versions of each other.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparison artifact and small-sample noise; reported anomalies (especially resonator_obs 4-day autocorrelation) are statistical flukes from exhaustive lag/offset search without preregistration.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified instrumental or environmental factor not yet conceived: hidden periodic cycle, undocumented calibration drift, apparatus crosstalk, or transient physical change on days 6–13.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "resonator_obs captures a genuine ~4-day environmental or physical cycle (e.g., thermal oscillation, vibration mode) via superior noise floor; other streams cannot resolve it",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Time-lagged common environmental disturbance (temperature, pressure, vibration) with instrument-specific response delays; weak correlations reflect weak driver or noise dominance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Multiple-comparison false-positive bias from ~48+ correlation tests (6 pairwise × 12 lags × 4 autocorr; 30+ tests without preregistration) inflates significance of borderline anomalies, especially resonator_obs 4-day peak",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration offset or scaling artifact between lab and observational apparatus chains, compounded by independent thermal/mechanical drifts in each chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified apparatus-specific or environmental factor: undocumented calibration drift during days 1–10, apparatus crosstalk via shared power/mechanical coupling, or a ~4-day environmental cycle unique to resonator_obs measurement geometry",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparison false-positive bias from unpreregistered lag/autocorrelation searches masks white-noise baseline; resonator_obs lower drift is coincidental sampling variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs has genuinely lower measurement noise (better SNR) due to superior transducer, amplifier, or digitizer; it detects a real ~4-day environmental cycle invisible to noisier streams",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Time-lagged common environmental disturbance (temperature, pressure, vibration) with apparatus-specific equilibration delays; weak correlations reflect weak driver magnitude or high noise floor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset or scaling artifact (fixed gain error, transduction mismatch, or software bug) in one apparatus chain, compounded by independent thermal/mechanical drifts in each chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented apparatus-specific or environmental factor: calibration drift during baseline (days 1–10) not reset on day 11, apparatus crosstalk via shared power/mechanical coupling, or measurement geometry preferentially coupling to ~4-day environmental cycle",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "White noise with quantization; apparent drift is sampling variation; resonator_obs lower drift and 4-day autocorrelation are false positives from multiple-comparison bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real small negative drift in all four streams (hardware aging, thermal equilibration, or slow calibration shift), masked by high measurement noise; white-noise approximation adequate for short-term predictions but drift would accumulate over months",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Time-lagged common environmental disturbance (thermal, vibrational, or electromagnetic) with apparatus-specific equilibration delays; weak cross-correlations reflect weak driver magnitude or high noise floor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset or scaling artifact in one apparatus chain (fixed gain error, transduction mismatch, or software bug); compounded by independent thermal or mechanical drifts in each chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented apparatus-specific or environmental factor: calibration drift during baseline (days 1–10) not reset on day 11, apparatus crosstalk via shared power/mechanical coupling, or measurement geometry preferentially coupling to ~4-day environmental cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "White noise with time-varying quantization or transducer gain; Day 38 variance spike is outlier or reflects instrument state change (e.g., resonator_obs power supply ripple, pendulum_obs optical misalignment); drift z-scores remain valid under heteroscedasticity but confidence bands widen.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real small negative drift (0.002–0.005 unit/week) in baseline period (Days 1–10) reflecting apparatus equilibration or thermal stabilization; Day 38 variance spike masks ongoing stability; drift reversed or plateau by Day 35+ as systems reached equilibrium.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement system instability or gain modulation on Day 38 specifically (power supply transient, optical coupling fluctuation, or software logging glitch); Day 38 variance is artifact, not signal; earlier baseline and post-baseline periods are reliably homoscedastic and drift signal is valid but small.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak shared environmental cyclic disturbance (3–6 day period in building HVAC, external weather, or seismic background) with apparatus-specific damping and lag; Day 38 variance spike reflects coherent environmental transient or resonance in one apparatus.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset or scaling artifact in one apparatus chain compounded by independent noise; offset is static, drift is noise, Day 38 variance is independent transient.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented apparatus state change during baseline (Days 1–10) calibration drift not reset, optical alignment shift, or environmental transient during baseline establishment; Day 38 variance spike is unrelated.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline apparatus equilibration: genuine small negative drift in Days 1–10 reflecting thermal stabilization, mechanical settling, or resonator frequency equilibration; post-baseline drift z-scores are valid signals of real early transient; Day 38 variance spike is orthogonal instrumental noise unrelated to drift mechanism.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "White noise with time-varying measurement error floor: drift z-scores reflect heteroscedasticity rather than true signal; Days 1–10 baseline was low-noise period by chance or operator technique, post-baseline and Day 38 show true measurement noise regime; negative drift signs are random clustering within noise, not real phenomenon.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement system artifact on Day 38 specifically: power supply transient, optical coupling fluctuation, software logging glitch, or environmental disturbance caused variance spike on Day 38 only; baseline and post-baseline periods (Days 1–37) are homoscedastic and drift signal is valid but small; Day 38 should be excluded as outlier from drift analysis.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak shared environmental cyclic disturbance with 3–6 day period: building HVAC, external weather, or seismic background drives low-amplitude oscillations in all apparatus with apparatus-specific damping and lag; cross-correlations at 3–6 day lags are signal, not noise; Day 38 variance spike reflects apparatus crossing resonance or achieving maximum excursion in oscillatory cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset or scaling artifact compounded by independent noise: lab and observational apparatus show ~1.5× scale factor (lab/obs ratios: pendulum 1.495, resonator 1.500), suggesting fixed gain error in observational chain; offset is static, drift z-scores reflect noise, Day 38 variance is transient unrelated to calibration.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

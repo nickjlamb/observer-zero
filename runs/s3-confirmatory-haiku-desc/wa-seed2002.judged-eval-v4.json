@@ -1,0 +1,558 @@
+{
+  "source": "wa-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 20,
+    "agree": 17,
+    "items": [
+      {
+        "label": "Localized environmental or instrument disturbance around day 12 coupled selectively to pendulum dynamics (vibration, gravity gradient, damping, thermal) but not resonator frequency.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Trial-to-calendar-time mapping corrupted; intra-trial sequence scrambled by event_id sorting or timestamp mismatch, destroying autocorrelation structure and creating spurious day-12 boundary artifacts",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Localized environmental or instrument disturbance around day 12 (vibration, gravity gradient, thermal, damping change) affecting pendulum dynamics selectively but not resonator frequency; regime change, not transient",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Day-12 environmental event (mechanical disturbance, equipment change, or geophysical activity) selectively coupled to pendulum instruments; resonators isolated from this coupling",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H3: Instrument calibration drift, zero-point shift, or thermal sensitivity between baseline and later period is real; scrambling is incidental.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Localized environmental disturbance around day 12 (vibration, damping increase, thermal gradient, isolation failure) affecting pendulum effective period without corrupting trial order.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Trial-to-calendar-time mapping corrupted; intra-day trial sequence scrambled by event_id sorting or similar, destroying short-lag autocorrelation structure and creating spurious day-12 boundary artifacts",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Trial sequence scrambled by event-ID reordering; historical archive (trials 1–354) sorted non-monotonically while preserving within-batch structure; today's readings (trials 355–372) are chronological.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "H4: Residual—mechanism not yet identified (true chronological order not recoverable from event-ID sort; lag-2 autocorrelation collapse has cause beyond scrambling; instrumental failure mode or data-processing error outside current knowledge).",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus; day-12 step is real.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Event-ID sequence is scrambled relative to wall-clock time; trials recorded in non-monotonic order and later sorted by event_id, destroying autocorrelation structure while preserving within-batch correlations",
+        "primary": "fraud_false_report",
+        "second": "social_process"
+      },
+      {
+        "label": "Systematic instrument calibration drift, hysteresis, or temperature-dependent offset not accounted for at baseline; pendulum instruments experienced shared thermal or mechanical drift around day 12.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Genuine ~10–14 day intrinsic oscillation or transient in measured quantity; baseline (days 1–10) too short and conflates multiple phases; day-12 shift marks entry into new dynamical regime",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Genuine ~7–14 day physical periodicity or non-stationary transient; baseline (days 1–10) too short to capture full cycle.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Measurement noise and instrument-specific readout errors dominate; all instruments measure uncorrelated noise; day-12 shift reflects noise-source threshold or readout-mode change",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Localized environmental disturbance around day 12 (vibration, thermal gradient, damping change, isolation failure) affecting pendulum effective period without scrambling trial order; new equilibrium reached by day 13",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "True physical process exhibits 7–14 day periodicity or non-stationary transient; baseline (10 days) too short to establish stable reference or capture full cycle",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Systematic instrument calibration drift, zero-point offset, or thermal sensitivity not accounted for at baseline; pendulum instruments experienced shared drift around day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H1: Trial archive is scrambled by event-ID clustering; trial numbers do not correspond to chronological acquisition order.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Localized environmental or mechanical perturbation (vibration, damping increase, thermal gradient, structural damping) affecting pendulum apparatus selectively around day 12, creating a step change without corrupting trial chronological order.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [
+    {
+      "source": "rationale:ada",
+      "day": 28,
+      "text": "True physical oscillation or modulation with ~10–14 day period affecting pendulum apparatus selectively; baseline (days 1–10) samples only initial equilibration; day 12 marks entry into elevated plateau or oscillation regime. — Both pendulum instruments show synchronized upward step at day 12 (z ≈ 33 and z ≈ 23), with today's pendulum_lab readings (trials 373–378: n=6, mean ≈ 1.7218) remaining in elevated regime consistent with post-baseline mean 1.7231. A genuine 10–14 day gravitational, Coriolis, or structural modulation selective to pendulum dynamics could explain the sustained elevation and apparatus selectivity (resonators insensitive to same mechanism). However, this hypothesis faces severe difficulty: genuine periodic or stepped physical modulation should PRESERVE temporal coherence in the true acquisition sequence and INCREASE lag-1/lag-2 autocorrelations near the transition boundary. Observed lag-2 autocorrelation collapse to chance levels across all instruments contradicts this prediction. Event-ID scrambling (H1) directly accounts for both the autocorrelation anomaly AND the synchronized shift more parsimoniously. Probability reduced from 0.08 to 0.10 (slight increase from 0.07 to reflect residual possibility that true physical phenomenon occurs AND archive is scrambled).",
+      "index": 0,
+      "proposesTest": false,
+      "discriminating": true,
+      "quote": "genuine periodic or stepped physical modulation should PRESERVE temporal coherence in the true acquisition sequence and INCREASE lag-1/lag-2 autocorrelations near the transition boundary. Observed lag-2 autocorrelation collapse to chance levels across all instruments contradicts this prediction. Event-ID scrambling (H1) directly accounts for both the autocorrelation anomaly AND the synchronized shift"
+    }
+  ],
+  "classifications": [
+    {
+      "label": "Systematic measurement error: each instrument is contaminated by independent noise or uncorrected systematic bias that drowns out any true signal correlation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are coupled to distinct, uncorrelated environmental or local noise sources (e.g., pendulum responds to floor vibration, resonator to thermal drift in isolated enclosure).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are mechanically or electrically sound, but baseline period (days 1–10) is too short to establish true zero-drift reference; apparent correlations and anti-correlations are statistical artifacts from inadequate sample size and variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry, timestamping, or trial-sequencing errors have scrambled the temporal order or identity of readings, rendering correlations meaningless.",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum-specific environmental coupling: day-12 event triggered a persistent mechanical disturbance (structural settling, equipment relocation, or seismic activity) that selectively affects pendulum amplitude or damping, while resonator frequency remains isolated.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline establishment too short (10 days) to capture true instrument behavior; apparent level shift and poor correlations are sampling artifacts from a physical process with period ≥10 days or non-stationary dynamics.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instrument-specific measurement error (calibration drift, readout noise, or environmental coupling unique to each instrument type) dominates the signal, so pendulum and resonator independently measure uncorrelated noise atop any true physical signal.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data integrity issue: readings are correctly recorded but temporal sequencing, trial labeling, or event-time assignment is corrupted or inconsistent across instruments, scrambling apparent correlations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical anomaly unrelated to instrument error: the phenomenon measured by pendulums changed at day 12 (e.g., gravitational field, ambient vibration field, or local Earth structure), and this change is physically decoupled from the phenomenon measured by resonators.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial sequencing or event-time assignment corrupted across instruments, scrambling apparent temporal structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical process exhibits 7–14 day periodicity or non-stationary transient; baseline (10 days) too short to establish stable reference or capture full cycle",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-12 environmental event (mechanical disturbance, equipment change, or geophysical activity) selectively coupled to pendulum instruments; resonators isolated from this coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise and instrument-specific error sources dominate signal; pendulum and resonator each independently measure uncorrelated noise atop weak true signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical decoupling: pendulums and resonators measure fundamentally independent physical quantities (e.g., gravity vs. electromagnetic resonance, or seismic vs. thermal), each with its own dynamics and noise",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unknown factor",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequencing or event-time assignment corrupted; readings are scrambled relative to true measurement sequence or calendar day boundaries",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine 7–14 day physical periodicity or non-stationary transient; 10-day baseline too short to capture full cycle or stable reference",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-12 environmental disturbance selectively coupled to pendulum motion (mechanical vibration, gravity gradient, damping change) but not to resonator frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise and instrument-specific error dominate signal; each instrument measures mostly uncorrelated noise atop weak true signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulums and resonators measure fundamentally decoupled physical quantities (gravity vs. electromagnetic, seismic vs. thermal); day-12 event affected one but not the other",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial sequencing or event-time assignment corrupted; readings are scrambled relative to true measurement sequence or calendar day boundaries.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine ~7–14 day physical periodicity or non-stationary transient; baseline (days 1–10) too short to capture full cycle.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-12 environmental disturbance (vibration, gravity gradient, damping, thermal) selectively coupled to pendulum motion but not resonator frequency.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise and instrument-specific error dominate signal; all instruments measure uncorrelated noise atop weak signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement-time metadata is correct, but one or more instruments has a systematic calibration drift, hysteresis, or temperature-dependent offset that was not accounted for at baseline.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial-to-calendar-time mapping corrupted; event_id or trial sequence does not monotonically map to true measurement timestamps, causing temporal scrambling and spurious synchronization artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine ~10–14 day physical oscillation or transient process; baseline (days 1–10) too short to establish stable mean, and post-shift readings reflect entry into a new phase of an intrinsic cycle.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental or instrument disturbance around day 12 coupled selectively to pendulum dynamics (vibration, gravity gradient, damping, thermal) but not resonator frequency.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic instrument calibration drift, hysteresis, or temperature-dependent offset not accounted for at baseline; pendulum instruments experienced shared thermal or mechanical drift around day 12.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and instrument-specific error dominate true signal; all instruments measure uncorrelated noise atop weak or zero signal, and day-12 shift reflects a noise-source threshold or readout-mode change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial-to-calendar-time mapping corrupted; intra-day trial sequence scrambled by event_id sorting or similar, destroying short-lag autocorrelation structure and creating spurious day-12 boundary artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine ~10–14 day intrinsic oscillation or transient in measured quantity; baseline (days 1–10) conflates multiple phases and is invalid for comparison; day-12 shift marks entry into new phase of slow modulation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental or instrument disturbance around day 12 (vibration, gravity gradient, thermal, damping change) affecting pendulum dynamics selectively but not resonator frequency; regime change, not transient",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic instrument calibration drift, zero-point offset, or thermal sensitivity not accounted for at baseline; pendulum instruments experienced shared drift around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and instrument-specific readout errors dominate; all instruments measure uncorrelated noise, day-12 shift reflects noise-source threshold or readout-mode change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial-to-calendar-time mapping corrupted; intra-trial sequence scrambled by event_id sorting or timestamp mismatch, destroying autocorrelation structure and creating spurious day-12 boundary artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine ~10–14 day intrinsic oscillation or transient in measured quantity; baseline (days 1–10) too short and conflates multiple phases; day-12 shift marks entry into new dynamical regime",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental or instrument disturbance around day 12 (vibration, gravity gradient, thermal transient, damping change, or isolation failure) affecting pendulum dynamics selectively but not resonator frequency; regime shift, not transient recovery",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic instrument calibration drift, zero-point offset, or thermal sensitivity not accounted for at baseline; pendulum instruments experienced shared calibration drift around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and instrument-specific readout errors dominate; all instruments measure uncorrelated noise, day-12 shift reflects noise-source threshold or readout-mode change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial-to-wall-clock-time mapping corrupted; event_id sequence scrambled relative to true measurement time, destroying autocorrelation and creating spurious day-12 boundary artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine ~10–14 day intrinsic oscillation or transient in measured quantity; baseline too short and conflates multiple phases; day-12 marks entry into new dynamical regime",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Localized environmental or instrument disturbance around day 12 (vibration, gravity gradient, thermal transient, damping change, isolation failure) affecting pendulum dynamics selectively; regime shift to new stable state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic instrument calibration drift, zero-point offset, or thermal sensitivity not accounted for at baseline; pendulum instruments experienced shared calibration drift around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and instrument-specific readout errors dominate; all instruments measure uncorrelated noise; day-12 shift reflects noise-source threshold or readout-mode change",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Event-ID sequence is scrambled relative to wall-clock time; trials recorded in non-monotonic order and later sorted by event_id, destroying autocorrelation structure while preserving within-batch correlations",
+      "class": "fraud_false_report"
+    },
+    {
+      "label": "True physical oscillation with ~10–14 day period; baseline (days 1–10) is too short and samples only rising phase; day-12 marks entry into elevated plateau regime",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental disturbance around day 12 (vibration, thermal gradient, damping change, isolation failure) affecting pendulum effective period without scrambling trial order; new equilibrium reached by day 13",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or thermal sensitivity unaccounted in baseline; pendulum zero or gain drifted between days 1–10 and later",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement is dominated by uncorrelated readout noise; strong pendulum_lab ↔ pendulum_obs agreement (r=0.748) is artifact of shared data acquisition or software pipeline rather than signal correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequence scrambled by event-ID reordering; historical archive (trials 1–354) sorted non-monotonically while preserving within-batch structure; today's readings (trials 355–372) are chronological.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical oscillation with ~10–14 day period; baseline (days 1–10) samples only rising phase; day 12 marks entry into elevated plateau regime.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental disturbance around day 12 (vibration, damping increase, thermal gradient, isolation failure) affecting pendulum effective period without corrupting trial order.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline (days 1–10) and later period.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement dominated by uncorrelated readout noise; pendulum_lab ↔ pendulum_obs strong agreement (r=0.744) is artifact of shared data-acquisition hardware or software pipeline.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial sequence corrupted by event-ID reordering; historical archive (trials 1–354) sorted non-monotonically while preserving batch structure; today's readings continue this scrambling pattern.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical oscillation or modulation with ~10–14 day period; baseline (days 1–10) samples only rising or equilibration phase; day 12 marks entry into elevated plateau regime specific to pendulum dynamics.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Localized environmental disturbance around day 12 (vibration, damping increase, thermal gradient, isolation failure) affecting pendulum apparatus selectively, without corrupting trial chronological order.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline and later period, masquerading as genuine step change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement dominated by uncorrelated readout noise; pendulum_lab ↔ pendulum_obs strong agreement (r = 0.744) is artifact of shared data-acquisition hardware, software pipeline, or batch processing.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism or interaction among the above.",
+      "class": "other"
+    },
+    {
+      "label": "Event-ID reordering of trial archive creates spurious day-12 synchronization via batch-clustering at calendar boundary, while independent scrambling of each instrument destroys cross-instrument temporal coherence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical oscillation or modulation with ~10–14 day period affecting pendulum apparatus selectively; baseline (days 1–10) samples only initial equilibration; day 12 marks entry into elevated plateau or oscillation regime.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental or mechanical perturbation (vibration, damping increase, thermal gradient, structural damping) affecting pendulum apparatus selectively around day 12, creating a step change without corrupting trial chronological order.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline and later period, masquerading as step change; baseline values no longer valid after day 10.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum instruments share a common data-acquisition hardware, software pipeline, or batch-processing step that creates spurious agreement (r = 0.744) and synchronized artifacts, independent of true oscillator physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Event-ID reordering of trial archive creates spurious day-12 pendulum synchronization via batch-clustering at calendar boundary, while destroying temporal coherence within each scrambled instrument sequence.",
+      "class": "social_process"
+    },
+    {
+      "label": "True physical phenomenon (gravitational gradient, Coriolis effect, structural resonance, or 10–14 day oscillation mode) selectively affects pendulum apparatus; baseline measurements (days 1–10) capture only initial equilibration; day 12 marks entry into elevated plateau or oscillation regime.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Localized environmental or mechanical perturbation (vibration, damping increase, thermal gradient, structural damping) affects pendulum apparatus selectively around day 12, creating a step change without corrupting trial chronological order.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline and later period, masquerading as step change; baseline values no longer valid after day 10.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum instruments share a common data-acquisition hardware, software pipeline, or batch-processing step that creates spurious agreement and synchronized artifacts independent of true oscillator physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Archive scrambling by event-ID creates spurious day-12 pendulum synchronization; reordering by event-ID will eliminate the artificial level change and restore lag-2 autocorrelation structure.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical phenomenon (thermal, gravitational, structural, or 10–14 day oscillation) selectively affects pendulum apparatus; baseline measurements (days 1–10) capture initial equilibration; day 12 marks entry into elevated plateau. Archive scrambling is coincidental or masks the true signal.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline (days 1–10) and later period; baseline values are no longer valid after day 10, rendering the day-12 step artifact of reordering rather than physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum instruments share a common post-acquisition processing pipeline (batch reordering, software artifact, or shared data-integration step) that creates spurious agreement and synchronized artifacts independent of true oscillator physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unexpected mechanism or systematic error I have not yet identified.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial archive is scrambled by event-ID clustering; trial number does not correspond to chronological acquisition order. Non-monotonic event-IDs within trial sequences prove this directly.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus, creating a real post-day-12 elevation. Archive scrambling is coincidental.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline and later period renders baseline values invalid after day 10, but does not explain lag-2 autocorrelation collapse.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum instruments share a common post-acquisition processing pipeline (batch reordering, software artifact, or shared event-ID clustering step) that creates spurious agreement and synchronized artifacts independent of oscillator physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: mechanism not yet identified (e.g., true chronological order is not recoverable from event-ID sort; lag-2 autocorrelation collapse has a cause beyond scrambling; instrumental failure mode or data-processing error outside current knowledge).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: Trial archive is scrambled by event-ID clustering; trial numbers do not correspond to chronological acquisition order.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus, creating a real post-day-12 elevation. Archive scrambling is coincidental.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Instrument calibration drift, zero-point shift, or unmonitored thermal sensitivity between baseline and later period renders baseline values invalid after day 10, but does not explain lag-2 autocorrelation collapse.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Residual—mechanism not yet identified (true chronological order not recoverable from event-ID sort; lag-2 autocorrelation collapse has cause beyond scrambling; instrumental failure mode or data-processing error outside current knowledge).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Trial archive is scrambled by event-ID clustering; trial numbers do not correspond to chronological acquisition order.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H2: True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus; day-12 step is real.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Instrument calibration drift, zero-point shift, or thermal sensitivity between baseline and later period is real; scrambling is incidental.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Residual—mechanism not yet identified; archive scrambling is confirmed but critical unknowns remain.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: Trial archive is scrambled by event-ID clustering; trial numbers do not correspond to chronological acquisition order.",
+      "class": "social_process"
+    },
+    {
+      "label": "H2: True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus; day-12 step is real physics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Trial archive scrambling is confirmed, but reordering by event-ID does not fully restore lag-2 autocorrelations; a deeper systematic error compromises trial independence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Residual—mechanism not yet identified; archive scrambling is confirmed but critical unknowns remain.",
+      "class": "social_process"
+    },
+    {
+      "label": "H1: Trial archive is scrambled by event-ID clustering; trial numbers do not correspond to chronological acquisition order.",
+      "class": "social_process"
+    },
+    {
+      "label": "H2: True physical phenomenon (thermal, gravitational, structural, or ~10–14 day oscillation) selectively affects pendulum apparatus; day-12 step is real physics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Trial archive scrambling (H1) is confirmed, but reordering by event-ID does not fully restore lag-2 autocorrelations; a deeper systematic error compromises trial independence.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "source": "w0-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Data collection or logging error; readings are corrupted, duplicated, or time-tagged incorrectly, but the error structure mimics noise",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental noise floor dominates; each instrument operates stably but measures uncorrelated noise rather than a shared physical signal",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Environmental or instrumental coupling with delayed cross-talk; apparent offset-dependent correlations reflect real but indirect interactions (e.g., thermal diffusion, vibration coupling, stress redistribution)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "All observed correlations (positive and negative) are statistical artifacts of multiple-comparison bias; after correction for multiple hypothesis tests (4 streams, 20+ possible time offsets per pair), no significant structure remains.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental noise floor dominates; instruments are functioning but measurements are capturing only thermal/electronic jitter unrelated to physical time evolution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error or miscalibration in one or more instruments; baseline values are offset from true physical quantities but internal reproducibility is high",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling introduces delayed cross-talk between streams; apparent correlations at specific offsets (e.g., 4–6 day lags) reflect real but indirect interactions",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection or logging error; readings are not independent observations of the same phenomenon",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental noise floor dominates; each instrument operates stably but measures uncorrelated noise rather than a shared physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A transient environmental or instrumental perturbation occurred between day 10 and day 20, affecting resonator_obs (and possibly resonator_lab) but leaving pendulum streams relatively stable",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic miscalibration or offset in one or more instruments; each measures a different but stable physical quantity, or the same quantity with different baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling with delayed cross-talk; apparent offset-dependent correlations reflect real but indirect interactions (e.g., thermal diffusion, vibration coupling, stress redistribution)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data collection or logging error; readings are corrupted, duplicated, or time-tagged incorrectly, but the error structure mimics noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs apparatus experienced a sudden physical perturbation on day 30 (thermal spike, mechanical shock, electromagnetic interference) that increased measurement scatter and shifted readings upward transiently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs operates near its noise floor, and day-30 readings represent a random high-variance cluster within the expected noise envelope — no real physical change, just statistical fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic miscalibration or baseline drift in resonator_obs that accumulated over days 11–30 and manifested most visibly on day 30, or a drift in room conditions (temperature, pressure) that resonator_obs tracks but other streams do not",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or time-tag error specific to day 30 for resonator_obs: readings were collected on an earlier or later day but mis-stamped as day 30, or data were acquired in a different order and recorded out of sequence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement streams track genuinely independent physical processes, and observed correlations are statistical noise at or near chance level; no systematic coupling exists.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental conditions (room temperature, humidity, vibration) couple weakly and with different time constants to the four instruments, producing lagged correlations and subtle anti-correlations; a shared common cause produces the lagged structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument electromagnetic coupling or ground-loop interference creates weak, frequency-dependent crosstalk at specific phase delays; resonator_obs is most susceptible due to higher Q or different grounding.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data post-processing or baseline-subtraction error: raw readings are actually well-correlated, but analysis drift (e.g., incorrect reference frame, drifting ADC offset, or baseline miscalibration on day 1) has decorrelated them or introduced spurious anti-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All observed correlations (positive and negative) are statistical artifacts of multiple-comparison bias; after correction for multiple hypothesis tests (4 streams, 20+ possible time offsets per pair), no significant structure remains.",
+      "class": "measurement_error"
+    }
+  ]
+}

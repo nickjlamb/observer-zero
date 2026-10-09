@@ -1,0 +1,377 @@
+{
+  "source": "wb-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Two independent, anti-phased physical processes: pendula respond to gravitational/inertial effects (process A); resonators respond to electromagnetic or elastic effects (process B). Day-12 event affected both, but they remain decoupled.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Single oscillatory or auto-regressive driver (seismic, EM, thermal) with day-12 amplitude or coupling change",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Real environmental oscillation with instrument-specific phase lags couples all four instruments; day-12 shift reflects change in oscillation amplitude or coupling strength, not initiation",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline calibration corruption or protocol drift between days 1–10 and day 12 (reference standard drift, trial selection change, filtering change, measurement-mode switch, or internal baseline slope) without documentation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline calibration bias or protocol drift between day 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or unlogged measurement-mode change)",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Baseline calibration corruption or unmonitored protocol drift between day 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or measurement-mode switch)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unmonitored environmental or instrumental confounding: temperature, barometric pressure, electromagnetic interference, or a calibration/power event on day 12 that affected all four instruments with instrument-type-dependent sensitivity.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Single oscillatory or auto-regressive driver (seismic, EM, thermal) with day-12 amplitude or coupling modulation",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Unmonitored environmental or instrumental confound (temperature, pressure, EM, power event, or shared calibration) on day 12, to which pendula and resonators have opposite sensitivity",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instruments are coupled to a real, zero-mean environmental oscillation with instrument-specific phase lags (3–8 days)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal, instrumental resonance) with day-12 amplitude or coupling change",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Single common oscillatory driver (e.g., seismic, EM, or thermal) with day-12 amplitude or coupling change, producing instrument-specific phase-lagged readouts",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Two independent anti-phased physical processes: pendula measure one physical quantity (e.g., gravitational or inertial), resonators measure another (e.g., elastic or electromagnetic), which happen to respond oppositely to a common environmental disturbance on day 12.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 48,
+  "l4Judged": 48,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic phase desynchronization across instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instruments are responding to a real environmental oscillation with different phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data acquisition or logging error producing anti-correlated noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Insufficient data and high noise render correlations uninterpretable",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are coupled to a real, zero-mean environmental oscillation with instrument-specific phase lags (3–8 days)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Within-instrument type agreement is real; cross-type disagreement reflects separate physical processes or measurement modes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data logging, timestamping, or trial assignment error creates spurious anti-correlations while preserving univariate statistics",
+      "class": "self_error"
+    },
+    {
+      "label": "High noise and small sample size render observed correlations uninterpretable; no real pattern exists",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental oscillation with instrument-specific phase lags couples all four instruments; day-12 shift reflects change in oscillation amplitude or coupling strength, not initiation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Two independent, anti-phased physical processes: pendula respond to gravitational/inertial effects (process A); resonators respond to electromagnetic or elastic effects (process B). Day-12 event affected both, but they remain decoupled.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial ordering, timestamping, or cross-check computation error creates spurious anti-correlations while preserving univariate statistics",
+      "class": "self_error"
+    },
+    {
+      "label": "Noise dominates; observed correlations are uninterpretable artifacts of small sample size and low signal-to-noise ratio",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two independent anti-phased physical processes: pendula measure inertial/gravitational effects (process A); resonators measure electromagnetic or elastic effects (process B). Day-12 event affected both processes in opposite directions or magnitudes.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental oscillation with instrument-specific phase lags couples all four instruments; day-12 shift reflects change in oscillation amplitude, frequency, or coupling strength, not initiation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial ordering, timestamping, or cross-check computation error creates spurious anti-correlations while preserving univariate statistics.",
+      "class": "self_error"
+    },
+    {
+      "label": "Noise, low signal-to-noise ratio, and sample size effects dominate; observed correlations are uninterpretable statistical artifacts.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unmeasured confounding variables (e.g., temperature, humidity, electromagnetic background) or instrumental artifacts (cross-talk, calibration drift, sensor saturation) during the day-11 to day-13 window.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent anti-phased physical processes: pendula measure one physical quantity (e.g., gravitational or inertial), resonators measure another (e.g., elastic or electromagnetic), which happen to respond oppositely to a common environmental disturbance on day 12.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Single common oscillatory driver with instrument-specific phase lags, where day-12 marks a change in oscillation amplitude, frequency, or coupling strength.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing, trial indexing, or cross-check computation error: spurious anti-correlations created by systematic misalignment of trial pairs around the day-12 transition or in the pairing logic itself.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental confounding: temperature, barometric pressure, electromagnetic interference, or a calibration/power event on day 12 that affected all four instruments with instrument-type-dependent sensitivity.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something I have not yet considered—measurement artifact specific to the day-12 timeframe, an error in my baseline calibration protocol, or a physical phenomenon I lack a framework to recognize.",
+      "class": "other"
+    },
+    {
+      "label": "Two independent anti-phased physical processes responding oppositely to a common day-12 environmental or instrumental event",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Single common oscillatory driver (e.g., seismic, EM, or thermal) with day-12 amplitude or coupling change, producing instrument-specific phase-lagged readouts",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental confound (temperature, pressure, EM, power event, or shared calibration) on day 12, to which pendula and resonators have opposite sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my correlation computation, trial indexing, or cross-check logic—most likely a misalignment or pair-mismatch introduced around the day-11–13 boundary",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unrecognized artifact in my baseline calibration protocol (e.g., drift in reference standards between day 1–10 and day 12), error in trial selection or filtering, or a physical phenomenon I lack a framework to recognize",
+      "class": "self_error"
+    },
+    {
+      "label": "Two independent anti-phased physical processes triggered by day-12 event",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental confound on day 11–12 (temperature, pressure, EM, seismic, or power event) affecting both instrument types oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration bias or protocol drift between day 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or unlogged measurement-mode change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in correlation computation, trial indexing, or cross-check logic (misalignment or pair-mismatch around day 11–13 boundary)",
+      "class": "self_error"
+    },
+    {
+      "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal, or instrumental resonance) with day-12 amplitude or coupling change",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental confound on day 11–12 (temperature, pressure, EM, seismic, or power event) affecting both instrument types oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent anti-phased physical processes triggered by a day-12 event (e.g., gravitational or elastic property change affecting pendulum and resonator systems differently)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration bias or protocol drift between day 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or unlogged measurement-mode switch)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in correlation computation, trial indexing, or cross-check logic (misalignment or pair-mismatch around day 11–13 boundary)",
+      "class": "self_error"
+    },
+    {
+      "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal, or instrumental resonance) with day-12 amplitude or coupling change",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental confound (thermal, pressure, EM, seismic, or power event) on day 11–13 affecting pendulum and resonator systems oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "True bifurcated physical process (gravitational, elastic, or phase-transition change) triggered on day 12, affecting pendulum and resonator sensing axes oppositely",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration corruption or unmonitored protocol drift between day 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or measurement-mode switch)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in trial indexing, time alignment, or cross-check correlation logic around day 11–13 boundary (misalignment, pair-mismatch, or off-by-one error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal, instrumental resonance) with day-12 amplitude or coupling change",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental boundary event on days 11–13 (thermal, pressure, EM, seismic, or power shift) affecting pendulum and resonator systems oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "True bifurcated physical process (gravitational, elastic, phase-transition, or relativistic effect) triggered on day 12, with opposite sensing pathways in pendulum vs. resonator",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration corruption or unmonitored protocol drift between days 1–10 and day 12 (reference standard drift, trial selection change, filtering change, or measurement-mode switch without documentation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in trial indexing, time alignment, or cross-check correlation logic around day 11–13 boundary (off-by-one error, pair-mismatch, or measurement-time misalignment)",
+      "class": "self_error"
+    },
+    {
+      "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal, or instrumental resonance) with day-12 amplitude or coupling change",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental boundary event (day 11–13) causing opposite-sign responses in pendulum vs. resonator systems: thermal gradient, pressure step, EM transient, seismic, or power disturbance affecting period and resonant frequency oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two decoupled physical systems with opposite-sign sensitivities to a shared day-12 boundary event (gravitational, elastic, phase-transition, or relativistic effect), coupled through mechanism that produces strong within-type tracking (+0.67) and systematic cross-type opposition (−0.71)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration corruption or protocol drift between days 1–10 and day 12 (reference standard drift, trial selection change, filtering change, measurement-mode switch, or internal baseline slope) without documentation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in trial indexing, time alignment, or cross-check correlation logic around day 11–13 boundary (off-by-one error, pair-mismatch, measurement-time misalignment, or sign-flip in correlation code)",
+      "class": "self_error"
+    },
+    {
+      "label": "Single common oscillatory or auto-regressive driver (seismic, EM, thermal instrumental resonance) with day-12 amplitude or coupling change",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental boundary event (day 11–13) causing opposite-sign responses in pendulum vs. resonator systems via known physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two decoupled physical systems with opposite-sign sensitivities to a shared day-12 boundary event, coupled through genuine physics mechanism (gravitational, elastic, phase-transition, or relativistic effect)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline calibration corruption, reference standard drift, or protocol change between days 1–10 and day 12 without documentation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial indexing error, time-alignment mismatch, or sign-flip in correlation computation around day 11–13 boundary",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Single oscillatory or auto-regressive driver (seismic, EM, thermal) with day-12 amplitude or coupling change",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Genuine bifurcated physical mechanism: day-12 parameter shift (gravitational, elastic modulus, or phase transition) causing opposite-sign mechanical responses in pendulum vs. resonator systems via known physics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unmonitored environmental or instrumental boundary event (day 11–13) causing level shift detectable as univariate change, but does NOT explain the observed negative cross-type correlation anomaly—baseline corruption or reference standard drift during days 1–10 or 10–12 boundary masquerading as physical change",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline calibration or trial selection protocol change between days 1–10 and day 12 without documentation (reference standard recalibration, internal baseline slope, measurement mode change, or filtering rule modification)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial indexing error, time-alignment mismatch, or systematic sign error in correlation computation around day 11–13 boundary",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Single oscillatory or auto-regressive driver (seismic, EM, thermal) with day-12 amplitude or coupling modulation",
+      "class": "incomplete_theory"
+    }
+  ]
+}

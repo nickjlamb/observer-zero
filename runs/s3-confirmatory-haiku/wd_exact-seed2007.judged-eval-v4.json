@@ -1,0 +1,185 @@
+{
+  "source": "wd_exact-seed2007.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Systematic calibration or zero-point offset between lab and observatory instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental drift or creep beginning to emerge after 18 stable days—baseline period was too short",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline redefinition artifact: days 1–10 captured initialization or transient phase with different noise properties; lag-14 anticorrelation conflates initialization noise with post-initialization signal",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Random sampling variance in a small window (n=70 pairs at lag 14); the -0.210 is within expected noise for this test and not a real signal",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Pendulum_lab has genuine ~14-day periodicity in residual noise from environmental coupling (tidal forcing, thermal cycling, or suspension resonance)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 19,
+  "l4Judged": 19,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent measurement noise dominates all four instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or zero-point offset between lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Laboratory and observatory environments decouple — different physical signals or conditions at the two sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are correctly calibrated and coupled, but 10 days is too short to detect correlated drift; baselines are premature",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Transient environmental disturbance on Day 19 (thermal, vibrational, or magnetic spike)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random clustering of readings within measurement tolerance—no anomaly, expected sampling variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drift or creep beginning to emerge after 18 stable days—baseline period was too short",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement error or transcription error in today's event log for specific trials",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Something I have not considered—a new physical phenomenon, systematic artifact, or external intervention specific to Day 19",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab has genuine ~14-day periodicity in residual noise (environmental or instrumental), creating apparent autocorrelation; other instruments lack this periodicity or have different characteristic timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: pendulum_lab's larger sample size (348 trials vs ~156 for others) and finer value spacing (smallest 0.0001) allow detection of autocorrelation that is present in all instruments but only reaches significance in the high-power test; true periodicity unlikely",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab baseline period (days 1–10) captured a transient initialization phase; true baseline should be redefined to days 11–25, and the apparent lag-14 anticorrelation is an artifact of comparing initialization noise to post-initialization signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random sampling variance in a small window (n=70 pairs at lag 14); the -0.210 is within expected noise for this test and not a real signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown confound: Day 19 elevated scatter (earlier hypothesis p=0.47) is the real anomaly, and the lag-14 autocorrelation in pendulum_lab is a secondary manifestation of that same environmental driver acting with a periodic or episodic recurrence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab has genuine ~14-day periodicity in residual noise from environmental or instrumental coupling (thermal cycle, tidal forcing, or mechanical resonance in suspension).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: pendulum_lab's larger sample size (504 trials vs ~216 for others) and correspondingly lower noise floor allow spurious detection of autocorrelation common to all instruments at different lag-specific peaks; correlation at lag 14 is within expected noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline redefinition: days 1–10 captured an initialization or transient phase with different noise properties; true baseline should start day 11+, and lag-14 anticorrelation is an artifact of comparing initialization noise to post-initialization signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random sampling variance and multiple-comparisons noise at a single lag; the -0.210 is within expected noise for a correlation test at n≈70 across many tested lags.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown confound or measurement artifact specific to pendulum_lab: systematic error with ~14-day recurrence (e.g., facility scheduling, operator routine, or instrument calibration cycle) that does not affect other instruments or affects them on different timescales.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab has genuine ~14-day periodicity in residual noise from environmental coupling (tidal forcing, thermal cycling, or suspension resonance)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: pendulum_lab's larger sample size allows spurious detection of autocorrelation present in all instruments; lag-14 is one of many noise-driven peaks",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline redefinition artifact: days 1–10 captured initialization or transient phase with different noise properties; lag-14 anticorrelation conflates initialization noise with post-initialization signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random sampling variance and multiple-comparisons noise: the -0.210 at lag 14 is within expected noise for a correlation test; expected range of maximum correlation across many lags already accounts for this",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement artifact or facility routine specific to pendulum_lab with ~14-day recurrence (e.g., recalibration, damping adjustment, relocation on a scheduled cycle)",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

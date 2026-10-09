@@ -1,0 +1,173 @@
+{
+  "source": "md_low-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Observer error or trial-numbering artifact in final resonator_lab entries",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data reduction or reporting error: correlations reflect artifacts in how readings are selected, binned, or reported (e.g., different trial numbering schemes, missing data imputation, or timestamp drift between instruments) rather than physical phenomena",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_lab calibration drift or instrument degradation on Day 30",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline instability or contamination in early days (Days 1–10)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Measurement error, observer misread, or trial-numbering artifact in resonator_lab trial 380",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental anti-phase coupling: instruments drift or respond in opposite directions to a shared environmental driver (temperature, pressure, electromagnetic field) that affects pendulum damping inversely to resonator response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline contamination or method-dependent bias: the lab vs. observational split (lab/obs) correlates with sign and magnitude of cross-correlations; systematic differences in measurement protocol or observer affect create spurious anti-correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Data reduction or reporting error: correlations reflect artifacts in how readings are selected, binned, or reported (e.g., different trial numbering schemes, missing data imputation, or timestamp drift between instruments) rather than physical phenomena",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Stochastic resonance or weak periodic forcing: a hidden periodic or quasi-periodic environmental driver excites pendulum and resonator with opposite phase, visible only as lagged anti-correlation when coherence is low",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument-specific environmental sensitivity on Day 20",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift on Day 20 (resonator_obs channel only)",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline instability or contamination in early days (Days 1–10)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data transcription or trial-numbering artifact across instrument channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine periodic or quasi-periodic environmental forcing with anti-phase coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_lab calibration drift or instrument degradation on Day 30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental transient (Day 30) affecting lab resonator but not observatory instrument",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer error or trial-numbering artifact in final resonator_lab entries",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline contamination or mis-set on resonator_lab Days 1–10; Day 30 readings reveal true instrument state",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Random excursion within instrument noise, no systematic cause required",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unrecognized procedural or environmental change introduced between Days 1–29 and Day 30, affecting only resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab experiencing calibration drift or thermal relaxation on Day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab-environment transient (thermal spike, vibration, EMI) on Day 40 affecting only resonator_lab apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement error, observer misread, or trial-numbering artifact in resonator_lab trial 380",
+      "class": "self_error"
+    },
+    {
+      "label": "Persistent anti-phase coupling between resonator_lab and resonator_obs reveals uncontrolled shared environmental driver with inverted effect on two instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was mis-set or unrepresentative for resonator_lab; Day 40 excursion is instrument approaching true steady state",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Random excursion within instrument noise; no systematic cause required",
+      "class": "measurement_error"
+    }
+  ]
+}

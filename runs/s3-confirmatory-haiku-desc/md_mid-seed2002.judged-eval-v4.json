@@ -1,0 +1,252 @@
+{
+  "source": "md_mid-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 8,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Environmental cyclic forcing with 3–7 day quasi-period",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unidentified mechanism or missing data (e.g., hardware malfunction, facility event log, electromagnetic interference, or coupled resonance between pendulum and resonator systems)",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Uncontrolled confound in observation protocol (observer, time-of-day, or environmental sampling)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something unconsidered",
+        "primary": "measurement_error",
+        "second": "other"
+      },
+      {
+        "label": "Instrumental resonance or nonlinear response in pendulum_obs specifically, coupled to environmental driver affecting other streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement noise with hidden structure: small-sample statistical mirage (regression-to-mean, aliasing, or very slow drift not yet resolvable as level change)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Pendulum_obs calibration drift or protocol shift independent of true physics",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_obs experiences nonlinear response (saturation, hysteresis, rectification) that masks oscillation from underlying environmental forcing as net downward drift; pendulum_lab and resonator_obs are not affected by the same forcing or respond linearly",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental cyclic forcing (3–7 day period)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration-dependent systematic oscillation across the instrument array",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise with hidden structure (aliasing, sampling bias, or undetected instrument drift)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled confound in observation protocol (observer, time-of-day, or environmental sampling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental cyclic forcing with 3–7 day quasi-period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration transient: baseline procedure (days 1–10) introduced coherent oscillatory error propagating across all four streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise with hidden structure: small-sample statistical mirage (regression-to-mean, aliasing, or very slow drift not yet resolvable as level change)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled confound in observation protocol: observer, time-of-day, or facility-level cyclic environment (weekday/weekend, 5-day duty cycle, or HVAC schedule) creates shared calendar dependence across all streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unknown structural anomaly: something not yet considered (instrument resonance with facility frequency, nonlinear sensor saturation, or exotic physical effect)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental cyclic forcing with 3–7 day quasi-period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration transient: baseline procedure (days 1–10) introduced coherent oscillatory error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise with hidden structure: small-sample statistical mirage",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled confound in observation protocol: calendar-driven sampling bias or facility environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental resonance or nonlinear response: sensors couple to shared facility frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_obs calibration or protocol shift between baseline and post-baseline period",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental cyclic forcing with 3–7 day quasi-period, but pendulum_obs contaminated by independent drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise with hidden structure and small-sample statistical artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled confound in observation protocol: sampling schedule or facility cycle aligns with pendulum_obs bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental resonance or nonlinear response in pendulum_obs specifically, coupled to environmental driver affecting other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Pendulum_obs calibration drift or protocol shift independent of true physics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental cyclic forcing (3–7 day quasi-period) driving pendulum_lab and resonator_obs, with pendulum_obs contaminated by independent drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Small-sample statistical artifacts and noise with one fortuitous alignment (pendulum_lab ↔ resonator_obs)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled facility or sampling confound specific to pendulum_obs (timing, observer, or measurement protocol)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs nonlinear response or hysteresis coupled to environmental driver, masking true oscillation as net downward drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs calibration drift, protocol shift, or optical/mechanical degradation independent of true physics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental cyclic forcing (3–7 day quasi-period) driving pendulum_lab and resonator_obs; pendulum_obs contaminated by independent systematic error that masks participation in the cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Small-sample statistical artifacts, noise, and one fortuitous alignment (pendulum_lab ↔ resonator_obs r = 0.820) driven by multiple-comparisons bias in lag-search procedure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs nonlinear response (saturation, hysteresis, or rectification) masking true oscillation as net downward drift when coupled to environmental forcing",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Observer or sampling schedule confound specific to pendulum_obs (timing drift, observer identity, or protocol divergence post-baseline)",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified mechanism or missing data (e.g., hardware malfunction, facility event log, electromagnetic interference, or coupled resonance between pendulum and resonator systems)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs exhibits independent systematic error (calibration drift, optical aberration, mechanical creep, or post-day-10 protocol shift) separate from true pendulum physics; pendulum_lab and resonator_obs respond to environmental forcing at 3–7 day quasi-period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs correlation (r = 0.820 at 3-day lag) is a statistical artifact from multiple-comparisons bias in lag-search procedure; all observed drift and variance are consistent with noise and random walk",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs experiences nonlinear response (saturation, hysteresis, rectification) that masks oscillation from underlying environmental forcing as net downward drift; pendulum_lab and resonator_obs are not affected by the same forcing or respond linearly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or sampling schedule confound specific to pendulum_obs (e.g., timing drift, observer identity, or protocol divergence introduced post-baseline) that does not affect resonator_obs or pendulum_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Unidentified mechanism: hardware malfunction, facility event, electromagnetic interference, or coupled resonance between pendulum and resonator systems not yet documented",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "source": "mb-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Systematic instrumental bias or calibration offset in one or more streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs trial indices or timestamps were corrupted or reordered during Days 5–16, causing systematic temporal misalignment relative to resonator_lab and producing the observed sign reversal and 4-day lag pattern",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Real environmental shift around Day 11–12 affecting pendulum period asymmetrically, with secondary calibration or mode error in resonator_obs creating apparent anti-correlation",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real environmental or mechanical perturbation around Days 11–16, affecting pendulums and resonators at staggered times; sign reversal and lag patterns are artifacts of independent secondary calibration drifts or minor index misalignments",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Temporal misalignment or metadata corruption: trial numbers, day labels, or hardware timestamps are out of sync across the four streams, destroying true correlations and creating spurious lag patterns.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Resonator_obs baseline miscalibration (polarity inversion, firmware re-zeroing, or offset error during Days 1–10) coupled with real environmental perturbations around Days 12 and 16",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Physical coupling or interaction between pendulum and resonator systems with phase lag or sign reversal, driving the observed pattern",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Real environmental shift around Day 11–12 (affecting pendulums) and Day 15–16 (affecting resonators differently), with secondary calibration error in resonator_obs (polarity or zero-point inversion during baseline) creating anti-correlation.",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Calibration or measurement mode error in resonator_obs specifically (e.g., capacitive vs. inductive coupling, inverted feedback circuit, or mid-baseline re-zeroing) introduced during baseline period (Days 1–10), affecting scale or polarity of all post-baseline readings.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs measurement firmware or sensor mode error (polarity inversion, zero-offset miscalibration) introduced during baseline with no timeline corruption; the 4–5 day lag in pendulum-resonator cross-checks is a separate artifact of noise and sampling variability",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data logging, time-stamping, or record-keeping error has misaligned or corrupted the readings across streams",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Physical or electromagnetic coupling between instrument families with phase lag and sign reversal in resonator response to pendulum perturbations.",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Residual: unmeasured confound, environmental factor, or instrumental property not yet considered",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 31,
+  "l4Judged": 31,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring genuinely independent physical phenomena, not the same quantity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic instrumental bias or calibration offset in one or more streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four measurement streams contain significant measurement noise or statistical independence, masking a real underlying signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical coupling exists but operates with time delays and/or phase reversals not yet identified in offset analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data logging, time-stamping, or record-keeping error has misaligned or corrupted the readings across streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured confound, environmental factor, or instrumental property not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Genuine environmental or physical shift occurred around Day 11–12, affecting pendulum systems but not resonators, or affecting them asymmetrically",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic data logging, time-alignment, or trial-numbering error has mismatched readings across the four streams, destroying true correlations and creating spurious lag structures",
+      "class": "self_error"
+    },
+    {
+      "label": "High measurement noise, short integration times, or poor signal-to-noise ratio in one or more instruments is masking genuine correlations that would otherwise be visible",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instrument streams has a genuine systematic offset (zero-point drift, calibration error, or unrecognized mode of operation) that decorrelates it from others without producing a visible level shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical coupling between pendulum and resonator systems operates with phase lag, sign reversal, or nonlinear interaction not yet captured by lag analysis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unmeasured or uncontrolled environmental factor (vibration, temperature, electromagnetic interference, barometric pressure) affects instruments differently, producing the observed decorrelation and asymmetric drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Temporal misalignment or metadata corruption: trial numbers, day labels, or hardware timestamps are out of sync across the four streams, destroying true correlations and creating spurious lag patterns.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or physical shift around Day 11–12 that affects pendulum period but not resonator frequency, producing asymmetric drift without requiring inter-instrument correlation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "High measurement noise or short integration time is masking genuine correlations within each instrument type; level shift in pendulums is real, but inter-stream decorrelation reflects poor signal-to-noise ratio rather than misalignment or decoupled physics.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration offset or unrecognized mode change in one or more resonator channels has decorrelated resonator_lab from resonator_obs without producing a detectable level shift in either stream alone.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical coupling or interaction between pendulum and resonator systems with phase lag, sign reversal, or nonlinear dynamics creates the observed negative correlations; the Day 12 pendulum shift is real but driven by resonator feedback.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temporal metadata misalignment or trial-timestamp corruption across instrument streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or physical shift around Day 11–12 affecting pendulum period but not resonator frequency, causing asymmetric instrument response without requiring inter-stream correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration offset, mode change, or zero-point drift in one or more resonator channels, decorrelating resonators without producing a visible level shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High measurement noise or short integration time is masking genuine correlations within each stream; level shift is real, inter-stream decorrelation reflects SNR rather than misalignment or decoupled physics",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical coupling or interaction between pendulum and resonator systems with phase lag or sign reversal, driving the observed pattern",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temporal metadata misalignment or trial-timestamp corruption across resonator streams specifically",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental shift around Day 11–12 affecting pendulum period asymmetrically, with secondary calibration or mode error in resonator_obs creating apparent anti-correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration or readout error in resonator_obs introduced during baseline phase (Days 1–10), with possible zero-point inversion or polarity reversal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High measurement noise or limited integration time masking genuine weak correlations; level shift is real, inter-stream decorrelation reflects SNR and sample-size limitations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical coupling or feedback between pendulum and resonator systems with phase lag or sign reversal in resonator response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs timeline corruption: trial numbers or timestamps misaligned relative to hardware clock, inverting or offsetting resonator_obs readings post-baseline, producing negative correlation with resonator_lab and spurious 4-day lags in pendulum cross-checks.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental shift around Day 11–12 (affecting pendulums) and Day 15–16 (affecting resonators differently), with secondary calibration error in resonator_obs (polarity or zero-point inversion during baseline) creating anti-correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calibration or measurement mode error in resonator_obs specifically (e.g., capacitive vs. inductive coupling, inverted feedback circuit, or mid-baseline re-zeroing) introduced during baseline period (Days 1–10), affecting scale or polarity of all post-baseline readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine measurement noise or limited trial overlap (n=24–120) masking true weak correlations; level shifts are real, apparent sign reversal is statistical artifact.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Physical or electromagnetic coupling between instrument families with phase lag and sign reversal in resonator response to pendulum perturbations.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs timeline or metadata corruption (trial index shift, timestamp inversion, or data reordering during Days 5–16)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation Day 11–12 (affecting pendulums) + separate perturbation Day 15–16 (affecting resonators), compounded by calibration error in resonator_obs (polarity or zero-point inversion during baseline Days 5–10)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a measurement mode or firmware error specifically during baseline (Days 5–10), introducing polarity inversion that persists post-baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine weak underlying correlation masked by trial overlap noise and different time windows (sign reversal is statistical artifact, level shifts are real)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical or electromagnetic coupling between pendulum and resonator systems with phase lag and sign inversion in response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs trial indices or timestamps were corrupted or reordered during Days 5–16, causing systematic temporal misalignment relative to resonator_lab and producing the observed sign reversal and 4-day lag pattern",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or mechanical perturbation affecting pendulums around Day 11–12 and resonators around Day 15–16, compounded by a polarity or zero-point calibration error in resonator_obs introduced during baseline (Days 5–10)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement mode or firmware error during baseline (Days 5–10) introduced polarity inversion that persists post-baseline, independent of any timeline corruption or physical events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High intrinsic scatter and trial overlap noise produce apparent sign reversal and lag patterns that are statistical artifacts; level shifts are real but uncorrelated across families",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical or electromagnetic coupling between pendulum and resonator systems, with phase lag and polarity inversion in response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs trial indices or timestamps were corrupted, reordered, or inverted during Days 5–16, causing systematic temporal misalignment with resonator_lab and producing the observed sign reversal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or mechanical perturbation affected pendulums around Day 11–12 and resonators around Day 15–16; a polarity or zero-point calibration error in resonator_obs during baseline (Days 1–10) inverted the resonator_obs stream independently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement firmware or sensor mode error (polarity inversion, zero-offset miscalibration) introduced during baseline with no timeline corruption; the 4–5 day lag in pendulum-resonator cross-checks is a separate artifact of noise and sampling variability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "High intrinsic scatter, trial overlap, and sampling variability produce the apparent sign reversal and lag patterns as statistical artifacts; level shifts are real but uncorrelated across families and reflect noise, not systematic error",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical, electromagnetic, or fluid-coupled feedback between pendulum and resonator systems introduces phase lag and apparent polarity inversion through secondary transduction pathways",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unconsidered systematic error in data collection, labeling, or post-processing; or a genuine physical phenomenon not yet modeled",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "resonator_obs timeline corruption: trial indices or timestamps were reordered, inverted, or shifted during Days 5–16, causing systematic temporal misalignment with resonator_lab and producing sign reversal and systematic lag signature in all cross-family pairings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs calibration or polarity error during baseline (Days 1–10) coupled with real environmental perturbations at Days 12 and 16; the 4–5 day lag in cross-family pairings is residual noise or secondary artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or mechanical perturbation occurred around Days 11–16, affecting pendulums and resonators at staggered times; the sign reversal and lag patterns are artifacts of independent calibration drifts or minor index misalignments in post-baseline data handling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "High intrinsic scatter and sampling variability produce apparent sign reversal and lag patterns as statistical artifacts; level shifts are real but uncorrelated across families",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical, electromagnetic, or fluid-coupled feedback between pendulum and resonator systems induces transduction-mediated phase lag and apparent inversion through hidden pathways",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs timeline corruption: trial indices or timestamps reordered, inverted, or shifted during Days 5–16",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline miscalibration (polarity inversion, firmware re-zeroing, or offset error during Days 1–10) coupled with real environmental perturbations around Days 12 and 16",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or mechanical perturbation around Days 11–16, affecting pendulums and resonators at staggered times; sign reversal and lag patterns are artifacts of independent secondary calibration drifts or minor index misalignments",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "High intrinsic scatter and sampling variability produce apparent sign reversal and lag patterns as statistical artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical, electromagnetic, or fluid-coupled feedback between pendulum and resonator systems induces transduction-mediated phase lag and apparent inversion through hidden pathways",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs timeline/index corruption (trial reordering, backward indexing, or timestamp scrambling during Days 5–16)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline miscalibration (polarity inversion, firmware re-zeroing, or feedback circuit sign-flip during Days 1–10) coupled with real but independent environmental perturbations around Days 12 and 16",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or mechanical perturbation around Days 11–16 affecting pendulums and resonators at staggered times; sign reversal and lag patterns are secondary artifacts of minor index misalignments or undetected calibration drifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "High intrinsic scatter and sampling variability produce apparent sign reversal and lag patterns as statistical artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical, electromagnetic, or fluid-coupled feedback between pendulum and resonator systems induces transduction-mediated phase lag and apparent inversion through hidden pathways",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

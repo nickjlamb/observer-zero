@@ -1,0 +1,235 @@
+{
+  "source": "me-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 6,
+    "items": [
+      {
+        "label": "data alignment, timestamp corruption, or trial-sequence scrambling between instruments or across days has introduced false time-lag structure and destroyed real correlations",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Calibration error: one or more instruments is miscalibrated or has unknown systematic offset, introducing false independence",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration or systematic drift undetected since day 1; one or more instruments has drifted or been miscalibrated, destroying expected cross-correlations and introducing spurious time-lag structure in the cross-correlation analysis",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "resonator_obs experienced genuine physical drift around day 18; other instruments either measure decoupled quantities or are insensitive to the driver",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "All four instruments are measuring noise; the resonator_obs day-18 signal is a statistical fluctuation (false positive within the α≈0.05 band of normal variation across 18 days × 4 instruments)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline period (10 days) was too short to establish stable reference; environmental cycles or slow coupling on timescales >10 days are now becoming visible",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data recording or matching error; trial assignments or timestamps are misaligned between instruments",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring independent noise; observed cross-correlations are sampling artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic environmental or coupling effect operates on a timescale longer than 10 days; baselines are too short to reveal it",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Calibration error: one or more instruments is miscalibrated or has unknown systematic offset, introducing false independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or matching error; trial assignments or timestamps are misaligned between instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs experienced a genuine physical shift around day 18; other instruments remain noise-limited and independent",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments are measuring noise; the resonator_obs day-18 signal is a statistical fluctuation (false positive within the α≈0.05 band of normal variation across 18 days × 4 instruments)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or systematic drift undetected since day 1; one or more instruments has drifted or been miscalibrated, destroying expected cross-correlations and introducing spurious time-lag structure in the cross-correlation analysis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (10 days) was too short to establish stable reference; environmental cycles or slow coupling on timescales >10 days are now becoming visible",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data alignment or recording error: event IDs, timestamps, or trial indices are systematically misaligned between instruments or across days, introducing false time-lag structure and destroying real correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs experienced genuine physical drift around day 18; other instruments remain noise-limited and independent",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "all four instruments measure white noise around stable means; the resonator_obs day-18 signal is a false positive within normal multi-test variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "silent calibration drift or systematic offset introduced after baseline (or before it was noticed) has destroyed expected inter-instrument correlations and introduced false time-lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "baseline period (days 1–10) was too short; slow environmental cycles or multi-day thermal coupling (timescale 10–30 days) are now becoming visible; resonator_obs is most sensitive because of its larger baseline variability",
+      "class": "environmental_change"
+    },
+    {
+      "label": "data alignment, timestamp corruption, or trial-sequence scrambling between instruments or across days has introduced false time-lag structure and destroyed real correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "resonator_obs experienced genuine physical drift around day 18; other instruments either measure decoupled quantities or are insensitive to the driver",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "all four instruments measure white noise around stable means; the resonator_obs day-18 signal is a false positive within normal multi-test variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "silent calibration drift, scaling error, or systematic offset introduced after baseline has altered resonator_obs readings and suppressed expected inter-instrument correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "baseline period (days 1–10) was too short; slow environmental cycles or multi-day thermal coupling on timescale 10–30 days are now visible; resonator_obs is most sensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "data alignment, timestamp corruption, or trial-sequence scrambling between instruments or across days has introduced false time-lag structure and destroyed real correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_obs hardware (frequency reference, thermal sensor, or readout electronics) experienced a step-change around day 18, followed by continued slow drift through day 31. Other instruments are decoupled or measure independent physical processes; all four instruments genuinely show white noise around slowly drifting or stepped means.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments are measuring white noise around stable means; today's resonator_obs cluster (3.95–3.97) is a random fluctuation and does not indicate continued drift. The day-18 discontinuity was a transient glitch or data labeling artifact. Cross-instrument correlations at non-zero lags are false positives from multiple hypothesis testing.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Post-baseline calibration drift or systematic scaling error affects resonator_obs disproportionately (and perhaps other instruments asymmetrically). A reference check or scale-factor adjustment was silently applied or drifted after day 10, decoupling all instruments and introducing false time-lag structure.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow environmental cycles (multi-day thermal lag, 5–7 day periods) or instrumental hysteresis present in the data; baseline period (10 days) was too short to establish true means. Resonator_obs is most sensitive; apparent white-noise profile masks underlying phase-shifted coupling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data alignment, timestamp corruption, or trial-sequence scrambling (particularly post-baseline or post-day-18 in resonator_obs) has introduced false time-lag structure and obscured real correlations. The day-18 resonator_obs shift is a labeling artifact or clock discontinuity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware degradation or component failure localized to that instrument around day 18, with continued slow drift thereafter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-18 step-change in resonator_obs is a real but transient calibration or environmental perturbation; post-baseline mean 4.0402 is the true equilibrium, and day-37 cluster (3.944) is a random fluctuation within noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Post-baseline calibration or scale-factor drift affecting resonator_obs disproportionately (and possibly other instruments asymmetrically), decoupling cross-instrument correlations and introducing false time-lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multi-day environmental cycles (thermal lag 5–7 days, seismic oscillations) or instrumental hysteresis masked by white-noise profile; baseline period was too short to capture true periods",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data alignment, timestamp corruption, or trial-sequence scrambling (particularly post-day-18 or post-baseline in resonator_obs) has introduced false time-lag structure and obscured real correlations; day-18 shift is a labeling artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware degradation or component failure localized to that instrument around day 18, with continued slow drift thereafter",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day-18 step-change in resonator_obs is a real but transient calibration or environmental perturbation; post-baseline mean 4.0402 is true equilibrium, and day-37–40 cluster (3.944) represents random fluctuation within noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Post-baseline calibration or scale-factor drift affecting resonator_obs disproportionately, decoupling cross-instrument correlations and introducing false time-lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multi-day environmental cycles (thermal lag 5–7 days, seismic oscillations) or instrumental hysteresis masked by white-noise profile; baseline period too short to capture true periods",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data alignment, timestamp corruption, or trial-sequence scrambling (particularly post-day-18 or post-baseline in resonator_obs) has introduced false time-lag structure and obscured real correlations; day-18 shift is a labeling artifact",
+      "class": "social_process"
+    }
+  ]
+}

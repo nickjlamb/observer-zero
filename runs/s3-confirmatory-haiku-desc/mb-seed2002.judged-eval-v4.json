@@ -1,0 +1,377 @@
+{
+  "source": "mb-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 12,
+    "items": [
+      {
+        "label": "Shared environmental perturbation (thermal, pressure, or humidity transient) with differential instrument response lag, now entering a new active phase",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared environmental perturbation (thermal, pressure, or humidity transient) with differential instrument response lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data processing, software, or calibration constant error introduced during days 12–16 (unit conversion, pipeline bug, or constant revision)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Observer error, protocol drift, or chronometer malfunction specific to one or more measurement teams, introducing systematic bias post-day-12",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Settlement-wide environmental shift (thermal, barometric, or humidity transient) with differential instrument response polarity and 3–4 day resonator lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum_lab apparatus undergoing localized degradation (bearing friction, optical path misalignment, amplitude damping) beginning day 12–16",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observer error, protocol drift, or chronometer malfunction specific to one or more measurement teams introduced day 12",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Each instrument or measurement location is drifting independently; level shifts at days 12–16 are independent local events, not coordinated environmental response",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental resonance or thermal hysteresis creating delayed feedback within each instrument",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Localized apparatus degradation in pendulum_lab (bearing friction, optical misalignment, or damping) beginning day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unknown systematic or instrumental anomaly not yet considered",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "Settlement-wide environmental transient (thermal, barometric, or humidity) with differential instrument response polarity and 3–4 day lag structure",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Measurement protocol or observer drift specific to pendulum_lab observer on Day 26 (fatigue, chronometer malfunction, or procedural lapse causing over-count on trial 400)",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental cyclicity with ~3–9 day period affecting all instruments differentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or setup difference between lab and observatory sites",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental resonance or thermal hysteresis creating delayed feedback within each instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Human operator bias or procedural drift in trial execution between sites",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise is higher than expected; correlations are statistical flukes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum-specific environmental or mechanical perturbation on day 11–12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change or operator swap at pendulum sites on day 11–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Underlying ~7–9 day environmental cyclicity, masked by day-12 perturbation (pendulum instruments only)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental resonance or thermal hysteresis within pendulum apparatus, triggered by day-11–12 perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise dominates; all cross-instrument correlations and auto-correlations are statistical flukes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day-16 operator or environmental transient specific to pendulum_obs",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs observer or instrumentation malfunction on day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual noise or statistical fluctuation in pendulum_obs endpoint",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are drifting together toward lower values, decoupled from the pendulum shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation around day 12–16 affecting gravitational or inertial measurement systematically: pendulums lengthen (lower g or slower time), resonators shorten (higher damping or coupled mechanical change). The 4-day lag in cross-instrument correlations reflects differential thermal or mechanical response times between pendulum and resonator systems.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent instrumental drifts: day-12 pendulum recalibration or apparatus change (affecting both lab and observatory equally), and separate day-16 resonator damping or mechanical loosening (affecting both resonators equally). The negative correlation is a mathematical consequence of one instrument class rising and another falling, not evidence of a common cause.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement protocol or observer drift beginning around day 12, affecting all four streams but manifesting differently: pendulum observers begin systematically over-counting beats (inflating readings), while resonator observers or instruments begin under-counting cycles (deflating readings). The 4-day lag reflects different observer awareness or instrument response.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental artifact or data processing error introduced during days 12–16: e.g., a software or calibration constant was applied to all pendulum readings starting day 12, and a different constant to all resonator readings starting day 16. The raw physical measurements may be unchanged; the shifts reflect metadata or processing, not reality.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random sampling fluctuation in the endpoint data (trials 91–96 on day 16 for pendulum_obs; trials 109–114 on day 19 for resonator_obs), confounded with a genuine but small environmental transient that is real but below the threshold of strong evidence.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation (days 12–16) with differential lag: a thermal transient, pressure shift, or humidity change affecting gravitational or inertial measurement, with pendulums responding faster (~day 12) and resonators responding ~4 days later (~day 16).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent instrumental drifts: day-12 pendulum recalibration or apparatus change (affecting both lab and observatory), and separate day-16 resonator damping or mechanical change (affecting both resonators), with negative correlation being a mathematical artifact of opposite directions, not evidence of common cause.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement protocol or observer drift: starting around day 12, pendulum observers begin systematically over-counting beats (or using a fast chronometer), while resonator observers or instruments begin under-counting cycles (or using a slow chronometer), with the 4-day lag reflecting different observer awareness or instrument response times.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data processing or calibration constant error introduced during days 12–16: a software bug, unit conversion error, or calibration constant applied to all pendulum readings starting day 12 and all resonator readings starting day 16, with raw measurements unchanged.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random sampling variance confounded with small, transient environmental events below threshold of strong effect: the level shifts are statistically significant but may partly reflect sampling fluctuation and partly reflect brief, localized perturbations (thermal spike, air current, mechanical vibration) that do not represent sustained physical changes.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, pressure, or humidity transient) with differential instrument response lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent instrumental drifts: day-12 pendulum recalibration or apparatus change, day-16 resonator damping or mechanical change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, software, or calibration constant error introduced during days 12–16 (unit conversion, pipeline bug, or constant revision)",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement protocol or observer drift: day-12 pendulum observers begin systematically over-counting beats (or fast chronometer); day-16 resonator observers begin under-counting (or slow chronometer)",
+      "class": "self_error"
+    },
+    {
+      "label": "Random sampling variance convoluted with brief, transient perturbations below sustained effect threshold",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, pressure, or humidity transient) with differential instrument response lag, now entering a new active phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab apparatus undergoing new drift or damage phase beginning ~Day 25–26 (bearing friction, optical wear, or mechanical shift), independent of resonator changes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing, software, or calibration constant error introduced during days 12–16, now compounded by a *new* secondary error or unit revision applied only to pendulum_lab readings beginning Day 26",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer drift specific to pendulum_lab observer on Day 26 (fatigue, chronometer malfunction, or procedural lapse causing over-count on trial 400)",
+      "class": "self_error"
+    },
+    {
+      "label": "Random sampling variance convoluted with a genuine but brief instrumental transient (mechanical vibration, thermal spike) on Day 26 affecting only trial 400",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic or instrumental anomaly not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide environmental shift (thermal or barometric) with differential lag and instrument-specific response polarity — days 12–16 mark onset of a new equilibrium state",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration constant revision or unit-system error introduced around day 12 and persisting through today, affecting all streams but with stream-specific multipliers or offsets",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab apparatus undergoing localized degradation (bearing, optical path, damping) beginning ~day 12–16, now producing elevated variance; resonators unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer error, protocol drift, or chronometer malfunction specific to one or more measurement teams, introducing systematic bias post-day-12",
+      "class": "self_error"
+    },
+    {
+      "label": "True but unidentified instrumental transient or settlement event around day 12–16 (seismic activity, electrical noise, barometric front) affecting all apparatus with differential time-constant responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide environmental shift (thermal, barometric, or humidity transient) with differential instrument response polarity and 3–4 day resonator lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration constant revision or unit-system error introduced day 12–16, applied selectively to pendulum vs. resonator processing pipelines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab apparatus undergoing localized degradation (bearing friction, optical path misalignment, amplitude damping) beginning day 12–16",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer error, protocol drift, or chronometer malfunction specific to one or more measurement teams introduced day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "True but unidentified instrumental transient or settlement event (seismic activity, electrical surge, atmospheric front, barometric impulse) around day 12–16 with differential time-constant responses",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide environmental transient (thermal, barometric, or humidity) with differential instrument response polarity and 3–4 day lag structure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration constant revision or data processing error selectively applied to pendulum vs. resonator pipelines around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized apparatus degradation in pendulum_lab (bearing friction, optical misalignment, or damping) beginning day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer error, protocol drift, or chronometer miscalibration introduced by measurement team(s) around day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Unidentified instrumental or settlement transient (seismic, electromagnetic, barometric impulse) with mechanism not yet characterized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide environmental transient (thermal, barometric, or humidity) with independent spatial heterogeneity masking cross-instrument coherence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument or measurement location is drifting independently; level shifts at days 12–16 are independent local events, not coordinated environmental response",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Calibration constant revision or data processing error selectively applied to pendulum vs. resonator pipelines around day 12–16, with spatial clustering of processing branches",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement-team protocol drift, chronometer miscalibration, or procedural change applied independently at each measurement location around day 12–16",
+      "class": "self_error"
+    },
+    {
+      "label": "Localized apparatus degradation (bearing friction, damping, optical misalignment) at each measurement location, proceeding on independent timescales",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: uncharacterized instrumental or settlement transient (seismic, electromagnetic, barometric impulse, or novel mechanism) with unknown correlation structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spatially heterogeneous environmental transient (thermal, barometric, or humidity gradient) with independent temporal evolution at pendulum vs. resonator apparatus locations, combined with measurement-location-specific environmental coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent localized environmental or measurement-apparatus perturbations at each of the four measurement locations (pendulum_lab, pendulum_obs, resonator_lab, resonator_obs), occurring within ~3–4 days of each other by temporal coincidence rather than causal coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration-constant revision or data-processing multiplicative error (pendulum × 1.035 applied ~day 12, resonator × 0.966 applied ~day 16) in separate processing pipelines, with no error in the underlying apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Apparatus-specific mechanical or optical degradation (bearing friction, damping, stiffening, optical misalignment) occurring independently at each of the four measurement locations, with temporal clustering by coincidence.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer-team protocol drift, chronometer miscalibration, or measurement-procedure change applied independently (and by temporal coincidence) at each measurement location around days 12–16.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: uncharacterized instrumental transient, settlement-wide environmental mechanism with unknown spatial/temporal structure, or novel measurement-system interaction not yet identified.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

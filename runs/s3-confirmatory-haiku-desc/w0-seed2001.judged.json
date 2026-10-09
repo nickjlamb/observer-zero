@@ -1,0 +1,289 @@
+{
+  "source": "w0-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Uncontrolled environmental variable (temperature, humidity, vibration, electromagnetic) couples differently to lab and obs channels, creating spurious anti-correlation or noise masking true signal",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Lab and observation apparatus couple to genuinely different physical modes or environmental exposures (e.g., shielded vs. ambient environment); 50% offsets and negative cross-correlations reflect anti-correlated environmental driving rather than noise independence.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic error in autocorrelation computation, lag interpretation, or calibration procedure: sign error, indexing error, or off-by-one mistake in lag calculation; or zero-offset error applied uniformly to all channels.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Lab and observation setups measure genuinely different physical quantities due to apparatus geometry, exposure regime, or measurement principle; 50% systematic offsets reflect different effective degrees of freedom, and negative cross-correlation may reflect anti-correlated environmental coupling rather than noise",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "True physical signal is weak relative to experimental noise; trial count (n=60–156 per phase) and measurement resolution (0.0001 smallest spacing) are below threshold to resolve signal or inter-instrument coupling",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline period too short (Days 1–10, n=60–68): apparatus were experiencing slow environmental transient, sensor drift, or mechanical settling on a 5–14 day timescale; baseline statistics are biased; post-baseline comparisons are invalid",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Noise dominance with lag-mining artifacts: all four instruments measure predominantly noise (uncorrelated channels + quantization artifacts); negative autocorrelations at 5–14 day lags are mining artifacts from repeated offset testing on noise-dominated finite samples.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline period (days 1–10, n=60–68 per instrument) was too short or captured a transient regime; true instrument offset or slow drift was not resolved, masking inter-instrument agreement and confounding autocorrelation analysis",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Trial count (n=60–156 per phase) and measurement resolution (0.0001 smallest spacing) are statistically underpowered; apparatus functions correctly but SNR is too low to distinguish true signal from noise.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 29,
+  "l4Judged": 29,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Calibration offset or systematic bias between lab and observation setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure different physical quantities or operate in incompatible regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement noise or resolution artifacts dominate; true signal buried",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Temporal lag structure in physical system; information propagates between measurement domains with delay",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise dominates signal; autocorrelations are spurious from multiple-offset mining",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observation setups measure genuinely different physical quantities (different regimes or measurement principles)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic calibration error or instrument malfunction in one or more channels; baseline period inadequate to establish true offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical signal is weak; experimental design (trial count, sampling rate, apparatus sensitivity) is below threshold to resolve it",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled environmental variable (temperature, humidity, vibration, electromagnetic) couples differently to lab and obs channels, creating spurious anti-correlation or noise masking true signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise dominates signal; negative autocorrelations and weak cross-correlations are artifacts of multiple-offset mining on weak or purely random data",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observation setups measure genuinely different physical quantities due to different apparatus geometry, exposure regime, or measurement principle; large constant offsets (50% between pairs) reflect different effective degrees of freedom, not miscalibration",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline period (days 1–10, n=60–68 per instrument) was too short or captured a transient regime; true instrument offset or slow drift was not resolved, masking inter-instrument agreement and confounding autocorrelation analysis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical signal is weak relative to experimental noise; trial count (n=60–156 per phase) and measurement resolution (0.0001 smallest spacing) are below threshold to resolve signal or inter-instrument coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled environmental variable (temperature, humidity, vibration, electromagnetic) couples differently to lab and obs channels, creating spurious anti-correlation or independent noise masking true signal; 5–13 day lag structure reflects thermal or mechanical time constant of apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Noise dominates signal; negative autocorrelations and weak cross-correlations are statistical artifacts of multiple-offset mining on data with insufficient signal-to-noise ratio",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observation setups measure genuinely different physical quantities due to apparatus geometry, exposure regime, or measurement principle; 50% systematic offsets reflect different effective degrees of freedom, and negative cross-correlation may reflect anti-correlated environmental coupling rather than noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10, n=60–68 per instrument) was too short or captured a transient regime; true instrument offset, sensitivity drift, or slow environmental transient was not resolved, rendering the baseline reference inaccurate and confounding all post-baseline comparisons",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Trial count (n=60–156 per phase) and measurement resolution (0.0001 smallest spacing) are below statistical and instrumental threshold to resolve true signal; apparatus is functioning correctly but underpowered to distinguish signal from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled environmental variable (temperature, humidity, vibration) couples differently to lab and obs apparatus, creating inter-instrument noise independence and 5–13 day lag structure reflecting thermal or mechanical time constants of apparatus housings or sensor packages",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Negative autocorrelations are artifacts of multiple-offset mining on noise-dominated data; cross-instrument disagreement reflects independent noise channels, not different physical quantities.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observation apparatus couple to genuinely different physical modes or environmental exposures (e.g., shielded vs. ambient environment); 50% offsets and negative cross-correlations reflect anti-correlated environmental driving rather than noise independence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10, n=60–68 per instrument) was too short to establish a stable reference; slow environmental transient, sensor calibration drift, or mechanical settling on 5–14 day timescale biased the baseline and confounds all post-baseline statistics.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial count (n=60–156 per phase) and measurement resolution (0.0001 smallest spacing) are statistically underpowered; apparatus functions correctly but SNR is too low to distinguish true signal from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol, data logging, or instrument firmware contains a systematic bug or unintended digital filter that induces anti-persistent structure and decorrelates cross-instrument pairs; the negative autocorrelation and cross-instrument disagreement are artifacts of the measurement system itself, not the physical apparatus.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic error in experimental design, calibration, or statistical methodology not yet considered.",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement pipeline artifact: systematic bug or unintended digital filter in data logging, firmware, or analysis code induces negative autocorrelation structure and decorrelates cross-instrument pairs despite apparatus functioning correctly.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Noise dominance with lag-mining artifacts: all four instruments measure predominantly noise (uncorrelated channels + quantization artifacts); negative autocorrelations at 5–14 day lags are mining artifacts from repeated offset testing on noise-dominated finite samples.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab vs. observation apparatus measure different physical modes or couple to different environmental transduction pathways (shielded vs. ambient exposure); 50% offsets and decorrelation reflect genuinely distinct quantities, not noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10, n=60–68) too short; slow environmental transient, sensor drift, or mechanical settling on 5–14 day timescale biased baseline and confounds post-baseline statistics.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical underpowerment: trial count (n=60–156 per phase) and measurement resolution too coarse relative to true signal size; apparatus functions correctly but SNR insufficient to resolve signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in statistical methodology, autocorrelation computation, or calibration procedure not yet identified.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified systematic error or physical phenomenon not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement pipeline artifact: systematic error in data logging, firmware filtering, or analysis code applied uniformly to all four channels before data reaches me.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Noise dominance with lag-mining artifacts: apparatus measure primarily instrument noise and quantization artifacts; negative autocorrelations are statistical mining artifacts from repeated offset testing on noise-dominated finite samples.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline period too short (days 1–10, n=60–68): slow environmental transient, sensor drift, or mechanical settling on 5–14 day timescale biased baseline statistics and confounds post-baseline comparisons.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab vs. observation apparatus measure different physical modes or couple to different environmental transduction pathways; 50% offsets and decorrelation reflect genuinely distinct quantities.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in autocorrelation computation, lag interpretation, or calibration procedure: sign error, indexing error, or off-by-one mistake in lag calculation; or zero-offset error applied uniformly to all channels.",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical underpowerment: trial count (n=60–156 per phase) and measurement resolution too coarse; apparatus function correctly but SNR insufficient to resolve signal; negative autocorrelations are sampling artifacts.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic error, computational mistake, or physical phenomenon not yet considered.",
+      "class": "other"
+    },
+    {
+      "label": "Measurement pipeline artifact: systematic error in data logging, firmware filtering, time-stamping, or demultiplexing applied uniformly downstream of all four independent apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period too short (Days 1–10, n=60–68): apparatus were experiencing slow environmental transient, sensor drift, or mechanical settling on a 5–14 day timescale; baseline statistics are biased; post-baseline comparisons are invalid",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Noise dominance with lag-mining artifacts: apparatus measure primarily quantization noise and instrument noise; negative autocorrelations are statistical artifacts from repeated offset testing on noise-dominated samples (n=36–84 per lag, repeated across 10+ offsets)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic error in autocorrelation computation, lag interpretation, or calibration: sign error, off-by-one indexing error, or uniform zero-offset applied during calibration or data normalization",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab vs. observation apparatus measure genuinely distinct physical modes or couple to different environmental transduction pathways; 50% offsets and decorrelation reflect real physical differences, not systematic errors",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unidentified systematic error, computational mistake, or physical phenomenon not yet considered (e.g., firmware interaction, timestamp confusion, resonance artifact specific to settlement environment)",
+      "class": "other"
+    }
+  ]
+}

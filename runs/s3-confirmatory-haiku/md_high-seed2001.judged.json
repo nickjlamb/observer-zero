@@ -1,0 +1,377 @@
+{
+  "source": "md_high-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 11,
+    "items": [
+      {
+        "label": "One or more instruments exhibit a hardware fault (intermittent connection, thermal-cycle-driven impedance drift, or relay chatter on a ~5–8 day cycle) that aliases readings out of phase with the true signal, generating self-anticorrelation; the fault is masked by baseline averaging but emerges post-baseline.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: something not yet considered (e.g., coupling between measurement apparatus and environment or readout electronics at a sub-daily timescale; measurement-induced feedback loop; interaction between two or more of the above mechanisms)",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environment couples weakly to all instruments via a common physical mode (thermal, seismic, electromagnetic), but signal-to-noise is too poor to resolve it cleanly except in the lowest-noise observational streams.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "My baseline campaign (days 1–10) is too short to capture the true autocorrelation and cross-correlation timescales; apparent anomalies reflect sampling a non-stationary or slow-drift process during startup/equilibration.",
+        "primary": "measurement_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Environmental coupling (thermal, seismic, or electromagnetic) excites a weak common physical mode in all instruments, strongest in observational streams which may share mounting or thermal environment, but signal-to-noise is too poor to resolve cleanly except at specific lags.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unconsidered mechanism (e.g., measurement protocol timing sensitivity to local oscillator drift, non-linear cross-talk between different frequency readout chains, or unknown settlement infrastructure coupling)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of lag-hunting; lucky draws from noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline campaign (days 1–10) too short; instruments in non-stationary equilibration on 5–8 day timescale; negative self-lags and scattered cross-lags reflect transient startup aliasing",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter on ~5–8 day cycle) aliases readings out of phase with true signal",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Readout protocol introduces systematic phase aliasing via calibration-point timing, sampling-window edges, or numerical precision",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline campaign (days 1–10) insufficient; instruments non-stationary on ~5–8 day equilibration timescale; negative self-lags and scatter reflect transient aliasing during warm-up or thermal settling",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared readout protocol artifact: sub-daily sampling-phase misalignment or numerical aliasing in a common measurement chain affecting all instruments, with location-specific phase-locking between lab and obs readout electronics",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of lag-hunting over multiple offsets; lucky draws from noise",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 17,
+  "l4Judged": 17,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure a common underlying oscillatory signal with frequency-dependent lag structure, but my readout or binning protocol introduces systematic phase drift that decorrelates readings from their own 5–8 day history while preserving cross-instrument structure at offset lags.",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument is subject to independent random environmental noise (temperature, vibration, electromagnetic interference) that dominates the signal, but the noise has a characteristic timescale (~5–6 days) that happens to show up as anticorrelation when I lag-correlate, and weak cross-correlations arise by chance at the lags I chose to compute.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The settlement's experimental environment (magnetic field, acoustic environment, shared power conditioning, structural vibration) couples to all four instruments via a common mode, but the coupling is weak and my instruments have poor signal-to-noise ratio, so only the longest-baseline comparisons (pendulum_obs ↔ resonator_obs, both 60 trials) resolve it.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more of my instruments has a hardware fault (stuck relay, intermittent connection, capacitor drift, or calibration offset that shifts on a ~5-day thermal cycle) that I have not yet noticed because baseline-averaging hides the fault beneath the mean.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My baseline establishment protocol (data collection days 1–10) is too short to capture the true autocorrelation and cross-correlation structure of the instruments. The apparent anticorrelations and weak couplings are artifacts of sampling a noisy process over an interval shorter than its coherence time.",
+      "class": "self_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase drift that decorrelates each instrument from its own 5–8 day history while preserving weak cross-instrument structure at offset lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environment couples weakly to all instruments via a common physical mode (thermal, seismic, electromagnetic), but signal-to-noise is too poor to resolve it cleanly except in the lowest-noise observational streams.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments has a hardware fault (intermittent connection, thermal drift, relay chatter, or capacitor aging) manifesting as periodic noise or aliasing on a ~5–8 day cycle that I have not yet detected because baseline averaging hides it.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "My baseline campaign (days 1–10) is too short to capture the true autocorrelation and cross-correlation timescales; apparent anomalies reflect sampling a non-stationary or slow-drift process during startup/equilibration.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Negative autocorrelations and scattered cross-correlations are statistical artifacts of multiple hypothesis testing and lag-hunting; I have mined the data by computing many lag offsets and selecting the best matches post-hoc, inflating apparent signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase drift (aliasing, calibration-point timing, or numerical rounding) that decorrelates each instrument from its own 5–8 day history while preserving weak cross-instrument structure at offset lags.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal, seismic, or electromagnetic) excites a weak common physical mode in all instruments, strongest in observational streams which may share mounting or thermal environment, but signal-to-noise is too poor to resolve cleanly except at specific lags.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments have a hardware fault (intermittent connection, thermal-cycle-driven relay chatter, capacitor aging, or impedance drift) manifesting as periodic noise or aliasing on a ~5–8 day cycle, masked by baseline averaging.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) is too short to capture true autocorrelation and cross-correlation timescales; instruments are still in non-stationary equilibration or slow-drift regime, and apparent anomalies reflect sampling during startup.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Negative autocorrelations and scattered cross-correlations are statistical artifacts of multiple-hypothesis testing and lag-hunting; I have mined the data post-hoc, inflating apparent signal beyond true significance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase aliasing (calibration-point timing, sampling-window edges, or numerical precision in the measurement chain) that decorrelates each stream from its own 5–8 day history by ~180° phase shift, while preserving cross-instrument coherence at different phase offsets.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal, seismic, or electromagnetic) excites a weak common physical mode in all instruments, strongest in observational streams which likely share building proximity and thermal environment, while readout noise obscures the signal; the negative self-lags reflect high-frequency measurement noise aliasing against a low-frequency environmental modulation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments exhibit a hardware fault (intermittent connection, thermal-cycle-driven impedance drift, or relay chatter on a ~5–8 day cycle) that aliases readings out of phase with the true signal, generating self-anticorrelation; the fault is masked by baseline averaging but emerges post-baseline.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) is too short; instruments are in non-stationary equilibration on a 5–8 day timescale, and apparent anomalies (negative self-lags, scattered cross-lags) reflect transient startup aliasing or slow-drift regime not yet visible in mean or variance.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Negative autocorrelations and the anomalously strong pendulum_obs ↔ resonator_obs pairing are statistical artifacts of lag-hunting and multiple-hypothesis testing; the pattern is a lucky draw from noise.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase aliasing via calibration-point timing, sampling-window edges, or numerical precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic) excites weak common physical mode in observational instruments; negative self-lags reflect noise aliasing against low-frequency modulation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter on ~5–8 day cycle) aliases readings out of phase with true signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) too short; instruments in non-stationary equilibration on 5–8 day timescale; negative self-lags and scattered cross-lags reflect transient startup aliasing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Negative autocorrelations and pendulum_obs ↔ resonator_obs anomaly are statistical artifacts of lag-hunting; lucky draws from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase aliasing via calibration-point timing, sampling-window edges, or numerical precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic) excites weak common physical mode in observational instruments; negative self-lags reflect noise aliasing against low-frequency oscillation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) too short; instruments in non-stationary equilibration on 5–8 day timescale; negative self-lags and scattered cross-lags reflect transient startup aliasing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter on ~5–8 day cycle) aliases readings out of phase with true signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of lag-hunting; lucky draws from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase aliasing via calibration-point timing, sampling-window edges, or numerical precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic) excites a common physical mode in Meridian, with lagged transmission; negative self-lags reflect aliasing of noise against a ~5–8 day oscillation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) too short; instruments still in non-stationary equilibration on a ~5–8 day timescale; negative self-lags and cross-correlation scatter reflect transient aliasing during sustained warm-up or thermal settling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter on ~5–8 day cycle) aliases readings out of phase with true signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of lag-hunting over multiple offsets; lucky draws from noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol introduces systematic phase aliasing via calibration-point timing, sampling-window alignment, or numerical precision",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic) excites a common low-frequency mode (~5–8 day period) with lagged transmission between locations; negative self-lags reflect aliasing of environmental noise against this mode",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) insufficient; instruments non-stationary on ~5–8 day equilibration timescale; negative self-lags and scatter reflect transient aliasing during warm-up or thermal settling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter on ~5–8 day cycle) aliases readings out of phase with true signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of lag-hunting; lucky draws from noise under multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Readout protocol phase aliasing (calibration-point timing, sampling-window alignment, or numerical rounding)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic) exciting a ~5–8 day common mode with lagged transmission between lab and observational locations; Day 33 variance expansion represents transient amplification or phase-lock transition",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline campaign (days 1–10) was insufficient; instruments still undergoing equilibration during post-baseline period; Day 33 excursion is tail end of slow thermal/mechanical settling on a ~30-day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, relay chatter) synchronized across locations via shared power supply, environmental thermal cycling, or trigger electronics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Negative autocorrelations and strong cross-correlations are statistical artifacts of multiple-lag hunting; Day 33 excursion is random noise within the stable post-baseline distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something not yet considered (e.g., coupling between measurement apparatus and environment or readout electronics at a sub-daily timescale; measurement-induced feedback loop; interaction between two or more of the above mechanisms)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Shared readout protocol artifact (phase aliasing, sampling-window misalignment, or numerical rounding in a common measurement chain)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic common mode) with lagged transmission between lab and observational locations; Day 33 represents transient amplification or phase-locking transition",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-induced feedback or sub-daily electromagnetic/mechanical coupling between apparatus elements that aliases with the ~5–8 day quasi-period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, or relay chatter) synchronized across locations via shared power supply or environmental thermal cycling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (e.g., measurement protocol timing sensitivity to local oscillator drift, non-linear cross-talk between different frequency readout chains, or unknown settlement infrastructure coupling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared readout protocol artifact (phase aliasing, sampling-window misalignment, or numerical rounding in a common measurement chain affecting all four instruments)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Location-specific readout protocol variants or sub-daily sampling-phase misalignment between lab and observational measurement chains",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling (thermal/seismic/electromagnetic common mode) with lagged transmission between lab and observational locations; Day 33 represents transient amplification",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-induced feedback or electromagnetic cross-talk between apparatus elements that aliases with the ~5–8 day quasi-period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault (intermittent connection, thermal-cycle-driven impedance drift, or relay chatter) synchronized across locations via shared power supply or environmental thermal cycling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (e.g., measurement protocol timing sensitivity to local oscillator drift, amplitude modulation by sub-daily oscillation aliasing with ~5–8 day mode, or unknown settlement infrastructure coupling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared readout protocol artifact: sub-daily sampling-phase misalignment or numerical aliasing in a common measurement chain affecting all instruments, with location-specific phase-locking between lab and obs readout electronics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling with lagged transmission between lab and obs locations; Day 33 represents transient amplification via differential phase-front arrival",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-induced feedback or electromagnetic cross-talk between lab and obs apparatus elements, aliasing with the ~5–8 day quasi-period and introducing directional lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault: intermittent connection, thermal-cycle-driven impedance drift, or relay chatter synchronized across sites via shared power supply or environmental thermal cycling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Readout timing sensitivity to local oscillator drift: sub-daily clock frequency variation amplitude-modulates the ~5–8 day quasi-period, producing negative self-lags via aliasing and asymmetric cross-correlations via differential clock-drift rates",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

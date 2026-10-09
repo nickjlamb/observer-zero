@@ -1,0 +1,152 @@
+{
+  "source": "md_low-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity or operates in a sufficiently decoupled measurement context",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data recording or logging artifact: correlations reflect sampling, time-stamping, or file handling errors rather than physical phenomena",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data recording, time-stamping, or trial ordering artifact masking or obscuring true physical correlations",
+        "primary": "social_process",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 8,
+  "l4Judged": 8,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal; weak correlations reflect low signal-to-noise ratio",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic error or environmental coupling: all four instruments respond to a hidden common driver with different phase lags or gains",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or logging artifact: correlations reflect sampling, time-stamping, or file handling errors rather than physical phenomena",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity or operates in a sufficiently decoupled measurement context",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal across all four streams; weak correlations reflect low signal-to-noise ratio with small common signal buried in noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic environmental coupling: all four instruments respond to a hidden common driver (temperature, vibration, humidity, magnetic field variation) with different phase lags or transfer functions",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording, time-stamping, or trial ordering artifact masking or obscuring true physical correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity or operates in a sufficiently decoupled measurement context",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise dominates signal; weak correlations reflect low SNR with small common signal buried in noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown systematic environmental coupling: all four instruments respond to a hidden common driver (temperature, vibration, humidity, magnetic field) with different phase lags or transfer functions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording, time-stamping, or trial ordering artifact masking or obscuring true physical correlations",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrumentation isolation: each apparatus measures a genuinely independent physical quantity or operates in sufficiently decoupled measurement context.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The pendulum_lab ↔ resonator_obs correlation (r=0.452) is a genuine weak coupling between these two observables, buried in noise.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise dominates signal across all four streams; the pendulum_lab ↔ resonator_obs correlation is a noise-induced false positive (statistical fluctuation at the boundary of expectation).",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial assignment error or lag-matching artifact: the 3-day offset between pendulum_lab and resonator_obs that produced r=0.452 is an artifact of the lag-search procedure itself (multiple comparisons bias, or misalignment of trial numbering across apparatus).",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unrecognized systematic (calibration drift in one apparatus, unlogged environmental event, or physical coupling I have not yet modeled).",
+      "class": "incomplete_theory"
+    }
+  ]
+}

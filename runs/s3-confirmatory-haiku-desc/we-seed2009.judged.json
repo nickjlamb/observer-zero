@@ -1,0 +1,335 @@
+{
+  "source": "we-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Shared environmental stressor (thermal, vibrational, or humidity) localized to obs instruments' physical location or mounting system",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "resonator_obs apparatus has sensitivity to a post-day-10 environmental change (temperature, humidity, vibration, or electromagnetic field) distinct from the environment of resonator_lab",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unidentified environmental or instrumental stressor affecting pendulum_obs after day 10",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline collection (days 1–10) followed a repeating weekly schedule (same day-of-week, warm-up routine, operator shift), creating systematic 7-day periodicity in pendulum_lab that persists in autocorrelation at 7-day lag. Obs instruments experienced independent environmental degradation post-day-10 (thermal drift, humidity creep, or vibration sensitivity change) localized to obs zone, unrelated to lab stability or baseline timing artifact.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Obs instruments possess higher thermal sensitivity (higher temperature coefficient of frequency or resonance) than lab instruments. A facility-wide temperature rise post-day-10 affects all instruments, but is visible only in obs instruments because their thermal coefficient is 5–10× larger. Lab instruments' thermal response is subthreshold compared to measurement noise. Pendulum_lab periodicity reflects baseline collection schedule, unrelated to thermal drift.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum_lab's 42-trial exact repetition run (chance 0–1) indicates measurement protocol repetition or data logging/timestamp aliasing at trial level, not physical measurement. The 7-day autocorrelation reflects this same aliasing structure. Obs instruments drift due to independent environmental change, but resonator_obs's 14-day autocorrelation and 18-trial exact repetition suggest resonator_obs also contains protocol-level periodicity (e.g., weekly calibration trigger, recalibration warm-up cycle) distinct from pendulum_obs.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unmeasured environmental variable with selective spatial effect on obs zone post-day-10: solar heating of obs bench from afternoon window exposure, HVAC redistribution, external vibration source, or stray electromagnetic field. This environmental change affects obs instruments but not lab instruments (thermally shielded, electromagnetically isolated, or located in different room). Baseline periodicity is collection cadence artifact unrelated to environmental change.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline (days 1–10) included measurement protocol or apparatus state that is not representative of stable operation, artificially inflating baseline mean and creating apparent post-baseline drift when apparatus reached true equilibrium post-day-10",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Metadata, trial-sequencing, or procedural artifact: baseline (days 1–10) and post-baseline cohorts collected under systematically different conditions (time of day, operator, apparatus initialization, environmental context)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Obs instruments' transducers or measurement circuits have higher thermal sensitivity than lab counterparts, and both are exposed to a facility-wide post-day-10 temperature rise (e.g., HVAC change, seasonal effect, or external heat load) that affects all instruments but manifests as drift only in obs because of their higher thermal coefficient",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared environmental stressor affecting both obs instruments in a common location or mounting system (thermal drift, humidity, vibration, or power supply instability) distinct from lab environment",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 22,
+  "l4Judged": 22,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or zero-point error differs between lab and observatory instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temporal correlations (offsets, echoes) are statistical noise from small sample sizes and multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Laboratory and observatory environments are genuinely measuring different physical quantities or conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or trial-sequencing error: trials from the two sites were interleaved or mislabeled",
+      "class": "self_error"
+    },
+    {
+      "label": "pendulum_obs instrumental degradation or calibration drift specific to that device",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical fluctuation in a small post-baseline sample (n=18 for pendulum_obs) producing spurious drift signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "pendulum_obs and pendulum_lab are not measuring the same physical quantity due to geometry, mounting, or environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial sequencing, labeling, or metadata error specific to pendulum_obs post-baseline cohort",
+      "class": "self_error"
+    },
+    {
+      "label": "Unidentified environmental or instrumental stressor affecting pendulum_obs after day 10",
+      "class": "environmental_change"
+    },
+    {
+      "label": "resonator_obs underwent a discrete calibration, mechanical, or environmental change around day 14, independent of resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs exhibits genuine instrumental degradation or calibration drift (separate from resonator anomaly) starting between days 10–11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs and pendulum_lab measure distinct physical quantities or operate in separate environments, making drift comparison invalid",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Metadata, trial sequencing, or labeling error in post-baseline cohorts (pendulum_obs and/or resonator_obs), leading to spurious drift or level shift signals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental stressor (temperature, humidity, vibration, power supply, magnetic field) changed after day 10 and affects pendulum_obs and/or resonator_obs asymmetrically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs and resonator_obs share a common instrumental or environmental degradation mode unrelated to their lab counterparts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs apparatus has temperature-dependent zero-point or gain error, independent of pendulum_lab and unrelated to resonator_obs drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs apparatus has sensitivity to a post-day-10 environmental change (temperature, humidity, vibration, or electromagnetic field) distinct from the environment of resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "post-baseline cohorts (pendulum_obs and resonator_obs) contain trials drawn from different time windows, apparatus states, or operating conditions than the baseline cohorts, leading to apparent drift rather than true instrumental change",
+      "class": "self_error"
+    },
+    {
+      "label": "some unmeasured confound (unlogged environmental variable, observer bias, apparatus interaction, or systematic error not yet identified) drives the obs-vs-lab divergence",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "pendulum_obs and resonator_obs instruments occupy a shared physical environment or mounting system distinct from their lab counterparts and are exposed to a common environmental stressor (thermal drift, humidity sensitivity, shared power supply instability, or mechanical wear) affecting both post-baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs apparatus exhibits temperature-dependent calibration or zero-point drift independent of pendulum_lab, unrelated to resonator_obs behavior.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs apparatus is sensitive to post-day-10 environmental change (temperature, humidity, vibration) distinct from resonator_lab environment; pendulum_obs drift arises from independent mechanism.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Metadata or trial-sequencing artifact: post-baseline cohorts were collected under different time-of-day, operator, or apparatus-state conditions than baseline cohorts, creating apparent drift without true instrumental change.",
+      "class": "social_process"
+    },
+    {
+      "label": "Unmeasured or unlogged environmental variable (building settling, unmonitored HVAC changes, solar heating variation, electromagnetic field drift, or cross-instrument coupling via shared electronics) drives obs-specific drift pattern.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental stressor affecting both obs instruments in a common location or mounting system (thermal drift, humidity, vibration, or power supply instability) distinct from lab environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "pendulum_obs exhibits independent temperature-dependent calibration or zero-point drift in its period-measurement circuit (thermistor, oscillator, or thermal expansion of pendulum rod), unrelated to resonator_obs behavior",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs apparatus is sensitive to post-day-10 environmental change (temperature shift, sustained vibration, or humidity rise) in its location or mounting, distinct from resonator_lab environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Metadata, trial-sequencing, or procedural artifact: baseline (days 1–10) and post-baseline cohorts were collected under systematically different conditions (time of day, operator, apparatus initialization state, or environmental context) creating apparent drift without true instrumental change",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured or unlogged environmental variable (solar heating variation, HVAC onset or change, structural settling, electromagnetic field drift, or unrecognized cross-instrument coupling via shared electronics or calibration reference)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental stressor (thermal, vibrational, or humidity) localized to obs instruments' physical location or mounting system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_obs exhibits independent temperature-dependent drift in its period-measurement electronics or pendulum rod, decoupled from resonator_obs behavior",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs apparatus is sensitive to post-day-10 localized environmental change (thermal or vibrational) distinct from resonator_lab environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Metadata, trial-sequencing, or procedural artifact: baseline (days 1–10) and post-baseline cohorts collected under systematically different conditions (time of day, operator, apparatus initialization, environmental context)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured or unlogged environmental variable (solar heating variation, HVAC onset or change, structural settling, electromagnetic field drift, or unrecognized cross-instrument coupling via shared electronics)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared environmental stressor (thermal, vibrational, or humidity) localized to the obs instruments' physical location or mounting substrate, independent of lab instruments' environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic difference in apparatus initialization, warm-up time, or electrical settling between baseline (days 1–10) and post-baseline collection, affecting only obs instruments due to their different operational context (e.g., longer idle time, cold-start bias, or different operator)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Obs instruments' transducers or measurement circuits have higher thermal sensitivity than lab counterparts, and both are exposed to a facility-wide post-day-10 temperature rise (e.g., HVAC change, seasonal effect, or external heat load) that affects all instruments but manifests as drift only in obs because of their higher thermal coefficient",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured or unlogged environmental variable with localized or selective effect on obs zone (e.g., solar heating of obs bench, HVAC duct proximity, external vibration source activated post-day-10, or electromagnetic field drift affecting obs transducers)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline (days 1–10) included measurement protocol or apparatus state that is not representative of stable operation, artificially inflating baseline mean and creating apparent post-baseline drift when apparatus reached true equilibrium post-day-10",
+      "class": "self_error"
+    },
+    {
+      "label": "Localized environmental stressor (thermal, vibrational, or humidity) affecting obs instruments' physical location or mounting post-day-10, independent of lab instrument environment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Obs instruments possess higher thermal sensitivity (different transducers, quartz cuts, or phase-lock circuits) than lab counterparts, manifesting drift from a facility-wide post-day-10 temperature rise that affects all instruments but is visible only in obs due to their higher thermal coefficient.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic difference in apparatus initialization, warm-up time, electrical settling, or operator protocol between baseline period (days 1–10) and post-baseline collection, affecting only obs instruments.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured environmental variable with localized or selective effect on obs zone post-day-10 (solar heating, HVAC duct proximity, external vibration source, or electromagnetic field drift affecting obs transducers).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The strong within-instrument autocorrelations (pendulum_lab r = 1.000 at 7-day lag, resonator_obs r = 0.784 at 14-day lag) reflect systematic measurement structure (periodic recalibration, cyclical operator routine, or instrument aliasing to facility environmental cycles) rather than random drift, and the post-baseline drift in obs instruments is a byproduct of this periodic structure interacting with baseline bias.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) was collected on a repeating weekly cadence (e.g., Mon–Wed–Fri or Tue–Thu–Sat), and post-baseline collection follows continuous daily sampling. Pendulum_lab shows r=1.000 at 7-day lag because baseline readings taken on the same day-of-week repeat under identical apparatus state and operator routine. Obs instruments drift downward post-day-10 due to localized environmental change (thermal, vibrational, or humidity) affecting obs zone independently, unrelated to the baseline periodicity artifact.",
+      "class": "self_error"
+    },
+    {
+      "label": "Obs instruments possess higher thermal sensitivity (higher temperature coefficient of frequency or resonance) than lab instruments. A facility-wide temperature rise post-day-10 affects all instruments, but is visible only in obs instruments because their thermal coefficient is 5–10× larger. Lab instruments' thermal response is subthreshold compared to measurement noise. Pendulum_lab periodicity reflects baseline collection schedule, unrelated to thermal drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or apparatus initialization changed between baseline (days 1–10) and post-baseline (days 11–37), affecting obs instruments' offset or calibration but not lab instruments. This could involve warm-up time, electrical settling, phase-lock loop tuning, or transducer excitation voltage. Pendulum_lab periodicity is an unrelated baseline collection artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental variable with selective spatial effect on obs zone post-day-10: solar heating of obs bench from afternoon window exposure (seasonal sun angle shift), HVAC redistribution (damper adjustment, duct closure), external vibration source (facility machinery, construction), or stray electromagnetic field from new loads. This environmental change affects obs instruments but not thermally shielded or electromagnetically isolated lab instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab and/or resonator_obs readings contain systematic repetition or aliasing to a periodic measurement routine (weekly calibration, operator shift cycle, or environmental monitoring cycle) that is independent of physical measurement drift. The periodic structure (r=1.000 at 7 days, r=0.524 at 14 days) indicates that baseline measurements were collected under time-locked conditions (same day-of-week, same time-of-day, same apparatus state) rather than uniformly at random.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline collection (days 1–10) followed a repeating weekly schedule (same day-of-week, warm-up routine, operator shift), creating systematic 7-day periodicity in pendulum_lab that persists in autocorrelation at 7-day lag. Obs instruments experienced independent environmental degradation post-day-10 (thermal drift, humidity creep, or vibration sensitivity change) localized to obs zone, unrelated to lab stability or baseline timing artifact.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab's 42-trial exact repetition run (chance 0–1) indicates measurement protocol repetition or data logging/timestamp aliasing at trial level, not physical measurement. The 7-day autocorrelation reflects this same aliasing structure. Obs instruments drift due to independent environmental change, but resonator_obs's 14-day autocorrelation and 18-trial exact repetition suggest resonator_obs also contains protocol-level periodicity (e.g., weekly calibration trigger, recalibration warm-up cycle) distinct from pendulum_obs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Obs instruments possess higher thermal or environmental sensitivity (higher temperature coefficient, higher humidity cross-sensitivity, or higher vibration coupling) than lab instruments. Post-day-10 facility-wide environmental change (ΔT, ΔRH, or vibration) affects all instruments identically, but obs instruments' larger coefficient produces visible drift (z=-1.94, z=-2.62) while lab instruments' drift remains sub-threshold (z=-1.28, z=-0.70). Baseline periodicity (pendulum_lab r=1.000 at 7 days) is unrelated and reflects collection cadence.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or apparatus initialization changed between baseline (days 1–10) and post-baseline (days 11–40), affecting obs instruments' offset, phase-lock loop parameters, or transducer excitation voltage, producing smooth calibration drift. Lab instruments were unaffected by this protocol change. Baseline periodicity in pendulum_lab reflects collection cadence, unrelated to protocol drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental variable with selective spatial effect on obs zone post-day-10: solar heating of obs bench from afternoon window exposure, HVAC redistribution, external vibration source, or stray electromagnetic field. This environmental change affects obs instruments but not lab instruments (thermally shielded, electromagnetically isolated, or located in different room). Baseline periodicity is collection cadence artifact unrelated to environmental change.",
+      "class": "environmental_change"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "source": "w0-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25: readings from earlier stable days reassigned into Day 22–25 slots or vice versa, creating apparent variance cluster.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrument calibration drift or component fatigue after 22 days of operation: one or more instruments developing systematic bias or increased noise floor on or just before Day 22, indicating need for recalibration or maintenance.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25, causing readings from earlier stable days to be reassigned and appear as a variance cluster",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Uncorrelated calibration drift or zero-offset error in each instrument, with drifts independent across systems",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Trial record labeling or time-stamping error: systematic misalignment between 'lab' and 'obs' runs, or between trial sequence and actual calendar dates, creating illusory instrument pairs",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "The Day 22–23 variance is within expected random fluctuation; the real anomaly remains the failure of cross-stream correlations",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Environmental or instrumental coupling: shared unmeasured driver (e.g., temperature, humidity, vibration) affecting all four streams in non-linear or phase-shifted ways",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic trial-labeling or timestamp corruption in the acquisition layer (upstream of my recording): readings assigned to incorrect trial slots or time bins, destroying inter-stream alignment while preserving within-stream temporal structure.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25, causing readings from earlier stable days to be reassigned and appear as a variance cluster",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 29,
+  "l4Judged": 29,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or zero-offset error in one or more instruments, with drifts uncorrelated across instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or instrumental coupling: shared unmeasured driver (e.g., temperature, humidity, vibration) affecting all four streams in non-linear or phase-shifted ways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or both of your measurement protocols (lab vs obs) contains a systematic flaw—misrecorded trial labels, timing offsets, or sampling-procedure errors that differ between the two setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental noise dominates signal; apparent correlations and lags are statistical artifacts from multiple-comparison correction failure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Protocol or labeling error: systematic misalignment of trial times, date stamps, or location tags between 'lab' and 'obs' runs, or between instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncorrelated calibration drift or zero-offset error in each instrument, with drifts independent across systems",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared unmeasured environmental driver (temperature, humidity, vibration) affecting all four streams with different phase lags and/or amplitudes due to different thermal/mechanical time constants or locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental noise dominates signal; apparent weak autocorrelations and cross-correlations are statistical artifacts from multiple-comparison bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Trial record labeling or time-stamping error: systematic misalignment between 'lab' and 'obs' runs, or between trial sequence and actual calendar dates, creating illusory instrument pairs",
+      "class": "social_process"
+    },
+    {
+      "label": "Each instrument has an independent, persistent calibration bias or zero-point error, stable over time but unique per instrument, with no cross-system calibration transfer or validation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental driver (temperature, humidity, settlement-wide vibration) with different phase lags and/or dampening time constants across instruments, explaining weak 5–8 day self-correlations and lack of cross-correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental noise dominates all four streams; weak autocorrelations and cross-correlations are statistical artifacts from multiple-comparison bias in lag search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol breakdown or external disturbance on Day 22: procedural error, power fluctuation, thermal shock, seismic event, or settlement-wide vibration incident during today's runs causing systematic upward drift in all four instruments simultaneously.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument calibration drift or component fatigue after 22 days of operation: one or more instruments developing systematic bias or increased noise floor on or just before Day 22, indicating need for recalibration or maintenance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact or recording error in today's event log: Day 22 readings are correctly measured but incorrectly timestamped, labeled, or transcribed, creating an illusion of elevated variance when the actual readings are from mixed dates or misaligned trials.",
+      "class": "self_error"
+    },
+    {
+      "label": "The Day 22 'elevation' is within normal random fluctuation; my prior concern about cross-instrument correlation failure remains the primary anomaly, and today's readings do not materially change that.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown or unobserved environmental transient (e.g., external vibration from settlement construction, weather event, or nearby equipment startup) affecting all four instruments with different phase and amplitude responses on Day 22 only.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic time-alignment error or trial-labeling corruption across all four streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or external environmental disturbance localized to Day 22, now subsiding but leaving residual elevated variance on Day 23",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration drift or component fatigue reaching critical threshold around Day 22",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Recording or timestamping error in Day 22–23 event log: readings are correct but mislabeled or transposed",
+      "class": "social_process"
+    },
+    {
+      "label": "The Day 22–23 variance is within expected random fluctuation; the real anomaly remains the failure of cross-stream correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown environmental or operational transient on Day 22 with differential instrument responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic time-alignment or trial-labeling corruption across all four measurement streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or localized environmental disturbance on Day 22, subsiding but leaving residual elevated variance on Day 23",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or component fatigue crossing a critical threshold around Day 22 in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 22–23 elevated variance is random fluctuation; the real anomaly is persistent inter-stream correlation failure indicating fundamental calibration or time-synchronization mismatch",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data entry or transcription error affecting Day 22–23 event log, causing mislabeled readings to appear clustered",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown environmental or operational transient with differential instrument coupling (e.g., directional vibration, harmonic response)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic time-alignment or trial-labeling corruption across all four measurement streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or localized environmental disturbance beginning Day 22, with residual elevated variance persisting through Day 25",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, component fatigue, or optical/mechanical misalignment crossing threshold around Day 22 in multiple instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 22–25 elevated variance is random fluctuation superimposed on a fundamental calibration or time-synchronization mismatch that explains persistent zero inter-stream correlation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data entry, transcription, or event-log corruption specific to Days 22–25, causing readings from other days to be mislabeled and appear as a variance cluster",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown environmental, operational, or instrumental transient with complex coupling to instrument physics (directional vibration, harmonic resonance, thermal gradient, power supply noise)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic trial-labeling or timestamp corruption across all four streams—readings are being assigned to incorrect trial slots or time bins, destroying inter-stream alignment while preserving within-stream temporal structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or localized settlement-wide environmental event (vibration, thermal transient, power anomaly) beginning Day 22, with residual elevated variance persisting through Day 25",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25, causing readings from earlier stable days to be reassigned and appear as a variance cluster",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown settlement-localized or instrument-specific transient (micro-seismic tremor, harmonic resonance, directional vibration, thermal gradient, power supply noise) with complex frequency-dependent or orientation-dependent coupling to instrument physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic trial-labeling or timestamp corruption: readings assigned to incorrect trial slots or time bins, destroying inter-stream alignment while preserving within-stream temporal structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or settlement-wide environmental event (vibration, thermal transient, power anomaly, seismic activity) beginning Day 22, with residual elevated variance persisting through Day 25",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25, causing readings from earlier stable days to be reassigned and appear as a variance cluster",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown settlement-localized or instrument-specific transient (micro-seismic tremor, harmonic resonance, directional vibration, frequency-dependent or orientation-dependent coupling) with complex differential coupling to instrument physics",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic trial-labeling or timestamp corruption in the acquisition layer (upstream of my recording): readings assigned to incorrect trial slots or time bins, destroying inter-stream alignment while preserving within-stream temporal structure.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol breakdown or settlement-wide environmental event (vibration, thermal transient, power anomaly, seismic activity) beginning Day 22, with residual elevated variance persisting through Day 25.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25: readings from earlier stable days reassigned into Day 22–25 slots or vice versa, creating apparent variance cluster.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown settlement-localized or instrument-specific transient (micro-seismic tremor, harmonic resonance, frequency-dependent or orientation-dependent coupling) with complex differential coupling to instrument physics.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic trial-labeling or timestamp corruption in the acquisition layer (upstream of my recording)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Coherent environmental or settlement-wide event (vibration, thermal transient, power anomaly, seismic activity) beginning Day 22, with residual elevated variance persisting through Day 25",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration drift, component fatigue, or mechanical/optical misalignment crossing a threshold around Day 22 in multiple instruments, causing selective variance increase without mean drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data transcription, event-log corruption, or trial-slot mislabeling specific to Days 22–25",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown settlement-localized or instrument-specific transient with complex differential physical coupling",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

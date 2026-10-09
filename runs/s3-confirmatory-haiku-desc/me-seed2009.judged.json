@@ -1,0 +1,398 @@
+{
+  "source": "me-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 14,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Genuinely weak signal (beat frequencies and resonator cycles small relative to instrument-specific noise) measured through independent apparatus, with Day 18–19 shifts as statistical tail events or noise artifacts",
+        "primary": "instrument_malfunction",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Undocumented procedural event on Day 18–19 (power cycle, calibration adjustment, software update, observer change, data logger restart, or firmware patch) not recorded in Ada's current notes",
+        "primary": "self_error",
+        "second": "social_process"
+      },
+      {
+        "label": "Systematic calibration or environmental coupling specific to lab vs. observational apparatus pairs",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real apparatus-specific environmental or mechanical degradation/settling event affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical drift)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undocumented procedural event on Days 18–29 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch) not recorded in current notes",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Anomalous intra-stream autocorrelation (7-day, 11–13-day echoes) suggests periodic external disturbance or systematic procedural pattern not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undocumented procedural event on Days 18–23 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch) not recorded in current notes",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Data recording, labeling, or trial-to-apparatus assignment error on or near Day 19 (mislabeled trials, corrupted timestamps, switched apparatus identity)",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Data-selection or post-hoc filtering artifact creating apparent noise that masks correlation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: Something I haven't thought of",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Anomalous intra-stream autocorrelation (7-day, 11–13-day echoes) indicates periodic or quasi-periodic external disturbance not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–29 mislabeled or misaligned trials between apparatus",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Weak underlying physical signal (beat frequencies and resonator cycles small relative to apparatus-specific noise) measured through four independent apparatus, with level shifts as high-probability noise tail events",
+        "primary": "instrument_malfunction",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data time-tagging error or misalignment in absolute time correspondence across streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 37,
+  "l4Judged": 37,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or environmental coupling unique to each apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure or observer bias introducing pseudo-independent variation",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical phenomenon, but signal-to-noise ratio too low to resolve via current instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration bias or systematic offset between lab and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or time-series alignment error (events mislabeled or out of sequence)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or recording bias common to all four streams, masking independent instrumental behavior",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine instrumental noise dominance with weak or absent true signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or environmental coupling between lab and observational apparatus pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data time-tagging error or misalignment in cross-stream time correspondence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-selection or post-hoc filtering artifact creating apparent noise that masks correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common procedural bias in reading acquisition or recording masks genuine instrumental independence",
+      "class": "self_error"
+    },
+    {
+      "label": "Noise dominance: each instrument measures a real but vanishingly weak signal buried in instrument-specific noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or environmental coupling specific to lab vs. observational apparatus pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data time-tagging error or misalignment in absolute time correspondence across streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undisclosed post-hoc filtering or data-selection artifact creating apparent noise that masks correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared procedural bias in reading acquisition or recording masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument or environmental coupling has degraded over 19 days; Day 19 level shifts indicate real signal emerging or coupling breaking down",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Noise dominance: each instrument measures a real but weak signal buried in instrument-specific noise, with Day 19 showing natural statistical fluctuation amplified by small sample size",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data recording or labeling error on Day 19 or just before: trials misaligned to apparatus identity, or timestamps mislabeled, creating apparent anomalies",
+      "class": "social_process"
+    },
+    {
+      "label": "Real physical process (e.g., diurnal or multi-day cycle, gradual settling, environmental transient) began on Day 18–19, causing true mean shifts in resonator_obs and pendulum_lab while leaving other apparatus unaffected",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unrecognized procedural, environmental, or data-handling factor",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared procedural bias in data acquisition or recording (common digitization layer, software rounding, synchronized logging) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures a genuinely weak signal buried in instrument-specific noise; Day 19 shifts are natural statistical tail events, not systematic anomalies",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 19 marks a real environmental or apparatus-specific change (thermal transient, settling, local coupling degradation) that unmasks signal in resonator_obs and pendulum_lab only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording, labeling, or trial-to-apparatus assignment error on or near Day 19 (mislabeled trials, corrupted timestamps, switched apparatus identity)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized procedural event, calibration, software update, or observer change on Day 18–19 not documented in Ada's records",
+      "class": "self_error"
+    },
+    {
+      "label": "Something else not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Shared procedural digitization layer (common data logger, software binning, or synchronized rounding to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental or apparatus-specific degradation/settling event on Day 18–19 affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical settling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuinely weak signal (beat frequencies and resonator cycles small relative to instrument-specific noise) measured through independent apparatus, with Day 18–19 shifts as statistical tail events or noise artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Day 18–19 mislabeled trials from one apparatus as another",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented procedural event on Day 18–19 (power cycle, calibration adjustment, software update, observer change, data logger restart, or firmware patch) not recorded in Ada's current notes",
+      "class": "self_error"
+    },
+    {
+      "label": "Something not yet considered",
+      "class": "other"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, software rounding to 0.0001, or synchronized quantization) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real apparatus-specific environmental or mechanical degradation/settling event affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical drift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak underlying physical signal (beat frequencies and resonator cycles small relative to apparatus-specific noise) measured through four independent apparatus, with level shifts as high-probability noise tail events or statistical artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–23 mislabeled or misaligned trials between apparatus",
+      "class": "social_process"
+    },
+    {
+      "label": "Undocumented procedural event on Days 18–23 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch) not recorded in current notes",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, synchronized quantization to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real apparatus-specific environmental or mechanical degradation event affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical drift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak underlying physical signal (beat frequencies and resonator cycles small relative to apparatus-specific noise) measured through four independent apparatus, with level shifts as high-probability noise tail events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–23 mislabeled or misaligned trials between apparatus",
+      "class": "social_process"
+    },
+    {
+      "label": "Undocumented procedural event on Days 18–25 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch) not recorded in current notes",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, synchronized quantization to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real apparatus-specific environmental or mechanical degradation affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical drift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak underlying physical signal (beat frequencies and resonator cycles small relative to apparatus-specific noise) measured through four independent apparatus, with level shifts as high-probability noise tail events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–29 mislabeled or misaligned trials between apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented procedural event on Days 18–29 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch) not recorded in current notes",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, synchronized quantization to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real apparatus-specific environmental or mechanical degradation affected resonator_obs and pendulum_lab selectively (thermal transient, vibration coupling, power supply instability, or mechanical drift in those two apparatus only)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural event on Days 18–29 (calibration adjustment, software update, observer change, apparatus restart, or firmware patch affecting only resonator_obs and pendulum_lab) not recorded in current notes",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak underlying physical signal (beat frequencies and resonator cycles small relative to apparatus-specific noise) measured through four independent apparatus, with level shifts as high-probability noise tail events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–29 mislabeled or misaligned trials between apparatus",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: Something I haven't thought of",
+      "class": "other"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, synchronized quantization to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Apparatus-specific environmental or mechanical degradation (thermal, vibration, or power transient) affected resonator_obs and pendulum_lab selectively, with level shifts saturating by Day 35",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Anomalous intra-stream autocorrelation (7-day, 11–13-day echoes) suggests periodic external disturbance or systematic procedural pattern not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented procedural event (calibration, software update, observer change, apparatus restart) on Days 18–29 affected only resonator_obs and pendulum_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak underlying physical signal measured through four independent apparatus, with level shifts as high-probability noise tail events",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–29 mislabeled or misaligned trials between apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared downstream digitization/binning layer (common data logger, synchronized quantization to 0.0001) masks genuine instrumental independence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Anomalous intra-stream autocorrelation (7-day, 11–13-day echoes) indicates periodic or quasi-periodic external disturbance not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Apparatus-specific environmental or mechanical degradation (thermal, vibration, power transient) affected resonator_obs and pendulum_lab selectively, with level shifts saturating by Day 35",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural event (calibration, firmware update, observer change, apparatus restart) on Days 18–35 affected only resonator_obs and pendulum_lab",
+      "class": "self_error"
+    },
+    {
+      "label": "Data labeling, trial-to-apparatus assignment, or timestamp corruption on or near Days 18–35 mislabeled or misaligned trials between apparatus",
+      "class": "social_process"
+    },
+    {
+      "label": "Weak underlying physical signal measured through four independent apparatus, with level shifts as high-probability noise tail events and discretization as instrumental artifact",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

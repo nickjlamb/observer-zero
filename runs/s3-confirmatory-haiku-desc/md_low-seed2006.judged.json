@@ -1,0 +1,164 @@
+{
+  "source": "md_low-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Systematic miscalibration or phase-lag error in one or more instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (10 days) was too short; instruments are in slow transient or resonant settling",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (10 days) insufficient; instruments in slow mechanical or thermal settling or resonant transient extending beyond day 30",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period was too short; instruments have not yet equilibrated, and Day 10 represents early transient behavior",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 12,
+  "l4Judged": 12,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Measurement interdependence or cross-talk artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure a common hidden periodic or quasi-periodic environmental driver with different phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data acquisition or logging system introduces correlated noise or systematic bias across channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period was too short; instruments have not yet equilibrated, and Day 10 represents early transient behavior",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments are miscalibrated or reading a proxy rather than the intended quantity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental driver with instrument-specific phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement infrastructure cross-talk or correlated noise in DAQ system",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure correlated proxies rather than independent ground truth",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (10 days) was too short; instruments are in slow transient or resonant settling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic miscalibration or phase-lag error in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared data acquisition infrastructure cross-talk: DAQ system introduces correlated noise at instrument-pair-specific electrical/firmware propagation delays",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental driver with instrument-specific phase lags and response time constants",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure correlated proxies of a common observable via different transducers/geometries; baseline validation did not detect lack of independence",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period (10 days) insufficient; instruments still in slow settling or resonant transient on day 30",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected systematic miscalibration or phase-lag error in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared data acquisition infrastructure cross-talk: DAQ system introduces correlated noise at instrument-pair-specific electrical/firmware propagation delays",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common environmental driver (thermal cycle, barometric pressure, operational rhythm on 3–5 day timescale) with instrument-specific phase lags and response time constants",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments measure correlated proxies of a common observable (e.g., ambient vibration, floor motion, temperature gradients) via different transducers/geometries; baseline validation procedure did not detect lack of independence",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period (10 days) insufficient; instruments in slow mechanical or thermal settling or resonant transient extending beyond day 30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected systematic miscalibration or phase-lag error in one or more instruments (e.g., resonator_obs measuring harmonic or phase-shifted version of true quantity)",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

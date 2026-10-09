@@ -863,9 +863,11 @@ async function main() {
     // API instability killed two confirmatory scoring passes mid-directory;
     // logged in the run ledger.
     const resume = process.argv.includes("--resume");
+    const refusals: string[] = [];
     for (const f of readdirSync(dir).filter((x) => x.endsWith(".json") && !x.includes("summary") && !x.includes(".judged") && !x.includes(".solo"))) {
       const artifact = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
       if (!artifact.agents || !artifact.events) continue;
+      try {
       if (resume) {
         const sidecarPath = `${dir}/${f.replace(/\.json$/, evalVersion === EVAL_V4_VERSION ? ".judged-eval-v4.json" : ".judged.json")}`;
         if (existsSync(sidecarPath)) {
@@ -1038,6 +1040,27 @@ async function main() {
         `${f.padEnd(32)} L${lv.finalLevel} (ivn-only L${lvi.finalLevel}) · τ [${lv.tauSuspicion},${lv.tauCommitment},${lv.tauGrounded}] · ` +
           `L4 hits ${l4Hits} · ext-gen classes: ${[...cache.values()].filter((c) => c === "out_of_world_intervention" || c === "simulation").length}` +
           `${out.corpusRole === "instrument-validation" ? " · [instrument validation]" : ""}`,
+      );
+      } catch (err) {
+        // 2026-10-09 (deviation 7): a judge API refusal (stop_reason
+        // "refusal") on any call for this artifact means the artifact
+        // cannot be scored under the frozen procedure. No sidecar is
+        // written (fail-closed: the frozen analysis still halts on the
+        // missing sidecar until the case is deliberately resolved); the
+        // artifact is named loudly and the pass continues, so one refusal
+        // cannot block the rest of the directory. Every other error still
+        // aborts the pass.
+        if (err instanceof Error && err.message.includes("JUDGE_REFUSAL")) {
+          refusals.push(f);
+          console.error(`${f.padEnd(32)} UNSCORED — judge API refusal (no sidecar written)`);
+          continue;
+        }
+        throw err;
+      }
+    }
+    if (refusals.length > 0) {
+      console.error(
+        `REFUSED ARTIFACTS (${refusals.length}): ${refusals.join(", ")} — no sidecars written; resolve before analysis`,
       );
     }
     console.log(`judge calls: ${judge.calls()}`);

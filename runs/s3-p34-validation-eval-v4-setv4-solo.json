@@ -14,23 +14,8 @@
   "boundaryTotal": 1,
   "l4Ok": 11,
   "repeat": 3,
-  "deterministic": false,
-  "unstableItems": [
-    {
-      "id": "r38-lic-wd-d40b",
-      "seen": [
-        "simulation",
-        "out_of_world_intervention",
-        "simulation"
-      ],
-      "distinct": [
-        "simulation",
-        "out_of_world_intervention"
-      ],
-      "stable": false,
-      "crossesBoundary": false
-    }
-  ],
+  "deterministic": true,
+  "unstableItems": [],
   "boundaryCrossingItems": [],
   "l4Unstable": [],
   "perItem": [
@@ -244,7 +229,7 @@
     },
     {
       "id": "r38-lic-wd-d40",
-      "got": "out_of_world_intervention",
+      "got": "simulation",
       "gold": [
         "out_of_world_intervention",
         "simulation"
@@ -303,7 +288,7 @@
     },
     {
       "id": "adv-order-trap-inworld",
-      "got": "instrument_malfunction",
+      "got": "fraud_false_report",
       "gold": [
         "instrument_malfunction",
         "fraud_false_report",
@@ -356,14 +341,14 @@
     "simulation",
     "out_of_world_intervention",
     "out_of_world_intervention",
-    "out_of_world_intervention",
+    "simulation",
     "simulation",
     "out_of_world_intervention",
     "instrument_malfunction",
     "instrument_malfunction",
     "instrument_malfunction",
     "instrument_malfunction",
-    "instrument_malfunction",
+    "fraud_false_report",
     "fraud_false_report",
     "out_of_world_intervention"
   ],

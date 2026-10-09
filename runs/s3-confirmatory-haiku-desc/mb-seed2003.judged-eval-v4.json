@@ -1,0 +1,385 @@
+{
+  "source": "mb-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Independent instrumental drifts in each stream; day 12 marks statistical exhaustion of baseline margin in pendulums only",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data quality issue: baseline non-stationarity, transcription error, or level-change detection algorithm artifact",
+        "primary": "measurement_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Level-shift detection at days 12–13 and day 16 is a false positive from baseline non-stationarity, algorithmic artifact, or hidden transient unrelated to true state change.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Baseline non-representative (thermal startup, staffing, or sampling protocol change days 1–10); level shift reflects return to stable operating conditions",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Independent instrumental drifts in each stream, with day 12 coincidentally marking exhaustion of baseline margin in pendulum systems",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_lab and resonator_obs share a systematic artifact in data acquisition or post-processing (common digitizer, shared hardware reference, operator batch-processing, or calibration drift applied equally to both channels) that inflates coherence without representing independent environmental coupling.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unconsidered source of selective resonator coherence (e.g., coupled mechanical oscillator design, shared damping fluid, frequency-locked feedback, operator protocol for resonator measurement only, or environmental coupling mechanism not yet articulated).",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Residual: instrumental artifact, data entry error, or unmodeled correlation structure in the baseline definition",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: data transcription error, baseline definition artifact, or statistical method issue",
+        "primary": "measurement_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Level-shift detection (days 12–13 for pendulums, day 16 for resonators) is a false positive from algorithmic artifact, non-stationarity, or baseline contamination; true shifts occur elsewhere or not at all.",
+        "primary": "incomplete_theory",
+        "second": "self_error"
+      },
+      {
+        "label": "Real environmental signal on long period (~20–30 days) or sub-hour cadence, observed only at a small phase slice",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Independent instrumental drifts crossing significance threshold staggered by instrument sensitivity",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Nonlinear or phase-dependent coupling to one or more unmeasured environmental confounds (magnetic field, seismic spectral content, thermal gradient pattern, electrical line noise, lab occupancy)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 43,
+  "l4Judged": 43,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Genuine physical independence or near-independence of the four measurement streams",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instrumental drift or calibration drift uncorrelated between streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hidden common signal masked by measurement noise, with the true signal period or timescale longer than 10 days or shorter than 1 day",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol error: readings are independent samples from each instrument's own noise distribution, not correlated measurements of a common quantity",
+      "class": "self_error"
+    },
+    {
+      "label": "Unrecognized systematic effect (thermal, electromagnetic, gravitational, or epistemically novel) introducing correlated noise or signal that our analysis methods have not yet isolated",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental shift on day 12 affecting pendulum systems preferentially; resonators damped or decoupled from it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drifts in each stream, with day 12 coincidentally marking exhaustion of baseline margin in pendulum systems",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real common signal with period or correlation timescale longer than 13 days or shorter than 1 day, not yet resolvable in our baseline window",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol or sampling mismatch: instruments sampled asynchronously, or measuring distinct physical observables rather than a common quantity",
+      "class": "self_error"
+    },
+    {
+      "label": "Nonlinear or phase-dependent coupling between streams, or modulation by an unmeasured confound, not detectable by linear correlation methods",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental shift on day 12 affecting pendulum systems preferentially; resonators show weaker or delayed response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drifts in each stream; day 12 marks statistical exhaustion of baseline margin in pendulums only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real common environmental signal with long period (~20–30 days) or short sub-hour timescale, not yet resolvable in our 16-day window",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol mismatch: instruments sampled asynchronously, measure different physical observables, or baseline established under conditions not representative of post-baseline operation",
+      "class": "self_error"
+    },
+    {
+      "label": "Nonlinear or phase-dependent coupling to an unmeasured confound (magnetic field, microseismic noise, thermal gradient spatial pattern, or lab activity rhythm); linear correlation methods blind to this structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: instrumental artifact, data entry error, or unmodeled correlation structure in the baseline definition",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental shift with differential instrument response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drifts crossing significance threshold staggered by instrument sensitivity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental signal on long period (~20–30 days) or sub-hour cadence, observed only at a small phase slice",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol mismatch or baseline non-representativeness",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Nonlinear or phase-dependent coupling to unmeasured environmental confound",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: data transcription error, baseline definition artifact, or statistical method issue",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental driver (thermal, mechanical, seismic, or electromagnetic) on days 12–16 with differential instrument coupling—opposite signs reflect opposing physical sensitivities; timing offset reflects different response timescales or phase lags",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent slow thermal/mechanical drifts crossing significance threshold staggered by instrument noise floor and accumulating trial count, without a common driver",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real unobserved periodic or long-timescale environmental signal (period >20 days or sub-hour cadence); day 12–16 shifts are rising edges of a cycle not yet completed in observation window",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline non-representativeness or protocol shift around day 10–12: baseline conditions were atypical (cool startup, artificial isolation, different sampling protocol); 'level change' is real but reflects return to normal, not anomaly",
+      "class": "self_error"
+    },
+    {
+      "label": "Nonlinear or phase-dependent coupling to one or more unmeasured environmental confounds (magnetic field, seismic spectral content, thermal gradient pattern, electrical line noise, lab occupancy)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data quality issue: baseline non-stationarity, transcription error, or level-change detection algorithm artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental driver with differential instrument response and 4-day phase lag between instrument classes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent stochastic drifts crossing significance threshold at staggered calendar days due to noise floor and trial accumulation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unobserved periodic or long-timescale environmental signal (period >20 days); day 12–16 represent rising edge of cycle not yet repeated",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline conditions non-representative (thermal startup, reduced occupancy, or protocol change around day 10–12); observed 'level change' reflects return to normal, not environmental anomaly",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Nonlinear coupling to unmeasured environmental confound (seismic spectral content, magnetic field, thermal gradient, line noise, occupancy) with spectral anti-correlation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data quality issue: baseline non-stationarity, transcription error, or level-change detection artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental driver with differential instrument response and mechanical/thermal phase lag between classes",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline non-representative (thermal startup, reduced occupancy, or sampling protocol change); observed level change reflects return to stable operating conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unobserved long-timescale environmental signal (period >20 days) whose rising edge coincides with days 12–16; incomplete cycle within observation window",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Nonlinear coupling to unmeasured environmental confound (seismic spectral content, magnetic field, line noise, thermogradient, occupancy pattern) with spectral anti-correlation between instrument classes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data quality issue: baseline non-stationarity, transcription error, or level-change detection artifact masking true structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental driver (thermal, seismic, or occupancy transient) with opposing mechanical responses in pendulum vs. resonator classes due to differential frequency coupling or response lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline non-representative (thermal startup, staffing, or sampling protocol change days 1–10); level shift reflects return to stable operating conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Long-period environmental signal (characteristic timescale 20–40 days) whose rising edge coincides with days 12–16; incomplete cycle visible in 29-day window",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Nonlinear or spectral coupling to unmeasured environmental variable (seismic, magnetic, thermal gradient, or occupancy mode) with opposite-sign frequency responses in pendulum vs. resonator classes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data quality issue: baseline non-stationarity, transcription error, or level-change detection artifact",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator pair shares a common environmental driver (thermal, vibration, or electromagnetic) that is absent or weakly coupled to pendulum instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator pair shares systematic calibration or measurement artifact (common data pipeline, shared reference standard, or correlated instrumental bias) that inflates their apparent agreement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator instruments are mechanically or thermally coupled to each other (e.g., located near each other, sharing a mounting plate or thermal conductor) and decoupled from pendulum pair by design or accident",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are redundant or near-identical instruments run in parallel as a quality check, inflating their correlation by design",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Level shift detection artifact: pendulum shifts at days 12–13 and resonator shifts at day 16 are algorithmic false positives; true common shift occurs at a different time or not at all",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonators share a common environmental driver (thermal, vibration, electromagnetic) absent or decoupled from pendulums; they occupy a shared microenvironment or mounting.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator pair shares systematic calibration, data-acquisition, or post-processing artifact (shared hardware, reference standard, or digital pipeline) that inflates apparent agreement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are mechanically or thermally coupled by physical proximity (same optical table, thermal mass, or mounting plate) while pendulums are spatially separated or differentially damped.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are intentional redundant replicates (identical models, shared calibration, same operator, same data pipeline) run in parallel for quality assurance; the strong correlation is expected by design.",
+      "class": "social_process"
+    },
+    {
+      "label": "Level-shift detection (days 12–13 for pendulums, day 16 for resonators) is a false positive from algorithmic artifact, non-stationarity, or baseline contamination; true shifts occur elsewhere or not at all.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonators share a common environmental microenvironment (thermal mass, vibration coupling, electromagnetic field) absent or decoupled from pendulums; they occupy the same bench, optical table, or mounting plate.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs share a systematic artifact in data acquisition, digitization, or post-processing (shared hardware reference, common digitizer, or operator batch-processing) that inflates their apparent agreement without altering raw statistical properties.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are intentional redundant replicates of the same physical apparatus (two channels, two readout methods, or repeated measurements per trial for quality assurance) and high correlation is expected by design.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Level-shift detection at days 12–13 and day 16 is a false positive from baseline non-stationarity, algorithmic artifact, or hidden transient; the true state-change occurs elsewhere or not at all.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unconsidered source of selective resonator coherence (e.g., resonator apparatus design, operator protocol, or environmental coupling mechanism not yet articulated).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonators occupy a shared high-thermal-mass microenvironment (optical table, granite slab, common mounting bracket) with distinct thermal timescale (~4 days); pendulums on lighter, faster-equilibrating mount (~2 days). Both resonators respond coherently to thermal drift; pendulums do not because they are thermally decoupled or respond oppositely to the same driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs share a systematic artifact in data acquisition or post-processing (common digitizer, shared hardware reference, operator batch-processing, or calibration drift applied equally to both channels) that inflates coherence without representing independent environmental coupling.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs are intentional redundant replicates of the same physical apparatus (two channels, two readout methods, or repeated measurements per trial for quality assurance) and high correlation is expected by design. Pendulum_lab and pendulum_obs are independent, explaining their weaker correlation.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Level-shift detection at days 12–13 and day 16 is a false positive from baseline non-stationarity, algorithmic artifact, or hidden transient unrelated to true state change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unconsidered source of selective resonator coherence (e.g., coupled mechanical oscillator design, shared damping fluid, frequency-locked feedback, operator protocol for resonator measurement only, or environmental coupling mechanism not yet articulated).",
+      "class": "incomplete_theory"
+    }
+  ]
+}

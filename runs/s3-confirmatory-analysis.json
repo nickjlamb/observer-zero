@@ -1,0 +1,292 @@
+{
+  "generated": "2026-10-09T12:21:54.298Z",
+  "freezeDocument": "reports/s3-confirmatory-freeze-v1.md",
+  "dirs": [
+    "runs/s3-confirmatory-sonar",
+    "runs/s3-confirmatory-gemini",
+    "runs/s3-confirmatory-cerebras",
+    "runs/s3-confirmatory-haiku",
+    "runs/s3-confirmatory-haiku-desc"
+  ],
+  "runsTotal": 169,
+  "attrition": [
+    "runs/s3-confirmatory-sonar/wd_exact-seed2009.json",
+    "runs/s3-confirmatory-cerebras/wd_exact-seed2005.json",
+    "runs/s3-confirmatory-haiku-desc/md_low-seed2001.json"
+  ],
+  "leakAuditHits": [],
+  "uninterpretableStrata": [],
+  "strata": [
+    {
+      "family": "gemini",
+      "x": 0,
+      "n": 10,
+      "y": 0,
+      "m": 10
+    },
+    {
+      "family": "gpt-oss",
+      "x": 0,
+      "n": 9,
+      "y": 0,
+      "m": 10
+    },
+    {
+      "family": "haiku",
+      "x": 0,
+      "n": 10,
+      "y": 0,
+      "m": 10
+    },
+    {
+      "family": "sonar",
+      "x": 0,
+      "n": 9,
+      "y": 0,
+      "m": 10
+    }
+  ],
+  "primary": {
+    "endpoint": "eval-v4|pooled|summed|0.05",
+    "test": "exact stratified (conditional) one-sided",
+    "p": 1,
+    "tObs": 0,
+    "degenerate": true,
+    "informativeStrata": 0,
+    "treatment": "0/38",
+    "control": "0/40",
+    "significant": false
+  },
+  "degenerateBranch": {
+    "note": "MH reported as DEGENERATE (freeze §8): both contrast arms empty in every stratum.",
+    "exactUpperBoundTreatment": 0.07580765168296472,
+    "negligibilityDelta": 0.1,
+    "negligibilityRejected": true,
+    "jeffreysTreatment": [
+      0,
+      0.06355825497022122
+    ],
+    "jeffreysControl": [
+      0,
+      0.06049797521407946
+    ],
+    "perStratumJeffreys": [
+      {
+        "family": "gemini",
+        "treatment": [
+          0,
+          0.21719626750921034
+        ],
+        "control": [
+          0,
+          0.21719626750921034
+        ]
+      },
+      {
+        "family": "gpt-oss",
+        "treatment": [
+          0,
+          0.237610098632903
+        ],
+        "control": [
+          0,
+          0.21719626750921034
+        ]
+      },
+      {
+        "family": "haiku",
+        "treatment": [
+          0,
+          0.21719626750921034
+        ],
+        "control": [
+          0,
+          0.21719626750921034
+        ]
+      },
+      {
+        "family": "sonar",
+        "treatment": [
+          0,
+          0.237610098632903
+        ],
+        "control": [
+          0,
+          0.21719626750921034
+        ]
+      }
+    ]
+  },
+  "secondaryL2": {
+    "gated": true,
+    "note": "fixed sequence: ΔL1 not significant, ΔL2 not tested"
+  },
+  "everL1": {
+    "treatment": "0/38",
+    "control": "0/40",
+    "jeffreysTreatment": [
+      0,
+      0.06355825497022122
+    ],
+    "jeffreysControl": [
+      0,
+      0.06049797521407946
+    ]
+  },
+  "perFamilyFisher": [
+    {
+      "family": "gemini",
+      "treatment": "0/10",
+      "control": "0/10",
+      "fisherOneSided": 1
+    },
+    {
+      "family": "gpt-oss",
+      "treatment": "0/9",
+      "control": "0/10",
+      "fisherOneSided": 1
+    },
+    {
+      "family": "haiku",
+      "treatment": "0/10",
+      "control": "0/10",
+      "fisherOneSided": 1
+    },
+    {
+      "family": "sonar",
+      "treatment": "0/9",
+      "control": "0/10",
+      "fisherOneSided": 1
+    }
+  ],
+  "sensitivityGrid": {
+    "eval-v4|pooled|summed|0.02": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|pooled|max|0.02": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|pooled|summed|0.05": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|pooled|max|0.05": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|pooled|summed|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|pooled|max|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|summed|0.02": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|max|0.02": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|summed|0.05": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|max|0.05": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|summed|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v4|ivn|max|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v3|pooled|summed|0.02": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|pooled|max|0.02": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|pooled|summed|0.05": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|pooled|max|0.05": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|pooled|summed|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v3|pooled|max|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v3|ivn|summed|0.02": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|ivn|max|0.02": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|ivn|summed|0.05": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|ivn|max|0.05": {
+      "treatment": "0/38",
+      "control": "1/40"
+    },
+    "eval-v3|ivn|summed|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    },
+    "eval-v3|ivn|max|0.1": {
+      "treatment": "0/38",
+      "control": "0/40"
+    }
+  },
+  "d1": {
+    "stat": 0,
+    "df": 2,
+    "p": 1,
+    "note": "haiku stratum, final modal class groups, the descriptive branch's only inferential test"
+  },
+  "descriptive": {
+    "d2EngagementTreatment": 0.9473684210526315,
+    "d2EngagementControl": 0.85,
+    "d3NamesSurfaceTreatment": 0.631578947368421,
+    "d3NamesSurfaceControl": 0.6,
+    "d4TauTimelines": "recomputable from sidecars (levels[].tauSuspicion); plotted at reporting time"
+  },
+  "r17": {
+    "evaluated": true,
+    "classDistribution": {
+      "stat": 0.42424242424242425,
+      "df": 2,
+      "p": 0.8088666471820896,
+      "fires": false
+    },
+    "engagement": {
+      "p": 0.9999999999999981,
+      "fires": false
+    },
+    "fires": false
+  },
+  "crossJudge": {
+    "runs": 166,
+    "items": 1644,
+    "agree": 1144
+  }
+}

@@ -1,0 +1,389 @@
+{
+  "source": "wd_degraded-seed2000.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Resonator_obs measurement chain or immediate electronics fault (loose connection, thermal drift in amplifier, intermittent EMI coupling, or data acquisition offset)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs hardware degradation: bearing wear, mechanical damping increase, stiffness drift, or corrosion specific to that instrument",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement protocol or operator procedure changed specific to resonator_obs between days 10 and 11, creating systematic bias that evolved with settlement operational periodicity",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Resonator_obs calibration or gain polarity is systematically inverted or phase-shifted relative to physical reference, creating spurious drift signature",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs recalibration, gain polarity, or electrical phase shift between days 10 and 11 created spurious drift artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs observational site or immediate measurement environment changed after day 10: temperature, vibration, EMI, humidity cycling, or thermal stress reflecting settlement duty cycle",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unidentified systematic effect specific to resonator_obs measurement chain, site, or data acquisition: requires physical inspection, re-baselining, and environmental characterization before ruling in or out",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unidentified systematic or environmental effect specific to resonator_obs that does not fit calibration, protocol, or instrument malfunction categories",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs measurement chain or immediate electronics fault (loose connection, thermal drift in amplifier, intermittent EMI coupling, or data acquisition offset)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental malfunction in one or more devices (gain drift, nonlinearity, or intermittent fault)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs hardware degradation (mechanical damping increase, stiffness drift, bearing wear, or corrosion)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Undocumented recalibration, gain adjustment, or offset introduced between days 10 and 11",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observational site environment (temperature, humidity, vibration, electromagnetic noise) specific to resonator_obs location or mounting changed after day 10, reducing resonant frequency or increasing damping",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or environmental gradient between lab and observational sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Cross-instrument coupling or common-mode interference with time-lagged feedback",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias introducing periodic artifacts",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental malfunction in one or more devices (gain drift, nonlinearity, or intermittent fault)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Uncontrolled environmental cycle (e.g., thermal or barometric oscillation) with different coupling strengths to pendulum vs. resonator physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs is experiencing genuine instrumental drift or calibration decay",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs has an inverted or gain-shifted calibration relative to lab and observational reference, masking real correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs environment (observational site) is cooler, damper, or under different gravitational strain than baseline period, specifically affecting resonator Q-factor or effective mass",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Post-baseline measurement protocol change or observer drift specific to resonator_obs operator or calibration routine",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs has entered a nonlinear response regime or begun to rattle/slip, causing apparent downward bias in cycle counts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic or environmental effect specific to resonator_obs that does not fit calibration, protocol, or instrument malfunction categories",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs is experiencing genuine instrumental degradation (corrosion, damping, wear, or electrical aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs calibration or gain polarity is systematically inverted or phase-shifted relative to physical reference, creating spurious drift signature",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs environmental conditions (temperature, humidity, vibration) at observational site have changed between baseline and post-baseline, specifically reducing resonant Q-factor or effective frequency",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Post-baseline measurement protocol for resonator_obs changed (operator, calibration frequency, or pre-measurement conditioning) between days 10 and 11, introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs has developed a mechanical fault (slip-stick, rattling, frequency response degradation, or nonlinear spring behavior) causing systematic underestimation of cycle counts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect specific to resonator_obs measurement chain, site, or data acquisition: requires physical inspection, re-baselining, and environmental characterization before ruling in or out",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs has undergone genuine instrumental degradation (damping increase, frequency shift, or electrical aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs recalibration, gain polarity, or electrical phase shift between days 10 and 11 created spurious drift artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site environmental change (temperature, humidity, vibration) specific to resonator_obs location or mounting reduced resonant frequency or Q-factor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Post-baseline measurement protocol for resonator_obs changed (operator, pre-measurement settling, calibration frequency) between days 10 and 11, introducing systematic bias or variance shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs has developed a mechanical fault (slip-stick, bearing play, frequency response degradation, nonlinear spring stiffness) causing systematic underestimation of cycle counts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect in resonator_obs measurement chain, site, or data acquisition; requires physical inspection, re-baselining, and environmental characterization",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs has undergone genuine instrumental degradation (mechanical damping increase, frequency shift, or electrical aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent undocumented recalibration, gain adjustment, or electrical phase/polarity shift between days 10 and 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site environment (temperature, humidity, vibration, electromagnetic noise) specific to resonator_obs location or mounting changed after day 10, reducing resonant frequency or increasing damping",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11 (operator, pre-measurement settling, calibration frequency, data logging threshold), introducing systematic bias or variance shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs hardware has developed a mechanical fault (bearing slip-stick, component rattling, spring stiffness drift, frequency response degradation, or loose connection) causing systematic underestimation of cycle counts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect in resonator_obs measurement chain, site, or data acquisition; requires physical inspection, re-baselining, and environmental characterization",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs hardware degradation (mechanical damping increase, stiffness drift, bearing wear, or corrosion)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented recalibration, gain adjustment, or measurement-chain offset introduced between days 10 and 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site or immediate measurement environment (temperature, vibration, EMI, humidity) changed after day 10, reducing frequency or increasing damping",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11 (operator, settling time, calibration check rhythm, data logging threshold, or pre-measurement conditioning)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs measurement chain or immediate electronics fault (loose connection, frequency response degradation, EMI coupling, thermal drift in amplifier, or data acquisition offset)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect in resonator_obs measurement chain, site, or data acquisition; or unknown physical process with characteristic timescale ~6–7 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs hardware degradation (mechanical damping increase, bearing wear, stiffness drift, or localized corrosion)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented recalibration, gain adjustment, or offset introduced between days 10 and 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site or immediate measurement environment changed after day 10 (temperature, vibration, EMI, humidity, or localized thermal cycling)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11 (operator, settling time, calibration check rhythm, or data acquisition threshold)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs measurement chain or immediate electronics fault (loose connection, thermal drift in amplifier, intermittent EMI coupling, or data acquisition offset)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect in resonator_obs measurement chain, site, or data logging; or unknown physical process with characteristic timescale ~6–7 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs hardware degradation (mechanical damping increase, bearing wear, stiffness drift, or localized corrosion)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site or immediate measurement environment changed after day 10 (temperature, vibration, EMI, humidity, or thermal cycling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undocumented recalibration, gain adjustment, or offset introduced between days 10 and 11",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11 (operator, settling time, calibration check rhythm, or data acquisition threshold)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs measurement chain or immediate electronics fault (loose connection, thermal drift in amplifier, intermittent EMI coupling, or data acquisition offset)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic effect in resonator_obs measurement chain, site, or data logging; or unknown physical process with characteristic timescale ~6–7 days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs hardware degradation: bearing wear, mechanical damping increase, stiffness drift, localized corrosion, or seal failure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site or immediate measurement environment changed after day 10 (temperature, vibration, EMI, humidity cycling, or thermal stress with ~7-day settlement operational periodicity)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented recalibration, gain adjustment, or offset introduced between days 10 and 11, or hidden change in measurement-chain scaling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11: operator, settling time, calibration check rhythm, filtering, or pre-measurement conditioning",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs measurement electronics or signal-conditioning chain fault: loose connection with developing contact resistance, thermal drift in amplifier, intermittent EMI coupling, or data acquisition systematic offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physical process or compound mechanism at resonator_obs: corrosion kinetics with settlement operational periodicity, bearing wear with load-dependent damping, or outgassing affecting resonance, with emergent ~6–7 day timescale",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs hardware degradation: bearing wear, mechanical damping increase, stiffness drift, or corrosion specific to that instrument",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement electronics or signal-conditioning chain fault: loose connection, thermal drift in amplifier, intermittent EMI, or systematic offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site or immediate measurement environment changed after day 10: temperature, vibration, EMI, humidity cycling, or thermal stress reflecting settlement duty cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented recalibration, gain adjustment, or offset introduced between days 10 and 11, or hidden change in measurement-chain scaling at resonator_obs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement protocol changed between days 10 and 11: operator, settling time, calibration rhythm, filtering, or environmental conditioning",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown physical process or compound mechanism at resonator_obs: corrosion kinetics with settlement periodicity, bearing wear with load-dependent damping, outgassing, or unfamiliar phenomenon with ~6–7 day relaxation timescale",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs hardware degradation (bearing wear, mechanical damping, stiffness drift, or corrosion)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic bias or calibration offset at resonator_obs introduced between baseline and post-baseline periods, coupled to settlement operational periodicity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement electronics or signal-conditioning fault (loose connection, thermal drift, intermittent EMI) coupled to settlement duty cycle",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs site or measurement environment changed after day 10, acting selectively on resonator but not pendulum through differential coupling (e.g., isolation platform failure, new vibration source affecting resonator preferentially)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or operator procedure changed specific to resonator_obs between days 10 and 11, creating systematic bias that evolved with settlement operational periodicity",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown physical process or compound mechanism at resonator_obs (corrosion kinetics with load-dependent kinetics, bearing wear coupled to settlement operational loading, outgassing, or unfamiliar phenomenon) interacting with pendulum_lab through shared operational or environmental coupling",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

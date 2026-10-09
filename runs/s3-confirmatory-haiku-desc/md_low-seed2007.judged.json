@@ -1,0 +1,273 @@
+{
+  "source": "md_low-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Observational equipment underwent maintenance, recalibration, or component replacement between Day 10 and Day 21, causing step-like drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unobserved cause (confounding environmental factor, instrumental artifact, or procedural variation not yet documented)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "True physical heterogeneity: lab and observational sites couple to genuinely distinct environmental resonances with opposite-phase or site-specific responses",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data artifact: computational bug in lag-offset search, timestamp misalignment, or transcription error produces spurious lag structure",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Computational or data-handling error in lag-offset search, timestamp alignment, or transcription has introduced spurious correlation structure that mimics weak periodic signal",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Measurement-procedure or observer-bias correlation between streams, independent of apparatus",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Environmental oscillation with ~12–14 day period exists but is so weakly coupled to all four instruments that it remains unresolvable against noise, and internal observational-site opposite drift is unrelated to that oscillation",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental coupling: lab and observational channels respond to different environmental drivers on ~6 day cycle",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data artifact: computational error in lag-offset search, timestamp misalignment, or transcription error produces spurious correlation structure",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 20,
+  "l4Judged": 20,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep in observational apparatus",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling: lab and observational channels respond to different environmental drivers on ~6 day cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement-procedure or observer-bias correlation between streams, independent of apparatus",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical heterogeneity: lab and observational sites sample genuinely different physical states with ~5 day coupling timescale",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact: transcription error, timestamp misalignment, or indexing bug in cross-check computation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational apparatus has independent calibration drift or systematic measurement bias decoupled from lab channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling on a ~5–6 day cycle creates phase-shifted responses in spatially or thermally separated lab vs. observational sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer bias, procedural correlation, or scheduling artifacts introduce coherent but instrument-dependent bias between lab and observational measurement shifts",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical heterogeneity: lab and observational sites couple to different environmental modes with genuinely distinct ~5 day response timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact: computational bug in cross-check lag-offset search, timestamp misalignment, or transcription error introduces spurious lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational apparatus has independent calibration drift or systematic measurement bias decoupled from lab channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental coupling on a ~5–6 day cycle with phase-shifted responses between lab and observational sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer bias, procedural correlation, or scheduling artifacts: lab observer(s) and observational observer(s) operate on decoupled schedules or protocols",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical heterogeneity: lab and observational sites couple to genuinely distinct environmental modes with ~5 day response timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact: computational bug in lag-offset search, timestamp misalignment, or transcription error produces spurious lag structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational apparatus has accumulated independent calibration drift or systematic measurement bias decoupled from lab channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site environment couples to lab site via ~5–6 day lagged response, with phase-shifted oscillation between locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer bias or procedural difference: lab observer(s) and observational observer(s) operate on decoupled schedules or apply independent calibration protocols",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical heterogeneity: lab and observational sites couple to genuinely distinct environmental resonances, with opposite-sign or phase-inverted responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact: computational bug in lag-offset search, timestamp misalignment, or transcription error produces spurious correlation structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational equipment underwent maintenance, recalibration, or component replacement between Day 10 and Day 21, causing step-like drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unobserved cause (confounding environmental factor, instrumental artifact, or procedural variation not yet documented)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational apparatus operates under independent, drifting calibration chain decoupled from lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or procedural difference: lab and observational teams operate on decoupled calibration schedules or apply distinct measurement protocols",
+      "class": "self_error"
+    },
+    {
+      "label": "Observational instruments have independent, uncorrelated calibration drift: each instrument drifts on its own timescale, unrelated to shared environment or observer bias",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag structure (peaks at 2–6 days for same-type pairs, 2–4 days for cross-type pairs) reflects genuine but weak environmental oscillation with ~12–14 day period, damped by site isolation or instrument inertia",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "True physical heterogeneity: lab and observational sites couple to genuinely distinct environmental resonances with opposite-phase or site-specific responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data artifact: computational error in lag-offset search, timestamp misalignment, or transcription error produces spurious correlation structure",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Maintenance, recalibration, or component degradation at observational site occurred between Day 10 and Day 21, causing punctate drift in observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational site contains two independent instrument-specific calibration drifts, decoupled from each other and from lab measurement chain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational measurement team operates under independent calibration schedule or procedural protocol distinct from lab team, introducing systematic observer or transcription bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental oscillation with ~12–14 day period exists but is so weakly coupled to all four instruments that it remains unresolvable against noise, and internal observational-site opposite drift is unrelated to that oscillation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational site underwent maintenance or component degradation between Day 10 and Day 21 that specifically affected resonator_obs (upward drift) and pendulum_obs (downward drift) independently",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Computational or data-handling error in lag-offset search, timestamp alignment, or transcription has introduced spurious correlation structure that mimics weak periodic signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown mechanism: something in the interaction between instrument type (pendulum vs. resonator), site location (lab vs. observational), and temporal dynamics that I have not yet formulated",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Each observational instrument operates on an independent calibration drift timescale, decoupled from its lab counterpart and from the co-located instrument of different type",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational measurement team operates under different environmental conditions or calibration discipline than lab team, amplifying instrument-specific drifts without creating them",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental oscillation (~12–14 day period) exists but is so small in amplitude that it remains unresolvable against noise and is not the driver of the opposite-drift pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observational site maintenance log shows independent recalibration or component replacement of resonator_obs and pendulum_obs at different times, causing independent opposite-direction drifts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lag-offset search procedure contains systematic bias (e.g., incorrect timestamp alignment, aliasing in lag search) that creates spurious weak correlation structure mimicking periodic signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Unknown mechanism: instrumental response inversion or feedback between pendulum and resonator measurements, or a hidden environmental driver that couples to the two instrument types with opposite polarity",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

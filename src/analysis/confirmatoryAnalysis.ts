@@ -109,16 +109,47 @@ export function familyOf(artifact: Artifact): string {
   return m;
 }
 
-function classMapOf(sidecar: Sidecar): Map<string, string> {
-  const map = new Map<string, string>();
-  for (const c of sidecar.classifications ?? []) {
-    // The sidecar stores label only. A same-label/different-class collision
-    // is detected here and surfaced as a hard failure by the caller check.
-    if (map.has(c.label) && map.get(c.label) !== c.class) {
-      map.set(c.label, `__COLLISION__`);
-    } else {
-      map.set(c.label, c.class);
+function uniqueClassificationKeys(artifact: Artifact): { key: string; label: string }[] {
+  const seen = new Set<string>();
+  const out: { key: string; label: string }[] = [];
+  for (const ag of artifact.agents) {
+    for (const snap of ag.beliefTimeline) {
+      for (const h of snap.state.hypotheses) {
+        const key = `${h.label}\u0000${h.rationale}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          out.push({ key, label: h.label });
+        }
+      }
     }
+  }
+  return out;
+}
+
+function classMapOf(sidecar: Sidecar, artifact: Artifact, path: string): Map<string, string> {
+  // Deviation 8 (2026-10-09): the sidecar's classifications array holds one
+  // entry per unique (label, rationale) cache key, in cache insertion order,
+  // but records only the label. Labels recur across snapshots with evolving
+  // rationales (and sometimes divergent classes), so a label-keyed map is
+  // lossy — 130/338 battery sidecars collide. The full mapping is
+  // reconstructed positionally: the scoring pass enumerated unique keys in
+  // agents -> beliefTimeline -> hypotheses first-occurrence order, which is
+  // reproducible from the artifact (verified 338/338 before this fix).
+  // Alignment is asserted entry-by-entry, and the tauSuspicion invariant in
+  // loadRun independently validates every reconstruction. Any mismatch halts.
+  const keys = uniqueClassificationKeys(artifact);
+  const cls = sidecar.classifications ?? [];
+  if (cls.length !== keys.length) {
+    throw new Error(
+      `${path}: ${cls.length} classifications for ${keys.length} unique hypothesis keys — cannot reconstruct mapping`,
+    );
+  }
+  const map = new Map<string, string>();
+  for (let i = 0; i < keys.length; i++) {
+    if (cls[i]!.label !== keys[i]!.label) {
+      throw new Error(`${path}: classification ${i} label mismatch — cannot reconstruct mapping`);
+    }
+    map.set(keys[i]!.key, cls[i]!.class);
   }
   return map;
 }
@@ -135,7 +166,7 @@ function indicators(
   let finalL2 = false;
   for (const snap of timeline) {
     const hyps = snap.state.hypotheses;
-    const ext = hyps.filter((h) => classes.includes(cls.get(h.label) ?? "other"));
+    const ext = hyps.filter((h) => classes.includes(cls.get(`${h.label}\u0000${h.rationale}`) ?? "other"));
     const mass =
       aggregation === "summed"
         ? ext.reduce((s, h) => s + h.probability, 0)
@@ -193,10 +224,7 @@ export function loadRun(dir: string, file: string): RunRecord {
     if (sidecar.classifyMode !== "solo") {
       throw new Error(`${path}: classifyMode "${sidecar.classifyMode}" — confirmatory sidecars must be solo (F32)`);
     }
-    const cls = classMapOf(sidecar);
-    if ([...cls.values()].includes("__COLLISION__")) {
-      throw new Error(`${path}: label collision with divergent classes — investigate before analysis`);
-    }
+    const cls = classMapOf(sidecar, artifact, path);
     for (const [ladder, classes] of [
       ["pooled", POOLED_CLASSES],
       ["ivn", IVN_CLASSES],
@@ -227,7 +255,7 @@ export function loadRun(dir: string, file: string): RunRecord {
     if (last) {
       const maxP = Math.max(0, ...last.state.hypotheses.map((h) => h.probability));
       const m = last.state.hypotheses.find((h) => h.probability === maxP && maxP > 0);
-      modal = m ? (cls.get(m.label) ?? "other") : null;
+      modal = m ? (cls.get(`${m.label}\u0000${m.rationale}`) ?? "other") : null;
       namesSurface = m ? MANIPULATED_SURFACE_RE.test(`${m.label} ${m.rationale}`) : false;
     }
     rec.finalModalClass[version] = modal;

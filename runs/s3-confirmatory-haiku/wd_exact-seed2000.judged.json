@@ -1,0 +1,402 @@
+{
+  "source": "wd_exact-seed2000.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 14,
+    "agree": 11,
+    "items": [
+      {
+        "label": "Residual: the perfect correlation and resonator_obs shift are real but explained by a mechanism not yet identified; requires targeted investigation of data provenance, instrument hardware, environmental logs, and software routing before proceeding to physical interpretation.",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Instrumental misalignment or calibration constant was not properly zeroed on day 1, inducing a coherent offset that oscillates with environmental forcing",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common computational, logging, or database pathway; the r=1.000 correlation reflects duplicate data routing, field aliasing, time-shifted replication, or shared calibration pipeline rather than independent measurement.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental cycling (thermal, humidity, power supply) at ~6–8 day period induces systematic oscillation in all systems with location-specific propagation delays",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs detector or optical path experienced vibration-induced or electromagnetic-induced recalibration on day 11 (mechanical slip, coupling misalignment, or power transient) that altered effective cavity length or detector sensitivity without operator record",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs detector or optical path experienced vibration, electromagnetic transient, or mechanical slip on day 11 that altered cavity length or detector sensitivity without operator record.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs underwent a localized instrumental event (calibration, thermal transient, misalignment, component slip, or physical perturbation) on or before day 11 that permanently altered sensitivity or zero-point.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data recording or trial indexing error: trials are mislabeled by date or transposed in time within or between systems",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Resonator_obs and pendulum_lab correlation is genuine but explained by a mechanism not yet identified; requires targeted investigation of data provenance, instrument hardware, environmental logs, and software routing before proceeding",
+        "primary": "incomplete_theory",
+        "second": "other"
+      },
+      {
+        "label": "Calibration baselines set on day 1 were not representative of true zero; baseline drifted or was offset, inducing phase-shifted environmental response that appears as negative autocorrelation",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Hidden common environmental driver (HVAC transient, seismic event, EM surge, airflow change, or shared electrical ground) around day 11 coupling pendulum_lab and resonator_obs specifically, explaining resonator_obs shift and the perfect correlation as genuine physical response",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs site-specific environment (observational location, not lab) underwent a sustained change around day 11 that resonator_obs is sensitive to but other co-located systems are not.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common logging source, database field, computational pathway, or event routing—the r=1.000 correlation is impossible for independent measurement streams and indicates duplicate logging, field aliasing, shared calibration pipeline, or post-hoc computation with latency",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs underwent discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment), causing a permanent ~0.011 cycles/beat downward shift; this is a secondary anomaly, distinct from the correlation singularity.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 39,
+  "l4Judged": 39,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or temperature cycling with ~6–8 day period, coupled to observational protocol",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or observer bias correlated between paired systems with time lag",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental misalignment or calibration constant was not properly zeroed on day 1, inducing a coherent offset that oscillates with environmental forcing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical coupling or resonance between systems (pendulum and resonator share some environmental or mechanical mode)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data recording or indexing error: trials are mislabeled or transposed in time",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental cycling (thermal, humidity, power supply) at ~6–8 day period induces systematic oscillation in all systems with location-specific propagation delays",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration baselines set on day 1 were not representative of true zero; baseline drifted or was offset, inducing phase-shifted environmental response that appears as negative autocorrelation",
+      "class": "self_error"
+    },
+    {
+      "label": "Observer or measurement protocol bias: same personnel rotate between systems with 3–4 day cycle, introducing fatigue, learning, or instrumental familiarity artefacts correlated between paired systems",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical coupling: pendulum and resonator systems share sensitivity to a common environmental mode (floor vibration, barometric pressure, electromagnetic noise) or interact mechanically through the settlement structure",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or trial indexing error: trials are mislabeled by date or transposed in time within or between systems",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs apparatus underwent a physical or calibration event around day 11 that permanently altered its sensitivity or zero-point",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental cycling at ~6–8 day period (or its harmonic) induces oscillatory drift across all systems; resonator_obs is amplified because of apparatus-specific sensitivity or damping characteristics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration for resonator_obs was not independent or was set under unrepresentative conditions on day 1; subsequent readings reveal true equilibrium offset",
+      "class": "self_error"
+    },
+    {
+      "label": "Observer rotation or measurement protocol change around day 11 affected resonator_obs more severely than other systems (fatigue, learning, or procedural drift specific to resonator_obs operator)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs experienced a transient external disturbance (impact, vibration, electromagnetic noise spike) on day 11 that mechanically or electromagnetically reset or recalibrated the detector without operator intervention",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs apparatus underwent a localized calibration or physical event on or before day 11 that permanently altered its effective sensitivity or zero-point",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs site-specific environment (observational location, not lab) underwent a sustained change around day 11 (e.g., temperature stabilization, relocation of adjacent equipment, or thermal isolation change) that resonator_obs is sensitive to but other systems are not",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline (n=60, days 1–10) was set under non-equilibrium or unrepresentative conditions; subsequent readings reflect true equilibrium offset, not physical drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs detector or optical path experienced vibration-induced or electromagnetic-induced recalibration on day 11 (mechanical slip, coupling misalignment, or power transient) that altered effective cavity length or detector sensitivity without operator record",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer rotation or procedural drift specific to resonator_obs around day 11 introduced systematic bias (fatigue, recalibration protocol change, or measurement technique shift)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs underwent a localized calibration, physical misalignment, or component event on or before day 11 that permanently altered sensitivity or zero-point",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs site-specific environment (observational location, not lab) underwent a sustained change around day 11 that resonator_obs is sensitive to but other systems are not",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline (n=60, days 1–10) was established under non-equilibrium or unrepresentative conditions; post-baseline readings reflect true equilibrium offset, not instrumental drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs detector or optical path experienced vibration, electromagnetic transient, or mechanical slip on day 11 that altered cavity length or detector sensitivity without operator record",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer rotation, procedural drift, or measurement technique change specific to resonator_obs around day 11 introduced systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs underwent a localized calibration, physical misalignment, thermal transient, or component event on or before day 11 that permanently altered sensitivity or zero-point.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs site-specific environment (observational location, not lab) underwent a sustained change around day 11 that resonator_obs is sensitive to but other co-located systems are not.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline (n=60, days 1–10) was established under non-equilibrium or unrepresentative conditions; post-baseline readings reflect true equilibrium offset, not instrumental drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs detector or optical path experienced vibration, electromagnetic transient, or mechanical slip on day 11 that altered cavity length or detector sensitivity without operator record.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer rotation, procedural drift, or measurement technique change specific to resonator_obs around day 11 introduced systematic bias.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs underwent a localized instrumental event (calibration, thermal transient, misalignment, component slip, or physical perturbation) on or before day 11 that permanently altered sensitivity or zero-point.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10, n=60) was established under incomplete thermal, electrical, or mechanical equilibration; post-baseline readings represent true equilibrium state, not instrumental drift.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator_obs site-specific environment (observational location) underwent a sustained change around day 11 that resonator_obs is sensitive to but other co-located systems are not.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs detector, optical path, or cavity experienced vibration, electromagnetic transient, or mechanical slip on day 11 that altered resonant frequency or detector sensitivity without operator record.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer rotation, procedural drift, or measurement technique change specific to resonator_obs around day 11 introduced systematic bias.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs underwent a localized instrumental event (calibration, thermal transient, misalignment, component slip, mechanical disturbance) around day 11 that permanently altered sensitivity or zero-point.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The perfect r=1.000 correlation between pendulum_lab and resonator_obs at 3-day offset reflects real physical coupling, data entry error, or hidden instrumental correlation I have not yet identified.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was established under incomplete thermal/electrical/mechanical equilibration; post-baseline readings represent true equilibrium, and the apparent level shift is mis-specified baseline, not instrumental change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs observational site underwent a sustained environmental change around day 11 (thermal isolation, heat source relocation, airflow pattern change) that resonator_obs is sensitive to but other co-located systems are not.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs detector, optical path, or cavity experienced vibration, electromagnetic transient, or mechanical slip around day 11 that altered resonant frequency without operator record.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer rotation, procedural drift, or measurement technique change specific to resonator_obs around day 11 introduced systematic bias.",
+      "class": "self_error"
+    },
+    {
+      "label": "Data linkage artifact: resonator_obs and pendulum_lab share a database alias, transcription error, or systematic copy mechanism that creates perfect correlation by design, not physics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a discrete instrumental perturbation around day 11 (calibration shift, thermal transient, optical misalignment, mechanical slip, or component failure) that permanently altered its baseline zero-point or sensitivity by ~0.0123 cycles/beat.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was not in thermal/mechanical/electrical equilibrium; post-baseline mean (4.0558) represents true equilibrium, and the apparent 'shift' is mis-specified baseline, not instrumental change.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden common environmental driver (thermal, vibrational, electromagnetic, or airflow coupling through building infrastructure or shared electrical ground) links pendulum_lab and resonator_obs specifically, creating the perfect correlation and explaining the level shift as a genuine physical response to an environmental event around day 11.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs detector, cavity, or optical alignment experienced a single mechanical or electromagnetic transient on day 11 (vibration, impact, power surge, component creep) that altered its frequency response, and the perfect correlation with pendulum_lab is a separate data artifact requiring independent investigation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data linkage artifact: pendulum_lab and resonator_obs records share a common source, alias, or post-hoc computational pathway",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment) causing a permanent ~0.012 cycles/beat downward shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was not in true equilibrium; post-baseline mean represents equilibrium achieved around day 11, and apparent 'shift' is mis-specified baseline not instrumental failure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Hidden common environmental driver (HVAC thermal transient, seismic event, EM surge, airflow change, or shared electrical ground) on day 11 coupling pendulum_lab and resonator_obs specifically, explaining perfect correlation and resonator_obs shift as genuine physical response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs and pendulum_lab correlation is real but explained by a mechanism I have not yet identified, requiring targeted investigation of data provenance, instrument hardware, and environmental logs before proceeding",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common logging source, database field, or computational pathway",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment), causing permanent ~0.012 cycles/beat downward shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was not in true equilibrium; post-baseline mean represents true equilibrium achieved by day 11, and apparent 'shift' is mis-specified baseline, not instrumental failure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden common environmental driver (HVAC transient, seismic event, EM surge, airflow change, or shared electrical ground) around day 11 coupling pendulum_lab and resonator_obs specifically, explaining perfect correlation and resonator_obs shift as genuine physical response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs and pendulum_lab correlation is genuine but explained by a mechanism not yet identified; requires targeted investigation of data provenance, instrument hardware, environmental logs, and software routing before proceeding",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common logging source, database field, computational pathway, or event routing—the r=1.000 correlation is impossible for independent measurement streams and indicates duplicate logging, field aliasing, shared calibration pipeline, or post-hoc computation with latency",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment), causing permanent ~0.012 cycles/beat downward shift; separate from correlation anomaly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was not in true equilibrium; post-baseline mean represents true equilibrium achieved by day 11, and apparent 'shift' is mis-specified baseline rather than instrumental failure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Hidden common environmental driver (HVAC transient, seismic event, EM surge, airflow change, or shared electrical ground) around day 11 coupling pendulum_lab and resonator_obs specifically, explaining resonator_obs shift and the perfect correlation as genuine physical response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: the perfect correlation and resonator_obs shift are real but explained by a mechanism not yet identified; requires targeted investigation of data provenance, instrument hardware, environmental logs, and software routing before proceeding to physical interpretation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common logging, database, or computational pathway; the r=1.000 correlation is impossible for independent measurement streams and indicates duplicate logging, field aliasing, shared calibration pipeline, or time-shifted data routing.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment), causing a permanent ~0.011 cycles/beat downward shift; this is a secondary anomaly, distinct from the correlation singularity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: the perfect correlation and resonator_obs shift are real but explained by a mechanism not yet identified; requires targeted investigation of data provenance, instrument hardware, environmental logs, and software routing before proceeding to physical interpretation.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common computational, logging, or database pathway; the r=1.000 correlation reflects duplicate data routing, field aliasing, time-shifted replication, or shared calibration pipeline rather than independent measurement.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent a discrete instrumental perturbation around day 11 (calibration drift, thermal transient, mechanical slip, component failure, or optical misalignment), causing a permanent ~0.011 cycles/beat downward level shift; this is a secondary anomaly, distinct from the correlation singularity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: the perfect correlation and resonator_obs shift are real and explained by a mechanism not yet identified; requires completion of data provenance audit and targeted investigation of instrument hardware, environmental logs, and software routing before proceeding to physical interpretation.",
+      "class": "incomplete_theory"
+    }
+  ]
+}

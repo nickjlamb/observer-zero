@@ -1,0 +1,231 @@
+{
+  "source": "w0-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Localized environmental disturbance or instrumental drift specific to observational apparatus on Day 22",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Transient instrumental or mechanical event in pendulum_lab on Day 26; localized to that trial",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Calibration or data-recording protocol error on Day 40 (e.g., sensor misconfiguration, data acquisition software glitch, operator error in setup) affects all four instruments' readout precision without changing their means",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "All drifts are noise, no real instrumental shift: the observed z-scores are consistent with sampling variation from stable underlying means. Cross-instrument agreement is weak because there is no true signal to correlate.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Genuine physical time-varying or quasi-periodic behaviour in the measurand",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Day 40 represents genuine increase in instrumental noise floor or environmental disturbance affecting all channels independently",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Day 26 outlier in pendulum_lab (event 688928, trial 242: 1.6948 beats) and Day 40 scatter elevation are connected—Day 26 was the first signal of a developing environmental instability or apparatus degradation that manifests fully on Day 40",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 22,
+  "l4Judged": 22,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent random measurement error in each channel",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or zero-offset drift between lab and observational instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical time-varying or quasi-periodic behaviour in the measurand",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging or time-stamp error producing spurious offsets",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Increased measurement noise or environmental disturbance on Day 12 (localized event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random fluctuation within expected white-noise envelope—no genuine anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical time-varying signal (environmental or instrumental coupling) beginning to emerge",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration drift or systematic offset between lab and observational instruments manifesting as increased scatter in obs channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or timing error (events 831246–964415 timestamped incorrectly or out of order)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Localized environmental disturbance or instrumental drift specific to observational apparatus on Day 22",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random excursion within expected white-noise envelope; no genuine anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab showed systematic positive shift on Day 22 (trials 139–144 mean +0.50% vs post-baseline); this is coupled with obs scatter, suggesting shared environmental driver",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine multi-day periodic or quasi-periodic physical oscillation in the measurand, with Day 22 representing a high-variance phase",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration or systematic offset between observational and lab channels accumulating over Days 11–22, now visible as divergence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or event timestamp error; Day 22 events missequenced or mislabeled",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Single outlier within white-noise envelope; no systematic anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient instrumental or mechanical event in pendulum_lab on Day 26; localized to that trial",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, transcription, or logging error in trial 242",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine brief shift in the physical measurand on Day 26, coupled with low sensitivity or high noise in most observational channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified systematic or instrumental cause",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental drifts are real but independent: each apparatus has its own physical drift source (thermal, mechanical, optical alignment, sensor aging) uncorrelated with the others. Weak cross-correlations reflect genuine instrumental isolation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All drifts are noise, no real instrumental shift: the observed z-scores are consistent with sampling variation from stable underlying means. Cross-instrument agreement is weak because there is no true signal to correlate.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift in a shared measurement standard or reference (e.g., clock, frequency source, environmental sensor used to correct all instruments) produces correlated drift in all four channels, but the correlation is obscured by large uncorrelated instrumental noise floors.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Non-stationary baseline: the first 10 days (baseline period) were not in true steady state. The apparent post-baseline drift is a regression to a more stable mean, not an instrumental drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental transient or intervention occurred around Day 26, affecting pendulum_lab trial 242 (event 688928: 1.6948 beats, +1.57% excursion), signaling a genuine physical or instrumental perturbation on that day that other instruments either missed or did not express visibly.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or data-handling change occurred between baseline (Days 1–10) and post-baseline (Days 11–36), causing apparent drift that does not reflect true instrumental drift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Day 40 represents genuine increase in instrumental noise floor or environmental disturbance affecting all channels independently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 40 scatter is within expected sampling variation; apparent elevation is a visual artifact or cherry-picked subset of normal trial variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or data-recording protocol error on Day 40 (e.g., sensor misconfiguration, data acquisition software glitch, operator error in setup) affects all four instruments' readout precision without changing their means",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (Days 1–10) contains undetected slow drift or non-stationarity, causing the post-baseline apparent drift (−1.29 to +0.84 z) to be an artifact of regression to true mean, not genuine instrumental drift post-Day 10",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 26 outlier in pendulum_lab (event 688928, trial 242: 1.6948 beats) and Day 40 scatter elevation are connected—Day 26 was the first signal of a developing environmental instability or apparatus degradation that manifests fully on Day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Something not yet considered (e.g., Day 40 data logging error, metadata mixup, or physical event outside lab not documented in standard logbook)",
+      "class": "other"
+    }
+  ]
+}

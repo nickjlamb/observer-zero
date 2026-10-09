@@ -1,0 +1,327 @@
+{
+  "source": "wa-seed2007.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 11,
+    "items": [
+      {
+        "label": "Pendulum clock reference has drifted; resonators use independent time standard",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator channel sign inversion: one resonator readout channel inverted (polarity flip, reciprocal scaling, or sign error in data pipeline) causing artificial negative cross-correlation and cancellation of environmental signals",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator readout channels have opposite polarity or reciprocal scaling convention; systematic sign inversion produces anti-correlation and masks environmental sensitivity uniformly across both resonator streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator data pipeline (hardware, firmware, or export) has systematic post-baseline error, sign-flip, or misalignment specific to one channel",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental oscillation (thermal, magnetic, or mechanical) with ~6–7 day period",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Calibration reference drift in pendulum instrumentation (timing oscillator, clock frequency aging)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum and resonator measure decoupled physical systems; day-12 shift reflects genuine environmental change (Δg, thermal expansion, or subsidence) affecting only pendulum apparatus",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "One resonator readout channel has inverted polarity (sign flip, reciprocal transform, or negated firmware output)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement noise and spurious offset-correlations (null hypothesis for the cross-instrument correlations only; this hypothesis does not explain pendulum level jump)",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Genuine environmental change (thermal, subsidence, local Δg) concentrated around pendulum apparatus; resonators physically isolated or temperature-compensated",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic calibration drift or analog-to-digital quantization artifact common to multiple instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental oscillation (thermal, magnetic, or mechanical) with ~6–7 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise and coincidental offset-correlations (null hypothesis)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or analog-to-digital quantization artifact common to multiple instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected equipment malfunction or data corruption in one or more instruments",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum-specific mechanical or environmental sensitivity (e.g., gravity gradient shift, platform subsidence, thermal expansion of support structure)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration reference drift in pendulum instrumentation alone (e.g., timing oscillator frequency shift, clock reference aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical process: gravitational or inertial field change affecting pendulum period only (e.g., mass redistribution, tidal effect, settlement structural shift)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise and spurious offset-correlations (null hypothesis for the cross-instrument correlations only; this hypothesis does not explain pendulum level jump)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum-specific mechanical or environmental change (length, suspension, gravity gradient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration reference drift in pendulum instrumentation (timing oscillator, clock frequency aging)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real gravitational or inertial field change (tidal, mass redistribution, settlement subsidence/shift)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement error, transcription, or data corruption specific to pendulum channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator systems measure fundamentally different physical quantities under different noise/dynamics regimes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum clock reference has drifted; resonators use independent time standard",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific mechanical/environmental change (thermal expansion, suspension relaxation, localized Δg); resonators immune because gravity-independent",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator measurement pipeline (firmware, time-stamping, or display logic) has a null or reversed-sign readout; pendulum streams are unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement error, transcription, or data corruption specific to resonator channels post-baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum and resonator measure decoupled physical systems (gravity/inertia vs. material resonance); day-12 shift is real environmental change affecting only pendulum channel",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum clock oscillator has drifted or shows thermal cycling in frequency; resonators use independent time standard; resonator sign or inversion error present",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental change (thermal, subsidence, local Δg) concentrated around pendulum apparatus; resonators physically isolated or temperature-compensated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator firmware/hardware uses inverted or reciprocal readout convention (1/f instead of f, or sign reversed on alternating trials); pendulum stream unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data corruption or transcription error specific to resonator post-baseline pipeline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator measure decoupled physical systems; day-12 shift reflects genuine environmental change (Δg, thermal expansion, or subsidence) affecting only pendulum apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator streams are systematically anti-correlated due to hardware/firmware configuration difference (opposite polarity readout, reciprocal scaling, or inverted frequency convention on one channel)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum clock or oscillator has drifted or shows thermal modulation in frequency; resonators use independent frequency standard, producing apparent decoupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator readout pipeline (hardware, firmware, or data export) has systematic error or sign convention misalignment post-baseline, producing artificial independence and anti-correlation between channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine localized environmental perturbation (thermal gradient, structural subsidence, or transient mass redistribution) affecting only pendulum apparatus location, with resonators either thermally isolated or compensated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum and resonator measure genuinely decoupled physical systems; day-12 shift reflects real environmental change (Δg, thermal expansion, subsidence) affecting only pendulum apparatus",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator readout channels have opposite polarity or reciprocal scaling convention; systematic sign inversion produces anti-correlation and masks environmental sensitivity uniformly across both resonator streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum frequency reference (clock or oscillator) undergoes thermal modulation or aging with ~2-day timescale; resonators use independent frequency standard or self-reference, producing apparent decoupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator data pipeline (hardware, firmware, or export) has systematic post-baseline error or sign-flip specific to one channel, producing artificial zero-level shift and artificial anti-correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spatial or thermal separation between pendulum and resonator apparatus location; pendulum sits in microenvironment with 2-day thermal cycle or subsidence risk, while resonators are thermally isolated or in stable zone",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental driver (Δg, thermal expansion, subsidence) affecting only pendulum apparatus between days 10–12; resonators measure decoupled physical system",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator readout channels have opposite polarity or reciprocal scaling; systematic sign inversion masks environmental sensitivity uniformly",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum frequency reference (clock oscillator) undergoes thermal modulation or aging with ~2-day timescale; resonators use independent or self-referencing time standard",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator data pipeline (hardware, firmware, or export) has systematic post-baseline error, sign-flip, or misalignment specific to one channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Spatial or thermal separation between pendulum and resonator apparatus; pendulum sits in microenvironment with 2-day thermal cycle or subsidence risk, resonators in stable zone",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator readout inversion (polarity flip or reciprocal scaling) in one channel; environmental signal systematically cancels in aggregate statistics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental driver (Δg, thermal expansion, subsidence, or mechanical resonance) affecting pendulum apparatus between days 10–12, with resonators measuring decoupled physical system or using compensation mechanism",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator frequency reference (clock oscillator or timing standard) undergoes thermal modulation or aging with ~2-day timescale; resonators measure ratios to this drifting reference, canceling apparent environmental signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator data pipeline (firmware, export, or intermediate processing) has systematic sign-flip or scale inversion specific to one channel, applied post-day-10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator apparatus occupy different thermal or subsidence microzones; localized perturbation affects only pendulum zone between days 10–12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator channel sign inversion: one resonator readout channel inverted (polarity flip, reciprocal scaling, or sign error in data pipeline) causing artificial negative cross-correlation and cancellation of environmental signals",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental driver (thermal expansion, subsidence, groundwater oscillation) affecting pendulum apparatus around day 12, with resonators measuring decoupled or compensated physical systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator frequency reference (clock oscillator or timing standard) undergoes thermal modulation with ~2-day period; resonators measure ratios to drifting reference, masking environmental signal that pendulums capture",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator data pipeline fault (firmware, export script, or intermediate processing) introduced post-day-10 causing sign flip, scale inversion, or channel swap specific to resonator readout",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator apparatus occupy different thermal or subsidence microzones; localized perturbation affects only pendulum zone around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One resonator readout channel has inverted polarity (sign flip, reciprocal transform, or negated firmware output)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental driver (thermal expansion, subsidence, or groundwater) affected pendulum apparatus around day 12; resonators measure decoupled physical quantity or reference",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator readout computes ratio to drifting frequency reference (clock oscillator or timing standard); environmental signal masked by reference thermal modulation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator firmware or data export pipeline fault (sign flip, scale inversion, channel swap, or reciprocal transform) introduced post-day-10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator apparatus occupy different thermal or subsidence microzones; localized perturbation affects only pendulum zone around day 12",
+      "class": "environmental_change"
+    }
+  ]
+}

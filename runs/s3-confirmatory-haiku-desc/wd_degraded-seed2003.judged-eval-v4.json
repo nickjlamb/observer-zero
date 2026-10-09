@@ -1,0 +1,177 @@
+{
+  "source": "wd_degraded-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Instruments are working correctly; 10 days is insufficient to establish meaningful baselines for drift or coupling",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Calibration or data-entry errors are introducing uncorrelated noise into one or more streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Ten-day baseline was genuinely insufficient; Day 30 is still within the settling time of the instruments, and current data do not yet support firm conclusions about drift vs. noise. Continued observation through Day 40–50 is required.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A slow environmental factor (thermal, vibration, or humidity) with timescale 10–30 days is beginning to manifest by Day 30; the weak 'echo' correlations (lag 7–14 days) and simultaneous scatter across streams hint at a periodic or delayed coupling that will become clearer with longer observation.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instruments are mechanically or electronically coupled, producing phase-delayed anti-correlations",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent random noise dominates all four streams",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are mechanically or electronically coupled, producing phase-delayed anti-correlations",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Thermal or environmental drift is uncorrelated with instrument readings within 10-day window",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or data-entry errors are introducing uncorrelated noise into one or more streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are working correctly; 10 days is insufficient to establish meaningful baselines for drift or coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are drifting systematically past Day 10, but drift is uncorrelated across streams — each instrument follows its own slow trajectory independent of the others",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Random instrumental noise has increased in amplitude (or sensitivity) between baseline and Day 20, but no systematic drift or coupling is present",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A single unmodeled environmental factor (e.g., atmospheric pressure, humidity, or external vibration) is affecting one or more instruments in a delayed or nonlinear way, but the effect remains too small to produce detectable cross-correlations over 20 days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or data-entry protocol error was introduced between Day 10 and Day 20, increasing noise or bias in one or more streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Ten-day baseline is genuinely insufficient to characterize instrument behavior; Day 20 is still too early to distinguish drift from noise, and hypothesis revision is premature",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Each instrument is drifting independently on a timescale longer than 10 days, with distinct thermal or mechanical relaxation constants; Day 30 excursions are natural tails of individual slow drifts, not coupled phenomena.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random instrumental noise is genuinely Gaussian and stable; today's apparent increase in scatter is a statistical artifact—rare tail events occurring naturally as n increases, not evidence of changing precision or coupling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A slow environmental factor (thermal, vibration, or humidity) with timescale 10–30 days is beginning to manifest by Day 30; the weak 'echo' correlations (lag 7–14 days) and simultaneous scatter across streams hint at a periodic or delayed coupling that will become clearer with longer observation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or data-entry protocol error was introduced between Day 10 and Day 20, or measurement duty cycle / environmental sampling changed, increasing apparent noise in one or more streams without biasing the mean.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Ten-day baseline was genuinely insufficient; Day 30 is still within the settling time of the instruments, and current data do not yet support firm conclusions about drift vs. noise. Continued observation through Day 40–50 is required.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unmodeled phenomenon (e.g., correlated environmental noise at a specific frequency, instrument-to-instrument acoustic coupling, or a data artifact in my analysis pipeline) is present but not yet recognizable from the patterns I have examined.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Each instrument drifts independently on a timescale >10 days; Day 40 scatter is natural noise tail, not a coupled event.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Random instrumental noise is genuinely Gaussian and stable; simultaneous Day 40 excursions across all four streams are rare-event coincidence, not evidence of coupling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A slow environmental factor (thermal, vibration, humidity) with timescale 10–30 days is manifesting by Day 40; weak 'echo' correlations and day-specific clustering hint at periodic or delayed common coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift, data-entry error, or measurement-protocol change was introduced between Day 10 and Day 20, increasing apparent noise without biasing mean.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Ten-day baseline was insufficient; instruments are still settling through Day 40, and true drift timescale remains unresolved. Current data do not yet support firm conclusions.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmodeled phenomenon: correlated environmental noise at specific frequency, instrument-to-instrument acoustic coupling, data artifact in analysis pipeline, or measurement-selection bias.",
+      "class": "incomplete_theory"
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "source": "md_high-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 15,
+    "agree": 12,
+    "items": [
+      {
+        "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared lab calibration or power infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; partial correction or component reversion occurred Days 21–24, now visible in elevated means and variance across all instruments.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or catastrophic reversion to elevated readings.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "One or more instruments has developed a fault (bearing wear, magnetic drift, damping change) causing gradual output shift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared lab infrastructure fault (calibration standard, power supply, timing reference, or multiplexer) introduced Days 10–11, artificially depressed all readings Days 11–20; partial manual recalibration or component reversion occurred Days 21–24, now visible in Day 24 elevated means and variance.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, unknown coupling between lab and observational stations, calibration standard drift or state change, or other mechanism not yet conceived.",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline period (Days 1–10) was statistically unrepresentative (sampled upper tail of true distribution); post-baseline and Day 23 readings reflect regression toward true long-term mean, now nearly complete",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared lab calibration or power infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; permanent correction or component reversion occurred Days 21–24, now stable through Day 37.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Genuine environmental parameter drifting slowly across Meridian (temperature ramp, seismic settling, barometric trend), coupling to all four instruments with varying sensitivity",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unidentified systematic source(s): EMI, operator procedure change, instrument firmware update, calibration standard state change, geomagnetic or solar disturbance, instrument aging/wear, or concealed coupling between instruments or stations. Days 11–38 coordinated drift and recovery may reflect one such source; Day 40 pendulum_obs transient may reflect another.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Meridian environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or oscillation Days 11–20, now entering a high-variance, transitional state Days 21–24, with instruments responding coherently but with delayed coupling and station-dependent sensitivity",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, calibration standard state change, unknown coupling between lab and observational stations, or other mechanism not yet conceived.",
+        "primary": "instrument_malfunction",
+        "second": "environmental_change"
+      },
+      {
+        "label": "One or more instruments or shared system component developed time-dependent fault (bearing wear, magnetic aging, damping change, electronic drift, reference standard aging, power supply degradation) causing gradual output shift Days 11–20, now partially reversing or correcting on Day 21–22 via discontinuous state change or auto-recalibration",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Actual physical variation in measurement subject (pendulum amplitude decay, resonator damping, or true oscillation of some environmental parameter) with weak but real cross-station coherence",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline period (days 1–10) was statistically unrepresentative (upper tail of true distribution); post-baseline drift reflects regression toward true long-term mean",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 38,
+  "l4Judged": 38,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental oscillation with station-dependent propagation delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental crosstalk or shared calibration/electronic clock drift between measurement channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise: correlations are statistical flukes from multiple hypothesis testing across many possible lags and offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Uncontrolled confound in trial ordering or recording protocol that creates spurious temporal structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Actual physical variation in measurement subject (pendulum amplitude decay, resonator damping, or true oscillation of some environmental parameter) with weak but real cross-station coherence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine environmental oscillation or slow parameter drift affecting all stations with station-dependent coupling strength",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic measurement artifact or calibration drift affecting all channels identically (e.g., shared clock, power supply oscillation, or observer protocol shift on day 11)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Regression to the mean: baseline (days 1–10) was an outlier period, and post-baseline drift reflects true measurement distribution centering around a lower long-term mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has developed a fault (bearing wear, magnetic drift, damping change) causing gradual output shift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The post-baseline drift is a statistical artifact from multiple hypothesis testing and small sample sizes (n=18–42 post-baseline); true underlying mean has not shifted",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared systematic measurement artifact or protocol shift introduced after day 10 (e.g., observer timing offset, clock drift, batch processing error, recalibration bias)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental parameter drifting slowly across Meridian (temperature ramp, seismic settling, barometric trend), coupling to all four instruments with varying sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was statistically unrepresentative (upper tail of true distribution), and post-baseline drift reflects regression toward true long-term mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has developed a fault (bearing wear, magnetic drift, damping change, electronic component aging) causing output drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Post-baseline drift is a statistical false positive from multiple hypothesis testing; true underlying mean has not shifted",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared systematic measurement artifact or protocol shift introduced after day 10 (observer timing offset, clock drift, batch processing error, recalibration bias, or instrumentation electronic drift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine environmental parameter drifting slowly across Meridian (temperature ramp, seismic settling, barometric trend), coupling to all four instruments with varying sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was statistically unrepresentative (upper tail of true distribution); post-baseline drift reflects regression toward true long-term mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has developed a fault (bearing wear, magnetic drift, damping change, electronic component aging) causing output drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Post-baseline drift is a statistical false positive from sampling variation; true underlying mean has not shifted",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day 10/11 protocol or systematic artifact created artificially low post-baseline baseline (days 11–20); day 22 readings reflect regression or correction toward true underlying mean",
+      "class": "self_error"
+    },
+    {
+      "label": "Meridian environment experienced genuine slow drift (temperature, pressure, seismic) days 11–20, now stabilizing or reversing on day 21–22, causing all instruments to respond in tandem with station-dependent sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was statistically unrepresentative (sampled upper tail); post-baseline and day 22 readings reflect regression toward true long-term mean, now stabilizing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments developed a time-dependent fault (bearing wear, magnetic drift, damping change, electronic aging) causing gradual output shift days 11–20, now reversing or correcting on day 21–22",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift days 11–20 and today's reversals are both statistical false positives from sampling variation; no true underlying shift has occurred",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or protocol artifact introduced between Days 10–11 artificially depressed post-baseline readings; Day 23 readings reflect either regression toward true mean or a discontinuous protocol correction on Day 21–22",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Meridian environment experienced genuine slow parameter drift (temperature, pressure, seismic, humidity) Days 11–20, now stabilizing or reversing on Day 21–22, causing all instruments to respond coherently with station-dependent sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative (sampled upper tail of true distribution); post-baseline and Day 23 readings reflect regression toward true long-term mean, now nearly complete",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments or shared system component developed time-dependent fault (bearing wear, magnetic aging, damping change, electronic drift, reference standard aging, power supply degradation) causing gradual output shift Days 11–20, now partially reversing or correcting on Day 21–22 via discontinuous state change or auto-recalibration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and today's reversals are both statistical false positives from sampling variation; no true underlying shift has occurred",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration or protocol artifact introduced Day 10/11 artificially depressed all post-baseline readings; Day 24 readings reflect either discontinuous reversion of that artifact or a measurement protocol correction applied Days 21–23",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Meridian environment experienced genuine slow parameter drift Days 11–20, now stabilizing or reversing Days 21–24, with all instruments responding coherently but with station-dependent sensitivity and timing lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative (sampled upper tail of true distribution); post-baseline and Day 24 readings reflect regression toward true long-term mean, now approaching completion",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more shared hardware or software components (reference standard, power supply, multiplexer, timing reference, ADC) developed time-dependent fault Days 10–11, causing gradual output shift Days 11–20, now entering intermittent failure state or undergoing auto-recalibration on Days 21–24",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and today's reversals are both statistical false positives from sampling variation; no true underlying shift has occurred",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared lab infrastructure fault introduced Days 10–11 (calibration standard, power supply, or timing reference), artificially depressed all readings Days 11–20; partial reversion or manual recalibration occurred Days 21–23, now visible in Day 24 readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Meridian environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or oscillation Days 11–20, now entering a high-variance, transitional state Days 21–24, with instruments responding coherently but with delayed coupling and station-dependent sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative; post-baseline readings reflect regression toward true long-term mean, with Day 24 readings now approaching asymptote",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more shared hardware components (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing gradual shift Days 11–20; now entering catastrophic failure or undergoing forced auto-recalibration, visible as elevated variance today",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared lab infrastructure fault (calibration standard, power supply, timing reference, or multiplexer) introduced Days 10–11, artificially depressed all readings Days 11–20; partial manual recalibration or component reversion occurred Days 21–24, now visible in Day 24 elevated means and variance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or oscillation Days 11–20; instruments responded coherently with delayed station-dependent coupling; Day 24 represents environment entering a high-variance transient or oscillatory state, not reversion to baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative of true long-term mean; post-baseline readings reflect regression toward true lower long-term mean, with Day 24 readings now approaching asymptote at depressed level.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or catastrophic failure reversion, visible as elevated variance and elevated means today.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unidentified systematic source (e.g., electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, or unmeasured physical transduction coupling between lab and observational stations).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared lab calibration or power infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; partial correction or component reversion occurred Days 21–24, now visible in elevated means and variance across all instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or transient oscillation Days 11–20; instruments responded with delayed and heterogeneous coupling; Day 24 represents environment entering high-variance transient state, not reversion to baseline.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative of true long-term mean; post-baseline readings (Days 11–20) reflect regression toward a lower true long-term mean, with elevated variance on Day 24 representing normal equilibrium fluctuation around depressed true level.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or entering catastrophic failure with reversion to elevated readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, unknown coupling between lab and observational stations, or calibration standard drift or state change.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared lab calibration or power infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; partial correction or component reversion occurred Days 21–24, now visible in elevated means and variance across all instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or transient oscillation Days 11–20; instruments responded with delayed and heterogeneous coupling; Day 24 represents environment entering high-variance transient state, not reversion to baseline.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative of true long-term mean; post-baseline readings (Days 11–20) reflect regression toward a lower true long-term mean, with elevated variance on Day 24 representing normal equilibrium fluctuation around depressed true level.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or entering catastrophic failure with reversion to elevated readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, unknown coupling between lab and observational stations, calibration standard drift or state change, or other mechanism not yet conceived.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared lab calibration or power infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; permanent correction or component reversion occurred Days 21–24, now stable through Day 37.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or transient oscillation Days 11–20; instruments responded with delayed and heterogeneous coupling; Day 24 represents environment entering high-variance transient state.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative of true long-term mean; post-baseline readings reflect regression toward a lower true long-term mean, with elevated variance on Day 24 representing entry to new equilibrium.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or catastrophic reversion to elevated readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, calibration standard drift or state change, unknown coupling between lab and observational stations, or other mechanism not yet conceived.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared lab calibration reference standard or power/timing infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; fault corrected or component replaced Days 21–24, now stable and elevated through Day 38.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment (temperature, pressure, humidity, seismic activity) experienced genuine slow multi-day drift or transient oscillation Days 11–20; instruments responded with delayed and heterogeneous coupling; Day 24 represents environment entering high-variance transient state that persists.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Baseline period (Days 1–10) was statistically unrepresentative of true long-term mean; post-baseline readings reflect regression toward a lower true long-term mean, with elevated variance on Day 24 representing entry to new equilibrium.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared hardware component (power supply, multiplexer, ADC, or timing reference) entered intermittent or degraded failure state Days 10–11, producing depressed readings Days 11–20; now undergoing forced auto-recalibration or catastrophic reversion to elevated readings.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observed drift Days 11–20 and Day 24 reversal are both statistical false positives from sampling variation; no true underlying shift has occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unidentified systematic source: electromagnetic interference, solar activity, settlement operator procedure change, instrument firmware update, calibration standard state change, unknown coupling between lab and observational stations, or other mechanism not yet conceived.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_obs underwent a localized transient disturbance (vibration, thermal shock, magnetic pulse, operator intervention) on Day 40 trials 241–246, decoupled from the shared infrastructure event that affected all four instruments Days 11–38. The disturbance is subsiding by trial 245–246.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared lab calibration reference standard or power/timing infrastructure fault introduced Days 10–11, depressing all readings Days 11–20; fault corrected or component replaced Days 21–24, now stable and elevated through Day 38. The Day 40 pendulum_obs transient is unrelated to this event and reflects a separate localized issue.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified systematic source(s): EMI, operator procedure change, instrument firmware update, calibration standard state change, geomagnetic or solar disturbance, instrument aging/wear, or concealed coupling between instruments or stations. Days 11–38 coordinated drift and recovery may reflect one such source; Day 40 pendulum_obs transient may reflect another.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

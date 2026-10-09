@@ -1,0 +1,185 @@
+{
+  "source": "md_mid-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 5,
+    "items": [
+      {
+        "label": "The Day 34 variance spike is an artifact of incomplete data logging, sensor saturation, or data-acquisition buffer overflow on that day; readings are corrupted but appear internally consistent due to artifact repetition or correlated noise injection.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration baselines were not re-validated after Day 10; post-baseline data drift or scale relative to baseline in unknown ways, breaking cross-instrument agreement without affecting individual stream stability.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "At least one of the four instruments is miscalibrated, non-linear, or measuring an artifact (electronic noise, mechanical coupling to environmental vibration, or systematic bias in observation protocol) rather than the intended physical quantity.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Day 40 variance spike is a transient environmental perturbation (thermal, seismic, vibration, or power transient) affecting all four instruments simultaneously; persistent cross-instrument incoherence reflects genuine instrumental independence or mechanical decoupling.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum_lab was recalibrated, adjusted, or serviced between Day 10 and Day 14 without re-establishing a new baseline",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 16,
+  "l4Judged": 16,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental noise dominates all four channels",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments measure genuinely independent physical quantities (not a defect)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Calibration baselines are misaligned (offset or scaling error between instrument pairs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental variation (vibration, temperature, electromagnetic) couples differently to each instrument",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument drift or mechanical failure in pendulum_lab on Day 14",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab readings are within normal noise; the excursion is a random fluctuation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental transient (vibration, temperature spike) on Day 14 morning affected pendulum_lab selectively",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab was recalibrated, adjusted, or serviced between Day 10 and Day 14 without re-establishing a new baseline",
+      "class": "self_error"
+    },
+    {
+      "label": "The earlier hypothesis framework (noise-dominated, independent instruments, or misaligned calibrations) is adequate; Day 14 excursion is not an anomaly requiring a new hypothesis",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments measure genuinely independent physical quantities (not the same pendulum period or resonator frequency); cross-correlation failure is expected and requires no explanation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration baselines were not re-validated after Day 10; post-baseline data drift or scale relative to baseline in unknown ways, breaking cross-instrument agreement without affecting individual stream stability.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The Day 14 excursion in pendulum_lab (trials 173–178, mean 1.6626, min 1.6424) is a real, transient perturbation (mechanical, thermal, or procedural) specific to that instrument; it may point to a latent fragility affecting the instrument's accuracy in ways not yet visible in mean drift statistics.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments are not synchronized in their measurement timing, environmental sensitivity, or data-acquisition phase; they are drifting into and out of phase in ways that produce spurious near-zero correlations even if underlying physics is coherent.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "At least one of the four instruments is miscalibrated, non-linear, or measuring an artifact (electronic noise, mechanical coupling to environmental vibration, or systematic bias in observation protocol) rather than the intended physical quantity.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Today's Day 34 readings reflect a genuine, real-time perturbation to the physical system (thermal transient, seismic event, environmental shock, or induced vibration) that affected all four instruments simultaneously or in rapid succession, not a calibration or instrumental failure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The Day 34 excursion reflects a procedural or operational anomaly (observer fatigue, protocol drift, instrument-handling error, or environmental monitoring failure) that biased all four measurement streams in the same session, without implying underlying calibration or instrumental failure.",
+      "class": "self_error"
+    },
+    {
+      "label": "The Day 34 spike in variance is real but the underlying cross-instrument incoherence (near-zero correlations across all pre-Day 34 data) persists because the four instruments measure genuinely independent physical quantities or are mechanically decoupled by design; today's excursion does not resolve, and does not need to resolve, the lack of cross-stream agreement.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "One or more instruments were miscalibrated at baseline (Days 1–10) or have suffered a slow, undetected gain or zero-offset drift that is not visible in z-score tests but corrupts cross-instrument agreement; the Day 34 spike may reflect the same underlying calibration fragility becoming acute.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The Day 34 variance spike is an artifact of incomplete data logging, sensor saturation, or data-acquisition buffer overflow on that day; readings are corrupted but appear internally consistent due to artifact repetition or correlated noise injection.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 40 variance spike is a transient environmental perturbation (thermal, seismic, vibration, or power transient) affecting all four instruments simultaneously; persistent cross-instrument incoherence reflects genuine instrumental independence or mechanical decoupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The four instruments are subject to chronic calibration drift or zero-offset errors established at baseline that were not detected by z-score tests; cross-instrument incoherence reflects miscalibration, not independence. Day 40 spike signals calibration system entering nonlinearity or saturation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments genuinely measure independent physical quantities (e.g., separate pendulums, separate resonators, or different physical observables); zero cross-correlation is expected and normal. Day 40 spike reflects a procedural or environmental anomaly that happens to affect all four independent systems in parallel.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 40 variance spike is real and reflects either a procedural/observer anomaly (protocol drift, late timer-stopping, phase-sampling error) or data-acquisition malfunction (buffer overflow, sensor saturation, incomplete logging); cross-instrument incoherence is a separate, pre-existing issue.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unknown mechanism or unconsidered interaction (e.g., nonlinear coupling between instruments via shared mounting, environmental feedback loop, instrumental self-heating or thermal runaway, or a systematic error in cross-correlation methodology).",
+      "class": "self_error"
+    }
+  ]
+}

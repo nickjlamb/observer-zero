@@ -1,0 +1,306 @@
+{
+  "source": "me-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Independent apparatus-specific physical changes (thermal, mechanical, or environmental coupling) in resonator_obs around day 23 and pendulum_lab around day 22.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Coherent environmental or instrumental process affecting both resonator_obs and pendulum_lab simultaneously, with cross-instrument decorrelation arising from measurement-target independence or systematic noise orthogonality.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Measurement protocol change or procedural drift on day 18 affecting specifically the 'lab' and 'obs' streams of the two resonator/pendulum pairs asymmetrically",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Both observed level shifts are statistical artifacts from natural variance clustering near optimal break points; no genuine apparatus changes occurred.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "I made an undocumented procedural change (apparatus adjustment, re-zeroing, relocation, or zeroing error) to resonator_obs or pendulum_lab around day 22–23 and forgot to log it; direct colleague inquiry or full logbook re-audit will reveal the change.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Unmeasured environmental/instrumental process (thermal lag, barometric pressure coupling, building settling, algorithm bias) driving one or both shifts.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unmeasured environmental or instrumental process (thermal lag, barometric pressure coupling, building settling, algorithm bias) driving one or both shifts, currently uncharacterized for lack of contemporaneous environmental logs or apparatus characterization.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unequal statistical power: post-baseline sample sizes or trial conditions for pendulum_lab and resonator_obs allow spurious level-change detection, while the other two streams have better noise control",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Level-change detection algorithm has unrecognized bias or calibration dependence on instrument type, producing false positives in 'lab' or 'obs' instruments preferentially",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Undocumented procedural change (apparatus re-zeroing, relocation, or deliberate tuning) around day 22–23 by myself, now forgotten or incompletely logged.",
+        "primary": "self_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental independence: each stream measures a genuinely distinct physical quantity or aspect, not the same phenomenon",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic drift or non-stationarity in one or more instruments, masking true correlations",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental or procedural differences between 'lab' and 'obs' protocols create decorrelation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or baseline error: one or more instruments were not truly at baseline on day 1",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental malfunction or recalibration event on day ~18 affecting two independent instruments by coincidence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical phenomenon: two of the four measurement channels detect a real transient or step in the measured system on day ~18",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unequal statistical power: post-baseline sample sizes or trial conditions for pendulum_lab and resonator_obs allow spurious level-change detection, while the other two streams have better noise control",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-contamination or correlation-based artifact: the level-change detection algorithm has a high false-positive rate, especially when applied to independent, uncorrelated measurement streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement protocol change or procedural drift on day 18 affecting specifically the 'lab' and 'obs' streams of the two resonator/pendulum pairs asymmetrically",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental degradation or recalibration in two unrelated instruments on day ~18",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical transient on day ~18 affecting two orthogonal degrees of freedom, leaving other two channels insensitive",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Spurious level-change detection: clustering of post-day-18 trials in high- or low-variance regimes, inflating z-scores",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural or calibration protocol change on day 18 affecting pendulum_lab and resonator_obs asymmetrically (e.g., lab instrument moved, obs apparatus re-zeroed)",
+      "class": "self_error"
+    },
+    {
+      "label": "Level-change detection algorithm has unrecognized bias or calibration dependence on instrument type, producing false positives in 'lab' or 'obs' instruments preferentially",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs apparatus experienced genuine physical recalibration, repositioning, or environmental change around day 22–23; other instruments unaffected due to independent location, isolation, or design.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab experienced instrumental degradation or operator-procedural change around day 22; level shift reflects real physical change in apparatus (e.g., pivot friction increase, string tension loss, or apparatus relocation).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Both level shifts (pendulum_lab day 22, resonator_obs day 23) are statistical artifacts: natural variance in small post-shift sample clusters has aligned with the break-point detection algorithm, generating spuriously large z-scores.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments do not measure the same physical quantity or environmental state; cross-instrument correlations are near-zero because the apparatus design or measurement protocols introduce independent systematic errors or measure decoupled degrees of freedom.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "I made an undocumented procedural change (apparatus adjustment, re-zeroing, relocation) to resonator_obs around day 22–23 and/or to pendulum_lab around day 22, and did not record it; direct colleague inquiry or logbook re-audit will reveal the change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unmeasured or unexpected physical process (e.g., thermal lag in apparatus thermal mass, barometric pressure coupling, building settling, or systematic error in my level-change detection algorithm specific to these instruments) is driving one or both observed shifts.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs apparatus underwent genuine physical change (repositioning, thermal equilibration, or environmental coupling shift) around day 23; pendulum_lab underwent independent physical change around day 22; both are apparatus-specific, not global.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Both observed level shifts are statistical artifacts from natural variance clustering near optimal break points; no genuine apparatus changes occurred.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments measure semi-independent physical quantities (e.g., pendulum_lab measures period, pendulum_obs measures amplitude decay, resonator_lab measures resonance frequency, resonator_obs measures damping coefficient); near-zero cross-correlations are expected by design, not anomalous.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "I made an undocumented procedural change (apparatus adjustment, re-zeroing, relocation, or zeroing error) to resonator_obs or pendulum_lab around day 22–23 and forgot to log it; direct colleague inquiry or full logbook re-audit will reveal the change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured physical or instrumental process (thermal lag in apparatus thermal mass, barometric pressure coupling, building settling, or latent bias in level-change detection algorithm) is driving one or both shifts.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent apparatus-specific physical changes (thermal, mechanical, or environmental coupling) in resonator_obs around day 23 and pendulum_lab around day 22.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifacts from variance clustering and optimal break-point detection; no genuine apparatus changes.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "The four instruments measure semi-independent physical quantities by design; near-zero cross-correlations are expected and not anomalous.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Undocumented procedural change (apparatus adjustment, re-zeroing, or relocation) made around day 22–23 by me, now forgotten.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured environmental/instrumental process (thermal lag, barometric pressure coupling, building settling, algorithm bias) driving one or both shifts.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Apparatus-specific physical coupling (thermal equilibration, mechanical settling, environmental sensitivity) drove independent shifts in resonator_obs around day 34 and pendulum_lab around day 22, with each instrument measuring semi-independent physical quantities explaining zero cross-correlations.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact from variance clustering or optimal breakpoint detection bias; both level shifts are false positives from sample substructure rather than genuine apparatus changes.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented procedural change (apparatus re-zeroing, relocation, or deliberate tuning) around day 22–23 by myself, now forgotten or incompletely logged.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured environmental or instrumental process (thermal lag, barometric pressure coupling, building settling, algorithm bias) driving one or both shifts, currently uncharacterized for lack of contemporaneous environmental logs or apparatus characterization.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Coherent environmental or instrumental process affecting both resonator_obs and pendulum_lab simultaneously, with cross-instrument decorrelation arising from measurement-target independence or systematic noise orthogonality.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: Something I have not yet thought of.",
+      "class": "other"
+    },
+    {
+      "label": "Resonator_obs apparatus-specific physical change around day 34: thermal equilibration, mechanical re-settling, or undocumented localized adjustment to resonator_obs only.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs environmental coupling (barometric pressure, humidity, or seismic vibration sensitivity) with lag of ~2–5 days; environmental change occurred ~day 29–32, output shift observable day 34 onward.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: the day-34 breakpoint in resonator_obs is a false positive from variance clustering or optimal breakpoint detection bias, and today's elevated readings are a continuation of random fluctuation rather than a genuine sustained shift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented procedural change by myself around day 32–34 (apparatus re-zeroing, recalibration, or manual frequency tuning of resonator_obs), now incompletely logged but detectable via logbook audit and colleague inquiry.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental drift or calibration creep in resonator_obs electronics (frequency counter drift, amplifier saturation, or sensor aging) manifesting as a step-like shift around day 34 due to thermal equilibration or component warm-up.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured process not yet considered (e.g., interaction between resonator_obs and a nearby apparatus; localized magnetic field change; or systematic bias in measurement protocol specific to resonator_obs post-day-34).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs apparatus-specific physical change (thermal re-equilibration, mechanical settling, or undocumented localized adjustment) around day 34±2",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs environmental coupling (pressure, humidity, or vibration sensitivity) with delayed manifestation (~2–5 days lag) from an environmental transient around day 29–32",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural change by myself around day 32–34 (apparatus re-zeroing, recalibration, frequency tuning, or measurement protocol shift), incompletely logged but recoverable via logbook audit and colleague inquiry",
+      "class": "self_error"
+    },
+    {
+      "label": "Electronic frequency counter drift, calibration creep, or component thermal equilibration in resonator_obs measurement chain, manifesting as step-like shift on day 34",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: day-34 breakpoint is a false positive from variance clustering or optimal breakpoint detection bias; today's elevated readings are continuation of random fluctuation, not genuine sustained shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unconsidered: systematic bias in resonator_obs measurement protocol post-day-34, or interaction with nearby apparatus, or localized environmental anomaly (magnetic field, vibration source) affecting resonator_obs alone",
+      "class": "incomplete_theory"
+    }
+  ]
+}

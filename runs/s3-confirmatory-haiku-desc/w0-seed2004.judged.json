@@ -1,0 +1,164 @@
+{
+  "source": "w0-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Environmental transient (thermal, seismic, or atmospheric) affecting observational arms preferentially on Day 20",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_lab calibration drift or mechanical creep, accelerated on Day 40",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental failure, electromagnetic transient, or unidentified coupling affecting multiple instruments on Day 30",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement noise or uncontrolled variability in one or both observational arms, reducing signal-to-noise ratio and obscuring true correlations at zero lag",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep in one or more channels, manifesting as a slow phase shift between branches",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic phase lag between the lab and observational measurement environments (e.g. temperature, vibration, or atmospheric cycles with a 6-day or 1-day period affecting each arm differently)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise or uncontrolled variability in one or both observational arms, reducing signal-to-noise ratio and obscuring true correlations at zero lag",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Coupled oscillations or harmonic resonances between the four measurement channels, arising from shared environmental or instrumental coupling on a timescale of hours to days",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental transient (thermal, seismic, or atmospheric) affecting observational arms preferentially on Day 20",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or zero-point creep in the observational arms, now visible as a sustained offset on Day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator error, observer bias, or procedural change in the observational protocol on Day 20",
+      "class": "self_error"
+    },
+    {
+      "label": "Coupled oscillation or feedback between observational instruments, triggered or amplified on Day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: instrumental failure, electromagnetic interference, or unidentified coupling in observational site",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic environmental transient (thermal, seismic, or atmospheric) affecting the entire settlement on Day 30",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Accumulated calibration drift across multiple instruments, now breaching detection threshold",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or observer error on Day 30 affecting multiple measurement sites",
+      "class": "self_error"
+    },
+    {
+      "label": "Coupled oscillation or resonance mode in the settlement's measurement infrastructure, triggered on Day 30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental failure, electromagnetic transient, or unidentified coupling affecting multiple instruments on Day 30",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized thermal transient in resonator_lab on Day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab calibration drift or mechanical creep, accelerated on Day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational or procedural error in resonator_lab trials 250–252 on Day 40",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical fluctuation within historical noise envelope (no anomaly)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab experiencing early-stage instrumental failure or electronic drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unidentified source (residual)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

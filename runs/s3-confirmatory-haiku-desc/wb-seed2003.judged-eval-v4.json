@@ -1,0 +1,352 @@
+{
+  "source": "wb-seed2003.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Environmental perturbation (thermal, seismic, or atmospheric) occurred around day 11–12, affecting all four instruments with instrument-dependent sensitivity magnitudes.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Discrete intervention or localized instrument malfunction around day 12 (e.g., power transient, manual re-zeroing, shared component event, or settlement activity shock).",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Random coincidence, null model misspecification, or statistical artifact.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Discrete intervention or instrument event around day 11–12 caused permanent state change; post-shift coherence reflects new baseline constants or system reconfiguration",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental perturbation (thermal, seismic, or atmospheric) occurred around day 11–12, affecting all four instruments with instrument-dependent sensitivity magnitudes.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Weak shared environmental signal present (e.g. temperature, pressure, seismic) coupling observational instruments preferentially",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Weak environmental coupling present in baseline but undetected, amplified around day 12 by a transient trigger (weather front, seismic sequence, or operational change).",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Weak baseline environmental coupling was present but undetected (days 1–10), and manifested as a larger, coherent event around day 12.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Time offset between instruments (clocks, trigger latencies) creates spurious lagged correlations; true simultaneous readings show no correlation",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Random coincidence or statistical artifact: the apparent coupling and day-12 shift are byproducts of multiple comparisons, null model misspecification, autocorrelation structure in noise, or data handling error.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Systematic error in level-change detection algorithm, trial indexing, or multiple-comparison bias creates spurious day-12 anomaly.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Environmental perturbation (thermal, seismic, or atmospheric) around day 11–12 affected all four instruments with instrument-dependent sensitivity, with residual effect persisting through day 17.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 55,
+  "l4Judged": 55,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are genuinely independent; cross-correlations are noise artifacts from multiple-comparison bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak shared environmental signal present (e.g. temperature, pressure, seismic) coupling observational instruments preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration offset or subtle instrumental drift present but undetectable at current sample size and day 10 endpoint",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Time offset between instruments (clocks, trigger latencies) creates spurious lagged correlations; true simultaneous readings show no correlation",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental perturbation (thermal, seismic, or atmospheric) occurred around day 11–12, affecting all four instruments with instrument-dependent sensitivity magnitudes.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument malfunction or calibration reset affecting all four devices nearly simultaneously (e.g. power transient, manual re-zeroing, environmental chamber event, shared component failure).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random coincidence: each instrument independently underwent natural drift or experienced an outlier epoch around day 12, without shared physical cause.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Weak baseline environmental coupling was present but undetected (days 1–10), and manifested as a larger, coherent event around day 12.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My analysis method (level-change detection algorithm, e.g. CUSUM, segmented regression, or threshold test) contains a systematic bias or error that creates spurious day-12 anomalies across all streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental perturbation (thermal, seismic, or atmospheric) occurred around day 11–12, affecting all four instruments with instrument-dependent sensitivity magnitudes.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or localized instrument malfunction around day 12 (e.g., power transient, manual re-zeroing, shared component event, or settlement activity shock).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was present during baseline (days 1–10) but undetected, and manifested as a larger, coherent shift around day 12 due to amplification of an underlying signal.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence: each instrument independently underwent a natural event or calibration drift around day 12, without shared physical cause.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in my analysis method (level-change detection algorithm, trial indexing, or multiple-comparison bias) creates spurious day-12 anomalies across all streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental perturbation (thermal, seismic, or atmospheric) around day 11–12 affected all four instruments with instrument-dependent sensitivity, with residual effect persisting through day 17.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or localized shared instrument event around day 12 (power transient, manual re-zeroing, shared component failure, or settlement activity shock) caused a permanent state change.",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Weak environmental coupling present in baseline but undetected, amplified around day 12 by a transient trigger (weather front, seismic sequence, or operational change).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Random coincidence: each instrument independently underwent a natural event or calibration drift around day 12, without shared physical cause.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in my analysis method (level-change detection algorithm, trial indexing, or multiple-comparison bias) creates spurious day-12 anomalies.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, barometric, seismic, or hydrological) around day 11–12 entered a new stable regime, affecting all instruments with opposite mechanical responses; instruments carry memory of this state in 2–3 day autocorrelation cycles.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or shared instrumental event (power transient, re-zeroing, component failure, or settlement activity shock) around day 12 caused permanent state change; post-shift coherence arises from instruments now operating in same perturbed environment or with shifted calibration constants.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period (not detected due to small effect size or baseline sampling limitations) and was amplified around day 12 by a transient trigger (weather front, seismic sequence, operational change, or seasonal shift).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence or statistical artifact: the apparent coupling and day-12 shift are byproducts of multiple comparisons, autocorrelation in null model, or data indexing error.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in level-change detection algorithm, trial indexing, or multiple-comparison bias creates spurious day-12 anomaly.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, barometric, seismic, or hydrological) entered a new stable regime around day 11–12; instruments exhibit memory via 2–3 day equilibration timescale and opposite mechanical responses.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or shared instrumental event (power transient, re-zeroing, recalibration, component swap, or settlement activity shock) around day 11–12 caused permanent state change; post-shift coherence reflects instruments now operating in same perturbed environment or with new baseline constants.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period (undetected due to small effect size or baseline sample size) and was amplified around day 12 by a transient trigger (weather front, seismic activity onset, seasonal shift, or settlement operational change).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence or statistical artifact: the apparent coupling and day-12 shift are byproducts of multiple comparisons, null model misspecification, autocorrelation structure in noise, or data handling error.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in level-change detection algorithm, trial indexing, or multiple-comparison bias creates spurious day-12 anomaly.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, barometric, seismic, or hydrological) entered a new stable regime around day 11–12; instruments exhibit memory via 2–3 day equilibration timescale and opposite mechanical responses.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or shared instrumental event (power transient, re-zeroing, recalibration, component swap, or settlement activity shock) around day 11–12 caused permanent state change; post-shift coherence reflects instruments now operating in new baseline constants or shared perturbed environment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period (undetected due to small effect size, sample size, or noise masking) and was amplified around day 12 by a transient trigger (weather front, seismic onset, seasonal shift, or settlement operational ramp-up).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence, null model misspecification, or statistical artifact: the apparent synchronous shift, coupling, and autocorrelation are byproducts of multiple comparisons, unaccounted shared coupling in noise model, or data handling error.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in level-change detection algorithm, trial indexing, or multiple-comparison bias creates spurious day-12 anomaly across all four streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, barometric, seismic, or hydrological) entered a stable new regime around day 11–12; all instruments equilibrated to it over 2–3 days with mechanically coherent opposite responses.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or shared instrumental event (power transient, re-zeroing, recalibration, component swap, or settlement activity shock) around day 11–12 caused permanent state change; post-shift coherence reflects instruments now operating in new baseline constants or shared perturbed environment.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period (undetected due to small effect size or noise masking) and was amplified around day 12 by a transient trigger (weather front, seismic event, seasonal shift, or settlement operational ramp-up).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence, null model misspecification, or statistical artifact: the apparent synchronous shift, coupling, and autocorrelation are byproducts of unaccounted shared coupling in noise model, multiple comparisons, or data handling error.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in level-change detection algorithm, trial indexing, or multiple-comparison bias creates spurious day-12 anomaly.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared environmental perturbation entered stable new regime around day 11–12; all instruments equilibrated with coherent mechanical responses (thermal expansion lengthens pendulum, stiffens or destabilizes resonator).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or instrument event (power transient, re-zeroing, recalibration, or component swap) around day 11–12 caused permanent state change; post-shift coherence reflects new baseline constants or shared perturbed environment.",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period and was amplified around day 12 by transient trigger (weather front, seismic event, seasonal shift); two independent processes (latent coupling + amplification) are required.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: Random coincidence, null model misspecification, or statistical artifact.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation (thermal, barometric, or mechanical) entered stable new regime around day 11–12; all instruments equilibrated with coherent mechanical responses.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or instrument event (power transient, re-zeroing, recalibration, or component swap) around day 11–12 caused permanent state change; post-shift coherence reflects new baseline constants or shared perturbed environment.",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period and was amplified around day 12 by transient trigger (weather front, seismic event, seasonal shift); two independent processes required.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Random coincidence, null model misspecification, or statistical artifact.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation entered stable new regime around day 11–12; all instruments equilibrated with coherent mechanical responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or instrument event around day 11–12 caused permanent state change; post-shift coherence reflects new baseline constants or system reconfiguration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period and was amplified around day 12 by transient trigger (weather front, seismic event, seasonal shift); two independent processes required",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence, null model misspecification, or statistical artifact; streams share unaccounted electrical, thermal, or mechanical coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unidentified physical process or measurement phenomenon",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental perturbation entered stable new regime around day 11–12; all instruments equilibrated coherently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Discrete intervention or instrument recalibration around day 11–12 caused permanent state change; post-shift coherence reflects new baseline constants or system reconfiguration",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak environmental coupling was latent in baseline period and was amplified around day 12 by transient trigger (weather front, seismic event, seasonal shift); two independent processes required",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random coincidence, null model misspecification, or statistical artifact; streams share unaccounted electrical, thermal, or mechanical coupling not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified physical process or measurement phenomenon not yet accounted for",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

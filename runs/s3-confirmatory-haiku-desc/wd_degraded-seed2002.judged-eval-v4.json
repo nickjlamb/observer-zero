@@ -1,0 +1,273 @@
+{
+  "source": "wd_degraded-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Four instruments are genuinely decoupled or measure unrelated noise; apparent drifts are independent instrumental artefacts with no common physical cause",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Resonator_obs sampling or collection procedure changed between baseline and post-baseline; the drift is measurement protocol, not physics",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Systematic downward environmental drift affecting all instruments equally (temperature, pressure, or gravitational anomaly decaying over 40 days)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs readings between days 11–18 include rare instrumental glitches or observer errors introducing fictitious downward drift",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instruments measure genuinely independent noise; measurement infrastructure is decoupled from shared physical signals",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Procedural or environmental change in observational setup between baseline (days 1–10) and post-baseline (days 11–31) shifts both observational instruments",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: uncontrolled confound in data recording, labeling, or archival system introduced spurious variance to trials 257–262",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs baseline was non-equilibrated; post-baseline reflects stabilization, not true drift",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "procedural or environmental change in observational setup between baseline and post-baseline periods",
+        "primary": "self_error",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 13,
+  "l4Judged": 13,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Calibration drift or thermal cycling on 2–7 day periods, instrument-dependent",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental noise with low signal-to-noise ratio; weak cross-correlation is expected",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or operator habit induces correlated readings (e.g., time-of-day effect, preparation ritual, or transcription pattern)",
+      "class": "self_error"
+    },
+    {
+      "label": "Undetected instrumental malfunction or sensor drift in individual channels, masked by aggregation into daily baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical signal with period ~3–7 days, detectable within each instrument but not synchronized across the site",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs experiencing genuine instrumental drift or progressive miscalibration specific to that channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) was artificially inflated, not a true steady state; post-baseline represents regression to mean or environmental equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs sampling or collection procedure changed between baseline and post-baseline; the drift is measurement protocol, not physics",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs is sensitive to a genuine environmental driver (3–7 day cycle) present at settlement; other instruments less coupled or differently phased",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: resonator_obs post-baseline sample size inflated (n=50 vs n=18 for lab instruments), making weak drift more detectable; true magnitude similar across all instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs baseline included one or more outlier trials that artificially raised the mean; post-baseline is cleaner or uses refined technique",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs baseline (days 1–10) reflects instrument non-equilibrium; post-baseline represents genuine environmental or thermal stabilization rather than drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs was sampled at higher frequency post-baseline (n=108 vs n=90 baseline), inflating z-score sensitivity while the true mean shift magnitude is comparable to other instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs observational procedure or environment changed between baseline and post-baseline periods; drift signal is procedural artifact, not physical",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine environmental signal (3–11 day timescale) drives resonator_obs; other instruments are less sensitive or decoupled by design or location",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Four instruments are genuinely decoupled or measure unrelated noise; apparent drifts are independent instrumental artefacts with no common physical cause",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs readings between days 11–18 include rare instrumental glitches or observer errors introducing fictitious downward drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "resonator_obs baseline non-equilibrium: post-baseline represents genuine stabilization, not drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "measurement correlation failure is real: four instruments are fundamentally decoupled or measure independent noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "sampling asymmetry inflates resonator_obs z-score: post-baseline n=244 vs baseline n=90 magnifies a modest true shift",
+      "class": "self_error"
+    },
+    {
+      "label": "resonator_obs and pendulum_obs environmental sensitivity: a real multi-day signal drives these observational instruments; lab instruments are decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "procedural or environmental change in observational setup between baseline and post-baseline periods",
+      "class": "self_error"
+    },
+    {
+      "label": "resonator_obs post-baseline includes undetected measurement errors or glitches introducing fictitious downward bias",
+      "class": "measurement_error"
+    },
+    {
+      "label": "residual: unconsidered mechanism",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments measure genuinely independent noise; measurement infrastructure is decoupled from shared physical signals",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs baseline was non-equilibrated; post-baseline reflects stabilization, not true drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab ↔ resonator_obs spike (r=0.944 at 3-day offset) is real; hints 3-day coupling mechanism undetected elsewhere",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or environmental change in observational setup between baseline (days 1–10) and post-baseline (days 11–31) shifts both observational instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Sampling asymmetry (resonator_obs post-baseline n=244 vs baseline n=90) inflates resonator_obs z-score; all drifts are comparable in magnitude",
+      "class": "self_error"
+    },
+    {
+      "label": "Identical z-scores (resonator_obs −1.88 vs pendulum_obs −2.23, both ~−2) signify shared multi-day environmental signal; cross-correlation failure reflects independent noise dominance",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine instrumental degradation or calibration drift on Day 36",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 36 procedural anomaly (operator, environmental, or timing) affected pendulum_lab uniquely",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab baseline (days 1–10, n=106) was corrupted by undetected non-stationarity; true baseline variability matches Day 36, and trials 1–10 were artificially tight",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day 36 excursion is statistical noise; 6-trial sample too small to distinguish from random fluctuation around true steady-state mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: uncontrolled confound in data recording, labeling, or archival system introduced spurious variance to trials 257–262",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic downward environmental drift affecting all instruments equally (temperature, pressure, or gravitational anomaly decaying over 40 days)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline (days 1–10) was non-equilibrated or contaminated by transient instrumental setup artifacts, and post-baseline 'drift' is regression toward true steady-state mean, not actual drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-instrument correlations expose independent instrumental calibration errors or time-varying systematic biases in each stream; no two instruments agree, suggesting each measures a different effective quantity or carries uncompensated drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The anomalous pendulum_lab ↔ resonator_obs = 0.931 correlation at 3-day offset is real and indicates a causal physical coupling or shared environmental driver specific to those two instruments; other pairs lack this coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Temporal auto-correlations (self-agreement at 11–14 day lags) are real periodic signals masking true drift, or are artifacts of data binning and sample size that inflate apparent self-agreement by chance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: data recording or archival system corruption, timestamp misalignment between instruments, or undetected instrumental clock drift causing spurious correlations and apparent baseline drifts",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

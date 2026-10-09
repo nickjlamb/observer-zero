@@ -1,0 +1,398 @@
+{
+  "source": "wa-seed2003.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 14,
+    "agree": 14,
+    "items": [
+      {
+        "label": "Measurement procedure artifact: systematic bias in how readings are recorded, rounded, or binned across the four systems, introducing apparent anticorrelation through inadvertent normalization or digitization aliasing",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Internal mechanical or thermal drift in pendulum systems (pivot wear, bearing friction, lubricant viscosity, suspension elasticity change)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum-specific environmental change around day 12 (gravity, thermal, mechanical, or suspension)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating all instruments independently, superimposed on the pendulum level shift and system-specific trends",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Internal mechanical or thermal drift in pendulum systems (pivot wear, bearing friction, lubricant viscosity, suspension elasticity change)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard recalibration)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 19,
+  "l4Judged": 19,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental oscillation (thermal, mechanical, or electromagnetic) with a ~3–6 day period affecting all instruments proportionally but with phase-lags dependent on instrument thermal mass or electrical coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure artifact: systematic bias in how readings are recorded, rounded, or binned across the four systems, introducing apparent anticorrelation through inadvertent normalization or digitization aliasing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random sampling noise in small-n cross-correlations masquerading as signal; the observed correlations are within the envelope of noise, and lags are post-hoc selected from a large multiple-comparison space",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental thermal drift, frequency dependence, or coupling via shared power supply or grounding, manifesting as ~3–6 day quasi-periodic oscillations in measured values",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental change (thermal, mechanical, or gravitational) around day 12, decoupled from resonator systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (3–6 day period) affecting all instruments with different phase-lags and amplitudes, independent of the pendulum level shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement recording or binning artifact: systematic rounding or post-hoc scaling of data at or after day 12, producing apparent level shift in pendulum data and spurious lag-dependent cross-correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Thermal drift or frequency-dependent coupling in pendulum pivot, bearing, or suspension around day 12 (e.g., thermal cycling, lubricant viscosity change, or mechanical wear), unrelated to resonator systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change in pendulum measurement technique or observer protocol around day 12 (e.g., change in measurement duration, timing convention, or data transcription method)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change (gravitational, thermal, or mechanical) around day 12, decoupled from resonator response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (3–6 day period) modulating all instruments independently of the pendulum level shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement recording or calibration artifact: systematic change in pendulum data path, scaling, or binning around day 12, independent of resonators",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or operator change in pendulum measurement technique around day 12 (e.g., measurement duration, reference point, beat-counting algorithm, or observer protocol)",
+      "class": "self_error"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum suspension (pivot wear, lubricant viscosity change, or elasticity shift) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (measurement window, reference point, beat-counting algorithm, or timing standard)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, binning, or software parameter change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating all instruments independently, superimposed on the pendulum level shift and system-specific trends",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in one or both pendulum systems (pivot wear, bearing friction, lubricant viscosity, or suspension elasticity change)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating all instruments independently, superimposed on pendulum level shift and system-specific trends",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum systems (pivot wear, bearing friction, lubricant viscosity, suspension elasticity change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating all instruments independently, superimposed on pendulum level shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum systems (pivot wear, bearing friction, lubricant viscosity, suspension elasticity change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together, superimposed on or independent of level shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity, suspension elasticity) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or apparatus change around day 12 (gravitational, thermal, mechanical, or suspension-related)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12 (unit conversion, rescaling, software parameter change, or digitization shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together, superimposed on or independent of level shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity, suspension elasticity) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental change around day 12 (gravity, thermal, mechanical, or suspension)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference, algorithm, or reference standard)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing specific to pendulum data around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (something unconsidered)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific environmental or physical change around day 12 (gravity, thermal expansion, suspension geometry, or measurement reference shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference recalibration, algorithm, or reference standard adoption)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (something unconsidered)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum-specific environmental or physical change around day 12 (gravity, thermal expansion, suspension geometry, or measurement reference shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference recalibration, algorithm, or reference standard adoption)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or physical change around day 12 (gravity, thermal expansion, suspension geometry, or measurement reference shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference recalibration, algorithm, or reference standard adoption)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific environmental or physical change around day 12 (gravity gradient, thermal expansion, suspension geometry, effective length, or measurement reference shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or calibration change in pendulum measurement technique around day 12 (beat-counting window, timing reference recalibration, algorithm, or reference standard adoption)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic artifact in data recording, storage, display, or post-processing pipeline specific to pendulum data around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared low-frequency environmental oscillation (2–7 day period) modulating pendulum instruments together",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Internal mechanical or thermal drift in pendulum apparatus (pivot wear, bearing friction, lubricant viscosity change) around day 12",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

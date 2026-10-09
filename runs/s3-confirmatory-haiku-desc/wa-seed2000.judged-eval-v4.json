@@ -1,0 +1,339 @@
+{
+  "source": "wa-seed2000.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 6,
+    "items": [
+      {
+        "label": "H3: Procedural or calibration change applied to pendulum systems on day 11–12 (recalibration, protocol shift, software update, timing standard change); resonators untouched or calibrated to different standard.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "H2: Procedural or calibration change applied to pendulum systems on day 11–12 (recalibration, timing standard change, software update, counting algorithm, or gravitational constant revision); resonators untouched or calibrated to independent standard",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Cross-stream offset structure is real but non-linear or mediated by an unmeasured confound not captured in simple lag-and-correlate analysis",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "H1: Real environmental event (vibration, temperature, structural shift) around day 12 coupled preferentially to pendulum inertia, leaving resonators unaffected; pendulum and resonator measure independent physical degrees of freedom.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems during baseline; day 12 marks threshold crossing or recovery completion",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping, optical counting saturation, or friction regime shift) hidden in baseline; day 12 marks crossing of threshold in recovery or state-dependent behavior.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H1: Real environmental event (vibration, seismic, structural) around day 12 coupled preferentially to pendulum inertia, leaving resonators unaffected because they measure independent physical degrees of freedom.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H3: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, humidity, or nonlinear transient) couples to instruments with instrument-specific or frequency-dependent sensitivity; linear fixed-lag cross-correlation insufficient to detect coupling.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline calibration is incomplete or instruments are not yet in steady state; post-baseline data will show coherence once transients settle",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "H2: Pendulum shift is real physical event; resonators experienced the same event but are mechanically decoupled, frequency-shifted, or saturated, masking post-event response structure.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum shift is real; resonators are insensitive or saturated, masking their own response to the same event",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure independent processes, not a shared underlying phenomenon",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are drifting or fluctuating on timescales longer than 10 days, masking any coherent pattern within baseline period",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline calibration is incomplete or instruments are not yet in steady state; post-baseline data will show coherence once transients settle",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Cross-stream offset structure is real but non-linear or mediated by an unmeasured confound not captured in simple lag-and-correlate analysis",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum instruments experienced a real environmental or mechanical event around day 12; resonators did not, revealing independent physical processes being measured",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum shift is real; resonators are insensitive or saturated, masking their own response to the same event",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period (days 1–10) is too short to establish true instrument stability; all four streams are still in transient/settling, and day 12 shift reflects emergence from transient, not a true event",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A hidden confound (unmeasured environmental variable: pressure, vibration, magnetic field, temperature gradient) couples to instruments with different delays and amplitudes, creating weak non-linear correlations that fixed-lag linear analysis misses",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified systematic or data-handling anomaly (e.g. a day 12 recalibration event, file corruption, human error in post-baseline measurement protocol)",
+      "class": "self_error"
+    },
+    {
+      "label": "H1: Real environmental event (vibration, temperature, structural shift) around day 12 coupled preferentially to pendulum inertia, leaving resonators unaffected; pendulum and resonator measure independent physical degrees of freedom.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Pendulum shift is real physical event; resonators experienced the same event but are mechanically decoupled, frequency-shifted, or saturated, masking post-event response structure.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Baseline period (days 1–10) too short to establish true stability; all four streams in transient settling; day 12 shift is coincidental inflection in longer drift curve, not discrete event.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Hidden confound (unmeasured environmental variable: pressure, vibration, magnetic field, temperature) couples to instruments with different delays, amplitudes, and nonlinearities; linear fixed-lag analysis misses the structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Procedural or calibration anomaly on day 11–12 (recalibration, protocol change, file corruption, human error in post-baseline measurement setup) mimics a physical event; resonators recalibrated differently or not at all.",
+      "class": "self_error"
+    },
+    {
+      "label": "H1: Real environmental event (vibration, temperature, structural shift) around day 12 coupled preferentially to pendulum inertia, leaving resonators unaffected; pendulum and resonator measure independent physical degrees of freedom.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Pendulum shift is real physical event; resonators experienced the same event but are mechanically decoupled, frequency-shifted, or saturated, masking post-event response structure.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Baseline period (days 1–10) too short to establish true stability; all four streams in transient settling; day 12 shift is coincidental inflection in longer drift curve, not discrete event.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Hidden confound (unmeasured environmental variable: pressure, vibration, magnetic field, temperature) couples to instruments with different delays, amplitudes, and nonlinearities; linear fixed-lag analysis misses the structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Procedural or calibration anomaly on day 11–12 (recalibration, protocol change, file corruption, human error in post-baseline measurement setup) mimics a physical event; resonators recalibrated differently or not at all.",
+      "class": "self_error"
+    },
+    {
+      "label": "H1: Real environmental event (vibration, seismic, structural) around day 12 coupled preferentially to pendulum inertia, leaving resonators unaffected because they measure independent physical degrees of freedom.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Pendulum shift is real physical event; resonators experienced the same event but are mechanically decoupled, frequency-shifted, or saturated, masking post-event response structure.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Baseline period (days 1–10) too short to establish true stability; all four streams in transient settling; day 12 shift is coincidental inflection in longer drift curve, not discrete event.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Hidden confound (unmeasured environmental variable: pressure, vibration, magnetic field, temperature) couples to instruments with different delays, amplitudes, and nonlinearities; linear fixed-lag analysis misses the structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Procedural or calibration anomaly on day 11–12 (recalibration, protocol change, file corruption, human error in post-baseline measurement setup) mimics a physical event; resonators recalibrated differently or not at all.",
+      "class": "self_error"
+    },
+    {
+      "label": "H1: Real selective environmental event (~day 12) coupled to pendulum inertia; resonators measure independent physical DOF unaffected by the disturbance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: Slow environmental drift (or instrumental creep) ongoing across post-baseline period; day 12 pendulum shift is an inflection point or acceleration in a longer trajectory, not a discrete event; resonators unaffected by mechanism orthogonal to pendulum.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Procedural or calibration anomaly on day 11–12 (recalibration, protocol change, operator shift, file-handling change) applied differently to pendulum vs. resonator systems; resonators either not recalibrated or calibrated to a different standard.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Unmeasured environmental variable (temperature, pressure, humidity, magnetic field, vibration) couples to instruments with different delays, amplitudes, and time constants; linear fixed-lag cross-correlation misses the structure.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping, friction, or optical saturation) masked by baseline averaging; day 12 shift and secondary drift both reflect ongoing recovery or state-dependent behavior.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Discrete environmental event ~day 12 (seismic, structural settling, gravity-gradient disturbance) coupled selectively to pendulum inertia; resonators measure orthogonal DOF. Post-day-12 drift is secondary environmental trend or instrumental creep unrelated to the initial event.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: Slow, ongoing environmental or instrumental drift across entire post-baseline period (days 12–28); day 12 marks an inflection or acceleration in drift rate, not a discrete step; resonators unaffected by orthogonal mechanism.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "H3: Procedural or calibration change applied to pendulum systems on day 11–12 (recalibration, protocol shift, software update, timing standard change); resonators untouched or calibrated to different standard.",
+      "class": "self_error"
+    },
+    {
+      "label": "H4: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, or nonlinear transient) couples to instruments with instrument-specific delays and decoupling; linear fixed-lag cross-correlation insufficient to detect coupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping, optical counting saturation, or friction regime shift) hidden in baseline; day 12 marks crossing of threshold in recovery or state-dependent behavior.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Discrete environmental event ~day 12 (gravity-gradient disturbance, seismic event, or structural settling) couples selectively to pendulum inertia; resonators measure orthogonal DOF or are mechanically decoupled.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: Procedural or calibration change applied to pendulum systems on day 11–12 (recalibration, timing standard change, software update, or counting algorithm revision); resonators untouched or calibrated to independent standard.",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, humidity, or nonlinear transient) couples to instruments with instrument-specific or frequency-dependent sensitivity; linear fixed-lag cross-correlation insufficient to detect coupling.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H4: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping threshold, optical counting saturation, friction regime shift, or state-dependent behavior) hidden in baseline; day 12 marks crossing of saturation threshold in recovery or activation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Instrumental independence—pendulums and resonators measure genuinely uncoupled degrees of freedom (e.g., vertical oscillation vs. horizontal torsion) in a stable environment; low cross-correlations are expected.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H1: Discrete environmental event ~day 12 (gravity gradient, seismic, or structural settling) couples selectively to pendulum inertia; resonators mechanically decoupled or measure orthogonal DOF",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H2: Procedural or calibration change applied to pendulum systems on day 11–12 (recalibration, timing standard change, software update, counting algorithm, or gravitational constant revision); resonators untouched or calibrated to independent standard",
+      "class": "self_error"
+    },
+    {
+      "label": "H3: Instrumental independence—pendulums and resonators measure genuinely uncoupled degrees of freedom (vertical oscillation/gravity vs. horizontal torsional/bending modes); low cross-correlations expected; day 12 event selectively excited pendulum mode",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, humidity, or nonlinear transient) couples to instruments with frequency-dependent or instrument-specific sensitivity; linear fixed-lag cross-correlation insufficient to detect coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping threshold, optical counting saturation, friction regime shift) during baseline; day 12 marks threshold crossing; post-day-12 represents new equilibrium",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H6: Residual (unconsidered phenomenon)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H1: Procedural or calibration change applied to pendulum systems on day 11–12; resonators untouched or calibrated to independent standard",
+      "class": "self_error"
+    },
+    {
+      "label": "H2: Discrete environmental event ~day 12 (seismic, structural settling, gravity gradient shift) selectively couples to pendulum inertia; resonators mechanically decoupled or measure orthogonal degrees of freedom",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Instrumental independence — pendulums and resonators measure genuinely uncoupled degrees of freedom (vertical oscillation/gravity vs. horizontal torsional/bending modes); weak cross-correlations expected even in stable environment",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, humidity, or frequency-dependent coupling) with complex nonlinear or time-varying sensitivity across instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems (magnetic damping threshold, optical counting saturation, friction regime shift) during baseline; day 12 marks threshold crossing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Pendulum-specific calibration or timing standard change applied day 11–12; resonators calibrated to independent standard or left untouched",
+      "class": "self_error"
+    },
+    {
+      "label": "H2: Discrete environmental event ~day 12 (seismic, structural settling, gravity gradient shift) selectively couples to pendulum inertia; resonators mechanically decoupled or measure orthogonal degrees of freedom",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H3: Instrumental independence—pendulums and resonators measure genuinely uncoupled degrees of freedom; weak cross-correlations expected even in stable environment",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H4: Unmeasured environmental or instrumental confound (temperature, pressure, vibration, magnetic field, humidity) with instrument-selective or frequency-dependent coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H5: Instrumental saturation, hysteresis, or nonlinear transient in pendulum systems during baseline; day 12 marks threshold crossing or recovery completion",
+      "class": "incomplete_theory"
+    }
+  ]
+}

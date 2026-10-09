@@ -1,0 +1,198 @@
+{
+  "source": "w0-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 6,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Instrument calibration check, external cross-validation, or inter-lab measurement protocol run on Days 25 and/or 40 only, using different environmental or procedural setup",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "The earlier correlation structure (5–8 day cycles, cross-instrument anticorrelations) has finally cascaded into observable instability on Day 15",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonant cascade or nonlinear instability in the 5–8 day autocorrelation and cross-correlation structure, peaked on Day 25",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Measurement protocol deviation or observer fatigue on Day 15 introducing systematic scatter",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: unidentified confound (instrument tampering, calibration weight drift, power supply ripple, thermal cycling, cosmic ray burst)",
+        "primary": "measurement_error",
+        "second": "other"
+      },
+      {
+        "label": "Resonator_obs and pendulum_obs remain stable; only lab instruments destabilized—apparatus-specific failure mode emerging",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental drift with ~5–8 day periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent calibration drift in each instrument, not synchronized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Operator/observer bias correlated with shift schedules or weekly routine",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: false pattern from search over many offsets and lags",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental coupling or cross-talk between lab systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Acute environmental disturbance on Day 15 affecting all instruments in coupled but instrument-specific ways",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol deviation or observer fatigue on Day 15 introducing systematic scatter",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs and pendulum_obs remain stable; only lab instruments destabilized—apparatus-specific failure mode emerging",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling artifact: Day 15 data were recorded under different time-resolution or cadence, creating artificial scatter",
+      "class": "self_error"
+    },
+    {
+      "label": "The earlier correlation structure (5–8 day cycles, cross-instrument anticorrelations) has finally cascaded into observable instability on Day 15",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Acute environmental or electromagnetic disturbance on Day 25 affecting all instruments with different sensitivities",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator fatigue, protocol deviation, or measurement cadence change on Day 25 introducing procedural scatter",
+      "class": "self_error"
+    },
+    {
+      "label": "Mechanical degradation or electrical contact failure in lab apparatus (pendulum_lab, resonator_lab) with secondary spillover to observation streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The 5–8 day autocorrelation and offset-dependent cross-correlation structure has cascaded into resonant instability on Day 25",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified confound (instrument tampering, calibration weight drift, power supply ripple, thermal cycling, cosmic ray burst)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Transient environmental or electromagnetic disturbance on Day 25 affecting all instruments with instrument-dependent sensitivities",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator fatigue, protocol deviation, or measurement cadence change on Day 25 introducing procedural scatter without level shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Mechanical degradation, electrical contact failure, or sensor drift in lab apparatus (pendulum_lab, resonator_lab) with secondary spillover to observation streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonant cascade or nonlinear instability in the 5–8 day autocorrelation and cross-correlation structure, peaked on Day 25",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified confound (thermal cycling event, power supply transient, cosmic ray burst, calibration check protocol, or measurement in an external facility on Day 25 only)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Second acute transient environmental or electromagnetic disturbance on Day 40, unrelated to Day 25 event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator or procedural change on Day 40 (end-of-week fatigue, protocol deviation, or cadence shift)",
+      "class": "self_error"
+    },
+    {
+      "label": "Longer-period environmental or instrument cycle (14–15 days) with peaks on Days 25 and 40, now entering a resolvable pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical degradation in one or both lab apparatus (pendulum_lab, resonator_lab) manifesting as increasing fragility to transient stressors, with Day 40 spike revealing accumulated damage",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument calibration check, external cross-validation, or inter-lab measurement protocol run on Days 25 and/or 40 only, using different environmental or procedural setup",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: undocumented external event (power grid transient, seismic activity, solar storm, facility maintenance, or measurement protocol change not yet reported)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

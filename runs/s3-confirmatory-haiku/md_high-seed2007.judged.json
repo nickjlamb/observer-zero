@@ -1,0 +1,281 @@
+{
+  "source": "md_high-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 9,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Operator or measurement protocol change around day 17–20 specific to resonator_obs, exacerbating noise via altered measurement procedure (trial duration, gate timing, resonator Q-meter gain)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: unknown instrumental, environmental, procedural, or data integrity cause not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unknown instrumental, environmental, or procedural cause not yet interrogated in available data",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Resonator_obs-specific calibration drift or mechanical change around day 20 (bearing wear, Q-meter drift, thermal creep), exacerbating coupling to environmental noise",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Combination of pendulum_lab instrumental drift (day 17 onset) + continued low-level environmental forcing affecting all four streams + today's Day 18 resonator_obs excursion is transient noise unrelated to day-17 shift",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Chronic low-level environmental forcing (thermal, seismic, or electromagnetic) with ~6 day period and amplitude ramping near day 20, now visible in resonator_obs but masked or delayed in other streams by noise and phase offset",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrumental feedback loop or cyclic aliasing with 4–8 day period, now manifesting as spike in observation variance on day 15",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental periodic forcing (4–8 day cycle) now ramping in amplitude, with pendulum_lab particularly sensitive; Day 17 marks onset of higher-amplitude phase, resonator_lab and observation channels delayed or attenuated response",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental periodic forcing (4–8 day cycle in thermal, seismic, electromagnetic, or humidity conditions) creating systematic bias uncorrelated with measurand; manifesting as inter-instrument decorrelation and now amplified on day 15",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration or zero-point drift in all four instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental artifact: feedback loop or periodic aliasing within each measurement channel",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or observer bias systematically decorrelating results",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental periodic forcing (e.g., diurnal or multi-day cycle in lab conditions) creating coherent bias across instruments but misaligned with physical quantity being measured",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry, recording, or time-stamping error creating spurious lag structure",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical phenomenon: the measurand is genuinely oscillatory or multi-valued, and instruments are sampling it at incommensurate phases or with intrinsic phase noise",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental feedback loop or cyclic aliasing with 4–8 day period, now manifesting as spike in observation variance on day 15",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or protocol drift on day 15 affecting observation measurements specifically — unrecognized procedural change in how pendulum_obs and resonator_obs trials are conducted",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental periodic forcing (4–8 day cycle in thermal, seismic, electromagnetic, or humidity conditions) creating systematic bias uncorrelated with measurand; manifesting as inter-instrument decorrelation and now amplified on day 15",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical phenomenon: measurand (pendulum beat frequency or resonator Q-factor) is genuinely oscillatory or coupled to an uncontrolled parameter; instruments sample at different phases or with noise, producing apparent decorrelation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry, time-stamping, or trial labeling error creating spurious lag structure and false spike on day 15",
+      "class": "social_process"
+    },
+    {
+      "label": "Multiple independent artifacts: instrumental feedback in lab channels (contributing to 4–8 day autocorrelation lag structure) + observer or protocol drift on observation channels (contributing to day 15 spike) + uncontrolled environmental periodic signal affecting all four (contributing to near-zero cross-correlations)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab instrument calibration drift or mechanical fatigue around day 17, unrelated to observation channels or environmental global forcing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental periodic forcing (4–8 day cycle) now ramping in amplitude, with pendulum_lab particularly sensitive; Day 17 marks onset of higher-amplitude phase, resonator_lab and observation channels delayed or attenuated response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift specific to pendulum_lab around day 17; separate from observation-channel procedure or environment",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording or labeling error on day 17 in pendulum_lab (timestamp offset, trial re-indexing, or manual transcription shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical oscillation of measurand with ~6 day period and growing amplitude; day 17 marks transition into higher-amplitude regime, all four instruments sample this but with different phases and noise, today's Day 18 scatter reflects current oscillation state",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Combination of pendulum_lab instrumental drift (day 17 onset) + continued low-level environmental forcing affecting all four streams + today's Day 18 resonator_obs excursion is transient noise unrelated to day-17 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown instrumental, environmental, or procedural cause not yet interrogated in available data",
+      "class": "other"
+    },
+    {
+      "label": "Chronic low-level environmental forcing (thermal, seismic, or electromagnetic) with ~6 day period and amplitude ramping near day 20, now visible in resonator_obs but masked or delayed in other streams by noise and phase offset",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific calibration or mechanical fatigue in resonator_obs around day 20, causing level shift independent of other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Subtle systematic bias in data recording, labeling, or trial indexing affecting all streams equally, creating spurious negative autocorrelations and weak inter-instrument correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or protocol drift specific to one or more measurement streams around day 17–20, manifesting as the resonator_obs level shift on day 20 and exacerbating chronic noise via changed measurement procedure",
+      "class": "self_error"
+    },
+    {
+      "label": "Real oscillation of measurand with ~6 day period, driven by unidentified physical mechanism (thermal cycling, coupled resonance, tidal forcing, seismic background modulation), now ramping in amplitude",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unknown instrumental, environmental, procedural, or data integrity cause not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Chronic low-level environmental forcing (~6 day period) with amplitude ramping near day 20, differentially visible across streams due to phase offset and instrumental sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific calibration drift or mechanical fatigue in resonator_obs around day 20, causing localized level shift independent of other streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic data recording, labeling, or trial indexing error affecting all streams equally, creating spurious negative autocorrelations via consistent temporal misalignment",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator or measurement protocol change around day 17–20 specific to resonator_obs, exacerbating noise via altered measurement procedure (trial duration, gate timing, resonator Q-meter gain)",
+      "class": "self_error"
+    },
+    {
+      "label": "Real oscillation of the measurand itself (pendulum beat rate or resonator Q) with ~6 day period, driven by undocumented physical mechanism (thermal cycling, seismic background modulation, tidal resonance, or facility-generated electromagnetic forcing)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: undocumented environmental event, instrumental cross-talk, software feedback loop, or data processing artifact not yet identified",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Chronic ~6 day environmental forcing (shared across all streams) with amplitude ramp near day 20, differentially visible due to phase offset and instrument sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs-specific calibration drift or mechanical change around day 20 (bearing wear, Q-meter drift, thermal creep), exacerbating coupling to environmental noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or trial-sequencing error affecting resonator_obs labeling around day 20–26, producing spurious variance surge via mislabeled or duplicate trials",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or measurement protocol change in resonator_obs around day 17–20 (trial duration, Q-meter gain, resonator temperature control loop), independent of shared environmental forcing",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented facility environmental event or equipment activation around day 17–20 (HVAC cycle change, electromagnetic interference source, seismic coupling, or building system maintenance) driving the observed multi-stream forcing signature",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified systematic error, instrumental cross-talk, data processing artifact, or environmental mechanism not yet characterized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared ~6 day environmental forcing across all streams, with amplitude increase near day 20 differentially amplified by resonator_obs mechanical or thermal sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs mechanical or thermal degradation starting ~day 20 (bearing friction increase, Q-meter drift, thermal control loop failure) increasing noise coupling to pre-existing environmental forcing",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator_obs measurement protocol or instrument state change around day 17–20 (trial stabilization time reduction, Q-meter bandwidth increase, temperature setpoint change, or operator procedural drift) increasing sensitivity to environmental noise",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented facility system activation or modification around day 17–20 (HVAC setpoint change, EMI source activation, seismic isolation adjustment, or building maintenance) introducing or amplifying ~6 day periodic modulation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording, trial sequencing, or timestamp labeling error in resonator_obs around day 20–26, producing spurious variance surge via mislabeled or mis-dated trials",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic error, inter-instrument mechanical coupling, environmental mechanism, or data processing artifact not yet characterized",
+      "class": "other"
+    }
+  ]
+}

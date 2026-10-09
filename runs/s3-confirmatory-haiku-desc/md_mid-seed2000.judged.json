@@ -1,0 +1,298 @@
+{
+  "source": "md_mid-seed2000.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Resonator_obs genuine instrumental degradation or calibration drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unconsidered systematic error, instrumental interaction, measurement bias, or unknown bias not yet in scope",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental modulation (temperature, vibration, or coupling) with ~6-day cycle, resonator_obs more sensitive",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine physical process in resonator (damping, slow frequency drift, or weak periodic forcing) requiring longer observation",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unrecognized systematic error or settlement environmental transient (e.g., Day 18 anomaly, thermal gradient, power cycling, vibration event)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unrecognized systematic error or settlement environmental transient (e.g., Day 18 anomaly, thermal gradient, power cycling) not yet fully resolved",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine physical process in resonator (damping, frequency drift, or weak external forcing) requiring longer measurement window to characterize",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Resonator_obs genuine instrumental degradation or calibration drift (revised interpretation)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration drift in one or more instruments, undetected within 10-day baseline window",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unconsidered systematic bias or instrumental artifact",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Calibration drift in one or more instruments, undetected within 10-day baseline window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental modulation (temperature, vibration, or local field) with ~6-day periodicity, affecting instruments differentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol or sampling artifacts (e.g., observer bias, day-of-week effects, incomplete randomization of trial order)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical signals (resonance, coupling, or periodic forcing) present but weak, requiring more data to resolve above noise floor",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs genuine instrumental degradation or calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental modulation (temperature, vibration, or coupling) with ~6-day cycle, resonator_obs more sensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact specific to resonator_obs (observer fatigue, time-of-day bias, incomplete randomization)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical process in resonator (damping, frequency drift, or weak external forcing) requiring longer measurement window to characterize",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unrecognized systematic error, instrument interaction, or settlement environmental phenomenon not yet in scope",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs genuine instrumental degradation or calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental modulation (~6-day cycle) resonator-selective, producing net downward bias",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling or procedural artifact specific to resonator_obs (trial sequencing, time-of-day bias, observer fatigue)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical process in resonator (damping, slow frequency drift, or weak periodic forcing) requiring longer observation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecognized systematic error or settlement environmental transient (e.g., Day 18 anomaly, thermal gradient, power cycling, vibration event)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unconsidered systematic error or measurement interaction not yet in scope",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs genuine instrumental degradation or calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling or procedural artifact specific to resonator_obs (trial sequencing, time-of-day bias, observer fatigue, or trial-block scheduling)",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental modulation (~5–6 day cycle) resonator-selective or masking a genuine resonator_obs drift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine but slow physical process in resonator_obs (weak frequency drift, gradual damping, or sub-threshold environmental coupling) requiring longer observation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unrecognized systematic error or settlement environmental transient (e.g., Day 18 anomaly, thermal gradient, power cycling) not yet fully resolved",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unconsidered systematic error, instrumental interaction, or measurement bias not yet in scope",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs genuine instrumental degradation or calibration drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling or procedural artifact specific to resonator_obs (trial sequencing, time-of-day bias, observer fatigue, trial-block scheduling)",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental modulation (~5–6 day cycle) or resonator_obs microenvironment heterogeneity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Sampling noise: z = −2.03 is a rare but credible fluctuation, not a real effect",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unrecognized systematic error or settlement environmental transient (Day 18 anomaly or other localized event) leaving residual calibration shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unconsidered systematic error, instrumental interaction, measurement bias, or unknown bias not yet in scope",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural artifact or operator state change in pendulum_obs on Day 35",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs genuine instrumental degradation or calibration drift (revised interpretation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling noise or coincidental clustering in pendulum_obs trials 205–210",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected environmental transient or settlement event on Day 35 affecting pendulum_obs preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Apparatus calibration drift in pendulum_obs (clock offset, lever arm, or period standard)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized systematic bias, data entry error, or measurement protocol deviation specific to trials 205–210",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural shift in pendulum_obs measurement on Day 35 (operator state, technique, or apparatus setup)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs historical degradation or calibration drift (slow, pre-Day 38, now stable)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling noise or coincidental clustering in pendulum_obs trials 205–210",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Localized environmental transient (seismic, thermal, vibration) affecting pendulum_obs on Day 35",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Clock offset, timing standard drift, or lever arm calibration error in pendulum_obs (upward shift in clock speed or period standard)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized data entry error, transcription artifact, or trial log anomaly in pendulum_obs trials 205–210",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unconsidered systematic bias or instrumental artifact",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs experienced a calibration or component drift event (Days 11–30) that has now stabilized; drift is historical, not acute",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs has undetected coupling to environmental or power-supply transients; negative autocorrelation reflects periodic sensitivity to settlement-wide oscillations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs measurement chain has a subtle systematic bias (non-linear response, temperature coefficient, or detector saturation) that produces the observed drift and autocorrelation pattern",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs baseline (n=60, Days 1–10) is unrepresentative or contaminated; post-baseline mean reflects true instrument behavior, and apparent drift is baseline noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs data acquisition or calibration standard error (e.g., counter clock drift, frequency reference instability) during Days 11–30; now corrected or stabilized",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified systematic effect, instrumental coupling, or data anomaly specific to resonator_obs",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

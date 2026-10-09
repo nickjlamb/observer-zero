@@ -1,0 +1,452 @@
+{
+  "source": "wb-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 16,
+    "agree": 10,
+    "items": [
+      {
+        "label": "Real synchronized environmental response (temperature, humidity, vibration, or coupled multi-instrument physical state change around day 12)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Latent environmental cycling or observer fatigue pattern activated on day 12 due to schedule change, operator shift, or power supply mode transition (secondary cofactor, not primary level shift)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real physical change in environment or instrument response around day 12",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Sustained environmental shift (temperature, humidity, or vibration) around day 11–12, documented in accessible settlement logs",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Common instrumental firmware bug, truncation error, or floating-point conversion affecting all four streams on day 11–12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrumental cross-talk or coupling: resonator vibrations drive pendulum damping (or vice versa) with a characteristic ~2–6 day phase lag",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding introduced on or around day 12",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset, observer protocol change, equipment relocation, or power cycle)",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data logging or timestamp error introduced around day 12 (systematic offset or permutation of trial indices or batch labels)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Synchronized environmental shift (temperature, humidity, or vibration) around day 11–12, sustained through day 39",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Observer fatigue, measurement protocol drift, or instrumental coupling that became manifest or amplified on day 12 due to environmental or schedule state change (secondary mechanism revealing latent structure, not primary cause)",
+        "primary": "self_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "The negative and lagged correlations between streams reflect real but subtle instrumental coupling that was masked during baseline, then manifested post-day-12 due to changed environmental sensitivity or instrument state",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Latent environmental cycling or observer fatigue pattern that became manifest on day 12 due to schedule change, operator assignment, or environmental mode transition (secondary mechanism, not explanatory of primary level shift)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding error introduced around day 12",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      },
+      {
+        "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration, or coupling regime shift)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Statistical artifact or data entry error: outliers, small post-baseline samples, overfitted correlation lags, or systematic transcription error inflating z-scores and spurious structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 53,
+  "l4Judged": 53,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental cross-talk or coupling: resonator vibrations drive pendulum damping (or vice versa) with a characteristic ~2–6 day phase lag",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic measurement error with ~8-day cycle: observer or calibration drift repeats on a weekly timescale, creating anticorrelated 'echo' of each stream with its own past",
+      "class": "self_error"
+    },
+    {
+      "label": "Data acquisition or logging error: readings are being systematically offset or permuted by the recording apparatus, not the instruments themselves",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental forcing at mixed timescales: seismic noise, atmospheric pressure, or thermal gradients couple to instruments with different response times, creating lagged, anticorrelated outputs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact: sample sizes too small to exclude clustering by chance, and multiple-offset testing inflates false-positive rate for correlated 'best matches'",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical change in environment or instrument response around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental or procedural change introduced on or just before day 12 (calibration reset, observer swap, equipment relocation, power cycle)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging or timestamp error introduced around day 12 (systematic offset or permutation of trial indices or batch labels)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The negative and lagged correlations between streams reflect real but subtle instrumental coupling that was masked during baseline, then manifested post-day-12 due to changed environmental sensitivity or instrument state",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: small post-baseline sample sizes and selection of 'best match' offsets create false impressions of both level shifts and correlations",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical change in environment or instrument response around day 12 (temperature, humidity, vibration, ground coupling, or instrument sensitivity shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental intervention on or just before day 12 (calibration reset, observer swap, equipment relocation, power cycle, or protocol change)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging or timestamp error introduced around day 12 (mislabeling, batch shuffling, or temporal offset of trial indices that masks or rearranges temporal ordering)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent instrumental coupling that became manifest or amplified on day 12 due to environmental state change (temperature, vibration regime, or observer fatigue pattern shift)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: post-baseline sample sizes are small (n=18–48), outliers inflate z-scores for level shifts, and selection of 'best match' offsets in correlation analysis introduces overfitting",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration, or coupling regime shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset, observer protocol change, equipment relocation, or power cycle)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging, timestamping, or batch assignment error introduced around day 12 (temporal shuffling, mislabeling, or event ID offset masking true trial order)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or observer fatigue pattern that became manifest or amplified on day 12 due to environmental state change (secondary to primary level shift)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: outliers, small post-baseline samples, or overfitted correlation lags inflating z-scores and spurious structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration, or coupled physical regime shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset update, observer protocol change, equipment relocation, power cycle, or sensor recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging, timestamping, or batch assignment error introduced around day 12 (temporal shuffling, mislabeling, event ID offset, or trial index corruption masking true trial sequence)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or observer fatigue pattern that became manifest or amplified on day 12 due to environmental state change (secondary mechanism, not primary cause)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Statistical artifact: outliers, small post-baseline samples, or overfitted correlation lags inflating z-scores and spurious structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration, or coupled physical regime shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset update, observer protocol change, equipment relocation, power cycle, or sensor recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging, timestamping, or batch assignment error introduced around day 12 (temporal shuffling, trial index corruption, event ID offset, or mislabeling of baseline vs. post-baseline trials)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or observer fatigue pattern that became manifest or amplified on day 12 due to environmental state change (secondary mechanism amplifying and revealing latent structure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact or data entry error: outliers, small post-baseline samples, overfitted correlation lags, or systematic transcription error inflating z-scores and spurious structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration, or coupled physical regime shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset update, observer protocol change, equipment relocation, power cycle, or sensor recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging, timestamping, or batch assignment error introduced around day 12 (temporal shuffling, trial index corruption, event ID offset, or mislabeling of baseline versus post-baseline trials)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental coupling or observer fatigue pattern that became manifest or amplified on day 12 due to environmental state change (secondary mechanism revealing latent structure)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical artifact, data entry error, or common systematic error (outliers, small post-baseline samples, overfitted correlation lags, transcription error, or common software bug)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration regime, or coupled multi-instrument physical response)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset update, observer protocol change, equipment relocation, power cycle, firmware update, or sensor recalibration)",
+      "class": "self_error"
+    },
+    {
+      "label": "Data logging, timestamping, batch assignment, or trial index error introduced around day 12 (temporal shuffling, trial index corruption, event ID offset, or mislabeling of baseline versus post-baseline trials)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer fatigue, measurement protocol drift, or instrumental coupling that became manifest or amplified on day 12 due to environmental or schedule state change (secondary mechanism revealing latent structure, not primary cause)",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact, data entry error, common systematic error, or overfitting (outliers, small post-baseline samples, multiple comparison corrections, transcription error, or common software bug)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real environmental or instrument response change around day 12 (temperature, humidity, vibration regime, or coupled multi-instrument physical response)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or instrumental intervention on day 11–12 (calibration offset update, observer protocol change, equipment relocation, power cycle, firmware update, or sensor recalibration)",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Data logging, timestamping, batch assignment, or trial index error introduced around day 12 (temporal shuffling, trial index corruption, event ID offset, or baseline/post-baseline boundary miscoding)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact, data entry error, common systematic error, or overfitting (outliers, small post-baseline samples, multiple comparison corrections, transcription error, or common software bug)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer fatigue, measurement protocol drift, or instrumental coupling that became manifest or amplified on day 12 due to environmental or schedule state change (secondary mechanism revealing latent structure, not primary cause)",
+      "class": "self_error"
+    },
+    {
+      "label": "Real synchronized environmental response (temperature, humidity, vibration, or coupled multi-instrument physical state change around day 12)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented calibration adjustment or instrument intervention (recalibration constant change, sensor replacement, firmware update, power cycle, or protocol change on day 11–12)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or trial-to-baseline boundary miscoding error introduced around day 12 (temporal shuffling, event ID offset, or batch boundary corruption)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact, undetected systematic error, or common instrumental bug affecting all four measurement streams simultaneously",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern that became manifest on day 12 due to schedule change, operator assignment, or environmental mode transition (secondary mechanism, not primary cause)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Synchronized environmental response (temperature, humidity, vibration shift around day 12)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented instrument recalibration, firmware update, sensor replacement, or procedural change on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding error introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact, undetected systematic error, or common instrumental firmware bug affecting all four streams simultaneously around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern that became manifest on day 12 due to schedule change, operator assignment, or environmental mode transition (secondary mechanism, not explanatory of primary level shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Synchronized environmental shift (temperature, humidity, or vibration) around day 11–12, sustained to day 35",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented calibration adjustment, firmware update, sensor replacement, or procedural change on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding error introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common instrumental firmware bug, truncation error, or floating-point conversion affecting all four streams on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern activated on day 12 due to schedule change, operator shift, or power supply mode transition (secondary cofactor, not primary level shift)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Synchronized environmental shift (temperature, humidity, or vibration) around day 11–12, sustained through day 38",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented calibration adjustment, firmware update, sensor replacement, or procedural change on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding error introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common instrumental firmware bug, truncation error, or floating-point conversion affecting all four streams on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern activated on day 12 due to schedule change, operator shift, or power supply mode transition (secondary cofactor only, not primary mechanism)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Synchronized environmental shift (temperature, humidity, or vibration) around day 11–12, sustained through day 39",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented calibration adjustment, firmware update, sensor replacement, or procedural change on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding error introduced around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common instrumental firmware bug, truncation error, or floating-point conversion affecting all four streams on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern activated on day 12 via schedule change, operator shift, or power supply mode transition (secondary cofactor only)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "other"
+    },
+    {
+      "label": "Sustained environmental shift (temperature, humidity, or vibration) around day 11–12, documented in accessible settlement logs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented calibration adjustment, firmware update, sensor replacement, or procedural change on day 11–12, recorded in accessible settlement records (git history, access logs, change tickets, technician logs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging, timestamping, trial indexing, or baseline/post-baseline boundary miscoding introduced on or around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common instrumental firmware bug, truncation error, or floating-point conversion affecting all four streams on day 11–12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Latent environmental cycling or observer fatigue pattern activated on day 12 via schedule change, operator shift, or power supply mode transition (secondary cofactor only)",
+      "class": "environmental_change"
+    }
+  ]
+}

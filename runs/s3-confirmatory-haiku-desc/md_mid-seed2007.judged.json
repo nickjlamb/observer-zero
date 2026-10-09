@@ -1,0 +1,306 @@
+{
+  "source": "md_mid-seed2007.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 5,
+    "items": [
+      {
+        "label": "One or more instruments are malfunctioning (offset, nonlinear response, intermittent contact, or calibration drift) such that readings do not reflect true physical quantities, causing spurious decorrelation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: an unconsidered confound or measurement artifact not yet identified",
+        "primary": "incomplete_theory",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Unmeasured environmental confounder (temperature, pressure, vibration, humidity) couples all four instruments, but with weak, nonlinear, or phase-lagged coupling that produces negative cross-correlations due to opposite instrument responses or orthogonal filtering",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unrecognized systematic effect or measurement model.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline period (days 1–10) is too short; instruments remain in non-stationary settling phase, rendering all correlations and echoes computed from days 11–26 uninterpretable artifacts of transient equilibration",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (days 1–10) is too short; instruments are in active non-stationary settling, rendering all cross-correlations and within-instrument structures computed now uninterpretable until true steady state is reached (day 25+)",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instruments are genuinely independent; within-instrument echoes reflect transient autocorrelation of instrument-specific noise (friction, damping, sensor lag), not shared signal; negative cross-correlations are random scatter in a low-SNR regime",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Hardware malfunction (drift, saturation, misalignment, creep) in one or more instruments, producing spurious decorrelation or correlation.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Hardware malfunction (creep, saturation, misalignment, drift, damping change) in one or more instruments, producing spurious decorrelation or anomalous correlation via low variance, fixed repetitions, or nonlinear response.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (days 1–10) too short; instruments remain in non-stationary settling, rendering post-baseline correlations and echoes uninterpretable",
+        "primary": "measurement_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 21,
+  "l4Judged": 21,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are genuinely independent physical processes with minimal coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental signal (temperature, vibration, or pressure drift) is present but masked by measurement noise, or is orthogonal to the observables I have chosen",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or baseline non-stationarity: my day 1–10 baseline is itself drifting, or systematic error is accumulating within each instrument, making cross-comparisons unreliable until post-baseline data reveal the true trajectory",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or operator error is introducing spurious variance that decorrelates the instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning or fundamentally uncalibrated (zero-point offset, nonlinear response, or intermittent contact)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments are genuinely independent; within-instrument echoes reflect instrument-specific memory or transient settling, not a shared signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmeasured environmental confounder (temperature, barometric pressure, vibration, humidity) couples all four instruments with weak, nonlinear, or phase-lagged coupling that manifests as negative cross-correlations because the instruments respond in opposite directions to the same driver, or the driver is orthogonal to the measurement axes I have chosen.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) is too short; instruments are still settling or drifting, and the post-baseline data (n=30–74) are contaminated by non-stationary transients. Cross-correlations computed now are meaningless until a true steady state is reached (day 20–30+).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or procedural error: systematic variation in how I handle each apparatus (pendulum release height, resonator alignment, observation timing, or transcription errors) decorrelates instruments that should otherwise be coupled.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning (zero-point offset, nonlinear response, intermittent contact, or calibration error) such that their readings do not reflect the underlying physical quantity, causing spurious decorrelation.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are genuinely independent; within-instrument echoes reflect transient settling or instrument-specific filtering, not shared signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmeasured environmental confounder (temperature, pressure, vibration, humidity) couples all four instruments, but with weak, nonlinear, or phase-lagged coupling that produces negative cross-correlations due to opposite instrument responses or orthogonal filtering",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) is too short; instruments are still settling, and post-baseline data (days 11–18) are contaminated by non-stationary transients. Cross-correlations are meaningless until true steady state is reached (day 25–30+)",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent pendulum release, resonator misalignment, observation timing drift, or transcription errors) decorrelates instruments that are otherwise coupled to a shared physical process",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning (offset, nonlinear response, intermittent contact, or calibration drift) such that readings do not reflect true physical quantities, causing spurious decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unconsidered confound or measurement artifact not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unmeasured environmental confounder (temperature, pressure, humidity, vibration) creates opposite or orthogonally-filtered responses across instruments, producing negative cross-correlations despite shared driving signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) is too short; instruments are in active non-stationary settling, rendering all cross-correlations and within-instrument structures computed now uninterpretable until true steady state is reached (day 25+)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are genuinely independent; within-instrument echoes reflect transient autocorrelation of instrument-specific noise (friction, damping, sensor lag), not shared signal; negative cross-correlations are random scatter in a low-SNR regime",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent pendulum release, resonator alignment, observation timing, or data entry) introduces independent instrument-specific noise that decorrelates otherwise-coupled streams",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning (sticky pivot, misalignment, baseline drift, saturation) in ways that produce spurious decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unconsidered confound—nonlinear coupling via infrastructure, time-varying sensor gain, a measurement-basis error in my correlation analysis, or an unrecognized periodic external signal (settlement machinery, power-line frequency, solar heating cycle)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unmeasured environmental confounder (temperature, pressure, humidity, vibration) with orthogonal or inverted coupling across instrument types creates systematic decorrelation despite shared driving signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) is too short; instruments remain in non-stationary settling phase, rendering all correlations and echoes computed from days 11–26 uninterpretable artifacts of transient equilibration",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are genuinely independent; within-instrument echoes reflect transient autocorrelation of instrument-specific noise (friction, damping, sensor lag); negative cross-correlations are random scatter in a low-SNR regime misinterpreted as systematic",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent pendulum release, resonator alignment, observation timing, data entry) introduces independent instrument-specific noise that decorrelates otherwise-coupled streams",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning (sticky pivot, misalignment, baseline drift, saturation) in ways that produce spurious decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized systematic error—nonlinear coupling via shared infrastructure, time-varying sensor gain, error in correlation code, periodic external signal sampled orthogonally, or multiple-comparisons bias in lag search",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental confounder with orthogonal or inverted coupling across instrument types",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) too short; instruments remain in non-stationary settling, rendering post-baseline correlations and echoes uninterpretable",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are genuinely independent; within-instrument echoes and cross-correlations reflect low-SNR noise misinterpreted as structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent release, alignment, timing, data entry) introduces independent noise decorrelating otherwise-coupled streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Hardware malfunction (sticky pivot, misalignment, baseline creep, saturation) producing spurious decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized systematic error or mechanism not yet articulated",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Lab-observatory systematic difference: instruments in the lab (pendulum_lab and resonator_lab) share a common environmental or mechanical coupling that decorrelates them from observatory instruments, but this coupling inverts or phase-shifts the resonator_lab signal specifically, while leaving pendulum_lab coherent with resonator_obs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) too short; instruments still in non-stationary settling, with instrument-type-specific settling rates that create apparent correlations and decorrelations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental confounder with differential coupling across instrument types and locations, creating the observed partition between lab and observatory instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized systematic error in correlation computation or lag-search algorithm, specifically biasing certain pairs negative or certain lags positive.",
+      "class": "self_error"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent release, alignment, timing, data entry) introduces correlated noise that differs by instrument type or location.",
+      "class": "self_error"
+    },
+    {
+      "label": "Hardware malfunction (drift, saturation, misalignment, creep) in one or more instruments, producing spurious decorrelation or correlation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized systematic effect or measurement model.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Differential environmental coupling by location: lab instruments mechanically coupled to each other (creating decorrelation via phase inversion), observatory instruments isolated from lab but responding to separate environmental driver (e.g., diurnal thermal cycle) with 3-day phase lag relative to lab; pendulum_lab–resonator_obs correlation reflects cross-location thermal or acoustic diffusion.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was too short; instruments still in non-stationary thermal settling with instrument-type-specific time constants, creating spurious correlations and decorrelations by coincidence rather than true coupling.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized systematic error in correlation computation or lag-search algorithm, specifically biasing the pendulum_lab–resonator_obs pair positive or inflating its correlation estimate through multiple-comparison bias, indexing error, unequal normalization, or hidden data transformation.",
+      "class": "self_error"
+    },
+    {
+      "label": "Unmeasured multi-component environmental confounder (temperature, humidity, pressure, acoustic vibration, electromagnetic noise) with differential coupling across instrument types and locations, creating the observed partition between lab and observatory without requiring mechanical coupling within the lab.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or operator error (inconsistent release, grip, timing, data entry) that introduces correlated noise differing by instrument type or location, specifically decorrelating instruments recorded under different conditions (e.g., morning lab sessions vs. afternoon observatory sessions).",
+      "class": "self_error"
+    },
+    {
+      "label": "Hardware malfunction (creep, saturation, misalignment, drift, damping change) in one or more instruments, producing spurious decorrelation or anomalous correlation via low variance, fixed repetitions, or nonlinear response.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecognized systematic effect or measurement model not yet articulated—including nonlinear coupling through building infrastructure, procedurally-mediated environmental effects (heat from body during sessions affecting distant instrument via thermal diffusion), data-entry errors in one stream, or misinterpretation of a particular trial sequence.",
+      "class": "self_error"
+    }
+  ]
+}

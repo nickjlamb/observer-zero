@@ -168,3 +168,97 @@ Generated mechanically 2026-08-31 from every artifact under `runs/` whose `confi
 
 Unhealthy rows detail:
 - s3-smoke-cerebras/w0-seed9114.json: stored runHealth.healthy=false — excluded from all corpus statistics by the R29 gate.
+
+### Deviation 6 — empty judge completion treated as transport failure (2026-10-08)
+
+During the eval-v3 scoring pass on `runs/s3-confirmatory-haiku-desc` (after 67/90
+sidecars), the pass crashed with `judge response unparseable after 3 attempts:
+Error: No JSON object found in model output · raw starts: ""`. The judge API
+returned HTTP 200 responses whose `content` carried no text block, so
+`judgeClient.complete` returned the empty string as if it were a completion;
+`completeAndParse` can never parse an empty response, and after three empty
+completions it failed loud (as designed).
+
+Fix: in `src/evaluator/judgeClient.ts`, an ok response whose extracted text is
+empty/whitespace no longer returns — it falls through to the existing
+backoff-and-retry loop (8 attempts, 60s cap), exactly like a 429/5xx. Persistent
+emptiness still ends in the loud "retries exhausted" throw.
+
+Classification: transport/orchestration only. The check fires before any content
+is read (empty output has no content), so it cannot prefer any verdict. Judge
+prompts, temperature, thresholds, and semantics untouched. Scoring resumed with
+`--resume`; completed sidecars were not re-scored.
+
+### Deviation 7 — judge API refusal on one haiku-desc artifact (2026-10-09)
+
+The eval-v3 scoring pass on `runs/s3-confirmatory-haiku-desc` halted repeatedly
+on `wb-seed2007.json`. Diagnostics added to the judge client showed every
+attempt returning HTTP 200 with `stop_reason: "refusal"`, an empty content
+array, and `output_tokens: 0` (input 1,003 tokens) — the API itself declines
+the prompt, deterministically (8/8 identical across two sessions). The same
+artifact scored cleanly under eval-v4, so the refusal is specific to the
+eval-v3 prompt wrapper around one item. Re-requesting cannot recover, and the
+frozen prompt may not be altered (§10).
+
+Changes (transport/orchestration only, both fail-closed):
+1. `judgeClient.ts`: `stop_reason === "refusal"` now throws a typed
+   `JUDGE_REFUSAL` error immediately instead of burning the 8-attempt backoff.
+2. `study3Pilot.ts` rescore loop: a `JUDGE_REFUSAL` for an artifact logs it
+   loudly, writes NO sidecar, and continues with the next artifact; a summary
+   of refused artifacts prints at the end. All other errors still abort the
+   pass. The frozen analysis (`confirmatoryAnalysis.loadRun`) still halts on
+   any missing sidecar, so a refused artifact cannot silently enter or exit
+   the analysis — it must be deliberately resolved and logged here first.
+
+Resolution (applied 2026-10-09, per sign-off): the refused run cannot be scored under
+eval-v3. Proposed handling — move the artifact and its eval-v4 sidecar out of
+the analysis directory (preserved under `runs/s3-confirmatory-haiku-desc-refused/`),
+excluding it from BOTH eval versions so the version ladders stay on identical
+run sets; report it as scoring attrition (1/90 descriptive runs) in the
+technical report. Affects the descriptive battery only — no contrast cell,
+no primary or secondary endpoint. Judge prompts, thresholds, semantics and
+the analysis code untouched.
+
+Deviation 7 resolution applied 2026-10-09: the eval-v3 pass completed with
+exactly one refusal (`wb-seed2007.json`, confirmed by the end-of-pass summary);
+the artifact and its eval-v4 sidecar were moved to
+`runs/s3-confirmatory-haiku-desc-refused/` (preserved, nothing deleted). The
+analysis directory now holds 89 artifacts with 89 eval-v4 + 89 eval-v3 solo
+sidecars, pairing verified. Descriptive battery proceeds at 89/90; scoring
+attrition to be reported in the technical report.
+
+### End-of-battery calibration (2026-10-09 10:49)
+
+P3.4 eval-v4 solo, repeat 3 (`runs/s3-p34-validation-eval-v4-setv4-solo.json`):
+classifier 32/33 (tolerance >=31), boundary 1/1, L4 11/11, deterministic=true,
+unstableItems=[], boundaryCrossingItems=[], l4Unstable=[], served model
+claude-haiku-4-5-20251001 (same as battery-start calibration and all scoring
+passes). PASSED — identical to the battery-start result. The evaluator is
+stable across the full confirmatory battery; the analysis may proceed.
+
+### Deviation 8 — lossy label-keyed classification map in the analysis (2026-10-09)
+
+First invocation of `npm run study3-analyze` halted on the analysis' own
+fail-closed guard: `label collision with divergent classes` in the very first
+sidecar read. Cause: a sidecar's `classifications` array holds one entry per
+unique (label, rationale) cache key, in cache insertion order, but records
+only the LABEL; the analysis then looked classes up by label alone. A label
+that recurs across snapshots with an evolving rationale (and sometimes a
+divergent class) cannot be represented label-keyed — 130 of 338 battery
+sidecars contain such a collision, so this is an implementation bug in the
+frozen analysis code, not a data anomaly. No analysis output was written
+(the crash preceded any computation), so the run-once rule is intact.
+
+Fix (code brought into line with the frozen spec; no spec change): the full
+(label, rationale) -> class mapping is reconstructed positionally — the
+scoring pass enumerated unique keys in agents -> beliefTimeline -> hypotheses
+first-occurrence order, reproducible from the artifact. Before the fix, the
+alignment was verified empirically over ALL 338 sidecars (lengths and
+per-position labels): 0 mismatches. The reconstruction is asserted
+entry-by-entry at load time (any mismatch halts), and the pre-existing
+invariant that recomputed ever-L1 at the registered primary settings must
+equal the sidecar's tauSuspicion now independently validates every
+reconstruction, run by run. Indicator and modal-class lookups use the full
+key. Two pinning tests added (divergent-class recovery; misalignment halts).
+No judge output, threshold, or endpoint definition changed; the analysis had
+produced no numbers before or after the crash when this fix was applied.

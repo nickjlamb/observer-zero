@@ -1,0 +1,448 @@
+{
+  "source": "mb-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 16,
+    "agree": 11,
+    "items": [
+      {
+        "label": "Real discrete facility or environmental event (days 12–16) affecting pendulums and resonators oppositely",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic trial-scheduling bias (shift rotation, time-of-day, or occupancy cycles) inducing spurious 4–5 day cross-instrument correlations independent of level shifts",
+        "primary": "environmental_change",
+        "second": "self_error"
+      },
+      {
+        "label": "Day-10 baseline binning is arbitrary; true transition date is not days 12–16 but either day 11 or later, or the binning method systematically misaligns trial-to-calendar-date mapping across streams, creating spurious 'synchronization' of z-scores that obscures asynchronous physical events",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Two independent calibration regimes (lab vs. observational) with systematic 5–6 day phase offset and ~50% mean shift, reflecting distinct measurement environments or protocols",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum and resonator calibration constants or optical/mechanical paths differ between lab and observational regimes, but both respond to the same day-12/16 physical event",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Discrete environmental event(s) on days 12 and 16 affecting pendulums and resonators with opposite physical coupling",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Trial scheduling bias (shift rotation, time-of-day, or occupancy cycles) inducing spurious 4–5 day cross-instrument correlations",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Protocol change, mechanical misalignment, or undocumented facility event on days 12 and/or 16 (unidentified but real)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Cross-stream coupling through an unmeasured shared noise source (facility vibration, EM interference, thermal diffusion) explains apparent level shift, but the shift is not a discrete event—it is a gradual response to sustained environmental change",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Lab and observational regimes employ different calibration constants or optical paths, yet both respond to the same real day-12/16 physical event",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unidentified source, computational error in my analysis, or genuinely exotic physical phenomenon",
+        "primary": "other",
+        "second": "other"
+      },
+      {
+        "label": "Baseline period (days 1–10) was too short to resolve slow environmental drift or to distinguish genuine oscillatory modes from random noise structure",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Trial scheduling bias and facility occupancy cycles (4–5 day periodicity) create environmental autocorrelation; real discrete day-12/16 shift is present but masked or confounded by schedule-driven noise",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Protocol change, mechanical misalignment, or undocumented facility event on days 12 and/or 16",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Day-10 baseline binning created spurious timing or magnitude artifacts; true shift occurred on an unknown date in days 10–16, or baseline stability extends beyond day 10",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: unidentified source (e.g., protocol change on day 12, misalignment in pendulum mounting, or coupling to an environmental cycle I have not yet considered)",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 46,
+  "l4Judged": 46,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration offset between lab and observational setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures a distinct physical quantity with weak coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental or instrumental drift not yet large enough to detect; baseline still valid",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument malfunction or misalignment in one or more channels",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling or temporal correlation artifact; events are not statistically independent",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two distinct calibration regimes (lab vs. observational) with systematic phase offset, not a common underlying signal",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Genuine physical independence: each instrument measures a distinct, weakly-coupled oscillatory mode with its own quasi-periodic structure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Sampling or temporal clustering artifact: trials are not uniformly distributed in calendar time, creating spurious offset correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental misalignment or gain/offset error in observational setup, not malfunction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline still too young; apparent independence is transient noise structure, not true drift or signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unidentified source",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental change around day 12 (thermal, mechanical, or electromagnetic) that does not affect resonators",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent calibration regimes (lab vs. observational) with systematic 5–6 day phase offset and ~50% mean shift, reflecting distinct measurement environments or protocols",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temporal clustering of trial scheduling (time-of-day, shift rotation, or day-of-week bias) creates spurious 5–6 day pseudo-correlations unrelated to instrument physics or signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Genuine physical independence: pendulum and resonator systems respond to distinct, weakly-coupled environmental modes (e.g., thermal vs. electromagnetic); day-12 shift affects only thermal coupling",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline period (days 1–10) was too short to resolve slow environmental drift or to distinguish genuine oscillatory modes from random noise structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-entry or computational error in my cross-correlation analysis, or systematic bias in how I selected offsets for testing",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified source (e.g., protocol change on day 12, misalignment in pendulum mounting, or coupling to an environmental cycle I have not yet considered)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Discrete environmental event(s) on days 12 and 16 affecting pendulums and resonators oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic 5–6 day pseudo-correlation from trial scheduling bias (time-of-day, shift rotation, or occupancy cycles)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two distinct measurement regimes (lab vs. observational) with a systematic ~50% gain or scale factor and independent environmental sensitivities",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Genuine physical independence: pendulums and resonators couple to distinct environmental modes (e.g., thermal vs. seismic/magnetic), producing weak cross-correlations and allowing oppositely-signed responses to a global event",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Protocol change, mechanical misalignment, or undocumented facility event on days 12 and/or 16",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified source or data anomaly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Discrete environmental event(s) on days 12 and 16 affecting pendulums and resonators with opposite physical coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic trial-scheduling bias (shift rotation, time-of-day, or occupancy cycles) inducing spurious 4–5 day cross-instrument correlations independent of level shifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab vs. observational regimes have independent environmental sensitivities, but both show the same global day-12/16 event (ruling out regime-specific explanations as primary)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Genuine physical independence: pendulums and resonators couple to distinct environmental modes (thermal vs. seismic/EM), producing weak cross-correlations and allowing oppositely-signed responses to a global perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Protocol change, mechanical misalignment, or undocumented facility event on days 12 and/or 16 (unidentified but real)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified source, computational error in my analysis, or genuinely exotic physical phenomenon",
+      "class": "other"
+    },
+    {
+      "label": "Discrete, unlogged facility or environmental event on days 12 and/or 16 affecting both instrument classes oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Trial scheduling bias (shift rotation, time-of-day, or occupancy cycles) inducing spurious 4–5 day cross-instrument correlations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab vs. observational regimes employ different calibration baselines or optical paths, but both respond to the same real day-12/16 physical event",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulums and resonators couple to distinct orthogonal environmental modes (e.g., thermal vs. seismic/EM), each with quasi-periodic internal structure, allowing opposite-signed responses to a global perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unidentified or undocumented protocol change, mechanical misalignment, or instrumental artifact on days 12 and/or 16",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Computational error in my analysis, or misalignment in baseline-period definition / trial grouping",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged discrete facility or environmental event (days 12 and/or 16) affecting pendulums and resonators oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Misalignment in baseline-period definition or trial-grouping error in my level-change calculation",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial scheduling bias and occupancy-cycle-driven environmental autocorrelation, confounded with a real (but smaller) day-12/16 shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented protocol change, mechanical misalignment, or detector gain/filter recalibration on day 12 and/or 16",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and observational regimes employ different calibration constants or optical paths, yet both respond to the same real day-12/16 physical event",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulums and resonators couple to distinct orthogonal environmental modes (thermal vs. seismic/EM), each with quasi-periodic internal structure, allowing opposite-signed responses to a global perturbation",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real discrete facility or environmental event (days 12 and/or 16) affecting pendulums and resonators oppositely",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Misalignment in baseline-period definition, trial-grouping error, or retrospective indexing bias in my level-change calculation",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial scheduling bias and facility occupancy cycles (4–5 day periodicity) create environmental autocorrelation; real discrete day-12/16 shift is also present but confounded",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented protocol change, mechanical misalignment, detector recalibration, or facility modification on day 12 and/or 16",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Pendulum and resonator calibration constants or optical/mechanical paths differ between lab and observational regimes, but both respond to the same day-12/16 physical event",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulums and resonators couple to distinct orthogonal environmental modes (thermal vs. seismic/EM) with quasi-periodic internal dynamics; a global perturbation couples opposite-sign to these modes",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real discrete facility or environmental event (days 12–16) affecting pendulums and resonators oppositely",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Misalignment in baseline-period definition or level-change timing derived from my original retrospective grouping (days 1–10 baseline, days 11–25 post-baseline)",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial scheduling bias and facility occupancy cycles (4–5 day periodicity) create environmental autocorrelation; real discrete day-12/16 shift is *also* present but may be confounded or partially masked",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented or not-yet-retrieved facility modification, instrument recalibration, protocol change, or mechanical adjustment on day 12 ± 4 days",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real discrete environmental or facility event (days 12–16) affecting pendulums and resonators with opposite-sign physics coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Misalignment or error in my baseline-period definition (days 1–10) or my timing of the level change, not the shift itself—possible off-by-one errors, trial-date mapping, or change-point algorithm artifact",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial scheduling bias and facility occupancy cycles (4–5 day periodicity) create environmental autocorrelation; real discrete day-12/16 shift is present but masked or confounded by schedule-driven noise",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented or not-yet-retrieved facility modification, instrument recalibration, or protocol change on day 12 ± 4 days (placeholder for real but unknown causes)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real discrete environmental or facility event (days 12–16) caused synchronized level shifts; timing remains uncertain pending re-derivation without baseline-period binning",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline-period definition error or timing misalignment in my trial-date mapping created spurious day-12/16 dating; the shift itself is real but occurred on an unidentified date in days 10–16",
+      "class": "self_error"
+    },
+    {
+      "label": "Trial scheduling bias and facility occupancy cycles (4–5 day periodicity) produce environmental autocorrelation that masks or confounds the true day-12/16 shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented or not-yet-retrieved facility modification, instrument recalibration, or protocol change on day 12 ± 4 days explains the shift; source category unknown pending investigation",
+      "class": "social_process"
+    },
+    {
+      "label": "Something unconsidered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental/facility event occurred on day 12–16; timing requires re-derivation from raw trial sequences without binning",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-10 baseline binning created spurious timing or magnitude artifacts; true shift occurred on an unknown date in days 10–16, or baseline stability extends beyond day 10",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented facility modification, instrument service, protocol change, or environmental intervention on days 12–16; source remains unknown pending audit",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Facility occupancy, operator shift rotation, or environmental cycles with 4–5 day periodicity created correlated baseline drift that my binning method misattributed to a discrete shift",
+      "class": "self_error"
+    },
+    {
+      "label": "Cross-stream coupling through an unmeasured shared noise source (facility vibration, EM interference, thermal diffusion) explains apparent level shift, but the shift is not a discrete event—it is a gradual response to sustained environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real facility-level environmental event (thermal, seismic, EM, or mechanical) occurred ~day 12–16; precise timing and nature unknown but physical coupling is genuine",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-10 baseline binning is arbitrary; true stability transition occurred on a different date (day 11, 13, 15, or later); z-scores and timing are artifacts of binning method, not evidence for day-12 event",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undocumented facility intervention (HVAC thermal change, electrical grounding/shielding work, detector recalibration, seismic isolation adjustment, magnetic field change, or operator protocol shift) on days 12–16; facility audit or staff interview will identify the source",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Occupancy, operator shift rotation, or facility 4–5 day environmental cycle (weekday–weekend temperature swing, shift-dependent HVAC scheduling) created apparent level shift via correlated baseline drift misattributed to discrete event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual environmental response (e.g., sustained new noise source, thermal diffusion into measurement environment) began ~day 10–12 and systems equilibrated over days 10–16; apparent discrete shift is smoothed by averaging or temporal resolution of data collection",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real facility-level environmental event (thermal, mechanical, electromagnetic, or seismic) occurred ~day 12–16; all four measurement streams responded identically to a shared physical driver with opposite-sign frequency coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-10 baseline binning is arbitrary; true transition date is not days 12–16 but either day 11 or later, or the binning method systematically misaligns trial-to-calendar-date mapping across streams, creating spurious 'synchronization' of z-scores that obscures asynchronous physical events",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented facility intervention (HVAC temperature change, electrical grounding/shielding reconfiguration, detector recalibration, vibration isolation adjustment, or magnetic field modification) on days 12–16; facility audit and staff interviews required to identify and validate the source",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Occupancy, operator shift rotation, or facility 4–5 day environmental cycle (weekday–weekend HVAC scheduling, shift-dependent noise/thermal patterns) created apparent level shift via correlated baseline drift or seasonal modulation misattributed to discrete event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Gradual environmental response (sustained new noise source, thermal diffusion into measurement chamber, new equipment powered on, seismic event, or HVAC reconfiguration) began ~day 10–12 and systems equilibrated over days 10–16; apparent discrete shift reflects averaging or limited temporal resolution, with ongoing low-level relaxation still occurring",
+      "class": "measurement_error"
+    }
+  ]
+}

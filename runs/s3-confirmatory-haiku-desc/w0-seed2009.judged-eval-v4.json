@@ -1,0 +1,339 @@
+{
+  "source": "w0-seed2009.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 7,
+    "items": [
+      {
+        "label": "My cross-check methodology is statistically compromised by multiple comparisons and small subsample sizes; lagged correlations are mostly noise. The real anomaly is the coordinated downward drift, not the lagged correlations.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Transient local environmental perturbation at obs site (thermal, airflow, vibration) on Day 22, superposed on independent aging of all four instruments; resonator_obs variance spike is site-specific, drift is settlement-wide but mechanistically decoupled.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic error in my baseline definition (Days 1–10) or calibration procedure affects all four instruments in the same direction, creating spurious downward drift; true ongoing drift is zero or upward; Day 22 resonator_obs variance spike is unrelated or unmasks calibration instability.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, suspension relaxation, or electronic drift) triggered or accelerated on Day 22; independent aging of other three instruments continues; no settlement-wide environmental driver.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Each of the four instruments undergoes independent aging or local environmental drift with no settlement-wide common driver; the coordinated downward z-scores arise from similar aging mechanisms (thermal contraction, optical degradation, suspension creep) operating independently and coincidentally in the same direction; Day 22 resonator_obs variance spike is independent of aging and reflects a transient or instrument-specific event.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Lab and obs instruments measure different physical quantities or operate under fundamentally incompatible protocols; the weak lagged correlations are coincidental. The downward drift is local to each pair (lab instruments drift together, obs instruments drift together, but not cross-location).",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Localized environmental perturbation at obs site (thermal gradient, airflow disturbance, vibration coupling, or suspension damping fluid redistribution) triggered on Day 22; persists through Day 34 via quasi-permanent change (e.g., debris-altered airflow, new mechanical vibration path, or damping fluid settling into new equilibrium); independent aging drives coordinated drift across all instruments; obs site resonator_obs is selectively sensitive to this environmental signature.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Settlement-wide slow environmental drift (thermal, pressure, EM) is the common driver of the coherent downward z-scores across all four instruments; Day 22 resonator_obs variance spike is a superposed local noise event unrelated to this driver; lagged correlations do not survive multiple-comparisons correction, but the coordinated drift direction remains real and requires explanation.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Each instrument undergoes independent aging or local environmental drift; downward drift is real but uncorrelated between instruments; apparent lagged correlations are statistical artifacts from multiple-comparisons bias.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instruments are undergoing monotonic aging (cumulative hysteresis, thermal ratchet, or other irreversible changes); lagged correlations reflect the time-delayed 'arrival' of the aging signal at different instruments, not genuine oscillations or synchronized dynamics.",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Lab and obs instruments measure different physical quantities or operate under incompatible protocols; downward drift is real but separable by location (lab instruments drift together due to lab environmental aging; obs instruments drift together due to obs environmental aging); lagged cross-location correlations are coincidental.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 42,
+  "l4Judged": 42,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure the same quantity but with independent local environmental noise (thermal, mechanical, or electromagnetic drift specific to lab vs. obs location)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab and obs instruments are not measuring the same physical quantity; they respond to different local phenomena or operate under fundamentally different measurement protocols",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "My cross-check methodology (searching for best-fit lags across many offsets, computing Pearson correlations on small subsamples n=24–42) is inflating apparent significance; the observed lagged correlations are statistical artifacts",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are drifting systematically (e.g., aging, accumulating hysteresis, or responding to a monotonic environmental trend), and lagged correlations reflect common slow drift, not synchronized dynamics",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Settlement-wide environmental drift (thermal, pressure, or electromagnetic) is the common driver; lab and obs experience it with independent local noise superimposed, causing weak synchronous correlations but stronger lagged correlations as the slow common signal emerges from noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "My cross-check methodology is statistically compromised by multiple comparisons and small subsample sizes; lagged correlations are mostly noise. The real anomaly is the coordinated downward drift, not the lagged correlations.",
+      "class": "self_error"
+    },
+    {
+      "label": "Lab and obs instruments measure different physical quantities or operate under fundamentally incompatible protocols; the weak lagged correlations are coincidental. The downward drift is local to each pair (lab instruments drift together, obs instruments drift together, but not cross-location).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments are aging or responding to a monotonic environmental trend; lagged correlations reflect common slow drift aliasing, not synchronized dynamics. But my current analysis cannot distinguish this from genuine multi-day oscillations.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent instrumental aging or environmental drift local to each instrument, with downward drift real but uncorrelated between instruments; lagged correlations are statistical artifacts from multiple-comparisons bias.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Settlement-wide slow environmental drift (thermal, pressure, electromagnetic) is the common driver; instruments couple to it with independent noise superimposed, producing weak simultaneous but marginally stronger lagged correlations as common signal emerges from noise over days.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab and obs instruments measure different physical quantities or operate under incompatible protocols; downward drift is real but separable by location (lab instruments drift together due to lab environmental aging; obs instruments drift together due to obs environmental aging); lagged cross-location correlations are coincidental.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments are undergoing monotonic aging (cumulative hysteresis, thermal ratchet, or other irreversible changes); lagged correlations reflect the time-delayed 'arrival' of the aging signal at different instruments, not genuine oscillations or synchronized dynamics.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Each instrument undergoes independent aging or local environmental drift; downward drift is real but uncorrelated between instruments; apparent lagged correlations are statistical artifacts from multiple-comparisons bias.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Settlement-wide slow environmental drift (thermal, pressure, EM) is the common driver; instruments couple to it with independent noise superimposed and unknown time-constant coupling lags, producing weak simultaneous correlations and marginally stronger (but corrected-nonsignificant) lagged correlations as common signal emerges from noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Lab and obs instruments measure different physical quantities, operate under incompatible protocols, or respond to different environmental couplings; drift is real but separable by location (lab instruments drift together due to lab aging; obs instruments drift together due to obs aging); cross-location correlations are spurious.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments undergo monotonic cumulative aging (irreversible hysteresis, thermal ratchet, optical degradation); lagged correlations reflect time-delayed arrival of aging signal at different instruments, not synchronized dynamics.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: An unidentified pattern or mechanism not yet considered.",
+      "class": "self_error"
+    },
+    {
+      "label": "Transient environmental excursion at obs site only (thermal spike, electromagnetic pulse, mechanical shock) causing temporary increase in resonator_obs noise; aging drift in all four instruments remains independent of this event.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs instrument drift or calibration instability (hysteresis relaxation, optical misalignment, detector response change) triggered or accelerated on Day 22; independent aging of other three instruments continues; no settlement-wide driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide slow environmental drift (thermal, pressure, EM) is the common driver of the coherent downward z-scores across all four instruments; Day 22 resonator_obs variance spike is a superposed local noise event unrelated to this driver; lagged correlations do not survive multiple-comparisons correction, but the coordinated drift direction remains real and requires explanation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each of the four instruments undergoes independent aging or local environmental drift with no settlement-wide common driver; the coordinated downward z-scores arise from similar aging mechanisms (thermal contraction, optical degradation, suspension creep) operating independently and coincidentally in the same direction; Day 22 resonator_obs variance spike is independent of aging and reflects a transient or instrument-specific event.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in my baseline definition (Days 1–10) or calibration procedure affects all four instruments in the same direction, creating spurious downward drift; true ongoing drift is zero or upward; Day 22 resonator_obs variance spike unmasks this error or is unrelated.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified pattern or mechanism.",
+      "class": "self_error"
+    },
+    {
+      "label": "Transient local environmental perturbation at obs site (thermal, airflow, vibration) on Day 22, superposed on independent aging of all four instruments; resonator_obs variance spike is site-specific, drift is settlement-wide but decoupled from spike.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, suspension relaxation, or electronic drift) triggered or accelerated on Day 22; independent aging of other three instruments continues; no settlement-wide environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide slow environmental perturbation (thermal drift, barometric pressure, electromagnetic field) is the common driver of coordinated downward drift across all four instruments; Day 22 resonator_obs variance spike is a superposed local noise event, possibly triggered by the same environmental driver acting on resonator_obs's higher sensitivity, but not causally coupled to the drift itself.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent aging or local environmental drift affecting each instrument separately; coordinated downward z-scores arise from similar physical mechanisms (thermal contraction of suspension materials, optical degradation, material creep) operating independently but in the same direction; Day 22 resonator_obs variance spike is independent of aging and reflects a transient or instrument-specific event unrelated to drift.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in my baseline definition (Days 1–10) or calibration procedure affects all four instruments in the same direction, creating spurious downward drift; true ongoing drift is zero or upward; Day 22 resonator_obs variance spike is unrelated or unmasks calibration instability.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unidentified pattern or mechanism not yet considered.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Transient local environmental perturbation at obs site (thermal, airflow, vibration) on Day 22, superposed on independent aging of all four instruments; resonator_obs variance spike is site-specific, drift is settlement-wide but mechanistically decoupled.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, suspension relaxation, or electronic drift) triggered or accelerated on Day 22; independent aging of other three instruments continues; no settlement-wide environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide slow environmental perturbation (thermal drift, barometric pressure, electromagnetic field) is the common driver of coordinated downward drift across all four instruments; Day 22 resonator_obs variance spike is a superposed local noise event, possibly reflecting resonator_obs's higher sensitivity to environmental transients.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent aging of each instrument via similar physical mechanisms (thermal contraction, optical degradation, material creep) operating in the same direction by chance; coordinated downward z-scores are coincidental; Day 22 resonator_obs variance spike is unrelated to drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in baseline definition (Days 1–10) or calibration procedure affects all four instruments in the same direction, creating spurious downward drift; true ongoing drift is zero or upward.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, suspension relaxation) triggered on Day 22; independent aging of all four instruments continues in parallel; no settlement-wide environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient local environmental perturbation at obs site (thermal gradient, airflow disturbance, vibration coupling) on Day 22, superposed on independent aging of all four instruments; resonator_obs is more sensitive to such transients due to optical path sensitivity or suspension geometry; drift is settlement-wide and mechanistically decoupled from variance spike.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide slow environmental perturbation (thermal drift, barometric pressure trend, electromagnetic field) drives coordinated downward drift across all four instruments; Day 22 resonator_obs variance spike is a superposed local noise event reflecting resonator_obs's higher sensitivity to environmental transients; two independent phenomena.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent aging of each instrument via similar physical mechanisms (optical degradation, thermal contraction, electronic drift) operating in the same direction by chance; coordinated downward z-scores reflect coincidental alignment rather than common driver; Day 22 resonator_obs variance spike is unrelated to drift.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in baseline definition (Days 1–10) or calibration procedure biases all four instruments in the same direction, creating spurious downward drift; true ongoing drift is zero or indeterminate; Day 22 resonator_obs variance elevation is real and unrelated to drift artifact.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, or suspension state change) triggered on Day 22; independent slow aging of all four instruments proceeds in parallel via unrelated mechanisms (thermal contraction, optical creep, electronic drift); two mechanistically independent phenomena manifesting at different timescales.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental perturbation at obs site (thermal gradient, airflow disturbance, vibration coupling, or suspension damping fluid redistribution) triggered on Day 22; persists through Day 34 via quasi-permanent change (e.g., debris-altered airflow, new mechanical vibration path, or damping fluid settling into new equilibrium); independent aging drives coordinated drift across all instruments; obs site resonator_obs is selectively sensitive to this environmental signature.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide slow monotonic environmental drift (sustained thermal increase, barometric pressure trend, or long-wavelength electromagnetic field change) drives coordinated downward drift across all four instruments via correlated sensitivity; Day 22 resonator_obs variance spike is superposed local noise event unrelated to drift; two independent phenomena colliding in time.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent aging of each instrument via physically plausible but coincidentally aligned mechanisms (optical degradation, thermal contraction, electronic drift) producing downward drift without causal coupling; coordinated z-scores reflect chance alignment; Day 22 resonator_obs variance spike is unrelated to drift and instrument-specific.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in baseline definition (Days 1–10) or calibration procedure biases all four instruments in the same direction, creating spurious downward drift; Day 22 resonator_obs variance elevation reflects real instrument behavior but is unrelated to drift artifact.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, or suspension change) triggered on Day 22; drift is independent slow aging of all instruments via unrelated mechanisms (thermal, electronic).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental perturbation at obs site (thermal gradient, airflow, vibration coupling, or suspension damping fluid redistribution) triggered on Day 22; persists via quasi-permanent state change; independent aging drives drift across all instruments; resonator_obs is selectively sensitive to this environmental signature.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide slow monotonic environmental drift (sustained thermal increase, barometric pressure trend, or electromagnetic field change) drives coordinated downward drift across all four instruments via correlated sensitivity; Day 22 resonator_obs variance spike is superposed local noise event unrelated to drift.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent aging of each instrument via physically plausible mechanisms (optical degradation, thermal contraction, electronic drift) producing downward drift; coordinated z-scores reflect statistical coincidence; Day 22 resonator_obs variance spike is instrument-specific and independent of drift.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in baseline definition (Days 1–10) or calibration procedure biases all four instruments in the same direction, creating spurious downward drift; Day 22 resonator_obs variance elevation reflects real instrument behavior but is unrelated to drift artifact.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs instrument degradation (optical misalignment, detector hysteresis, or suspension change) triggered sharply on Day 22; drift is independent slow aging of all instruments via unrelated mechanisms",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Localized environmental perturbation at obs site (thermal gradient, airflow, vibration coupling, or suspension damping) triggered on Day 22; persists via quasi-permanent state change; independent aging drives drift; resonator_obs is selectively sensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide slow monotonic environmental drift (sustained thermal increase, barometric trend, electromagnetic field change) drives coordinated downward drift across all four instruments; Day 22 resonator_obs variance spike is superposed local noise event unrelated to drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Independent aging of each instrument via physically plausible mechanisms (optical degradation, thermal contraction, electronic drift) producing downward drift; coordinated z-scores reflect statistical coincidence; Day 22 resonator_obs variance spike is instrument-specific and independent of drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in baseline definition (Days 1–10) or calibration procedure biases all four instruments in the same direction, creating spurious downward drift; Day 22 resonator_obs variance elevation reflects real instrument behavior unrelated to drift artifact",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unexplained mechanism (unknown instrumental sensitivity, measurement artifact, or environmental coupling not yet considered)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

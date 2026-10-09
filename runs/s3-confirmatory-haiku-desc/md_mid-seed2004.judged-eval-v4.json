@@ -1,0 +1,302 @@
+{
+  "source": "md_mid-seed2004.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 10,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Data recording, timestamping, or trial-alignment errors have recurred or worsened on Day 17, causing spurious scatter and possible misalignment of post-baseline trials relative to their true calendar times.",
+        "primary": "self_error",
+        "second": "social_process"
+      },
+      {
+        "label": "Residual: an unconsidered or hidden confounder not yet identified.",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "Early-stage intermittent malfunction or degradation in pendulum_lab (mechanical friction, thermal creep with incomplete recovery, or threshold-crossing behavior developing over 32 days)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Random clustering in noise; Days 17, 19, 21, 32 are independent high-variance outliers coincidentally aligned; pattern-recognition overfitting",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Day 17 and Day 19 scatter are independent recording, timestamping, or data-logging artifacts, possibly recurring on days when a specific automated task (e.g., firmware sync, clock correction, or batch export) runs",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Day 17 scatter is consistent with high-variance random sampling from the instruments' true noise-dominated regime; outliers are statistical extremes (±2 to ±3 sigma events) drawn from the same distribution as the baseline, not anomalies.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Residual: an unknown or unconsidered systematic bias, instrumental interaction, or settlement-level process not yet identified",
+        "primary": "unknown_natural_process",
+        "second": "other"
+      },
+      {
+        "label": "Day 17 scatter reflects data recording, timestamping, or trial-alignment errors; the outliers are artifacts of a logging system glitch, clock skew, or misdated entries, not physical phenomena.",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Random clustering in noise; Days 17, 19, 21, 32 are independent high-variance outliers coincidentally aligned; pattern-recognition overfitting",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Recurring procedural or settlement-cycle artifact triggered on specific calendar days or time intervals (maintenance, recalibration sync, power-grid correction, shift rotation events)",
+        "primary": "social_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 28,
+  "l4Judged": 28,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments measure genuinely independent physical phenomena",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement error or calibration drift dominates the signal; true physical correlation is buried",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments are coupled to a real environmental or instrumental effect, but my current sampling is too sparse or asynchronous to resolve it",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic error in my cross-correlation method (e.g., data transcription error, offset miscalculation, or statistical abuse of multiple comparisons)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments measure independent fluctuations with high noise floors; signal-to-noise ratio is too low for correlation to emerge",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in my data recording, timestamping, or trial alignment; the 6-day offset appearing repeatedly is an artifact of misalignment",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments respond to a real but weak environmental or instrumental effect (e.g., <5% modulation); correlation is buried under noise, but the pattern of weak, offset-dependent correlations hints at genuine coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument calibration or baseline definition is flawed; readings are not on the same absolute scale, making cross-correlation meaningless",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: I have not considered an alternative",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day 17 measurements reflect genuine high-variance sampling from a noise-dominated instrument suite; outliers are statistical extremes drawn from the same distribution as baseline, not anomalies.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A localized environmental transient (thermal spike, vibration, pressure pulse, or electromagnetic interference) struck the measurement facility on Day 17, affecting all four instruments near-simultaneously but with varying sensitivity and lag; the scatter pattern reflects this real disturbance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording, timestamping, or trial-alignment errors have recurred or worsened on Day 17, causing spurious scatter and possible misalignment of post-baseline trials relative to their true calendar times.",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument drift, hysteresis, or incipient malfunction is beginning to emerge on Day 17; the scatter presages a level change or systematic bias that will become visible in the next 3–5 days.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured confounds not yet identified—e.g., a change in measurement protocol on Day 17 (different operator, different calibration step, or new reagent/component batch), or a known-but-undocumented environmental event (e.g., equipment maintenance in an adjacent lab, shift change, food prep, animal movement in Meridian).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 17 scatter reflects data recording, timestamping, or trial-alignment errors; the outliers are artifacts of a logging system glitch, clock skew, or misdated entries, not physical phenomena.",
+      "class": "social_process"
+    },
+    {
+      "label": "A localized environmental transient (thermal spike, vibration, pressure pulse, electromagnetic interference, or documented settlement event) occurred on or near Day 17 and affected all four instruments with varying sensitivity and response lag.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 17 scatter is consistent with high-variance random sampling from the instruments' true noise-dominated regime; outliers are statistical extremes (±2 to ±3 sigma events) drawn from the same distribution as the baseline, not anomalies.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrument drift, hysteresis, or incipient malfunction (thermal creep, mechanical relaxation, electronic threshold-crossing) is emerging; Day 17 scatter is an early warning before a level change becomes statistically evident.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A change in measurement protocol, operator, or environmental condition on Day 17 (different calibration step, new sensor batch, staffing shift, noisy work in adjacent lab, or scheduled power fluctuation) introduced procedural noise or systematic bias.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered or hidden confounder not yet identified.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 17 and Day 19 scatter are independent recording, timestamping, or data-logging artifacts, possibly recurring on days when a specific automated task (e.g., firmware sync, clock correction, or batch export) runs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A localized environmental transient (thermal, vibrational, electromagnetic, or activity-based) recurred on Day 19, independent of Day 17, or a persistent low-level disturbance is episodically spiking on certain days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument drift, hysteresis, or incipient degradation is underway; Day 17 and Day 19 scatter are early warning signs of episodic or threshold-crossing behavior before a sustained level change becomes statistically evident",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A change in measurement protocol, operator, or environmental condition on Days 17 and 19 (e.g., scheduled maintenance, staffing shift, recalibration cycle, or power fluctuation) introduces procedural or systematic noise, or an undocumented activity in an adjacent lab or settlement section",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day 17 and Day 19 scatter are both high-variance random sampling from the instruments' noise-dominated regime; the apparent pattern is a statistical cluster in an otherwise Poisson-distributed random process",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unknown or unconsidered systematic bias, instrumental interaction, or settlement-level process not yet identified",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 21 pendulum_lab excursion is a localized mechanical or environmental transient affecting only the pendulum lab (thermal spike, vibrational impulse, electromagnetic interference, or localized activity), independent of Days 17/19 pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Days 17, 19, and 21 scatter are manifestations of a recurring 2-day or 3-day cycle—either a settlement maintenance window, a procedural artifact, a power grid cycle, or an instrumental feedback loop—that has now recurred three times",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab is degrading or entering a regime of episodic instability (stick-slip friction, hysteresis, thermal creep with incomplete recovery, or a threshold-crossing behavior in a mechanical or thermal component), and Days 17, 19, and 21 represent early-stage intermittent malfunction before a sustained level change becomes evident",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 17, 19, and 21 represent independent environmental or procedural perturbations (unrelated to each other) that happen to recur on those calendar days by chance, or my pattern-recognition is overfitting noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and pendulum_obs are coupled via a shared mechanical or thermal environment; Days 17, 19, and 21 represent thermal or vibrational transients that affect the pendulum apparatus more than the resonator, but only show full expression in the lab instrument (higher sensitivity or direct coupling)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: an unknown systematic, procedural, or environmental process not yet identified or queried",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Recurring procedural or settlement-cycle artifact (maintenance window, data logging sync, power grid cycle, or automated recalibration every 2–3 days)",
+      "class": "social_process"
+    },
+    {
+      "label": "Localized transient mechanical or thermal disturbance in the pendulum lab apparatus (Day 21 independent of Days 17/19; localized malfunction, thermal spike, or vibrational impulse)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Early-stage intermittent malfunction or degradation in pendulum_lab (stick-slip friction, hysteresis, thermal creep with incomplete recovery, or threshold-crossing behavior in a mechanical or thermal component)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared thermal or mechanical coupling between pendulum_lab and pendulum_obs; Days 17, 19, 21 represent transient perturbations to a common environment, with pendulum_lab showing higher sensitivity or direct coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random clustering in noise; Days 17, 19, 21 are independent high-variance outliers coincidentally aligned in calendar time; pattern-recognition overfitting noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Recurring procedural or settlement-cycle artifact triggered on specific calendar days or time-of-week intervals (maintenance, automated recalibration, power-grid correction, data-logging sync)",
+      "class": "social_process"
+    },
+    {
+      "label": "Localized transient mechanical or thermal disturbance in pendulum_lab apparatus; each episode (Days 17, 19, 21, 32) is an independent event triggered by adjacent activity, thermal spike, or vibrational impulse",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Early-stage intermittent malfunction or degradation in pendulum_lab (mechanical friction, thermal creep with incomplete recovery, or threshold-crossing behavior developing over 32 days)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared thermal or mechanical coupling between pendulum_lab and pendulum_obs; both exhibit sensitivity to a common environmental transient on Days 17, 19, 21, 32, but pendulum_lab shows higher sensitivity or direct mechanical coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random clustering in noise; Days 17, 19, 21, 32 are independent high-variance outliers coincidentally aligned; pattern-recognition overfitting",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Recurring procedural or settlement-cycle artifact triggered on specific calendar days or time intervals (maintenance, recalibration sync, power-grid correction, shift rotation events)",
+      "class": "social_process"
+    },
+    {
+      "label": "Localized transient mechanical or thermal disturbance in pendulum_lab (adjacent activity, thermal spike, vibrational impulse, or seismic event); each episode independent but non-random in timing",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Early-stage intermittent malfunction or degradation in pendulum_lab (mechanical friction, thermal creep with incomplete recovery, threshold-crossing behavior)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared thermal or mechanical coupling between pendulum_lab and pendulum_obs; both sensitive to common environmental transient, but pendulum_lab shows higher sensitivity or is closer to disturbance source",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random clustering in noise; Days 17, 19, 21, 32 are independent high-variance outliers coincidentally aligned; pattern-recognition overfitting",
+      "class": "measurement_error"
+    }
+  ]
+}

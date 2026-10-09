@@ -1,0 +1,327 @@
+{
+  "source": "we-seed2000.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 9,
+    "items": [
+      {
+        "label": "One or more instruments is decalibrated, drifting, or experiencing hysteresis; baseline assumption of stationarity is violated",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instruments have poor absolute calibration; baselines are internally consistent but offset from true values; inter-instrument disagreement reflects unrecognized instrumental non-linearity or coupling.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data recording error: temporal mislabeling or misfile of trial blocks during logging/archival",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Independent measurement channels with no shared signal: each instrument measures uncoupled noise or sensor-specific drift; inter-stream correlations near zero reflect true independence, not data corruption.",
+        "primary": "instrument_malfunction",
+        "second": "measurement_error"
+      },
+      {
+        "label": "The 126-trial resonator_obs loop and 42-trial pendulum_lab run are both byproducts of a single settlement-wide archival merge/de-duplication error, where batches were concatenated in the wrong order or with cached headers.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Temporal mis-labeling or scrambling during archival has destroyed the true correlation structure; the zero inter-stream correlations and weak within-site correlations are artifacts, not evidence of independence.",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Each instrument measures independent noise, sensor drift, or local calibration offset with zero shared physical signal; streams are uncorrelated by design",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "One or more instruments is decalibrated, drifting, or experiencing hysteresis; stationarity assumption violated over 20-day period.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data corruption: trials misfiled, timestamped incorrectly, or duplicated during logging/archival",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Instruments have poor absolute calibration, unrecognized non-linearity, or quantization artifacts; baselines are internally tight but offset or non-commensurate with each other",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data recording error: trials are being timestamped or filed out of temporal order, causing readings from different epochs to be labeled as sequential.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or thermal/environmental coupling differs between lab and observatory sites",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are measuring independent noise, not a common signal—each stream is essentially uncorrelated random walk",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement procedure or observer bias differs between lab and observatory; data collection protocol is not truly independent",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments have poor absolute calibration; baselines are internally consistent but offset from true physical values, and inter-instrument disagreement reflects unrecognized instrumental non-linearity or coupling",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or transcription error: readings are being misfiled, timestamped inconsistently, or corrupted during storage",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "One or more instruments is decalibrated, drifting, or experiencing hysteresis; baseline assumption of stationarity is violated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording error: trials are being timestamped or filed out of temporal order, causing readings from different epochs to be labeled as sequential.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments measure independent noise; each stream is an uncorrelated random walk with internal structure but no shared physical signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or environmental coupling differs between lab and observatory sites; instruments at each site track together but opposite to the other site.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments have poor absolute calibration; baselines are internally consistent but offset from true values; inter-instrument disagreement reflects unrecognized instrumental non-linearity or coupling.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or observer bias differs between lab and observatory; timing convention, environmental control, or reading interval corrupts independence between streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments is decalibrated, drifting, or experiencing hysteresis; stationarity assumption violated over 20-day period.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unrecognized source of temporal mislabeling, data corruption, or measurement artifact specific to how trials are logged or merged.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording error: temporal mislabeling or misfile of trial blocks during logging/archival",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures independent instrumental noise or sensor drift; streams are uncorrelated random walks with no shared physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic site-level environmental coupling or calibration offset differs between lab and observatory; instruments within each site co-vary but sites are anti-correlated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments have poor absolute calibration, unrecognized non-linearity, or quantization artifacts; baselines are internally tight but offset or non-commensurate with each other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure, timing convention, or observer bias differs between lab and observatory sites, corrupting independence",
+      "class": "social_process"
+    },
+    {
+      "label": "One or more instruments exhibits slow drift, hysteresis, or non-stationary behavior not yet visible as a 'level change' over the 22-day window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data corruption: trials misfiled, timestamped incorrectly, or duplicated during logging/archival",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures independent instrumental noise or sensor drift with no shared physical signal; streams are uncorrelated random walks",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic site-level environmental coupling differs between lab and observatory; instruments within each site co-vary, but inter-site desynchronization masks the pattern",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments have poor absolute calibration, unrecognized non-linearity, or quantization artifacts; baselines are internally tight but offset or non-commensurate",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure, timing convention, or observer bias differs between lab and observatory sites, corrupting temporal independence or reproducibility",
+      "class": "self_error"
+    },
+    {
+      "label": "One or more instruments exhibits slow drift, hysteresis, or non-stationary behavior not yet visible as a clear level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data corruption: trials misfiled, timestamped incorrectly, or duplicated during logging/archival",
+      "class": "social_process"
+    },
+    {
+      "label": "Each instrument measures independent instrumental noise, sensor drift, or calibration offset with no shared physical signal; streams are uncorrelated by design",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic site-level environmental coupling differs between lab and observatory; instruments at the same site co-vary, but inter-site desynchronization masks the pattern",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments have poor absolute calibration, unrecognized non-linearity, or quantization artifacts; baselines are internally tight but offset or non-commensurate across streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure, timing convention, or observer bias differs between lab and observatory sites, corrupting temporal independence or reproducibility",
+      "class": "social_process"
+    },
+    {
+      "label": "One or more instruments exhibits slow drift, hysteresis, or non-stationary behavior not yet visible as a clear level change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data corruption in pendulum_lab: trials 175–216 are exact duplicates of trials 134–175, misfiled during archival or merge",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared quantization or resampling artifact during post-processing: all four streams digitized or archived through a single pipeline with 0.0001 binning, masking true instrument resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Each instrument measures independent noise, sensor drift, or local calibration offset with zero shared physical signal; streams are uncorrelated by design",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic site-level environmental coupling: lab and observatory instruments are decoupled, but within-site instruments should co-vary (hidden by data corruption or archival desynchronization)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instruments exhibit slow drift, hysteresis, or non-stationary behavior not yet visible as clear level change; exact repeats and decorrelation are archive artifacts masking true instrumental dynamics",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab archival corruption: trials 175–216 are misfiled duplicates of trials 134–175, introduced during data merge or storage.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared quantization or resampling artifact: all four streams were digitized or archived through a single post-collection pipeline with 0.0001 binning resolution, masking true instrument precision.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent measurement channels with no shared signal: each instrument measures uncoupled noise or sensor-specific drift; inter-stream correlations near zero reflect true independence, not data corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Site-level environmental coupling hidden by archival desynchronization: lab and observatory should co-vary if subject to shared environmental drift (temperature, vibration), but temporal scrambling masks the signal.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental drift, hysteresis, or non-stationarity masked by temporal scrambling; exact repeats and decorrelation are archival artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "resonator_obs archival corruption: trials 111–236 are misfiled duplicates from an earlier measurement batch, or the instrument's output was looped/cached during storage.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide post-collection quantization or resampling artifact: all four streams passed through a single digitization/storage pipeline with 0.0001 binning resolution, enabling repeated readings and masking true instrument precision.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab archival corruption is real but separate: trials 175–216 are misfiled duplicates (temporal labeling error), while resonator_obs corruption is independent (cache/loop failure). Two independent archival bugs.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temporal mis-labeling or scrambling during archival has destroyed the true correlation structure; the zero inter-stream correlations and weak within-site correlations are artifacts, not evidence of independence.",
+      "class": "social_process"
+    },
+    {
+      "label": "The 126-trial resonator_obs loop and 42-trial pendulum_lab run are both byproducts of a single settlement-wide archival merge/de-duplication error, where batches were concatenated in the wrong order or with cached headers.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "No systematic corruption; all four instruments measure uncoupled sensor noise or instrument-specific drift, and the exact-repetition runs are statistical flukes.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "resonator_obs cache/loop failure during archival storage",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "pendulum_lab temporal misfiling of trials 175–216 (7-day lag duplicate)",
+      "class": "social_process"
+    },
+    {
+      "label": "settlement-wide post-collection quantization/resampling artifact at 0.0001 resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "temporal shuffling or wholesale mis-labeling during archival consolidation",
+      "class": "social_process"
+    },
+    {
+      "label": "unified archival merge/de-duplication error affecting both resonator_obs and pendulum_lab independently",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

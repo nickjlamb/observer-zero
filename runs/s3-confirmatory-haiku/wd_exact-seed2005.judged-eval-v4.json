@@ -1,0 +1,198 @@
+{
+  "source": "wd_exact-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 6,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Data logging or transcription artefact (systematic bias in how readings are recorded or timestamped)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unrecognized coupling between nominally independent measurement loops",
+        "primary": "environmental_change",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Resonator_obs readings are unrelated anomaly; negative cross-correlations in prior data remain primary unexplained pattern requiring independent hypothesis",
+        "primary": "incomplete_theory",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Instrumental configuration error: resonator_obs is not actually measuring the resonator, but is mislabeled and reports pendulum_lab data through a shared channel or analog multiplexer error.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Resonator_obs calibration or reference drift revealing on Day 22, or zero-point recalibration during baseline post-Day 21",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared environmental oscillation (thermal, seismic, or HVAC-driven) coupled into both resonator_obs and pendulum_lab via building structure, with a 3-day cycle and 3-day phase lag; explains perfect correlation if r=1.000 is real.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 14,
+  "l4Judged": 14,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Shared environmental oscillation driving inverse response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or zero-point offset in paired instruments introducing spurious anticorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized coupling between nominally independent measurement loops",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging or transcription artefact (systematic bias in how readings are recorded or timestamped)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental resolution or noise floor creating illusion of structure at sub-baseline scale",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared environmental oscillation driving inverse response in pendulum vs. resonator systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration drift or baseline creep in paired instruments, revealed by inverse reading against fixed reference",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized mechanical or thermal coupling between lab and observation measurement loops",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data logging or timestamping artefact: readings misaligned or event IDs drifting relative to true measurement times",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental resolution at or below noise floor: correlations are illusions of quantized noise, amplified by multiple comparisons",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental excursion on Day 22 affecting resonator_obs preferentially",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs calibration or reference drift revealing on Day 22, or zero-point recalibration during baseline post-Day 21",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs measurement procedure change, operator technique drift, or instrumental parasitic resonance excited on Day 22",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs readings are unrelated anomaly; negative cross-correlations in prior data remain primary unexplained pattern requiring independent hypothesis",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Quantization or data transcription artifact specific to Day 22 resonator_obs batch",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental oscillation coupling into both resonator_obs and pendulum_lab with 3-day phase lag, mediated by building structure or thermal cycling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline calibration or zero-point drift, now becoming visible; the perfect r=1.000 correlation is a statistical artifact of measurement error structure rather than a real signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data transcription, event ID alignment, or analysis pipeline error specific to the pendulum_lab ↔ resonator_obs correlation at 3-day offset; perfect r=1.000 is a false positive",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs level shift around Day 27 (|z|≈3.2) is driven by resonator_obs transient or environmental coupling, not pendulum-specific; the shift represents the response of a coupled oscillator system to a mode-shift event on Day 22–27",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "The perfect r=1.000 pendulum_lab ↔ resonator_obs correlation is real and indicates that the two instruments are reporting the same underlying quantity through different measurement transducers — suggesting a fundamental misunderstanding of what each instrument measures, or a wiring/configuration error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data pipeline or transcription error in the pendulum_lab ↔ resonator_obs correlation computation; r=1.000 is a false positive artifact (misaligned event IDs, baseline duplication, or scaling/normalization error).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared environmental oscillation (thermal, seismic, or HVAC-driven) coupled into both resonator_obs and pendulum_lab via building structure, with a 3-day cycle and 3-day phase lag; explains perfect correlation if r=1.000 is real.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_obs baseline calibration creep or zero-point drift beginning post-Day 10; the perfect r=1.000 correlation is a side effect of this drift creating a synthetic oscillatory pattern that spuriously aligns with pendulum_lab noise by chance.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs level shift on Day 27 (|z|≈3.2) is driven by coupling to resonator_obs transient or environmental oscillation, not a pendulum-specific drift; represents response of coupled oscillator system.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental configuration error: resonator_obs is not actually measuring the resonator, but is mislabeled and reports pendulum_lab data through a shared channel or analog multiplexer error.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: An unknown artifact or phenomenon not yet identified, possibly related to the settlement environment or my measurement apparatus in a way I have not anticipated.",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

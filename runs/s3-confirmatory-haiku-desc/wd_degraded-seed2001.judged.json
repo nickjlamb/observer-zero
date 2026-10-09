@@ -1,0 +1,239 @@
+{
+  "source": "wd_degraded-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 6,
+    "items": [
+      {
+        "label": "Data-logging, calibration, readout-electronics, or trial-timestamp error confined to day 26–27; I have not yet audited the data pipeline or electronics for those specific trials.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "The negative autocorrelations reported in prior analysis are statistical false discoveries from multiple-comparisons bias; the day-26–27 pendulum_lab anomaly is unrelated to any autocorrelation structure and is the only genuine signal.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Day-40 environmental or instrumental transient (thermal, vibrational, electrical) causing elevated scatter in all four streams, with damping back to baseline within 24 hours or over next measurement cycle.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Colleague or facility logs document a specific intervention, environmental event, or disturbance on day 26 that explains the pendulum_lab elevation; I have not yet consulted these sources.",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Random fluctuation within normal measurement noise; no anomaly or signal.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "A data-logging, calibration-offset, or trial-timestamp error specific to day 26–27 has inflated the reported values; my lab records or database may not reflect a known correction (e.g., a scale-factor recalibration or environmental baseline subtraction) that should be applied only to those trials.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data indexing or trial-timestamp alignment has a systematic lag or offset; trials are logged in order but assigned to nominal times that do not match wall-clock reality, creating apparent lagged correlations",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 18,
+  "l4Judged": 18,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic environmental cycle (6–8 day period) affecting all instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific resonance at natural frequency, independent of environment, with pendulum_obs and resonator_obs coupled to each other",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing or trial-ordering artifact: readings are shuffled or reordered in a time-correlated way",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sampling variation and multiple-comparisons noise: apparent patterns are type-I errors from many lag and offset tests",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Mechanical or structural coupling between observational (field/outdoor) measurement sites, combined with genuine ~6–8 day environmental cycle affecting all instruments in common",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational sites (pendulum_obs and resonator_obs) are physically co-located or share common structure; lab instruments are isolated; all experience independent resonance damping at natural frequencies near 6–8 days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data indexing or trial-timestamp alignment has a systematic lag or offset; trials are logged in order but assigned to nominal times that do not match wall-clock reality, creating apparent lagged correlations",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false discovery: searching many lags and offsets has surfaced spurious correlations that reflect sampling variation rather than true structure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab has experienced a real physical disturbance (vibration, thermal shock, electromagnetic interference, or equipment misalignment) on day 26 that transiently excited the system; resonance damping or environmental coupling explains the broad negative autocorrelations observed in all four streams at characteristic lags.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum_lab instrumental drift or calibration error: the instrument's transfer function or zero-point has shifted on day 26 due to thermal creep, mechanical fatigue, or electronic drift in its readout circuit; this is independent of the negative autocorrelations elsewhere.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Trial-timestamp or data-indexing artifact: trials 175–180 have been mislabeled in time, or their raw readings have been recorded but not yet corrected for a known calibration offset that applies only to day-26 data; the negative autocorrelations are byproducts of similar index or timing artifacts across all streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "The negative autocorrelations at characteristic lags and the strong pendulum_obs ↔ resonator_obs cross-correlation are statistical false discoveries arising from multiple-comparisons bias in lag-searching; the day-26 pendulum_lab excursion is the only genuine anomaly and is unrelated to those correlations.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: an unconsidered cause—perhaps an external event logged by colleagues (power transient, thermal event, seismic signal, or instrument service/maintenance on day 26) that I have not yet cross-checked against my lab records.",
+      "class": "social_process"
+    },
+    {
+      "label": "Pendulum_lab has undergone a step-level calibration shift or instrumental degradation (thermal creep, mechanical fatigue, electronic gain drift) that persists from day 26 into day 27.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 26–27 experienced a localized external disturbance (vibration, thermal transient, electromagnetic pulse, or handling) affecting pendulum_lab acutely; the system is oscillating down from that excitation and will return to baseline over the next 2–3 days.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A data-logging, calibration-offset, or trial-timestamp error specific to day 26–27 has inflated the reported values; my lab records or database may not reflect a known correction (e.g., a scale-factor recalibration or environmental baseline subtraction) that should be applied only to those trials.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The negative autocorrelations reported in prior analysis are statistical false discoveries from multiple-comparisons bias; the day-26–27 pendulum_lab anomaly is unrelated to any autocorrelation structure and is the only genuine signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Colleague or maintenance records document a specific intervention, disturbance, or known environmental event on day 26 that I have not yet consulted.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: an unconsidered systematic cause (instrumental nonlinearity revealing itself under elevated signal, cross-talk between pendulum and resonator electronics, or a periodic environmental coupling I have not yet modeled).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_lab underwent a persistent calibration shift or instrumental degradation (thermal, mechanical, or electronic) beginning on or before day 26, with the elevated state persisting into day 37.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Days 26–27 experienced a localized, transient external disturbance (vibration, thermal spike, handling, or electromagnetic transient) that excited pendulum_lab acutely; the system has damped and returned toward baseline by day 37.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A data-logging, calibration-offset, or trial-timestamp error specific to day 26–27 inflated the reported values; I have not yet audited my calibration routine, electronic channels, or database entries for those trials.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The negative autocorrelations reported in my prior analysis were false discoveries from multiple-comparisons bias; I have not yet applied strict correction and should re-examine lag-search results before assigning causal weight to them.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Colleague or facility logs document a specific intervention, environmental event, or disturbance on day 26 that explains the pendulum_lab elevation; I have not yet consulted these sources.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: instrumental nonlinearity, cross-talk in readout electronics, unmodeled periodic environmental coupling, or other systematic cause I have not yet identified.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient mechanical or environmental excitation of pendulum_lab on or just before day 26, with system damping back to baseline by day 37.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-logging, calibration, readout-electronics, or trial-timestamp error confined to day 26–27; I have not yet audited the data pipeline or electronics for those specific trials.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Colleague or facility logs document a specific disturbance, maintenance event, thermal transient, vibration, or power anomaly on day 26 that caused the pendulum_lab elevation; I have not yet consulted these sources.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrumental nonlinearity, electronic cross-talk, unmodeled periodic environmental coupling, or systematic cause intrinsic to pendulum_lab that I have not yet identified.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: false discovery from autocorrelation or lag-search analysis; or some other unconsidered mechanism.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Day-40 environmental or instrumental transient (thermal, vibrational, electrical) causing elevated scatter in all four streams, with damping back to baseline within 24 hours or over next measurement cycle.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-logging, calibration, readout-electronics, or trial-timestamp error or instrument drift specific to day 40; possible onset of systematic miscalibration in one or more channels that will persist if not addressed.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Colleague or facility logs document a disturbance, maintenance, environmental anomaly, or power event on day 40 (or overnight day 39–40) that caused the elevated scatter; I have not yet consulted these sources.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrumental nonlinearity, electronic cross-talk, unmodeled periodic environmental coupling, or frequency-dependent response in one or more instruments that is now being excited by a day-40 perturbation; I have not yet consulted instrument manuals or technicians.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random fluctuation within normal measurement noise; no anomaly or signal.",
+      "class": "measurement_error"
+    }
+  ]
+}

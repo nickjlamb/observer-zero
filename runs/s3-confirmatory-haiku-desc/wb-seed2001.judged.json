@@ -1,0 +1,385 @@
+{
+  "source": "wb-seed2001.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Shared calibration reference or zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental coupling",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data recording error or digital logging artifact on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Operator rotation or measurement crew shift schedule with ~5-day period introducing systematic bias",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Instrument zero-point or gain calibration change on day 12 (hardware adjustment rather than software correction)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental coupling",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Regional or global geophysical event on day 12 (seismic, atmospheric pressure, magnetic, or ionospheric disturbance) producing coherent but opposite-sign instrumental coupling with zero subsequent relaxation",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data recording error or digital logging artifact introduced on day 12 (e.g., ADC calibration shift, timestamp synchronization error, database schema change affecting all four streams)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from searching many breakpoints without correction",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Shared time standard or reference zero-point correction applied to all four measurement streams on or around day 12 (software timestamp synchronization, clock frequency adjustment, or logging pipeline reference reset affecting all downstream data)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Calibration reference or instrument zero-point changed on day 12, affecting all four streams identically but with opposite sign in pendulum vs. resonator pairs",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "True physical phenomenon (geophysical or environmental event) on day 12, causing simultaneous and coherent response across all instruments with instrument-specific sign/magnitude",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Random statistical fluctuation; the day-12 shift is a false positive from multiple comparisons or threshold crossing",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 38,
+  "l4Judged": 38,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic measurement protocol inversion or sign-flip artifact on a ~5-day cycle",
+      "class": "self_error"
+    },
+    {
+      "label": "Thermal or environmental oscillation with ~5-day period, damped or lagged differently in each instrument",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random noise (autocorrelations are statistical flukes within expected variance)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator rotation or shift-change schedule with ~5-day period introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic procedural inversion or calibration sign-flip on a ~5-day cycle",
+      "class": "self_error"
+    },
+    {
+      "label": "Operator rotation or measurement crew shift schedule with ~5-day period introducing systematic bias",
+      "class": "self_error"
+    },
+    {
+      "label": "True environmental or geophysical oscillation with ~5-day period, with instrument-specific response characteristics producing apparent anticorrelation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation; autocorrelations are noise within expected variance",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration reference or instrument zero-point changed on day 12, affecting all four streams identically but with opposite sign in pendulum vs. resonator pairs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or measurement procedure changed on day 12 (e.g., crew rotation, protocol update, or instrument handling revision), introducing systematic bias that affects all streams",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical phenomenon (geophysical or environmental event) on day 12, causing simultaneous and coherent response across all instruments with instrument-specific sign/magnitude",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Random statistical fluctuation; the day-12 shift is a false positive from multiple comparisons or threshold crossing",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point reset on day 12 affected all streams with opposite-sign responses keyed to measurement direction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams identically but with instrument-specific manifestation",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical/geophysical event on day 12 (e.g., seismic, atmospheric, or electromagnetic disturbance) causing coherent but opposite-sign responses in instrument pairs",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from searching many breakpoints without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: unknown systematic effect or measurement artifact not yet considered",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point reset on day 12 affected all streams with opposite-sign systematic responses keyed to measurement direction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams, with opposite directional effects for pendulum vs. resonator readings",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical/geophysical event on day 12 (seismic, atmospheric, electromagnetic, or thermal disturbance) caused coherent but opposite-sign responses in instrument pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact introduced on day 12 (e.g., systematic bias in analog-to-digital conversion, timestamp or alignment error, or database corruption affecting all four streams)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from searching many breakpoints without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all streams with opposite-sign systematic responses keyed to measurement direction",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams, with opposite directional effects for pendulum vs. resonator readings",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical/geophysical event on day 12 (seismic, atmospheric, electromagnetic, or thermal disturbance) caused coherent but opposite-sign responses in instrument pairs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact introduced on day 12 (e.g., ADC calibration shift, timestamp synchronization error, database schema change affecting all four streams)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from searching many breakpoints without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams with opposite directional effects",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 (seismic, atmospheric, thermal, or electromagnetic disturbance) caused coherent but opposite-sign instrumental responses",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact introduced on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams with opposite directional effects",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental forcing",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact introduced on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams with opposite directional effects",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams with opposite directional effects",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared calibration reference or zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introduced systematic bias affecting all streams with opposite directional effects",
+      "class": "self_error"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 caused coherent but opposite-sign instrumental responses via environmental coupling",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording error or digital logging artifact on day 12 (ADC calibration shift, timestamp synchronization error, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive: the day-12 shift is a statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared time standard or reference zero-point adjustment on day 12 affected all four streams with opposite-sign instrumental sensitivities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument zero-point or gain calibration change on day 12 (hardware adjustment rather than software correction)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "True physical or geophysical event on day 12 causing coherent but opposite-sign coupling to measurement systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement procedure or operator protocol change on day 12 introducing systematic bias affecting all streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Data recording, ADC, or logging pipeline artifact on day 12 (timestamp sync, calibration shift, database schema change)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive or statistical artifact from unprotected hypothesis search",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Shared time standard or reference zero-point correction applied to all four measurement streams on or around day 12 (software timestamp synchronization, clock frequency adjustment, or logging pipeline reference reset affecting all downstream data)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical instrument calibration or zero-point adjustment (mechanical, thermal, or electronic tuning) performed at lab and/or observatory on day 12, with opposite-sign sensitivities between pendulum and resonator subsystems",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Regional or global geophysical event on day 12 (seismic, atmospheric pressure, magnetic, or ionospheric disturbance) producing coherent but opposite-sign instrumental coupling with zero subsequent relaxation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement procedure, operator protocol, or crew rotation change implemented simultaneously at lab and observatory on day 12, introducing systematic bias with opposite signs across measurement types",
+      "class": "self_error"
+    },
+    {
+      "label": "Data acquisition, ADC, timestamp synchronization, or logging pipeline artifact (converter calibration shift, database schema change, software bug) affecting all four streams identically on day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-comparisons false positive or statistical calculation artifact",
+      "class": "measurement_error"
+    }
+  ]
+}

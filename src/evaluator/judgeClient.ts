@@ -82,11 +82,39 @@ export function createJudgeClient(opts: {
           model?: string;
         };
         if (data.model) resolved.add(data.model);
-        return data.content.find((c) => c.type === "text")?.text ?? "";
-      }
-      if (![429, 500, 502, 503, 529].includes(res.status)) {
+        const text = data.content.find((c) => c.type === "text")?.text ?? "";
+        // 2026-10-09 (deviation 7): the API can refuse a prompt outright —
+        // stop_reason "refusal", empty content, zero output tokens. At t=0
+        // this is deterministic, so retrying only burns time and money;
+        // fail fast with a typed error the caller can recognise.
+        if ((data as { stop_reason?: string }).stop_reason === "refusal") {
+          throw new Error(
+            "JUDGE_REFUSAL: judge API returned stop_reason=refusal (deterministic; re-requesting cannot recover)",
+          );
+        }
+        // 2026-10-08: a 200 response can arrive with no text block (empty
+        // content under load). An empty completion is unparseable by
+        // construction, so treat it as a transport failure and retry with
+        // backoff rather than handing "" to the parser. Content-blind:
+        // fires only on empty output, before any content is read.
+        if (text.trim().length > 0) return text;
+        // Diagnostic (2026-10-08): say what an empty completion actually
+        // contained — stop reason, block types, token usage — never content.
+        console.warn(
+          `judge empty completion detail: ${JSON.stringify({
+            stop: (data as { stop_reason?: string }).stop_reason,
+            blocks: (data.content ?? []).map((c) => c.type),
+            usage: (data as { usage?: unknown }).usage,
+          })}`,
+        );
+      } else if (![429, 500, 502, 503, 529].includes(res.status)) {
         throw new Error(`judge API error ${res.status}: ${(await res.text()).slice(0, 200)}`);
       }
+      // 2026-10-08: name the retry reason so transport stalls are diagnosable
+      // from the console (empty completion vs rate limit vs server error).
+      console.warn(
+        `judge retry ${attempt + 1}/8 (${res.ok ? "empty completion" : `HTTP ${res.status}`})`,
+      );
       await new Promise((r) => setTimeout(r, Math.min(60_000, 1000 * 2 ** attempt) + Math.random() * 500));
     }
     throw new Error("judge API: retries exhausted");

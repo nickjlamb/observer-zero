@@ -1,0 +1,439 @@
+{
+  "source": "wa-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 15,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Measurement noise and statistical flukes from multiple post-hoc comparisons, with no real day-12 shift",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Two-day autocorrelation in pendulum readings reflects unrecognized measurement protocol artifact (e.g., systematic re-use of air-path or thermal time constant in the measurement apparatus) rather than an environmental feature",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Shared mechanical or thermal coupling between the two pendulum instruments causes correlated drift independent of true environmental change",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Real environmental change affecting pendulum systems only",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undocumented design asymmetry or instrument-specific systematic between pendulum_lab and pendulum_obs (different damping, air-column geometry, or sensor linearity) producing correlated response to shared environment with phase offset.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unrecognized calibration offset or geometric difference between lab and observatory pendulum setups obscuring or distorting a real signal",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Data processing error, baseline misalignment, or undocumented post-processing applied uniquely to pendulum instruments on or after day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Two-day autocorrelation in pendulum readings reflects unrecognized measurement protocol artifact or environmental cycle",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Independent instrumental drift in each apparatus, uncorrelated across streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unknown physics: exotic coupling mechanism (thermal convection feedback loop, electrostatic modulation, subsurface pressure resonance) specific to pendulum response establishing on day 12",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Measurement noise and statistical artifacts from multiple post-hoc comparisons, with no real day-12 shift",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Unrecognized calibration offset or geometric difference between lab and observatory pendulum setups distorting the apparent synchronization or magnitude of the real signal",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Calibration offset, baseline misalignment, or data-processing error unique to pendulum instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unrecognized calibration offset or geometric difference between lab and observatory setups distorting the apparent synchronization",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 41,
+  "l4Judged": 41,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Environmental cyclic forcing (e.g., thermal, vibration, or magnetic cycles) coupling differently to pendulum vs. resonator systems, with a ~3–6 day period",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift in each apparatus, uncorrelated across the four streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration offset between lab and observatory variants of the same instrument type (pendulum_lab vs. pendulum_obs; resonator_lab vs. resonator_obs), masking an otherwise real signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise in all streams is genuine and uncorrelated; the offset-dependent correlations are statistical flukes (best-match bias from multiple comparisons)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has an undetected hardware fault (loose coupling, failing amplifier, or misaligned sensor) that systematically biases its readings in a slow, non-linear way",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental change affecting pendulum systems only",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrumental drift in each apparatus, uncorrelated across streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic calibration offset between lab and observatory variants, masking a common signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise is genuine and uncorrelated; offset-dependent correlations are statistical flukes from multiple comparisons",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault in one or more instruments (slow drift, intermittent misalignment, or failing sensor coupling)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental change coupling specifically to pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument-specific drift pathways, independently triggered or accelerated near day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized calibration offset between lab and observatory variants, allowing real signals to be masked or distorted",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and statistical flukes from multiple post-hoc comparisons, with no real day-12 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault (slow sensor drift, intermittent misalignment, or failing coupling) in one or more instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between the two pendulum instruments causes correlated drift independent of true environmental change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory pendulum setups obscuring or distorting a real signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and statistical artifacts from multiple post-hoc comparisons, with no real day-12 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault (bearing wear, slow misalignment, intermittent coupling loss) in one or more pendulum instruments, with resonators unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: Unknown physics or unrecognized systematic I have not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between pendulum instruments causing correlated drift independent of true environmental change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory pendulum setups distorting the apparent synchronization or magnitude of the real signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two-day autocorrelation in pendulum readings reflects unrecognized measurement protocol artifact (e.g., systematic re-use of air-path or thermal time constant in the measurement apparatus) rather than an environmental feature",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and statistical artifacts from multiple post-hoc comparisons, with no real day-12 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault in one or more pendulum instruments (bearing wear, misalignment, coupling loss) with resonators unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics or unrecognized systematic I have not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between pendulum instruments causing correlated drift independent of true environmental change",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory setups distorting the apparent synchronization",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two-day autocorrelation in pendulum readings reflects unrecognized measurement protocol artifact rather than environmental feature",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise and statistical artifacts from multiple post-hoc comparisons, with no real day-12 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault in one or both pendulum instruments (bearing wear, misalignment, coupling loss) with resonators unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics or unrecognized systematic I have not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between pendulum instruments causing correlated drift independent of true environmental change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory setups distorting the apparent synchronization",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two-day autocorrelation in pendulum readings reflects unrecognized measurement protocol artifact or environmental cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise and statistical artifacts from multiple post-hoc comparisons, with no real day-12 shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault in one or both pendulum instruments (bearing wear, misalignment, coupling loss)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics or unrecognized systematic not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between pendulum instruments (settlement, structural change) independent of true environmental signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory setups creating spurious synchronization appearance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Two-day autocorrelation in pendulum readings reflects measurement protocol artifact or environmental cycle unique to pendulum readout",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement noise, statistical artifacts, or data-entry errors producing false day-12 level shift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hardware fault in one or both pendulum instruments (bearing wear, misalignment, friction increase)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics or unrecognized systematic not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental change selectively affecting pendulum dynamics around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol artifact or environmental cycle selectively coupling to pendulum readout",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared mechanical or thermal coupling between pendulum instruments independent of true environmental signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unrecognized calibration offset or geometric difference between lab and observatory setups",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault in pendulum instruments (bearing wear, friction increase, misalignment)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement noise, statistical artifacts, data-entry errors, or multiple-comparisons false positive",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unknown physics or unrecognized systematic not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real environmental periodicity (2–3 day cycle) selectively coupling to pendulum dynamics via air drag or gravitational modulation, not to resonator frequency",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol cycle or operator routine applied selectively to pendulum readout, creating spurious autocorrelation without corresponding environmental signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Undocumented geometric or electronic difference between pendulum_lab and pendulum_obs (e.g., different air-column geometry, damping coefficients, sensor linearity) that produces correlated noise response to shared environment on 2–3 day timescale",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics or systematic: exotic coupling mechanism (thermal convection, geomagnetic, electrostatic, subsurface pressure) or nonlinear feedback loop specific to pendulum response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Calibration offset, baseline misalignment, or data-processing error unique to pendulum instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault or degradation in pendulum instruments (bearing wear, increased friction, calibration drift of sensor electronics)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact, multiple-comparisons false positive, or regression to baseline",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol or operator workflow specific to pendulum readout changed on day 12, introducing correlated noise through clustering, stabilization intervals, or calibration reference cycles",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental perturbation on day 12 selectively couples to pendulum dynamics (thermal convection, subsurface pressure, or geomagnetic shift affecting air-column properties or gravity gradient) but not resonator restoring force",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented design asymmetry or instrument-specific systematic between pendulum_lab and pendulum_obs (different damping coefficients, air-column geometry, or sensor linearity) producing correlated response to shared environment with phase offset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown physics: exotic coupling mechanism (thermal convection feedback loop, electrostatic modulation, subsurface pressure resonance) specific to pendulum response establishing on day 12",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data processing error, baseline misalignment, or undocumented post-processing applied uniquely to pendulum instruments on or after day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault or progressive degradation in pendulum instruments (bearing wear, friction increase, sensor drift) triggered or accelerated on day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement protocol or operator workflow specific to pendulum readout changed on day 12, introducing correlated noise through clustering, stabilization intervals, or calibration reference cycles.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real environmental perturbation on day 12 selectively couples to pendulum dynamics (thermal convection, subsurface pressure, or gravity gradient) but not to resonator restoring force.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unknown physics: complex coupled mechanism (thermal convection feedback, subsurface pressure resonance, or nonlinear pendulum-environment interaction) established on day 12, producing both step shift and quasi-periodic modulation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented design asymmetry or instrument-specific systematic between pendulum_lab and pendulum_obs (different damping, air-column geometry, or sensor linearity) producing correlated response to shared environment with phase offset.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data processing error, baseline misalignment, or undocumented post-processing applied uniquely to pendulum instruments on or after day 12.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hardware fault or progressive degradation in pendulum instruments triggered or accelerated on day 12.",
+      "class": "measurement_error"
+    }
+  ]
+}

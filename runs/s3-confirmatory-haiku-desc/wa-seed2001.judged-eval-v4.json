@@ -1,0 +1,498 @@
+{
+  "source": "wa-seed2001.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 18,
+    "agree": 11,
+    "items": [
+      {
+        "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, electromagnetic cross-talk between transducers, calibration drift in sensor electronics) dominates measured quantity, producing decorrelations and echo-correlations independent of timestamp corruption.",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Real environmental perturbation (pressure, vibration, seismic, or air density) on day ~12 selectively sensitized pendulum instruments while leaving resonators insensitive",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline timestamps mislabeled during burst collection: day-12 data falsely scattered across days 1–10 in trial logs; event-ID disorder (153086, 826745 out of sequence on days 9–12) is concrete evidence of logging corruption.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Unmeasured environmental confounder (pressure, humidity, vibration, seismic, power frequency) selectively couples to pendulum transducers; lack of contemporaneous environmental logging prevents detection",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic measurement noise or environmental coupling specific to each apparatus location",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Event-ID chronological disorder on days 9–12 indicates burst collection mislabeled with false consecutive timestamps; baseline trials 1–84 were actually collected on day 12 or in compressed bursts, not spread days 1–10. Timestamp correction will reveal true same-day correlations and explain both the artificial decorrelations (days 1–11) and the apparent synchronized day-12 shift (which is a timestamp artifact masking true single-day collection).",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data entry, timing, or synchronization error in the cross-check analysis itself",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Real pendulum-specific environmental driver (pressure, vibration, gravity, air density) stepped on day 12; resonators insensitive to it",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, calibration drift in sensor electronics) dominating measured quantity",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period is still active/incomplete; instruments and environment have not yet thermally or mechanically equilibrated",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unmeasured confound (humidity, power-supply frequency, atmospheric pressure, local EM interference) couples to all instruments differently; appears as uncorrelated noise because confounder is not recorded",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Environmental monitoring data (barometric, seismic, vibration, power logs) exists but is temporally misaligned with trial timestamps; true day-12 driver remains undetected due to lack of cross-indexing.",
+        "primary": "environmental_change",
+        "second": "social_process"
+      },
+      {
+        "label": "Ongoing differential thermal or mechanical equilibration; baseline (days 1–10) captured apparent stability during slow transience; day-12 shift is acceleration of pre-existing drift or response to external impulse coupled differently by instrument type",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A real physical environmental perturbation (barometric pressure, vibration, gravitational anomaly, seismic event, or air density) occurred on day 12 and selectively affected pendulum instruments because their physical basis (inertial, air-coupled, mechanically open) is sensitive to this driver, while resonator instruments (electromagnetic, typically shielded) are insensitive. The decorrelations on days 1–11 are genuine (independent sequential measurements reflecting true environmental stability and measurement independence); the day-12 shift is a new physical state.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unmeasured instrument-internal physics (thermal coupling in pendulum suspension, mechanical resonance mode in lab mounting, air convection loop in observatory, electromagnetic cross-coupling between transducers, or calibration drift in sensors rather than measured quantity).",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Timestamp mislabeling during baseline burst-collection (day 12 collection falsely scattered across days 1–10 in logs)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, calibration drift in sensor electronics) dominating measured quantity",
+        "primary": "unknown_natural_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline timestamps mislabeled during burst collection (days 1–10 data falsely scattered across burst, with day-12 endpoint marked as baseline end); event-ID disorder on days 9–12 (153086, 826745 out of sequence) is documentary evidence.",
+        "primary": "instrument_malfunction",
+        "second": "social_process"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 46,
+  "l4Judged": 46,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrument calibration or zero-point drift within baseline period",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic measurement noise or environmental coupling specific to each apparatus location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The baseline period (days 1–10) has not yet closed; I am still in transient/equilibration phase",
+      "class": "self_error"
+    },
+    {
+      "label": "Data entry, timing, or synchronization error in the cross-check analysis itself",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period is still active/incomplete; instruments and environment have not yet thermally or mechanically equilibrated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Each instrument measures primarily its own local noise floor; signal-to-noise is too low or the signal is too small to produce inter-instrument coherence",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "I have made a systematic error in my cross-check analysis: misaligned readings across instruments, conflated trial order with time order, or errors in hand-computed correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are drifting during the baseline period, but at different rates and directions, creating the illusion of incoherent noise",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement environment or my laboratory protocols contain a hidden confound or systematic bias I have not yet identified",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Baseline period contaminated by ongoing instrumental equilibration; instruments drifting differentially in response to settlement thermal/mechanical stabilization, creating false appearance of incoherence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in cross-check analysis: trial order misaligned with event time order; hand-computed correlations folded intra-day timing into spurious multi-day offsets",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments respond primarily to uncorrelated local noise (thermal, vibrational, electromagnetic) specific to each apparatus location; true shared signal (if any) is buried below noise floor",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period is incomplete and instruments are still in non-equilibrium; I must extend baseline to at least day 20 before attempting cross-correlations or declaring the phenomenon stable",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Hidden confound in settlement environment or laboratory protocol: unmeasured variable (humidity, power-supply noise, local electromagnetic interference) affects all instruments equally but appears as uncorrelated noise because the confounder is not recorded",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial sequence number does not equal collection time; intra-day timing errors folded into spurious multi-day offsets in hand-computed correlations",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments still in differential thermal/mechanical equilibration; baseline contaminated by settling dynamics that couple differently to lab vs. observatory locations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are functioning correctly but measure uncorrelated local noise specific to each apparatus location; settlement lacks coherent environment-wide signal above noise floor",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline period is arbitrary and incomplete; instruments remain in non-equilibrium through day 11; suspend hypothesis-building and extend baseline to day 20–25 before analyzing cross-instrument coherence",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Unmeasured confound (humidity, power-supply frequency, atmospheric pressure, local EM interference) couples to all instruments differently; appears as uncorrelated noise because confounder is not recorded",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Trial sequence misalignment: Event IDs on days 9–12 are severely out of chronological order; intra-day timing errors have been folded into spurious multi-day lag correlations, masking what may be a real, simultaneous environmental shift affecting pendulum instruments only.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum-specific environmental driver emerged on day 12: A real, sharp change in settlement conditions (e.g., change in barometric pressure, humidity, vibration coupling, or gravitational anomaly) selectively couples to inertial pendulum systems but not to electromagnetic resonators; baseline was genuinely stable days 1–11, and shift is not an artifact.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are still in differential thermal or mechanical equilibration; baseline (days 1–10) captured transient drift masquerading as stability; day-12 shift is resumption or acceleration of pre-existing drift, not a new environmental event.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmeasured confounder (humidity, barometric pressure, power-supply frequency, local EM or seismic activity) selectively couples to pendulum transducers; real physical signal masked by lack of environmental logging.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Suspend hypothesis-building: Timing errors in the event-ID record make the entire days-1–11 analysis unreliable; extend baseline to day 20–25 with rigorous event-time validation before re-analyzing cross-instrument coherence and interpreting the day-12 shift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Event-ID chronological disorder masks true simultaneous environmental shift affecting pendulums only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real pendulum-specific environmental driver emerged on day 12 (e.g., pressure, humidity, vibration, or local gravity anomaly)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Ongoing differential thermal or mechanical equilibration; baseline (days 1–10) captured apparent stability during slow transience; day-12 shift is acceleration of pre-existing drift or response to external impulse coupled differently by instrument type",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmeasured environmental confounder (humidity, barometric pressure, power-supply frequency, seismic activity) selectively couples to pendulum transducers; lack of environmental logging prevents detection and cross-correlation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-collection pipeline corrupted by timestamp misalignment; suspend causal hypothesis-building until event times are validated and baseline extended to day 20–25 with rigorous chronological verification",
+      "class": "self_error"
+    },
+    {
+      "label": "Event-ID chronological disorder masks true simultaneous environmental perturbation on day 12 affecting pendulums only",
+      "class": "social_process"
+    },
+    {
+      "label": "Real pendulum-specific environmental driver (pressure, vibration, local gravity) emerged on day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Differential thermal or mechanical equilibration masked by coincident marginal statistics; day-12 impulse exposed asynchronous response timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmeasured environmental confounder (pressure, humidity, vibration, seismic activity, power frequency) selectively couples to pendulum transducers; lack of contemporaneous environmental logging prevents detection",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-collection pipeline corrupted by timestamp misalignment; suspend causal hypothesis-building until event times are validated and baseline extended to day 20–25 with strict chronological verification",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Event-ID chronological disorder masks true day-12 simultaneous environmental perturbation affecting pendulums only; decorrelations days 1–11 are timestamp artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real pendulum-specific environmental driver (pressure, vibration, gravity, air density) stepped on day 12; resonators insensitive to it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unmeasured environmental confounder (pressure, humidity, vibration, seismic, power frequency) selectively couples to pendulum transducers; lack of contemporaneous environmental logging prevents detection",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Differential thermal or mechanical equilibration along asynchronous timescales; day-12 impulse exposed relaxation lag between lab and observatory environments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-collection pipeline corrupted; suspend causal hypothesis-building until event times validated via hardware logs and baseline extended to day 25 with strict chronological verification",
+      "class": "social_process"
+    },
+    {
+      "label": "Event-ID chronological disorder on days 9–12 indicates burst collection mislabeled with false consecutive timestamps; baseline trials 1–84 were actually collected on day 12 or in compressed bursts, not spread days 1–10. Timestamp correction will reveal true same-day correlations and explain both the artificial decorrelations (days 1–11) and the apparent synchronized day-12 shift (which is a timestamp artifact masking true single-day collection).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A real physical environmental perturbation (barometric pressure, vibration, gravitational anomaly, seismic event, or air density) occurred on day 12 and selectively affected pendulum instruments because their physical basis (inertial, air-coupled, mechanically open) is sensitive to this driver, while resonator instruments (electromagnetic, typically shielded) are insensitive. The decorrelations on days 1–11 are genuine (independent sequential measurements reflecting true environmental stability and measurement independence); the day-12 shift is a new physical state.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data (barometric pressure, humidity, vibration, seismic, power frequency, temperature) was not synchronized with instrument timestamps or not continuously logged; true environmental driver that selectively couples to pendulum transducers cannot be detected without recovered or contemporaneous logs. Settlement environmental data may be archived separately and not cross-indexed with instrument records.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-collection pipeline suffered timestamp corruption or chronological misalignment on days 1–12; event-ID disorder cannot be corrected to recover true collection times; suspend causal hypothesis-building and drift/environmental interpretation until baseline is re-collected under verified chronological control (days 23–25) with independent hardware event logs and filesystem timestamps.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unmeasured or incorrectly modeled aspect of instrument physics (thermal coupling between pendulum suspension and room air, mechanical resonance mode in lab mounting, air convection loop in observatory, electromagnetic cross-coupling between pendulum transducer and resonator, or calibration drift in transducers rather than measured quantity).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Timestamp corruption: baseline trials 1–84 were burst-collected on day 12 but falsely timestamped across days 1–10; event-ID disorder (IDs 153086, 826745 out of sequence in days 9–12) is physical evidence of mislabeled collection.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (barometric pressure, air density, vibration, seismic event, or gravitational anomaly) on day 12 selectively excited pendulum instruments (mechanically open, air-coupled, inertial) while leaving resonators insensitive (electromagnetic, shielded).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data (barometric pressure, humidity, vibration, seismic, power frequency, temperature) exists but was not synchronized with instrument timestamps or is archived offline; true environmental driver sensitive only to pendulum transducers remains undetected without recovered logs.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data-collection pipeline timestamp corruption is irreversible or unverifiable; suspend all causal inference about day-12 shift and decorrelations until baseline is re-collected days 23–25 with verified hardware event logs, filesystem timestamps, and independent chronometric validation.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: unmeasured instrument-internal physics (thermal coupling in pendulum suspension, mechanical resonance mode in lab mounting, air convection loop in observatory, electromagnetic cross-coupling between transducers, or calibration drift in sensors rather than measured quantity).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Timestamp mislabeling during baseline burst-collection (day 12 collection falsely scattered across days 1–10 in logs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (pressure, air density, vibration, seismic, or gravitational) on day ~12 selectively sensitized pendulum instruments while leaving resonators insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data exists but was not synchronized with trial timestamps; true environmental driver (pressure, vibration, humidity, seismic) sensitive only to pendulum transducers remains undetected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible or unverifiable; all correlations and causal claims for days 1–11 and the day-12 shift must be suspended until baseline is re-collected (days 23–25) with verified hardware event logs, filesystem timestamps, and independent chronometric cross-checks",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance mode in lab mounting, air convection loop in observatory enclosure, electromagnetic cross-coupling between transducers, or calibration drift in sensor electronics rather than measured quantity)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Timestamp mislabeling during baseline burst-collection (day 12 collection falsely scattered across days 1–10 in logs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (pressure, vibration, seismic, or air density) on day ~12 selectively sensitized pendulum instruments while leaving resonators insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data exists but not synchronized with trial timestamps; true environmental driver (pressure, vibration, humidity, seismic) remains undetected because sensor logs are temporally misaligned",
+      "class": "self_error"
+    },
+    {
+      "label": "Timestamp corruption is irreversible or unverifiable; all correlations and causal claims for days 1–11 and day-12 shift must be suspended until baseline re-collected with verified hardware event logs and chronometric cross-checks",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, air convection loop in observatory, electromagnetic cross-coupling, or calibration drift in sensor electronics rather than measured quantity)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Timestamp mislabeling during baseline burst-collection (day 12 collection falsely scattered across days 1–10 in logs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (pressure, vibration, seismic, or air density) on day ~12 selectively sensitized pendulum instruments while leaving resonators insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data exists but not synchronized with trial timestamps; true environmental driver remains undetected because sensor logs are temporally misaligned",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible or unverifiable; all correlations and causal claims for days 1–11 and day-12 shift must be suspended until baseline re-collected with verified hardware event logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, calibration drift in sensor electronics) dominating measured quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline timestamps mislabeled during burst collection (day 12 data falsely scattered across days 1–10 in logs)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (pressure, vibration, seismic, or air density) on day ~12 selectively sensitized pendulum instruments while leaving resonators insensitive",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data exists but not synchronized with trial timestamps; true environmental driver remains undetected because sensor logs are temporally misaligned",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible or unverifiable; all correlations and causal claims for days 1–11 and day-12 shift must be suspended until baseline re-collected with verified hardware event logs",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, calibration drift in sensor electronics) dominating measured quantity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline timestamps mislabeled during burst collection: day-12 data falsely scattered across days 1–10 in trial logs; event-ID disorder (153086, 826745 out of sequence on days 9–12) is concrete evidence of logging corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental perturbation (seismic, barometric, vibration, or power transient) on day ~12 selectively sensitized pendulum instruments while resonators remained insensitive; baseline decorrelations reflect true environmental quiescence (both systems report 'quiet' but cannot be correlated due to measurement independence or spatial separation).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental monitoring data (barometric pressure, seismic, vibration, power-frequency logs) exists but is temporally misaligned with instrument trial timestamps; true environmental driver on day 12 remains undetected because sensor logs lack cross-indexing to trial timestamps.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible, unverifiable, or unresolvable through available documentation; all causal inference from days 1–11 and day-12 shift must be suspended as unpublishable until baseline is re-collected with verified hardware event logs and GPS-synchronized chronometry.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, electromagnetic cross-talk between transducers, calibration drift in sensor electronics) dominates measured quantity, producing decorrelations and echo-correlations independent of timestamp corruption.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Baseline timestamps mislabeled during burst collection (days 1–10 data falsely scattered across burst, with day-12 endpoint marked as baseline end); event-ID disorder on days 9–12 (153086, 826745 out of sequence) is documentary evidence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental monitoring data (barometric, seismic, vibration, power logs) exists but is temporally misaligned with trial timestamps; true day-12 driver remains undetected due to lack of cross-indexing.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible, unverifiable, or unresolvable through available documentation; all causal inference from days 1–11 and day-12 shift must be suspended as unpublishable until baseline is re-collected with verified hardware event logs and GPS-synchronized chronometry.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, electromagnetic cross-talk between transducers, calibration drift in electronics) dominates measured quantity, producing decorrelations and echo-correlations independent of external factors or timestamp corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline timestamps mislabeled during burst collection (days 1–10 data falsely scattered across burst, with day-12 endpoint marked as baseline end); event-ID disorder on days 9–12 (153086, 826745 out of sequence) is documentary evidence.",
+      "class": "social_process"
+    },
+    {
+      "label": "Environmental monitoring data (barometric, seismic, vibration, power logs) exists but is temporally misaligned with trial timestamps; true day-12 driver remains undetected due to lack of cross-indexing.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Timestamp corruption is irreversible, unverifiable, or unresolvable through available documentation; all causal inference from days 1–11 and day-12 shift must be suspended as unpublishable until baseline is re-collected with verified hardware event logs and GPS-synchronized chronometry.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, electromagnetic cross-talk between transducers, calibration drift in electronics) dominates measured quantity, producing decorrelations and echo-correlations independent of external factors or timestamp corruption.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Burst-collection timestamps mislabeled during days 1–10; true baseline data were spread across a compressed time window and falsely scattered across baseline epoch, producing apparent decorrelation and phantom day-12 shift when data are retroactively re-indexed to reported trial sequence.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental driver (barometric, seismic, thermal, or power-system perturbation) caused true physical shift in pendulum systems around day 12, but environmental monitoring data remain temporally misaligned with trial timestamps or unexamined.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Timestamp corruption is irreversible, unverifiable, or unresolvable through available documentation; all causal inference from days 1–11 and day-12 shift must be suspended as unpublishable until baseline is re-collected with verified hardware event logs and GPS-synchronized chronometry.",
+      "class": "social_process"
+    },
+    {
+      "label": "Instrument-internal physics (thermal lag in pendulum suspension, mechanical resonance in lab mounting, electromagnetic cross-talk between resonator transducer and pendulum sensor, calibration drift in readout electronics) dominates measured quantity, producing decorrelations, echo-correlations, and synthetic level shifts independent of timestamp corruption or external environmental drivers.",
+      "class": "incomplete_theory"
+    }
+  ]
+}

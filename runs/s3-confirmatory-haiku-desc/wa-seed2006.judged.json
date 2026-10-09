@@ -1,0 +1,423 @@
+{
+  "source": "wa-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 15,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Shared quasi-periodic environmental oscillation (~7–16 day period) coupled to pendulum physics; resonators insensitive or decoupled",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum-specific thermal or air-density coupling on/around day 12",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine oscillatory or quasi-periodic underlying signal (~7–16 day period) with differential pendulum/resonator sensitivity or SNR",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Analytical error in lag-correlation or level-change detection code (sign flip, misalignment, or windowing bias)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC, furnace maintenance, seismic, electromagnetic); environmental logs not yet retrieved; this is a corroboration ACTION ITEM for hypothesis 2, not an independent hypothesis.",
+        "primary": "social_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "A shared environmental disturbance (seismic, magnetic, thermal, or atmospheric) is phase-shifting all instruments identically, producing the observed anticorrelation signature",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Analytical error in lag-correlation or level-change detection code (sign flip, misalignment, or windowing bias)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Unlogged or unrecognized settlement event on day 12 (furnace cycle, HVAC change, weather shift, magnetic disturbance, vibration transient)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unlogged or undocumented settlement environmental event on day 12 (thermal, HVAC, weather transient, seismic, or electromagnetic) coupling selectively to pendulum physics",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum-specific thermal or air-density coupling on/around day 12",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic beat-counting or cycle-detection artifact: alternating over/undercounting within each instrument's readout logic produces negative autocorrelation independent of physical phenomenon",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Analytical error: partition logic, lag-selection bias, or correlation-code bug producing spurious negative autocorrelations and/or false bifurcation detection; out-of-sample replication rules out simple bugs but not conditional indexing logic.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Pendulum apparatus-level systematic error or recalibration: both pendulum instruments were recalibrated or had method change around day 12; resonators were not",
+        "primary": "self_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement process itself introduces decorrelation: human observer bias, sampling jitter, or procedural inconsistency causes readings to diverge from a stable underlying value",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Shared quasi-periodic environmental oscillation (~7–16 day period) coupled selectively to pendulum physics via air density; resonators insensitive or lower SNR; negative autocorrelations reflect genuine periodic anti-persistence in the environmental driver.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 47,
+  "l4Judged": 47,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep in all four channels, causing readings to decohere from their own baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All instruments are measuring a common underlying phenomenon with genuine ~5–8 day quasi-periodicity or oscillation, but my sampling or phase-alignment is misaligned, causing autocorrelations to appear negative",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement process itself introduces decorrelation: human observer bias, sampling jitter, or procedural inconsistency causes readings to diverge from a stable underlying value",
+      "class": "self_error"
+    },
+    {
+      "label": "Instruments are functioning correctly and independently; observed correlation structure is statistical noise from small sample sizes, and baseline will eventually stabilize as n grows",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A shared environmental disturbance (seismic, magnetic, thermal, or atmospheric) is phase-shifting all instruments identically, producing the observed anticorrelation signature",
+      "class": "environmental_change"
+    },
+    {
+      "label": "I have unintentionally introduced a systematic bias in data entry, storage, or post-hoc analysis that creates spurious anticorrelation (e.g., transcription error, file corruption, or lag-matching artifact in my own analysis code)",
+      "class": "self_error"
+    },
+    {
+      "label": "Analytical error: my lag-correlation and autocorrelation computations contain a systematic bug (sign flip, indexing error, or file-read mishap) that creates spurious negative correlations uniformly across all streams.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab apparatus developed a transient malfunction or calibration drift on Day 11 (mechanical friction, air pressure seal, or thermal shock), causing trial 101 to register low; other instruments unaffected because they are independent systems.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Settlement-wide environmental oscillation (seismic, thermal, or magnetic) with a ~5–8 day quasi-period is phase-shifting all four instruments coherently. The Day 11 pendulum_lab outlier reflects the environmental driver reaching a peak/trough in a phase that couples most strongly to the pendulum.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Underlying physical phenomenon has genuine ~5–8 day quasi-periodicity, but my cross-instrument correlations are weak because I have not yet acquired enough data to resolve the true phase relationship; Day 11 outlier is a real signal component, not noise.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Observer or procedural error on Day 11 pendulum_lab trials: human operator misread dial, transcribed wrong value, or applied inconsistent calibration offset for trial 101 only; no instrumental fault.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unexplained pattern or systematic effect not yet in my hypothesis space (e.g., a periodic environmental driver I haven't measured, an oscillating observer bias, a resonance between two subsystems, or a genuine physical anomaly with a mechanism I haven't imagined).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum-specific environmental coupling: thermal drift or air-density change affecting both pendulum streams symmetrically, but leaving resonators unaffected",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum apparatus-level systematic error or recalibration: both pendulum instruments were recalibrated or had method change around day 12; resonators were not",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine physical oscillation or beat pattern in the underlying measured quantity (period ~10–16 days), with pendulum sensitivity differing from resonator sensitivity",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in my own lag-correlation or level-change detection code: systematic bug (sign flip, offset indexing, or file boundary error) creating spurious negative autocorrelations and biasing day-12 detection specifically to pendulum streams",
+      "class": "self_error"
+    },
+    {
+      "label": "Observer or procedural drift specific to pendulum measurements: the observer(s) recording pendulum trials shifted technique, calibration reference, or counting convention around day 12, while resonator observer(s) remained stable",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unmeasured control variable or mechanism not yet in my hypothesis space (e.g., a periodic environmental driver I have not logged, a resonance between subsystems, or a measurement-selection bias in how day-12 data was recorded)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum-specific environmental coupling (thermal or air-density change on/around day 12)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental recalibration of pendulum apparatus on day 12 (both pendulum instruments affected; resonators not)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine oscillatory or quasi-periodic signal in the measured quantity (~10–16 day period), with pendulum/resonator sensitivity or SNR differing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in lag-correlation or level-change detection code (sign flip, misalignment, or windowing bias)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged or unrecognized settlement event on day 12 (furnace cycle, HVAC change, weather shift, magnetic disturbance, vibration transient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unmeasured control variable or mechanism not yet in hypothesis space",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum-specific environmental coupling (thermal or air-density change on/around day 12)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental recalibration of pendulum apparatus on day 12 (both instruments affected; resonators not)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine oscillatory or quasi-periodic signal in the measured quantity (~10–16 day period), with pendulum/resonator sensitivity or SNR differing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in lag-correlation or level-change detection code (sign flip, misalignment, or windowing bias)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged or unrecognized settlement event on day 12 (furnace cycle, HVAC change, weather shift, magnetic disturbance, or vibration transient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: measurement-selection bias, data contamination, or unmeasured control variable not yet in hypothesis space",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum-specific thermal or air-density coupling on/around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental recalibration of pendulum apparatus on day 12 (both systems affected identically; resonators unaffected)",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine oscillatory or quasi-periodic underlying signal (~10–16 day period) with pendulum/resonator sensitivity or SNR differing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in level-change detection or lag-correlation code (sign flip, misalignment, windowing bias)",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC, weather, seismic, magnetic, or vibrational transient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: measurement-selection bias, data contamination, or unmeasured control variable",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum-specific thermal or air-density coupling on/around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental recalibration of pendulum apparatus on day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine oscillatory or quasi-periodic underlying signal (~10–16 day period) with pendulum/resonator sensitivity or SNR differing",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in level-change detection or lag-correlation code",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC, weather, seismic, or magnetic transient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum-specific thermal or air-density coupling triggered on/around day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or instrumental recalibration of pendulum apparatus on day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine oscillatory or quasi-periodic underlying signal (~7–16 day period) with differential pendulum/resonator sensitivity or SNR",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Analytical error in level-change detection, partition logic, or correlation code",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC, weather, seismic, or magnetic transient)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: something unconsidered",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic beat-counting or cycle-detection artifact: alternating over/undercounting within each instrument's readout logic produces negative autocorrelation independent of physical phenomenon",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum-specific thermal or air-density coupling triggered on day 12; negative autocorrelations are real but orthogonal to the bifurcation cause",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural recalibration or protocol change on day 12, documented or undocumented, affecting pendulum apparatus only; negative autocorrelations reflect historical measurement noise or artifact unrelated to recalibration",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak oscillatory or quasi-periodic signal (~7–16 day period) coupled selectively to pendulum physics; resonators insensitive or lower SNR",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Analytical error: partition logic, lag selection, or correlation code bug producing spurious negative autocorrelations and/or bifurcation detection",
+      "class": "self_error"
+    },
+    {
+      "label": "Unlogged or undocumented settlement environmental event on day 12 (thermal, HVAC, weather transient, seismic, or electromagnetic) coupling selectively to pendulum physics",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Thermal event on day 12 coupling selectively to pendulum physics via air density and period (T∝√L/g); negative autocorrelations are unrelated measurement artifact or secondary oscillatory effect orthogonal to the bifurcation cause.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic beat-counting or cycle-detection artifact in measurement logic: alternating over/undercounting within each instrument's readout produces negative autocorrelation at 5–13 day lags independent of physical phenomena; the near-universal negative autocorrelation clustering (−0.169 to −0.214, all four instruments) is implausibly uniform if driven by independent physical noise.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural recalibration or protocol change on day 12 affecting pendulum apparatus only (re-zeroing, beat-counting method revision, or measurement synchronization); the negative autocorrelations reflect pre-existing historical measurement noise unrelated to the recalibration.",
+      "class": "self_error"
+    },
+    {
+      "label": "Weak quasi-periodic or oscillatory environmental signal (~7–16 day period) coupled selectively to pendulum physics; resonators insensitive or have lower signal-to-noise ratio.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC cycle, weather transient, seismic, or electromagnetic) coupling selectively to pendulum physics; environmental logs exist but have not yet been retrieved and cross-checked against measurement bifurcation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Analytical error: partition logic, lag selection, or correlation code bug producing spurious negative autocorrelations and/or false bifurcation detection.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic beat/cycle-counting artifact: alternating over/undercount pattern within each instrument's detection logic produces negative autocorrelation independent of physics; four-way uniformity (−0.169 to −0.214) across independent systems is implausibly unlikely by chance alone.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sustained thermal or environmental coupling to pendulum physics on day 12; resonator insensitivity reflects decoupling from air-density-dependent period shifts; negative autocorrelations are measurement artifact orthogonal to the bifurcation mechanism.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural recalibration or measurement-protocol change on day 12 affecting both pendulum systems identically (beat-counting method revision, synchronization adjustment, or zeroing); sustained through day 38 via inertia or locked setting rather than physical mechanism.",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared quasi-periodic environmental oscillation (~7–16 day period) coupled selectively to pendulum physics via air density; resonators insensitive or lower SNR; negative autocorrelations reflect genuine periodic anti-persistence in the environmental driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged settlement environmental event on day 12 (thermal, HVAC, furnace maintenance, seismic, electromagnetic); environmental logs not yet retrieved; this is a corroboration ACTION ITEM for hypothesis 2, not an independent hypothesis.",
+      "class": "social_process"
+    },
+    {
+      "label": "Analytical error: partition logic, lag-selection bias, or correlation-code bug producing spurious negative autocorrelations and/or false bifurcation detection; out-of-sample replication rules out simple bugs but not conditional indexing logic.",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic alternating over/undercount bias in beat and cycle detection across all four instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Sustained thermal or environmental coupling to pendulum period on Day 12; resonators thermally decoupled or measuring different physical quantity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural recalibration or measurement-protocol change on Day 12 affecting both pendulum systems identically",
+      "class": "self_error"
+    },
+    {
+      "label": "Shared quasi-periodic environmental oscillation (~7–16 day period) coupled to pendulum physics; resonators insensitive or decoupled",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged settlement environmental event on Day 12; environmental logs not yet retrieved (corroboration action item for hypothesis 2, not independent hypothesis)",
+      "class": "social_process"
+    },
+    {
+      "label": "Analytical error: partition logic, lag-selection bias, or code bug producing spurious negative autocorrelations and/or false bifurcation detection",
+      "class": "self_error"
+    }
+  ]
+}

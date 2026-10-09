@@ -1,0 +1,264 @@
+{
+  "source": "md_mid-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 8,
+    "agree": 5,
+    "items": [
+      {
+        "label": "Pendulum_lab and resonator_obs share genuine ~3-day lagged coupling (thermal or procedural); isolated pair-wise signal not indicative of settlement-wide phenomenon; other instrument pairs remain independent.",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: something not yet considered (operator error in data entry, hidden environmental variable affecting only certain instrument pairs, genuine physical decoupling of pendulum and resonator subsystems, or undetected instrumental fault in one or more devices)",
+        "primary": "incomplete_theory",
+        "second": "self_error"
+      },
+      {
+        "label": "All four instruments measure genuinely independent observables; baseline is sound; pendulum_obs z = −2.09 is a legitimate statistical fluctuation (false positive at ~2 SD); zero cross-correlations are expected",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Four instruments genuinely measure independent observables with independent noise; cross-correlation pattern is consistent with chance; no systematic fault.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Pendulum systems (lab and obs) experience a real environmental or procedural oscillation (~7–14 day cycle); baseline was sampled during atypical phase; post-baseline drift in pendulum_obs reflects phase shift rather than instrumental error",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Resonator_obs 13-day autocorrelation is a false positive from multiple-comparison bias in exploratory lag-sweep analysis; true signal absent; all instruments independent and noise-driven.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "All four instruments measure genuinely independent observables (period vs frequency via different detection paths); cross-correlation matrix is all noise; all drift magnitudes within expected instrumental noise; no systematic fault or settlement-wide coupling.",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data entry, transcription, or logging error in pendulum_obs readings post-baseline; raw instrumental data may not match notebook records.",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent measurement noise dominates; instruments are uncorrelated by design or environmental isolation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic 7-day cyclical or alternating pattern in pendulum systems (lab and obs both show -0.54 to -0.58 autocorr at 7-day lag); resonator systems either lack this pattern or have different period",
+      "class": "self_error"
+    },
+    {
+      "label": "Calibration or baseline setup error: instruments are correctly built but baseline reference values are miscalibrated against an independent standard, or baselines were set under atypical conditions not representative of ongoing operation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: something not yet considered (operator error in data entry, hidden environmental variable affecting only certain instrument pairs, genuine physical decoupling of pendulum and resonator subsystems, or undetected instrumental fault in one or more devices)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum_obs systematic error or calibration misalignment specific to that instrument; other three instruments are stable and independently measuring uncorrelated quantities",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum systems (lab and obs) show a ~7–8 day oscillating or alternating bias (negative autocorrelation at 7 days in both); resonators lack this cycle or operate on a different phase; all instruments fundamentally measure independent quantities",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline calibration or reference standard was set under atypical conditions (day 1–10 commissioning phase); ongoing operation (post-baseline) reflects true instrument response under normal conditions; pendulum_obs baseline was particularly miscalibrated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs optical or mechanical misalignment, creep, or systematic instrumental fault that manifested after day 10; other instruments remain sound; all four are independent by design or environmental isolation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hidden data entry, transcription, or read-out error in one or more streams; raw physical data from instruments may not match logged records",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs has a genuine instrumental fault (optical drift, sensor misalignment, or calibration reference error) post-baseline; other three instruments are independent and uncorrelated by design or physical isolation.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum systems (lab and obs) share a real ~7–8 day oscillating bias (environmental or operator-dependent); resonators operate on different cycle or none; all instruments fundamentally measure independent quantities with no shared driver.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was set under atypical commissioning conditions; post-baseline readings reflect true steady-state, and pendulum_obs baseline was systematically miscalibrated (overestimated), making subsequent readings appear to drift low.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or logging error in pendulum_obs readings post-baseline; raw instrumental data may not match notebook records.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments measure genuinely independent physical quantities with no expected correlation; the baseline is sound and stable; all observed drift and cross-correlations are consistent with independent instrumental noise and measurement error, including pendulum_obs z = −2.03 as a statistical fluctuation within expected range.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs has a genuine post-baseline instrumental fault (optical path drift, photodiode aging, mounting creep, or thermal reference shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or logging error in pendulum_obs post-baseline (scaling, rounding, decimal misread, or systematic offset introduced in notebook transfer)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum systems (lab and obs) experience a real environmental or procedural oscillation (~7–14 day cycle); baseline was sampled during atypical phase; post-baseline drift in pendulum_obs reflects phase shift rather than instrumental error",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was set under atypical commissioning conditions (cold startup, contaminated standards, operator unfamiliarity); all four instruments were systematically miscalibrated; post-baseline readings reflect true steady-state, and apparent drift is an artifact of returning to normal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure genuinely independent physical observables with independent noise; baseline is sound; pendulum_obs z = −2.04 is a statistical fluctuation (false positive at ≈2 SD); zero cross-correlations are expected and not anomalous",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs has a genuine post-baseline instrumental fault (optical/photodiode degradation, thermal drift in optical path, or mounting creep)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data entry, transcription, or logging error in pendulum_obs post-baseline cohort (systematic scaling, rounding error, or decimal misread during notebook transfer)",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs experiences a real environmental or procedural oscillation (~7–14 day cycle); baseline was sampled during an atypical high phase; post-baseline drift reflects phase shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was set under atypical commissioning conditions; all instruments were systematically miscalibrated high; post-baseline readings represent true steady-state return to normal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "All four instruments measure genuinely independent observables; baseline is sound; pendulum_obs z = −2.09 is a legitimate statistical fluctuation (false positive at ~2 SD); zero cross-correlations are expected",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Four instruments genuinely measure independent observables with independent noise; cross-correlation pattern is consistent with chance; no systematic fault.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share a genuine ~3-day lagged coupling (mechanical, thermal, or procedural); other instruments are independent. Isolated correlation requires separate explanation.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data transcription or logging error in pendulum_obs post-baseline cohort; systematic offset or scaling artifact.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_obs photodiode or optical detector has a genuine post-baseline fault (dark-current creep, dust accumulation, thermal reference drift) causing gradual signal degradation; pendulum_lab unaffected because it uses independent optical path or detector technology.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline period (days 1–10) was systematically miscalibrated high on all instruments due to commissioning conditions; post-baseline represents true steady-state. Asymmetry among the four instruments reflects their different sensitivities to commissioning artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs contains genuine ~13-day periodic or quasi-periodic oscillation (thermal, mechanical, or procedural cycle); other instruments measure independent observables with independent noise; no systematic fault.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Four instruments genuinely measure independent observables (period vs frequency; different optical/mechanical detection paths); cross-correlation matrix is consistent with chance; all drift magnitudes within expected instrumental noise; no systematic fault or settlement-wide signal.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs share genuine ~3-day lagged coupling (thermal or procedural); isolated pair-wise signal not indicative of settlement-wide phenomenon; other instrument pairs remain independent.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_obs post-baseline cohort shows systematic measurement artifact (photodiode dark-current creep, optical window dust, or thermal reference drift) causing true signal degradation; pendulum_lab unaffected (independent detection method).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs 13-day autocorrelation is a false positive artifact from multiple-comparison bias in lag-sweep exploration; true signal is absent, all instruments independent.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Residual: something unconsidered.",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_obs contains genuine ~13-day periodic or quasi-periodic environmental cycle (HVAC maintenance, thermal time constant, or biweekly procedural inflection); other instruments measure independent observables with independent noise; no systematic fault.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All four instruments measure genuinely independent observables (period vs frequency via different detection paths); cross-correlation matrix is all noise; all drift magnitudes within expected instrumental noise; no systematic fault or settlement-wide coupling.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs 13-day autocorrelation is a false positive from multiple-comparison bias in exploratory lag-sweep analysis; true signal absent; all instruments independent and noise-driven.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data integrity or procedural change in resonator_obs post-baseline cohort (calibration standard mismatch, logging format change, or team member procedure drift between trials 60 and 61) produces internal consistency in post-baseline stream but systematic offset from baseline; no hardware fault.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_obs shows detector-specific systematic artifact (photodiode dark-current creep, optical window dust, thermal reference drift) producing larger drift than pendulum_lab; pendulum_lab uses independent detection method unaffected by this fault.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

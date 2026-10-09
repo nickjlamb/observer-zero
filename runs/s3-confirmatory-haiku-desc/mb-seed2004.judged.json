@@ -1,0 +1,360 @@
+{
+  "source": "mb-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 7,
+    "items": [
+      {
+        "label": "Instrumental failure or saturation in resonator channels masking a true cross-instrument drift that affected all four streams around day 12",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Residual: unidentified mechanism (acoustic coupling between rigs, electromagnetic cross-talk in data acquisition, undocumented shared mechanical coupling, barometric pressure transduction, or unmeasured environmental variable with asymmetric coupling to rigs)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Two independent mechanical threshold events: pendulum suspension bearing friction or compliance saturation on day 12 (affecting both pendulum streams identically); resonator rig stiffness loss or bearing wear on day 16. Scatter suppression in trials 223–227 reflects high-damping regime operation in pendulum rig post-event.",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Measurement artifact or instrumentation drift: pendulum_lab instrument drift or calibration drift on day 12; resonator_lab independent calibration drift on day 16. The strong resonator_lab 2-day autocorrelation (r=0.427) reflects undetected instrument memory (e.g., thermal lag in sensor response, electrical coupling, or mechanical hysteresis) rather than a physical process in the resonator system itself.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Systematic calibration drift or thermal/environmental coupling introduces lag structure that obscures true correlation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Protocol or operator change in pendulum sampling between day 10 and day 12 (tighter timing gate, improved release method, or damping protocol) that reduced measurement variance; tight clustering in trials 223–227 reflects stabilized new protocol; trial 228 is an execution error or reversion to old method.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Two independent mechanical threshold events: pendulum bearing/suspension saturation (day 12); resonator stiffness loss or bearing wear (day 16)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Undetected protocol or measurement procedure change on day 12 (pendulum timing correction, active damping insertion, release method improvement); independent resonator protocol change on day 16",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Localized perturbation (vibration, thermal transient, or electromagnetic pulse) on day 19 during trials 223–227 specifically; trial 228 and subsequent readings unaffected; anomaly is not generalizable to day 16 or other instruments",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Material hysteresis or creep saturation (bearing lubricant viscosity increase, suspension stress-relaxation saturation, humidity absorption in damping materials) with different saturation timescales in pendulum (day 12) and resonator (day 16) rigs",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unidentified mechanism (e.g., acoustic coupling between rigs, electromagnetic cross-talk in data acquisition, undocumented shared mechanical coupling, or environmental variable not yet hypothesized)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Material hysteresis or creep saturation (bearing lubricant viscosity increase, suspension stress-relaxation saturation, humidity absorption in damping materials) with different saturation timescales in pendulum (day 12) and resonator (day 16) rigs",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 25,
+  "l4Judged": 25,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are genuinely independent (uncorrelated physical processes or measurement channels)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic calibration drift or thermal/environmental coupling introduces lag structure that obscures true correlation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement noise is white or near-white; apparent correlations (especially at matched offsets) are statistical artifacts (multiple comparisons with high false-positive rate)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol or observer behaviour differs systematically across lab and observational streams (e.g., different sampling rate, time-of-day bias, or inter-observer procedure variance)",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical change in pendulum period around day 12, independent of resonator behaviour",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration drift with a ~10–12 day timescale, coupled to pendulum instruments only",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer or protocol change affecting pendulum measurements only, introduced between day 10 and day 12",
+      "class": "self_error"
+    },
+    {
+      "label": "Noise-driven, independent measurement streams; the day-12 shift is a statistical artifact from finite-sample estimation of the baseline mean",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instrumental failure or saturation in resonator channels masking a true cross-instrument drift that affected all four streams around day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrumental damping or friction increase in pendulum_lab mechanics, introduced around day 12, reduces effective oscillation period variability by constraining amplitude range",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real environmental change (temperature, pressure, or localized field gradient) around day 12 affecting pendulum systems preferentially; resonators decoupled by design or location",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol or observer change in pendulum sampling introduced between day 10 and day 12 (e.g., timing reference, release method, or damping technique), now partially reverted or stabilized by day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Selective resonator saturation or nonlinearity masking a true universal drift around day 12; all four streams affected, but resonator outputs compressed into apparent stability",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab readings on day 16 are biased toward high values by a localized environmental perturbation (vibration, thermal transient, or electromagnetic pulse) coinciding with trials 223–227, unrelated to the day-12 shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unobserved instrumental or environmental factor coupling preferentially to pendulum suspension stiffness or frequency response, with time-dependent saturation or nonlinearity in the post-day-12 regime",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Mechanical compliance change in pendulum_lab around day 12 (suspension creep, bearing friction, or air damping) reduces amplitude-dependent scatter; trials 223–227 represent a stabilized regime; trial 228 is an outlier or transient escape",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental shift (temperature, pressure, or field gradient) around day 12 affecting pendulum systems preferentially; trial 228 is noise; tight clustering in 223–227 is illusory or due to low sample size",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol or observer change in pendulum sampling between day 10 and day 12 introduced a systematic bias (tighter timing gate, improved release method); new routine stabilized by day 16, yielding lower measurement variance in trials 223–227; trial 228 is an execution error",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum suspension system entered a saturation or amplitude-limiting regime around day 12 (e.g., amplitude floor or ceiling due to mechanical stops, bearing friction threshold, or nonlinear stiffness); trials 223–227 represent near-saturated, low-variance oscillations; trial 228 is a transient escape or measurement artifact",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Localized perturbation (vibration, thermal transient, or electromagnetic pulse) on day 19 during trials 223–227 specifically; trial 228 and subsequent readings unaffected; anomaly is not generalizable to day 16 or other instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unobserved state-dependent or slow-acting mechanism (e.g., humidity-driven creep in suspension reaching saturation by day 16, or hysteresis-driven amplitude locking) causing the scatter suppression and trial 228 outlier; mechanism not yet considered or characterized",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Mechanical compliance change in pendulum systems (bearing friction, suspension creep, or damping) around day 12, plus amplitude-dependent saturation or stabilization by day 16; trial 228 is a transient escape or measurement artifact.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Environmental shift (temperature, pressure, or magnetic field gradient) around day 12 that couples preferentially to pendulum systems; tight clustering in trials 223–227 is a statistical fluctuation in a small sample; trial 228 is noise.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol or operator change in pendulum sampling between day 10 and day 12 (tighter timing gate, improved release method, or damping protocol) that reduced measurement variance; tight clustering in trials 223–227 reflects stabilized new protocol; trial 228 is an execution error or reversion to old method.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum suspension entered a nonlinear saturation or amplitude-limiting regime around day 12 (bearing friction threshold, mechanical stops, or nonlinear stiffness); trials 223–227 represent near-saturated, low-variance oscillations; trial 228 is a transient escape exceeding saturation threshold.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multi-stage slow-acting process (e.g., humidity-driven creep in pendulum suspension reaching saturation by day 16, followed by viscous escape on day 19) causes day-12 level shift, then scatter suppression in trials 223–227, then trial 228 escape; resonator shift on day 16 is independent or coupled via shared thermal or humidity ramp.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum suspension entered high-damping regime around day 12 (bearing friction threshold or compliance saturation); resonators experienced independent mechanical event on day 16; anticorrelation reflects inverse sensitivity to a common environmental ramp",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared slow environmental process (temperature or humidity ramp) with different thermal time constants in each rig; pendulum responds day 12, resonator responds day 16; anticorrelation from differential temperature coupling to pendulum damping vs resonator stiffness",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Protocol or measurement procedure change in pendulum sampling between day 10 and day 12 (electronic timing gate, damping insertion, or improved release method); resonator protocol changed independently on day 16; anticorrelation is statistical artifact from noise coupling",
+      "class": "self_error"
+    },
+    {
+      "label": "Nonlinear amplitude saturation or mechanical stop in pendulum suspension around day 12; resonator saturation on day 16; anticorrelation from amplitude-dependent frequency shift (pendulum descends to lower amplitude, resonator ascends to higher amplitude)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Multi-stage coupled process: humidity or thermal diffusion into pendulum suspension (day 12) and resonator damping chamber (day 16) with different thermal diffusion times; creep saturation by day 16 produces scatter suppression; trial 228 reflects hygroscopic rebound or outgassing transient",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum suspension crossed a mechanical threshold (bearing friction or compliance saturation) around day 12; resonators experienced independent mechanical event on day 16; scatter suppression in trials 223–227 reflects operation in high-damping regime; trial 228 is transient escape event.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared slow environmental process (temperature or humidity ramp) with different thermal time constants in each rig; pendulum rig responds day 12, resonator rig responds day 16; differential thermal coupling (damping-dominant in pendulum, stiffness-dominant in resonator) produces anticorrelation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Deliberate protocol or measurement procedure change in pendulum sampling on day 12 (e.g., electronic timing correction, damping insertion, improved release method); independent resonator protocol change on day 16; scatter suppression from active damping or timing gate improvement.",
+      "class": "self_error"
+    },
+    {
+      "label": "Nonlinear amplitude saturation or mechanical stop in pendulum suspension (bearing friction threshold, compliance limit) around day 12; resonator saturation event on day 16; amplitude-dependent frequency shift produces anticorrelation if pendulum amplitude decreases (increasing damping, increasing period) while resonator amplitude increases (decreasing damping, decreasing frequency).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Slow humidity or thermal diffusion into sealed chambers or suspension materials (pendulum suspension day 12, resonator chamber day 16) with different diffusion time constants; creep saturation by day 16 suppresses scatter; trial 228 reflects hygroscopic rebound or outgassing transient.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Two independent mechanical threshold events: pendulum suspension bearing friction or compliance saturation on day 12 (affecting both pendulum streams identically); resonator rig stiffness loss or bearing wear on day 16. Scatter suppression in trials 223–227 reflects high-damping regime operation in pendulum rig post-event.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared slow environmental monotonic drift (temperature or humidity ramp) with different thermal time constants: pendulum rig equilibrates day 12 (lower thermal mass, higher surface area), resonator rig equilibrates day 16 (higher thermal mass or slower diffusion). Damping-dominant response in pendulum (period increases with temperature), stiffness-dominant response in resonator (frequency decreases with temperature), producing anticorrelation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Deliberate or accidental protocol or measurement procedure change in pendulum sampling on day 12 (e.g., electronic timing correction, damping insertion, improved release method, change in measurement cadence); independent resonator protocol change on day 16. Scatter suppression in trials 223–227 from active damping insertion or timing gate improvement in pendulum protocol.",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement artifact or instrumentation drift: pendulum_lab instrument drift or calibration drift on day 12; resonator_lab independent calibration drift on day 16. The strong resonator_lab 2-day autocorrelation (r=0.427) reflects undetected instrument memory (e.g., thermal lag in sensor response, electrical coupling, or mechanical hysteresis) rather than a physical process in the resonator system itself.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Hysteresis or creep in mechanical materials (bearing lubricant viscosity increase, suspension material stress-relaxation saturation, or humidity absorption into damping materials) with different time constants in pendulum rig (day 12) and resonator rig (day 16). Trial 228 reflects transient viscous overshoot or material rebound after saturation.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Two independent mechanical threshold events: pendulum bearing/suspension saturation (day 12); resonator stiffness loss or bearing wear (day 16)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared slow environmental monotonic drift (temperature or humidity ramp) with different thermal time constants and mechanical response signatures",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected protocol or measurement procedure change on day 12 (pendulum timing correction, active damping insertion, release method improvement); independent resonator protocol change on day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement artifact or electronic/sensor instrumentation drift in pendulum_lab (day 12) and resonator_lab (day 16); resonator 2-day autocorrelation from undetected sensor thermal lag or electrical hysteresis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Material hysteresis or creep saturation (bearing lubricant viscosity increase, suspension material stress-relaxation saturation, humidity absorption in damping materials) with different saturation timescales in pendulum (day 12) and resonator (day 16) rigs",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unidentified mechanism (e.g., acoustic coupling between rigs, electromagnetic cross-talk in data acquisition, undocumented shared mechanical coupling, or environmental variable not yet hypothesized)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared mechanical threshold event (bearing/suspension saturation, stiction release, or compliance limit) on day 12 affecting pendulum rig; independent resonator failure (bearing wear, stiffness loss) on day 16, with coupled mechanical loading producing 4-day anticorrelation via shared mounting bracket or atmospheric pressure redistribution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared slow environmental monotonic drift (temperature or humidity ramp) with different thermal time constants and mechanical response signatures, producing coordinated but time-offset level shifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected protocol or measurement procedure change on day 12 (pendulum timing correction, active damping insertion, release method improvement); independent resonator protocol change on day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement artifact or electronic/sensor instrumentation drift in pendulum_lab (day 12) and resonator_lab (day 16); resonator 2-day autocorrelation from undetected sensor thermal lag or electrical hysteresis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Material hysteresis or creep saturation (bearing lubricant viscosity increase, suspension stress-relaxation saturation, humidity absorption in damping materials) with different saturation timescales in pendulum (day 12) and resonator (day 16) rigs",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unidentified mechanism (acoustic coupling between rigs, electromagnetic cross-talk in data acquisition, undocumented shared mechanical coupling, barometric pressure transduction, or unmeasured environmental variable with asymmetric coupling to rigs)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Shared mechanical threshold event on day 12 affecting pendulum suspension (bearing saturation, stiction release, compliance limit); independent resonator failure on day 16 (bearing wear, stiffness loss); coupled mechanical loading via shared mounting bracket or atmospheric pressure redistribution produces time-lagged anticorrelation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Shared slow environmental monotonic drift (temperature or humidity ramp) with different thermal time constants and mechanical response signatures, producing coordinated but time-offset level shifts",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected measurement protocol or procedure change on day 12 affecting pendulum measurement; independent protocol change on day 16 affecting resonator measurement",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement artifact or electronic/sensor instrumentation drift in pendulum_lab (day 12) and resonator_lab (day 16); resonator 2-day autocorrelation from undetected sensor thermal lag or electrical hysteresis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Material hysteresis or creep saturation (bearing lubricant viscosity increase, suspension stress-relaxation saturation, humidity absorption in damping materials) with different saturation timescales in pendulum (day 12) and resonator (day 16) rigs",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: unidentified mechanism (acoustic coupling between rigs, electromagnetic cross-talk in data acquisition, undocumented shared mechanical coupling, barometric pressure transduction, or unmeasured environmental variable with asymmetric coupling to rigs)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

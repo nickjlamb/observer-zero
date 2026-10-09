@@ -1,0 +1,198 @@
+{
+  "source": "wd_degraded-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 6,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Instrument drift or aging: precision of pendulum and resonator apparatus declining after 26 days of continuous operation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Operator error, procedure change, or temporary technique variation in pendulum_lab on day 16",
+        "primary": "self_error",
+        "second": "in_world_tampering"
+      },
+      {
+        "label": "Instrumental malfunction or environmental shock localized to pendulum_lab on day 16",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Normal statistical noise within expected bounds: Day 26 readings are higher-variance but not anomalous given 26-day observation window and effective sample sizes",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Normal statistical noise: Day 36 variance is within expected bounds given sample sizes and measurement windows",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Resonator_lab apparatus entering early fatigue, thermal instability, or bearing degradation",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 11,
+  "l4Judged": 11,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental isolation: each apparatus measures a genuinely distinct physical quantity or regime, with weak coupling to the others",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Temporal desynchronization: measurements are offset or sampled at incommensurate rates, so true correlations are obscured by phase mismatch",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or instrumental drift undetected at baseline: systematic slow variation present but masked by 10-day sampling window",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration error or misalignment: baselines are biased or instruments are systematically out of register due to setup error on days 1–10",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement error or operator variation: differences in technique or random procedural variability between labs introduce noise that swamps any true signal",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental malfunction or environmental shock localized to pendulum_lab on day 16",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic bias in baseline calibration for pendulum_lab (established days 1–10, manifest now)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: observed level change is a false positive from multiple comparisons or a transient noise spike",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Operator error, procedure change, or temporary technique variation in pendulum_lab on day 16",
+      "class": "self_error"
+    },
+    {
+      "label": "Physical phenomenon (e.g., local tremor, thermal transient, or systematic environmental change) affecting only pendulum_lab's location or geometry",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrument drift or aging: precision of pendulum and resonator apparatus declining after 26 days of continuous operation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or operational fatigue on Day 26: operator tiredness, ambient condition drift (temperature creep), or measurement protocol degradation after 26 consecutive days",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Normal statistical noise within expected bounds: Day 26 readings are higher-variance but not anomalous given 26-day observation window and effective sample sizes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or reference-standard drift: baselines established on days 1–10 were accurate, but an external calibration check or standard performed on day 15–16 (per earlier hypothesis) revealed gradual divergence now becoming visible in variance",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unrecorded procedural or equipment change in one or more labs on day 25–26, distinct from operator fatigue (e.g., apparatus moved, recalibration, new operator shift, or maintenance)",
+      "class": "self_error"
+    },
+    {
+      "label": "Resonator_lab apparatus entering early fatigue or thermal instability on Day 36",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental event (thermal spike, vibration, or humidity shift) on Day 36 affecting all measurement streams",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Operator error or procedural deviation on Day 36 in one or more labs, or shift handoff without documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal statistical noise: Day 36 variance is within expected bounds given sample sizes and measurement windows",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_lab reference standard or calibration check performed on Day 35–36, introducing uncertainty into Day 36 readings",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Transient environmental or vibrational event (thermal, humidity, or mechanical) affecting the settlement on Day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab apparatus entering early fatigue, thermal instability, or bearing degradation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator error, procedural deviation, or equipment recalibration on Day 40 in one or more labs",
+      "class": "self_error"
+    },
+    {
+      "label": "Normal statistical noise: Day 40 variance is within expected bounds given sample sizes and measurement windows, or reflects a tail of the stochastic distribution",
+      "class": "measurement_error"
+    },
+    {
+      "label": "A measurement protocol or logging change (e.g., faster trial cadence, reduced stabilization time, or new data pipeline) was implemented on or before Day 40 without formal documentation",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: something unconsidered (e.g., instrumental artifact in data acquisition, settlement seismic event, a colleague's unannounced experiment affecting local fields, or measurement bias I have not yet identified)",
+      "class": "other"
+    }
+  ]
+}

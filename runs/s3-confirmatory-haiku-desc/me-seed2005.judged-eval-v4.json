@@ -1,0 +1,356 @@
+{
+  "source": "me-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Settlement maintenance logs or environmental records (not yet reviewed) document a procedural change, maintenance action, or external environmental event on or before day 22 that directly caused the level shifts",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "Multiple-comparison bias or analysis-pipeline artifact in offset/lag selection and cross-correlation calculation",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Residual: unknown mechanism not yet considered",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline (days 1–10) did not represent a stable thermal/mechanical equilibrium; the system is undergoing slow drift or phase-transition across weeks, and day-22 and day-34 excursions are visible manifestations of this underlying non-stationarity rather than discrete events.",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrumental degradation or threshold crossing in observational instruments, independently timed but pattern-matched by coincidence",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental or temporal coupling not yet identified; readings reflect unmeasured external variable rather than instrument behavior",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline data collection methodology or data entry introduces artifact (procedural drift, observer bias, or systematic entry error)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Observer-dependent systematic bias in pendulum_obs (timing jitter, fatigue, procedure drift, time-of-day effect); independent resonator frequency aliasing or nonlinear sensor response",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Observational instruments were miscalibrated from day 1 (wrong reference standard, gain, or zero offset); day-22 shifts in pendulum_lab and resonator_obs are independent instrumental events (thermal, mechanical, electronic degradation)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Documentation or maintenance logs from settlement records are incomplete or inaccessible; a procedural change, environmental factor, or maintenance action on day 22 directly caused the level shifts but is not yet visible in my available data",
+        "primary": "social_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: unknown coupling or uncontrolled variable",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic calibration offset between lab and observational instrument pairs",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 24,
+  "l4Judged": 24,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration offset between lab and observational setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific systematic error or nonlinear response across the measurement range",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental or temporal coupling not yet identified; readings reflect unmeasured external variable rather than instrument behavior",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline data collection methodology introduces artifactual correlation structure (observer bias, procedural drift, or data entry error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Systematic calibration offset between lab and observational instrument pairs",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific systematic error or nonlinear response across measurement range — instruments lack true accuracy despite high resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental or temporal cycle (2–8 day period) couples to all instruments with different phase or sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline data collection methodology or data entry introduces artifact (procedural drift, observer bias, or systematic entry error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unknown coupling or uncontrolled variable",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration offset between lab and observational instrument pairs (constant multiplicative or additive error in setup/mounting)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Instrument-specific systematic error or nonlinear response: each instrument has internal errors (hysteresis, nonlinear calibration, thermal sensitivity, zero-point instability) that prevent true accuracy despite high resolution",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unmeasured environmental or temporal cycle (2–14 day period) couples to all instruments with different phase or sensitivity, creating weak cross-correlations and lag-specific autocorrelations",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline data collection methodology introduces systematic artifact (procedural drift, observer bias, observer rotation, time-of-day systematic effects, or data entry error)",
+      "class": "self_error"
+    },
+    {
+      "label": "Uncontrolled variable during baseline collection or systematic procedural difference between lab and obs setups (mounting angle, vibration isolation, sensor orientation, housing thermal environment) creates both offset and correlation anomaly",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific calibration drift or mechanical shift in pendulum_lab around day 18 (thermal expansion, pivot wear, humidity-induced dimensional change, or observer procedural change affecting only lab setup)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_obs underwent independent calibration drift or mechanical/thermal change around day 18, creating its own smaller step change (z ≈ 7.6) unrelated to pendulum_lab's change",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Global environmental or electromagnetic transient on day 18 affected multiple instruments with instrument-specific sensitivities, explaining both pendulum_lab and resonator_obs level changes but sparing pendulum_obs and resonator_lab",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or trial-logging error around day 18: misalignment of timestamps, batch transposition, or systematic offset applied to post-day-18 entries for pendulum_lab and resonator_obs only",
+      "class": "self_error"
+    },
+    {
+      "label": "Interaction between the persistent ~50% mean offsets between lab/obs pairs and the level changes: the day-18 changes reveal an underlying calibration error or setup difference that was latent in the baseline data and surfaced as a discontinuous 'correction' or threshold crossing",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Lab and observational instruments measure fundamentally different physical quantities or use incompatible calibration standards, making direct comparison invalid — the offsets are not errors but artifacts of comparing incommensurable measurement frames.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "The 'obs' instruments are systematically miscalibrated from day 1 (wrong reference standard, wrong gain, wrong zero offset, or wrong time-base) creating a persistent scale or offset error, while 'lab' instruments use correct calibration — day-18 level changes in lab/resonator_obs are independent instrument-specific events unrelated to the offset problem.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A single environmental or electromagnetic transient on day 18 affected pendulum_lab and resonator_obs selectively (due to their physical location, orientation, or sensor type sensitivity), while pendulum_obs and resonator_lab were shielded or insensitive — the persistent offsets are a separate unrelated calibration issue from day 1.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The offsets and day-18 changes are both symptomatic of a deeper systematic error: the 'obs' instruments were mounted or configured with an inverted or scaled reference signal from day 1, and on day 18 a procedural 'correction' or threshold-crossing event occurred that partially (but incompletely) addressed the issue in some instruments only.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: a procedural or environmental factor not yet documented in available records (e.g., a shift in observer protocol, a maintenance action logged elsewhere, a thermal cycle related to external weather, or an instrumental interaction between the four devices that creates a coupled system with the observed offset structure).",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day-18 environmental transient (vibration, thermal, EM) selectively affected pendulum_lab and resonator_obs; persistent ~50% offsets are separate day-1 calibration design incompatibility",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational instruments were miscalibrated from day 1 (wrong reference standard, gain, or zero offset); day-22 shifts in pendulum_lab and resonator_obs are independent local instrumental events (thermal, mechanical, electronic) unrelated to the calibration error",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments form a weakly coupled electromagnetic or mechanical system (via shared cabling, mounting, or proximity); the persistent offsets are system-level artifacts; day-22 shifts reflect a threshold-crossing or coupling-strength change in the coupled system",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day 1 calibration baseline was contaminated or non-representative (observer protocol drift, instrument not yet thermally stabilized, or reference standard not yet verified); true offsets are smaller than observed, and will converge as instruments stabilize",
+      "class": "self_error"
+    },
+    {
+      "label": "Documentation or maintenance logs from settlement records are incomplete or inaccessible; a procedural change, environmental factor, or maintenance action on day 22 directly caused the level shifts but is not yet visible in my available data",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: something I have not considered",
+      "class": "other"
+    },
+    {
+      "label": "Day-22 environmental transient (vibration, thermal, EM) selectively affected pendulum_lab and resonator_obs; persistent lab/obs offsets are separate structural calibration incompatibility from day 1",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational instruments were miscalibrated from day 1 (wrong reference standard, gain, or zero offset); day-22 shifts in pendulum_lab and resonator_obs are independent instrumental events (thermal, mechanical, electronic degradation)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments form a weakly coupled electromagnetic or mechanical system (shared cabling, mounting, or floor); persistent offsets are system-level artifacts; day-22 shifts reflect a threshold-crossing or coupling-strength change",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-1 baseline was non-representative (instruments not thermally stabilized, observer protocol not yet mature, reference standard not yet verified); true offsets are smaller than observed, and will converge as systems stabilize",
+      "class": "self_error"
+    },
+    {
+      "label": "Settlement maintenance logs or environmental records (not yet reviewed) document a procedural change, maintenance action, or external environmental event on or before day 22 that directly caused the level shifts",
+      "class": "social_process"
+    },
+    {
+      "label": "Day-22 environmental transient (vibration, thermal, or EM) selectively affected pendulum_lab and resonator_obs; persistent lab/obs offsets are structural calibration incompatibility from day 1.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational instruments were miscalibrated from day 1 (wrong reference standard, gain, or zero offset); day-22 shifts in pendulum_lab and resonator_obs are independent instrumental failures (thermal, mechanical, electronic degradation).",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "The four instruments form a weakly coupled electromagnetic, mechanical, or thermal system (shared mounting, floor, cabling, or thermal environment); persistent offsets and day-22 shifts reflect system-level artifacts and a coupling-strength threshold event.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Day-1 baseline was non-representative due to incomplete thermal stabilization, observer training immaturity, or unverified reference standard; true offsets are smaller and will converge over weeks.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Settlement maintenance logs, environmental records (seismic, thermal, EM, construction), or data-processing pipeline changes document an event on or before day 22 that directly caused the level shifts. This hypothesis is a placeholder for missing information.",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: an anomaly or mechanism not yet considered.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Day 34 environmental transient (thermal, vibrational, or electromagnetic) selectively affected observational instruments; lab instruments are unaffected or have already equilibrated from the day-22 transient.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observational instruments suffer from independent instrumental degradation (thermal, mechanical, or electronic aging), coincidentally manifesting today as a second event after the day-22 failures in lab instruments.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observational instruments are weakly coupled to a shared thermal or mechanical reservoir; the day-34 excursion represents a transient in that reservoir (thermal pulse, vibration event, or pressure change) that affects the two obs instruments in opposite ways according to their frequency response and thermal/mechanical impedance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "A documented settlement maintenance action, environmental event (seismic, HVAC, construction, power anomaly), or data-processing pipeline change occurred on or around day 34, directly causing the observed excursions in observational instruments.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline (days 1–10) did not represent a stable thermal/mechanical equilibrium; the system is undergoing slow drift or phase-transition across weeks, and day-22 and day-34 excursions are visible manifestations of this underlying non-stationarity rather than discrete events.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: an anomaly or mechanism not yet considered—including observer-dependent biases in pendulum_obs (timing jitter, fatigue, time-of-day effect), aliasing in resonator frequency measurement, nonlinear sensor response threshold, or systematic error in the analysis pipeline.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Repeating localized environmental transient affecting observational site selectively",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Documented settlement operational or maintenance cycle (weekly, biweekly, or calendar-driven) affecting measurement environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental degradation or threshold crossing in observational instruments, independently timed but pattern-matched by coincidence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Observer-dependent systematic bias in pendulum_obs (timing jitter, fatigue, procedure drift, time-of-day effect); independent resonator frequency aliasing or nonlinear sensor response",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparison bias or analysis-pipeline artifact in offset/lag selection and cross-correlation calculation",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: unknown mechanism not yet considered",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Acute environmental disturbance at observational site on day 40",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement maintenance or operational cycle occurring on day 40",
+      "class": "in_world_tampering"
+    },
+    {
+      "label": "Observer procedure drift or timing-bias amplification in pendulum_obs on day 40",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrumental degradation or phase-dependent nonlinear response in resonator_obs, timing jitter in pendulum_obs, triggered independently on day 40",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unidentified mechanism (electromagnetic transient, cosmic-ray burst, structural coupling, or analysis artifact)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

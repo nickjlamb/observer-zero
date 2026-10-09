@@ -1,0 +1,160 @@
+{
+  "source": "md_mid-seed2008.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Coincidental statistical fluctuation; day 20 scatter in pendulum_obs and resonator_obs are within expected post-baseline variance and require no explanation",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data entry or timestamp error affecting trials recorded on day 20",
+        "primary": "social_process",
+        "second": "social_process"
+      },
+      {
+        "label": "A shared signal exists but is embedded below current noise floor; offsets and lags being tried are not the right ones",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Coincidental statistical fluctuation or regional clustering of noise in both observational channels on day 30",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 10,
+  "l4Judged": 10,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring independent noise processes with no shared physical signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments have inadequate temporal resolution or calibration drift is masking signal",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "A shared signal exists but is embedded below current noise floor; offsets and lags being tried are not the right ones",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement protocol or environment has an unidentified systematic error that affects all instruments uniformly",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Localized environmental or instrumental perturbation affecting optical/observational path in pendulum_obs only on day 20",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical instability or transient environmental event affecting pendulum_obs sensitivity selectively",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement protocol error, observer fatigue, or trial sequencing bias introduced at trials 115–120 in pendulum_obs",
+      "class": "self_error"
+    },
+    {
+      "label": "Coincidental statistical fluctuation; day 20 scatter in pendulum_obs and resonator_obs are within expected post-baseline variance and require no explanation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry or timestamp error affecting trials recorded on day 20",
+      "class": "social_process"
+    },
+    {
+      "label": "Observational apparatus degradation or environmental perturbation affecting both observation rigs but not lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Systematic drift in observational calibration or observer protocol starting mid-run (days 15–30), independent of physical changes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical transient or environmental event (seismic, thermal, magnetic) selectively coupling into observational channels on days 15–30",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Coincidental statistical fluctuation or regional clustering of noise in both observational channels on day 30",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data entry, timestamping, or trial sequencing error affecting day 30 or days 15–30 records",
+      "class": "social_process"
+    },
+    {
+      "label": "Resonator_lab apparatus perturbation or calibration drift (thermal, optical, or electronic) starting around day 35–40, coupled with unrelated observational scatter on day 40.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Shared observational apparatus degradation or thermal/vibration event affecting both pendulum_obs and resonator_obs on day 40, unrelated to lab channels.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs share a real physical transient in the resonator system itself (e.g., mounting fatigue, damping shift, or external magnetic/seismic event), detected by lab channel with modest SNR and by observation channel with higher noise.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Coincidental statistical clustering of noise in resonator_lab and both observational channels on day 40, unrelated to instrumental or physical changes.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement or logging error: day-40 readings misdated or contaminated by data from an earlier experimental session with different apparatus state.",
+      "class": "measurement_error"
+    }
+  ]
+}

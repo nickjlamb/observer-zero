@@ -1,0 +1,235 @@
+{
+  "source": "md_high-seed2005.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 3,
+    "items": [
+      {
+        "label": "Real physical signal is present but has periodic or anti-periodic structure not yet resolved; time offsets and phase relationships between instruments are masking simple correlation",
+        "primary": "incomplete_theory",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Environmental disturbance or instrumental instability on day 35 affecting resonator_obs disproportionately; pendulum_lab elevated variance is precursor or correlated signal",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Observer bias or measurement protocol artifact (e.g., systematic reading error, environmental transient coupling to observer presence or measurement timing)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Lab and obs instrument variants measure genuinely different physical quantities due to unrecognized differences in geometry, mounting, environmental coupling, or response mode",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "H2: The 0.951 pendulum_lab–resonator_obs correlation at 3-day offset represents genuine instrumental or environmental coupling; day 35 excursion is a new manifestation of the same underlying signal driver, confirming the coherence.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Systematic scale-factor or calibration offset between lab and obs instrument variants; pendulum_lab and resonator_obs happen to share a compatible scale or transduction pathway by accident or design, masking a broader miscalibration in the pendulum_obs or resonator_lab instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Instruments are measuring genuinely different physical quantities despite identical nominal setup",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 23,
+  "l4Judged": 23,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instruments are measuring genuinely different physical quantities despite identical nominal setup",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or scale factor error has gone undetected, causing apparent decorrelation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Random noise is genuinely high or measurement protocol introduces decorrelation (e.g., observer bias, environmental transients not yet distinguished from signal)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "There is a real time-varying physical signal present, but it has structure (periodicity or non-stationary drift) that is not aligned across measurement methods or instruments",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise dominates signal; instruments lack sufficient sensitivity or stability to resolve variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected calibration or scale-factor error in one or more instruments, systematic across trials but uncaught by baseline protocol",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and obs instruments genuinely measure different physical quantities (geometry, mounting, or environmental coupling differs)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical signal is present but has periodic or anti-periodic structure not yet resolved; time offsets and phase relationships between instruments are masking simple correlation",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Observer bias or measurement protocol artifact (e.g., systematic reading error, environmental transient coupling to observer presence or measurement timing)",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement noise dominates signal; instruments sample at or below SNR needed to resolve true variation",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Calibration or scale-factor error in one or more instruments, undetected in 10-day baseline window; lab and obs variants of same instrument type measure different effective scales",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and obs instrument variants measure genuinely different physical quantities due to unrecognized differences in geometry, mounting, environmental coupling, or response mode",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical signal is present but oscillatory or harmonic; temporal phase relationships between instruments mask simple correlation; full spectral decomposition needed to detect signal structure",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement protocol or observer bias artifact; systematic coupling to measurement routine (order of reading, timing, environmental transients from observer activity) decorrelates independent instruments",
+      "class": "self_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure related but phase-shifted physical quantities; genuine signal present but obscured in other instrument pairs by noise, geometry, or coupling differences",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement noise dominates signal; most instruments sample below SNR threshold; pendulum_lab–resonator_obs correlation is a noise-driven false positive (Type I error) despite exceeding nominal thresholds",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic scale-factor or calibration offset between lab and obs instrument variants; pendulum_lab and resonator_obs happen to share a compatible scale or transduction pathway by accident or design, masking a broader miscalibration in the pendulum_obs or resonator_lab instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Lab and obs instrument variants are physically or environmentally distinct (different mounting geometry, thermal coupling, or resonance mode); pendulum_lab–resonator_obs correlation arises from coincidental alignment of their unique physical sensitivities",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data recording or analysis artifact; the 0.895 correlation reflects a computational error, labeling error, or accidental cross-contamination between pendulum_lab and resonator_obs data streams during post-processing",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental disturbance or instrumental instability on day 35 affecting resonator_obs disproportionately; pendulum_lab elevated variance is precursor or correlated signal",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The 0.895 pendulum_lab–resonator_obs correlation at 3-day offset remains a genuine but puzzling cross-instrument coherence; day 35 perturbation is a new manifestation of the same underlying driver or coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrumental calibration drift or electronic aging in resonator_obs; resonator_lab has remained stable, leaving resonator_obs unchecked and now showing end-of-campaign degradation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data recording or analysis artifact; today's resonator_obs day 35 cluster reflects a computational error (e.g., mis-indexed or mis-scaled trials 205–210) or sensor malfunction that corrupted only that subset",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement instability or threshold-crossing in one of the pendulum or resonator instruments, possibly in the data-acquisition interface rather than the physical sensor; a recording glitch caused today's readings to be systematically shifted or duplicated",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental transient (thermal, vibration, electromagnetic, or humidity spike) on day 35 affected all four instruments with different time constants and sensitivities.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: The 0.951 pendulum_lab–resonator_obs correlation at 3-day offset represents genuine instrumental or environmental coupling; day 35 excursion is a new manifestation of the same underlying signal driver, confirming the coherence.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "H3: Resonator_obs has drifted or aged (capacitor leakage, amplifier gain drift, ADC reference drift, or battery degradation) and today's day 35 excursion is the first visible manifestation of end-of-campaign component failure.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Data recording or analysis artifact corrupted today's resonator_obs day 35 readings (trials 205–210); mis-indexing, scaling error, or sensor multiplexing glitch created a spurious cluster.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Multi-channel data-acquisition system error (power glitch, ADC calibration drift, or timestamp sync error) affected all four instruments simultaneously, producing correlated but non-uniform perturbations.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H1: Shared environmental transient (thermal, vibration, EM, or humidity spike) on day 35 affected all four instruments with instrument-specific time constants and sensitivities.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "H2: The pendulum_lab–resonator_obs 0.951 correlation at 3-day lag is genuine instrumental or environmental coupling; day 35 excursion is a new manifestation of the same underlying signal driver, confirming coherence.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "H3: Resonator_obs component aging or drift (capacitor leakage, amplifier gain drift, ADC reference drift, battery degradation) manifested as end-of-campaign failure on day 35.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H4: Data recording or analysis artifact corrupted day 35 readings across all four instruments; mis-indexing, scaling error, sensor multiplexing glitch, or batch-processing error created spurious clusters.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "H5: Multi-channel data-acquisition system error (power glitch, ADC calibration drift, timestamp sync error) affected all instruments simultaneously.",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

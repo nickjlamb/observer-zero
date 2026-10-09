@@ -1,0 +1,327 @@
+{
+  "source": "wa-seed2005.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 11,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Slow environmental modulation (period ~12 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not to resonator frequency response",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Slow environmental modulation (period ~10–14 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrumental malfunction or calibration drift in pendulum electronics unrelated to external environment",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Physical decoupling: pendulum and resonator measure genuinely different quantities (not time or oscillation, but different aspects of the system)",
+        "primary": "incomplete_theory",
+        "second": "incomplete_theory"
+      },
+      {
+        "label": "Pendulum instruments drifted systematically during baseline period (days 1–10), undetected; shift at day 12 is continuation or saturation of that drift",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum and resonator instruments measure genuinely independent physical degrees of freedom with independent environmental coupling; resonators remain physically or thermally decoupled from the day-12 perturbation",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Residual: calibration procedure, environmental coupling, or external perturbation not yet characterized",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not resonator frequency response",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pendulum baseline (days 1–10) incompletely converged; undetected smooth drift ramped toward saturation point around day 12, creating illusion of discrete step",
+        "primary": "incomplete_theory",
+        "second": "self_error"
+      },
+      {
+        "label": "Slow environmental modulation (period ~10–14 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 26,
+  "l4Judged": 26,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental isolation / independent noise sources",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic measurement error in one or more instruments (e.g., drift, bias, calibration drift undetected within 10-day baseline)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Physical decoupling: pendulum and resonator measure genuinely different quantities (not time or oscillation, but different aspects of the system)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Residual: calibration procedure, environmental coupling, or external perturbation not yet characterized",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Environmental or instrumental perturbation affecting pendulum systems only around day 11–12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum instruments drifted systematically during baseline period (days 1–10), undetected; shift at day 12 is continuation or saturation of that drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Weak cross-correlation between pendulum_lab and pendulum_obs reflects genuine independent measurement noise, not a shared signal failure",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments are decoupled from the physical system that perturbed pendulums, or resonators are insensitive to that perturbation",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration baseline (days 1–10) is too short; an undetected 10–12 day thermal or environmental cycle is ramping up and causes the day-12 shift",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental or instrumental perturbation on day 11–12 affecting pendulum systems specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) contaminated by undetected slow drift; day-12 shift is saturation or nonlinear manifestation of that drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum instruments are genuinely measuring the same underlying oscillation with independent measurement noise; the level shift is real, but cross-correlation weakness reflects independent environmental noise or sensor nonlinearity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator instruments are decoupled, less sensitive, or better shielded than pendulums; perturbation on day 12 is real but resonators do not couple to it or suppress it",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected environmental cycle with period 10–12 days ramping up; day-12 shift reflects nonlinear phase transition or sampling coincidence near cycle peak",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental or instrumental perturbation on day 11–12 affecting pendulum systems specifically",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) contaminated by undetected smooth drift; day 12 apparent shift reflects saturation or equilibration of that drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum instruments genuinely measure the same oscillation with independent sensor noise; level shift is real physical event; weak cross-correlation reflects independent environmental noise or sensor nonlinearity coupling differently to each measurement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator instruments are physically decoupled, less sensitive, or better shielded than pendulums; day-12 perturbation is real but resonators do not couple to it or actively suppress it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Undetected slow environmental cycle (period 10–12 days or longer) ramping or modulating; day-12 shift reflects nonlinear phase transition or sampling coincidence near cycle peak",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not to resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth undetected drift ramped toward a saturation point around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Systematic difference in measurement target or sensor physics: pendulums and resonators are genuinely measuring different physical quantities with independent noise; apparent partitioning reflects independent measurement modes, not instrumental failure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator instruments possess superior isolation or faster equilibration; day-12 perturbation is real but resonators either do not couple to it or have already settled to a steady state immune to the perturbation by day 1",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Undetected slow environmental modulation (period ~12 days or longer) with nonlinear or threshold response, or high-order resonance between baseline window and day-12 sampling phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not to resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; undetected smooth drift ramped toward saturation point around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulums and resonators genuinely measure different physical quantities with independent noise; apparent partitioning reflects independent measurement modes and degrees of freedom, not instrumental failure",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator instruments possess superior isolation or faster equilibration; day-12 perturbation is real but resonators do not couple to it or have already settled immune to it by day 1",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Slow environmental modulation (period ~12 days or longer) with nonlinear threshold response; baseline window under-sampled the cycle, creating apparent step at day 12 due to phase coincidence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not to resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators genuinely measure independent physical quantities with independent noise; apparent partitioning reflects decoupled measurement modes and degrees of freedom",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth drift ramped toward saturation around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator instruments possess superior isolation or faster equilibration; day-12 perturbation is real but resonators do not couple to it",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Slow environmental modulation (period ~12 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators measure genuinely independent physical quantities with independent noise and coupling characteristics; day-12 perturbation is real but resonators physically decouple from it",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth drift ramped toward saturation around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Slow environmental modulation (period ~10–14 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental malfunction or calibration drift in pendulum electronics unrelated to external environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators measure genuinely independent physical quantities with independent noise and coupling characteristics; day-12 perturbation is real but resonators physically decouple from it",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth drift ramped toward saturation around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Slow environmental modulation (period ~10–14 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instrumental malfunction or calibration drift in pendulum electronics unrelated to external environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 coupling selectively to pendulum inertia/damping but not resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulums and resonators measure genuinely independent physical degrees of freedom with independent environmental coupling; day-12 perturbation is real but selectively couples to pendulum mass/damping while resonators remain physically decoupled",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth drift ramped toward saturation around day 12, creating illusion of discrete step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Slow environmental modulation (period ~10–14 days or longer) with nonlinear threshold response; baseline under-sampled the cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real localized environmental perturbation on day 11–12 selectively coupling to pendulum inertia/damping but not resonator frequency response",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Pendulum baseline (days 1–10) incompletely converged; smooth drift ramped toward saturation around day 12, creating apparent step",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement artifact: pendulum baseline values recorded at systematically different instrument state or environmental conditions (e.g., different calibration mode, different observer protocol, or different ambient baseline state) than post-baseline values, creating spurious step",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely independent physical degrees of freedom with independent environmental coupling; resonators remain physically or thermally decoupled from the day-12 perturbation",
+      "class": "incomplete_theory"
+    }
+  ]
+}

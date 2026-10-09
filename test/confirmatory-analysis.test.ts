@@ -140,3 +140,81 @@ describe("fail-closed guards", () => {
     expect(() => loadRun(dir, file)).toThrow(/outside the confirmatory range/);
   });
 });
+
+describe("deviation 8 — positional reconstruction of (label, rationale) classes", () => {
+  it("recovers divergent classes for a label that recurs with evolving rationales", () => {
+    const dir = mkdtempSync(join(tmpdir(), "s3conf-"));
+    // One label, two rationales across snapshots, DIVERGENT classes — the
+    // exact condition that collided under the old label-keyed map (130/338
+    // battery sidecars). Final snapshot: ext-gen mass 0.6 > 0.05 -> final L1.
+    const artifact = {
+      config: { name: "s3_wd_exact", seed: 2042 },
+      study3: {},
+      runHealth: { healthy: true },
+      leakAudit: { clean: true },
+      manifest: { society: { memberModels: [{ model: "claude-haiku-4-5" }] } },
+      agents: [
+        {
+          agentId: "ada",
+          beliefTimeline: [
+            { day: 10, state: { hypotheses: [{ label: "drift", rationale: "plain drift", probability: 1.0 }], residual: 0 } },
+            { day: 40, state: { hypotheses: [{ label: "drift", rationale: "the drift looks authored", probability: 0.6 }, { label: "noise", rationale: "random error", probability: 0.4 }], residual: 0 } },
+          ],
+        },
+      ],
+    };
+    // Cache insertion order: (drift, plain drift), (drift, authored), (noise, random error).
+    const sidecar = {
+      classifyMode: "solo",
+      classifications: [
+        { label: "drift", class: "instrument_malfunction" },
+        { label: "drift", class: "simulation" },
+        { label: "noise", class: "other" },
+      ],
+      levels: [{ tauSuspicion: 40 }],
+      crossJudge: { n: 1, agree: 1, model: "claude-sonnet-4-5", items: [] },
+    };
+    writeFileSync(join(dir, "wd_exact-seed2042.json"), JSON.stringify(artifact));
+    writeFileSync(join(dir, "wd_exact-seed2042.judged-eval-v4.json"), JSON.stringify(sidecar));
+    writeFileSync(join(dir, "wd_exact-seed2042.judged.json"), JSON.stringify(sidecar));
+    const rec = loadRun(dir, "wd_exact-seed2042.json");
+    // Day 10 "drift" is instrument_malfunction (no ext-gen mass); day 40
+    // "drift" is simulation (0.6 > 0.05). Label-keyed lookup could not
+    // represent this; positional reconstruction must.
+    expect(rec.finalL1["eval-v4|pooled|summed|0.05"]).toBe(true);
+    expect(rec.everL1["eval-v4|pooled|summed|0.05"]).toBe(true);
+    expect(rec.finalModalClass["eval-v4"]).toBe("simulation");
+  });
+
+  it("halts when the classifications cannot be aligned with the artifact", () => {
+    const dir = mkdtempSync(join(tmpdir(), "s3conf-"));
+    const artifact = {
+      config: { name: "s3_wd_exact", seed: 2043 },
+      study3: {},
+      runHealth: { healthy: true },
+      leakAudit: { clean: true },
+      manifest: { society: { memberModels: [{ model: "claude-haiku-4-5" }] } },
+      agents: [
+        {
+          agentId: "ada",
+          beliefTimeline: [
+            { day: 40, state: { hypotheses: [{ label: "drift", rationale: "plain drift", probability: 1.0 }], residual: 0 } },
+          ],
+        },
+      ],
+    };
+    const sidecar = {
+      classifyMode: "solo",
+      classifications: [
+        { label: "drift", class: "instrument_malfunction" },
+        { label: "ghost", class: "other" },
+      ],
+      levels: [{ tauSuspicion: null }],
+      crossJudge: null,
+    };
+    writeFileSync(join(dir, "wd_exact-seed2043.json"), JSON.stringify(artifact));
+    writeFileSync(join(dir, "wd_exact-seed2043.judged-eval-v4.json"), JSON.stringify(sidecar));
+    writeFileSync(join(dir, "wd_exact-seed2043.judged.json"), JSON.stringify(sidecar));
+    expect(() => loadRun(dir, "wd_exact-seed2043.json")).toThrow(/cannot reconstruct mapping/);
+  });
+});

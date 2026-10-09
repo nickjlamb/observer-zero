@@ -1,0 +1,385 @@
+{
+  "source": "wb-seed2002.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 13,
+    "agree": 8,
+    "items": [
+      {
+        "label": "Real, unified environmental change (gravity or air density) around day 12, affecting pendulums and resonators via opposite physical coupling mechanisms",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real physical shift in the measured quantity on day 12 — Meridian experienced an environmental, infrastructural, or settlement-wide event that permanently altered the pendulum periods and resonator frequencies.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data-logging, timestamp, or unit-conversion error in my own data pipeline affecting the day-12 boundary or baseline binning; observed shifts are processing artifacts",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Multiple independent environmental processes (e.g., barometric pressure and magnetic field) each crossed observability thresholds around day 12, affecting pendulums and resonators via independent mechanisms.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real physical environmental change (gravity, air density, or magnetic field) around day 12 affecting pendulums and resonators oppositely, unrelated to pre-day-12 within-lab divergence",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance, with day-12 'step' reflecting drift acceleration or change in drift direction rather than true discontinuity",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Multiple independent environmental processes (e.g., barometric pressure + magnetic field) began to interact or cross observability thresholds around day 12, each affecting pendulums and resonators differently",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Data-logging, timestamp, unit-conversion, or binning error in the data pipeline affecting the day-12 boundary or baseline segmentation; observed shifts are processing artifacts",
+        "primary": "instrument_malfunction",
+        "second": "self_error"
+      },
+      {
+        "label": "Environmental or instrumental periodic cycle (6-day period) introducing correlated noise or phase lag",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Instrument-specific drift began during baseline (days 1–10); day-12 'step' is a statistical artifact of binning, not a real discontinuity",
+        "primary": "measurement_error",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Undocumented procedural or calibration asymmetry applied between days 11–12, transforming resonator data oppositely to pendulum data in response to a common driver.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Real physical environmental change around day 12 (e.g., gravity, air density, or magnetic field perturbation) that affects pendulums and resonators oppositely, plus a separate unknown process causing the pre-day-12 within-lab divergence.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Multiple independent environmental drivers (barometric pressure AND magnetic field, or other pairs) crossed observability thresholds simultaneously on day 12, affecting pendulums and resonators via decoupled mechanisms.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 30,
+  "l4Judged": 30,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic offset or calibration divergence between lab and observational setups",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental or instrumental periodic cycle (6-day period) introducing correlated noise or phase lag",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Incomplete or incorrect baseline protocol—baseline contaminated by transient behavior or measured under unrepresentative conditions",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Two or more measurement environments are responding to a shared external stimulus with different time constants or delays",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical shift in the measured quantity on day 12 — Meridian experienced an environmental, infrastructural, or settlement-wide event that permanently altered the pendulum periods and resonator frequencies.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural change in my measurement protocol on day 11–12 — I changed observer, location, calibration procedure, timing window, or data recording method on or before day 12, introducing a step offset that mimics a physical shift.",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline contamination: the 10-day baseline (days 1–10) does not represent true equilibrium, and day 12 readings reflect the system finally settling into its true state.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement error in my post-baseline protocol — I began recording day 12 data in a new physical location or with a different observer/apparatus, introducing a systematic artifact rather than capturing a real change.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unknown confound or mechanism not yet considered.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Real physical shift in measured quantity on day 12 — settlement-wide environmental or infrastructural event",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change on day 11–12 affecting all instruments, but with opposite systematic bias by measurement type",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific drift began in baseline window; day-12 'step' is artifact of data binning or analysis window boundary",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two independent environmental processes: one affecting resonators (persistent negative drift), one affecting pendulums (persistent positive drift), both coincidentally reaching observable magnitude on day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unidentified settlement-specific phenomenon, unknown instrumental artifact, or data recording error specific to day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical environmental change around day 12 affecting gravity/inertial properties or magnetic field, to which pendulums and resonators respond oppositely",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or setup change on day 11–12 (or unrecorded earlier change) affecting pendulum and resonator measurements asymmetrically",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific drift began during baseline (days 1–10); day-12 'step' is a statistical artifact of binning, not a real discontinuity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Two independent environmental processes: one affecting resonators (e.g., damping, magnetic field), one affecting pendulums (e.g., gravity, air density), coincidentally detectable on day 12",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unidentified settlement-specific event, instrumental artifact, or data anomaly on day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Procedural or setup change between day 11–12 affecting pendulum and resonator measurements asymmetrically, or an unrecorded earlier change (days 1–10) that created the within-lab divergence.",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical environmental change around day 12 (e.g., gravity, air density, or magnetic field perturbation) that affects pendulums and resonators oppositely, plus a separate unknown process causing the pre-day-12 within-lab divergence.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Instrument-specific drift began during baseline (days 1–10); the day-12 'step' is a statistical artifact of binning, not a real discontinuity. The pre-day-12 divergence reflects ongoing drift that accelerated or changed direction around day 12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-logging error, timestamp corruption, or unit conversion bug affecting either the day-12 boundary or the baseline-vs-post-baseline binning. The divergence and shift are partially or wholly artifacts of how I processed the raw data.",
+      "class": "self_error"
+    },
+    {
+      "label": "Two or more independent environmental processes—e.g., barometric pressure rise + magnetic field change—that affect pendulums and resonators differently and happened to cross observability thresholds around day 12.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical environmental change (gravity, air density, or magnetic field) around day 12 affecting pendulums and resonators oppositely, unrelated to pre-day-12 within-lab divergence",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural or calibration change affecting pendulum and resonator labs asymmetrically between days 11–12 (or earlier, unrecorded), causing divergent response to a common environmental driver",
+      "class": "self_error"
+    },
+    {
+      "label": "Continuous instrumental drift present during baseline (days 1–10) in both pendulum and resonator systems; day-12 'step' is a statistical artifact of binning or represents acceleration of pre-existing drift",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging, timestamp, or unit-conversion error in my own data pipeline affecting the day-12 boundary or baseline binning; the observed shifts are artifacts of data processing",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple independent environmental processes (e.g., barometric pressure + magnetic field) began to interact or cross observability thresholds around day 12, each affecting pendulums and resonators differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real environmental change (gravity or air density) around day 12, affecting pendulums and resonators via opposite physical mechanisms",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Calibration or procedural asymmetry applied between days 11–12 (or earlier, unrecorded), causing pendulum and resonator labs to respond oppositely to a common environmental driver",
+      "class": "self_error"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10), with day-12 'step' reflecting acceleration, direction-change, or binning artifact rather than true discontinuity",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging, timestamp, or unit-conversion error in my own data pipeline affecting the day-12 boundary or baseline binning; observed shifts are processing artifacts",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple independent environmental processes (barometric pressure, magnetic field, thermal effects) began or crossed observability thresholds around day 12, each affecting pendulums and resonators differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real, unified environmental change (gravity or air density) around day 12, affecting pendulums and resonators via opposite physical coupling mechanisms",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented procedural or calibration asymmetry applied between days 11–12, causing opposite mathematical transformations to pendulum and resonator data in response to a common environmental driver",
+      "class": "self_error"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance, with day-12 'step' reflecting drift acceleration or change in drift direction rather than true discontinuity",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data-logging, timestamp, unit-conversion, or binning error in the data pipeline affecting the day-12 boundary or baseline segmentation; observed shifts are processing artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental processes (e.g., barometric pressure increase and magnetic field change) began or crossed observability thresholds around day 12, each affecting pendulums and resonators differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real, unified environmental change (gravity or air density) around day 12, affecting pendulums and resonators via opposite physical coupling mechanisms",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented procedural or calibration asymmetry applied between days 11–12, causing opposite mathematical transformations to pendulum and resonator data in response to a common environmental driver",
+      "class": "self_error"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance, with day-12 'step' reflecting drift acceleration or change in drift direction rather than true discontinuity",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-logging, timestamp, unit-conversion, or binning error in the data pipeline affecting the day-12 boundary or baseline segmentation; observed shifts are processing artifacts",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental processes (e.g., barometric pressure increase and magnetic field change) began or crossed observability thresholds around day 12, each affecting pendulums and resonators differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real, unified environmental change (gravity or air density) around day 12, affecting pendulums and resonators via opposite physical coupling mechanisms.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undocumented procedural or calibration asymmetry applied between days 11–12, transforming resonator data oppositely to pendulum data in response to a common driver.",
+      "class": "self_error"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance, with day-12 'step' reflecting drift acceleration or change in drift direction rather than true discontinuity.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Data-logging, timestamp, unit-conversion, or binning error in the data pipeline affecting the day-12 boundary or baseline segmentation; observed shifts are processing artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental processes (barometric pressure, magnetic field, thermal effects) each crossing observability thresholds around day 12, affecting pendulums and resonators differently.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Four independent streams are measuring genuinely uncorrelated physical processes, each responding to true environmental perturbation(s) only at the level of systematic baseline shift, not trial-by-trial variance.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Procedural/calibration asymmetry applied between days 11–12, inverting or transforming resonator data relative to pendulum data in response to a common environmental driver; or a unidocumented data-processing change affected resonators only.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance analysis; the day-12 'step' is an acceleration in existing drift or a reversal of drift direction, not a true discontinuity.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging, timestamp, unit-conversion, or binning error in the data pipeline at the day-11/12 boundary; observed level shifts are processing artifacts, not physical signals.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental processes (e.g., barometric pressure and magnetic field) each crossed observability thresholds around day 12, affecting pendulums and resonators via independent mechanisms.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unified environmental perturbation on day 12 (e.g., barometric pressure or gravity anomaly) caused synchronized level shift; trial-by-trial variance is dominated by uncorrelated local noise, not shared environmental fluctuations.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or calibration asymmetry applied between days 11–12 (unit flip, gain inversion, or reference change in resonator pipeline only), producing inverse response in resonators relative to pendulums despite a shared environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pre-existing instrumental drift during baseline (days 1–10) masked by pooled variance; the day-12 'step' reflects acceleration or reversal of existing drift, not a true discontinuity.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging, timestamp, unit-conversion, or binning error at day-11/12 boundary (e.g., clock-skew, mislabeled date field, unit-conversion factor applied retroactively); observed level shifts are processing artifacts.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental drivers (e.g., barometric pressure AND magnetic field) crossed observability thresholds on or near day 12, affecting pendulums and resonators via different mechanisms; apparent opposition is true physical decoupling.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Day-12 event was a true unified environmental perturbation (gravity/barometric anomaly); day-40 residual scatter is random noise within a new stable equilibrium.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Procedural or calibration asymmetry applied to resonators only between days 11–12 (unit flip, gain inversion, or reference change); both resonators show identical calibration transform despite independent setup, producing apparent opposite response to shared environmental driver.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline estimation during days 1–10 was biased (drifting instruments pooled as if stationary); day-12 'step' reflects acceleration or trend reversal in pre-existing drift, not a true discontinuity.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Data-logging, timestamp, or unit-conversion error at day-11/12 boundary (clock-skew, mislabeled date field, retroactive unit conversion, or binning-algorithm flip) produced spurious level shifts across all streams.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple independent environmental drivers (barometric pressure AND magnetic field, or other pairs) crossed observability thresholds simultaneously on day 12, affecting pendulums and resonators via decoupled mechanisms.",
+      "class": "environmental_change"
+    }
+  ]
+}

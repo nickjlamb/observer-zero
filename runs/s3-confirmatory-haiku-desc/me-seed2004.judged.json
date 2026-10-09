@@ -1,0 +1,360 @@
+{
+  "source": "me-seed2004.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 12,
+    "agree": 9,
+    "items": [
+      {
+        "label": "Data entry or trial-to-day assignment error in baseline epoch (days 1–10) or systematic offset in calibration record, causing apparent shift that reflects only regression to true population mean",
+        "primary": "self_error",
+        "second": "social_process"
+      },
+      {
+        "label": "Real but uncorrelated physical state transitions in subsets of measured systems (day 23–25 local to each instrument)",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unobserved external event (maintenance, thermal transient, electromagnetic disturbance, recalibration) on days 23–25 affecting lab and observational apparatus differently",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine environmental or instrumental phase transition on day 18; instruments remain noise-limited but operating point shifted",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undetected instrumental calibration drift or systematic error is spreading noise uniformly across all streams",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum and resonator instruments measure genuinely decoupled physical subsystems; shifts reflect state changes in only some subsystems",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unobserved external event (maintenance, calibration procedure, thermal malfunction, or grid disturbance) on days 23–29 that affected lab and observational systems differently, leaving persistent side-effects through day 33",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Unobserved maintenance, calibration procedure, or subsystem state-change on days 23–29 with permanent consequence (e.g., calibration constants applied with sign error, or subsystem left in altered state) — now with asymmetric impact on the two instruments",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Distinct transient disturbances (thermal, electromagnetic, or mechanical shock) hitting each instrument on its own timeline with slow exponential or power-law relaxation back to baseline",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Distinct transient disturbances (thermal, mechanical, or EM shock) with independent relaxation timescales",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Real physical state transitions in each instrument, driven by distinct environmental couplings to settlement subsystems that underwent changes on different days (day 23 for resonator_obs, day 29 for pendulum_lab)",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Distinct transient disturbances affecting each instrument on its own timeline (thermal overshoot in lab ~day 29, electromagnetic impulse at observational site ~day 28), each causing an initial excursion followed by slow relaxation back toward baseline",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 29,
+  "l4Judged": 29,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep across the 7-day window",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Cross-instrument disagreement reflects genuine physical decoupling or incompatible measurement modes",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "High measurement resolution is masking reproducibility; readings are quasi-random within a narrow band",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Environmental or systematic factors coupling weakly to multiple instruments on offset timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Instruments are noise-limited; readings reflect instrumental resolution floor rather than persistent physical state",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement environment is too noisy or unstable to permit correlation detection at current n; signal exists but is buried below noise floor",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments measure genuinely independent physical phenomena; near-zero cross-correlations reflect true decoupling, not measurement error",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected instrumental calibration drift or systematic error is spreading noise uniformly across all streams",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental driver couples weakly to instruments on offset timescales; correlations are genuinely present but weak",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine environmental or instrumental phase transition on day 18; instruments remain noise-limited but operating point shifted",
+      "class": "environmental_change"
+    },
+    {
+      "label": "All four instruments are noise-limited throughout; level shifts are statistical flukes or sampling artifacts",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Instruments measure genuinely independent physical phenomena with decoupled timescales; shifts reflect state changes in only some subsystems",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Measurement environment underwent a discrete change on day 18 (e.g., temperature threshold, calibration event, or structural realignment) that affected some instruments more than others",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected systematic error in my own analysis (e.g., data entry, statistical test implementation, or baseline definition) is creating spurious shifts",
+      "class": "self_error"
+    },
+    {
+      "label": "Genuine discrete environmental or instrumental phase transition on day 18 affecting a subset of measurement channels",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Level shifts are statistical flukes or false positives from multiple-comparison burden and high-noise environment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum and resonator instruments measure genuinely decoupled physical subsystems; shifts reflect state changes in only some subsystems",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "A known or discoverable external event (e.g., scheduled maintenance, thermal cycling, calibration reset) on day 18 affected some instruments more than others",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my own analysis (data entry, statistical test implementation, baseline definition, or day-18 assignment) is creating spurious shifts",
+      "class": "self_error"
+    },
+    {
+      "label": "Discrete environmental or instrumental phase transition on day 18 affecting only lab-pair instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Level shifts are statistical flukes from multiple-comparison burden in high-noise environment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Lab and observational instruments measure genuinely decoupled physical subsystems; shifts reflect state changes in subset of subsystems only",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Known or discoverable external event on day 18 (maintenance, thermal cycling, calibration reset, structural realignment) affected lab instruments selectively",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic error in my analysis (baseline definition, level-shift calculation, day-18 assignment, or data entry)",
+      "class": "self_error"
+    },
+    {
+      "label": "Instrument-specific calibration or operating-point drift unrelated to shared environmental trigger",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real but uncorrelated physical state transitions in subset of measured systems on days 23–25",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical false positive from screening many breakpoints; shifts are random clustering in noise",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in my baseline window definition, level-shift calculation, or data entry",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved external event (maintenance, thermal transient, electromagnetic disturbance, recalibration) on days 23–25 affecting lab and observational apparatus differently",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent instrument-specific drift: each apparatus drifting on its own trajectory unrelated to shared environment",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real but uncorrelated physical state transitions in subsets of measured systems (day 23–25 local to each instrument)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Unobserved external event on days 23–25 (maintenance, thermal transient, EM disturbance, recalibration) affecting instruments selectively by design or accident",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical false positive from multiple comparisons screening (shifts are random clustering in noise at stable operating point)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Systematic error in baseline window definition, level-shift calculation, trial-to-day assignment, or data entry",
+      "class": "self_error"
+    },
+    {
+      "label": "Measurement artifact or uncontrolled transient in observational apparatus (resonator_obs) causing apparent shift and subsequent drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent instrument-specific drift or state change, unrelated between the two shifted instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical state transitions in each instrument, driven by distinct environmental couplings to settlement subsystems that underwent changes on different days (day 23 for resonator_obs, day 29 for pendulum_lab)",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Distinct transient disturbances affecting each instrument on its own timeline (thermal overshoot in lab ~day 29, electromagnetic impulse at observational site ~day 28), each causing an initial excursion followed by slow relaxation back toward baseline",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unobserved external event (maintenance, calibration procedure, thermal malfunction, or grid disturbance) on days 23–29 that affected lab and observational systems differently, leaving persistent side-effects through day 33",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Statistical false positive from multiple-comparisons screening, or data entry / calibration error in baseline window or trial-to-day assignment",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Genuine physical transient in resonator_obs causing initial downward excursion (day 28) followed by slow rebound; pendulum_lab showing independent drift or a slower transient with different thermal time constant",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent permanent calibration drift in each instrument (no shared cause, no transient recovery expected)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Distinct transient disturbances (thermal, electromagnetic, or mechanical shock) hitting each instrument on its own timeline with slow exponential or power-law relaxation back to baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected data entry or calibration error in baseline window or trial-to-day assignment, or regression to the mean after a statistical fluctuation in the baseline epoch itself",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab experienced a genuine transient ~day 29 that has *not* reversed; resonator_obs transient ~day 28 is actively recovering, but the two instruments are unrelated and had independent disturbances",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unobserved maintenance, calibration procedure, or subsystem state-change on days 23–29 affecting lab and observational systems selectively (permanent or semi-permanent side-effect)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: Something unconsidered (measurement artifact in trial-to-day mapping, environmental coupling I have not characterized, or genuinely exotic physics at settlement Meridian)",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Distinct transient disturbances (thermal, mechanical, or EM shock) affecting each instrument independently, with slow power-law or exponential relaxation back to baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Independent permanent or semi-permanent calibration drift in each instrument (no shared cause, no recovery expected after initial shift)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab experienced genuine transient ~day 29 that remains in slow recovery or has reached a new plateau; resonator_obs experienced independent transient ~day 28 with faster or more complete recovery—two instruments respond differently to similar disturbances or experience genuinely independent events",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Data entry or trial-to-day assignment error in baseline epoch (days 1–10) or systematic offset in calibration record, causing apparent shift that reflects only regression to true population mean",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved maintenance, calibration procedure, or subsystem state-change on days 23–29 with permanent or semi-permanent side-effect (e.g., calibration constants applied with opposite signs, or thermal/mechanical system left in altered state)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unknown unknowns (measurement artifact not yet characterized, environmental coupling unrecognized, or genuinely exotic physics at Meridian)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Distinct transient disturbances (thermal, mechanical, or EM shock) with independent relaxation timescales",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Permanent or semi-permanent calibration drift in pendulum_lab; independent transient in resonator_obs with relaxation",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Both instruments experienced transient disturbances with damped oscillatory recovery; pendulum_lab has longer timescale or higher damping, causing overshoot and slower return to baseline",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data entry or trial-to-day assignment error in baseline epoch (days 1–10) or systematic offset in calibration record, causing apparent level change to reflect only noise or baseline bias",
+      "class": "self_error"
+    },
+    {
+      "label": "Unobserved maintenance, calibration procedure, or subsystem state-change on days 23–29 with permanent consequence (e.g., calibration constants applied with sign error, or subsystem left in altered state) — now with asymmetric impact on the two instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unknown unknowns (measurement artifact not yet characterized, environmental coupling unrecognized, or genuinely exotic physics at Meridian)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

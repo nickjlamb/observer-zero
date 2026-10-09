@@ -1,0 +1,231 @@
+{
+  "source": "wd_degraded-seed2006.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 7,
+    "agree": 4,
+    "items": [
+      {
+        "label": "The anomalous r=0.966 pendulum_lab ↔ resonator_obs correlation at 3-day offset reflects systematic data-logging error: timestamps or trial indices are offset or interleaved, creating spurious alignment without physical basis",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Pendulum_lab is drifting or destabilizing: day 33 and day 40 excursions represent genuine instrumental deterioration or environmental coupling that is now recurring.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Data logging or timestamping error: pendulum_lab trial 233–238 (day 33) or their timestamps were recorded out of sequence or mislabeled, creating false scatter that will vanish upon inspection of raw logs",
+        "primary": "social_process",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Coincidental numerical alignment in post-baseline period: random scatter in two independent instruments happened to align at a 3-day offset by chance, and the reported r = 0.966 reflects multiple-hypothesis testing without correction",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Data logging or trial-sequencing error in pendulum_lab: trials 345–356 (or a subset thereof) were recorded out of temporal order or mislabeled with respect to day 40, creating false scatter that will disappear upon inspection of raw event logs and timestamps.",
+        "primary": "self_error",
+        "second": "social_process"
+      },
+      {
+        "label": "The r=0.966 pendulum_lab ↔ resonator_obs correlation at 3-day offset reflects data-logging corruption in one or both instruments, now suspected of having contaminated day 33 and day 40 readings as well.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Multiple-hypothesis testing bias: the r=0.966 correlation represents the maximum over many tested offset-pair combinations and should not be interpreted as a genuine signal without permutation testing explicitly corrected for the number of tests performed",
+        "primary": "measurement_error",
+        "second": "self_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 15,
+  "l4Judged": 15,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic measurement method differences between lab and observational setups in each domain (pendulum vs resonator) cause persistent divergence, not true physical drift",
+      "class": "self_error"
+    },
+    {
+      "label": "Each instrument's readings are contaminated by a periodic or quasi-periodic environmental noise mode at a period near 6–7 days, causing systematic anti-correlation with earlier cycles",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement precision is insufficient to resolve genuine physical variation; all readings are noise, and apparent patterns (echoes, cross-correlations) are statistical artifacts from small sample sizes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments are malfunctioning or miscalibrated in a way that does not yet show as level shift but corrupts day-to-day coherence",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Common ~6-day environmental oscillation phase-shifted across instruments",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or reference-frame differences between lab and observational setups within each domain",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement precision insufficient to resolve genuine variation; apparent patterns are statistical scatter in small samples",
+      "class": "measurement_error"
+    },
+    {
+      "label": "One or more instruments has subtle malfunction (hysteresis, mode-lock, nonlinear response) not yet visible as baseline drift",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unmeasured factor (e.g., human protocol drift, data-logging artifact, unknown environmental cycle specific to Meridian settlement)",
+      "class": "self_error"
+    },
+    {
+      "label": "Transient environmental perturbation (thermal, mechanical, or electromagnetic) began ~day 20–21 and is now visible as elevated scatter on day 22",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration drift in resonator instruments specifically (not pendulum); lab resonator and obs resonator are now showing independent upward creep",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement precision at or below instrument resolution; day 22 cluster reflects statistical upward fluctuation in small sample, not signal",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator instruments have begun to show early-stage malfunction (hysteresis buildup, mode instability, or nonlinear response saturation); pendulum instruments are unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Operator or logging protocol change on day 22 (e.g., warm-up procedure altered, measurement timing changed, data-transfer latency introduced); readings now systematic ally skewed by ~0.01–0.03 toward higher values",
+      "class": "social_process"
+    },
+    {
+      "label": "Residual: unknown settlement-specific environmental cycle (e.g., water circulation, food-storage cooling, power management) with shorter period than the ~6-day mode observed in baseline, now entering an active phase",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic data-logging or time-stamp error: pendulum_lab and resonator_obs records are offset or interleaved in a way that creates spurious alignment at 3-day lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs are mechanically or electromagnetically coupled through an unidentified settlement subsystem; the 3-day lag reflects propagation or resonance delay in that coupling",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Coincidental numerical alignment in post-baseline period: random scatter in two independent instruments happened to align at a 3-day offset by chance, and the reported r = 0.966 reflects multiple-hypothesis testing without correction",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Resonator_obs readings are contaminated by or mislabeled; they are actually re-recorded or derived from pendulum_lab data with a 3-day offset applied",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Unknown settlement-specific coupling mechanism (acoustic, vibration, thermal, or power-system feedback) creates a 3-day phase-lagged correlation between lab pendulum and obs resonator specifically",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Residual: unidentified artifact or mechanism",
+      "class": "other"
+    },
+    {
+      "label": "Day 33 measurement session experienced genuine environmental disturbance (thermal, vibration, or electromagnetic spike) that perturbed pendulum_lab but did not propagate to other instruments or did so with delay",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Data logging or timestamping error: pendulum_lab trial 233–238 (day 33) or their timestamps were recorded out of sequence or mislabeled, creating false scatter that will vanish upon inspection of raw logs",
+      "class": "social_process"
+    },
+    {
+      "label": "The anomalous r=0.966 pendulum_lab ↔ resonator_obs correlation at 3-day offset reflects systematic data-logging error: timestamps or trial indices are offset or interleaved, creating spurious alignment without physical basis",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Mechanical or electromagnetic coupling between lab and observatory facilities creates genuine 3-day phase-lagged correlation, with day-33 scatter in pendulum_lab and resonator_obs representing coupled response to a shared slow environmental driver",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Resonator_obs readings are contaminated by or derived from pendulum_lab data (through mislabeling, data migration error, or unit-conversion artifact), creating artificial correlation without independent measurement",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Multiple-hypothesis testing bias: the r=0.966 correlation represents the maximum over many tested offset-pair combinations and should not be interpreted as a genuine signal without permutation testing explicitly corrected for the number of tests performed",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab is drifting or destabilizing: day 33 and day 40 excursions represent genuine instrumental deterioration or environmental coupling that is now recurring.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Data logging or trial-sequencing error in pendulum_lab: trials 345–356 (or a subset thereof) were recorded out of temporal order or mislabeled with respect to day 40, creating false scatter that will disappear upon inspection of raw event logs and timestamps.",
+      "class": "self_error"
+    },
+    {
+      "label": "Environmental disturbance (thermal, vibration, electromagnetic) affected pendulum_lab on days 33 and 40, with a 7-day periodicity or trigger threshold, causing transient noise but not permanent drift.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "The r=0.966 pendulum_lab ↔ resonator_obs correlation at 3-day offset reflects data-logging corruption in one or both instruments, now suspected of having contaminated day 33 and day 40 readings as well.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine instrumental drift or noise increase in pendulum_lab, now visible in day 40 data, indicates the instrument is beginning to degrade and will require recalibration or repair within the next ~20 days if the trend continues.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: an unconsidered explanation (e.g., calibration-reference drift in the time-measurement standard, batch contamination or loss of precision in the readout electronics, or a systematic human error in trial recording on days 33 and 40).",
+      "class": "instrument_malfunction"
+    }
+  ]
+}

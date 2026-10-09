@@ -1,0 +1,498 @@
+{
+  "source": "wb-seed2009.json",
+  "evalVersion": "eval-v3",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 18,
+    "agree": 13,
+    "items": [
+      {
+        "label": "Multiple-comparisons bias in lag/correlation analysis; day-12 level shift is real but unrelated to observed 6–8 day autocorrelation echoes",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Statistical artifact from multiple-comparisons bias: the 6–8 day lag structure and high cross-correlations are false positives from searching many offsets; the day-12 level shift is real but unrelated to the lag anomalies.",
+        "primary": "self_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Undetected hardware failure, instrumental coupling, calibration drift, transcription error, or physical phenomenon outside current framework",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Settlement-wide external event on day 12 (seismic, geothermal, electromagnetic, or infrastructure anomaly) causing permanent change in local physical properties or measurement environment",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undetected hardware failure, instrumental coupling, statistical error, or physical phenomenon outside current framework",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Observer or protocol drift: a gradual or step change in measurement technique, timing, data handling, or post-processing occurred between days 10 and 12, causing systematic biasing of readings in opposite directions for the two instrument types.",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Substrate phase transition or geotechnical compaction (day 12) altered local gravitational field and elastic modulus in coupled opposite-sign directions; subsequent 23-day stability reflects equilibrium lock-in.",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Undetected hardware change, calibration drift, or data-acquisition system reconfiguration on day 12 (e.g., clock frequency shift, resonator threshold adjustment, pendulum gate widening, or shared power-supply change) created complementary opposite-sign sensitivity changes.",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "A genuine physical quantity changed around day 12, affecting pendulum periods and resonator frequencies in opposite directions (inversion, phase transition, or sign-reversal in coupling constant).",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Statistical artifact: chance alignment of random data with a 6–8 day period, amplified by my own lag-searching procedure",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Genuine physical measurand change (gravitational, elastic, or inertial coupling) on day 12 with complementary opposite-sign response in pendulum vs. resonator systems",
+        "primary": "unknown_natural_process",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Temperature, pressure, or humidity shift on day 12 with opposite-sign instrumental sensitivity and change in measurement noise regime",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Genuine physical measurand change (gravitational, elastic, or inertial) on day 12 with opposite-sign coupling to pendulum vs. resonator response",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Temperature, pressure, or humidity threshold-crossing or phase transition on day 12 with opposite-sign instrumental sensitivity and tightened measurement noise regime",
+        "primary": "measurement_error",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Observer or protocol drift: inadvertent systematic change in measurement technique, timing, thresholding, or data handling between days 10–12",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "A genuine change in the measurand itself occurred around day 12, affecting pendulum periods and resonator frequencies in opposite directions (e.g., a physical quantity undergoing inversion or phase transition).",
+        "primary": "unknown_natural_process",
+        "second": "unknown_natural_process"
+      },
+      {
+        "label": "Undetected hardware change, calibration shift, or instrumental coupling between pendulum and resonator systems (shared clock drift, power supply change, mechanical cross-talk, or data-acquisition reconfiguration)",
+        "primary": "instrument_malfunction",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Environmental threshold crossing (temperature, pressure, humidity, radiation) or material phase transition on day 12 with sharp step-change and opposite-sign instrumental sensitivity; subsequent equilibration locked into new regime.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 56,
+  "l4Judged": 56,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Systematic calibration drift or baseline shift affecting all instruments in phase",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Independent random measurement noise in all four channels",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Measurement apparatus or environment couples to a common external oscillating or periodic driver with a 6–8 day cycle",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: systematic changes in how measurements are recorded, triggered, or post-processed over the 10-day baseline period",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact: chance alignment of random data with a 6–8 day period, amplified by my own lag-searching procedure",
+      "class": "self_error"
+    },
+    {
+      "label": "A genuine change in the measurand itself occurred around day 12, affecting pendulum periods and resonator frequencies in opposite directions (e.g., a physical quantity undergoing inversion or phase transition).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Measurement apparatus or environment couples to a common external periodic driver with a ~7 day cycle; the level shift at day 12 is coincidental or represents a superimposed trend masking the ongoing oscillation.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic calibration or instrumental drift in one or more channels: a hardware failure, environmental sensitivity shift, or baseline creep that affected post-day-11 readings across multiple streams in a coordinated way.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Statistical artifact: the 6–8 day lag structure and negative cross-correlations are false positives from multiple-comparisons inflation (searching many lags and offsets) combined with chance alignment in random data; the day-12 level shift is real but independent of the lag anomalies.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer or protocol drift: a gradual or step change in measurement technique, timing, data handling, or post-processing occurred between days 10 and 12, causing systematic biasing of readings in opposite directions for the two instrument types.",
+      "class": "self_error"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism (e.g., a phase transition in the settlement's environment, a nearby external event on day 12, instrumental coupling I have not mapped, or an error in my own statistical analysis of the notebook data).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "A genuine physical quantity changed around day 12, affecting pendulum periods and resonator frequencies in opposite directions (inversion, phase transition, or sign-reversal in coupling constant).",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic calibration or instrumental drift in one or both instrument pairs due to shared environmental sensitivity (e.g., temperature), with opposite-sign effects on pendulum vs. resonator response.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: a change in measurement technique, timing, data handling, or threshold settings between days 10 and 12 caused systematic biasing of readings in opposite directions for the two instrument types.",
+      "class": "self_error"
+    },
+    {
+      "label": "Statistical artifact from multiple-comparisons bias: the 6–8 day lag structure and high cross-correlations are false positives from searching many offsets; the day-12 level shift is real but unrelated to the lag anomalies.",
+      "class": "self_error"
+    },
+    {
+      "label": "An external event or environmental phase transition occurred on or just before day 12 (e.g., seismic, electromagnetic, gravitational anomaly, or settlement-wide power or thermal event), affecting the measurands simultaneously.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: an unconsidered mechanism (coupling between instrument pairs I have not mapped, undetected hardware failure affecting signal routing, error in my own statistical analysis, or a physical phenomenon outside my current framework).",
+      "class": "other"
+    },
+    {
+      "label": "Genuine physical change: a measurand inverted or underwent phase transition around day 12, affecting pendulum periods and resonator frequencies with opposite signs.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Systematic environmental shift around day 12 (temperature, pressure, or humidity spike) with opposite-sign coupling to pendulum vs. resonator sensitivity.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: inadvertent change in measurement technique, timing, thresholding, or data handling between days 10 and 12 caused systematic biasing of pendulum and resonator readings in opposite directions.",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparisons bias: lag anomalies (6–8 day autocorrelation echoes, high cross-correlations at offset 0) are false positives from extensive search over many offsets; day-12 level shift is real but unrelated to lag patterns.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "External event or environmental phase transition on day 12 (seismic, electromagnetic, gravitational anomaly, or settlement-wide thermal/power event) affecting measurands simultaneously.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: unconsidered mechanism (undetected hardware failure in signal routing, coupling between instrument pairs I have not mapped, error in my statistical analysis, or physical phenomenon outside current framework).",
+      "class": "other"
+    },
+    {
+      "label": "Genuine physical measurand change (gravitational, elastic, or inertial) on day 12 with opposite-sign coupling to pendulum vs. resonator response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental phase transition or settlement-wide event on day 12 (seismic, thermal, electromagnetic, or power disruption) affecting measurands simultaneously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic environmental shift (temperature, pressure, humidity) with opposite-sign instrumental sensitivity, coupled with change in measurement noise regime",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: inadvertent systematic change in measurement technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparisons bias in lag/correlation analysis; day-12 level shift is real but unrelated to observed 6–8 day autocorrelation echoes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected hardware failure, instrumental coupling, statistical error, or physical phenomenon outside current framework",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical measurand change (gravitational, elastic, or inertial) on day 12 with opposite-sign coupling to pendulum vs. resonator response",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Environmental phase transition or settlement-wide event on day 12 affecting measurands simultaneously",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Systematic environmental shift (temperature, pressure, humidity) with opposite-sign instrumental sensitivity, coupled with change in measurement noise regime",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or protocol drift: inadvertent systematic change in measurement technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Multiple-comparisons bias in lag/correlation analysis; day-12 level shift is real but unrelated to observed 6–8 day autocorrelation echoes",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undetected hardware failure, instrumental coupling, statistical error, or physical phenomenon outside current framework",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical measurand change (gravitational, elastic, or inertial coupling) on day 12 with opposite-sign response in pendulum vs. resonator systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide external event on day 12 (seismic, geothermal, electromagnetic, or power anomaly) causing permanent change in local physical properties or measurement environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Temperature, pressure, or humidity shift on day 12 with opposite-sign instrumental sensitivity, coupled with change in measurement noise regime",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Undetected hardware failure, instrumental coupling, calibration drift, transcription error, or physical phenomenon outside current framework",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Genuine physical measurand change (gravitational, elastic, or inertial coupling) on day 12 with complementary opposite-sign response in pendulum vs. resonator systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide external event on day 12 (seismic, geothermal, electromagnetic, or infrastructure anomaly) causing permanent change in local physical properties or measurement environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Temperature, pressure, or humidity shift on day 12 with opposite-sign instrumental sensitivity and change in measurement noise regime",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Undetected hardware failure, instrumental coupling, calibration drift, transcription error, or physical phenomenon outside current framework",
+      "class": "other"
+    },
+    {
+      "label": "Real physical transition in local gravitational or elastic properties on day 12 (subsidence, strain relief, or substrate phase change) causing coupled opposite-sign response in inertial vs. elastic systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide external event on day 12 (seismic, geothermal, structural, or infrastructure) caused permanent shift in local physical properties or measurement environment",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, calibration shift, or instrumental coupling between pendulum and resonator systems (shared clock drift, power supply change, mechanical cross-talk, or data-acquisition reconfiguration)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature, pressure, or humidity threshold-crossing or phase transition on day 12 with opposite-sign instrumental sensitivity and tightened measurement noise regime",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Arithmetic or transcription error in baseline, day-12 changepoint, or post-shift calculations; or undetected data-entry corruption",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Real physical transition in local gravitational or elastic properties on day 12 (subsidence, strain relief, substrate phase change, or seismic compaction) causing coupled opposite-sign response in inertial vs. elastic systems",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide external event on day 12 (seismic, geothermal, structural, infrastructure) caused permanent shift in local physical properties",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, calibration shift, or instrumental coupling (shared clock, power supply change, mechanical cross-talk, data-acquisition reconfiguration) on day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Temperature, pressure, humidity threshold-crossing or phase transition on day 12 with opposite-sign instrumental sensitivity and tightened measurement noise regime",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Real physical transition in local gravitational or elastic substrate properties on day 12 (subsidence, strain relief, compaction, phase change), causing coupled opposite-sign response in inertial vs. elastic systems",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Settlement-wide external event on day 12 (seismic, geothermal, structural disruption, or infrastructure change) causing permanent shift in local physical properties",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, calibration shift, or instrumental coupling (shared timing system, power supply change, mechanical cross-talk, or data-acquisition reconfiguration) on day 12",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing (temperature, pressure, humidity) or material phase transition on day 12 with opposite-sign instrumental sensitivity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12",
+      "class": "self_error"
+    },
+    {
+      "label": "Permanent substrate phase transition or compaction event (day 12) altered local g and elastic modulus in coupled opposite-sign directions. Subsequent 19-day stability and tightened scatter reflect equilibrium lock-in; weak inter-instrument agreement reflects noise-floor differences; absent self-periodicities reflect independent stochastic noise overlying common step signal.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Settlement-wide external event (seismic, geothermal, or structural disruption) on day 12 permanently altered local physical properties. Opposite-sign instrumental response arises from coupled opposite-sign sensitivity to a common environmental driver (e.g., compaction decreasing effective g, increasing density/stiffness in elastic system).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, calibration drift, or data-acquisition system reconfiguration on day 12 (e.g., clock frequency shift, resonator threshold adjustment, pendulum gate widening, or shared power-supply change) created complementary opposite-sign sensitivity changes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing or material phase transition (temperature, pressure, humidity) on day 12 with sharp step-change and opposite-sign instrumental sensitivity (e.g., temperature spike lengthens pendulum, reduces resonator stiffness).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer or measurement protocol drift: inadvertent systematic change in technique, timing, thresholding, or data handling between days 10–12 (e.g., threshold adjustment, gate widening, or systematic bias in human observers).",
+      "class": "self_error"
+    },
+    {
+      "label": "Substrate phase transition or geotechnical compaction (day 12) altered local gravitational field and elastic modulus in coupled opposite-sign directions; subsequent 23-day stability reflects equilibrium lock-in.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented settlement-wide external event (seismic, geothermal, structural, or infrastructure disruption) on day 12 permanently altered local effective gravitational and elastic properties.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, data-acquisition system reconfiguration, or calibration drift on day 12 (clock frequency shift, resonator threshold adjustment, pendulum gate widening, or shared power-supply modification) created complementary opposite-sign sensitivity changes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing (temperature, pressure, humidity, radiation) or material phase transition on day 12 with sharp step-change and opposite-sign instrumental sensitivity; subsequent equilibration locked into new regime.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer, measurement protocol, or data-handling error: inadvertent systematic change in technique, timing, thresholding, or data transcription between days 10–12.",
+      "class": "self_error"
+    },
+    {
+      "label": "Substrate phase transition or geotechnical compaction (day 12) altered local gravitational field and elastic modulus in coupled opposite-sign directions; subsequent 23-day stability reflects equilibrium lock-in.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented settlement-wide external event (seismic, geothermal, structural, or infrastructure disruption) on day 12 permanently altered local effective gravitational and elastic properties.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, data-acquisition system reconfiguration, or calibration drift on day 12 (clock frequency shift, resonator threshold adjustment, pendulum gate widening, or shared power-supply modification) created complementary opposite-sign sensitivity changes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing (temperature, pressure, humidity, radiation) or material phase transition on day 12 with sharp step-change and opposite-sign instrumental sensitivity; subsequent equilibration locked into new regime.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer, measurement protocol, or data-handling error: inadvertent systematic change in technique, timing, thresholding, or data transcription between days 10–12.",
+      "class": "self_error"
+    },
+    {
+      "label": "Substrate phase transition or geotechnical compaction on day 12 altered local gravitational field and elastic modulus in coupled opposite-sign directions; subsequent 25-day stability reflects mechanical equilibrium lock-in.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented settlement-wide external event (seismic, geothermal, structural, or infrastructure disruption) on day 12 permanently altered local effective gravitational and elastic properties.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, data-acquisition system reconfiguration, or calibration drift on day 12 (clock frequency, resonator threshold, pendulum gate, or shared power-supply modification) created complementary opposite-sign sensitivity changes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing (temperature, pressure, humidity) or material phase transition on day 12 with sharp step-change, opposite-sign instrumental sensitivity, and subsequent locked equilibrium.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer, measurement protocol, or data-handling error: inadvertent systematic change in technique, timing, thresholding, or transcription between days 10–12.",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Discrete substrate state-change (phase transition, compaction, or geotechnical shift) on day 12 altered local gravitational field and elastic modulus in coupled, opposite-sign directions; 25-day stability reflects mechanical equilibrium lock-in.",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Undocumented settlement-wide external event (seismic, geothermal, structural, or infrastructure disruption) on day 12 permanently altered local effective gravitational and elastic properties; calibration audit of event log days 10–14 is critical to falsify.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Undetected hardware change, data-acquisition system reconfiguration, or calibration drift on day 12 (clock frequency, resonator threshold, pendulum gate, or shared power-supply modification) created complementary opposite-sign sensitivity changes.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Environmental threshold crossing (temperature, pressure, humidity) or material phase transition on day 12 with sharp step-change, opposite-sign instrumental sensitivity, and subsequent locked equilibrium (indistinguishable from substrate mechanism without independent environmental monitoring).",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer, measurement protocol, or data-handling error: inadvertent systematic change in technique, timing, thresholding, or transcription between days 10–12.",
+      "class": "self_error"
+    }
+  ]
+}

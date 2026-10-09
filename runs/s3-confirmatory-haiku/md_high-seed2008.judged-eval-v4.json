@@ -1,0 +1,156 @@
+{
+  "source": "md_high-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 4,
+    "agree": 4,
+    "items": [
+      {
+        "label": "Independent instrumental noise: each apparatus has its own uncorrelated noise floor, with no shared environmental or calibration coupling",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Observer bias or data transcription error affecting readings in systematic but non-obvious ways (e.g., rounding artefacts, time-stamp misalignment across logbooks)",
+        "primary": "self_error",
+        "second": "self_error"
+      },
+      {
+        "label": "Independent instrumental noise in each apparatus, with all four streams uncorrelated by design; the pendulum_lab ↔ resonator_obs r=0.943 correlation at 3-day lag is a statistical artefact (Type I error) arising from multiple-comparison testing across many lag offsets",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      },
+      {
+        "label": "Independent instrumental noise: each apparatus has its own uncorrelated noise floor and thermal/mechanical drift",
+        "primary": "measurement_error",
+        "second": "measurement_error"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": false,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": false,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 3,
+  "l4Judged": 3,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Independent instrumental noise: each apparatus has its own noise floor and thermal/mechanical drift uncorrelated with the others",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undiagnosed systematic calibration drift affecting one or more instruments (environmental sensitivity, thermal cycling, mechanical hysteresis)",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Real physical variability in the measured quantity (e.g., atmospheric pressure, gravitational anomalies, or time-dependent coupling between resonator and pendulum systems) with no systematic correlation because the systems decouple on ~4-day timescales",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias or data transcription error affecting readings in systematic but non-obvious ways (e.g., rounding artefacts, time-stamp misalignment across logbooks)",
+      "class": "self_error"
+    },
+    {
+      "label": "Independent instrumental noise: each apparatus has its own uncorrelated noise floor and thermal/mechanical drift",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undiagnosed systematic calibration drift (thermal cycling, mechanical hysteresis, environmental sensitivity) decorrelating each instrument on its own timescale",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Real physical variability in the measured environment (atmospheric pressure, micro-seismic events, gravitational anomalies) affecting each instrument with different temporal coupling, so that responses decorrelate by design",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Observer bias or data transcription error: systematic artefact in how readings are recorded, timestamped, or logged across instruments",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Independent instrumental noise: each apparatus has its own uncorrelated noise floor, with no shared environmental or calibration coupling",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undiagnosed slow calibration drift on per-instrument timescales (thermal cycling, mechanical creep, environmental sensitivity) causing decorrelation as each apparatus responds independently to ambient changes",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Real physical variability in settlement environment (atmospheric pressure, micro-seismic events, gravitational anomalies) affecting each instrument with instrument-specific coupling and temporal phase delays",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Observer bias, data transcription error, or systematic recording artefact (e.g., shared rounding, timestamping artefact, or logging protocol affecting all four streams identically)",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual (something unconsidered)",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Pendulum_lab and resonator_obs measure coupled aspects of a common slow oscillation in the settlement (mechanical or gravitational), with resonator_obs experiencing a reproducible 3-day phase delay due to its sensing geometry or environmental coupling path",
+      "class": "unknown_natural_process"
+    },
+    {
+      "label": "Independent instrumental noise in each apparatus, with all four streams uncorrelated by design; the pendulum_lab ↔ resonator_obs r=0.943 correlation at 3-day lag is a statistical artefact (Type I error) arising from multiple-comparison testing across many lag offsets",
+      "class": "measurement_error"
+    },
+    {
+      "label": "Undiagnosed shared recording or timestamping artefact affecting specifically pendulum_lab and resonator_obs (e.g., offset clock synchronization, common digitizer input path, or shared environmental sensor) creating false correlation at a fixed 3-day phase lag",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Selective environmental forcing (atmospheric, seismic, or thermal) coupling to pendulum via direct mechanical path and to resonator_obs via a different medium (air-column resonance, thermal lag), but NOT coupling to resonator_lab or pendulum_obs due to their different physical orientations or locations in the settlement",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual (unknown instrumental design feature, unobserved environmental variable, or novel statistical pattern not yet interrogated)",
+      "class": "unknown_natural_process"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "source": "wd_degraded-seed2008.json",
+  "evalVersion": "eval-v4",
+  "l4JudgeVersion": "s3-l4-judge-v1.2",
+  "judgeModel": "claude-haiku-4-5",
+  "judgeResolvedModels": [
+    "claude-haiku-4-5-20251001"
+  ],
+  "classifyMode": "solo",
+  "crossJudge": {
+    "model": "claude-sonnet-4-5",
+    "n": 5,
+    "agree": 1,
+    "items": [
+      {
+        "label": "Baseline period (days 1–10) was incompletely settled; instruments are undergoing multi-phase equilibration with a secondary transition around Day 20–30; the Day 30 variance spike marks onset of stable post-equilibration state, and inversion (if present) is a separate configuration issue.",
+        "primary": "incomplete_theory",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Day 30 transient environmental or mechanical shock (seismic, building vibration, thermal, power transient) triggered acute excursions in both resonator instruments simultaneously; baseline and post-shock behavior are both valid, but the shock explains the Day 30 variance spike without changing the underlying inversion hypothesis.",
+        "primary": "environmental_change",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Baseline establishment (days 1–10) is still contaminated by startup transients or instrument equilibration",
+        "primary": "environmental_change",
+        "second": "instrument_malfunction"
+      },
+      {
+        "label": "Baseline period (days 1–10) incompletely settled; all instruments still equilibrating; Day 30 excursions mark onset of second equilibration phase or a regime shift after 20 days of apparent stability",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      },
+      {
+        "label": "Missing confound or unmeasured variable correlated with time-of-collection or trial sequence; error model for 'chance level' correlations is invalid",
+        "primary": "incomplete_theory",
+        "second": "environmental_change"
+      }
+    ]
+  },
+  "corpusRole": "experimental",
+  "levels": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "levelsInterventionOnly": [
+    {
+      "agentId": "ada",
+      "tauSuspicion": null,
+      "tauCommitment": null,
+      "tauGrounded": null,
+      "finalLevel": 0,
+      "tauSuspicionMaxSingle": null,
+      "finalLevelMaxSingle": 0,
+      "finalGroundedCitations": [],
+      "finalModalExtGenClass": null
+    }
+  ],
+  "correctness": [
+    {
+      "agentId": "ada",
+      "asserted": null,
+      "interventionTrue": true,
+      "simulationTrue": true,
+      "l3Correct": false,
+      "l3Incorrect": false,
+      "l3Undiscriminating": false,
+      "citedHostProvenantShare": null,
+      "extGenTrue": true,
+      "l3True": false,
+      "l3False": false
+    }
+  ],
+  "l4Screened": 11,
+  "l4Judged": 11,
+  "l4Discriminating": [],
+  "classifications": [
+    {
+      "label": "Instrumental drift or calibration creep undetected by end-of-day baselines",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Measurement error or procedural inconsistency between labs and observation sites",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Instruments are sensitive to unlogged environmental or temporal variables with ~4–8 day periodicity",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments is miscalibrated or has a hardware fault not yet apparent",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline establishment (days 1–10) is still contaminated by startup transients or instrument equilibration",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Residual: measurement error model is wrong, or hidden confound unmeasured",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator lab and resonator obs measure fundamentally different physical quantities or are wired/configured oppositely",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Baseline establishment (days 1–10) still contaminated by thermal or mechanical transients; 'baseline' is not yet equilibrated",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Unlogged environmental or operational variables with ~4–9 day periodicity drive quasi-cyclic modulation in all instruments, phase-shifted between instruments or labs",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Measurement error or procedural inconsistency between labs (controlled) and observation sites (field); lab and field measure under different effective conditions",
+      "class": "environmental_change"
+    },
+    {
+      "label": "One or more instruments is miscalibrated (sign error, frequency offset, or sensor polarity reversed) or has a hardware fault not yet apparent",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Missing confound or unmeasured variable correlated with time-of-collection or trial sequence; error model for 'chance level' correlations is invalid",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator_obs experienced a transient mechanical or thermal shock on Day 30 (trial 175) unlogged in operational records; resonator_lab is compensating or oscillating in response to same environmental disturbance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab and resonator_obs measure physically inverted quantities (polarity reversed, frequency encoding opposite, or different reference standard); Day 30 variance spike is noise amplified by misalignment, not evidence against inversion hypothesis",
+      "class": "self_error"
+    },
+    {
+      "label": "Baseline period (days 1–10) incompletely settled; all instruments still equilibrating; Day 30 excursions mark onset of second equilibration phase or a regime shift after 20 days of apparent stability",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unlogged operational or environmental variable (temperature, humidity, time-of-day, operator, warm-up duration) correlated with trial sequence or Day 30 event; confound biasing cross-correlation estimates and triggering Day 30 variance",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Resonator_lab hardware fault developing over 20 days; Day 30 excursions (trials 382–394) indicate loss of lock, frequency drift, or sensor bridge imbalance; resonator_obs unaffected",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Something not yet considered: unrecorded metadata, instrument configuration error at setup, or settlement-wide environmental event not visible in notebooks",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Resonator instruments are wired with inverted polarity, opposite frequency encoding, or different reference standards since Day 1 setup; anti-correlation is a signature of systematic inversion, not noise or transient.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Day 30 transient environmental or mechanical shock (seismic, building vibration, thermal, power transient) triggered acute excursions in both resonator instruments simultaneously; baseline and post-shock behavior are both valid, but the shock explains the Day 30 variance spike without changing the underlying inversion hypothesis.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Baseline period (days 1–10) was incompletely settled; instruments are undergoing multi-phase equilibration with a secondary transition around Day 20–30; the Day 30 variance spike marks onset of stable post-equilibration state, and inversion (if present) is a separate configuration issue.",
+      "class": "incomplete_theory"
+    },
+    {
+      "label": "Unlogged operational or environmental confound (temperature, humidity, time-of-day, operator, warm-up duration, vibration) correlated with trial sequence, settlement activity, or Day 30 event; confound biases all cross-correlations and produced Day 30 anomalies independently of hardware state.",
+      "class": "environmental_change"
+    },
+    {
+      "label": "Single resonator hardware fault (resonator_lab only: loss of lock, frequency drift, sensor bridge imbalance, or component aging since Day 1) accounts for the anti-correlation signature by causing progressive de-calibration of one arm of the resonator pair.",
+      "class": "instrument_malfunction"
+    },
+    {
+      "label": "Residual: unrecorded metadata, instrument configuration error at Day 1 setup not yet identified, or settlement-wide environmental event not visible in current notebooks (e.g., power supply transient affecting frequency reference, ground loop coupling between instruments, or site-wide vibration from unknown source).",
+      "class": "environmental_change"
+    }
+  ]
+}
