@@ -1,0 +1,350 @@
+{
+ "n": 38,
+ "mechanical": 18,
+ "adjudicated": 22,
+ "synthetic_feed": 10,
+ "rows": [
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2000",
+   "p": 0.78,
+   "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common computational, logging, or database pathway; the r=1.000 correlation reflects duplicate data routing, field aliasing, time-shifted replication, or shared calibration pipeline rather than independent measurement.",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2001",
+   "p": 0.51,
+   "label": "Resonator_obs sensor degradation, electrical noise spike, or partial failure beginning Day 40",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2002",
+   "p": 0.52,
+   "label": "Data labeling or file-handling error: pendulum_obs trials are misaligned in time or mislabeled relative to resonator_obs, causing cross-correlation at offset lag to match data that are actually from the same calendar period",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2003",
+   "p": 0.42,
+   "label": "Instrument calibration drift or hardware failure initiating near Day 40",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2004",
+   "p": 0.6,
+   "label": "Resonator_obs experienced a genuine transient environmental perturbation (thermal, vibrational, or electromagnetic) on day 40 that is not affecting other instruments equally; instrument sensitivity or geometry makes it selective.",
+   "mechanical": true,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2005",
+   "p": 0.51,
+   "label": "Data pipeline or transcription error in the pendulum_lab \u2194 resonator_obs correlation computation; r=1.000 is a false positive artifact (misaligned event IDs, baseline duplication, or scaling/normalization error).",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2006",
+   "p": 0.58,
+   "label": "Instrumental or environmental disturbance on Day 40 (transient or ongoing): vibration spike, temperature drift, power supply noise, optical misalignment, or mechanical slippage in one or both instruments has increased measurement noise.",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2007",
+   "p": 0.38,
+   "label": "Statistical artifact: pendulum_lab's larger sample size allows spurious detection of autocorrelation present in all instruments; lag-14 is one of many noise-driven peaks",
+   "mechanical": true,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2008",
+   "p": 0.61,
+   "label": "Shared environmental transient on Day 40 (thermal spike, vibration event, power surge, or electromagnetic interference) simultaneously excited both instruments with high Q-factors, producing coherent scatter; the anomaly is localized in time because the forcing event was brief",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "haiku",
+   "run": "wd_exact-seed2009",
+   "p": 0.3,
+   "label": "Unidentified physical or systematic mechanism: e.g., resonant coupling between pendulum and resonator via shared mounting or air; gravitational or seismic microtremor cycles with 3-day period; intermittent sensor saturation; or undiscovered systematic error in baseline or post-baseline analysis itself.",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2000",
+   "p": 0.77,
+   "label": "Finite-sample structure from scanning many lags on noisy, partially overlapping subsets",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2001",
+   "p": 0.31,
+   "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged pattern across records",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2002",
+   "p": 0.48,
+   "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2003",
+   "p": 0.57,
+   "label": "Observer-side calibration, zeroing, or readout convention bias in the measurement workflow",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2004",
+   "p": 0.52,
+   "label": "Fixed calibration offset or scale-factor difference between the lab and observer measurement chains",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2005",
+   "p": 0.42,
+   "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, strongest in the observation instruments",
+   "mechanical": true,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2006",
+   "p": 0.86,
+   "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and observational instruments",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2007",
+   "p": 0.42,
+   "label": "A shared registration, synchronization, or bookkeeping lag is misaligning the lab and observer records by a few days",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "sonar",
+   "run": "wd_exact-seed2008",
+   "p": 0.66,
+   "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2000",
+   "p": 0.55,
+   "label": "Systematic timestamp / indexing error in resonator_obs data",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2001",
+   "p": 0.5,
+   "label": "A systematic data\u2011logging or processing artifact introduced a three\u2011day offset duplication or linear scaling of pendulum_lab readings into the resonator_obs stream",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2002",
+   "p": 0.7,
+   "label": "Shared data\u2011handling artifact (e.g., timestamp rounding or post\u2011processing alignment) introduced after day\u202f10",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2003",
+   "p": 0.43,
+   "label": "Shared processing or calibration pipeline bug that couples the two data streams",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2004",
+   "p": 0.55,
+   "label": "Data\u2011logging or timestamp offset artifact",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2006",
+   "p": 0.68,
+   "label": "H3: Systematic timestamp or trial\u2011index misalignment in the data pipeline",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2007",
+   "p": 0.45,
+   "label": "H5: Data duplication / copy\u2011paste bug linking pendulum_lab to resonator_obs with a three\u2011day offset",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2008",
+   "p": 0.46,
+   "label": "Data\u2011processing or timestamp alignment artifact",
+   "mechanical": false,
+   "adjudicated_duplication": false,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "cerebras",
+   "run": "wd_exact-seed2009",
+   "p": 0.55,
+   "label": "Delayed calibration interdependency in the data\u2011processing pipeline (software bug)",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": false
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2000",
+   "p": 0.65,
+   "label": "Telemetry or logging pipeline synthetic mirroring artifact",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2001",
+   "p": 0.75,
+   "label": "Shared instrumentation pipeline, digitizer buffer replay, or software data stream artifact",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2002",
+   "p": 0.55,
+   "label": "Data pipeline, scheduling, or operational artifact coupling the two measurement streams",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2003",
+   "p": 0.7,
+   "label": "Data-logging, index alignment, or calculation pipeline artifact",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2004",
+   "p": 0.8,
+   "label": "Data pipeline or logging buffer artifact mirroring transformed readings with a 3-day delay",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2005",
+   "p": 0.78,
+   "label": "Software or telemetry logging pipeline artifact (delayed buffer replay or shared synthetic stream)",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2006",
+   "p": 0.85,
+   "label": "Telemetry or data-logging pipeline mirroring artifact",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2007",
+   "p": 0.68,
+   "label": "Data pipeline or telemetry coupling: observatory resonator records are computed directly from the laboratory pendulum data stream via a delayed (3-day) processing queue or script",
+   "mechanical": false,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2008",
+   "p": 0.89,
+   "label": "Shared data acquisition pipeline, synthetic feed, or software mirroring artifact",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  },
+  {
+   "family": "gemini",
+   "run": "wd_exact-seed2009",
+   "p": 0.86,
+   "label": "Shared data-acquisition pipeline bug, stream mirroring, or logging buffer replay",
+   "mechanical": true,
+   "adjudicated_duplication": true,
+   "synthetic_feed_wording": true
+  }
+ ]
+}
