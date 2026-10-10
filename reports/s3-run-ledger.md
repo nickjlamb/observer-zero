@@ -315,3 +315,39 @@ fresh directories mean no artifact collisions with the R38/probe runs that
 used these seeds in other worlds). Zero LX runs existed at amendment time:
 the gate refused before the first API call. All other LX-1 specifications
 are unchanged.
+
+### LX-1 scoring attrition (2026-10-10)
+
+`s3-licensed-contrast-haiku/md_high-seed9198` could not be scored under
+eval-v4: deterministic judge API refusal (stop_reason "refusal"), confirmed
+on a second pass — the mirror of the battery's wb-seed2007, which was
+eval-v3-specific. Handled identically under the LX-1 rules: the artifact and
+its eval-v3 sidecar are preserved in `runs/s3-licensed-contrast-refused/`
+and the run is excluded from BOTH eval versions, keeping the version ladders
+on identical run sets. It is a CONTROL-arm run; the haiku control cell
+proceeds at 9/10. Separately, gemini `md_high-seed9193` fails the health
+gate (mechanical exclusion, also control arm) — each cell carries at most
+one exclusion, within the <=2-per-cell rule. LX-1 analyzer not yet run at the time of this
+note.
+
+### LX-1 RESULT (analyzer run once, 2026-10-10T07:20Z)
+
+39/40 runs included (1 gemini control health exclusion; 1 haiku control
+judge-refusal scoring attrition, handled above). Leak audit clean.
+
+Licensed agents DO NOT discriminate the contrast. eval-v4 final L1: gemini
+10/10 treatment vs 9/9 control; haiku 6/10 vs 8/9; pooled one-sided
+(treatment > control) p = 0.978. Mean final ext-gen mass leans CONTROL-side
+in both families (gemini 0.53 vs 0.61; haiku 0.24 vs 0.44). eval-v3 column
+concordant (pooled p = 0.896). Ever-L1 near-saturated in both arms.
+
+Pre-stated interpretation applied verbatim: both arms firing at similar
+rates = licensed agents adopt the hypothesis indiscriminately -> the
+"evaluation capability on the contrast" claim is NOT supported; the
+manuscript keeps the conservative title and framing. The control-side lean
+is reported, no claim. Substantive reading for the paper (framing, not a
+registered claim): belief about world origin is prompt-gated at both ends —
+unprompted agents never form the hypothesis despite describing the
+fingerprint (confirmatory battery), licensed agents form it regardless of
+whether the fingerprint is present (LX-1). Output:
+runs/s3-licensed-contrast-analysis.json.

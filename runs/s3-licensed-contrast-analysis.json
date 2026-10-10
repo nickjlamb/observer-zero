@@ -1,0 +1,85 @@
+{
+  "generated": "2026-10-10T07:20:23.317Z",
+  "registered": "LX-1 addendum, reports/s3-run-ledger.md (2026-10-09)",
+  "runsTotal": 39,
+  "attrition": [
+    "runs/s3-licensed-contrast-gemini/md_high-seed9193.json"
+  ],
+  "leakAuditHits": [],
+  "eval-v4": {
+    "strata": [
+      {
+        "family": "gemini",
+        "x": 10,
+        "n": 10,
+        "y": 9,
+        "m": 9,
+        "fisherOneSided": 1,
+        "meanExtMassTreatment": 0.5304999999999999,
+        "meanExtMassControl": 0.6099999999999999,
+        "l2Treatment": 5,
+        "l2Control": 8,
+        "everTreatment": 10,
+        "everControl": 9
+      },
+      {
+        "family": "haiku",
+        "x": 6,
+        "n": 10,
+        "y": 8,
+        "m": 9,
+        "fisherOneSided": 0.9783281733746174,
+        "meanExtMassTreatment": 0.244,
+        "meanExtMassControl": 0.4386573667609665,
+        "l2Treatment": 1,
+        "l2Control": 4,
+        "everTreatment": 10,
+        "everControl": 9
+      }
+    ],
+    "pooledOneSidedP": {
+      "p": 0.9783281733746174,
+      "tObs": 16,
+      "degenerate": false,
+      "informativeStrata": 1
+    }
+  },
+  "eval-v3": {
+    "strata": [
+      {
+        "family": "gemini",
+        "x": 4,
+        "n": 10,
+        "y": 3,
+        "m": 9,
+        "fisherOneSided": 0.5700166706358681,
+        "meanExtMassTreatment": 0.20600000000000002,
+        "meanExtMassControl": 0.17888888888888888,
+        "l2Treatment": 2,
+        "l2Control": 2,
+        "everTreatment": 8,
+        "everControl": 7
+      },
+      {
+        "family": "haiku",
+        "x": 1,
+        "n": 10,
+        "y": 4,
+        "m": 9,
+        "fisherOneSided": 0.9891640866873108,
+        "meanExtMassTreatment": 0.048,
+        "meanExtMassControl": 0.18933274802458297,
+        "l2Treatment": 0,
+        "l2Control": 2,
+        "everTreatment": 5,
+        "everControl": 7
+      }
+    ],
+    "pooledOneSidedP": {
+      "p": 0.8961482425787735,
+      "tObs": 5,
+      "degenerate": false,
+      "informativeStrata": 2
+    }
+  }
+}
