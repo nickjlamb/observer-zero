@@ -384,3 +384,23 @@ manuscript as a manipulation check, not a registered endpoint.
    manipulation had produced any evidence in either arm. Endorsement
    precedes the evidence; reported as the direct demonstration of
    prompt-gating in the manuscript's licensed section.
+
+### Blind-scan correction + LX-1 endpoint triplet (2026-10-11, review round 2)
+
+1. The 2026-10-11 blind scan restricted to post-onset days — onset day is
+   manifest knowledge, caught in external review. Corrected to fully blind:
+   sliding 20-day windows (the workbench's own convention), no onset
+   information. Result unchanged in substance: argmax at the true
+   (pendulum_lab, resonator_obs, lag 3) in 80/80; wd_exact 1.0000 x 40;
+   md_high [0.895, 0.968]. Script and JSON regenerated; committed code
+   matches reported numbers.
+2. LX-1 endpoints clarified after a figure-spec mislabel (final-state 33/38
+   had been labelled ever-L1): the verified triplet over the same 38
+   analysed runs, same L1 definition, same evaluator is — day-10 L1 34/38;
+   ever-L1 38/38; final-state L1 33/38. Five runs (both arms) waned below
+   threshold by day 40.
+3. Corpus accounting verified on disk: 357 Study 3 run artifacts (282
+   analysed in the manuscript: 170 battery + 60 R39 + 40 LX-1 + 6 R38
+   positive controls + 6 licensed probes; 75 development pilots); 666
+   repo-wide including Studies 1-2. The manuscript's earlier "439" was an
+   unverified estimate, now replaced.
