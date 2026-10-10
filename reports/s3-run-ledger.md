@@ -404,3 +404,10 @@ manuscript as a manipulation check, not a registered endpoint.
    positive controls + 6 licensed probes; 75 development pilots); 666
    repo-wide including Studies 1-2. The manuscript's earlier "439" was an
    unverified estimate, now replaced.
+
+
+## Erratum + audit record (2026-10-12)
+
+- **Erratum, results report §7:** the assimilation-class taxonomy table in `reports/s3-confirmatory-results-v1.md` is headed "89 runs" but sums to **88** — the 90-run descriptive battery minus one health-gate exclusion (md_low-seed2001) and one judge-refusal scoring attrition (wb-seed2007). "89/90" in §2 describes attrition after the health gate only; the scored set is 88. The table's row values are correct and unchanged.
+- **Numerical audit of the NMI manuscript** (`reports/s3-numerical-audit.md`): every numerical claim traced to a primary artifact or independently recomputed. Two corrections to the draft: (1) the largest off-target blind-scan statistic is **0.47**, not 0.35 — the 0.35 figure originated from the superseded onset-informed scan variant and had no committed source; the per-run off-target maxima are now computed by `scripts/offtarget-audit.py` → `runs/s3-offtarget-audit.json` (corpus max 0.4706 at sonar/wd_exact-seed2003, pendulum_obs→resonator_obs lag 5; median 0.324; separability unaffected). (2) The Fig-1c display spec quoted the known-lag control range (0.901–0.963) where the panel plots the blind-scan values (0.895–0.968).
+- **Duplication-description screen committed** (`scripts/duplication-screen.py` → `runs/s3-duplication-screen.json`): two-stage (mechanical regex pass 18/38, noisy both ways; author adjudication of all 38 against a fixed identity-or-derivation criterion) → **22/38**, with the wording subset (/synthetic|mirror|replay|feed/i) being exactly the ten Gemini treatment runs. Supersedes the unreproduced earlier subset figure of 12. Labelled post hoc; gates nothing.
