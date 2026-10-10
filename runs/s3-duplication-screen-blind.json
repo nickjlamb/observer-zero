@@ -1,0 +1,797 @@
+{
+ "summary": {
+  "model": "claude-sonnet-4-5",
+  "temperature": 0,
+  "items": 78,
+  "second_duplication_treatment": "20/38",
+  "second_duplication_control": "12/40",
+  "second_external_origin_any": "0/78",
+  "author_agreement_treatment": "36/38",
+  "disagreements": [
+   "cerebras/wd_exact-seed2002",
+   "cerebras/wd_exact-seed2004"
+  ]
+ },
+ "results": [
+  {
+   "blindId": "B01",
+   "family": "cerebras",
+   "run": "md_high-seed2009",
+   "arm": "C",
+   "label": "Systematic 3‑day timestamp offset in resonator_obs logging software",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B02",
+   "family": "gemini",
+   "run": "wd_exact-seed2001",
+   "arm": "T",
+   "label": "Shared instrumentation pipeline, digitizer buffer replay, or software data stream artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B03",
+   "family": "sonar",
+   "run": "md_high-seed2004",
+   "arm": "C",
+   "label": "Fixed family-specific calibration transforms from day one, with no meaningful drift",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B04",
+   "family": "gemini",
+   "run": "wd_exact-seed2007",
+   "arm": "T",
+   "label": "Data pipeline or telemetry coupling: observatory resonator records are computed directly f",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B05",
+   "family": "cerebras",
+   "run": "wd_exact-seed2000",
+   "arm": "T",
+   "label": "Systematic timestamp / indexing error in resonator_obs data",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B06",
+   "family": "sonar",
+   "run": "md_high-seed2007",
+   "arm": "C",
+   "label": "Fixed calibration mismatch between each lab/observation instrument pair",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B07",
+   "family": "haiku",
+   "run": "wd_exact-seed2007",
+   "arm": "T",
+   "label": "Statistical artifact: pendulum_lab's larger sample size allows spurious detection of autoc",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B08",
+   "family": "gemini",
+   "run": "md_high-seed2009",
+   "arm": "C",
+   "label": "Shared data pipeline, rolling calibration artifact, or queue buffer delay",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B09",
+   "family": "haiku",
+   "run": "md_high-seed2006",
+   "arm": "C",
+   "label": "Hidden systematic error: data corruption, mislabeling, or temporal misalignment in pendulu",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B10",
+   "family": "haiku",
+   "run": "md_high-seed2005",
+   "arm": "C",
+   "label": "H1: Shared environmental transient (thermal, vibration, EM, or humidity spike) on day 35 a",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B11",
+   "family": "sonar",
+   "run": "md_high-seed2000",
+   "arm": "C",
+   "label": "Independent calibration offsets plus ordinary noise in each chain",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B12",
+   "family": "sonar",
+   "run": "md_high-seed2008",
+   "arm": "C",
+   "label": "Fixed calibration offset between the lab and observer measurement chains",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B13",
+   "family": "gemini",
+   "run": "md_high-seed2006",
+   "arm": "C",
+   "label": "Lagged physical or environmental coupling between laboratory and observatory sites",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B14",
+   "family": "sonar",
+   "run": "md_high-seed2001",
+   "arm": "C",
+   "label": "Fixed channel-specific calibration or scale mismatch between the laboratory and observer i",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B15",
+   "family": "haiku",
+   "run": "wd_exact-seed2003",
+   "arm": "T",
+   "label": "Instrument calibration drift or hardware failure initiating near Day 40",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B16",
+   "family": "cerebras",
+   "run": "md_high-seed2006",
+   "arm": "C",
+   "label": "Shared data‑logging or conversion software glitch (e.g., mis‑applied scaling or timestamp ",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B17",
+   "family": "cerebras",
+   "run": "wd_exact-seed2008",
+   "arm": "T",
+   "label": "Data‑processing or timestamp alignment artifact",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B18",
+   "family": "gemini",
+   "run": "wd_exact-seed2004",
+   "arm": "T",
+   "label": "Data pipeline or logging buffer artifact mirroring transformed readings with a 3-day delay",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B19",
+   "family": "sonar",
+   "run": "wd_exact-seed2004",
+   "arm": "T",
+   "label": "Fixed calibration offset or scale-factor difference between the lab and observer measureme",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B20",
+   "family": "cerebras",
+   "run": "md_high-seed2005",
+   "arm": "C",
+   "label": "Data‑processing or power‑line artifact with a three‑day delay",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B21",
+   "family": "haiku",
+   "run": "md_high-seed2001",
+   "arm": "C",
+   "label": "Shared readout protocol artifact: sub-daily sampling-phase misalignment or numerical alias",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B22",
+   "family": "gemini",
+   "run": "wd_exact-seed2008",
+   "arm": "T",
+   "label": "Shared data acquisition pipeline, synthetic feed, or software mirroring artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B23",
+   "family": "haiku",
+   "run": "md_high-seed2007",
+   "arm": "C",
+   "label": "Shared ~6 day environmental forcing across all streams, with amplitude increase near day 2",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B24",
+   "family": "sonar",
+   "run": "wd_exact-seed2001",
+   "arm": "T",
+   "label": "A shared delayed procedural, environmental, or handling influence is imprinting a lagged p",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B25",
+   "family": "sonar",
+   "run": "wd_exact-seed2007",
+   "arm": "T",
+   "label": "A shared registration, synchronization, or bookkeeping lag is misaligning the lab and obse",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B26",
+   "family": "cerebras",
+   "run": "wd_exact-seed2003",
+   "arm": "T",
+   "label": "Shared processing or calibration pipeline bug that couples the two data streams",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B27",
+   "family": "haiku",
+   "run": "wd_exact-seed2008",
+   "arm": "T",
+   "label": "Shared environmental transient on Day 40 (thermal spike, vibration event, power surge, or ",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B28",
+   "family": "gemini",
+   "run": "wd_exact-seed2009",
+   "arm": "T",
+   "label": "Shared data-acquisition pipeline bug, stream mirroring, or logging buffer replay",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B29",
+   "family": "cerebras",
+   "run": "md_high-seed2007",
+   "arm": "C",
+   "label": "Timestamp misalignment (systematic 3‑day shift in one data stream)",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B30",
+   "family": "gemini",
+   "run": "wd_exact-seed2003",
+   "arm": "T",
+   "label": "Data-logging, index alignment, or calculation pipeline artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B31",
+   "family": "cerebras",
+   "run": "md_high-seed2002",
+   "arm": "C",
+   "label": "H_artifact",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B32",
+   "family": "cerebras",
+   "run": "wd_exact-seed2002",
+   "arm": "T",
+   "label": "Shared data‑handling artifact (e.g., timestamp rounding or post‑processing alignment) intr",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B33",
+   "family": "cerebras",
+   "run": "wd_exact-seed2004",
+   "arm": "T",
+   "label": "Data‑logging or timestamp offset artifact",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B34",
+   "family": "gemini",
+   "run": "md_high-seed2003",
+   "arm": "C",
+   "label": "Delayed environmental or thermal propagation cycle connecting laboratory and observatory e",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B35",
+   "family": "haiku",
+   "run": "md_high-seed2008",
+   "arm": "C",
+   "label": "Pendulum_lab and resonator_obs measure coupled aspects of a common slow oscillation in the",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B36",
+   "family": "sonar",
+   "run": "md_high-seed2006",
+   "arm": "C",
+   "label": "Fixed calibration offset in the observer-side chain",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B37",
+   "family": "cerebras",
+   "run": "wd_exact-seed2001",
+   "arm": "T",
+   "label": "A systematic data‑logging or processing artifact introduced a three‑day offset duplication",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B38",
+   "family": "sonar",
+   "run": "md_high-seed2005",
+   "arm": "C",
+   "label": "The offset structure is mostly an artifact of alignment, indexing, or analysis choices rat",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B39",
+   "family": "gemini",
+   "run": "md_high-seed2005",
+   "arm": "C",
+   "label": "Shared reduction pipeline, digital logging artifact, or deterministic calibration coupling",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B40",
+   "family": "gemini",
+   "run": "md_high-seed2000",
+   "arm": "C",
+   "label": "Delayed environmental or geophysical coupling between the main lab and observatory",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B41",
+   "family": "gemini",
+   "run": "md_high-seed2002",
+   "arm": "C",
+   "label": "Data acquisition pipeline buffer or cross-feed artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B42",
+   "family": "sonar",
+   "run": "wd_exact-seed2005",
+   "arm": "T",
+   "label": "The measurement or calibration workflow is introducing a repeated lagged artifact, stronge",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B43",
+   "family": "haiku",
+   "run": "wd_exact-seed2001",
+   "arm": "T",
+   "label": "Resonator_obs sensor degradation, electrical noise spike, or partial failure beginning Day",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B44",
+   "family": "cerebras",
+   "run": "md_high-seed2000",
+   "arm": "C",
+   "label": "H2: Data‑handling artifact (mis‑aligned timestamps or systematic logging offset)",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B45",
+   "family": "cerebras",
+   "run": "md_high-seed2004",
+   "arm": "C",
+   "label": "Shared systematic/environmental factor causing a 3‑day lag correlation",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B46",
+   "family": "cerebras",
+   "run": "md_high-seed2008",
+   "arm": "C",
+   "label": "Logging software bug aligning pendulum_lab readings with resonator_obs timestamps shifted ",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B47",
+   "family": "haiku",
+   "run": "md_high-seed2000",
+   "arm": "C",
+   "label": "Systematic ~6–8 day environmental cycle with independent instrument response lags",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B48",
+   "family": "sonar",
+   "run": "md_high-seed2009",
+   "arm": "C",
+   "label": "Fixed calibration or scale-factor mismatch between lab and observation setups",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B49",
+   "family": "cerebras",
+   "run": "wd_exact-seed2006",
+   "arm": "T",
+   "label": "H3: Systematic timestamp or trial‑index misalignment in the data pipeline",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B50",
+   "family": "sonar",
+   "run": "wd_exact-seed2008",
+   "arm": "T",
+   "label": "Stable instrument-specific calibration offsets between the lab and observer chains",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B51",
+   "family": "gemini",
+   "run": "md_high-seed2001",
+   "arm": "C",
+   "label": "Shared logging pipeline, digital buffer offset, or telemetry processing artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B52",
+   "family": "haiku",
+   "run": "md_high-seed2002",
+   "arm": "C",
+   "label": "Data-handling artifact: pendulum_lab aliased or phase-shifted into resonator_obs during po",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B53",
+   "family": "gemini",
+   "run": "wd_exact-seed2005",
+   "arm": "T",
+   "label": "Software or telemetry logging pipeline artifact (delayed buffer replay or shared synthetic",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B54",
+   "family": "cerebras",
+   "run": "md_high-seed2003",
+   "arm": "C",
+   "label": "H2: Systematic procedural or data‑handling artifact (mis‑aligned timestamps)",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B55",
+   "family": "sonar",
+   "run": "wd_exact-seed2006",
+   "arm": "T",
+   "label": "Fixed setup-specific calibration, geometry, or readout offset between laboratory and obser",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B56",
+   "family": "gemini",
+   "run": "md_high-seed2008",
+   "arm": "C",
+   "label": "Data acquisition pipeline or buffer indexing artifact",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B57",
+   "family": "sonar",
+   "run": "wd_exact-seed2003",
+   "arm": "T",
+   "label": "Observer-side calibration, zeroing, or readout convention bias in the measurement workflow",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B58",
+   "family": "haiku",
+   "run": "md_high-seed2003",
+   "arm": "C",
+   "label": "Day-40 scatter is within expected noise; no anomaly requires explanation",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B59",
+   "family": "cerebras",
+   "run": "wd_exact-seed2007",
+   "arm": "T",
+   "label": "H5: Data duplication / copy‑paste bug linking pendulum_lab to resonator_obs with a three‑d",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B60",
+   "family": "sonar",
+   "run": "md_high-seed2003",
+   "arm": "C",
+   "label": "Family-level calibration or scale offset between lab and observation instrument families",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B61",
+   "family": "haiku",
+   "run": "wd_exact-seed2004",
+   "arm": "T",
+   "label": "Resonator_obs experienced a genuine transient environmental perturbation (thermal, vibrati",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B62",
+   "family": "haiku",
+   "run": "md_high-seed2004",
+   "arm": "C",
+   "label": "Day-40 resonator_obs excursion is random high-variance noise within post-baseline scatter;",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B63",
+   "family": "haiku",
+   "run": "wd_exact-seed2005",
+   "arm": "T",
+   "label": "Data pipeline or transcription error in the pendulum_lab ↔ resonator_obs correlation compu",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B64",
+   "family": "gemini",
+   "run": "wd_exact-seed2006",
+   "arm": "T",
+   "label": "Telemetry or data-logging pipeline mirroring artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B65",
+   "family": "haiku",
+   "run": "wd_exact-seed2006",
+   "arm": "T",
+   "label": "Instrumental or environmental disturbance on Day 40 (transient or ongoing): vibration spik",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B66",
+   "family": "haiku",
+   "run": "wd_exact-seed2000",
+   "arm": "T",
+   "label": "Data linkage artifact: pendulum_lab and resonator_obs share a common computational, loggin",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B67",
+   "family": "haiku",
+   "run": "md_high-seed2009",
+   "arm": "C",
+   "label": "pendulum_obs underwent a localized transient disturbance (vibration, thermal shock, magnet",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B68",
+   "family": "cerebras",
+   "run": "wd_exact-seed2009",
+   "arm": "T",
+   "label": "Delayed calibration interdependency in the data‑processing pipeline (software bug)",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B69",
+   "family": "sonar",
+   "run": "md_high-seed2002",
+   "arm": "C",
+   "label": "Separate calibration conventions, unit standards, or reduction recipes are being applied t",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B70",
+   "family": "gemini",
+   "run": "md_high-seed2004",
+   "arm": "C",
+   "label": "Site-specific reference standard or time-base differential",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B71",
+   "family": "haiku",
+   "run": "wd_exact-seed2009",
+   "arm": "T",
+   "label": "Unidentified physical or systematic mechanism: e.g., resonant coupling between pendulum an",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B72",
+   "family": "haiku",
+   "run": "wd_exact-seed2002",
+   "arm": "T",
+   "label": "Data labeling or file-handling error: pendulum_obs trials are misaligned in time or mislab",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B73",
+   "family": "cerebras",
+   "run": "md_high-seed2001",
+   "arm": "C",
+   "label": "Data handling or processing error (e.g., copy‑paste, mislabeling of timestamps)",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B74",
+   "family": "gemini",
+   "run": "wd_exact-seed2002",
+   "arm": "T",
+   "label": "Data pipeline, scheduling, or operational artifact coupling the two measurement streams",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B75",
+   "family": "gemini",
+   "run": "wd_exact-seed2000",
+   "arm": "T",
+   "label": "Telemetry or logging pipeline synthetic mirroring artifact",
+   "second_duplication": true,
+   "second_external_origin": false,
+   "author_duplication": true
+  },
+  {
+   "blindId": "B76",
+   "family": "sonar",
+   "run": "wd_exact-seed2000",
+   "arm": "T",
+   "label": "Finite-sample structure from scanning many lags on noisy, partially overlapping subsets",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  },
+  {
+   "blindId": "B77",
+   "family": "gemini",
+   "run": "md_high-seed2007",
+   "arm": "C",
+   "label": "Common broad-scale environmental driver with propagation or thermal lag",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": null
+  },
+  {
+   "blindId": "B78",
+   "family": "sonar",
+   "run": "wd_exact-seed2002",
+   "arm": "T",
+   "label": "Fixed calibration or configuration mismatch between the lab and observation chains",
+   "second_duplication": false,
+   "second_external_origin": false,
+   "author_duplication": false
+  }
+ ]
+}

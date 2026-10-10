@@ -1,6 +1,6 @@
 # Study 3 NMI manuscript — numerical audit, v1
 
-**Date:** 2026-10-12. **Scope:** every numerical claim in `reports/s3-nmi-manuscript-draft-v1.md` (v5), traced to a primary artifact (frozen analysis output, committed script output, sidecar corpus, source code constant) or recomputed independently. Recomputations used standard formulae (Wilson, Newcombe, Clopper–Pearson) implemented fresh for this audit, not the repository's own code. **Verdict notation:** VERIFIED (matches primary source), CORRECTED (claim changed; both values given), NOTE (claim correct, scope or convention worth recording).
+**Date:** 2026-10-10. **Scope:** every numerical claim in `reports/s3-nmi-manuscript-draft-v1.md` (v5), traced to a primary artifact (frozen analysis output, committed script output, sidecar corpus, source code constant) or recomputed independently. Recomputations used standard formulae (Wilson, Newcombe, Clopper–Pearson) implemented fresh for this audit, not the repository's own code. **Verdict notation:** VERIFIED (matches primary source), CORRECTED (claim changed; both values given), NOTE (claim correct, scope or convention worth recording).
 
 ## Primary endpoint and degenerate branch
 
@@ -80,3 +80,10 @@ All abstract figures (170 runs, four families, 0/38, 7.6%, 2,424, 16/20, 17/18, 
 ## Outstanding for the LaTeX stage
 
 LX-1 mass t-based CIs re-derived from per-run vectors; full author strings for the remaining references pulled verbatim; ledger erratum for the results report's "89 runs" header; final re-run of this audit against the LaTeX text after conversion.
+
+
+## Addendum (2026-10-10, post-blinded-adjudication)
+
+| Claim | Source | Verdict |
+|---|---|---|
+| Blinded second adjudication: treatment duplication 20/38 (52.6%, 37.3–67.5), control 12/40 (30.0%, 18.1–45.4), agreement 36/38, κ = 0.89, external origin 0/78, Fisher two-sided p = 0.065 | `runs/s3-duplication-screen-blind.json` (summary block, Nick's terminal run output); Wilson CIs, κ and Fisher recomputed independently for this audit | VERIFIED |

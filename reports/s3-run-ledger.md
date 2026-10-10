@@ -366,7 +366,7 @@ resolution); r in [0.901, 0.963] across ALL 40 md_high runs; zero overlap
 agents saw. Post hoc, clearly labelled, zero API calls; reported in the
 manuscript as a manipulation check, not a registered endpoint.
 
-### Post-hoc analyses for manuscript revision (2026-10-11, all labelled post hoc, zero API calls)
+### Post-hoc analyses for manuscript revision (2026-10-10, all labelled post hoc, zero API calls)
 
 1. Blind-scan ideal observer (extends the 2026-10-10 manipulation check; same
    script): no manifest access, all 12 ordered instrument pairs x lags 0-7
@@ -385,9 +385,9 @@ manuscript as a manipulation check, not a registered endpoint.
    precedes the evidence; reported as the direct demonstration of
    prompt-gating in the manuscript's licensed section.
 
-### Blind-scan correction + LX-1 endpoint triplet (2026-10-11, review round 2)
+### Blind-scan correction + LX-1 endpoint triplet (2026-10-10, review round 2)
 
-1. The 2026-10-11 blind scan restricted to post-onset days — onset day is
+1. The 2026-10-10 blind scan restricted to post-onset days — onset day is
    manifest knowledge, caught in external review. Corrected to fully blind:
    sliding 20-day windows (the workbench's own convention), no onset
    information. Result unchanged in substance: argmax at the true
@@ -406,8 +406,14 @@ manuscript as a manipulation check, not a registered endpoint.
    unverified estimate, now replaced.
 
 
-## Erratum + audit record (2026-10-12)
+## Erratum + audit record (2026-10-10)
 
 - **Erratum, results report §7:** the assimilation-class taxonomy table in `reports/s3-confirmatory-results-v1.md` is headed "89 runs" but sums to **88** — the 90-run descriptive battery minus one health-gate exclusion (md_low-seed2001) and one judge-refusal scoring attrition (wb-seed2007). "89/90" in §2 describes attrition after the health gate only; the scored set is 88. The table's row values are correct and unchanged.
 - **Numerical audit of the NMI manuscript** (`reports/s3-numerical-audit.md`): every numerical claim traced to a primary artifact or independently recomputed. Two corrections to the draft: (1) the largest off-target blind-scan statistic is **0.47**, not 0.35 — the 0.35 figure originated from the superseded onset-informed scan variant and had no committed source; the per-run off-target maxima are now computed by `scripts/offtarget-audit.py` → `runs/s3-offtarget-audit.json` (corpus max 0.4706 at sonar/wd_exact-seed2003, pendulum_obs→resonator_obs lag 5; median 0.324; separability unaffected). (2) The Fig-1c display spec quoted the known-lag control range (0.901–0.963) where the panel plots the blind-scan values (0.895–0.968).
 - **Duplication-description screen committed** (`scripts/duplication-screen.py` → `runs/s3-duplication-screen.json`): two-stage (mechanical regex pass 18/38, noisy both ways; author adjudication of all 38 against a fixed identity-or-derivation criterion) → **22/38**, with the wording subset (/synthetic|mirror|replay|feed/i) being exactly the ten Gemini treatment runs. Supersedes the unreproduced earlier subset figure of 12. Labelled post hoc; gates nothing.
+
+## Blinded second adjudication of the duplication screen (registered 2026-10-10, pre-execution)
+
+- Script: `scripts/duplicationScreenBlind.ts` (committed before first call). All 78 included contrast finals (38 T + 40 C), claude-sonnet-4-5, t=0, one item per call, deterministic shuffled order under blind ids, item text = final modal hypothesis label + rationale only (no family/arm/seed/world identifiers in the prompt). Two independent booleans per item: `duplication` (identity-or-derivation account, same criterion as the author adjudication in `scripts/duplication-screen.py`) and `external_origin` (cause located outside the world's causal system — an independent check of the ontological boundary on exactly these items). Output `runs/s3-duplication-screen-blind.json` with raw verdicts, unblinding map, author-agreement count and disagreement list. Labelled post hoc; gates nothing; control-arm duplication rate is reported fresh (no pre-stated expectation). Judge refusal halts and is recorded, per the battery convention.
+
+**RESULT (executed by Nick 2026-10-10, 78 calls, zero refusals):** second-judge duplication verdicts — treatment 20/38, control 12/40; agreement with the author adjudication on treatment items 36/38 (Cohen's κ = 0.89), with both disagreements the two borderline cerebras alignment accounts flagged in advance in the script comments (wd_exact-seed2002, wd_exact-seed2004; author yes, second judge no). External-origin verdicts: **0/78** — no contrast final hypothesis locates its cause outside the world, confirming the frozen classifier's boundary blind. New descriptive fact: duplication accounts are ~1.8× as frequent where the duplication is real (52.6% [37.3–67.5] vs 30.0% [18.1–45.4]; two-sided Fisher p = 0.065, post hoc, no claim registered). Output committed: `runs/s3-duplication-screen-blind.json`.

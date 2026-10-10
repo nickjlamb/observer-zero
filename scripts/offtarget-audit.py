@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit support for the blind-scan claim (2026-10-12): per run, the largest
+"""Audit support for the blind-scan claim (2026-10-10): per run, the largest
 blind-scan statistic at any (ordered pair, lag) OTHER than the true
 (pendulum_lab, resonator_obs, lag 3). Same search space and estimator as the
 blind scan in scripts/manipulation-check.py. Usage: offtarget-audit.py <dir>;

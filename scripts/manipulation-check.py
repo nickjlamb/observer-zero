@@ -59,7 +59,7 @@ md = sorted(v["r"] for v in out.values() if v["world"] == "md_high")
 print(f"wd_exact: n={len(wd)} r=[{wd[0]:.4f},{wd[-1]:.4f}] · md_high: n={len(md)} r=[{md[0]:.4f},{md[-1]:.4f}] · gap={wd[0]-md[-1]:.4f}")
 
 
-# --- Blind-scan variant (fully blind, corrected 2026-10-11): no manifest
+# --- Blind-scan variant (fully blind, corrected 2026-10-10): no manifest
 # access AND no onset knowledge. The first version restricted to post-onset
 # days, which is manifest information; this version scans sliding 20-day
 # windows (the workbench's own windowing convention) over all ordered
