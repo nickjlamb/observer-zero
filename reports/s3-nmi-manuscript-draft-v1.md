@@ -3,7 +3,7 @@
 # Language model agents describe anomalous evidence without forming the hypothesis that explains it
 
 **Nick Lamb**
-PharmaTools.AI, Chipping Norton, United Kingdom
+PharmaTools.AI, Oxford, United Kingdom
 ORCID: 0009-0009-6266-8499
 
 *Draft v7 for review — 2026-10-10. Target: Nature Machine Intelligence (Article). Incorporates the full external-review round: R39 prompt ablation added as the gradient's middle point, blind-scan ideal observer, LX-1 continuous and trajectory analyses (including the day-10 pre-onset result), equivalence-vs-nonsignificance corrections, and the reporting fixes. Display items remain specified as placeholders; bracketed citations to be resolved, never guessed, at LaTeX stage.*
