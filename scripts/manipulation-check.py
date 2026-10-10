@@ -57,3 +57,62 @@ json.dump(out, open("runs/s3-manipulation-check.json", "w"), indent=1)
 wd = sorted(v["r"] for v in out.values() if v["world"] == "wd_exact")
 md = sorted(v["r"] for v in out.values() if v["world"] == "md_high")
 print(f"wd_exact: n={len(wd)} r=[{wd[0]:.4f},{wd[-1]:.4f}] · md_high: n={len(md)} r=[{md[0]:.4f},{md[-1]:.4f}] · gap={wd[0]-md[-1]:.4f}")
+
+
+# --- Blind-scan variant (no manifest access): scan all ordered instrument
+# pairs x lags 0-7 on displayed readings, post-day-12 window, report max |r|
+# and its argmax. Multiplicity is part of the statistic (96 scans per run).
+def blind_scan(path, insts=("pendulum_lab", "pendulum_obs", "resonator_lab", "resonator_obs")):
+    import itertools
+    a = json.load(open(path))
+    series = defaultdict(lambda: defaultdict(list))
+    for e in a["events"]:
+        if e["type"] != "experiment_result":
+            continue
+        q = e["payload"]
+        series[q["instrumentId"]][e["day"]].append(round(q["observedValue"], 4))
+    best = (0.0, None)
+    for i0, i1 in itertools.permutations(insts, 2):
+        for lag in range(0, 8):
+            pairs = []
+            for d in series[i0]:
+                if d < 13:
+                    continue
+                v0, v1 = series[i0].get(d, []), series[i1].get(d + lag, [])
+                n = min(len(v0), len(v1))
+                if n < 2:
+                    continue
+                m0 = sum(v0[:n]) / n
+                m1 = sum(v1[:n]) / n
+                s0 = math.sqrt(sum((x - m0) ** 2 for x in v0[:n]) / n) or 1e-12
+                s1 = math.sqrt(sum((x - m1) ** 2 for x in v1[:n]) / n) or 1e-12
+                pairs += [((v0[t] - m0) / s0, (v1[t] - m1) / s1) for t in range(n)]
+            n = len(pairs)
+            if n < 30:
+                continue
+            mx = sum(p[0] for p in pairs) / n
+            my = sum(p[1] for p in pairs) / n
+            sx = math.sqrt(sum((p[0] - mx) ** 2 for p in pairs) / n)
+            sy = math.sqrt(sum((p[1] - my) ** 2 for p in pairs) / n)
+            if sx * sy == 0:
+                continue
+            r = abs(sum((p[0] - mx) * (p[1] - my) for p in pairs) / (n * sx * sy))
+            if r > best[0]:
+                best = (r, [i0, i1, lag])
+    return best
+
+if __name__ == "__main__" or True:
+    blind = {}
+    for d in ["s3-confirmatory-haiku", "s3-confirmatory-gemini", "s3-confirmatory-cerebras", "s3-confirmatory-sonar"]:
+        for f in sorted(os.listdir(f"runs/{d}")):
+            if not f.endswith(".json") or ".judged" in f or f == "summary.json":
+                continue
+            r, where = blind_scan(f"runs/{d}/{f}")
+            blind[f"{d}/{f}"] = {"maxAbsR": r, "argmax": where}
+    full = json.load(open("runs/s3-manipulation-check.json"))
+    for k, v in blind.items():
+        full[k]["blindMaxAbsR"] = v["maxAbsR"]
+        full[k]["blindArgmax"] = v["argmax"]
+    json.dump(full, open("runs/s3-manipulation-check.json", "w"), indent=1)
+    hits = sum(1 for v in blind.values() if v["argmax"] == ["pendulum_lab", "resonator_obs", 3])
+    print(f"blind scan: argmax at true (pair, lag) in {hits}/{len(blind)} runs")

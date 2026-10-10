@@ -365,3 +365,22 @@ resolution); r in [0.901, 0.963] across ALL 40 md_high runs; zero overlap
 (gap 0.037). The manipulation is perfectly identifiable from exactly the data
 agents saw. Post hoc, clearly labelled, zero API calls; reported in the
 manuscript as a manipulation check, not a registered endpoint.
+
+### Post-hoc analyses for manuscript revision (2026-10-11, all labelled post hoc, zero API calls)
+
+1. Blind-scan ideal observer (extends the 2026-10-10 manipulation check; same
+   script): no manifest access, all 12 ordered instrument pairs x lags 0-7
+   (96 statistics/run) on displayed readings. Argmax lands on the true
+   (pendulum_lab, resonator_obs, lag 3) in 80/80 contrast runs; max|r| =
+   1.0000 in all 40 wd_exact, 0.901-0.963 in all 40 md_high; largest
+   statistic at any other (pair, lag) in any run: 0.35.
+2. LX-1 continuous/trajectory analysis (sidecar classifications + artifact
+   belief ledgers, positional map): final ext-gen mass mean (95% t-CI) —
+   haiku T 0.244 [0.031, 0.457] vs C 0.439 [0.230, 0.647]; gemini T 0.530
+   [0.400, 0.661] vs C 0.610 [0.520, 0.700]. Final-L1 risk difference
+   (T - C) = -0.144, Newcombe 95% CI [-0.365, 0.090]. KEY: the only
+   scheduled review before the day-12 onset is day 10, and 34/38 licensed
+   runs (89.5%, Wilson CI [75.9, 95.8]) crossed L1 AT DAY 10 — before the
+   manipulation had produced any evidence in either arm. Endorsement
+   precedes the evidence; reported as the direct demonstration of
+   prompt-gating in the manuscript's licensed section.
