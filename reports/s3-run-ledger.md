@@ -351,3 +351,17 @@ unprompted agents never form the hypothesis despite describing the
 fingerprint (confirmatory battery), licensed agents form it regardless of
 whether the fingerprint is present (LX-1). Output:
 runs/s3-licensed-contrast-analysis.json.
+
+### Post-hoc ideal-observer manipulation check (2026-10-10)
+
+Run after all registered analyses, in response to an external-review question
+(is the manipulation identifiable from agent-visible data, or were
+neutral-prompt agents rationally withholding?). `scripts/manipulation-check.py`
+-> `runs/s3-manipulation-check.json`: Pearson r between within-day
+standardised residuals of the linked instruments at the manifest lag, 4-dp
+display values, post-intervention, all 80 contrast artifacts. Result:
+r = 1.0000 in ALL 40 wd_exact runs (exact lagged duplication at display
+resolution); r in [0.901, 0.963] across ALL 40 md_high runs; zero overlap
+(gap 0.037). The manipulation is perfectly identifiable from exactly the data
+agents saw. Post hoc, clearly labelled, zero API calls; reported in the
+manuscript as a manipulation check, not a registered endpoint.
