@@ -45,7 +45,7 @@ for src, arm, x0 in cols:
 a.axhline(0.05, color=GREY, lw=1.2, ls=(0, (4, 3)))
 a.text(-0.52, 0.065, "L1", color=GREY, fontsize=13)
 a.set_xticks([0.0, 1.0, 2.4, 3.4])
-a.set_xticklabels(["Ext-\ngen", "Ctrl", "Ext-\ngen", "Ctrl"])
+a.set_xticklabels(["Treatment", "Control", "Treatment", "Control"], fontsize=12.5)
 a.text(0.5, -0.185, "Neutral prompt", transform=a.get_xaxis_transform(), ha="center", fontsize=15)
 a.text(2.9, -0.185, "Licensed prompt", transform=a.get_xaxis_transform(), ha="center", fontsize=15)
 a.set_ylim(-0.04, 1.0)
@@ -87,7 +87,7 @@ b.legend(leg1, ["Externally generated (n = 20)", "Matched control (n = 18)",
 # ---- panel c: prompt gradient ----------------------------------------------
 vals = [0, 0, 100]
 labels = ["0/38", "0/60", "38/38"]
-xt = ["Neutral", "No\nmundane\nprior", "Licensed"]
+xt = ["Neutral\ntreatment arm\n4 families", "No mundane\nprior, 5 worlds\n2 models", "Licensed\nboth arms\n2 families"]
 bars = c.bar([0, 1, 2], vals, width=0.62, color=BLUE, zorder=3)
 for i, (v, lab) in enumerate(zip(vals, labels)):
     c.text(i, v + 3.0, lab, ha="center", fontsize=15)
@@ -95,7 +95,7 @@ c.set_ylim(0, 118)
 c.set_yticks([0, 50, 100])
 c.set_yticklabels(["0%", "50%", "100%"])
 c.set_xticks([0, 1, 2])
-c.set_xticklabels(xt, fontsize=14, color="#555555")
+c.set_xticklabels(xt, fontsize=10.5, color="#555555")
 c.set_ylabel("Runs ever reaching L1")
 c.set_title("c  The prompt gradient", loc="left", pad=46)
 
