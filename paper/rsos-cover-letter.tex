@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{microtype}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\noindent Nick Lamb, PhD\\
+PharmaTools.AI, Oxford, United Kingdom\\
+nick@pharmatools.ai \quad ORCID: 0009-0009-6266-8499
+
+\vspace{0.6em}
+\noindent 16 November 2026
+
+\vspace{0.6em}
+\noindent Dear Editors,
+
+I am submitting ``Language model agents describe anomalous evidence without forming the hypothesis that explains it'' as a research article for Royal Society Open Science, in the Computer Science and Artificial Intelligence section.
+
+\textbf{Why this journal.} The study reports a pre-registered confirmatory null with exact bounds, and Royal Society Open Science's commitment to publishing sound science regardless of perceived impact --- including negative and null studies, named explicitly in your article-type criteria --- is the right home for it. The work is multidisciplinary by construction, bridging AI evaluation and the methodology of experimental inference, and the revised manuscript is written for a scientifically literate readership beyond AI specialists.
+
+\textbf{What the study shows.} Autonomous LLM ``scientist'' agents ran 40-day experimental campaigns in an instrumented artificial world where the external origin of one instrument's data stream is an experimentally manipulable property, with a matched in-world control. A blind ideal-observer check verifies the manipulation is identifiable from agent-visible data ($r = 1.0000$ exact duplication versus 0.895--0.968, zero overlap across 80 runs). Unprompted agents never formed the external-generation hypothesis (0/38 treatment, 0/40 control; one-sided 95\% upper bound 7.6\%), while frequently describing the anomalous structure itself --- and agents required to carry the hypothesis endorsed it before any discriminating evidence existed, as strongly in the control arm as in the treatment arm. The design separates describing evidence, generating a hypothesis, and evaluating it; the failure localises to the second and third capacities.
+
+\textbf{Statistical basis.} The battery was registered as a precision and negligibility exercise, not a powered test: analysis code was committed before the first run and executed once; the degenerate-null branch, exact Clopper--Pearson bounds, and a $\delta = 0.10$ negligibility test were all pre-specified, and the registered minimum detectable effect is stated in Methods. Scoring is by a frozen, dual-judge, human-anchored LLM evaluation pipeline calibrated before and after the battery, with blinded second adjudications of the key screens.
+
+\textbf{Openness.} The complete corpus --- 357 run artifacts, all evaluator outputs, analysis scripts, the signed pre-registration and the run ledger --- is public (GitHub at submission; a DOI-stamped archive will be deposited at revision per journal policy).
+
+\textbf{Preprint and prior interaction.} The manuscript was submitted to arXiv (cs.AI) in October 2026 and is awaiting announcement. I corresponded with the editorial office (Farhiya Abdi, 16 November 2026) regarding a discretionary APC waiver, and per that guidance I have indicated the waiver request in this submission: I am an independent researcher with no institutional affiliation or external funding.
+
+Thank you for considering the manuscript.
+
+\vspace{0.6em}
+\noindent Yours sincerely,
+
+\noindent Nick Lamb
+
+\end{document}
