@@ -44,6 +44,30 @@ npm run battery -- --model claude-sonnet-4-5 --variant v0.2-no-mundane-prior --c
 
 Batteries are resumable: re-running the same command skips completed runs.
 
+### Model availability: claude-sonnet-4-5 retires on 30 November 2026
+
+Anthropic retires `claude-sonnet-4-5` from the first-party Claude API on
+30 November 2026 (9am PT). From then on the B2 and B3b commands above fail
+at the first model call, as does anything else that calls the model live:
+the Study 2 arm E minority agent, the Study 3 second judge, and the two
+Study 3 blind-screen scripts (`scripts/duplicationScreenBlind.ts`,
+`scripts/lxBlindScreen.ts`).
+
+What this does and does not change:
+
+- **Published results are unaffected.** Every run artifact in `runs/`
+  already holds each model call in full (prompt, completion, tokens, cost),
+  so evaluation and every paper analysis recompute from the stored data
+  without calling the model.
+- **B0, B1 and B3a are unaffected**, as is the claude-haiku-4-5 judge.
+- **Do not substitute a newer model under the same arm label.** The model
+  ids in the code, manifests and papers record what was actually run and
+  stay as they are. A battery run on a successor model is a new arm with its
+  own id, not a reproduction of B2 or B3b.
+- The repository also has a Bedrock provider (`src/models/bedrock.ts`).
+  Model availability on Bedrock follows AWS's own schedule, so check it
+  before relying on that route.
+
 ## Evaluation
 
 Judged metrics use claude-haiku-4-5 at temperature 0 (part of the frozen
