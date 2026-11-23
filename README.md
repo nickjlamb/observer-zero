@@ -116,6 +116,7 @@ npm run battery -- --model mock --id battery-mock-v1                 # free
 npm run battery -- --model claude-haiku-4-5 --concurrency 3 --max-cost 50
 
 # The single-variable ablation arm (removes exactly one prompt line)
+# (claude-sonnet-4-5 retires from the Claude API on 30 Nov 2026 – see REPRODUCING.md)
 npm run battery -- --model claude-sonnet-4-5 --variant v0.2-no-mundane-prior --concurrency 3 --max-cost 150
 
 # Evaluate: deterministic metrics free; add LLM judges for the full pipeline
